@@ -1,0 +1,74 @@
+{
+  "selected_service": "Pi HDMI stays mated; EVF end disconnected; complete ribbon and heads carried with carrier. Other looms need their own complete checks.",
+  "includes_rejected_diagnostics": false,
+  "summary": {
+    "pass": 6,
+    "fail": 0,
+    "info": 0
+  },
+  "checks": [
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_evf",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_usb_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "installed",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "premate",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "carried_sweep",
+      "id": "carrier_headers_hdmi_premate",
+      "status": "pass",
+      "step_mm": 2.0,
+      "full_material": true,
+      "exact_intersections": 225,
+      "hits": [],
+      "hit_count": 0
+    }
+  ],
+  "analysis_bbox_mm": [
+    -152.789999264573,
+    -40.96,
+    -22.360000000000003,
+    84.16000000000001,
+    7.92,
+    119.00519549754252
+  ],
+  "verification_source_sha256": "8d842217a75aa1b3ba3b3fabbbf3c5be785e56c637ad3becc2096a836e1fa556",
+  "snapshot_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "physical_qualified": false,
+  "note": "Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation."
+}

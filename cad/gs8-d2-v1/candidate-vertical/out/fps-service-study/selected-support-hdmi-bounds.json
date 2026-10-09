@@ -1,0 +1,76 @@
+{
+  "status": "Conservative full-solid support bounds versus every full-material HDMI cell; empty XZ candidates prove clearance for any Y translation.",
+  "boxes": {
+    "central_rest_wide": {
+      "x": [
+        -112.5,
+        -105.7
+      ],
+      "y": [
+        -27,
+        24.5
+      ],
+      "z": [
+        58,
+        66.9
+      ]
+    },
+    "open_pair_guide": {
+      "x": [
+        -137.625,
+        -129.375
+      ],
+      "y": [
+        -27,
+        15
+      ],
+      "z": [
+        76.3,
+        83.35
+      ]
+    }
+  },
+  "rows": [
+    {
+      "state": "installed",
+      "support": "central_rest_wide",
+      "full_material_cells": 2283,
+      "xz_candidates_for_any_y_translation": []
+    },
+    {
+      "state": "installed",
+      "support": "open_pair_guide",
+      "full_material_cells": 2283,
+      "xz_candidates_for_any_y_translation": []
+    },
+    {
+      "state": "pi_mated_evf_unplugged",
+      "support": "central_rest_wide",
+      "full_material_cells": 2283,
+      "xz_candidates_for_any_y_translation": []
+    },
+    {
+      "state": "pi_mated_evf_unplugged",
+      "support": "open_pair_guide",
+      "full_material_cells": 2283,
+      "xz_candidates_for_any_y_translation": []
+    },
+    {
+      "state": "both_unplugged_unselected",
+      "support": "central_rest_wide",
+      "full_material_cells": 2322,
+      "xz_candidates_for_any_y_translation": []
+    },
+    {
+      "state": "both_unplugged_unselected",
+      "support": "open_pair_guide",
+      "full_material_cells": 2322,
+      "xz_candidates_for_any_y_translation": []
+    }
+  ],
+  "source_sha256": {
+    "fps_fixed_support.py": "64274a895674fb863cb11712858401b8a06ae3dc9ddd48d606a010c2cf7737be",
+    "fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/hdmi300.py": "285353a7472d6cbf8e9058cefffa93f6d0c2aebb5be3c55c556dea5169955f74"
+  }
+}

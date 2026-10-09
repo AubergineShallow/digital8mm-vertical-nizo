@@ -1,0 +1,168 @@
+{
+  "all_pass": true,
+  "method": "Each undirected edge has2oppositely oriented triangles after1e-6mm vertex quantisation;positive signedvolume;STEPvolumeerror<1%;bedZ=0",
+  "coupons": [
+    {
+      "id": "C01_carrier_original",
+      "triangles": 28,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 2925.719056,
+      "relative_volume_error": 1.870768084273036e-09,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        57.576588,
+        20.0,
+        8.0
+      ]
+    },
+    {
+      "id": "C02_carrier_reinforced",
+      "triangles": 28,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 4115.063520000001,
+      "relative_volume_error": 4.433582507887576e-09,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        57.576588,
+        20.0,
+        8.0
+      ]
+    },
+    {
+      "id": "C03_heel_original",
+      "triangles": 52,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 743.7500000000002,
+      "relative_volume_error": 4.585687571964345e-16,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        2.5,
+        21.0,
+        18.5
+      ]
+    },
+    {
+      "id": "C04_heel_reinforced",
+      "triangles": 52,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 1636.2499999999998,
+      "relative_volume_error": 4.168806883603948e-16,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        5.5,
+        21.0,
+        18.5
+      ]
+    },
+    {
+      "id": "C05_upper_original",
+      "triangles": 52,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 1596.0,
+      "relative_volume_error": 0.0,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        17.0,
+        21.0,
+        6.0
+      ]
+    },
+    {
+      "id": "C06_upper_widened",
+      "triangles": 52,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 1848.0,
+      "relative_volume_error": 0.0,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        19.0,
+        21.0,
+        6.0
+      ]
+    },
+    {
+      "id": "C07_M2_5_seat",
+      "triangles": 1540,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 991.3988460469285,
+      "relative_volume_error": 2.666040723746638e-05,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        40.0,
+        9.0,
+        4.0
+      ]
+    },
+    {
+      "id": "C08_J4_base",
+      "triangles": 120,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 7081.992296755001,
+      "relative_volume_error": 4.190273055209402e-08,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        27.5,
+        50.400002,
+        8.0
+      ]
+    },
+    {
+      "id": "C09_J4_tongue",
+      "triangles": 324,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_winding": 0,
+      "signed_volume_mm3": 5329.998016477294,
+      "relative_volume_error": 1.4145284095619837e-06,
+      "print_bbox_min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "print_bbox_max_mm": [
+        28.0,
+        8.05,
+        56.0
+      ]
+    }
+  ]
+}

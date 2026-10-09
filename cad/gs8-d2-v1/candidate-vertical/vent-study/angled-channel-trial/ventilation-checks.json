@@ -1,0 +1,707 @@
+{
+  "manifest_sha256": "c392feab4d13642093ae343b2fb50fc66ffdec068e60e01aa80b4fdcc77d992a",
+  "verification_source_sha256": "cb5d207b72391d244c251681787b1ed94c0f0f2ca33e94e5a75e56d4d22dd99a",
+  "vent_source_sha256": "f343c3ea9a2c06651dbce40d42be159901912ac52f01fbbaafdb062fe0452d29",
+  "historical_tub_sha256": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
+  "historical_panel_sha256": "3b808f3bb15c59e8aa6be9d04afa52ddf69f7a80ecdf9f5f3349a32fff7f8455",
+  "generated_utc": "2026-10-09T14:28:27Z",
+  "summary": {
+    "pass": 75,
+    "fail": 0
+  },
+  "checks": [
+    {
+      "id": "tub_valid_single_solid",
+      "passed": true,
+      "solids": 1,
+      "volume_mm3": 177385.6433857189
+    },
+    {
+      "id": "panel_valid_single_solid",
+      "passed": true,
+      "solids": 1,
+      "volume_mm3": 41914.691362009595
+    },
+    {
+      "id": "old_panel_blind_groove_0",
+      "passed": true,
+      "old_material_floor_mm": 0.1999999999999993,
+      "old_through_air": false
+    },
+    {
+      "id": "new_panel_full_skin_0",
+      "passed": true,
+      "new_material_mm": 2.8000000000000007
+    },
+    {
+      "id": "old_panel_blind_groove_1",
+      "passed": true,
+      "old_material_floor_mm": 0.1999999999999993,
+      "old_through_air": false
+    },
+    {
+      "id": "new_panel_full_skin_1",
+      "passed": true,
+      "new_material_mm": 2.8000000000000007
+    },
+    {
+      "id": "old_panel_blind_groove_2",
+      "passed": true,
+      "old_material_floor_mm": 0.1999999999999993,
+      "old_through_air": false
+    },
+    {
+      "id": "new_panel_full_skin_2",
+      "passed": true,
+      "new_material_mm": 2.8000000000000007
+    },
+    {
+      "id": "old_panel_blind_groove_3",
+      "passed": true,
+      "old_material_floor_mm": 0.1999999999999993,
+      "old_through_air": false
+    },
+    {
+      "id": "new_panel_full_skin_3",
+      "passed": true,
+      "new_material_mm": 2.8000000000000007
+    },
+    {
+      "id": "intake_0_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "intake_0_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -85.5,
+          -31.05,
+          10.149999999999999
+        ],
+        [
+          -85.5,
+          -25.45,
+          15.75
+        ]
+      ]
+    },
+    {
+      "id": "intake_0_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 3.3000000000000043,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "intake_1_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "intake_1_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -85.5,
+          -31.05,
+          17.15
+        ],
+        [
+          -85.5,
+          -25.45,
+          22.75
+        ]
+      ]
+    },
+    {
+      "id": "intake_1_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.6000000000000014,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "intake_2_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "intake_2_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -85.5,
+          -31.05,
+          24.15
+        ],
+        [
+          -85.5,
+          -25.45,
+          29.75
+        ]
+      ]
+    },
+    {
+      "id": "intake_2_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.6000000000000014,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "intake_3_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "intake_3_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -85.5,
+          -31.05,
+          31.150000000000002
+        ],
+        [
+          -85.5,
+          -25.45,
+          36.75
+        ]
+      ]
+    },
+    {
+      "id": "intake_3_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.6000000000000014,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "intake_0_normal_web",
+      "passed": true,
+      "measured_mm": 1.838477631085026,
+      "expected_mm": 1.8384776310850233
+    },
+    {
+      "id": "intake_1_normal_web",
+      "passed": true,
+      "measured_mm": 1.8384776310850273,
+      "expected_mm": 1.8384776310850233
+    },
+    {
+      "id": "intake_2_normal_web",
+      "passed": true,
+      "measured_mm": 1.8384776310850248,
+      "expected_mm": 1.8384776310850233
+    },
+    {
+      "id": "side_exhaust_0_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "side_exhaust_0_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -36.0,
+          -31.05,
+          10.149999999999999
+        ],
+        [
+          -36.0,
+          -25.45,
+          15.75
+        ]
+      ]
+    },
+    {
+      "id": "side_exhaust_0_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 3.3000000000000043,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "side_exhaust_1_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "side_exhaust_1_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -36.0,
+          -31.05,
+          17.15
+        ],
+        [
+          -36.0,
+          -25.45,
+          22.75
+        ]
+      ]
+    },
+    {
+      "id": "side_exhaust_1_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.6000000000000014,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "side_exhaust_2_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "side_exhaust_2_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -36.0,
+          -31.05,
+          24.15
+        ],
+        [
+          -36.0,
+          -25.45,
+          29.75
+        ]
+      ]
+    },
+    {
+      "id": "side_exhaust_2_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.6000000000000014,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "side_exhaust_3_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "side_exhaust_3_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -36.0,
+          -31.05,
+          31.150000000000002
+        ],
+        [
+          -36.0,
+          -25.45,
+          36.75
+        ]
+      ]
+    },
+    {
+      "id": "side_exhaust_3_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.6000000000000014,
+      "note": "Normal broadside sight only; oblique viewing can reveal channel mouths"
+    },
+    {
+      "id": "side_exhaust_0_normal_web",
+      "passed": true,
+      "measured_mm": 1.838477631085026,
+      "expected_mm": 1.8384776310850233
+    },
+    {
+      "id": "side_exhaust_1_normal_web",
+      "passed": true,
+      "measured_mm": 1.8384776310850273,
+      "expected_mm": 1.8384776310850233
+    },
+    {
+      "id": "side_exhaust_2_normal_web",
+      "passed": true,
+      "measured_mm": 1.8384776310850248,
+      "expected_mm": 1.8384776310850233
+    },
+    {
+      "id": "front_0_0_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_0_0_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          -11.75,
+          13.450000000000001
+        ],
+        [
+          0.05,
+          -11.75,
+          8.15
+        ]
+      ]
+    },
+    {
+      "id": "front_0_0_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.800000000000001,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_0_1_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_0_1_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          9.75,
+          13.450000000000001
+        ],
+        [
+          0.05,
+          9.75,
+          8.15
+        ]
+      ]
+    },
+    {
+      "id": "front_0_1_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.800000000000001,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_1_0_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_1_0_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          -11.75,
+          20.95
+        ],
+        [
+          0.05,
+          -11.75,
+          15.649999999999999
+        ]
+      ]
+    },
+    {
+      "id": "front_1_0_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.7000000000000015,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_1_1_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_1_1_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          9.75,
+          20.95
+        ],
+        [
+          0.05,
+          9.75,
+          15.649999999999999
+        ]
+      ]
+    },
+    {
+      "id": "front_1_1_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.7000000000000015,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_2_0_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_2_0_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          -11.75,
+          28.45
+        ],
+        [
+          0.05,
+          -11.75,
+          23.15
+        ]
+      ]
+    },
+    {
+      "id": "front_2_0_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.700000000000001,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_2_1_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_2_1_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          9.75,
+          28.45
+        ],
+        [
+          0.05,
+          9.75,
+          23.15
+        ]
+      ]
+    },
+    {
+      "id": "front_2_1_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.700000000000001,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_3_0_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_3_0_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          -11.75,
+          35.949999999999996
+        ],
+        [
+          0.05,
+          -11.75,
+          30.65
+        ]
+      ]
+    },
+    {
+      "id": "front_3_0_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.700000000000002,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_3_1_full_cutter_clear",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "front_3_1_through_path",
+      "passed": true,
+      "blocked_material_mm": 0,
+      "path": [
+        [
+          -5.25,
+          9.75,
+          35.949999999999996
+        ],
+        [
+          0.05,
+          9.75,
+          30.65
+        ]
+      ]
+    },
+    {
+      "id": "front_3_1_normal_sight_blocked",
+      "passed": true,
+      "material_span_mm": 2.700000000000002,
+      "note": "Front-normal sight only; mouths remain visible at oblique angles"
+    },
+    {
+      "id": "front_0_normal_web",
+      "passed": true,
+      "measured_mm": 1.9091883092036785,
+      "expected_mm": 1.9091883092036783
+    },
+    {
+      "id": "front_1_normal_web",
+      "passed": true,
+      "measured_mm": 1.90918830920368,
+      "expected_mm": 1.9091883092036783
+    },
+    {
+      "id": "front_2_normal_web",
+      "passed": true,
+      "measured_mm": 1.9091883092036765,
+      "expected_mm": 1.9091883092036783
+    },
+    {
+      "id": "microSD_left_land",
+      "passed": true,
+      "material_span_mm": 1.7999999999999998,
+      "minimum_mm": 1.6,
+      "probe": [
+        [
+          -2.6,
+          1,
+          33
+        ],
+        [
+          -2.6,
+          4,
+          33
+        ]
+      ]
+    },
+    {
+      "id": "microSD_right_land",
+      "passed": true,
+      "material_span_mm": 2.2,
+      "minimum_mm": 1.6,
+      "probe": [
+        [
+          -2.6,
+          5,
+          33
+        ],
+        [
+          -2.6,
+          9,
+          33
+        ]
+      ]
+    },
+    {
+      "id": "LL_collar_lateral_land",
+      "passed": true,
+      "material_span_mm": 2.200000000000024,
+      "minimum_mm": 1.6,
+      "probe": [
+        [
+          -1,
+          11,
+          30
+        ],
+        [
+          -1,
+          15,
+          30
+        ]
+      ]
+    },
+    {
+      "id": "optical_port_lower_land",
+      "passed": true,
+      "material_span_mm": 3.6500000000000057,
+      "minimum_mm": 1.6,
+      "probe": [
+        [
+          -4.5,
+          0,
+          36
+        ],
+        [
+          -4.5,
+          0,
+          43
+        ]
+      ]
+    },
+    {
+      "id": "no_added_material_in_original_cavity",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "id": "intake_nominal_normal_throat",
+      "passed": true,
+      "normal_throat_mm2": 435.57777721091327,
+      "baseline_gross_mm2": 420,
+      "note": "Geometric free-throat comparison only; longer/bent ducts have additional losses"
+    },
+    {
+      "id": "side_exhaust_nominal_normal_throat",
+      "passed": true,
+      "normal_throat_mm2": 99.5606347910659,
+      "baseline_gross_mm2": 96,
+      "note": "Geometric free-throat comparison only; longer/bent ducts have additional losses"
+    },
+    {
+      "id": "front_exhaust_nominal_normal_throat",
+      "passed": true,
+      "normal_throat_mm2": 420.869956162233,
+      "baseline_gross_mm2": 412.5,
+      "note": "Geometric free-throat comparison only; longer/bent ducts have additional losses"
+    }
+  ],
+  "ventilation": {
+    "revision": "concealed-channel trial1",
+    "outer_side_y_mm": -31.0,
+    "inner_side_y_mm": -25.5,
+    "side_wall_mm": 5.5,
+    "side_projected_height_mm": 4.4,
+    "side_pitch_mm": 7,
+    "intake_normal_throat_mm2": 435.57777721091327,
+    "side_exhaust_normal_throat_mm2": 99.5606347910659,
+    "front_normal_throat_mm2": 420.869956162233,
+    "side_normal_web_mm": 1.8384776310850233,
+    "front_normal_web_mm": 1.9091883092036783,
+    "side_normal_sight_overlap_mm": 1.0999999999999996,
+    "front_normal_sight_overlap_mm": 0.40000000000000036,
+    "side_path_length_mm": 7.778174593052023,
+    "front_path_length_mm": 7.353910524340095,
+    "csi_access_open_area_mm2": 323.1415926535898,
+    "csi_unchanged_straight_access": true,
+    "panel_previous_relief": "Four blind grooves with0.2mm retained floors, not through-vents; removed for plain2.8mm panel",
+    "airflow": "Wall passages and existing separating baffle only. CSI remains an unsealed bypass. Equal gross throat is not equal flow or cooling.",
+    "physical_qualified": false,
+    "remaining": [
+      "Actual cooler profile/registration",
+      "Fan operating point and duct pressure loss",
+      "Hand occlusion",
+      "Printed channel and bridge coupons",
+      "Real CSI latch/jaw access",
+      "All56 inherited gates andM1"
+    ]
+  },
+  "delta": {
+    "tub_volume_mm3": 42608.13529061884,
+    "panel_volume_mm3": 779.9999997812265,
+    "printed_mass_proxy_delta_g": 39.46150904661885
+  },
+  "physical_qualified": false,
+  "remaining": "No sealed air domain, fan operating point, thermal/hand/slicer qualification or real cooler clearance pass. CSI remains an unsealed service bypass."
+}

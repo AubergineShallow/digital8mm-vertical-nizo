@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "poses": 201,
+  "exact_intersections": 659,
+  "hits": [],
+  "body": "closed; cap removed before withdrawal",
+  "source_sha256": "759ac8914a9d2d931d1e65bc9fe66b2f4f85b6fb1bd1a640017cd2da6cd496ca",
+  "snapshot_sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "physical_qualified": false,
+  "remaining_stop": [
+    "Full270mm flexible-core deployment and retention",
+    "Unmeasured pad and pin exits",
+    "Finger grip and unplug force",
+    "Hot voltage drop and fuse/contact heating",
+    "Printed attachment strength and wear"
+  ]
+}

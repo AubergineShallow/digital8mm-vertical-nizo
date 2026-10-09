@@ -1,0 +1,17 @@
+{
+  "status": "Stable CSI-clear stored geometry; root, copper-cut convention, thermal and flexible service remain hard gates",
+  "mechanical_source": {
+    "path": "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json",
+    "sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "unchanged": "Connector/fuse pose, negative local exit, all below-floor wire/pocket geometry, and 201 rigid service poses. Parent exact CAD source power_geometry.py passed those rigid poses after 3 mm tongue-corner relief; this is not a flexible-loom service pass.",
+    "replaced": "Positive wire after the frozen fuse endpoint: all changed wire material remains above Z6.562951; both upper 270 mm storage paths are recomputed."
+  },
+  "supersedes_stored_wires": "power-above-floor-20261009-0340; negative hump narrowed to34mm. Mechanical source remains unchanged.",
+  "files": {
+    "power_routes-source.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+    "routes-source.py": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+    "independent-audit.json": "4d98d6b0cd0c49f2308771793c7c02b016ede86e7ca57de5a389a7be7f77295f",
+    "power-270-csi-clear.json": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
+    "csi-tool-review.json": "c50014d750a2535fedca924223661c89f2ac6882bdb19d06f1fd6c54276658e7"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "Authoritative donor clarification for this unchanged geometry input",
+  "geometry_input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "superseded_input_fields": [
+    "connectors[id=p_usb_pi].cable_route_status",
+    "provenance.usb_5v_full_route_status"
+  ],
+  "superseded_allocation_mm": 200,
+  "installed_wire_length_is_fixed": false,
+  "D2-22": {
+    "donor": "Adafruit4448 USB-A cuttable donor",
+    "catalogue_length_mm": 300,
+    "supplier_length_mm": 325,
+    "supplier_tolerance_mm": 10,
+    "tails": [
+      {
+        "part": "Pololu2180",
+        "stock_length_mm": 100
+      },
+      {
+        "part": "Pololu2181",
+        "stock_length_mm": 100
+      }
+    ],
+    "inline_diode": true,
+    "final_installed_copper_cut_lengths": "TBD",
+    "complete_rigid_junction_locations": "TBD"
+  },
+  "effective_route_status": "BLOCKED: received overmold and wire-exit datum required to place the complete final installed lead, rigid joints and service staging. Cuttable donor may be trimmed after final route/cut plan is defined.",
+  "source": "Parent integration correction2026-10-09T06:25UTC; no geometry change",
+  "physical_qualified": false
+}

@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "rows": [
+    {
+      "target_x_mm": -87.0,
+      "status": "pass",
+      "hits": [],
+      "exact_intersections": 19,
+      "tip_stop_mm": [
+        -87.0,
+        -4.0,
+        61.5
+      ],
+      "back_axis": [
+        0.0,
+        -0.9950371902099893,
+        0.09950371902099893
+      ],
+      "tip_diameter_mm": 4,
+      "tip_length_mm": 15,
+      "shank_diameter_mm": 8,
+      "shank_length_mm": 75,
+      "withdrawal_mm": 100,
+      "step_mm": 2
+    },
+    {
+      "target_x_mm": -79.0,
+      "status": "pass",
+      "hits": [],
+      "exact_intersections": 19,
+      "tip_stop_mm": [
+        -79.0,
+        -4.0,
+        61.5
+      ],
+      "back_axis": [
+        0.0,
+        -0.9950371902099893,
+        0.09950371902099893
+      ],
+      "tip_diameter_mm": 4,
+      "tip_length_mm": 15,
+      "shank_diameter_mm": 8,
+      "shank_length_mm": 75,
+      "withdrawal_mm": 100,
+      "step_mm": 2
+    }
+  ],
+  "manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "verification_source_sha256": "74f9fb9f631f088787ac5a22573ec45d81b6dedbca270c67fb084d17d4b5e545",
+  "physical_qualified": false,
+  "scope": "Clearance of declared tool reserve through slot only. Tip stops before coarse socket face; no connector-contact waiver.",
+  "remaining_stop": [
+    "Actual latch tab positions, open jaws and latch travel",
+    "Full FPC and other flexible loom occupancy",
+    "Measured tweezers profile, hand access and force",
+    "Actual isolation and service procedure"
+  ]
+}

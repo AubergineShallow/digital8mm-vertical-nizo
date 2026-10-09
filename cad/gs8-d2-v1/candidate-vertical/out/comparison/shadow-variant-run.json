@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "check": "fujinon_export",
+      "arguments": [
+        "export_candidate.py",
+        "--lens",
+        "fujinon_hf6xa"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "original_export",
+      "arguments": [
+        "export_candidate.py",
+        "--storage",
+        "original"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "fujinon_mesh",
+      "arguments": [
+        "verify_print_meshes.py",
+        "--variant",
+        "compact-fujinon_hf6xa"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "original_mesh",
+      "arguments": [
+        "verify_print_meshes.py",
+        "--variant",
+        "original-kowa_lm6hc"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "fujinon_void",
+      "arguments": [
+        "measure_volume.py",
+        "compact-fujinon_hf6xa"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "original_void",
+      "arguments": [
+        "measure_volume.py",
+        "original-kowa_lm6hc"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "comparison",
+      "arguments": [
+        "measure_comparison.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "physical_qualified": false,
+  "scope": "Variant exports, print-mesh topology and fresh STEP bounds/void only. Selected compact service checks are not transferred to alternatives."
+}

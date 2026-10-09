@@ -1,0 +1,12 @@
+{
+  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "renderer_sha256": "b8013990d7c02a4140bc058bb3c038abe6b0c34d93c4801c21455efbb08d64db",
+  "files": {
+    "hero.png": "47629fe4a8f3b2f924ad8774d34d32e9634c1bfa35f936e9d45b0e635c642c6c",
+    "rear.png": "8c708a032ba5319f09b2e23d7b651b08088dda0652fc9b4fc5e77e401e2193b1",
+    "vent_side.png": "39d0b9b0a02feb90ca506d06ce5ff8ca5c1774e63b09afe2de9320214d3673fa",
+    "vent_front.png": "55836ad090a70e873fd7a4057bc9d02d554fd400bcf594fbba2bd08fa2b339f4"
+  },
+  "visual_review": "All four actual pixel renders inspected. Broadside grille is hidden; front and rear edge mouths remain visible. CSI remains a service aperture. No physical build, airflow or print qualification.",
+  "created_utc": "2026-10-09T15:25:17Z"
+}

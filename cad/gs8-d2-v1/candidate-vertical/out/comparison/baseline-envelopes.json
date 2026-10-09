@@ -1,0 +1,168 @@
+{
+  "baseline_head": "d38468e58eb2b02d56743e2e0cfdd8f780818a65",
+  "rows": [
+    {
+      "lens": "kowa_lm6hc",
+      "complete_bbox_mm": [
+        -187.60000010000002,
+        57.2,
+        -35.2,
+        44.20000000000001,
+        -116.0,
+        100.7636800861
+      ],
+      "complete_dimensions_mm": [
+        244.80000010000003,
+        79.4,
+        216.7636800861
+      ],
+      "complete_bbox_volume_mm3": 4213261.663196241,
+      "core_dimensions_mm": [
+        154,
+        70,
+        100
+      ],
+      "core_envelope_mm3": 1078000,
+      "printed_part_count": 12,
+      "mass_est_g": 896.2246019629252,
+      "com_est_mm": [
+        -45.445722638464495,
+        0.8439281783724182,
+        26.77320138814854
+      ],
+      "grip_axis_x": -47.0,
+      "com_offset_from_grip_mm": 1.5542773615355046,
+      "extrema_parts": {
+        "0": [
+          "eyecup"
+        ],
+        "1": [
+          "lens"
+        ],
+        "2": [
+          "base_grip"
+        ],
+        "3": [
+          "knob_exp"
+        ],
+        "4": [
+          "cap"
+        ],
+        "5": [
+          "eyecup"
+        ]
+      }
+    },
+    {
+      "lens": "fujinon_hf6xa",
+      "complete_bbox_mm": [
+        -187.60000010000002,
+        51.6,
+        -35.2,
+        44.20000000000001,
+        -116.0,
+        100.7636800861
+      ],
+      "complete_dimensions_mm": [
+        239.2000001,
+        79.4,
+        216.7636800861
+      ],
+      "complete_bbox_volume_mm3": 4116879.8604827565,
+      "core_dimensions_mm": [
+        154,
+        70,
+        100
+      ],
+      "core_envelope_mm3": 1078000,
+      "printed_part_count": 12,
+      "mass_est_g": 782.8053831251989,
+      "com_est_mm": [
+        -56.64977966917919,
+        0.9668720841842574,
+        21.95903221625355
+      ],
+      "grip_axis_x": -47.0,
+      "com_offset_from_grip_mm": -9.649779669179189,
+      "extrema_parts": {
+        "0": [
+          "eyecup"
+        ],
+        "1": [
+          "lens"
+        ],
+        "2": [
+          "base_grip"
+        ],
+        "3": [
+          "knob_exp"
+        ],
+        "4": [
+          "cap"
+        ],
+        "5": [
+          "eyecup"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
+    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
+    "test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
+    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
+    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
+    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
+    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
+    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
+    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
+    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
+    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
+    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "out/step/parts/plunger.step": "93e4c1f79c706c80f493315058c86cf902cae4a82c44309362565b0fe5f4fcf8",
+    "out/step/parts/knob_fps.step": "fa0264e3c04f412dcac6be15f1d28e19d7a0485071b70f7968ca7ea7af310686",
+    "out/step/parts/eyecup.step": "aa0c283dfe978a99e1e47f95ac5897cbebfc8fe150d8cc39fcccd10ea5c11d8d",
+    "out/step/parts/panel.step": "7f97ad8b3d67879e5f9fbfa3ba89f6e5d3ddc19e597df9592950139d52d22705",
+    "out/step/parts/hood.step": "3c4510fd8a0ed335350f59b8623e4c4518bd5976d7d20c78e8c9c4e9337a940f",
+    "out/step/parts/cap.step": "dc75c7027be89a8b0bec0f0120376a294b2c566b4dd313544603770801ec76d0",
+    "out/step/parts/stick_sleeve.step": "73733d671dc416d25cd1c918202c63fc569c9b904f35dac6920ac7f5f731f461",
+    "out/step/parts/pi_keeper.step": "4c5c10019f27505077b521a779b7e792d899e4682d58b480f0e1a0803f61a2ec",
+    "out/step/parts/base_grip.step": "356810ac53ace909bafe2f7ea62844806cb2ab933798e181b3d9606d8165af12",
+    "out/step/parts/lens_collar.step": "2576ef3842f0252d9a0cb14625817ac84c829bab4967100f6cf8e77cf557133b",
+    "out/step/parts/tub.step": "cd08800241ce970ae1397c46203c627f7825747de8605ba5a8890b014f15a4d7",
+    "out/step/parts/knob_exp.step": "23958a6d57a1137e76693bdb2c002eb181cc5302106bf834351f55a9d1bb2560"
+  },
+  "definition": "Axis-aligned bounding union of every baseline printed/COTS/individual hardware solid; not occupied material volume.",
+  "mass_caveat": "Source proxy masses, printed density/infill estimates and lens source CoM. LegacyXT30 mass12g includes fused pigtail lump at rigid proxy; other harness masses omitted. No measured balance.",
+  "physical_qualified": false
+}

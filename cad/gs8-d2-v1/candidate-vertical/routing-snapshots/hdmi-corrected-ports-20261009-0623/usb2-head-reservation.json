@@ -1,0 +1,51 @@
+{
+  "box": {
+    "x": [
+      -152.779999264573,
+      -121.779999264573
+    ],
+    "y": [
+      -15.12600076744,
+      -5.32600076744
+    ],
+    "z": [
+      8.250319443808003,
+      23.750319443808003
+    ]
+  },
+  "port_face_centre": [
+    -121.779999264573,
+    -10.22600076744,
+    16.000319443808003
+  ],
+  "port_identity": "GPIO-side USB2 stack, upper receptacle away from PCB",
+  "full_original_allowance_mm": [
+    31,
+    15.5,
+    9.8
+  ],
+  "native_face_centre": [
+    87.779999264573,
+    46.999680556192,
+    13.92600076744
+  ],
+  "mating_axis_candidate": [
+    1,
+    0,
+    0
+  ],
+  "unplug_direction_candidate": [
+    -1,
+    0,
+    0
+  ],
+  "bracket_scope": "Nominal native Z0 to local underside18.5",
+  "cable_exit": null,
+  "physical_qualified": false,
+  "remaining": [
+    "Unknown received USB head shape and engagement",
+    "Separate full200mm 5V lead/stow geometry",
+    "Lateral departure required before crossing storage height",
+    "All staged motions need refreshed whole-loom checks"
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "verification_source_sha256": "ec4977391fc2ef4cb4cf00b92d8ece1325b6183c94358f3f2473879058e794b0",
+  "checked_source_sha256": {
+    "model.py": "61382452ff32d4db90ba612b4d707a68f4817f6c50a5bdb6699f177fe53b228e",
+    "vent_geometry.py": "5209e01c97823921cbc27ca16fda5f32c65ac6fa16dca0c29691ec8aae5f316b"
+  },
+  "saved_material_sha256": {
+    "pi5": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+    "cooler": "d8667135f613b14a18dee538af6bdddba441960c06b88ab94b370e033b01ac2a",
+    "x1203": "63be4fea114078bc3227561ee2a8063de1ecec590daf5656eb8937b29531d891",
+    "x1203_kit": "ef27a3bb35a32ef853c46ede234661278bf20ffbd2f9c9d06b3782670bc47a45",
+    "gs_camera": "2aa0131ac90be90d66494049e535f608998bd701442858272d01cb83ccf4ca6f",
+    "c_cs_adapter": "5a49c23b7ce3869e1b27d70effc70127d7e83aabef764761f63778e0bb155b93",
+    "lens": "82438bad4d7d4e55dbc7b029bdaa4ad3fc21ace4cb660952ce1815608471c923",
+    "eyepiece": "c7f87f7e0e1129148f93bc7826c97255618b6d03092004dd9fe25b583a5b134a",
+    "hmx039": "605476fc56f328d30108d27def367933b825b3939bf8639c6a54d57f72fbd77d",
+    "evf_board": "820c77ffc1541810209fa81f831cf19bb645998e302f491561227590042e6575",
+    "usb_stick": "9a1808537e94cc7569160fc718993f4fe5b17e4678a95339b52ca97ed1c09b41",
+    "encoder": "ea4b72e6a065246fca6e00caaffe6a1aa890da0d493634287af3baaed82af490",
+    "switch_1824": "e0a05c1e5677e530d75ca1e73a291de95eec24531bfadd2aec448d500b3f0b69",
+    "run_button": "8e3888ca5d56170a112ddcff68a701e6fcc141386e8f67bdc5019c31bf8824ee",
+    "pack": "94914b2a9cd5e06657b3f9451dd1aafa03af1387c364c293482d0864807e292d",
+    "xt30_pair": "ec40e43880d661fb565f5c8026d2d95bafb9965dbdb94f7a5ff94f21432c172d",
+    "tripod_nut": "e85f994319b472478d8e8f0ae6549278153738cbe81f289f3a18c7bd8c35639c",
+    "strap": "2173bd56e20dc2a0974dd331b854783ce6eb7903630409020626afaee90a5c8e",
+    "microsd": "6e5db4a4e28717848dec6d9659540b53dfe8d1ffd3f14e4f8eab435ec44afc3b",
+    "foam_pad": "e91efab34a565ed28bd459dbeb4c62e7719baf2df0dbb4b5bf57f8a783a3e360",
+    "fps_nut": "fad6b377afbf9f3d3652f2c2902c435628223c750075f34d1ce1147af27ae8a0",
+    "fps_mounting_washer": "534226c2fa8a3417a037ee20c81f750dc89340b9241bc53f500acfcbf94e678d",
+    "s_c1": "719532c3c240f512e9935b48895d207838dced06f3a8de62ac1d90b96c768031",
+    "s_c2": "4dde1cfee3b96f8f9125b7cea1eba47f16e0d73c3293e947de7eacd72d4003f2",
+    "s_c3": "dd50b878e7eede7d40415d8138dcdb43dc4f53c673daa77117258b0a9cbe75d3",
+    "s_c4": "a48735f74026adf046e0a4e3145e1a6b64a2b035ffef69823f1004262d04a8ca",
+    "base_grip": "8caa9788e877040ea6dc21eedc497359d29aaf444d8f11ab12f551b2fb8f5d6f",
+    "cap": "81af5dad6260b4e03193cf6ce36e7d55c67b2b16997c702761cc3110ae91d7e0",
+    "eyecup": "5fc009b152a6fb53e4b0a8a5c5902ee361ff2e25746b6f50b34e9a1549eadeef",
+    "knob_exp": "a5008f028d70a5439c8c4039a768c4067368eeed464e36f63cb1212167aba356",
+    "knob_fps": "857bc439d9c53761796579c468de11b5d3df9bfca577cc8e12026386f3c31a3b",
+    "carrier": "ab059602b0a08346a4173f2420bf361b6876d98709f55f43fdbdb725e90739ef",
+    "panel": "6bc8503c4b20c20dc053bc101094d0957753e827caf2e8d3580aac2b06366678",
+    "lens_collar": "3f24e7d2cdf80ce4c4c9cbea6bc91c959ef49daea05b703a22385ddd975578fd",
+    "power_button": "b576af2c6be7d7fd450739eec019fd5ebeba748998af3df32857b86a8966570e",
+    "power_nut_reserve": "dbaac13b44b0cb3b5c880f42432a30581837924b61ec0b0679595bc9b7b28fac",
+    "p_panel1": "2052ae5edc457436cfaac94cde4180d75e1b7505d291d2211b8a0fc87f4e245a",
+    "p_panel2": "6c93474a94ebb1d28583a1c19e1bbaa55248ae66ca18595075e78951efd09b8b",
+    "p_panel3": "a6b5a42323864096663f54734b70d936601f55ddb26dd90196c86cc4fb04f4d5",
+    "p_panel4": "dfd68f69c75978fdd0791f0e51409fe5143e968a8417cb6e516b013c1f51640c",
+    "p_carrier1": "dd30f242d08825fbe25e309168315ed031124497e61c404fb329913db1b33ff6",
+    "p_carrier2": "336f3f610fc9142d9cada6c6100e87d383663e6277bf68f1dc99554c58798c09",
+    "p_grip": "64503812dd1de14d1923753b84fcaae8ba18de465584019fa4c09ddf80e8c831"
+  },
+  "generated_utc": "2026-10-09T15:23:38Z",
+  "summary": {
+    "pass": 4,
+    "fail": 0
+  },
+  "checks": [
+    {
+      "id": "hot_front",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        0.01,
+        12.0,
+        -34.0,
+        -28.0,
+        5.0,
+        40.0
+      ],
+      "material_inventory_count": 43,
+      "exact_queries": [
+        {
+          "part": "lens_collar",
+          "overlap_mm3": 0.0,
+          "saved_material_bbox_mm": [
+            -2.7,
+            8.600000000001412,
+            -30.0,
+            25.000000000000004,
+            24.4,
+            96.1
+          ]
+        }
+      ],
+      "bounding_box_rejected_count": 42,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    },
+    {
+      "id": "cold_rear",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -170.0,
+        -158.01,
+        -34.0,
+        -28.0,
+        5.0,
+        75.0
+      ],
+      "material_inventory_count": 43,
+      "exact_queries": [],
+      "bounding_box_rejected_count": 43,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    },
+    {
+      "id": "cold_underside",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -154.0,
+        -83.0,
+        -34.0,
+        -28.0,
+        -12.0,
+        -0.01
+      ],
+      "material_inventory_count": 43,
+      "exact_queries": [],
+      "bounding_box_rejected_count": 43,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    },
+    {
+      "id": "hot_underside",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -59.0,
+        -5.0,
+        -34.0,
+        -28.0,
+        -12.0,
+        -0.01
+      ],
+      "material_inventory_count": 43,
+      "exact_queries": [],
+      "bounding_box_rejected_count": 43,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "usb_storage_plug_reserve",
+      "reason": "Non-material reservation"
+    },
+    {
+      "id": "tub",
+      "reason": "Tub is the aperture owner"
+    }
+  ],
+  "physical_qualified": false,
+  "scope": "Exact finite outward mouth prisms versus all other saved material rows; actual saved-shape AABBs used only to reject separated pairs",
+  "limitations": [
+    "Only the specified first 12 mm beyond each exterior face are checked.",
+    "No hand/finger/garment, desk contact or airflow streamlines are modeled.",
+    "COTS proxies, real parts, flexible looms, print deformation and thermal performance remain unqualified.",
+    "Clear outward prisms do not prove whole-plenum pressure loss, external recirculation or all-view concealment."
+  ]
+}

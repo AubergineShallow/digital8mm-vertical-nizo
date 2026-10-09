@@ -1,0 +1,58 @@
+{
+  "status": "blank test record, no measurements",
+  "specimen": {
+    "coupon_id": null,
+    "serial": null,
+    "geometry_hash": null,
+    "print_job": null,
+    "material_brand_type_color_lot": null,
+    "drying_and_conditioning": null,
+    "printer": null,
+    "nozzle_mm": null,
+    "line_width_mm": null,
+    "layer_height_mm": null,
+    "layer_normal": null,
+    "perimeters": null,
+    "local_infill_percent": null,
+    "top_bottom_layers": null,
+    "nozzle_bed_chamber_C": null,
+    "speed_fan": null,
+    "mass_g": null,
+    "measured_width_thickness_span_mm": null
+  },
+  "setup": {
+    "date_operator": null,
+    "room_or_soak_temperature_C": null,
+    "fixture_photo_reference": null,
+    "clamp_and_load_coordinates_mm": null,
+    "load_direction": null,
+    "instrument_id_range_accuracy": null,
+    "zero_and_fixture_compliance": null,
+    "joint_drive_count": null
+  },
+  "readings": [
+    {
+      "step": 1,
+      "elapsed_s": null,
+      "force_N": null,
+      "torque_Nm": null,
+      "measured_clamp_force_N": null,
+      "loaded_displacement_mm": null,
+      "hold60s_displacement_mm": null,
+      "unloaded60s_residual_mm": null,
+      "cycles": null,
+      "visible_damage": null
+    }
+  ],
+  "outcome": {
+    "completed_or_stopped": null,
+    "stop_reason": null,
+    "failure_load_N": null,
+    "failure_torque_Nm": null,
+    "failure_location": null,
+    "failure_mode_layer_split_yield_crush_pullthrough_slip_other": null,
+    "photos": [],
+    "observer_notes": null,
+    "release_decision": "not established by this record alone"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "state": "REVIEW DELIVERABLE; PHYSICAL AND FULL-LOOM HOLDS REMAIN",
+  "created_utc": "2026-10-09T08:35:28Z",
+  "baseline_head": "d38468e58eb2b02d56743e2e0cfdd8f780818a65",
+  "branch": "redesign/vertical-pi-nizo-cloud",
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "geometry_source_current": true,
+  "reports": {
+    "power-service-checks.json": {
+      "sha256": "5a3432e53452261e4b46b3ddb49cb8943aa1239511c6d872a6d9a5c4d4c33977",
+      "manifest_binding_current": true,
+      "summary": "pass"
+    },
+    "print-mesh-checks.json": {
+      "sha256": "b859a1c66363e32785a9905f6668e75dbc775c09514b9d4c9abd5fc12a884351",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": 10,
+        "fail": 0
+      }
+    },
+    "wire-solid-checks.json": {
+      "sha256": "f5735a12576cc849f2ec2b7177cf7b4ea3b1e114bba23bb940a76eea711ae8ef",
+      "manifest_binding_current": true,
+      "summary": "pass"
+    },
+    "csi-access-checks.json": {
+      "sha256": "a971e20cfd3f3df940c3ceb91393255f85c9a5c7743b28c1588505e22ab42d4f",
+      "manifest_binding_current": false,
+      "summary": "pass"
+    },
+    "csi-source-tool-checks.json": {
+      "sha256": "02b27536995c9664a2b3f904578140942d5e9a573a112c733c952ad7a36e3fd6",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": null,
+        "fail": null
+      }
+    },
+    "hdmi-solid-checks.json": {
+      "sha256": "124cf1f0fd82d4652272974e6c039142203f5c172edef86ffacfbee72c987329",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": 6,
+        "fail": 0,
+        "info": 0
+      }
+    },
+    "microsd-service-dependency.json": {
+      "sha256": "8d251f1a0d8a079e74e236190492a4c72f3332335368fa249d2418fc402ecbe4",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": null,
+        "fail": null
+      }
+    },
+    "wall-probe-context.json": {
+      "sha256": "cc4b53494d71dbb4f50bed41cfbea810c466d7f90c8bcfad65d66a84834b8345",
+      "manifest_binding_current": true,
+      "summary": "pass"
+    },
+    "fps-service-study/saddle-proposal-checks.json": {
+      "sha256": "c51503de42c438410a9d3bfeb8b0940bbbe2455b8a18809c0d15228d51c58c0f",
+      "manifest_binding_current": false,
+      "summary": "UNSELECTED SUPPORT STUDY; failed wire deployment blocks integration",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/integrated-fps-export16-checks.json": {
+      "sha256": "97be80d41eacae7abf1087628ebb6f0e1ef56ab0647eaa1e2024bd4c60c6073d",
+      "manifest_binding_current": false,
+      "summary": "geometric_pass_only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/pair-deployment-checks.json": {
+      "sha256": "de6a12bba06694894b3456913e29b4e42a52e8b4a9971b24ddbdfb316e827abe",
+      "manifest_binding_current": false,
+      "summary": "diagnostic only; not adopted",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/central-rest-checks.json": {
+      "sha256": "8c8b79112de3681a5cfc4a8df669b5dff5c4702d6508d93169aa9d26f38b1524",
+      "manifest_binding_current": false,
+      "summary": "interim proposal; corrected USB and CSI pending",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/original-21-pose-checks.json": {
+      "sha256": "f171de15a66f6e42cf04e9557c4a52ec252244c1b036c2508f22fcdadfd84ce0",
+      "manifest_binding_current": false,
+      "summary": {
+        "pass": 61,
+        "fail": 23
+      },
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/integrated-fps-export18-checks.json": {
+      "sha256": "00e1f68a713bd1592d5df1ef0d572c8bda5bde935310163155c8f40d15e271eb",
+      "manifest_binding_current": true,
+      "summary": "geometric_pass_only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/sbend-21-pose-checks.json": {
+      "sha256": "26210d02d2a54a13d6d644f6bc3b01eb41fd63c076349093d374e8e125d77d95",
+      "manifest_binding_current": false,
+      "summary": {
+        "pass": 63,
+        "fail": 21
+      },
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/fixed-fps-service-checks.json": {
+      "sha256": "87cb0350f16029ded3ffa888e6902a29a1435c3e469e28a167af6006926c88dd",
+      "manifest_binding_current": false,
+      "summary": "diagnostic proposal only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/pair-deployment-xy-quick-checks.json": {
+      "sha256": "ebdb1906e6c3e0c2726c2ab902791528a093d98a1bbd8798c1e2618328f97b81",
+      "manifest_binding_current": false,
+      "summary": "diagnostic only; not adopted",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/central-rest-wide-checks.json": {
+      "sha256": "983894975ace07785859ed5db875ab4150c5682f10c5ba0b8bb968e4d8481517",
+      "manifest_binding_current": false,
+      "summary": "interim proposal; corrected USB and CSI pending",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/over-top-long-tine-checks.json": {
+      "sha256": "45c55eca3710a2046793044b13b04a85d42e8102bc9faf8e12fb8553c1b6076f",
+      "manifest_binding_current": false,
+      "summary": null,
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/pair-deployment-high-loop-failed-checks.json": {
+      "sha256": "1bec48389725da76cbaf76704ebb170024e2ef9006aeb397cac7af6edce2eb7a",
+      "manifest_binding_current": false,
+      "summary": "REJECTED high loop and EVF-intersecting support; preserved failed study",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/mated-carry-checks.json": {
+      "sha256": "30850e6a08f800c995e8debc07cbb1958b04288f16055cddb90691a77e25adb8",
+      "manifest_binding_current": false,
+      "summary": "geometric proposal only; physical gates open",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/final-candidate-checks.json": {
+      "sha256": "6b0211a6c0c4355d73069a54de2f1c64221d321118c7ca3b462a7fc3eaef69d1",
+      "manifest_binding_current": false,
+      "summary": "diagnostic candidate only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/fixed-switch-proposal-checks.json": {
+      "sha256": "ad1361a93f044647ac868bd5c9a6176d6fedd59f575540dbcfd095fe738b71ae",
+      "manifest_binding_current": false,
+      "summary": "HYPOTHESIS; not adopted",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/sbend-normal-root-21-pose-checks.json": {
+      "sha256": "4f5078b14b66faa2ed906997dbd70d05edb2633010a07dc2c500036030a76f19",
+      "manifest_binding_current": false,
+      "summary": {
+        "pass": 84,
+        "fail": 0
+      },
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/open-guide-checks.json": {
+      "sha256": "065a998dff8055bf2374de7e3ab1cb1bf2599f0a457488721abe0564c6ac8c33",
+      "manifest_binding_current": false,
+      "summary": "geometric guide proposal only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/central-rest-pad-checks.json": {
+      "sha256": "1f7feb5af8b23dc968c2f788a1d87d85bc91df26676520b18adcca01918c4299",
+      "manifest_binding_current": false,
+      "summary": "interim proposal; corrected USB and CSI pending",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/integrated-fps-checks.json": {
+      "sha256": "00e1f68a713bd1592d5df1ef0d572c8bda5bde935310163155c8f40d15e271eb",
+      "manifest_binding_current": true,
+      "summary": "geometric_pass_only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/initial-endpoints-checks.json": {
+      "sha256": "712aefda4ffa3e40230ea6e97e4fb8fc230d28fb7b62154315a1da27bec844c8",
+      "manifest_binding_current": false,
+      "summary": {
+        "pass": 5,
+        "fail": 3
+      },
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/over-top-tool-checks.json": {
+      "sha256": "4f1d809091b0fe684d1d0ce7465c0290b1db10db69743db3497428be0e95ca68",
+      "manifest_binding_current": false,
+      "summary": null,
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "fps-service-study/integrated-fps-export17-checks.json": {
+      "sha256": "b1145b2ab7d0ca4be9648428e2e55598d8a307e79c70d9b6b5e421ef12a8a0fe",
+      "manifest_binding_current": false,
+      "summary": "geometric_pass_only",
+      "selection": "Source-bound selected mated FPS carry study when manifest binding is current; other studies remain historical diagnostics"
+    },
+    "verification.json": {
+      "sha256": "fbf3a057da2f992f7b0724aecfea92c0752877efc36ddb09a05e1fc4dd122632",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": 288,
+        "fail": 2,
+        "info": 18
+      }
+    }
+  },
+  "open_work": [
+    "Full flexible loom reconciliation and dynamic270mm power-core deployment",
+    "Measured CSI latch/jaw actuation; full200mm FPC route remains unplaced after source correction",
+    "Princeton Linux/identity/availability/warm sustained write qualification",
+    "Real EVF USB donor overmold/exit measurement and complete feed placement; selected FPS mated carry remains conditional on actual wire roots and assembly trials",
+    "Approximate cooler geometry conflicts with source-corrected Pi; real cooler perimeter/pins/offsets need measurement",
+    "Actual compact storage plug shell/contacts/engagement unmeasured; non-material reserve is not proof of mating",
+    "All56 inherited physical gates plusM1 and candidate physical gates remain open"
+  ],
+  "delivery_note": "Saved for review/recovery. Reports bound to an earlier manifest are explicitly stale; no aggregate release pass is claimed. No push, PR or fabrication release.",
+  "variants": {
+    "compact-kowa_lm6hc": {
+      "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+      "source_binding_current": true
+    },
+    "compact-fujinon_hf6xa": {
+      "manifest_sha256": "24adcd84eae894ec3d8a3e1a336d9c062585118ed46dfbaa41ac6c1537708ba8",
+      "source_binding_current": true
+    },
+    "original-kowa_lm6hc": {
+      "manifest_sha256": "b98aad534d3056ec417a5750074c71ff7e71850f74724b2e56c132ed6cacc81a",
+      "source_binding_current": true
+    }
+  },
+  "guide": {
+    "pages": 29,
+    "manifest_binding_current": true,
+    "pdf_current": true,
+    "source_binding_current": true
+  }
+}

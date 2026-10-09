@@ -1,0 +1,108 @@
+{
+  "method": "Circular corner fillets lie within the convex hull of their adjacent knots; expand the complete knot bounds by full wire radius",
+  "rows": [
+    {
+      "wire": "fps_header_branch",
+      "conservative_knot_bounds": {
+        "x": [
+          -83.71,
+          -82.11
+        ],
+        "y": [
+          -24.2,
+          -14.600000000000001
+        ],
+        "z": [
+          9.7,
+          25.8
+        ]
+      },
+      "bbox_overlap": false,
+      "xz_overlap": false
+    },
+    {
+      "wire": "fps_200_main",
+      "conservative_knot_bounds": {
+        "x": [
+          -134.8,
+          -81.61
+        ],
+        "y": [
+          -24.7,
+          25.0
+        ],
+        "z": [
+          23.7,
+          84.3572922407434
+        ]
+      },
+      "bbox_overlap": true,
+      "xz_overlap": true
+    },
+    {
+      "wire": "fps_switch_bundle",
+      "conservative_knot_bounds": {
+        "x": [
+          -134.8,
+          -96.09859011258142
+        ],
+        "y": [
+          -20.3,
+          7.3999999999999995
+        ],
+        "z": [
+          78.4,
+          86.8
+        ]
+      },
+      "bbox_overlap": false,
+      "xz_overlap": false
+    },
+    {
+      "wire": "fps_ck1044_pin_A",
+      "conservative_knot_bounds": {
+        "x": [
+          -109.875,
+          -107.7776388924318
+        ],
+        "y": [
+          -8.0,
+          7.6
+        ],
+        "z": [
+          76.7776388924318,
+          80.2
+        ]
+      },
+      "bbox_overlap": false,
+      "xz_overlap": false
+    },
+    {
+      "wire": "fps_ck1044_pin_2",
+      "conservative_knot_bounds": {
+        "x": [
+          -111.125,
+          -102.65111472882933
+        ],
+        "y": [
+          -8.0,
+          7.6
+        ],
+        "z": [
+          71.65111472882933,
+          80.2
+        ]
+      },
+      "bbox_overlap": false,
+      "xz_overlap": false
+    }
+  ],
+  "complete_axis_lengths_mm": {
+    "fps_header_branch": 21.126548245743667,
+    "fps_200_main": 178.87345175425634,
+    "fps_switch_bundle": 79.99999999999999,
+    "fps_ck1044_pin_A": 15.464374661972707,
+    "fps_ck1044_pin_2": 22.47593179492302
+  },
+  "physical_qualified": false
+}

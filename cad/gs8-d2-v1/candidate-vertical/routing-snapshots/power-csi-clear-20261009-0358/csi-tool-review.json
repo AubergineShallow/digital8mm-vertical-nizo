@@ -1,0 +1,93 @@
+{
+  "method": "Dense centerline points to finite two-stage cylinders, subtracting1.6mm insulation radius; source-screening only",
+  "rows": [
+    {
+      "tool_x": -87,
+      "part": "tip",
+      "core": "positive",
+      "sampled_clearance_mm": 9.40015422783668,
+      "point": [
+        -100.0,
+        -16.0,
+        62.63636363636364
+      ]
+    },
+    {
+      "tool_x": -87,
+      "part": "shaft",
+      "core": "positive",
+      "sampled_clearance_mm": 7.862045671821919,
+      "point": [
+        -100.0,
+        -16.0,
+        63.23376623376623
+      ]
+    },
+    {
+      "tool_x": -87,
+      "part": "tip",
+      "core": "negative",
+      "sampled_clearance_mm": 3.4359403800077195,
+      "point": [
+        -87.08108108108108,
+        -19.7,
+        56.0
+      ]
+    },
+    {
+      "tool_x": -87,
+      "part": "shaft",
+      "core": "negative",
+      "sampled_clearance_mm": 1.435384670076807,
+      "point": [
+        -87.08108108108108,
+        -19.7,
+        56.0
+      ]
+    },
+    {
+      "tool_x": -79,
+      "part": "tip",
+      "core": "positive",
+      "sampled_clearance_mm": 13.212960132638619,
+      "point": [
+        -82.62333263527134,
+        -16.0,
+        79.19977865217223
+      ]
+    },
+    {
+      "tool_x": -79,
+      "part": "shaft",
+      "core": "positive",
+      "sampled_clearance_mm": 11.278574187583207,
+      "point": [
+        -82.62333263527134,
+        -16.0,
+        79.19977865217223
+      ]
+    },
+    {
+      "tool_x": -79,
+      "part": "tip",
+      "core": "negative",
+      "sampled_clearance_mm": 3.4356808373215038,
+      "point": [
+        -79.05405405405405,
+        -19.7,
+        56.0
+      ]
+    },
+    {
+      "tool_x": -79,
+      "part": "shaft",
+      "core": "negative",
+      "sampled_clearance_mm": 1.4351250987457322,
+      "point": [
+        -79.05405405405405,
+        -19.7,
+        56.0
+      ]
+    }
+  ]
+}

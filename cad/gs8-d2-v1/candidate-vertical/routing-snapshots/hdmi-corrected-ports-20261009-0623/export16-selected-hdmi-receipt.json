@@ -1,0 +1,10 @@
+{
+  "selected_report_sha256": "774fe5d21768623fe1e0d8dcd1ac33d5a85df7b5ed5dde39173a5f335ce57f34",
+  "geometry_input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "mechanical_manifest_sha256": "8a288f3ac9cdae1731867b5ffed0660b7598047ae572d1c2eb410ae60cb5a2e0",
+  "verification_source_sha256": "72439840fbb66463e6fbaf9e1311138232b81706ace46e84d1c5d5002e9c118e",
+  "donor_addendum_sha256": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+  "exit_code": true,
+  "physical_qualified": false,
+  "scope": "Selected installed/Pi-mated EVF-free geometry only. Full USB donor cuts/lead/junction placement, adapter registration, complete FPC, cooler/latch/tool and whole-loom staging remain explicit gates."
+}

@@ -1,0 +1,251 @@
+{
+  "status": "CUSTOM TEST COUPONS ONLY; no ASTM/ISO compliance, no slicer/physical qualification",
+  "units": "mm",
+  "production_part_count_effect": "none;9separate coupon pieces",
+  "design_cases": "screening report; not force ratings",
+  "process": "baseline0.20mm; comparison0.16/0.24mm;critical sections100%local infill with intended perimeter construction;layer normal preserved",
+  "parts": [
+    {
+      "id": "C01_carrier_original",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2925.7190614733418,
+      "face_down_in_source_coords": "-Z",
+      "print_bbox_mm": [
+        57.57658865611188,
+        20.000000200000002,
+        8.000000200000006
+      ],
+      "step_sha256": "72bde5c3e04316935e77f181bd3d3373a50c2e64bafd81ddd1abd8b020cce72f",
+      "stl_sha256": "411366b56940f1bdf7d1e5d45d48c812776754ebc75c1cba7560b5ebc2485295",
+      "type": "custom uniform cantilever",
+      "beam_width_mm": 4,
+      "beam_thickness_mm": 3,
+      "clamp_x_mm": [
+        -15,
+        0
+      ],
+      "force_x_mm": 37.57658845611187,
+      "force_direction": "localZ",
+      "normal_print_axis": "localZ corresponding to assemblyY",
+      "source": "nominal arm section; does not reproduce ear, frame or root fillets"
+    },
+    {
+      "id": "C02_carrier_reinforced",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 4115.063538244474,
+      "face_down_in_source_coords": "-Z",
+      "print_bbox_mm": [
+        57.57658865611188,
+        20.000000200000002,
+        8.000000200000006
+      ],
+      "step_sha256": "a587e29e0b8820e4dc9a8bc9d20a2425fc70b9ef63829916a3c18aa4fc4acef9",
+      "stl_sha256": "c811a81b3255e5553f72191d5f866c24b82d73c224b8e39a4cd4160596596b95",
+      "type": "custom uniform cantilever",
+      "beam_width_mm": 8,
+      "beam_thickness_mm": 5,
+      "clamp_x_mm": [
+        -15,
+        0
+      ],
+      "force_x_mm": 37.57658845611187,
+      "force_direction": "localZ",
+      "normal_print_axis": "localZ corresponding to assemblyY",
+      "source": "nominal arm section; does not reproduce ear, frame or root fillets"
+    },
+    {
+      "id": "C03_heel_original",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 743.7499999999999,
+      "face_down_in_source_coords": "+X",
+      "print_bbox_mm": [
+        2.500000200000005,
+        21.000000200000002,
+        18.500000200000002
+      ],
+      "step_sha256": "cf09ba0d88fdd8f246f1ebe57ef6686b8903964ac9bff6a723faefe815de3e09",
+      "stl_sha256": "f07d1de40c6f8e9ea4f58cc5a800fd5c2531b768a62862f60da67aa16f61caba",
+      "type": "custom twin-slot bridge",
+      "span_mm": 13,
+      "bridge_b_mm": 3.5,
+      "bridge_t_mm": 2.5,
+      "slot_width_mm": 3.5,
+      "slot_span_y_mm": [
+        -6.5,
+        6.5
+      ],
+      "force_direction": "localZ",
+      "load_point": "localX0/Y0; compare centred pusher with actual12mm webbing",
+      "fixture": "support/clamp outer frame beyond Y\u00b16.5; keep span open",
+      "normal_print_axis": "localX corresponds to assemblyZ",
+      "source": "idealised local rectangular bridge; omits curved grip wall, full strap route and recess transitions"
+    },
+    {
+      "id": "C04_heel_reinforced",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1636.2500000000005,
+      "face_down_in_source_coords": "+X",
+      "print_bbox_mm": [
+        5.500000200000006,
+        21.000000200000002,
+        18.500000200000002
+      ],
+      "step_sha256": "79a8e9010b3449692ed663e5bce4210f0e0f02a7ed7e52be905e15f90c6b76dd",
+      "stl_sha256": "28675676c847fe06d923db4811116369c31682f296a7b1dbcd49ffe100bc0709",
+      "type": "custom twin-slot bridge",
+      "span_mm": 13,
+      "bridge_b_mm": 3.5,
+      "bridge_t_mm": 5.5,
+      "slot_width_mm": 3.5,
+      "slot_span_y_mm": [
+        -6.5,
+        6.5
+      ],
+      "force_direction": "localZ",
+      "load_point": "localX0/Y0; compare centred pusher with actual12mm webbing",
+      "fixture": "support/clamp outer frame beyond Y\u00b16.5; keep span open",
+      "normal_print_axis": "localX corresponds to assemblyZ",
+      "source": "idealised local rectangular bridge; omits curved grip wall, full strap route and recess transitions"
+    },
+    {
+      "id": "C05_upper_original",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1596.0,
+      "face_down_in_source_coords": "-Z",
+      "print_bbox_mm": [
+        17.000000200000002,
+        21.000000200000002,
+        6.000000200000004
+      ],
+      "step_sha256": "73893dbf38275b7515914fb7b16f3d112c3399931accbe2628607ff641ba4f4a",
+      "stl_sha256": "eee4ef2cc81dfdcc0cd6cfc516c5cc4195493b349c47f713bd1e3f6ce4bde71a",
+      "type": "custom twin-slot bridge",
+      "span_mm": 13,
+      "bridge_b_mm": 2,
+      "bridge_t_mm": 6,
+      "slot_width_mm": 3.5,
+      "slot_span_y_mm": [
+        -6.5,
+        6.5
+      ],
+      "force_direction": "localZ",
+      "load_point": "localX0/Y0; compare centred pusher with actual12mm webbing",
+      "fixture": "support/clamp outer frame beyond Y\u00b16.5; keep span open",
+      "normal_print_axis": "localZ corresponds to assemblyZ",
+      "source": "idealised local rectangular bridge; omits curved grip wall, full strap route and recess transitions"
+    },
+    {
+      "id": "C06_upper_widened",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1848.0,
+      "face_down_in_source_coords": "-Z",
+      "print_bbox_mm": [
+        19.000000200000002,
+        21.000000200000002,
+        6.000000200000004
+      ],
+      "step_sha256": "543353c5634891c7537c7f1dc915eee5cb15ddb3805d66446c20328ae8864de8",
+      "stl_sha256": "c3b4f56a8dac85deb9fb3d7841a1aed379c7b7f20987a688166c60a73c21268a",
+      "type": "custom twin-slot bridge",
+      "span_mm": 13,
+      "bridge_b_mm": 4,
+      "bridge_t_mm": 6,
+      "slot_width_mm": 3.5,
+      "slot_span_y_mm": [
+        -6.5,
+        6.5
+      ],
+      "force_direction": "localZ",
+      "load_point": "localX0/Y0; compare centred pusher with actual12mm webbing",
+      "fixture": "support/clamp outer frame beyond Y\u00b16.5; keep span open",
+      "normal_print_axis": "localZ corresponds to assemblyZ",
+      "source": "idealised local rectangular bridge; omits curved grip wall, full strap route and recess transitions"
+    },
+    {
+      "id": "C07_M2_5_seat",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 991.4252778485815,
+      "face_down_in_source_coords": "+Z",
+      "print_bbox_mm": [
+        40.000000200000066,
+        9.00304396790693,
+        4.003043967906933
+      ],
+      "step_sha256": "c587516a3257ba65fee83811d4d1063cca0617ffdc7df753657ddafbc883e7db",
+      "stl_sha256": "4b2c6facc4f235e1d9239f8f96e5fe59fafc6f6c3457acafb78fd5cfd3efccb7",
+      "type": "custom carrier seat",
+      "boss_diameter_mm": 9,
+      "thickness_mm": 4,
+      "clearance_diameter_mm": 2.8,
+      "counterbore_diameter_mm": 5.3,
+      "counterbore_depth_mm": 1,
+      "under_head_material_mm": 3,
+      "normal_print_axis": "localZ corresponds to assemblyY",
+      "fixture": "real kit screw/standoff with central printed boss and metal reaction; record clamp force if measured, not inferred; tabs allow separate pull-through test",
+      "source": "nominal actual carrier boss/seat; no qualified torque"
+    },
+    {
+      "id": "C08_J4_base",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 7081.9920000001985,
+      "face_down_in_source_coords": "+Z",
+      "print_bbox_mm": [
+        27.50000020000288,
+        50.400000200001415,
+        8.000000200002887
+      ],
+      "step_sha256": "61f21264953b1e1583c390f320fa5375f6abc947cca48b45bf7c3235cd78df67",
+      "stl_sha256": "eb6ad8047e3ca9ede5d06b95d876403b4175047a3dda3b06eb91bc5f99889d33",
+      "type": "actual STEP extract",
+      "source_part": "base_grip",
+      "source_sha256": "2e69b5e5d427ee2844e4644163be5efbe7d371dfc7d3dff45b6a4378062ccf41",
+      "crop_bounds_mm": [
+        -28,
+        0,
+        -30,
+        30,
+        -8,
+        0.01
+      ],
+      "normal_print_axis": "same assembly-coordinate face down as production",
+      "fixture": "mating pair; slide10mm to engage; clamp outer base and apply pull/rock to tub floor using a separate rigid fixture; do not clamp bearing lips",
+      "source": "selected coordinated2.4mm lip/head trial; front tongue only; no independent lock screw, rear tongue, full floor or whole joint rating"
+    },
+    {
+      "id": "C09_J4_tongue",
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 5330.005555921576,
+      "face_down_in_source_coords": "-Y",
+      "print_bbox_mm": [
+        28.00060256260793,
+        8.050602562607622,
+        56.001204925215205
+      ],
+      "step_sha256": "928f5c000c15d5b818f207dd3188d71be2e98db2d83606f73944795aa310509b",
+      "stl_sha256": "13c900f431844ce3b5273eab0c8c189d72fd960bca9333e05e6461f0be08b9c3",
+      "type": "actual STEP extract",
+      "source_part": "tub",
+      "source_sha256": "5212d50370a40d9316a6ea0399105d2cf21ab958a8d52e4d847dda5f174c68f8",
+      "crop_bounds_mm": [
+        -28,
+        0,
+        -30,
+        30,
+        -5.2,
+        3
+      ],
+      "normal_print_axis": "same assembly-coordinate face down as production",
+      "fixture": "mating pair; slide10mm to engage; clamp outer base and apply pull/rock to tub floor using a separate rigid fixture; do not clamp bearing lips",
+      "source": "selected coordinated2.4mm lip/head trial; front tongue only; no independent lock screw, rear tongue, full floor or whole joint rating"
+    }
+  ]
+}

@@ -1,0 +1,770 @@
+{
+  "source_sha256": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+  "routes_sha256": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+  "snapshot_sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+  "method": "Independent analytic reconstruction, quadrature, tangent and curvature checks; no CAD or source edits",
+  "cores": {
+    "positive": {
+      "source_reported_total_mm": 270.0,
+      "unmodeled_root_allowance_mm": 6.299999999999999,
+      "explicit_geometric_length_mm": 263.70000726361803,
+      "independent_total_including_allowance_mm": 270.00000726361804,
+      "total_minus270_mm": 7.263618044817122e-06,
+      "source_hump_top_mm": 94.94974099309127,
+      "independent_exact_hump_top_mm": 94.94973734985564,
+      "hump_top_difference_mm": -3.6432356296245416e-06,
+      "max_join_gap_mm": 1.4210854715202004e-14,
+      "max_join_tangent_angle_deg": 0.0,
+      "joins": [
+        {
+          "from": "prefix_line1",
+          "to": "prefix_arc1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_arc1",
+          "to": "prefix_line2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_line2",
+          "to": "prefix_arc2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_arc2",
+          "to": "prefix_line3",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_line3",
+          "to": "prefix_arc3",
+          "position_gap_mm": 8.881784197001252e-16,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_arc3",
+          "to": "prefix_last",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_last",
+          "to": "hump_rise1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_rise1",
+          "to": "hump_rise2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_rise2",
+          "to": "hump_top",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_top",
+          "to": "hump_fall1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_fall1",
+          "to": "hump_fall2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_fall2",
+          "to": "suffix_line1",
+          "position_gap_mm": 1.4210854715202004e-14,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "suffix_line1",
+          "to": "suffix_arc1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "suffix_arc1",
+          "to": "suffix_last",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "suffix_last",
+          "to": "quintic_Y_transition",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "quintic_Y_transition",
+          "to": "lower_vertical",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "lower_vertical",
+          "to": "lower_quarter",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "lower_quarter",
+          "to": "return_to_local",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "return_to_local",
+          "to": "rear_arc_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "rear_arc_reverse",
+          "to": "rise_arc_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "rise_arc_reverse",
+          "to": "outward_arc_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "outward_arc_reverse",
+          "to": "fuse_axis_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "fuse_axis_reverse",
+          "to": "local_4mm_tail_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        }
+      ],
+      "curved_transition_checks": [
+        {
+          "segment": "quintic_Y_transition",
+          "minimum_radius_mm": 11.366897968003059,
+          "at_t": 0.8011643385332833,
+          "exact_length_mm": 12.299763895508459
+        }
+      ],
+      "analytic_minimum_circle_radius_mm": 8,
+      "dense_point_count": 3528,
+      "max_dense_chord_mm": 0.07763327836212983,
+      "segment_lengths": [
+        {
+          "id": "prefix_line1",
+          "kind": "line",
+          "length_mm": 8.0
+        },
+        {
+          "id": "prefix_arc1",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "prefix_line2",
+          "kind": "line",
+          "length_mm": 20.0
+        },
+        {
+          "id": "prefix_arc2",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "prefix_line3",
+          "kind": "line",
+          "length_mm": 8.3
+        },
+        {
+          "id": "prefix_arc3",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "prefix_last",
+          "kind": "line",
+          "length_mm": 6.899999999999999
+        },
+        {
+          "id": "hump_rise1",
+          "kind": "arc_R8",
+          "length_mm": 12.541241069578897
+        },
+        {
+          "id": "hump_rise2",
+          "kind": "arc_R8",
+          "length_mm": 12.541241069578897
+        },
+        {
+          "id": "hump_top",
+          "kind": "line",
+          "length_mm": 8.000157873375407
+        },
+        {
+          "id": "hump_fall1",
+          "kind": "arc_R8",
+          "length_mm": 12.541241069578897
+        },
+        {
+          "id": "hump_fall2",
+          "kind": "arc_R8",
+          "length_mm": 12.541241069578897
+        },
+        {
+          "id": "suffix_line1",
+          "kind": "line",
+          "length_mm": 7.599999999999994
+        },
+        {
+          "id": "suffix_arc1",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "suffix_last",
+          "kind": "line",
+          "length_mm": 23.0
+        },
+        {
+          "id": "quintic_Y_transition",
+          "kind": "quintic_transition",
+          "length_mm": 12.299763895508459
+        },
+        {
+          "id": "lower_vertical",
+          "kind": "line",
+          "length_mm": 3.598330650713777
+        },
+        {
+          "id": "lower_quarter",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "return_to_local",
+          "kind": "line",
+          "length_mm": 6.23879115768905
+        },
+        {
+          "id": "rear_arc_reverse",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "rise_arc_reverse",
+          "kind": "arc_R8",
+          "length_mm": 7.407248918669767
+        },
+        {
+          "id": "outward_arc_reverse",
+          "kind": "arc_R8",
+          "length_mm": 2.792526803190927
+        },
+        {
+          "id": "fuse_axis_reverse",
+          "kind": "line",
+          "length_mm": 20.0
+        },
+        {
+          "id": "local_4mm_tail_reverse",
+          "kind": "line",
+          "length_mm": 4.0
+        }
+      ],
+      "self_contact": {
+        "method": "Exact distances between independent dense analytic-path chord segments; 8.7mm start-point broad phase exceeds any possible colliding-segment start separation.",
+        "max_segment_arc_length_mm": 0.07763327839242606,
+        "max_segment_chord_mm": 0.07763327836212983,
+        "max_single_chord_sagitta_bound_mm": 9.417053265270425e-05,
+        "excluded_local_interval_min_station_gap_mm": 3.25,
+        "excluded_interval_max_possible_station_gap_mm": 3.405266556784852,
+        "local_bound_justification": "All modeled curvature radii>=8 and joins tangent. Excluded station neighborhoods span<0.43rad maximum tangent turn; they are local material adjacency, not remote loop crossings. Additional 8mm-cutoff result separates local adjacency from larger-loop approach.",
+        "evaluated_nonlocal_segment_pairs": 257302,
+        "collision_pairs": 0,
+        "near_tolerance_pairs": 0,
+        "nearest_after_3_25mm_local_exclusion": {
+          "centerline_distance_mm": 3.235008852690752,
+          "surface_gap_mm": 0.03500885269075171,
+          "surface_gap_lower_bound_mm": 0.034820511625446304,
+          "material_station_mm": [
+            237.34840574514146,
+            240.59888366811242
+          ],
+          "material_separation_mm": 3.2504779229709584,
+          "points": [
+            [
+              -75.26833221225054,
+              -15.756529909534281,
+              9.73838013302562
+            ],
+            [
+              -73.20415710680336,
+              -14.609444002119607,
+              7.527349302835701
+            ]
+          ],
+          "segment_indices": [
+            3173,
+            3218
+          ]
+        },
+        "nearest_after_8mm_local_exclusion": {
+          "centerline_distance_mm": 7.673651023180274,
+          "surface_gap_mm": 4.473651023180274,
+          "surface_gap_lower_bound_mm": 4.473462682114969,
+          "material_station_mm": [
+            202.76628831064914,
+            210.76934109301493
+          ],
+          "material_separation_mm": 8.003052782365785,
+          "points": [
+            [
+              -98.69302209605135,
+              -18.269255857784945,
+              28.019494635543253
+            ],
+            [
+              -91.92572867669418,
+              -18.269255857784945,
+              24.401669349286223
+            ]
+          ],
+          "segment_indices": [
+            2710,
+            2818
+          ]
+        },
+        "status": "no nonlocal self-contact found"
+      },
+      "fuse_to_nonadjacent_own_wire": {
+        "surface_clearance_mm": 6.008054077832176,
+        "nearest_wire_point": [
+          -77.55584458401943,
+          -18.06103947185847,
+          14.25837432299495
+        ],
+        "excluded_adjacent_material_mm": 8,
+        "note": "Checks positive wire more than8mm of material from fuse endpoint; fuse-connected transition is intentionally joined."
+      }
+    },
+    "negative": {
+      "source_reported_total_mm": 270.0,
+      "unmodeled_root_allowance_mm": 1.9000000000000004,
+      "explicit_geometric_length_mm": 268.1000215736328,
+      "independent_total_including_allowance_mm": 270.00002157363275,
+      "total_minus270_mm": 2.1573632750460092e-05,
+      "source_hump_top_mm": 69.57131190963068,
+      "independent_exact_hump_top_mm": 69.57130029935973,
+      "hump_top_difference_mm": -1.1610270945539014e-05,
+      "max_join_gap_mm": 0.0,
+      "max_join_tangent_angle_deg": 0.0,
+      "joins": [
+        {
+          "from": "prefix_line1",
+          "to": "prefix_arc1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_arc1",
+          "to": "prefix_line2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_line2",
+          "to": "prefix_arc2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_arc2",
+          "to": "prefix_line3",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_line3",
+          "to": "prefix_arc3",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_arc3",
+          "to": "prefix_last",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "prefix_last",
+          "to": "hump_rise1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_rise1",
+          "to": "hump_rise_straight",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_rise_straight",
+          "to": "hump_rise2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_rise2",
+          "to": "hump_top",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_top",
+          "to": "hump_fall1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_fall1",
+          "to": "hump_fall2",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "hump_fall2",
+          "to": "suffix_line1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "suffix_line1",
+          "to": "suffix_arc1",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "suffix_arc1",
+          "to": "suffix_last",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "suffix_last",
+          "to": "quintic_Y_transition",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "quintic_Y_transition",
+          "to": "lower_vertical",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "lower_vertical",
+          "to": "lower_quarter",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "lower_quarter",
+          "to": "return_to_local",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "return_to_local",
+          "to": "negative_local_21_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "negative_local_21_reverse",
+          "to": "negative_local_45_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "negative_local_45_reverse",
+          "to": "negative_quintic_wrap_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        },
+        {
+          "from": "negative_quintic_wrap_reverse",
+          "to": "local_4mm_tail_reverse",
+          "position_gap_mm": 0.0,
+          "tangent_angle_deg": 0.0
+        }
+      ],
+      "curved_transition_checks": [
+        {
+          "segment": "quintic_Y_transition",
+          "minimum_radius_mm": 16.404070425605234,
+          "at_t": 0.7948978902473377,
+          "exact_length_mm": 12.140712783579682
+        },
+        {
+          "segment": "negative_quintic_wrap_reverse",
+          "minimum_radius_mm": 8.325221213082079,
+          "at_t": 0.8334263166323331,
+          "exact_length_mm": 22.915812365190963
+        }
+      ],
+      "analytic_minimum_circle_radius_mm": 8,
+      "dense_point_count": 3586,
+      "max_dense_chord_mm": 0.08792801127473604,
+      "segment_lengths": [
+        {
+          "id": "prefix_line1",
+          "kind": "line",
+          "length_mm": 8.0
+        },
+        {
+          "id": "prefix_arc1",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "prefix_line2",
+          "kind": "line",
+          "length_mm": 19.5
+        },
+        {
+          "id": "prefix_arc2",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "prefix_line3",
+          "kind": "line",
+          "length_mm": 16.4
+        },
+        {
+          "id": "prefix_arc3",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "prefix_last",
+          "kind": "line",
+          "length_mm": 2.0
+        },
+        {
+          "id": "hump_rise1",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "hump_rise_straight",
+          "kind": "line",
+          "length_mm": 6.57131190963068
+        },
+        {
+          "id": "hump_rise2",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "hump_top",
+          "kind": "line",
+          "length_mm": 2.185403130028945
+        },
+        {
+          "id": "hump_fall1",
+          "kind": "arc_R8",
+          "length_mm": 11.347314236830925
+        },
+        {
+          "id": "hump_fall2",
+          "kind": "arc_R8",
+          "length_mm": 11.347314236830925
+        },
+        {
+          "id": "suffix_line1",
+          "kind": "line",
+          "length_mm": 22.0
+        },
+        {
+          "id": "suffix_arc1",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "suffix_last",
+          "kind": "line",
+          "length_mm": 18.0
+        },
+        {
+          "id": "quintic_Y_transition",
+          "kind": "quintic_transition",
+          "length_mm": 12.140712783579682
+        },
+        {
+          "id": "lower_vertical",
+          "kind": "line",
+          "length_mm": 2.816218467533494
+        },
+        {
+          "id": "lower_quarter",
+          "kind": "arc_R8",
+          "length_mm": 12.566370614359172
+        },
+        {
+          "id": "return_to_local",
+          "kind": "line",
+          "length_mm": 5.831695406261858
+        },
+        {
+          "id": "negative_local_21_reverse",
+          "kind": "arc_R24",
+          "length_mm": 8.79645943005142
+        },
+        {
+          "id": "negative_local_45_reverse",
+          "kind": "arc_R8",
+          "length_mm": 6.283185307179586
+        },
+        {
+          "id": "negative_quintic_wrap_reverse",
+          "kind": "quintic_wrap",
+          "length_mm": 22.915812365190963
+        },
+        {
+          "id": "local_4mm_tail_reverse",
+          "kind": "line",
+          "length_mm": 4.0
+        }
+      ],
+      "self_contact": {
+        "method": "Exact distances between independent dense analytic-path chord segments; 8.7mm start-point broad phase exceeds any possible colliding-segment start separation.",
+        "max_segment_arc_length_mm": 0.08792823813715245,
+        "max_segment_chord_mm": 0.08792801127473604,
+        "max_single_chord_sagitta_bound_mm": 0.00012080243131507018,
+        "excluded_local_interval_min_station_gap_mm": 3.25,
+        "excluded_interval_max_possible_station_gap_mm": 3.425856476274305,
+        "local_bound_justification": "All modeled curvature radii>=8 and joins tangent. Excluded station neighborhoods span<0.43rad maximum tangent turn; they are local material adjacency, not remote loop crossings. Additional 8mm-cutoff result separates local adjacency from larger-loop approach.",
+        "evaluated_nonlocal_segment_pairs": 260706,
+        "collision_pairs": 0,
+        "near_tolerance_pairs": 0,
+        "nearest_after_3_25mm_local_exclusion": {
+          "centerline_distance_mm": 3.231819049376296,
+          "surface_gap_mm": 0.03181904937629598,
+          "surface_gap_lower_bound_mm": 0.03157744451366584,
+          "material_station_mm": [
+            238.19221620502293,
+            241.44564726842253
+          ],
+          "material_separation_mm": 3.253431063399603,
+          "points": [
+            [
+              -78.58082287171293,
+              -18.505118438906116,
+              6.516279579426316
+            ],
+            [
+              -76.11387776798209,
+              -17.557935326101052,
+              4.655720423176005
+            ]
+          ],
+          "segment_indices": [
+            3184,
+            3229
+          ]
+        },
+        "nearest_after_8mm_local_exclusion": {
+          "centerline_distance_mm": 7.672394758354701,
+          "surface_gap_mm": 4.472394758354701,
+          "surface_gap_lower_bound_mm": 4.472153153492071,
+          "material_station_mm": [
+            107.3743835223666,
+            115.37601175242752
+          ],
+          "material_separation_mm": 8.001628230060916,
+          "points": [
+            [
+              -49.30697790394864,
+              -19.7,
+              65.95348662337365
+            ],
+            [
+              -56.07284677100097,
+              -19.7,
+              69.57131190963068
+            ]
+          ],
+          "segment_indices": [
+            1434,
+            1542
+          ]
+        },
+        "status": "no nonlocal self-contact found"
+      }
+    }
+  },
+  "mechanical_snapshot": {
+    "junction_center_exactly_equal": true,
+    "junction_transform_matrix_exactly_equal": true,
+    "fuse_exactly_equal": true,
+    "rigid_service_poses_exactly_equal": true,
+    "positive_belowfloor_centers_exactly_equal": true,
+    "negative_belowfloor_centers_exactly_equal": true,
+    "negative_negative_entire_local_equal": true,
+    "positive_full_path_points_relevant_to_belowfloor_pocket_exactly_equal": true,
+    "positive_wire_pocket_radius_unchanged": true,
+    "negative_full_path_points_relevant_to_belowfloor_pocket_exactly_equal": true,
+    "negative_wire_pocket_radius_unchanged": true,
+    "positive_pocket_relevant_center_z_le4_4_exactly_equal": true,
+    "negative_pocket_relevant_center_z_le4_4_exactly_equal": true,
+    "pocket_threshold_rationale": "CenterZ<=4.4 withradius1.9 can intersect material at/below floorZ2.5. All filtered full-path and local pocket points match exactly, plus fuse and rigid service data."
+  },
+  "limitations": [
+    "Root joints are explicitly unmodeled allowances, not verified routes.",
+    "Retention, printed structural strength and flexible service motion remain unqualified.",
+    "This audit does not rerun external-obstacle or installed-HDMI clearance unless explicitly stated."
+  ],
+  "source_unchanged_during_audit": true,
+  "source_sha256_at_finish": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+  "summary": {
+    "lengths": "270mm within0.000022mm after explicit unmodeled root allowances",
+    "tangent_continuity": "all reconstructed modeled joins areC1 within numerical precision",
+    "minimum_curvature_radius_mm": 8,
+    "below_floor_snapshot": "exactly unchanged at sampled source/pocket-relevant points",
+    "self_contact": "no nonlocal self-contact found in either complete core",
+    "scope": "independent source geometry audit only; unmeasured roots, retention, strength and flexible service remain open"
+  },
+  "negative_hump_scope": {
+    "start_x": -40,
+    "end_x": -74,
+    "width_mm": 34,
+    "source_crest_straight_mm": 2.1854031300289467
+  },
+  "reported_by_parent_not_independently_rechecked": {
+    "intercore_sampled_clearance_mm": 0.500456,
+    "installed_hdmi_gap_mm": 0.753181
+  },
+  "reproduction_commands": [
+    "python /tmp/xt30_independent_audit/audit.py",
+    "python /tmp/xt30_independent_audit/self_contact.py",
+    "python /tmp/xt30_independent_audit/finish_report.py"
+  ]
+}

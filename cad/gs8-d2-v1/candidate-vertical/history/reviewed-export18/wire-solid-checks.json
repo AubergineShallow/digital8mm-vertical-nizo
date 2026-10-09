@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "rows": [
+    {
+      "id": "positive_board_to_fuse",
+      "status": "pass",
+      "core_id": "positive",
+      "original_points": 966,
+      "simplified_points": 137,
+      "radius_mm": 1.6400000000000001,
+      "max_polyline_chord_deviation_mm": 0.04,
+      "exact_intersections": 0,
+      "hits": [],
+      "root_joint_omission_mm": 6.299999999999999,
+      "root_warning": "Actual pads and wire exit/strain-relief construction are unknown. This allowance is NOT a passedR8 transition and must not be counted as a completed physical pad connection."
+    },
+    {
+      "id": "positive_fuse_to_housing",
+      "status": "pass",
+      "core_id": "positive",
+      "original_points": 15,
+      "simplified_points": 2,
+      "radius_mm": 1.6400000000000001,
+      "max_polyline_chord_deviation_mm": 0.04,
+      "exact_intersections": 0,
+      "hits": [],
+      "root_joint_omission_mm": 6.299999999999999,
+      "root_warning": "Actual pads and wire exit/strain-relief construction are unknown. This allowance is NOT a passedR8 transition and must not be counted as a completed physical pad connection."
+    },
+    {
+      "id": "negative_complete",
+      "status": "pass",
+      "core_id": "negative",
+      "original_points": 1485,
+      "simplified_points": 133,
+      "radius_mm": 1.6400000000000001,
+      "max_polyline_chord_deviation_mm": 0.04,
+      "exact_intersections": 31,
+      "hits": [],
+      "root_joint_omission_mm": 1.9000000000000004,
+      "root_warning": "Actual pads and wire exit/strain-relief construction are unknown. This allowance is NOT a passedR8 transition and must not be counted as a completed physical pad connection."
+    }
+  ],
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "snapshot_sha256": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
+  "verification_source_sha256": "f5087087b98050cb000e1e5d424bffdee4922cdf746728863ae045dd496765d9",
+  "helper_source_sha256": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+  "physical_qualified": false,
+  "scope": "Static power-wire conservative capsules versus printed solids only. No socket/pad/contact waiver, and no assertion that omitted root joints are solved. Purchased-part and wire-wire checks are separate source-envelope studies. Positive finished allocation includes rigid fuse/joint zone; it is not270mm copper plus fuse.",
+  "remaining_stop": [
+    "Full flexible withdrawal/staging",
+    "Real pad/pin/lug geometry and joint cut convention",
+    "Retention and abrasion",
+    "Supplier bend capability, hot drop and thermal tests"
+  ]
+}

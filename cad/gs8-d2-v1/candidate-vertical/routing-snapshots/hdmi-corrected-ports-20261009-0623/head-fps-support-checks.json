@@ -1,0 +1,213 @@
+{
+  "status": "pass_for_bounded_head_reservation",
+  "geometry_input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "donor_addendum_sha256": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+  "fps_context_receipt_sha256": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
+  "head_bbox_mm": [
+    -152.779999264573,
+    -121.779999264573,
+    -15.12600076744,
+    -5.32600076744,
+    8.250319443808003,
+    23.750319443808003
+  ],
+  "checks": [
+    {
+      "object": "fps_header_branch",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -83.71000009999999,
+        -82.1099999,
+        -24.2000001,
+        -15.400000000000002,
+        9.699999900000003,
+        25.0
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_200_main",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -134.80000009999995,
+        -81.6099999,
+        -24.700000100000008,
+        25.00000010000001,
+        25.0,
+        84.3572923407434
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_switch_bundle",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -134.8000001,
+        -96.09859001258143,
+        -20.300000100000005,
+        6.1,
+        78.3999999,
+        86.80000010000003
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_ck1044_pin_A",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -109.87500010000001,
+        -107.7776387924318,
+        -7.5,
+        7.1,
+        76.7776387924318,
+        80.2000001
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_ck1044_pin_2",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -111.1250001,
+        -102.65111462882929,
+        -7.5,
+        7.1,
+        71.65111462882938,
+        80.2000001
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_mated_pair",
+      "kind": "carried FPS junction",
+      "status": "pass",
+      "object_bbox_mm": [
+        -135.625,
+        -131.375,
+        6.1,
+        15.1,
+        78.05,
+        81.35
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_protective_reservation",
+      "kind": "protective reservation",
+      "status": "pass",
+      "object_bbox_mm": [
+        -137.5,
+        -129.5,
+        3.1,
+        15.1,
+        76.7,
+        82.7
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "corrected_fps_switch",
+      "kind": "carried corrected switch",
+      "status": "pass",
+      "object_bbox_mm": [
+        -124.75,
+        -97.25,
+        7.1,
+        37.0,
+        66.25,
+        93.75
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "central-rest-pad",
+      "kind": "fixed selected FPS support",
+      "status": "pass",
+      "object_bbox_mm": [
+        -112.5,
+        -105.7,
+        -27.0,
+        24.5,
+        58.0,
+        66.90000000001773
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "picoblade-open-guide",
+      "kind": "fixed selected FPS support",
+      "status": "pass",
+      "object_bbox_mm": [
+        -137.625,
+        -129.375,
+        -27.0,
+        15.0,
+        76.3,
+        83.35
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    }
+  ],
+  "full_hdmi_material_screen": [
+    {
+      "state": "installed",
+      "full_length_mm": 300.0,
+      "candidate_cells": [],
+      "status": "pass_by_complete_material_bounds"
+    },
+    {
+      "state": "premate",
+      "full_length_mm": 300.0,
+      "candidate_cells": [],
+      "status": "pass_by_complete_material_bounds"
+    },
+    {
+      "state": "both_unplugged",
+      "full_length_mm": 300.0,
+      "candidate_cells": [],
+      "status": "pass_by_complete_material_bounds"
+    }
+  ],
+  "mechanical": null,
+  "source_files": {
+    "central-rest-pad": "2f46173f6bfdd20af94202a88926df51a8497cb42f96976e69e94bbb244a02ac",
+    "picoblade-open-guide": "bc22a57f938246b06e773bab3b2de862e1890d29a63d270a6e28d04229d30c81"
+  },
+  "verification_source_sha256": "a8ff3f38a60a284167d8c094d2af3f4e6500a853783a5a4855b2f964daa78f4c",
+  "motion_scope": "Static hard-head reservation and full carried FPS group. Co-translation preserves mutual geometry; XZ-disjoint entries stay separated for any relativeYtranslation. No USB removal/carry trajectory is selected while its complete installed lead and exit remain unknown.",
+  "overlap_volume_scope": "Per-solid positive witnesses establish contact; their sum is not reported as occupied union volume where source components may overlap.",
+  "physical_qualified": false,
+  "remaining": [
+    "Final mechanical binding pending",
+    "Adafruit4448 cuttable donor final copper cuts, two Pololu tails, diode/joints and full installed lead placement remain TBD",
+    "Received overmold, actual exit and engagement are unmeasured; no wire exit is invented",
+    "Complete camera FPC and cooler/latch/tool corridor",
+    "Adafruit3557 adapter-to-socket/root transform",
+    "All baseline56 andM1 physical gates"
+  ]
+}

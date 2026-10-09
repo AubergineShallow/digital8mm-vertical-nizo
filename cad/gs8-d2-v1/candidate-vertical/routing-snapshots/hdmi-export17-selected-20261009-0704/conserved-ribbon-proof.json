@@ -1,0 +1,21 @@
+{
+  "input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "accepted_source_input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "all_three_ribbon_dicts_identical": true,
+  "states": {
+    "hdmi_installed": {
+      "material_length_mm": 300.0,
+      "cells": 2283
+    },
+    "hdmi_premate": {
+      "material_length_mm": 300.0,
+      "cells": 2283
+    },
+    "hdmi_both_unplugged": {
+      "material_length_mm": 300.0,
+      "cells": 2322
+    }
+  },
+  "source_radii_proof": "../hdmi-ck1044-clear-20261009-0524/reproduction-check.json",
+  "physical_qualified": false
+}

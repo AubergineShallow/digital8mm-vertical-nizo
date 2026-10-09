@@ -1,0 +1,200 @@
+{
+  "selected_service": "Pi HDMI stays mated; EVF end disconnected; complete ribbon and heads carried with carrier. Other looms need their own complete checks.",
+  "includes_rejected_diagnostics": false,
+  "summary": {
+    "pass": 4,
+    "fail": 2,
+    "info": 0
+  },
+  "checks": [
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_evf",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_usb_pi",
+      "status": "fail",
+      "hits": [
+        {
+          "part": "tub",
+          "overlap_mm3": 283.86630358376266
+        }
+      ]
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "installed",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "premate",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "carried_sweep",
+      "id": "carrier_headers_hdmi_premate",
+      "status": "fail",
+      "step_mm": 2.0,
+      "full_material": true,
+      "exact_intersections": 225,
+      "hits": [
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 0.0,
+          "overlap_mm3": 283.86630358376266
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 2.0,
+          "overlap_mm3": 283.86630358376266
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 4.0,
+          "overlap_mm3": 283.86630358376266
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 6.0,
+          "overlap_mm3": 283.8663035837627
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 8.0,
+          "overlap_mm3": 283.86630358376266
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 10.0,
+          "overlap_mm3": 283.86630358376266
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 12.0,
+          "overlap_mm3": 283.8663035837627
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 14.0,
+          "overlap_mm3": 283.8663035837627
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 16.0,
+          "overlap_mm3": 283.8663035837627
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 18.0,
+          "overlap_mm3": 283.8663035837627
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 20.0,
+          "overlap_mm3": 279.8076868374748
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 22.0,
+          "overlap_mm3": 274.65061094782243
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 24.0,
+          "overlap_mm3": 269.4935350581701
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 26.0,
+          "overlap_mm3": 264.3364591685176
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 28.0,
+          "overlap_mm3": 259.17938327886515
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 30.0,
+          "overlap_mm3": 227.6178309910941
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 32.0,
+          "overlap_mm3": 174.84300819018074
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 34.0,
+          "overlap_mm3": 122.06818538926746
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 36.0,
+          "overlap_mm3": 69.29336258835414
+        },
+        {
+          "id": "usb_5v_head",
+          "fixed": "tub",
+          "y_offset": 38.0,
+          "overlap_mm3": 16.51853978744083
+        }
+      ],
+      "hit_count": 20
+    }
+  ],
+  "analysis_bbox_mm": [
+    -152.789999264573,
+    -40.96,
+    -22.360000000000003,
+    84.16000000000001,
+    7.92,
+    119.00519549754252
+  ],
+  "verification_source_sha256": "72439840fbb66463e6fbaf9e1311138232b81706ace46e84d1c5d5002e9c118e",
+  "snapshot_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "mechanical_manifest_sha256": "8a288f3ac9cdae1731867b5ffed0660b7598047ae572d1c2eb410ae60cb5a2e0",
+  "physical_qualified": false,
+  "note": "Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation."
+}

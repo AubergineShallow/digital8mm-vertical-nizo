@@ -1,0 +1,1565 @@
+{
+  "runtime": {
+    "python": "3.12.14",
+    "cadquery": "2.6.1",
+    "cadquery_ocp": "7.8.1.1.post1"
+  },
+  "print_poses": {
+    "base_grip": {
+      "face_down": "+Z",
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "angle_deg": 180,
+      "translation_mm": [
+        117.0,
+        25.2,
+        5.704881012036367e-13
+      ],
+      "footprint_mm": [
+        116.5,
+        50.40000000000021,
+        110.00000000000057
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "cap": {
+      "face_down": "-Z",
+      "rotation_axis": [
+        0,
+        0,
+        1
+      ],
+      "angle_deg": 0,
+      "translation_mm": [
+        71.0,
+        15.000000000000002,
+        116.0
+      ],
+      "footprint_mm": [
+        48.00000000000001,
+        30.000000000000004,
+        10.200000000000008
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "eyecup": {
+      "face_down": "+X",
+      "rotation_axis": [
+        0,
+        1,
+        0
+      ],
+      "angle_deg": 90,
+      "translation_mm": [
+        -55.23631981389993,
+        11.763680186100048,
+        -175.3
+      ],
+      "footprint_mm": [
+        45.5273602722001,
+        45.5273603722001,
+        16.30000009999998
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "knob_exp": {
+      "face_down": "+Y",
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "angle_deg": -90,
+      "translation_mm": [
+        68.99827285474325,
+        -64.00172714525675,
+        37.199999999999996
+      ],
+      "footprint_mm": [
+        27.996545709486497,
+        27.996545709486497,
+        9.000000000000005
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "knob_fps": {
+      "face_down": "+Y",
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "angle_deg": -90,
+      "translation_mm": [
+        122.99479570202425,
+        -68.00520429797575,
+        37.199999999999996
+      ],
+      "footprint_mm": [
+        23.989591404048497,
+        23.989591404048497,
+        7.000000000000011
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "carrier": {
+      "face_down": "+Y",
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "angle_deg": -90,
+      "translation_mm": [
+        131.8,
+        -4.000000000000002,
+        22.199999999999996
+      ],
+      "footprint_mm": [
+        111.6,
+        69.8,
+        6.000000000000004
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "tub": {
+      "face_down": "-Y",
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "angle_deg": 90,
+      "translation_mm": [
+        158.0,
+        100.0,
+        28.0
+      ],
+      "footprint_mm": [
+        158.0,
+        105.05,
+        56.000000000000014
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "panel": {
+      "face_down": "+Y",
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "angle_deg": -90,
+      "translation_mm": [
+        155.4,
+        -3.0999999000000034,
+        28.00000010000001
+      ],
+      "footprint_mm": [
+        152.3000001,
+        93.8000002,
+        24.800000100000013
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "lens_collar": {
+      "face_down": "+X",
+      "rotation_axis": [
+        0,
+        1,
+        0
+      ],
+      "angle_deg": 90,
+      "translation_mm": [
+        -24.4,
+        30.000000000000004,
+        8.599999999999998
+      ],
+      "footprint_mm": [
+        71.69999999999999,
+        55.0,
+        11.30000000000001
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    },
+    "centring_gauge": {
+      "face_down": "-X",
+      "rotation_axis": [
+        0,
+        1,
+        0
+      ],
+      "angle_deg": -90,
+      "translation_mm": [
+        82.15,
+        22.15,
+        3.3999999999999955
+      ],
+      "footprint_mm": [
+        44.3,
+        44.3,
+        24.400000000000006
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
+    }
+  },
+  "revision": "D2-V1 vertical-board review, 2026-10-09",
+  "storage": "compact",
+  "lens": "kowa_lm6hc",
+  "state": "UNQUALIFIED REVIEW CANDIDATE; all 56 inherited physical gates and M1 remain open",
+  "built_utc": "2026-10-09T07:46:39Z",
+  "rows": [
+    {
+      "id": "pi5",
+      "kind": "cots",
+      "mesh": "pi5.json",
+      "bbox_mm": [
+        -122.05042796448586,
+        -33.549999899999996,
+        -13.826329051474604,
+        6.2000001000000085,
+        6.999999899999971,
+        64.63035020000001
+      ],
+      "volume_mm3": 24187.427381756497,
+      "mass_est_g": 46.0,
+      "source": "Four-hole-registered official Pi5 named component assembly; overlaps retained explicitly to preserve every USB/GPIO/CSI contact, six-hole1.6mm kit-datum PCB and underside/SoC/button proxies. HDMI shell envelopes; source/received thickness and adapter mating remain gates. https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-010083-CA-1-rpi-5%203D%20STEP%20-%20No%20Graphics%20small%20file.zip",
+      "valid": true,
+      "solid_count": 149,
+      "geometry_role": "overlapping named source-component assembly",
+      "occupied_material_volume_mm3": null,
+      "volume_semantics": "sum of overlapping solid volumes, not occupied material"
+    },
+    {
+      "id": "cooler",
+      "kind": "cots",
+      "mesh": "cooler.json",
+      "bbox_mm": [
+        -100.80000010000002,
+        -36.048985921943164,
+        -14.106293756904421,
+        4.501014078056832,
+        13.749999899999985,
+        56.250000100000015
+      ],
+      "volume_mm3": 19363.802004962865,
+      "mass_est_g": 25.0,
+      "source": "ILLUSTRATIVE inherited cooler perimeter/fan; two approximate alignment pins on source-verified board axes replace four fictitious feet. Exact CSI/proxy overlaps remain unresolved. Real fan/perimeter/pin profile and thermal qualification required.",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 19363.802004962865,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "x1203",
+      "kind": "cots",
+      "mesh": "x1203.json",
+      "bbox_mm": [
+        -119.00000010000002,
+        -33.99999989999997,
+        6.199999899999994,
+        16.200944148535676,
+        6.999999899999971,
+        63.00000010000003
+      ],
+      "volume_mm3": 12836.756463288526,
+      "mass_est_g": 30.0,
+      "source": "listing; height estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 12836.756463288526,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "x1203_kit",
+      "kind": "cots",
+      "mesh": "x1203_kit.json",
+      "bbox_mm": [
+        -98.38675144594815,
+        -34.61324855405186,
+        0.3484264857738769,
+        21.60174833802902,
+        7.998251661970981,
+        62.00174833802902
+      ],
+      "volume_mm3": 1355.9859958470133,
+      "mass_est_g": 6.8,
+      "source": "listing (estimate)",
+      "valid": true,
+      "solid_count": 4,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 1355.9859958470133,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "gs_camera",
+      "kind": "cots",
+      "mesh": "gs_camera.json",
+      "bbox_mm": [
+        -25.090000100000005,
+        -4.387412586191163,
+        -19.75000010000001,
+        19.75000010000001,
+        40.24999989999999,
+        82.10000010000009
+      ],
+      "volume_mm3": 21799.127215194472,
+      "mass_est_g": 34.0,
+      "source": "official GS side drawing (gs_side.png) via R5 judge 3 s6.1; MP-CAM open",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 21799.127215194472,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "c_cs_adapter",
+      "kind": "cots",
+      "mesh": "c_cs_adapter.json",
+      "bbox_mm": [
+        -4.410751763878388,
+        0.6107517638783875,
+        -15.385751763878387,
+        15.385751763878387,
+        44.61424823612161,
+        75.38575176387839
+      ],
+      "volume_mm3": 1159.6894756415454,
+      "mass_est_g": 4.0,
+      "source": "GS drawing (dia 30.75 x 5.0 face to face; MP-CAM)",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 1159.6894756415454,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "lens",
+      "kind": "cots",
+      "mesh": "lens.json",
+      "bbox_mm": [
+        -6.108881149187349,
+        57.21748248029005,
+        -27.018881070713256,
+        27.018881070713256,
+        32.981118929286744,
+        87.01888107071325
+      ],
+      "volume_mm3": 84855.40717514622,
+      "mass_est_g": 215.0,
+      "source": "Kowa drawing (dossier_external s7.1, +-0.5); mass datasheet (Baumer ZVL-LM6HC) <= 215 g; CoM 28.3 unverified (G-LENS knife edge)",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 84855.40717514622,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "eyepiece",
+      "kind": "cots",
+      "mesh": "eyepiece.json",
+      "bbox_mm": [
+        -178.3128321671329,
+        -153.48986011943177,
+        -8.263461532823335,
+        30.263461532823335,
+        58.736538467176665,
+        97.26346153282334
+      ],
+      "volume_mm3": 19098.051973446905,
+      "mass_est_g": 35.0,
+      "source": "repo EVF-SELECTION.md",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 19098.051973446905,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "hmx039",
+      "kind": "cots",
+      "mesh": "hmx039.json",
+      "bbox_mm": [
+        -152.0000001,
+        -150.0699999,
+        3.1999998999999977,
+        18.800000100000002,
+        71.1999999,
+        84.8000001
+      ],
+      "volume_mm3": 364.10879999999963,
+      "mass_est_g": 2.0,
+      "source": "repo",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 364.10879999999963,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "evf_board",
+      "kind": "cots",
+      "mesh": "evf_board.json",
+      "bbox_mm": [
+        -148.8000001,
+        -140.79999990000002,
+        -4.0000001000000145,
+        23.000000100000015,
+        63.999999899999985,
+        92.50000010000001
+      ],
+      "volume_mm3": 3948.0000000000014,
+      "mass_est_g": 8.0,
+      "source": "repo; thickness estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 3948.0000000000014,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "usb_stick",
+      "kind": "cots",
+      "mesh": "usb_stick.json",
+      "bbox_mm": [
+        -156.0000001,
+        -121.99999989999999,
+        -13.766000095665007,
+        -6.765999895664993,
+        26.49989489999999,
+        41.49989510000001
+      ],
+      "volume_mm3": 3570.0000000000014,
+      "mass_est_g": 5.0,
+      "source": "Princeton PHD-USSD-500G; official34\u00d715\u00d77mm including cap, conservatively all34mm outside port plus separate estimated plug; remove/bag cap. Up-to500MB/s write is not warm sustained proof. Linux/identity/fit/power/G-W10 open. https://www.princeton.co.jp/product/storage/phdussd.html",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 3570.0000000000014,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "encoder",
+      "kind": "cots",
+      "mesh": "encoder.json",
+      "bbox_mm": [
+        -67.65000010000001,
+        -42.349999899999986,
+        12.599999900000002,
+        37.00209798563481,
+        65.1999999,
+        90.8000001
+      ],
+      "volume_mm3": 2928.4629076546416,
+      "mass_est_g": 8.0,
+      "source": "listing; depth estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 2928.4629076546416,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "switch_1824",
+      "kind": "cots",
+      "mesh": "switch_1824.json",
+      "bbox_mm": [
+        -124.75961540915954,
+        -97.24038459084046,
+        7.099405499070123,
+        37.002218268479055,
+        66.24038459084046,
+        93.75961540915954
+      ],
+      "volume_mm3": 9188.611741394776,
+      "mass_est_g": 9.7,
+      "source": "Lorlin CK1044 source envelope;13 hole-derived pin reserves; nut/washer dimensions and12g assembly mass remain estimates. https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 9188.611741394776,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "run_button",
+      "kind": "cots",
+      "mesh": "run_button.json",
+      "bbox_mm": [
+        -35.00000010000002,
+        -20.495611026996436,
+        -6.504388973003565,
+        6.504388973003565,
+        -27.504388973003564,
+        -14.495611026996434
+      ],
+      "volume_mm3": 2122.3937376850126,
+      "mass_est_g": 4.0,
+      "source": "estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 2122.3937376850126,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "pack",
+      "kind": "cots",
+      "mesh": "pack.json",
+      "bbox_mm": [
+        -64.30615719899822,
+        -26.69384280100177,
+        -9.306157198998232,
+        9.306157198998232,
+        -108.80615719899822,
+        -36.79999989999999
+      ],
+      "volume_mm3": 45274.120833888264,
+      "mass_est_g": 105.0,
+      "source": "estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 45274.120833888264,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "xt30_pair",
+      "kind": "cots",
+      "mesh": "xt30_pair.json",
+      "bbox_mm": [
+        -75.67708616620165,
+        -37.74628167268213,
+        -17.257372663904125,
+        5.7391025642341,
+        -29.45512995522208,
+        9.931435342751417
+      ],
+      "volume_mm3": 1990.1390816987234,
+      "mass_est_g": 12.0,
+      "source": "XT30 pair and ONE inline15A fuse; frozen21deg yaw/45deg pitch pose,270mm16AWG provisional pigtail. Legacy12g lump includes estimated pigtail mass; its distributed mass is not resolved. Actual pins/pads, flexible service, hot drop and strength gates remain open.",
+      "valid": true,
+      "solid_count": 2,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 1990.1390816987234,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "tripod_nut",
+      "kind": "cots",
+      "mesh": "tripod_nut.json",
+      "bbox_mm": [
+        -113.40858808800485,
+        -100.59141191199515,
+        -5.550000100000014,
+        5.550000100000014,
+        -5.701818267550176,
+        -0.0981817324498258
+      ],
+      "volume_mm3": 478.60861250727646,
+      "mass_est_g": 4.0,
+      "source": "standard",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 478.60861250727646,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "strap",
+      "kind": "cots",
+      "mesh": "strap.json",
+      "bbox_mm": [
+        -103.20000010000003,
+        -65.79999989999999,
+        -21.714240376366284,
+        4.693623388117555,
+        -104.70000010000001,
+        -0.1999998999999838
+      ],
+      "volume_mm3": 2671.363883714089,
+      "mass_est_g": 15.0,
+      "source": "estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 2671.363883714089,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "microsd",
+      "kind": "cots",
+      "mesh": "microsd.json",
+      "bbox_mm": [
+        -40.40000010000001,
+        -31.49999989999999,
+        4.299999899999993,
+        5.300000100000008,
+        28.29999989999999,
+        39.300000100000005
+      ],
+      "volume_mm3": 97.89999999999999,
+      "mass_est_g": 0.4,
+      "source": "PALETTE.md: protrudes ~2-3 mm past the Pi edge (2.5 used); socket part inside the pi5 underside proxy is not modelled (proxy x -12.4..-3.5)",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 97.89999999999999,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "foam_pad",
+      "kind": "cots",
+      "mesh": "foam_pad.json",
+      "bbox_mm": [
+        -150.0700001,
+        -149.0699999,
+        3.1999998999999977,
+        18.800000100000002,
+        71.1999999,
+        84.8000001
+      ],
+      "volume_mm3": 212.15999999999994,
+      "mass_est_g": 0.1,
+      "source": "estimate",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 212.15999999999994,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "usb_storage_plug_reserve",
+      "kind": "keepout",
+      "mesh": "usb_storage_plug_reserve.json",
+      "bbox_mm": [
+        -122.00000010000001,
+        -109.99999989999999,
+        -12.516000095665008,
+        -8.015999895664992,
+        27.99989489999999,
+        39.99989510000001
+      ],
+      "volume_mm3": 648.0000000000006,
+      "mass_est_g": 0,
+      "source": "NON-MATERIAL estimated USB-A plug envelope. Not an installed part or occupied material. Actual plug shell/contact geometry, engagement and insertion remain OPEN; export16 full-solid conflict preserved. No source contacts removed.",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "non-material keepout",
+      "occupied_material_volume_mm3": 0,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "fps_nut",
+      "kind": "hardware",
+      "mesh": "fps_nut.json",
+      "bbox_mm": [
+        -118.33234851870827,
+        -103.66765148129173,
+        28.596629297080067,
+        31.003370702919934,
+        73.64999989999998,
+        86.35000010000002
+      ],
+      "volume_mm3": 160.06680050671793,
+      "mass_est_g": 2.0,
+      "source": "Lorlin CK1044 source envelope;13 hole-derived pin reserves; nut/washer dimensions and12g assembly mass remain estimates. https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 160.06680050671793,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "fps_mounting_washer",
+      "kind": "hardware",
+      "mesh": "fps_mounting_washer.json",
+      "bbox_mm": [
+        -118.50524481408702,
+        -103.49475518591298,
+        27.994755185912975,
+        28.605244814087026,
+        72.49475518591298,
+        87.50524481408702
+      ],
+      "volume_mm3": 60.77096829104107,
+      "mass_est_g": 0.3,
+      "source": "Lorlin CK1044 source envelope;13 hole-derived pin reserves; nut/washer dimensions and12g assembly mass remain estimates. https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 60.77096829104107,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "s_c1",
+      "kind": "hardware",
+      "mesh": "s_c1.json",
+      "bbox_mm": [
+        -6.801398690423217,
+        5.701958126592498,
+        7.497552366759386,
+        14.502447633240614,
+        86.99755236675938,
+        94.00244763324062
+      ],
+      "volume_mm3": 161.59092831411812,
+      "mass_est_g": 1.09,
+      "source": "M3 x 10 ISO 7045 M3 pan head cross recess PH1, A2 stainless",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 161.59092831411812,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "s_c2",
+      "kind": "hardware",
+      "mesh": "s_c2.json",
+      "bbox_mm": [
+        -6.801398690423217,
+        5.701958126592498,
+        -14.502447633240614,
+        -7.497552366759386,
+        86.99755236675938,
+        94.00244763324062
+      ],
+      "volume_mm3": 161.59092831411812,
+      "mass_est_g": 1.09,
+      "source": "M3 x 10 ISO 7045 M3 pan head cross recess PH1, A2 stainless",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 161.59092831411812,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "s_c3",
+      "kind": "hardware",
+      "mesh": "s_c3.json",
+      "bbox_mm": [
+        -6.801398690423208,
+        5.7019581265924915,
+        14.497552366759388,
+        21.50244763324061,
+        26.49755236675939,
+        33.502447633240614
+      ],
+      "volume_mm3": 161.590928314118,
+      "mass_est_g": 1.09,
+      "source": "M3 x 10 ISO 7045 M3 pan head cross recess PH1, A2 stainless",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 161.590928314118,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "s_c4",
+      "kind": "hardware",
+      "mesh": "s_c4.json",
+      "bbox_mm": [
+        1.1975523667593924,
+        8.202447633240608,
+        -29.802447633240607,
+        -22.797552366759394,
+        50.09860130957679,
+        68.90195812659249
+      ],
+      "volume_mm3": 213.37684736811266,
+      "mass_est_g": 1.57,
+      "source": "M3 x 16 ISO 7045 M3 pan head cross recess PH1, A2 stainless",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 213.37684736811266,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "base_grip",
+      "kind": "printed",
+      "mesh": "base_grip.json",
+      "bbox_mm": [
+        -117.00000010000028,
+        -0.4999998999997158,
+        -25.20243750360774,
+        25.200000100000082,
+        -110.02251171014285,
+        0.012692370455839961
+      ],
+      "volume_mm3": 66883.96650611637,
+      "mass_est_g": 42.93950649692671,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 66883.96650611637,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "cap",
+      "kind": "printed",
+      "mesh": "cap.json",
+      "bbox_mm": [
+        -71.01276107883538,
+        -22.98723892116462,
+        -15.012761078835373,
+        15.012761078835373,
+        -116.01276107883538,
+        -105.79999989999997
+      ],
+      "volume_mm3": 6739.347417514938,
+      "mass_est_g": 7.211101736740983,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 6739.347417514938,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "eyecup",
+      "kind": "printed",
+      "mesh": "eyecup.json",
+      "bbox_mm": [
+        -191.61645213603123,
+        -175.28625874909204,
+        -11.808259474248189,
+        33.80825947424819,
+        55.19174052575181,
+        100.80825947424819
+      ],
+      "volume_mm3": 4406.391069641452,
+      "mass_est_g": 5.331733194266157,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 4406.391069641452,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "knob_exp",
+      "kind": "printed",
+      "mesh": "knob_exp.json",
+      "bbox_mm": [
+        -68.99827295474333,
+        -41.00172704525668,
+        28.17924171757376,
+        37.21448280637205,
+        64.00172704525669,
+        91.99827295474331
+      ],
+      "volume_mm3": 4792.9768372145845,
+      "mass_est_g": 5.128485215819605,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 4792.9768372145845,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "knob_fps",
+      "kind": "printed",
+      "mesh": "knob_fps.json",
+      "bbox_mm": [
+        -122.99479580202433,
+        -99.00520419797567,
+        30.183181252775693,
+        37.213641233247614,
+        68.00520419797566,
+        91.99479580202431
+      ],
+      "volume_mm3": 2168.466251538382,
+      "mass_est_g": 2.3202588891460687,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 2168.466251538382,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "carrier",
+      "kind": "printed",
+      "mesh": "carrier.json",
+      "bbox_mm": [
+        -131.80014908772554,
+        -20.196682507597124,
+        16.195750613046943,
+        22.204281013750116,
+        3.9999998999999273,
+        73.80319892073315
+      ],
+      "volume_mm3": 8784.067479688094,
+      "mass_est_g": 9.39895220326626,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 8784.067479688094,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "tub",
+      "kind": "printed",
+      "mesh": "tub.json",
+      "bbox_mm": [
+        -158.01024477484998,
+        0.012762237611738282,
+        -28.00139869042322,
+        28.001398690423215,
+        -5.050000100000004,
+        100.00139869042322
+      ],
+      "volume_mm3": 134777.50754146642,
+      "mass_est_g": 122.5801431089637,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 134777.50754146642,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "panel",
+      "kind": "printed",
+      "mesh": "panel.json",
+      "bbox_mm": [
+        -155.4138332372186,
+        -3.0999994138364526,
+        3.199999899999972,
+        28.031028157290894,
+        3.0963635648996704,
+        96.90363643510035
+      ],
+      "volume_mm3": 41134.69132871125,
+      "mass_est_g": 37.41200176346288,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 41134.69132871125,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "lens_collar",
+      "kind": "printed",
+      "mesh": "lens_collar.json",
+      "bbox_mm": [
+        -2.702657421804093,
+        8.61915600975469,
+        -30.00000010000003,
+        25.01216841214143,
+        24.387031174279212,
+        96.11316352205797
+      ],
+      "volume_mm3": 11137.500086904094,
+      "mass_est_g": 11.91712509298738,
+      "source": "candidate-vertical/model.py + baseline sources",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 11137.500086904094,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "power_button",
+      "kind": "cots",
+      "mesh": "power_button.json",
+      "bbox_mm": [
+        -29.03631473576077,
+        -10.963685264239233,
+        -1.4055944616928158,
+        33.00631473576077,
+        16.46368526423923,
+        34.53631473576077
+      ],
+      "volume_mm3": 7192.062199030054,
+      "mass_est_g": 4.6,
+      "source": "Adafruit1505 normally-open momentary black signal switch; vendor max18.06\u00d718\u00d729.4mm conflicts with drawing24.8mm; reserve full29.4mm behind flange plus5mm button; panel thread and profile measured gate open",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 7192.062199030054,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "power_nut_reserve",
+      "kind": "hardware",
+      "mesh": "power_nut_reserve.json",
+      "bbox_mm": [
+        -31.007692347327623,
+        -8.992307652672379,
+        22.192307652672376,
+        25.207692347327622,
+        14.492307652672379,
+        36.50769234732762
+      ],
+      "volume_mm3": 522.0384512470159,
+      "mass_est_g": 0.8,
+      "source": "UNVERIFIED nut reserve: OD22\u00d73; vendor drawing omits nut dimensions; fit gate required",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 522.0384512470159,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_panel1",
+      "kind": "hardware",
+      "mesh": "p_panel1.json",
+      "bbox_mm": [
+        -131.50209798563483,
+        -125.49790201436517,
+        13.598950957182572,
+        28.00209798563483,
+        44.997902014365174,
+        51.002097985634826
+      ],
+      "volume_mm3": 149.27940296446397,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 149.27940296446397,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_panel2",
+      "kind": "hardware",
+      "mesh": "p_panel2.json",
+      "bbox_mm": [
+        -136.00209798563483,
+        -129.99790201436517,
+        13.598950957182572,
+        28.00209798563483,
+        88.69790201436517,
+        94.70209798563484
+      ],
+      "volume_mm3": 149.27940296446403,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 149.27940296446403,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_panel3",
+      "kind": "hardware",
+      "mesh": "p_panel3.json",
+      "bbox_mm": [
+        -13.802097985634807,
+        -7.797902014365195,
+        13.598950957182597,
+        28.002097985634805,
+        5.297902014365195,
+        11.302097985634807
+      ],
+      "volume_mm3": 149.2794029644639,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 149.2794029644639,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_panel4",
+      "kind": "hardware",
+      "mesh": "p_panel4.json",
+      "bbox_mm": [
+        -13.802097985634814,
+        -7.797902014365187,
+        13.59895095718259,
+        28.002097985634812,
+        88.69790201436518,
+        94.70209798563482
+      ],
+      "volume_mm3": 149.27940296446388,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 149.27940296446388,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_carrier1",
+      "kind": "hardware",
+      "mesh": "p_carrier1.json",
+      "bbox_mm": [
+        -130.00209798563483,
+        -123.99790201436517,
+        7.798950957182571,
+        22.20209798563483,
+        65.99790201436517,
+        72.00209798563483
+      ],
+      "volume_mm3": 149.27940296446394,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 149.27940296446394,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_carrier2",
+      "kind": "hardware",
+      "mesh": "p_carrier2.json",
+      "bbox_mm": [
+        -28.00209798563481,
+        -21.99790201436519,
+        7.798950957182595,
+        22.202097985634808,
+        5.997902014365192,
+        12.002097985634808
+      ],
+      "volume_mm3": 149.27940296446388,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 149.27940296446388,
+      "volume_semantics": "shape volume"
+    },
+    {
+      "id": "p_grip",
+      "kind": "hardware",
+      "mesh": "p_grip.json",
+      "bbox_mm": [
+        -114.00209798563482,
+        -107.99790201436518,
+        -25.002097985634816,
+        -18.997902014365184,
+        -4.402097985634816,
+        10.001049042817415
+      ],
+      "volume_mm3": 147.25273085906073,
+      "mass_est_g": 0.8,
+      "source": "PT 3x12 PH1",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "material/source proxy",
+      "occupied_material_volume_mm3": 147.25273085906073,
+      "volume_semantics": "shape volume"
+    }
+  ],
+  "sources": {
+    "candidate-vertical/model.py": "fbd37c1669cc09aab11299b5a23632af39a38b3c699e43365a35d67d69153204",
+    "candidate-vertical/export_candidate.py": "8dd18584fe5c7d6cc60bb17232829ec3cee60ddb009b4416b4e3434286bcd58a",
+    "candidate-vertical/power_geometry.py": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+    "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "candidate-vertical/structure_geometry.py": "22243dec9a95e7703703fe2986889ed71676a153856e2da6cdda27bf172b9c0a",
+    "candidate-vertical/strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
+    "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "candidate-vertical/official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+    "candidate-vertical/official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+    "candidate-vertical/official_pi5_assembly.py": "ffae358f5c4b882b92ab73ee6519da76eff810fd1e4ee3a1a400c018fea01055",
+    "candidate-vertical/make_corrected_pi.py": "0bb0b4e344d7834e32ac3ce59d84e8fa5369468b1ca6541ba5fd8ee17c11113d",
+    "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
+    "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "candidate-vertical/out/source-components/pi5-corrected.json": "20ae009dc1f160b0c57fba0d0d7b02aa8a4040f3aea918eb35281b9329e9cd12",
+    "candidate-vertical/out/source-components/pi5-corrected.step": "25539a025c8cc7f4924a3eef05db1b8f2285e06b341542b057e2ce005422442e",
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
+    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
+    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
+    "test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
+    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
+    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
+    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
+    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
+    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
+    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
+    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
+    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
+    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
+    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324"
+  },
+  "core_dimensions_mm": [
+    158.0,
+    56.0,
+    100.0
+  ],
+  "complete_bbox_mm": [
+    -191.61645213603123,
+    57.21748248029005,
+    -30.00000010000003,
+    37.21448280637205,
+    -116.01276107883538,
+    100.80825947424819
+  ],
+  "complete_dimensions_mm": [
+    248.83393461632127,
+    67.21448290637207,
+    216.82102055308357
+  ],
+  "complete_bbox_volume_mm3": 3626384.526155829,
+  "mass_est_g": 831.3793077015797,
+  "com_est_mm": [
+    -45.28817385175416,
+    2.1811738443069633,
+    29.04781120030539
+  ],
+  "grip_axis_x": -47.0,
+  "com_offset_from_grip_mm": 1.7118261482458408,
+  "qualification": "Computed geometry only. COTS proxies, mass and centre of mass are estimates. The legacy12g XT30/fused-pigtail mass is concentrated at its rigid proxy; other harness masses are excluded. The270mm16AWG distributed mass and actual weights remain unmeasured. No physical qualification claimed.",
+  "fps_geometry": {
+    "part": "Lorlin CK1044",
+    "source": "https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf",
+    "body_diameter_mm": 27.5,
+    "body_axial_mm": 14.1,
+    "mounting_face_y": 25.2,
+    "bushing": {
+      "diameter_mm": 9.52,
+      "thread": "3/8-32 imperial",
+      "projection_mm": 8
+    },
+    "shaft": {
+      "stock_length_from_mounting_face_mm": 38,
+      "diameter_mm": 6.35,
+      "flat_across_mm": 5.5,
+      "flat_length_mm": 30,
+      "trim_end_y": 37.0,
+      "trim_length_from_mounting_face_mm": 11.8,
+      "nominal_flat_engagement_after_recess_mm": 3.549999999999997
+    },
+    "detents": {
+      "travel_deg": 30,
+      "stop_positions": 2,
+      "pointer_deg": [
+        -15,
+        15
+      ],
+      "flat_position1_deg": 90,
+      "wiring": "A and throw2:position1 open/high=18fps;position2 closed/low=24fps. Verify molded labels and continuity."
+    },
+    "pin_count": 13,
+    "pin_centres": [
+      {
+        "id": "1",
+        "x": -108.12710859936202,
+        "z": 69.27822332819134
+      },
+      {
+        "id": "2",
+        "x": -103.15111472882933,
+        "z": 72.15111472882933
+      },
+      {
+        "id": "3",
+        "x": -100.27822332819134,
+        "z": 77.12710859936202
+      },
+      {
+        "id": "4",
+        "x": -100.27822332819134,
+        "z": 82.87289140063798
+      },
+      {
+        "id": "5",
+        "x": -103.15111472882933,
+        "z": 87.84888527117067
+      },
+      {
+        "id": "6",
+        "x": -108.12710859936202,
+        "z": 90.72177667180866
+      },
+      {
+        "id": "7",
+        "x": -113.87289140063798,
+        "z": 90.72177667180866
+      },
+      {
+        "id": "8",
+        "x": -118.84888527117067,
+        "z": 87.84888527117067
+      },
+      {
+        "id": "9",
+        "x": -121.72177667180866,
+        "z": 82.87289140063798
+      },
+      {
+        "id": "10",
+        "x": -121.72177667180866,
+        "z": 77.12710859936202
+      },
+      {
+        "id": "11",
+        "x": -118.84888527117067,
+        "z": 72.15111472882933
+      },
+      {
+        "id": "12",
+        "x": -113.87289140063798,
+        "z": 69.27822332819134
+      },
+      {
+        "id": "A",
+        "x": -108.2776388924318,
+        "z": 77.2776388924318
+      }
+    ],
+    "pin_projection_mm": 4,
+    "pin_radius_reserve_mm": 0.85,
+    "mass_note": "Original12g assembly estimate retained across body/nut/washer; actual supplied mass and stop-ring geometry remain unmeasured.",
+    "open_gates": [
+      "Actual pin section, PCB view/clocking and solder fanout",
+      "Supplied nut, mounting washer and stop/tang washer inventory and dimensions",
+      "Shaft trim/deburr, bore coupon, press/pull force and flat engagement",
+      "Two-position stop and actual18/24 continuity",
+      "Peg offset/projection tolerance, panel mounting torque and creep"
+    ]
+  },
+  "pi_source_geometry": {
+    "source_url": "https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-010083-CA-1-rpi-5%203D%20STEP%20-%20No%20Graphics%20small%20file.zip",
+    "source_sha256": "78164070c1cc7ab854382950d2e85926c6e35432f1e5a146b733397a7c6afb44",
+    "identity_url": "https://www.raspberrypi.com/app/uploads/2023/09/58f150c0-bd72-4e42-a77f-6be0890c8a80-1024x685.png",
+    "identity": {
+      "cam_disp0": "J3, nativeX55.205, Ethernet-side",
+      "cam_disp1": "J4, nativeX49.005, HDMI-side"
+    },
+    "nominal_native_exit_direction": [
+      0,
+      0,
+      1
+    ],
+    "nominal_candidate_exit_direction": [
+      0,
+      -1,
+      0
+    ],
+    "nominal_native_width_direction": [
+      0,
+      1,
+      0
+    ],
+    "nominal_candidate_width_direction": [
+      0,
+      0,
+      -1
+    ],
+    "direction_scope": "Directions follow the vertical opening/contact arrangement of the bare source connector. Actual fully inserted cable free-flex station/contact-side normal remains unassigned.",
+    "latch_scope": "Official installation instructions prescribe gently pulling the flap out, then tilting away from the opening. The STEP has only one static pose; travel and open-latch swept volume are not dimensioned.",
+    "physical_qualified": false,
+    "selected_cable_width_reservation_mm": 16,
+    "remaining": [
+      "Source model is guidance only, may differ from received hardware",
+      "No guessed connector SKU",
+      "Cable engagement/stiffener/transition and contact clocking",
+      "Latch travel/tool jaws",
+      "Physical fit and laminate capability"
+    ],
+    "landmark_scope": "Four-hole registered port envelopes, both CSI assemblies, actual cooler board holes and an exterior upper USB2 head reservation",
+    "nominal_matrix": [
+      [
+        -1,
+        0,
+        0,
+        -34
+      ],
+      [
+        0,
+        0,
+        -1,
+        3.7
+      ],
+      [
+        0,
+        -1,
+        0,
+        63
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "cooler_hold": "Official RP-008187 drawing does not dimension fan-to-pin offsets or complete outline. Retain32.3614mm3 CSI/coarse-cooler conflicts until received-part geometry is registered.",
+    "changed_claims": [
+      "Inherited RJ45 and USB2 rows were reversed",
+      "Inherited second HDMI had the wrong sign of its spacing",
+      "Old CSI proxy had only one short connector and an unsupported departure direction",
+      "Four cooler feet were estimated; actual board has two cooler mounting holes"
+    ]
+  },
+  "joint_geometry": {
+    "lip_mm": 2.4,
+    "head_mm": 2.4,
+    "axial_gap_mm": 0.25,
+    "front_floor_min_mm": 2.7,
+    "physical_qualified": false
+  },
+  "files": {
+    "step/c_cs_adapter.step": "5bf4666a87a89e9ce275a9d14a569d61eb394e5d2efee314ca9ce73470e16d05",
+    "step/eyepiece.step": "fe1630ac5daf0b3ddf13825e275ead89aeae0dc35ad1d5e1a914613d70bd8545",
+    "step/p_carrier1.step": "59affc35eaa80e448864b903a5b629499acf9718abffaed2de91a0d1be06a5f5",
+    "step/knob_fps.step": "db0af6aad1af0ccaa1c0fbe985805987c72d52382a8a1e384cdc45891968f689",
+    "step/power_button.step": "7915498b6cfee66232d6e060859571d3ffca3e54ba57bb20e77d855401317b3b",
+    "step/fps_mounting_washer.step": "729bddc958cf91b8eba098386e79bf5436d5e095d4b9ba6742244dc108348f26",
+    "step/eyecup.step": "48564ca376876b19732914ed76353ec715d8de21ee66a5cb57e1d06083172729",
+    "step/s_c4.step": "e30893f808584f878d9a98daee5c91658a15fbc1f03656c674fdf009ab9b05e5",
+    "step/cooler.step": "64eccaa2ed034b4905f25e7eb6098cb21eb77c937c1462b2c818ce4a26eeb59d",
+    "step/usb_storage_plug_reserve.step": "d097e6a6e6d4276dd9b01277efde241d1e7c170bae6908289f27dabc3a2652fa",
+    "step/p_panel4.step": "d44be6ddd3278840d8b9b31ad224f2c86c1dff8b51ed4605e08741d2f41b2dfb",
+    "step/x1203.step": "b89125337be326e6bb19170e4312fc7b6308416ed560a66c3e37da2a226f645a",
+    "step/power_nut_reserve.step": "d8f89b214c2a27f59df25a0b4c2407b5a5d9cbe2d2b9547d7055de572740e9a1",
+    "step/run_button.step": "69196f1d9b3f84ce30c8aebe167ec185897c67e6c708b1e038ad8a7646ce1392",
+    "step/centring_gauge.step": "c2f1fb13fef500eba0011823de4afcf6eda7f6ed06e17414d2e01c202e9cc696",
+    "step/panel.step": "3b808f3bb15c59e8aa6be9d04afa52ddf69f7a80ecdf9f5f3349a32fff7f8455",
+    "step/x1203_kit.step": "b48e99307abf4e66822bb3656b6a680165b350bbb8bf9f8cfdd21cb4071c733b",
+    "step/p_panel3.step": "fe1d90fde35dbbc68ae64a1c6f84a8fb7aa4d087dbe9af5a0a3e153832ccee6c",
+    "step/p_panel1.step": "68b86698fd0fc4ddd1df6cedbcb1ca14af73a7ddc4ddf4380c3324e792bc573e",
+    "step/hmx039.step": "2fe9bc9e831b38532b414d77e951722ff97d26ac8823033b7bdb0de51d835c0d",
+    "step/cap.step": "3365179d48f9367ada7a0fa49f357589a40bdfa879e43fbb216c70464ecd7367",
+    "step/p_grip.step": "497a44469ff916d92b2e97e47b28c0d43a5f49259e2100e7ee9f606a79c6294f",
+    "step/s_c1.step": "de559c8a5dd5caf61a7a3e357cb077d9f66bb15e214cd6bb6aba20bca71deea0",
+    "step/evf_board.step": "94109805909a1866c7f7d0cb99a2d3bf704cd93416031f9beec06082fe64fc54",
+    "step/usb_stick.step": "129c1c605fb188628e5235cdde0ec5beb0242e8ddbc0d076d67088adc6d8e842",
+    "step/s_c2.step": "31b5c3451490ae3f527340a75d79c7ab812aa3a18561e2772284df4c71db86a9",
+    "step/switch_1824.step": "05bd7a4245e40565cb8c3ccb6a48652b1600eec7288d2fc1e2edf60c5890f490",
+    "step/strap.step": "d422b3fb0be4ea4f49f5ab04818ca958a9837eeb62241ee32c8531d0548fad40",
+    "step/tripod_nut.step": "4232d883202668f098178eb77dfdc5a941c3afd723097d893ea811ac5ebc0e05",
+    "step/foam_pad.step": "334e2fefae28902514b26adce3ce00f194f1e4dc5c656dc33769ceb7e9727319",
+    "step/base_grip.step": "e94fcc16d8adc7781951560ee66be797cad4ed66c74387fabd387ef9c2829dc0",
+    "step/lens_collar.step": "2551112d4e84f3e3e51c9cda999c3f083d6339d97b0fa8e943ec097de7bb42e3",
+    "step/s_c3.step": "7269253b78d8ff2aef5f3bdc864411a557dc19497cdcc911b9af05598fda7487",
+    "step/pack.step": "5cb19f9c27a8c3ea78870a5cdca9ce02742e83ece373af6aed687190238c8e06",
+    "step/p_panel2.step": "97cdcb21dfc493f12ba249da382012294f2c3fd372c470801e1157d8594acae1",
+    "step/lens.step": "02dd65470b7df38193c0b8e643951ff8ddb54f5a2a8f9c38f1f86c1dd87c0de3",
+    "step/tub.step": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
+    "step/carrier.step": "d38c594aab6076b6fd5dde67feede7acc5c5c11d83ebd6755e516a2f3dbfb114",
+    "step/pi5.step": "b971d6a64092e1d83daa486f6b5389f7a168855684107a48bde98fefcae83a8e",
+    "step/xt30_pair.step": "a4dffb2a192cf4b8741a00b2f908cacdaf38ad7740fbf8bbcf9246097c7b375d",
+    "step/knob_exp.step": "b97cc8543a4ca0f8f4523f9a7a86feef36d804f551d571593c822d0979c4135e",
+    "step/gs_camera.step": "9cfb1271fd0e13be2ef9c87b733c094f059a41f1efb45791dc6d3cc34fa255cb",
+    "step/p_carrier2.step": "d2c57e227ac0d1a4c1ea874ff7b2789b33bd25eeb7b178afb54b1e6a0098c1b2",
+    "step/microsd.step": "278248f93612909211966064ea4dccaad80d6df203456ca19f350da16c128599",
+    "step/encoder.step": "8e381a9679209a84ca669b22c12c091b7119f5f6fb6747481920ca3eddd0337c",
+    "step/fps_nut.step": "1311b72dcd469f69c3be06e4b41022a26d2979622bfefe944549101b8baed0d1",
+    "stl/carrier.stl": "abab22a32890ee0b7a522fded75ad59e42411040b613232590d80ff5651af5f2",
+    "stl/panel.stl": "f0f88b7628bf0e5ff628de3110bc015185b794dcb5a1fde17b31fc427e944b94",
+    "stl/base_grip.stl": "1e099f67616c334278c64a1769c46d59adb8fbaab973b5370dfdd02f9f8dc685",
+    "stl/cap.stl": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
+    "stl/tub.stl": "9c9b6fae37e43672e330cf674155536cda378707831b620840596c58540ef31e",
+    "stl/lens_collar.stl": "5e9bf7ba6002db80e56a93bdda24408ba714b6fb3166135a7fa81fbea373b5ed",
+    "stl/centring_gauge.stl": "fc46a972019428f886b1ac0fd9e8e1ac83c0c5b28af1d90f21fb88b7052e8352",
+    "stl/knob_fps.stl": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
+    "stl/knob_exp.stl": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
+    "stl/eyecup.stl": "900c1d06f9253acca9a1c03d6ec1e2f43f5c7bbd59097c04935188d2d060ec6e",
+    "meshes/microsd.json": "e941bff35db3b7fba76f5ae5a69a3ff2f831a4583fda07b4a38173e673f17370",
+    "meshes/strap.json": "f036f027e6f166c35c128f8f40fbe0b1fde09e684e043f82a496fb276602b412",
+    "meshes/run_button.json": "10e6fdd836f553c065a9850dec613801e464b065c11b4e4f50e2cdaf26fa925b",
+    "meshes/p_panel1.json": "91421882473f75b2f5852c74f1149a16916a3414431822eb8af7ad153dca7ddf",
+    "meshes/p_panel3.json": "ba04ef8e8e25c17bd18fc0229d102c43d3b735bb441b18bf0e6fffc6e8843fc7",
+    "meshes/x1203_kit.json": "95973d39cd08cc9a21f7730e0d9e5f3223b89468cd5dc0436f406d9f6fd0a817",
+    "meshes/eyecup.json": "57d8f0dffbd0212233cf72276b132ee43271f67b924506058006589252aa33cf",
+    "meshes/eyepiece.json": "baf47255e3c10c092b4c69f314726876823e0f5161b66b59b14a8d63793dd6de",
+    "meshes/hmx039.json": "c89398ac45b1399a85a32864c3f84685ccd23740a219558a348c80ba9c785baa",
+    "meshes/foam_pad.json": "4e00122903e31e02034c2e0f07accd8710f535fda6b576afc755441c73e874d1",
+    "meshes/tub.json": "a70e91db503e8ed05ebaab769796aceeccc22a3d32ff37738c78c875dc6a641a",
+    "meshes/p_carrier1.json": "a0697c12db66de6c971875cc2dafff976471be5caa0dc6c43ad3bf698ad0fd17",
+    "meshes/cooler.json": "97c2699c4c10b95d6039135719dac25daa86ca4d1daf0e7af8699e9023ff68b7",
+    "meshes/power_button.json": "b44c7cf2d42eff76efd3971c6e9a4b5f6d965da40633d92b4ee2e30ed0b10d99",
+    "meshes/pack.json": "679dd7da50663ccbe275e99fdc309d6a9875cf38edac8ffa95d87cfad31c0ff6",
+    "meshes/fps_nut.json": "5b2daab2c4e5cebd23ec6347a02df44d15dc4f33de549bcb6d174201f08fed90",
+    "meshes/x1203.json": "0a01820ce6fc843e0397e8d4cba23565f5a9bb8f29d3cc8f1cf5611d4e1fb4e3",
+    "meshes/c_cs_adapter.json": "6b0ffe2c19511c3023bc400fa60c80a7c79f3619b9b4842e6411f7ab074c34da",
+    "meshes/cap.json": "b380e85e4a434c8dca0a87c3669b194382069f269c7a38f3c3b4d3a989433359",
+    "meshes/encoder.json": "3ada1ccd552595fd765c9c8967eeb3548af99cf300ad7f2cbfd0636b8f93d399",
+    "meshes/xt30_pair.json": "9bdbe9e230feb47f7a726ed74f3da2966e4610918ef61771854edc2b0c2d0b41",
+    "meshes/knob_fps.json": "98c0531f1781e4b032e756d4e71dcc921e810b59662d244a4ae377d73d7c6be2",
+    "meshes/p_panel2.json": "a3bbec5aaa83fd3c95ef45a3565e1ddf5e0278c0c699ae1b4cf571fcec434f34",
+    "meshes/power_nut_reserve.json": "f0639d4078d9b16c69a32543764388b97c6bcfeef4d7010b408e6284aaaa29cd",
+    "meshes/evf_board.json": "3c024bf4ee434a70b4938662747432fbd456fb434745d35f82b298f9c28bf664",
+    "meshes/panel.json": "73825358da4fbdd2d49f72961b3e4ea3b8571c2d0855e15601258a219a6a7a7d",
+    "meshes/base_grip.json": "7ec1e93cbe8f696e683aaeb413463133d0005f1022a17b0e1d739282aa47eea0",
+    "meshes/carrier.json": "0e53beaf1003509a367e504ce0980e31445d08cd9ab2db95316dde9e1e795576",
+    "meshes/s_c3.json": "26ccf854e8caeead21d188f2339fca892d9cef64998ad61946ed6c9fea1a0765",
+    "meshes/fps_mounting_washer.json": "0fc5cd6af5ade2148195cdc5d84d0f20fd119bf921617abc57c5d40babca2f07",
+    "meshes/s_c4.json": "879b28d0227d30710ffe2357bc1660dc813f805ed387c44dcc657af4495b4302",
+    "meshes/p_panel4.json": "4ea43717c9060041a89fca8f358d744f1baa2bd4d768b373e25ee49cd6045d76",
+    "meshes/pi5.json": "d0f843f33bc4e455711b98645b6976fa7ee41277bd934efafedc167577bec943",
+    "meshes/switch_1824.json": "be8b8c5b474e7416b1bbebb3220deca3365528f649189ec6026377d397bcb085",
+    "meshes/usb_stick.json": "d3df903a813641602f2357f656c95ca8407841ce50c298c4c61664aff7915388",
+    "meshes/tripod_nut.json": "5e0efe0ff10cd96f900c8f6fdfb7aadff470e9768ff7d7df1c01bd3d9b996c02",
+    "meshes/s_c1.json": "b35fc3c4e1f4bfebdb4441e629982ea682e68ef3b024d3f6bf7154ab6ecc28c2",
+    "meshes/p_carrier2.json": "fdf3e62a44c7b3361668093d4e2b99d614c8873c759ea565f340c3ea448c3795",
+    "meshes/gs_camera.json": "e9212ee98b5882cf9fd415fa6fdc16d4f127e0f3086899be01402b918cde31d3",
+    "meshes/p_grip.json": "9173853591f1eb621f6b9a243ef8c68f9463dee5e83cf893b8abadb192989f16",
+    "meshes/lens.json": "d4a148ecd28faaaf8f169be9fd9f7ddfed06e23e8437f73c74cc949bae973b5f",
+    "meshes/usb_storage_plug_reserve.json": "85edde8372c050943ae742e8543d2438c095c9a270909c2844944cbacd5a8ca1",
+    "meshes/s_c2.json": "8c0b5cc9abaccbbd5e6bf95a327bd7ee2d15430db0857827455338302ad30e7d",
+    "meshes/lens_collar.json": "3562e21f12d5519fd24558831798f832f504c54b4c32aa7ccc47bffb8264b7f0",
+    "meshes/knob_exp.json": "8882ecbf8b72682f992af8b50ed186f9e14022c856764c212f113c06101d5e11",
+    "assembly.step": "8fd8aa10e607a6b5c54dac852b4020d0746640fccc2128b444585977d41aa18e"
+  }
+}

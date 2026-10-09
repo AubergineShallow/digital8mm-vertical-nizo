@@ -1,0 +1,10 @@
+{
+  "status": "PROVISIONAL stored-shape/pocket and rigid-service geometry; root transitions, printed ligaments and full flexible service are not passed",
+  "source_hashes": {
+    "routes.py": "e252ef0b48a5b64975aff4fea00761f7465d55a8f4833623a513c88857104b73",
+    "power_routes.py": "3359f7c50af0568696d7a78e97345c7ea3a5df3b067190638c595531c95e8971"
+  },
+  "main_model_hash": "c762c870e62814733f4b03faabab99bda42daeb717e78daba9522bdf684dd16f",
+  "json_sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+  "bytes": 393116
+}

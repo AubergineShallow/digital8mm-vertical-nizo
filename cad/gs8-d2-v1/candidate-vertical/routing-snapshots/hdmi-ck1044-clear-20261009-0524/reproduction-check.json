@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "state": "hdmi_installed",
+      "identical": true,
+      "cells": 2283,
+      "material_mm": 300.0,
+      "fold_radius_mm": 3.0,
+      "post_radius_mm": 5.0,
+      "natural_u_radius_mm": 5.5
+    },
+    {
+      "state": "hdmi_premate",
+      "identical": true,
+      "cells": 2283,
+      "material_mm": 300.0,
+      "fold_radius_mm": 3.0,
+      "post_radius_mm": 5.0,
+      "natural_u_radius_mm": 5.5
+    },
+    {
+      "state": "hdmi_both_unplugged",
+      "identical": true,
+      "cells": 2322,
+      "material_mm": 300.0,
+      "fold_radius_mm": 3.0,
+      "post_radius_mm": 5.0,
+      "natural_u_radius_mm": 3.0
+    }
+  ],
+  "sampled_poses": 50,
+  "archived_math_only": true,
+  "source_sha256": "e8788fc1f7a0d6768dbdada933f1ae750745c3d19bfe7e901435929705f15283",
+  "snapshot_input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "physical_qualified": false
+}

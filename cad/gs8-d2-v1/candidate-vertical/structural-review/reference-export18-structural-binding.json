@@ -1,0 +1,164 @@
+{
+  "purpose": "Integrated-export source and critical-section equivalence; not physical qualification",
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "built_utc": "2026-10-09T07:46:39Z",
+  "estimated_mass_g": 831.3793077015797,
+  "estimated_com_mm": [
+    -45.28817385175416,
+    2.1811738443069633,
+    29.04781120030539
+  ],
+  "parts": {
+    "base_grip": {
+      "sha256": "e94fcc16d8adc7781951560ee66be797cad4ed66c74387fabd387ef9c2829dc0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 66883.96633610575
+    },
+    "tub": {
+      "sha256": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 134777.50809510006
+    },
+    "carrier": {
+      "sha256": "d38c594aab6076b6fd5dde67feede7acc5c5c11d83ebd6755e516a2f3dbfb114",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8784.067479687099
+    },
+    "lens_collar": {
+      "sha256": "2551112d4e84f3e3e51c9cda999c3f083d6339d97b0fa8e943ec097de7bb42e3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11137.50008691175
+    },
+    "panel": {
+      "sha256": "3b808f3bb15c59e8aa6be9d04afa52ddf69f7a80ecdf9f5f3349a32fff7f8455",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 41134.69136222837
+    }
+  },
+  "critical_region_comparisons": [
+    {
+      "region": "complete reinforced carrier",
+      "reference_sha256": "0befe19c07e62b430d691c7b263e1b0aeed41f3a254685b7cffe3e1c943dd268",
+      "bounds_mm": null,
+      "final_only_mm3": 0.0,
+      "reference_only_mm3": 0.0,
+      "equivalent_within_1e_4_mm3": true
+    },
+    {
+      "region": "selected complete reinforced grip",
+      "reference_sha256": "2e69b5e5d427ee2844e4644163be5efbe7d371dfc7d3dff45b6a4378062ccf41",
+      "bounds_mm": null,
+      "final_only_mm3": 0.0,
+      "reference_only_mm3": 0.0,
+      "equivalent_within_1e_4_mm3": true
+    },
+    {
+      "region": "J4 tongue heads and necks below floor",
+      "reference_sha256": "5212d50370a40d9316a6ea0399105d2cf21ab958a8d52e4d847dda5f174c68f8",
+      "bounds_mm": [
+        -160,
+        1,
+        -28,
+        28,
+        -5.2,
+        -0.01
+      ],
+      "final_only_mm3": 0.0,
+      "reference_only_mm3": 0.0,
+      "equivalent_within_1e_4_mm3": true
+    },
+    {
+      "region": "selected FPS rest away from wall attachment",
+      "reference_sha256": "2f46173f6bfdd20af94202a88926df51a8497cb42f96976e69e94bbb244a02ac",
+      "bounds_mm": [
+        -112.5,
+        -105.7,
+        -25.49,
+        24.5,
+        57.99,
+        67
+      ],
+      "final_only_mm3": 0.0,
+      "reference_only_mm3": 0.0,
+      "equivalent_within_1e_4_mm3": true
+    },
+    {
+      "region": "complete panel with relocated screw seat",
+      "reference_sha256": "d3c4c0c5a926062c588f07630fb2fae3b4f121c33dbbb5dda416b0af44b79299",
+      "bounds_mm": null,
+      "final_only_mm3": 0.0,
+      "reference_only_mm3": 0.0,
+      "equivalent_within_1e_4_mm3": true
+    },
+    {
+      "region": "complete tub with relocated post, tapered root and corner landing",
+      "reference_sha256": "31288d9378aa6124f063150f8508fb384918e4a32e3dc3fad131e6d3ae00c560",
+      "bounds_mm": null,
+      "final_only_mm3": 0.0,
+      "reference_only_mm3": 0.0,
+      "equivalent_within_1e_4_mm3": true
+    }
+  ],
+  "pi_mass_proxy": {
+    "step_sha256": "b971d6a64092e1d83daa486f6b5389f7a168855684107a48bde98fefcae83a8e",
+    "mass_g": 46.0,
+    "centroid_mm": [
+      -85.38759778061174,
+      1.181813958697429,
+      36.308036184050216
+    ],
+    "geometry_role": "overlapping named source-component assembly",
+    "volume_semantics": "sum of overlapping solid volumes, not occupied material",
+    "note": "The listed component mass remains fixed. The CAD centroid of the overlapping source-component assembly is only a mass-location proxy, not a measured or density-weighted Pi centre of gravity."
+  },
+  "integrated_upper_body_screen": {
+    "estimated_mass_g": 640.4286994679117,
+    "estimated_com_mm": [
+      -43.31575226230313,
+      3.124398656149646,
+      54.777670930873484
+    ],
+    "5g_force_N": 31.40230052818498,
+    "5g_floor_Mx_Nmm": 1720.1448848053112,
+    "force_per_tensile_lip_N": 27.522318156884978,
+    "lip_stress_MPa": 8.511133544609612,
+    "head_wing_stress_MPa": 9.407042338779046,
+    "load_assumptions": "Same exclusions, Kowa lens CG assumption and equal tongue sharing as baseline report; unmeasured.",
+    "rear_neck_nominal_MPa": 1.1088667957094493,
+    "conditional_floor_nominal_MPa": 6.374062780996284
+  },
+  "integrated_comparison_loads": {
+    "carrier_payload_g": 122.59895220326626,
+    "carrier_half_5g_force_N": 3.0057125365604027,
+    "carrier_original_at_integrated_payload": {
+      "stress_MPa": 18.82407050061773,
+      "deflection_mm": 3.6916093815100317
+    },
+    "carrier_reinforced_at_integrated_payload": {
+      "stress_MPa": 3.388332690111191,
+      "deflection_mm": 0.3986938132030834
+    },
+    "grip_force_N": 40.765229439358485,
+    "grip_lever_mm": 109.77767093087348,
+    "grip_moment_Nmm": 4475.111942815452,
+    "grip_nominal_stress_x_y_MPa": [
+      1.520626281678589,
+      1.6157086512609622
+    ],
+    "inherited_lip_at_integrated_load_MPa": 19.150050475371625,
+    "inherited_head_at_integrated_load_MPa": 16.72363082449608
+  },
+  "unresolved_wiring_mass_sensitivity": {
+    "mass_g": 12,
+    "upper_bound_height_mm": 100,
+    "added_5g_moment_Nmm": 58.8399,
+    "chosen_equal_share_joint_coupon_moment_Nm": 0.9,
+    "warning": "0.90Nm is not a70percent-reaction bound; unequal sharing remains a separate sensitivity and whole-assembly test."
+  },
+  "all_critical_regions_equivalent": true
+}

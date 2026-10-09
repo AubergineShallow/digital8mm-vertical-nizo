@@ -1,3 +1,8 @@
-# Store every file byte-for-byte. Build receipts and verification records hash the exact bytes of sources,
-# outputs and docs, so any line-ending conversion on commit or checkout would break them on a fresh clone.
-* -text
+# Treat generated CAD and document artifacts as opaque review assets.
+*.step -diff -text
+*.stp -diff -text
+*.stl -diff -text
+*.pdf -diff -text
+*.png -diff -text
+*.ttf -diff -text
+*.docx -diff -text

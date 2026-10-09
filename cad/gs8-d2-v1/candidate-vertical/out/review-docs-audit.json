@@ -1,0 +1,903 @@
+{
+  "generated_utc": "2026-10-09T15:49:33Z",
+  "scope": "File/source identity, recorded statuses and BOM/document consistency only; no geometry rerun or physical qualification.",
+  "variants": [
+    {
+      "variant": "compact-kowa_lm6hc",
+      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "sources": {
+        "checked": 71,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "files": {
+        "checked": 102,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "mesh_manifest_identical": true,
+      "printed_count": 9,
+      "expected_printed_count": 9,
+      "printed_valid_one_solid": true,
+      "pi_representation": {
+        "geometry_role": "overlapping named source-component assembly",
+        "solid_count": 149,
+        "volume_semantics": "sum of overlapping solid volumes, not occupied material",
+        "occupied_material_volume_mm3": null
+      },
+      "keepouts_non_material": true,
+      "reports": [
+        {
+          "path": "out/compact-kowa_lm6hc/verification.json",
+          "sha256": "6c2a96db753347696ab1b5d42751783aa5faafa10c6e3b72ef8b3148650d795f",
+          "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_candidate.py",
+          "verifier_hash_current": true,
+          "summary": {
+            "pass": 292,
+            "fail": 1,
+            "info": 18
+          },
+          "physical_qualified": false,
+          "failed_checks": [
+            {
+              "category": "interference",
+              "id": "pi5/cooler",
+              "status": "fail",
+              "overlap_mm3": 79.902671,
+              "bbox": [
+                -100.8,
+                -56.203553292294,
+                -1.2,
+                4.5,
+                15.05,
+                56.25
+              ],
+              "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."
+            }
+          ]
+        },
+        {
+          "path": "out/compact-kowa_lm6hc/print-mesh-checks.json",
+          "sha256": "2e4e865cbc2571d4d878512d38d95e8003193aa6b3097b790e80137b6d285aaa",
+          "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_print_meshes.py",
+          "verifier_hash_current": true,
+          "pass_count": 10,
+          "fail_count": 0
+        },
+        {
+          "path": "out/compact-kowa_lm6hc/csi-source-tool-checks.json",
+          "sha256": "325d92a7a2351025ca558c2d8f58a73c6281fa3aebb5e153eb9d5f0e16beea26",
+          "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_csi_source.py",
+          "verifier_hash_current": true,
+          "physical_qualified": false,
+          "operational_status": "HOLD",
+          "declared_rigid_reservation_clear": true,
+          "failed_checks": []
+        },
+        {
+          "path": "out/compact-kowa_lm6hc/power-service-checks.json",
+          "sha256": "7c72c8b08db8e90ffb4199c31fd02179f7ee4fea1c5368771659bbe5a5516e55",
+          "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_power_service.py",
+          "verifier_hash_current": true,
+          "status": "pass",
+          "physical_qualified": false,
+          "poses": 201,
+          "exact_intersections": 659,
+          "hits": []
+        },
+        {
+          "path": "out/compact-kowa_lm6hc/hdmi-solid-checks.json",
+          "sha256": "3673f7a247d396cf5b60840d2961d3005c37960483ce24134dd782c20a323794",
+          "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_hdmi.py",
+          "verifier_hash_current": true,
+          "summary": {
+            "pass": 6,
+            "fail": 0,
+            "info": 0
+          },
+          "physical_qualified": false,
+          "failed_checks": []
+        },
+        {
+          "path": "out/compact-kowa_lm6hc/wire-solid-checks.json",
+          "sha256": "5b4b0d15dedb4db172e53e0da18955828d62ba91735b42f6e2320fbdcb5968b0",
+          "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_wire_solids.py",
+          "verifier_hash_current": true,
+          "status": "pass",
+          "physical_qualified": false
+        }
+      ]
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+      "sources": {
+        "checked": 71,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "files": {
+        "checked": 102,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "mesh_manifest_identical": true,
+      "printed_count": 9,
+      "expected_printed_count": 9,
+      "printed_valid_one_solid": true,
+      "pi_representation": {
+        "geometry_role": "overlapping named source-component assembly",
+        "solid_count": 149,
+        "volume_semantics": "sum of overlapping solid volumes, not occupied material",
+        "occupied_material_volume_mm3": null
+      },
+      "keepouts_non_material": true,
+      "reports": [
+        {
+          "path": "out/compact-fujinon_hf6xa/verification.json",
+          "missing": true
+        },
+        {
+          "path": "out/compact-fujinon_hf6xa/print-mesh-checks.json",
+          "sha256": "07118aba2146bec3a75ac2f6a2f35551f20f058c6a0c85447ce5ada337d8bd15",
+          "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_print_meshes.py",
+          "verifier_hash_current": true,
+          "pass_count": 10,
+          "fail_count": 0
+        }
+      ]
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+      "sources": {
+        "checked": 71,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "files": {
+        "checked": 105,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "mesh_manifest_identical": true,
+      "printed_count": 10,
+      "expected_printed_count": 10,
+      "printed_valid_one_solid": true,
+      "pi_representation": {
+        "geometry_role": "overlapping named source-component assembly",
+        "solid_count": 149,
+        "volume_semantics": "sum of overlapping solid volumes, not occupied material",
+        "occupied_material_volume_mm3": null
+      },
+      "keepouts_non_material": true,
+      "reports": [
+        {
+          "path": "out/original-kowa_lm6hc/verification.json",
+          "missing": true
+        },
+        {
+          "path": "out/original-kowa_lm6hc/print-mesh-checks.json",
+          "sha256": "1ea0852116e21518ce43905b0cb81d292a9144fafd353b0e1be261ec68942815",
+          "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+          "same_manifest": true,
+          "evidence_role": "current manifest-bound scoped evidence",
+          "verifier_file": "verify_print_meshes.py",
+          "verifier_hash_current": true,
+          "pass_count": 11,
+          "fail_count": 0
+        }
+      ]
+    }
+  ],
+  "physical_qualified": false,
+  "bom": {
+    "rows": 131,
+    "baseline_rows_preserved": 70,
+    "included_decomposition_rows": 34,
+    "generator_outputs_current": true,
+    "invalid_parent_references": [],
+    "missing_local_sources": [],
+    "cad_imported": false,
+    "not_a_physical_total": true,
+    "installed_categories": {
+      "printed_compact": 9,
+      "printed_original": 10,
+      "body_pt_screws": 7,
+      "stack_screws": 8,
+      "stack_standoffs": 4,
+      "cooler_push_pins": 2,
+      "lens_screws": 4,
+      "lens_washers": 4,
+      "lens_inserts": 4,
+      "functional_harnesses": 11,
+      "hdmi_purchased_pieces": 3,
+      "planned_solder_joints": 24
+    }
+  },
+  "documents": [
+    {
+      "path": "README.md",
+      "sha256": "12f7ecaf6564ef5aa871ed4c028f6def3d349c7f1056440bd81e65434ecf36e8"
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "0a7fd7888d8414ae89e670e1996abe75bce4f5703e81ef06fb5bd9f48962d465"
+    },
+    {
+      "path": "CHECKPOINT-STATUS.json",
+      "sha256": "beb1021f7192e0c93265c276e457382b6b09e57c53f93b78ae39644ff9f17b7a"
+    },
+    {
+      "path": "REVIEW.md",
+      "sha256": "b65861783fb9df3c3df4806c4a7154cc5e52ae8f3639a42887f06344f4d4dba3"
+    },
+    {
+      "path": "ASSEMBLY-VERTICAL.md",
+      "sha256": "8765639e8c017c49b0bc2e92f59a98efce2e23e5c5bad3d473abfd05c86c1996"
+    },
+    {
+      "path": "MEASUREMENTS-TO-CLOSE.md",
+      "sha256": "76b0c63a3d27864ff0e509d1e59b901247c502b4e78c1cfa951d24453e4301ae"
+    },
+    {
+      "path": "make_bom_vertical.py",
+      "sha256": "b41016260ecab43dd762892b33d0a772f28c9f7641f7ca5bbbb5a5afa6b95388"
+    },
+    {
+      "path": "BOM-VERTICAL.md",
+      "sha256": "1140c37eb2eab4555de37fe104f976a5f8622ec7a7c5ad7d7544152e0d20179d"
+    },
+    {
+      "path": "BOM-VERTICAL.csv",
+      "sha256": "295feeca012709c870caa2dcae3cad8108c59f31cf62bad247be604deb43390e"
+    },
+    {
+      "path": "structural-review/CONCEALED-VENT-STRUCTURAL.md",
+      "sha256": "aa673fefcc05e5b4e31ac4711a90ee65ffedcffad7d8ff21c5a23d625d624ff2"
+    },
+    {
+      "path": "structural-review/concealed-vent-structural.json",
+      "sha256": "cd9fd62d27ad44be1a4010a0c66fa169d1355ecdbb0905c2171e92310e2f3976"
+    },
+    {
+      "path": "structural-review/update_concealed_vent_structure.py",
+      "sha256": "aa9e3f51115970bbf17f51b55053ea315787e610196fcb23597e04825e05b4fc"
+    },
+    {
+      "path": "structural-review/reference-export18-structural-binding.json",
+      "sha256": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc"
+    },
+    {
+      "path": "structural-review/coupons/README.md",
+      "sha256": "327864771d2a37d4152d3528dc981f036d317a4141f8d17e7f39f17c063ad580"
+    },
+    {
+      "path": "structural-review/coupon-reproducer-recovery.json",
+      "sha256": "20193d5344016d6526220fc83cc94c726c9bb3e475b6fd833884473ffe43e636"
+    }
+  ],
+  "missing_document_local_links": [],
+  "audit_source": {
+    "path": "review_docs_audit.py",
+    "sha256": "ab2655edd7f198e0a6c628d6cc343a54ea703768e9596b6a1a66fd4f72858aa5"
+  },
+  "selected_supplemental_reports": [
+    {
+      "path": "out/compact-kowa_lm6hc/microsd-service-dependency.json",
+      "sha256": "5119f0895490dca3c58a4928522448bf3b00393e0f3d2f016b7cc836f692cd87",
+      "same_primary_manifest": true,
+      "evidence_role": "current manifest-bound scoped evidence",
+      "verifier_file": "verify_microsd_service.py",
+      "verifier_hash_current": true,
+      "closed_panel_case": "REJECTED",
+      "selected_procedure": "Install OS microSD on bench before carrier insertion and retain it with the module. Any in-body +X extraction requires the panel and its power switch removed first; the main microsd_out check has only panel-removed scope. Real tool reach remains unqualified.",
+      "scope": "This diagnostic tests card versus conservative panel-switch body only, not a complete insertion or socket-mating qualification.",
+      "physical_qualified": false,
+      "hit_poses": 23,
+      "maximum_reported_overlap_mm3": 42.413909987063576
+    },
+    {
+      "path": "out/compact-kowa_lm6hc/wall-probe-context.json",
+      "sha256": "cc4b53494d71dbb4f50bed41cfbea810c466d7f90c8bcfad65d66a84834b8345",
+      "same_primary_manifest": false,
+      "evidence_role": "historical only; report manifest differs from current primary",
+      "verifier_file": "verify_wall_probe_context.py",
+      "verifier_hash_current": true,
+      "status": "pass",
+      "interpretation": "Main audit tub_right_wall ray is obsolete because it crosses the intentional CSI opening. Original 288/2/18 report is retained; this supplement checks only three adjacent actual STEP wall locations and the opening. It is not a global minimum-wall or structural qualification.",
+      "physical_qualified": false,
+      "checks": [
+        {
+          "id": "obsolete_ray_inside_CSI_opening",
+          "origin": [
+            -80,
+            -32,
+            50
+          ],
+          "end": [
+            -80,
+            -20,
+            50
+          ],
+          "material_span_mm": 0,
+          "spans": 0,
+          "expected": "empty designed slot",
+          "passed": true
+        },
+        {
+          "id": "wall_above_CSI_opening",
+          "origin": [
+            -80,
+            -32,
+            72
+          ],
+          "end": [
+            -80,
+            -20,
+            72
+          ],
+          "material_span_mm": 2.5,
+          "spans": 1,
+          "expected": "local wall >=1.6mm",
+          "passed": true
+        },
+        {
+          "id": "wall_ahead_of_CSI_opening",
+          "origin": [
+            -73,
+            -32,
+            50
+          ],
+          "end": [
+            -73,
+            -20,
+            50
+          ],
+          "material_span_mm": 2.5,
+          "spans": 1,
+          "expected": "local wall >=1.6mm",
+          "passed": true
+        },
+        {
+          "id": "wall_behind_CSI_opening",
+          "origin": [
+            -93,
+            -32,
+            50
+          ],
+          "end": [
+            -93,
+            -20,
+            50
+          ],
+          "material_span_mm": 2.5,
+          "spans": 1,
+          "expected": "local wall >=1.6mm",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "path": "out/fps-service-study/integrated-fps-checks.json",
+      "sha256": "af025a881fea58b34e9d497e1709e7d63533f1f3fd0500bd6ee7fa79e7c7e962",
+      "same_primary_manifest": true,
+      "evidence_role": "current manifest-bound scoped evidence",
+      "verifier_file": "verify_fps_integrated.py",
+      "verifier_hash_current": true,
+      "status": "geometric_pass_only",
+      "physical_qualified": false,
+      "material_checks": 332,
+      "material_hits": 0,
+      "nonmaterial_diagnostics": 9,
+      "nonmaterial_hits": 0,
+      "helper_bindings": {
+        "checked": 3,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "verification_dependencies": {
+        "checked": 1,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "step_bindings": {
+        "checked": 45,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "frozen_input_matches": true
+    },
+    {
+      "path": "out/fps-service-study/integrated-fps-export18-checks.json",
+      "sha256": "00e1f68a713bd1592d5df1ef0d572c8bda5bde935310163155c8f40d15e271eb",
+      "same_primary_manifest": false,
+      "evidence_role": "historical only; report manifest differs from current primary",
+      "verifier_file": "verify_fps_integrated.py",
+      "verifier_hash_current": true,
+      "status": "geometric_pass_only",
+      "physical_qualified": false,
+      "material_checks": 332,
+      "material_hits": 0,
+      "nonmaterial_diagnostics": 9,
+      "nonmaterial_hits": 0,
+      "helper_bindings": {
+        "checked": 3,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "verification_dependencies": {
+        "checked": 1,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "step_bindings": {
+        "checked": 45,
+        "missing": [],
+        "changed": [
+          "step/pi5.step",
+          "step/cooler.step",
+          "step/x1203.step",
+          "step/x1203_kit.step",
+          "step/gs_camera.step",
+          "step/c_cs_adapter.step",
+          "step/lens.step",
+          "step/eyepiece.step",
+          "step/hmx039.step",
+          "step/evf_board.step",
+          "step/usb_stick.step",
+          "step/encoder.step",
+          "step/switch_1824.step",
+          "step/run_button.step",
+          "step/pack.step",
+          "step/xt30_pair.step",
+          "step/tripod_nut.step",
+          "step/strap.step",
+          "step/microsd.step",
+          "step/foam_pad.step",
+          "step/usb_storage_plug_reserve.step",
+          "step/fps_nut.step",
+          "step/fps_mounting_washer.step",
+          "step/s_c1.step",
+          "step/s_c2.step",
+          "step/s_c3.step",
+          "step/s_c4.step",
+          "step/base_grip.step",
+          "step/cap.step",
+          "step/eyecup.step",
+          "step/knob_exp.step",
+          "step/knob_fps.step",
+          "step/carrier.step",
+          "step/tub.step",
+          "step/panel.step",
+          "step/lens_collar.step",
+          "step/power_button.step",
+          "step/power_nut_reserve.step",
+          "step/p_panel1.step",
+          "step/p_panel2.step",
+          "step/p_panel3.step",
+          "step/p_panel4.step",
+          "step/p_carrier1.step",
+          "step/p_carrier2.step",
+          "step/p_grip.step"
+        ],
+        "pass": false
+      },
+      "frozen_input_matches": true
+    }
+  ],
+  "report_inputs": {
+    "hdmi-solid-checks.json/snapshot_sha256": {
+      "path": "routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json",
+      "sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+      "matches_report": true
+    },
+    "power-service-checks.json/snapshot_sha256": {
+      "path": "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json",
+      "sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+      "matches_report": true
+    },
+    "wire-solid-checks.json/snapshot_sha256": {
+      "path": "routing-snapshots/power-csi-clear-20261009-0358/power-270-csi-clear.json",
+      "sha256": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
+      "matches_report": true
+    },
+    "wire-solid-checks.json/helper_source_sha256": {
+      "path": "power_geometry.py",
+      "sha256": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+      "matches_report": true
+    },
+    "csi-source-tool-checks.json/source_helper_sha256": {
+      "path": "official_pi5_geometry.py",
+      "sha256": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+      "matches_report": true
+    }
+  },
+  "assembly_comparison": {
+    "file": {
+      "path": "out/comparison/assembled-comparison.json",
+      "sha256": "acf410abeff6fba9630394d03ae6074ec96b0c7f6e5b22ccd514c0506099c6ff"
+    },
+    "current_producer_file": {
+      "path": "measure_comparison.py",
+      "sha256": "a2a3282da1bd614996ebf8ac288b0363af35fc155355736a3b938d15a6a11bae"
+    },
+    "candidate_manifest_bindings": [
+      {
+        "compact-kowa_lm6hc": true
+      },
+      {
+        "compact-fujinon_hf6xa": true
+      },
+      {
+        "original-kowa_lm6hc": true
+      }
+    ]
+  },
+  "core_void_reports": [
+    {
+      "path": "out/comparison/volume-compact-kowa_lm6hc.json",
+      "sha256": "003b52309e0246553dbbbdafd04a2588951dfdc3e00380551c82fe3e98cfc030",
+      "same_variant_manifest": true,
+      "verifier_hash_current": true,
+      "model_void_mm3": null,
+      "model_void_fraction": null,
+      "model_void_interval_cm3_outward_rounded": [
+        672,
+        689
+      ],
+      "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
+      "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."
+    },
+    {
+      "path": "out/comparison/volume-compact-fujinon_hf6xa.json",
+      "sha256": "758929cb204ef50f24c595f836c87f1d7fbf8e773a3655652d2996d63487ddf0",
+      "same_variant_manifest": true,
+      "verifier_hash_current": true,
+      "model_void_mm3": null,
+      "model_void_fraction": null,
+      "model_void_interval_cm3_outward_rounded": [
+        673,
+        691
+      ],
+      "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
+      "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."
+    },
+    {
+      "path": "out/comparison/volume-original-kowa_lm6hc.json",
+      "sha256": "002bf4d3f637a9c38ed925d3d9b87c31d75a4bb2ba9e98317ee79c8be5b1a345",
+      "same_variant_manifest": true,
+      "verifier_hash_current": true,
+      "model_void_mm3": null,
+      "model_void_fraction": null,
+      "model_void_interval_cm3_outward_rounded": [
+        805,
+        823
+      ],
+      "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
+      "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."
+    }
+  ],
+  "concealed_vent_reports": [
+    {
+      "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
+      "sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+      "same_primary_manifest": true,
+      "verifier_file": "verify_shadow_plenum.py",
+      "verifier_hash_current": true,
+      "evidence_role": "current manifest-bound scoped evidence",
+      "summary": {
+        "pass": 49,
+        "fail": 0,
+        "info": 21
+      },
+      "physical_qualified": false,
+      "checked_sources": {
+        "checked": 2,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      }
+    },
+    {
+      "path": "out/compact-kowa_lm6hc/shadow-outlet-context-checks.json",
+      "sha256": "1469d1251a61f586c54bac142d4f4622830d03bf4e5389f5519c9be0cc66d96c",
+      "same_primary_manifest": true,
+      "verifier_file": "verify_shadow_outlet_context.py",
+      "verifier_hash_current": true,
+      "evidence_role": "current manifest-bound scoped evidence",
+      "summary": {
+        "pass": 4,
+        "fail": 0
+      },
+      "physical_qualified": false,
+      "checked_sources": {
+        "checked": 2,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "saved_material_bindings": {
+        "checked": 43,
+        "missing": [],
+        "changed": [],
+        "pass": true
+      },
+      "scope": "Exact finite outward mouth prisms versus all other saved material rows; actual saved-shape AABBs used only to reject separated pairs",
+      "limitations": [
+        "Only the specified first 12 mm beyond each exterior face are checked.",
+        "No hand/finger/garment, desk contact or airflow streamlines are modeled.",
+        "COTS proxies, real parts, flexible looms, print deformation and thermal performance remain unqualified.",
+        "Clear outward prisms do not prove whole-plenum pressure loss, external recirculation or all-view concealment."
+      ]
+    },
+    {
+      "path": "out/compact-kowa_lm6hc/ventilation-checks.json",
+      "sha256": "db248524f791c29abb2638aba9a3e6b676e408643fe21c028204fed9f3b0944a",
+      "same_primary_manifest": false,
+      "verifier_file": "verify_ventilation.py",
+      "verifier_hash_current": true,
+      "evidence_role": "historical rejected angled-channel trial only",
+      "summary": {
+        "pass": 75,
+        "fail": 0
+      },
+      "physical_qualified": false,
+      "remaining": "No sealed air domain, fan operating point, thermal/hand/slicer qualification or real cooler clearance pass. CSI remains an unsealed service bypass.",
+      "vent_helper_current": false
+    },
+    {
+      "path": "structural-review/concealed-vent-structural.json",
+      "sha256": "cd9fd62d27ad44be1a4010a0c66fa169d1355ecdbb0905c2171e92310e2f3976",
+      "same_primary_manifest": true,
+      "verifier_file": "structural-review/update_concealed_vent_structure.py",
+      "verifier_hash_current": true,
+      "evidence_role": "current manifest-bound scoped evidence",
+      "method": "CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification",
+      "geometry_scope": "All non-tub/panel manifest rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
+      "physical_qualified": false,
+      "changed_manifest_rows": [
+        "tub",
+        "panel"
+      ],
+      "assembly": {
+        "reference_mass_g": 831.3793077015797,
+        "current_mass_g": 864.1029214723827,
+        "delta_mass_g": 32.72361377080301,
+        "delta_mass_percent": 3.936063054211715,
+        "com_mm": [
+          -46.36739964117403,
+          0.9200380599568632,
+          29.90458636412033
+        ],
+        "manifest_mesh_dimensions_mm": [
+          248.83393461632127,
+          72.81518220158367,
+          216.82102055308357
+        ],
+        "core_dimensions_mm": [
+          158.0,
+          63.6,
+          100.0
+        ]
+      },
+      "coupon_load": {
+        "wiring_mass_sensitivity_g": 12,
+        "wiring_upper_height_mm": 100,
+        "added_5g_moment_Nmm": 58.8399,
+        "equal_share_plus_wiring_Nm": 0.9309473397493657,
+        "proposed_rounded_equal_share_screen_Nm": 0.95,
+        "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+        "old_0_90_Nm_covers_equal_share_plus_wiring": false,
+        "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
+      },
+      "ventilation_receipt_current": true,
+      "reference_structural_binding_current": true
+    }
+  ],
+  "concealed_bom_preservation": {
+    "reference": {
+      "path": "history/reviewed-export18/BOM-VERTICAL.csv",
+      "sha256": "c05dcb2fce03362ac299428011b3e8cdabd04f3e20042d1b8a1717de2140c573"
+    },
+    "fields_compared": [
+      "variant",
+      "installed_qty",
+      "installed_unit",
+      "purchase_qty",
+      "purchase_unit",
+      "included_in",
+      "sku_or_class",
+      "supplier"
+    ],
+    "differences": [],
+    "unchanged": true,
+    "excludes_editorial_item_note_and_status_changes": true
+  },
+  "selected_usb_head_report": {
+    "path": "routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json",
+    "sha256": "abd3a4d1f0cd27b9fff8fddd794655c53a0526298916d614834d91b11ac636cb",
+    "status": "pass_for_bounded_head_reservation",
+    "same_primary_manifest": true,
+    "verifier_file": "verify_shadow_usb_head.py",
+    "verifier_hash_current": true,
+    "step_bindings": {
+      "checked": 45,
+      "missing": [],
+      "changed": [],
+      "pass": true
+    },
+    "physical_qualified": false,
+    "support_coverage": "Current complete tub STEP includes the selected shelf and guide; historical standalone support STEP copies are not required or substituted. Canonical helper hashes must match the accepted FPS receipt.",
+    "remaining": [
+      "Final binding applies to installed hard-head reservation only",
+      "Adafruit4448 cuttable donor final copper cuts, two Pololu tails, diode/joints and full installed lead placement remain TBD",
+      "Received overmold, actual exit and engagement are unmeasured; no wire exit is invented",
+      "Complete camera FPC and cooler/latch/tool corridor",
+      "Adafruit3557 adapter-to-socket/root transform",
+      "All baseline56 andM1 physical gates"
+    ],
+    "evidence_role": "current manifest-bound limited head reservation"
+  },
+  "plenum_coupon_identity": {
+    "path": "vent-study/shadow-plenum-coupon/coupon-index.json",
+    "sha256": "58f5c9017d1d59808305587ca0aa54598dfa266e1a501a8fb4b82fe720364d23",
+    "coupon_count": 2,
+    "same_primary_manifest": true,
+    "source_current": true,
+    "receipt_bindings": {
+      "checked": 2,
+      "missing": [],
+      "changed": [],
+      "pass": true
+    },
+    "production_part_count_change": 0,
+    "physical_qualified": false,
+    "receipts": [
+      {
+        "path": "vent-study/shadow-plenum-coupon/receipt.json",
+        "sha256": "c48ad89b1370a025bf695698d8a838c9be3d93f11f21a835167c69672f2cace1",
+        "same_primary_manifest": true,
+        "files": {
+          "checked": 2,
+          "missing": [],
+          "changed": [],
+          "pass": true
+        },
+        "step_reimport_valid": true,
+        "status": "Geometry-only open-edge coupon; not print released",
+        "limitations": [
+          "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
+          "Does not reproduce the ports, CSI sleeve, post exclusions or front/top enclosure edge spans.",
+          "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
+          "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
+        ]
+      },
+      {
+        "path": "vent-study/shadow-plenum-coupon/port-service-receipt.json",
+        "sha256": "5c366eeebd4ec886995a6a991fa8f936b9db661d98ba7c88877f53105e5b2ca2",
+        "same_primary_manifest": true,
+        "files": {
+          "checked": 2,
+          "missing": [],
+          "changed": [],
+          "pass": true
+        },
+        "step_reimport_valid": true,
+        "status": "Geometry-only open-edge coupon; not print released",
+        "limitations": [
+          "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
+          "The rear section and complete cold-rear mouth are absent; retained edge spans are not a global maximum-span proof.",
+          "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
+          "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
+        ]
+      }
+    ]
+  },
+  "restored_coupon_reproducer": {
+    "receipt": {
+      "path": "structural-review/coupon-reproducer-recovery.json",
+      "sha256": "20193d5344016d6526220fc83cc94c726c9bb3e475b6fd833884473ffe43e636"
+    },
+    "restored_file_bindings": {
+      "checked": 7,
+      "missing": [],
+      "changed": [],
+      "pass": true
+    },
+    "retained_output_bindings": {
+      "checked": 18,
+      "missing": [],
+      "changed": [],
+      "pass": true
+    },
+    "scope": "Unchanged minimal coupon generator and selected/optional input restoration from the separately supplied structural-analysis-and-coupons archive. No current geometry helper or retained output overwritten; no coupon regeneration, slicing or physical test."
+  },
+  "structural_pdf": {
+    "receipt": {
+      "path": "structural-review/output/pdf/structural-supplement-pdf-receipt.json",
+      "sha256": "ccfe41dc35d2ba4f211aa38189be38df7e98a90818f0a91d31f426076498775b"
+    },
+    "artifact": {
+      "path": "structural-review/output/pdf/D2-shadow-plenum-structural-supplement.pdf",
+      "sha256": "7cb47b145befbb69901c82638d1ced418a5a3405cc6415770f7bd62601c3a1c9"
+    },
+    "same_primary_manifest": true,
+    "pdf_hash_matches": true,
+    "source_bindings": {
+      "checked": 8,
+      "missing": [],
+      "changed": [],
+      "pass": true
+    },
+    "pages": 2,
+    "text_checks_pass": true,
+    "visual_review": {
+      "status": "passed",
+      "pages_inspected": [
+        1,
+        2
+      ],
+      "findings": "Both complete page PNGs inspected. No clipping, overlap, missing glyphs or table overflow. Print hold and 0.95 N m target are visible; source hashes and page numbers are legible.",
+      "rendered_page_sha256": {
+        "supplement-1.png": "a05acdf8ae2d293506681c21877f826e4eee6eb56c1e10d7348c1aa81ee7cdf5",
+        "supplement-2.png": "c6a650cf8e117df7b28834b399c7f964592c7cb42c6ecadcd38f470553568040"
+      },
+      "text_within_page_bounds": true
+    },
+    "physical_qualified": false
+  },
+  "checkpoint_status": {
+    "file": {
+      "path": "CHECKPOINT-STATUS.json",
+      "sha256": "beb1021f7192e0c93265c276e457382b6b09e57c53f93b78ae39644ff9f17b7a"
+    },
+    "same_primary_manifest": true,
+    "selected_evidence_binding": true,
+    "preserved_export18_binding": true,
+    "physical_qualified": false,
+    "guide_receipt_current": true
+  },
+  "run_records": [
+    {
+      "path": "out/primary-refresh.json",
+      "sha256": "9179eec7afb40c54ba4d97463338b1e9eef3cd8e7e6561c37e46a57c77908ab4"
+    },
+    {
+      "path": "out/final-check-run.json",
+      "sha256": "21cc279996f9a96eca8e25eab4783e2adccf060c89abb51814d20cd19bdf030f"
+    }
+  ]
+}

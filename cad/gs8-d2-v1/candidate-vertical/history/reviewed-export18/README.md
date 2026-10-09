@@ -1,0 +1,1 @@
+Frozen reviewed export18 reference, prior to concealed-channel changes. Source files and these printed STEP parts match the delivered review package. The complete original package remains separately preserved in Library. All physical gates remain open.

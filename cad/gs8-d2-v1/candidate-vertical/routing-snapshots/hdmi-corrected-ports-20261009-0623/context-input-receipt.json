@@ -1,0 +1,9 @@
+{
+  "files": {
+    "mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "central-rest-pad.step": "2f46173f6bfdd20af94202a88926df51a8497cb42f96976e69e94bbb244a02ac",
+    "picoblade-open-guide.step": "bc22a57f938246b06e773bab3b2de862e1890d29a63d270a6e28d04229d30c81",
+    "fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a"
+  },
+  "donor_addendum_sha256": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798"
+}

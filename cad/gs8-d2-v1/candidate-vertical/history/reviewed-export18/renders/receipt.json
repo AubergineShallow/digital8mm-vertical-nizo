@@ -1,0 +1,11 @@
+{
+  "mechanical_manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "renderer_sha256": "b638c3767837908a0c0c262f9bffbf6f564e05a1fd68c696713b51d3cc4b45a2",
+  "files": {
+    "hero.png": "8aa287b85aa9e6e6b5578a1c5df90ab5295724dd352ab90b2633e0b994a0931e",
+    "rear.png": "bd2aa061c79544f7e7550c84b752b81d5332d8343f677262c90e3de2611df3ea",
+    "service.png": "f4fdd47e971bb27f0f53a50da69db17182770226c8c55ab329ff722ff311de01"
+  },
+  "visual_review": "All three inspected. Functional markings upright; source-based CSI slot and threaded strap visible; service stack remains rigid and harness omission is explicit. No physical build qualification.",
+  "created_utc": "2026-10-09T08:01:12Z"
+}

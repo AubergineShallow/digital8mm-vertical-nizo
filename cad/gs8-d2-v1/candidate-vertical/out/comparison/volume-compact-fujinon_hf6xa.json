@@ -1,0 +1,31 @@
+{
+  "variant": "compact-fujinon_hf6xa",
+  "core_dimensions_mm": [
+    158.0,
+    63.6,
+    100.0
+  ],
+  "core_envelope_mm3": 1004880.0,
+  "model_solid_union_mm3": null,
+  "model_void_mm3": null,
+  "model_void_fraction": null,
+  "definition": "Core box minus exported material/proxy union. Current detailed Pi assembly contributes a conservative interval, not a completed exact occupied union. Cooling air, cable/service clearance and omitted flexible material are within this empty-model volume; it is not removable waste.",
+  "qualification": "Conservative CAD proxy-volume interval, rounded outward to whole cm3; source/kernel and baseline representation caveats remain. The slow/unreliable complete CSI Boolean was stopped and preserved as a diagnostic. No physical measurement or precise unused-volume claim.",
+  "generated_utc": "2026-10-09T15:30:42Z",
+  "verification_source_sha256": "3cd9ed261791e56b9c087dae892bd380ad1f80b2329ac7417f231d6720a741e8",
+  "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+  "model_void_interval_mm3": [
+    673481.4952709093,
+    690113.717884522
+  ],
+  "model_void_interval_cm3_outward_rounded": [
+    673,
+    691
+  ],
+  "model_solid_union_interval_mm3": [
+    314766.28211547795,
+    331398.5047290907
+  ],
+  "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
+  "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."
+}

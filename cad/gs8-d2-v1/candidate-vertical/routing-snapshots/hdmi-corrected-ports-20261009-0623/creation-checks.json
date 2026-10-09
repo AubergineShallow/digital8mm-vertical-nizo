@@ -1,0 +1,24 @@
+{
+  "previous_input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "new_input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "head_reservation_sha256": "3e411f4de1d471cfcbbfa9f4311f25e0182da4678f7e2e09b7efd7b5a540eaf3",
+  "unchanged_hdmi": {
+    "hdmi_installed": {
+      "exact_object_equality": true,
+      "routed_length_mm": 300.0,
+      "canonical_shape_sha256": "29d77062899dd32c250b70f3ac449024c6d14871befd0295191dd3efe085a7e2"
+    },
+    "hdmi_premate": {
+      "exact_object_equality": true,
+      "routed_length_mm": 300.0,
+      "canonical_shape_sha256": "789d162139c8791226c66c8b097a4ace9264dbf2f60b175670a7eab1be676657"
+    },
+    "hdmi_both_unplugged": {
+      "exact_object_equality": true,
+      "routed_length_mm": 300.0,
+      "canonical_shape_sha256": "d567860aea63712adaf231abf46db8f47cbc0b86699221cf31c35bab67583f11"
+    }
+  },
+  "physical_qualified": false,
+  "mechanical_binding": "pending new parent manifest"
+}

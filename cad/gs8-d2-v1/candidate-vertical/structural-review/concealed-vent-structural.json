@@ -1,0 +1,124 @@
+{
+  "method": "CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification",
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "built_utc": "2026-10-09T14:58:12Z",
+  "verification_source_sha256": "aa9e3f51115970bbf17f51b55053ea315787e610196fcb23597e04825e05b4fc",
+  "reference_manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "reference_structural_binding_sha256": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
+  "changed_manifest_rows": [
+    "tub",
+    "panel"
+  ],
+  "unchanged_manifest_rows_checked": 43,
+  "geometry_scope": "All non-tub/panel manifest rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
+  "ventilation_report": {
+    "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
+    "sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+    "same_manifest": true,
+    "summary": {
+      "pass": 49,
+      "fail": 0,
+      "info": 21
+    }
+  },
+  "assembly": {
+    "reference_mass_g": 831.3793077015797,
+    "current_mass_g": 864.1029214723827,
+    "delta_mass_g": 32.72361377080301,
+    "delta_mass_percent": 3.936063054211715,
+    "com_mm": [
+      -46.36739964117403,
+      0.9200380599568632,
+      29.90458636412033
+    ],
+    "manifest_mesh_dimensions_mm": [
+      248.83393461632127,
+      72.81518220158367,
+      216.82102055308357
+    ],
+    "core_dimensions_mm": [
+      158.0,
+      63.6,
+      100.0
+    ]
+  },
+  "printed": {
+    "tub": {
+      "reference_proxy_mass_g": 122.5801431089637,
+      "current_proxy_mass_g": 154.59434687952717,
+      "delta_volume_mm3": 35199.78424470971
+    },
+    "panel": {
+      "reference_proxy_mass_g": 37.41200176346288,
+      "current_proxy_mass_g": 38.12141176370237,
+      "delta_volume_mm3": 780.0000002633242
+    }
+  },
+  "upper_body": {
+    "mass_g": 673.1523132387147,
+    "com_mm": [
+      -44.797002345297116,
+      1.4596686715188585,
+      54.62669162336193
+    ],
+    "force_5g_N": 33.0068456631122,
+    "floor_moment_5g_Nmm": 1803.0547794987315,
+    "moment_change_percent": 4.81993670566907,
+    "lip_stress_MPa": 8.921364794394764,
+    "head_wing_stress_MPa": 9.860455825383688,
+    "unequal_station_sharing_multiplier": [
+      0.6,
+      1.4
+    ]
+  },
+  "grip": {
+    "force_5g_N": 42.369774574285714,
+    "load_point_z_mm": 54.62669162336193,
+    "hand_plane_z_mm": -55,
+    "moment_Nmm": 4644.85821140658,
+    "moment_change_percent": 3.793117820519476,
+    "nominal_stress_x_y_MPa": [
+      1.5783054281524422,
+      1.6769943840396166
+    ]
+  },
+  "carrier": {
+    "payload_g": 122.59895220326626,
+    "reinforced_screen": {
+      "stress_MPa": 3.388332690111191,
+      "deflection_mm": 0.3986938132030834
+    },
+    "reason": "Carried inventory and all carrier/payload manifest rows unchanged; added tub/panel material is fixed housing, not carrier payload."
+  },
+  "coupon_load": {
+    "wiring_mass_sensitivity_g": 12,
+    "wiring_upper_height_mm": 100,
+    "added_5g_moment_Nmm": 58.8399,
+    "equal_share_plus_wiring_Nm": 0.9309473397493657,
+    "proposed_rounded_equal_share_screen_Nm": 0.95,
+    "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+    "old_0_90_Nm_covers_equal_share_plus_wiring": false,
+    "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
+  },
+  "material_sensitivity": {
+    "E_MPa": [
+      800,
+      1600,
+      2400
+    ],
+    "deflection_multiplier_relative_to_1600": [
+      2,
+      1,
+      0.6666666666666666
+    ],
+    "normal_strength_scenarios_MPa": [
+      5,
+      10,
+      20,
+      30
+    ],
+    "not_allowables": true,
+    "notches_creep_fatigue_impact_excluded": true
+  },
+  "physical_qualified": false
+}

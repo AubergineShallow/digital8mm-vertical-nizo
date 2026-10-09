@@ -1,0 +1,15 @@
+{
+  "generated_utc": "2026-10-09T05:56:38.762129+00:00",
+  "command": "python3 -m unittest discover -s tests -p test_d2_controls.py -v",
+  "cwd": "software/gs8-camera-evf",
+  "python": "3.12.14",
+  "tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "scope": "Existing synthetic controls, battery policy and shutdown ordering tests. Confirms high/open=18, low/closed=24, audio=False. No physical switch, J2 electrical or camera test.",
+  "sources": {
+    "software/gs8-camera-evf/tests/test_d2_controls.py": "2f4fb5f9be7503af87261bcddc65e0a988b4cdc07158b5db8706d76970e953c9",
+    "software/gs8-camera-evf/gs8_camera_evf/d2_controls.py": "09f896763dd63048d26d9b6f8b196ec624f0ad4483aa43da2419accdbcfd8890",
+    "software/gs8-camera-evf/gs8_camera_evf/d2_power.py": "f752e4c5016dcca8eb87978d1e0cac36d6512564d8ac092a067e903af63919b8"
+  }
+}

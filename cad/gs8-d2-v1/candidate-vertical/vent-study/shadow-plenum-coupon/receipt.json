@@ -1,0 +1,52 @@
+{
+  "name": "preliminary_regular_grid",
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "tub_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+  "source_check_sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+  "crop_bounds_mm": [
+    -152.0,
+    -104.0,
+    -35.6,
+    -25.5,
+    8.0,
+    40.0
+  ],
+  "generated_utc": "2026-10-09T15:22:23Z",
+  "valid": true,
+  "solid_count": 1,
+  "volume_mm3": 6587.129178954822,
+  "production_part": false,
+  "physical_qualified": false,
+  "purpose": "Open-edge regular-grid post-supported roof-bridge inspection crop from the exact selected tub",
+  "limitations": [
+    "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
+    "Does not reproduce the ports, CSI sleeve, post exclusions or front/top enclosure edge spans.",
+    "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
+    "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
+  ],
+  "exported": true,
+  "status": "Geometry-only open-edge coupon; not print released",
+  "step_reimport_valid": true,
+  "face_down": "-Y",
+  "rotation_axis": [
+    1,
+    0,
+    0
+  ],
+  "rotation_deg": 90.0,
+  "translation_mm": [
+    152.0,
+    40.00000000000001,
+    35.6
+  ],
+  "print_dimensions_mm": [
+    48.0,
+    32.0,
+    10.100000000000009
+  ],
+  "files": {
+    "plenum-bridge-open-edge-coupon.step": "463fc77cdb5cf24610d14d346e152ab0787e2e8bad3045233874cbb28c0e4e48",
+    "plenum-bridge-open-edge-coupon.stl": "1f02bec5f21d9e5f7f2fb5b1a725db2eb4aa802f25eb787ceb64dfded6bc1b47"
+  },
+  "source_sha256": "8d07be5e175cd99100be5f67f08f7736af5c5069eff9e0930d0a4693a7050a3e"
+}

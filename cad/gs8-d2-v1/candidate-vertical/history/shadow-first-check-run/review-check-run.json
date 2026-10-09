@@ -1,0 +1,109 @@
+{
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "runner_sha256": "db538169c39a1085ffdcf684d5e3287776e6c252e43a441599fa086dc1bbf73a",
+  "checks": [
+    {
+      "check": "mesh",
+      "command": [
+        "verify_print_meshes.py"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/mesh.log",
+      "started_utc": "2026-10-09T15:02:37Z",
+      "completed_utc": "2026-10-09T15:02:39Z"
+    },
+    {
+      "check": "csi",
+      "command": [
+        "verify_csi_source.py"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/csi.log",
+      "started_utc": "2026-10-09T15:02:39Z",
+      "completed_utc": "2026-10-09T15:03:23Z"
+    },
+    {
+      "check": "power_rigid",
+      "command": [
+        "verify_power_service.py"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/power_rigid.log",
+      "started_utc": "2026-10-09T15:03:23Z",
+      "completed_utc": "2026-10-09T15:06:34Z"
+    },
+    {
+      "check": "power_static",
+      "command": [
+        "verify_wire_solids.py",
+        "--snapshot",
+        "routing-snapshots/power-csi-clear-20261009-0358/power-270-csi-clear.json"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/power_static.log",
+      "started_utc": "2026-10-09T15:06:34Z",
+      "completed_utc": "2026-10-09T15:06:45Z"
+    },
+    {
+      "check": "hdmi",
+      "command": [
+        "verify_hdmi.py",
+        "--snapshot",
+        "routing-snapshots/hdmi-export17-selected-20261009-0704/input.json",
+        "--step",
+        "2"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/hdmi.log",
+      "started_utc": "2026-10-09T15:06:45Z",
+      "completed_utc": "2026-10-09T15:08:49Z"
+    },
+    {
+      "check": "fps",
+      "command": [
+        "verify_fps_integrated.py"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/fps.log",
+      "started_utc": "2026-10-09T15:08:49Z",
+      "completed_utc": "2026-10-09T15:11:36Z"
+    },
+    {
+      "check": "usb_head",
+      "command": [
+        "routing-snapshots/hdmi-export17-selected-20261009-0704/verify_corrected_usb_head.py",
+        "--mechanical-manifest",
+        "out/compact-kowa_lm6hc/manifest.json",
+        "--expected-sha",
+        "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+        "--report-name",
+        "shadow-plenum-head-checks.json"
+      ],
+      "exit_code": 1,
+      "log": "check-logs/usb_head.log",
+      "started_utc": "2026-10-09T15:11:36Z",
+      "completed_utc": "2026-10-09T15:11:38Z"
+    },
+    {
+      "check": "rigid",
+      "command": [
+        "verify_candidate.py"
+      ],
+      "exit_code": 1,
+      "log": "check-logs/rigid.log",
+      "started_utc": "2026-10-09T15:11:38Z",
+      "completed_utc": "2026-10-09T15:21:38Z"
+    },
+    {
+      "check": "void",
+      "command": [
+        "measure_volume.py"
+      ],
+      "exit_code": 0,
+      "log": "check-logs/void.log",
+      "started_utc": "2026-10-09T15:21:38Z",
+      "completed_utc": "2026-10-09T15:22:20Z"
+    }
+  ],
+  "physical_qualified": false
+}

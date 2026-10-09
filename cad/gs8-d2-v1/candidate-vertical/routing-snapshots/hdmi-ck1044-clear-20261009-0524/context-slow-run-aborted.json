@@ -1,0 +1,28 @@
+{
+  "status": "Intentionally interrupted after three static poses; replaced by per-solid broad phase",
+  "source_sha256": "ca9ff961d55b29524534d1e4530ebec644a7c995e4449fc78029b34e5022731d",
+  "completed_stdout_results": [
+    {
+      "state": "installed",
+      "shift_y_mm": 0,
+      "hits": [
+        "fpc_orientation_unknown_fullwidth_envelope"
+      ]
+    },
+    {
+      "state": "premate",
+      "shift_y_mm": 0,
+      "hits": [
+        "fpc_orientation_unknown_fullwidth_envelope"
+      ]
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 0,
+      "hits": [
+        "fpc_orientation_unknown_fullwidth_envelope"
+      ]
+    }
+  ],
+  "reason": "Avoid repeated booleans against all compound capsule solids; no geometric check waived"
+}

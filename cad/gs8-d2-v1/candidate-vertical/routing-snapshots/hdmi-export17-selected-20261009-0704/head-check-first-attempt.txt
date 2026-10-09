@@ -1,0 +1,1 @@
+The initial invocation stopped before evaluating geometry: source-verify_fps_access.py was absent from the copied context bundle. The original frozen source was copied unchanged, together with fps_geometry.py; no geometry or completed report was modified.

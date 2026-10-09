@@ -1,0 +1,70 @@
+{
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "scope": "Selected reports only. Main retains two diagnostic failures; wall supplement explains one. Cooler source/proxy conflict remains. microSD closed-panel case is intentionally rejected. No aggregate release pass.",
+  "reports": [
+    {
+      "report": "verification.json",
+      "sha256": "fbf3a057da2f992f7b0724aecfea92c0752877efc36ddb09a05e1fc4dd122632",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": 288,
+        "fail": 2,
+        "info": 18
+      },
+      "physical_qualified": false
+    },
+    {
+      "report": "hdmi-solid-checks.json",
+      "sha256": "124cf1f0fd82d4652272974e6c039142203f5c172edef86ffacfbee72c987329",
+      "manifest_binding_current": true,
+      "summary": {
+        "pass": 6,
+        "fail": 0,
+        "info": 0
+      },
+      "physical_qualified": false
+    },
+    {
+      "report": "csi-source-tool-checks.json",
+      "sha256": "02b27536995c9664a2b3f904578140942d5e9a573a112c733c952ad7a36e3fd6",
+      "manifest_binding_current": true,
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "report": "power-service-checks.json",
+      "sha256": "5a3432e53452261e4b46b3ddb49cb8943aa1239511c6d872a6d9a5c4d4c33977",
+      "manifest_binding_current": true,
+      "summary": "pass",
+      "physical_qualified": false
+    },
+    {
+      "report": "wire-solid-checks.json",
+      "sha256": "f5735a12576cc849f2ec2b7177cf7b4ea3b1e114bba23bb940a76eea711ae8ef",
+      "manifest_binding_current": true,
+      "summary": "pass",
+      "physical_qualified": false
+    },
+    {
+      "report": "print-mesh-checks.json",
+      "sha256": "b859a1c66363e32785a9905f6668e75dbc775c09514b9d4c9abd5fc12a884351",
+      "manifest_binding_current": true,
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "report": "wall-probe-context.json",
+      "sha256": "cc4b53494d71dbb4f50bed41cfbea810c466d7f90c8bcfad65d66a84834b8345",
+      "manifest_binding_current": true,
+      "summary": "pass",
+      "physical_qualified": false
+    },
+    {
+      "report": "microsd-service-dependency.json",
+      "sha256": "8d251f1a0d8a079e74e236190492a4c72f3332335368fa249d2418fc402ecbe4",
+      "manifest_binding_current": true,
+      "summary": "REJECTED",
+      "physical_qualified": false
+    }
+  ]
+}

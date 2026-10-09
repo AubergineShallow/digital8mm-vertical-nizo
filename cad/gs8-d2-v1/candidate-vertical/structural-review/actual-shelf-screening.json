@@ -1,0 +1,204 @@
+{
+  "method": "Actual STEP area/moments with unsymmetric-section effectiveI;piecewise variable beam integration;not FE mesh convergence",
+  "step_sha256": "2f46173f6bfdd20af94202a88926df51a8497cb42f96976e69e94bbb244a02ac",
+  "valid": true,
+  "solid_count": 1,
+  "volume_mm3": 1297.674035195349,
+  "width_mm": 6.799999999999997,
+  "root_y_mm": -25.5,
+  "load_point_y_mm": 24.5,
+  "load_x_mm": -111,
+  "E_MPa_assumed": 1600.0,
+  "nu_assumed": 0.35,
+  "G_MPa_isotropic_surrogate": 592.5925925925926,
+  "eccentricity_surrogate_mm": 2.1812902103355754,
+  "sections": [
+    {
+      "y_mm": -24,
+      "A_mm2": 60.52000000000947,
+      "centroid_xz_mm": [
+        -109.10000000000001,
+        62.45000000000001
+      ],
+      "Ixx_mm4": 399.4824333333197,
+      "Izz_mm4": 233.20373333338986,
+      "product_Ixz_mm4": 9.094947017729282e-11,
+      "effective_vertical_bending_I_mm4": 399.4824333333197,
+      "bbox_section_modulus_mm3": 89.77133333330332
+    },
+    {
+      "y_mm": -18,
+      "A_mm2": 51.680000000013095,
+      "centroid_xz_mm": [
+        -109.1,
+        63.099999451754115
+      ],
+      "Ixx_mm4": 248.75328200004543,
+      "Izz_mm4": 199.1402666666475,
+      "product_Ixz_mm4": -9.094947017729282e-11,
+      "effective_vertical_bending_I_mm4": 248.75328200004543,
+      "bbox_section_modulus_mm3": 65.37537919624879
+    },
+    {
+      "y_mm": -14,
+      "A_mm2": 24.48000000000014,
+      "centroid_xz_mm": [
+        -109.1,
+        65.09999884259258
+      ],
+      "Ixx_mm4": 26.43850199974889,
+      "Izz_mm4": 94.32959999983535,
+      "product_Ixz_mm4": 4.547473508864641e-11,
+      "effective_vertical_bending_I_mm4": 26.43850199974889,
+      "bbox_section_modulus_mm3": 14.64737892116892
+    },
+    {
+      "y_mm": -10,
+      "A_mm2": 17.000000000001645,
+      "centroid_xz_mm": [
+        -109.09999999999998,
+        65.65
+      ],
+      "Ixx_mm4": 8.854166666676731,
+      "Izz_mm4": 65.50666666678602,
+      "product_Ixz_mm4": -2.2737367544323206e-11,
+      "effective_vertical_bending_I_mm4": 8.854166666676731,
+      "bbox_section_modulus_mm3": 7.083333333334697
+    },
+    {
+      "y_mm": 0,
+      "A_mm2": 16.99999999999774,
+      "centroid_xz_mm": [
+        -109.09999999999997,
+        65.65
+      ],
+      "Ixx_mm4": 8.854166666665362,
+      "Izz_mm4": 65.50666666680875,
+      "product_Ixz_mm4": -2.2737367544323206e-11,
+      "effective_vertical_bending_I_mm4": 8.854166666665362,
+      "bbox_section_modulus_mm3": 7.083333333325602
+    },
+    {
+      "y_mm": 10.5,
+      "A_mm2": 16.999999999997616,
+      "centroid_xz_mm": [
+        -109.1,
+        65.65
+      ],
+      "Ixx_mm4": 8.854166666676731,
+      "Izz_mm4": 65.50666666667233,
+      "product_Ixz_mm4": -2.2737367544323206e-11,
+      "effective_vertical_bending_I_mm4": 8.854166666676731,
+      "bbox_section_modulus_mm3": 7.083333333334697
+    },
+    {
+      "y_mm": 12,
+      "A_mm2": 12.707484827073284,
+      "centroid_xz_mm": [
+        -108.81870978966442,
+        65.35752785193378
+      ],
+      "Ixx_mm4": 4.294500565846593,
+      "Izz_mm4": 50.79511529662699,
+      "product_Ixz_mm4": 3.6379221212996526,
+      "effective_vertical_bending_I_mm4": 4.033954304983588,
+      "bbox_section_modulus_mm3": 2.233486398002
+    },
+    {
+      "y_mm": 20,
+      "A_mm2": 13.207918742740459,
+      "centroid_xz_mm": [
+        -108.90135654290387,
+        65.38706238190657
+      ],
+      "Ixx_mm4": 4.589724358233704,
+      "Izz_mm4": 53.2529040005008,
+      "product_Ixz_mm4": 2.8192629835302796,
+      "effective_vertical_bending_I_mm4": 4.440469704060679,
+      "bbox_section_modulus_mm3": 2.6067455238792445
+    },
+    {
+      "y_mm": 22,
+      "A_mm2": 13.207918742740459,
+      "centroid_xz_mm": [
+        -108.90135654290387,
+        65.38706238190657
+      ],
+      "Ixx_mm4": 4.589724358245073,
+      "Izz_mm4": 53.25290400054627,
+      "product_Ixz_mm4": 2.8192629835302796,
+      "effective_vertical_bending_I_mm4": 4.440469704072175,
+      "bbox_section_modulus_mm3": 2.606745523886242
+    },
+    {
+      "y_mm": 24,
+      "A_mm2": 13.207918742740459,
+      "centroid_xz_mm": [
+        -108.90135654290387,
+        65.38706238190657
+      ],
+      "Ixx_mm4": 4.589724358245073,
+      "Izz_mm4": 53.2529040005008,
+      "product_Ixz_mm4": 2.8192629835302796,
+      "effective_vertical_bending_I_mm4": 4.440469704072048,
+      "bbox_section_modulus_mm3": 2.6067455238859187
+    }
+  ],
+  "cases": {
+    "gravity_12g": {
+      "F_N": 0.1176798,
+      "vertical_bending_displacement_mm": 0.16908190775653403,
+      "integration_refinement_mm": [
+        0.1690819115578099,
+        0.16908190798067171,
+        0.16908190775653403
+      ],
+      "max_bbox_nominal_bending_stress_MPa": 0.7112992948697499,
+      "torsional_drop_surrogate_mm": 0.002503517893045507,
+      "combined_drop_surrogate_mm": 0.17158542564957954
+    },
+    "5g_12g": {
+      "F_N": 0.588399,
+      "vertical_bending_displacement_mm": 0.8454095387826702,
+      "integration_refinement_mm": [
+        0.8454095577890495,
+        0.8454095399033587,
+        0.8454095387826702
+      ],
+      "max_bbox_nominal_bending_stress_MPa": 3.5564964743487493,
+      "torsional_drop_surrogate_mm": 0.012517589465227538,
+      "combined_drop_surrogate_mm": 0.8579271282478977
+    },
+    "cable0_5N": {
+      "F_N": 0.5,
+      "vertical_bending_displacement_mm": 0.718398177752401,
+      "integration_refinement_mm": [
+        0.7183981939033287,
+        0.7183981787047211,
+        0.718398177752401
+      ],
+      "max_bbox_nominal_bending_stress_MPa": 3.0221809302435503,
+      "torsional_drop_surrogate_mm": 0.010636990770911863,
+      "combined_drop_surrogate_mm": 0.7290351685233128
+    },
+    "service5N": {
+      "F_N": 5,
+      "vertical_bending_displacement_mm": 7.183981777524011,
+      "integration_refinement_mm": [
+        7.183981939033288,
+        7.1839817870472125,
+        7.183981777524011
+      ],
+      "max_bbox_nominal_bending_stress_MPa": 30.221809302435503,
+      "torsional_drop_surrogate_mm": 0.10636990770911864,
+      "combined_drop_surrogate_mm": 7.290351685233129
+    }
+  },
+  "limitations": [
+    "Rigid wall root and dense solid sections assumed;not measured ASA anisotropy.",
+    "Torsion uses a centroidal eccentricity surrogate and inscribed rectangularJ;actual shear centre/warping unknown.",
+    "Body contact, cradle flexibility, fixture compliance and harness preload excluded.",
+    "Extended padY13..24.5 includes estimated switchCG; real contact, harness preload and tip stability still require hand-supported service tests.",
+    "Large-displacement5N cases are warnings,not reliable nonlinear predictions."
+  ]
+}

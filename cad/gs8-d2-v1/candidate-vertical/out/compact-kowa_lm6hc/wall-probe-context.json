@@ -1,0 +1,78 @@
+{
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "verification_source_sha256": "c13dd111db78e32ec1a01d173097546c9687c2fe0436beba2732934e86474bf6",
+  "generated_utc": "2026-10-09T08:28:57Z",
+  "checks": [
+    {
+      "id": "obsolete_ray_inside_CSI_opening",
+      "origin": [
+        -80,
+        -32,
+        50
+      ],
+      "end": [
+        -80,
+        -20,
+        50
+      ],
+      "material_span_mm": 0,
+      "spans": 0,
+      "expected": "empty designed slot",
+      "passed": true
+    },
+    {
+      "id": "wall_above_CSI_opening",
+      "origin": [
+        -80,
+        -32,
+        72
+      ],
+      "end": [
+        -80,
+        -20,
+        72
+      ],
+      "material_span_mm": 2.5,
+      "spans": 1,
+      "expected": "local wall >=1.6mm",
+      "passed": true
+    },
+    {
+      "id": "wall_ahead_of_CSI_opening",
+      "origin": [
+        -73,
+        -32,
+        50
+      ],
+      "end": [
+        -73,
+        -20,
+        50
+      ],
+      "material_span_mm": 2.5,
+      "spans": 1,
+      "expected": "local wall >=1.6mm",
+      "passed": true
+    },
+    {
+      "id": "wall_behind_CSI_opening",
+      "origin": [
+        -93,
+        -32,
+        50
+      ],
+      "end": [
+        -93,
+        -20,
+        50
+      ],
+      "material_span_mm": 2.5,
+      "spans": 1,
+      "expected": "local wall >=1.6mm",
+      "passed": true
+    }
+  ],
+  "status": "pass",
+  "interpretation": "Main audit tub_right_wall ray is obsolete because it crosses the intentional CSI opening. Original 288/2/18 report is retained; this supplement checks only three adjacent actual STEP wall locations and the opening. It is not a global minimum-wall or structural qualification.",
+  "physical_qualified": false
+}

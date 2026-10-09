@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "state": "installed",
+      "status": "pass",
+      "hits": [],
+      "exact_intersections": 874
+    },
+    {
+      "state": "premate",
+      "status": "pass",
+      "hits": [],
+      "exact_intersections": 870
+    },
+    {
+      "state": "both_unplugged",
+      "status": "pass",
+      "hits": [],
+      "exact_intersections": 698
+    }
+  ],
+  "fps_input_sha256": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+  "fps_source_sha256": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb",
+  "hdmi_input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "verification_source_sha256": "0c1694d93e2ce6a3deef1bf1ad84e91445bd68d57443a168270121a0f00894d3",
+  "physical_qualified": false,
+  "scope": "Full analytic round wires and entire connector/protective boxes at pair mated and fully co-carried versus each full sampled HDMI strip.",
+  "selected_relative_motion": "If the complete pair mated and fully co-carried FPS wires and the premate HDMI translate together with the carrier, their relative geometry is unchanged. No validation of movement versus fixed hardware, unrelated flexible looms, wire stock roots or actual connector operation is implied."
+}

@@ -1,0 +1,13 @@
+{
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "source_sha256": "8d07be5e175cd99100be5f67f08f7736af5c5069eff9e0930d0a4693a7050a3e",
+  "coupon_count": 2,
+  "production_part_count_change": 0,
+  "replaces_earlier_coupon_set": false,
+  "receipts": {
+    "receipt.json": "c48ad89b1370a025bf695698d8a838c9be3d93f11f21a835167c69672f2cace1",
+    "port-service-receipt.json": "5c366eeebd4ec886995a6a991fa8f936b9db661d98ba7c88877f53105e5b2ca2"
+  },
+  "physical_qualified": false,
+  "status": "Two separate open-edge inspection tests; no closed-body cleanout, occlusion, strength or thermal qualification"
+}

@@ -1,0 +1,134 @@
+{
+  "status": "Completed separate HDMI/neighbor study; physical and complete service gates remain open",
+  "geometry_manifest_sha256": "72b3efa377754f703885c7792ba90fc92ab8c3d2ba964264886846c3daf2749f",
+  "files": {
+    "manifest.json": {
+      "sha256": "72b3efa377754f703885c7792ba90fc92ab8c3d2ba964264886846c3daf2749f",
+      "bytes": 3678
+    },
+    "power-head-distance-check.json": {
+      "sha256": "0efa193b88005de840f991e6550cc4c6ee621d47cf17a6ed30fb1e41dd9375f7",
+      "bytes": 3657
+    },
+    "SERVICE-SCOPE.md": {
+      "sha256": "95335cc5132f3d1e9f93ba3d4e8e07697c0ac51459eb0d0b5aebf87ae0c657d8",
+      "bytes": 5375
+    },
+    "reproduction-check.json": {
+      "sha256": "0d9bff7c7a16e099a5d48523eb8c43cc1b8f37e96fc2a373598350b4b8993850",
+      "bytes": 942
+    },
+    "sampled-50-poses.json": {
+      "sha256": "f5775517f6581f93c2ea46b404414c830c0160d46f662da7021374f9bcf155ec",
+      "bytes": 67950
+    },
+    "reproduce.py": {
+      "sha256": "e8788fc1f7a0d6768dbdada933f1ae750745c3d19bfe7e901435929705f15283",
+      "bytes": 2218
+    },
+    "source-verify_hdmi.py": {
+      "sha256": "7c12d0789205c8ddc9c602b2d5914aa809180adfbd8e1561005b286220a2d3d9",
+      "bytes": 12333
+    },
+    "solid-checks.json": {
+      "sha256": "26e7b811f7a4a6756a733c07847aec9586f5018b8d4c2854a51ba8d75d42f935",
+      "bytes": 5363
+    },
+    "source-hdmi_routes.py": {
+      "sha256": "e768e42274e8ee0bf862c3c568950e22e0e827c78fa89aad65d6488d91fc5dac",
+      "bytes": 8959
+    },
+    "source-signal_routes.py": {
+      "sha256": "56ea22ba23d160349eaf589bd995d24d880a1683a6ba88a113291e7882c546b2",
+      "bytes": 13672
+    },
+    "source-run_locked.py": {
+      "sha256": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+      "bytes": 7103
+    },
+    "context.json": {
+      "sha256": "d054ac2ad404b74eb2cd7770c6f13fe7cd6f9bdc48780a5adaff75e3a58c5196",
+      "bytes": 17077314
+    },
+    "hdmi300.py": {
+      "sha256": "285353a7472d6cbf8e9058cefffa93f6d0c2aebb5be3c55c556dea5169955f74",
+      "bytes": 8989
+    },
+    "source-verify_fps_access.py": {
+      "sha256": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+      "bytes": 8494
+    },
+    "context-checks.json": {
+      "sha256": "a8dec9ee918ab2b26a7d443545adad543cbf5148958dc70b6fd84b821f7339a4",
+      "bytes": 34566
+    },
+    "verify_context_fast.py": {
+      "sha256": "12693fdd045e07e85a861462e3f4d7eb03f12eb8329c8e74096323880fde41b2",
+      "bytes": 9563
+    },
+    "source-routes.py": {
+      "sha256": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+      "bytes": 66620
+    },
+    "context-slow-run-aborted.json": {
+      "sha256": "f49d38ec1d5edf217de97f586f19b0eb8aa5cd286e80510ffcd6e66851667595",
+      "bytes": 754
+    },
+    "source-study_hdmi_ck1044.py": {
+      "sha256": "f47a55683694b2aa3e30455fcdeeb10151f97e6c1ea8993fb0a1c6505bda1e09",
+      "bytes": 5292
+    },
+    "verify_solids.py": {
+      "sha256": "37f53281fe4bef43e6476bddd92eb0807de46b98068809c6a203000da4441873",
+      "bytes": 13789
+    },
+    "check_head_polyline_distance.py": {
+      "sha256": "fbe5d43ed2c6617fbe03a720c0e37aebfb7756eb6213cda7cb6f09b27df78310",
+      "bytes": 2311
+    },
+    "power-head-distance-complete.json": {
+      "sha256": "ba66fc0451593c60c6af4bfe309f2cad00a096df21dc6968e12792b1f5aa0098",
+      "bytes": 53151
+    },
+    "corrected-fps-context-0528.json": {
+      "sha256": "4b84b54c820103406e3b84e9f2479f9ab71c2fe6e59ed26f612a958be76b891c",
+      "bytes": 338462
+    },
+    "source-power_geometry.py": {
+      "sha256": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+      "bytes": 3677
+    },
+    "input.json": {
+      "sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+      "bytes": 11060747
+    },
+    "README.md": {
+      "sha256": "4a6e0816f422169cd5beaadd91d4c3f221d4ed8ff7a33525c4a2f18c338de69d",
+      "bytes": 8004
+    },
+    "source-layout.py": {
+      "sha256": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+      "bytes": 229684
+    },
+    "source-power_routes.py": {
+      "sha256": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+      "bytes": 13819
+    },
+    "FPC-NEXT-DATUM.md": {
+      "sha256": "b082b09f503e5bfccdfb237ee9abec14fa5c661b594f08b1db7222f7d5ce973b",
+      "bytes": 6572
+    },
+    "verify_context.py": {
+      "sha256": "ca9ff961d55b29524534d1e4530ebec644a7c995e4449fc78029b34e5022731d",
+      "bytes": 8874
+    },
+    "source-fps_service_routes.py": {
+      "sha256": "69240ce1331a31b208435d0046cf1db1966a6b2e2c18c77437847442881eea28",
+      "bytes": 3758
+    }
+  },
+  "mechanical_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "selected_route_unchanged_by_this_worker": true,
+  "old_frozen_records_preserved": true,
+  "physical_qualified": false
+}

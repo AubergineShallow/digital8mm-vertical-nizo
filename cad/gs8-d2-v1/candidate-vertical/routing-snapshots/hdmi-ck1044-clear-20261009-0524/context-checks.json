@@ -1,0 +1,1273 @@
+{
+  "status": "Geometry context study; physical and full-stock service gates remain open",
+  "input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "context_sha256": "d054ac2ad404b74eb2cd7770c6f13fe7cd6f9bdc48780a5adaff75e3a58c5196",
+  "source_sha256": "12693fdd045e07e85a861462e3f4d7eb03f12eb8329c8e74096323880fde41b2",
+  "collision_reporting": "First positive cell/solid witness per object per pose; all non-hit objects fully checked. Compound solids receive exact individual narrow-phase tests.",
+  "corrected_fps_context_sha256": "4b84b54c820103406e3b84e9f2479f9ab71c2fe6e59ed26f612a958be76b891c",
+  "object_notes": {
+    "usb_5v": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 3.0,
+      "modeled_length_mm": 179.44306843904715
+    },
+    "fan": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 2.0,
+      "modeled_length_mm": 37.88419167763553
+    },
+    "power_button": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 76.75294468383514
+    },
+    "branch_hdr_qt_1": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 19.856548245743667
+    },
+    "branch_hdr_qt_3": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 19.856548245743667
+    },
+    "branch_hdr_qt_5": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 19.856548245743667
+    },
+    "branch_hdr_qt_6": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 27.673096491487335
+    },
+    "branch_hdr_fps_lead_33_34": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 21.126548245743667
+    },
+    "branch_run_pin37": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 250.00000000000006
+    },
+    "branch_run_pin39": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 249.99999999999997
+    },
+    "qt": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 3.2,
+      "modeled_length_mm": 222.32690350851271
+    },
+    "run_pin37": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 250.00000000000006
+    },
+    "run_pin39": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 249.99999999999997
+    },
+    "legacy_fps_fps_header_branch": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 21.126548245743667
+    },
+    "legacy_fps_fps_200_main": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 2.6,
+      "modeled_length_mm": 178.87345175425634
+    },
+    "legacy_fps_fps_50_pigtail": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 2.6,
+      "modeled_length_mm": 50.0
+    },
+    "legacy_fps_pair": {
+      "kind": "retired FPS pair hypothesis, corrected independent FPS study supersedes it"
+    },
+    "corrected_fps_fps_header_branch": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.6,
+      "modeled_length_mm": 21.126548245743667
+    },
+    "corrected_fps_fps_200_main": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 2.6,
+      "modeled_length_mm": 178.8734517542564
+    },
+    "corrected_fps_fps_switch_bundle": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 2.6,
+      "modeled_length_mm": 58.49531059899935
+    },
+    "corrected_fps_fps_ck1044_pin_A": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.0,
+      "modeled_length_mm": 15.464374661972707
+    },
+    "corrected_fps_fps_ck1044_pin_2": {
+      "kind": "analytic circular wire sweep",
+      "od_mm": 1.0,
+      "modeled_length_mm": 22.47593179492302
+    },
+    "corrected_fps_pair": {
+      "kind": "corrected FPS pair hypothesis"
+    },
+    "corrected_fps_protective_reserve": {
+      "kind": "protective reservation only; support is not a solid design"
+    },
+    "corrected_fps_splice_41": {
+      "kind": "separate OD3 x10 mm splice reservation"
+    },
+    "corrected_fps_splice_55": {
+      "kind": "separate OD3 x10 mm splice reservation"
+    },
+    "power_positive_positive_board_to_fuse": {
+      "kind": "conservative full diameter polyline capsules",
+      "radius_mm": 1.6400000000000001,
+      "chord_allowance_mm": 0.04,
+      "root_gap_mm": 6.299999999999999
+    },
+    "power_positive_positive_fuse_to_housing": {
+      "kind": "conservative full diameter polyline capsules",
+      "radius_mm": 1.6400000000000001,
+      "chord_allowance_mm": 0.04,
+      "root_gap_mm": 6.299999999999999
+    },
+    "power_negative_negative_complete": {
+      "kind": "conservative full diameter polyline capsules",
+      "radius_mm": 1.6400000000000001,
+      "chord_allowance_mm": 0.04,
+      "root_gap_mm": 1.9000000000000004
+    },
+    "power_fuse": {
+      "kind": "full rigid fuse reservation"
+    },
+    "reserve_fpc_fold": {
+      "kind": "space reservation only; not modeled stored material",
+      "cables": [
+        "fpc"
+      ]
+    },
+    "reserve_usb_stow": {
+      "kind": "space reservation only; not modeled stored material",
+      "cables": [
+        "usb_5v"
+      ]
+    },
+    "reserve_oled_flex_stow": {
+      "kind": "space reservation only; not modeled stored material",
+      "cables": [
+        "oled_flex"
+      ]
+    },
+    "reserve_power_stow": {
+      "kind": "space reservation only; not modeled stored material",
+      "cables": [
+        "power_button"
+      ]
+    },
+    "fpc_connector_reservation": {
+      "kind": "full width FPC connector approach reservation; physical fold shape remains open"
+    },
+    "fpc_orientation_unknown_fullwidth_envelope": {
+      "kind": "orientation-independent conservative envelope, not actual FPC geometry",
+      "radius_mm": 8.02,
+      "unmodeled_stock_mm": 87.11924592124761
+    }
+  },
+  "static_and_removal_checks": [
+    {
+      "state": "installed",
+      "shift_y_mm": 0,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0016629078965441756,
+          "first_cells": [
+            {
+              "cell": 98,
+              "overlap_mm3": 0.0016629078965441756,
+              "bbox_mm": [
+                -55.30000000000018,
+                -54.7840583252,
+                -5.762902376634081,
+                -5.6520285023,
+                88.29999999999998,
+                88.38379811153123
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 1584,
+      "exact_intersections": 1584
+    },
+    {
+      "state": "premate",
+      "shift_y_mm": 0,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0016629078965441756,
+          "first_cells": [
+            {
+              "cell": 98,
+              "overlap_mm3": 0.0016629078965441756,
+              "bbox_mm": [
+                -55.30000000000018,
+                -54.7840583252,
+                -5.762902376634081,
+                -5.6520285023,
+                88.29999999999998,
+                88.38379811153123
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 1580,
+      "exact_intersections": 1580
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 0,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.004707000138633313,
+          "first_cells": [
+            {
+              "cell": 180,
+              "overlap_mm3": 0.004707000138633313,
+              "bbox_mm": [
+                -56.289090329444115,
+                -55.7665763159,
+                -4.03962383057052,
+                -3.6491295727,
+                89.33656850553442,
+                89.49653930090008
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 1115,
+      "exact_intersections": 1129
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 2,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.02225260029206384,
+          "first_cells": [
+            {
+              "cell": 98,
+              "overlap_mm3": 0.02225260029206384,
+              "bbox_mm": [
+                -55.30000000000011,
+                -54.7840583252,
+                -4.121204600743591,
+                -3.6520285023000003,
+                89.29999999999998,
+                89.49300524208091
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 1039,
+      "exact_intersections": 1051
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 4,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.09711870342572758,
+          "first_cells": [
+            {
+              "cell": 92,
+              "overlap_mm3": 0.09711870342572758,
+              "bbox_mm": [
+                -64.8,
+                -54.79999999999999,
+                -4.121204600743537,
+                -3.911937005999998,
+                89.3,
+                89.39163365371199
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "qt",
+          "cell_count": 1,
+          "max_overlap_mm3": 2.414114925475663e-05,
+          "first_cells": [
+            {
+              "cell": 1734,
+              "overlap_mm3": 2.414114925475663e-05,
+              "bbox_mm": [
+                -85.35564708989999,
+                -85.32360056727852,
+                14.391639881545538,
+                14.500000100031395,
+                73.66132571031575,
+                73.70000010826236
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 980,
+      "exact_intersections": 981
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 6,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.11389786752872393,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.11389786752872393,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                -8.713937073290387,
+                -8.65,
+                83.3,
+                83.64252853856485
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "qt",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0012547926903813294,
+          "first_cells": [
+            {
+              "cell": 1734,
+              "overlap_mm3": 0.0012547926903813294,
+              "bbox_mm": [
+                -85.35564710805714,
+                -85.28651082633516,
+                14.391639881545538,
+                15.208360114851965,
+                73.61637103613357,
+                73.70000010826236
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 883,
+      "exact_intersections": 883
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 8,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999976,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999976,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                -6.9,
+                -6.65,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "qt",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0012547926903813211,
+          "first_cells": [
+            {
+              "cell": 1734,
+              "overlap_mm3": 0.0012547926903813211,
+              "bbox_mm": [
+                -85.35564710805716,
+                -85.28651082633516,
+                14.391639881545542,
+                15.208360114851969,
+                73.61637103613356,
+                73.70000010826236
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 839,
+      "exact_intersections": 839
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 10,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999976,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999976,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                -4.9,
+                -4.65,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "qt",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0012547926903813322,
+          "first_cells": [
+            {
+              "cell": 1734,
+              "overlap_mm3": 0.0012547926903813322,
+              "bbox_mm": [
+                -85.35564710805716,
+                -85.28651082633516,
+                14.39163988154554,
+                15.208360114851965,
+                73.61637103613357,
+                73.70000010826236
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 839,
+      "exact_intersections": 839
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 12,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999977,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999977,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                -2.9000000000000004,
+                -2.6500000000000004,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "qt",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0012547926903813328,
+          "first_cells": [
+            {
+              "cell": 1734,
+              "overlap_mm3": 0.0012547926903813328,
+              "bbox_mm": [
+                -85.35564710805716,
+                -85.28651082633516,
+                14.39163988154554,
+                15.208360114851972,
+                73.61637103613357,
+                73.70000010826236
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.000883009742744413,
+          "first_cells": [
+            {
+              "cell": 1972,
+              "overlap_mm3": 0.000883009742744413,
+              "bbox_mm": [
+                -131.8889653196777,
+                -131.73545932335335,
+                22.364496528130115,
+                22.5000001,
+                74.59390423656644,
+                74.89653531762573
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 561,
+      "exact_intersections": 561
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 14,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999977,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999977,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                -0.9000000000000004,
+                -0.6500000000000004,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "qt",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0012306513938032003,
+          "first_cells": [
+            {
+              "cell": 1734,
+              "overlap_mm3": 0.0012306513938032003,
+              "bbox_mm": [
+                -85.35564710805716,
+                -85.28651082633516,
+                14.499999897649388,
+                15.208360114851976,
+                73.61637103613356,
+                73.7000001
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.00014313234956804988,
+          "first_cells": [
+            {
+              "cell": 1970,
+              "overlap_mm3": 0.00014313234956804988,
+              "bbox_mm": [
+                -131.54083055878425,
+                -131.51374711086157,
+                23.06353110645708,
+                23.51831995011237,
+                74.98861852316882,
+                75.04699787521415
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 559,
+      "exact_intersections": 559
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 16,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999976,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999976,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                1.0999999999999996,
+                1.3499999999999996,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.00014313234956807135,
+          "first_cells": [
+            {
+              "cell": 1970,
+              "overlap_mm3": 0.00014313234956807135,
+              "bbox_mm": [
+                -131.54083055878425,
+                -131.51374711086157,
+                23.063531106457063,
+                23.51831995011237,
+                74.98861852316887,
+                75.04699787521415
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 317,
+      "exact_intersections": 317
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 18,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999977,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999977,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                3.0999999999999996,
+                3.3499999999999996,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.0001431323495680733,
+          "first_cells": [
+            {
+              "cell": 1970,
+              "overlap_mm3": 0.0001431323495680733,
+              "bbox_mm": [
+                -131.54083055878425,
+                -131.51374711086157,
+                23.063531106457063,
+                23.51831995011237,
+                74.98861852316887,
+                75.04699787521415
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 317,
+      "exact_intersections": 317
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 20,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.9999999999999976,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.9999999999999976,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                5.1,
+                5.35,
+                83.3,
+                83.7
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.00014313234956807685,
+          "first_cells": [
+            {
+              "cell": 1970,
+              "overlap_mm3": 0.00014313234956807685,
+              "bbox_mm": [
+                -131.54083055878425,
+                -131.51374711086157,
+                23.063531106457066,
+                23.51831995011237,
+                74.98861852316887,
+                75.04699787521415
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 317,
+      "exact_intersections": 317
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 22,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.005786358774169124,
+          "first_cells": [
+            {
+              "cell": 0,
+              "overlap_mm3": 0.005786358774169124,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                7.1,
+                7.113937073290386,
+                83.3,
+                83.38217220345366
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.00014313234956804129,
+          "first_cells": [
+            {
+              "cell": 1970,
+              "overlap_mm3": 0.00014313234956804129,
+              "bbox_mm": [
+                -131.54083055878422,
+                -131.51374711086157,
+                23.063531106457074,
+                23.518319950112367,
+                74.98861852316882,
+                75.04699787521415
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 317,
+      "exact_intersections": 317
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 24,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.16317154237422993,
+          "first_cells": [
+            {
+              "cell": 9,
+              "overlap_mm3": 0.16317154237422993,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                7.0155089175,
+                7.112302461605389,
+                83.30991211769121,
+                83.64358559362628
+              ]
+            }
+          ]
+        },
+        {
+          "obstacle": "corrected_fps_fps_200_main",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.00031052397062420015,
+          "first_cells": [
+            {
+              "cell": 1975,
+              "overlap_mm3": 0.00031052397062420015,
+              "bbox_mm": [
+                -132.3771298513,
+                -132.219073912553,
+                24.5,
+                24.54632217005898,
+                74.26905129380263,
+                74.5507928468164
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 323,
+      "exact_intersections": 323
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 26,
+      "full_material_mm": 300.0,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "cell_count": 1,
+          "max_overlap_mm3": 0.005385104485392018,
+          "first_cells": [
+            {
+              "cell": 25,
+              "overlap_mm3": 0.005385104485392018,
+              "bbox_mm": [
+                -64.8,
+                -54.8,
+                6.7611456180000005,
+                6.795697893695438,
+                84.57405779028186,
+                84.63019955754736
+              ]
+            }
+          ]
+        }
+      ],
+      "broad_phase_pairs": 66,
+      "exact_intersections": 66
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 28,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 61,
+      "exact_intersections": 61
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 30,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 61,
+      "exact_intersections": 61
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 32,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 58,
+      "exact_intersections": 58
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 34,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 48,
+      "exact_intersections": 48
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 36,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 16,
+      "exact_intersections": 16
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 38,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 40,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 42,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 44,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 46,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 48,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 50,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 52,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 54,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 56,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 58,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    },
+    {
+      "state": "both_unplugged",
+      "shift_y_mm": 60,
+      "full_material_mm": 300.0,
+      "hits": [],
+      "broad_phase_pairs": 0,
+      "exact_intersections": 0
+    }
+  ],
+  "hard_head_removal_checks": [
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 0,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 0.005181266175228606
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 1606.4850777685697
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 2,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 1898.011231057991
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 4,
+      "hits": [
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 2127.7845279874996
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 6,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 10.090395388292265
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 2180.1882682921614
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 8,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 1987.8081730495956
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 10,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 1713.2130137711931
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 12,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 1399.2293624673277
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 14,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 1068.3519754886865
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 16,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 738.8050771071464
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 18,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 429.10299283023585
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 20,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 19.426792953759
+        },
+        {
+          "obstacle": "fpc_orientation_unknown_fullwidth_envelope",
+          "overlap_mm3": 163.06785235780035
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 22,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 16.453758329874066
+        }
+      ]
+    },
+    {
+      "head": "p_hdmi_pi",
+      "shift_y_mm": 24,
+      "hits": [
+        {
+          "obstacle": "power_positive_positive_board_to_fuse",
+          "overlap_mm3": 2.375566379533422
+        }
+      ]
+    }
+  ],
+  "installed_switch_clearances": [
+    {
+      "part": "body",
+      "min_distance_mm": 0.5999999999999996,
+      "nearby_cells": 494,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_1",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_2",
+      "min_distance_mm": 2.0032393134003867,
+      "nearby_cells": 14,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_3",
+      "min_distance_mm": 0.5771085993620062,
+      "nearby_cells": 31,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_4",
+      "min_distance_mm": 0.7662055417500523,
+      "nearby_cells": 27,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_5",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_6",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_7",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_8",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_9",
+      "min_distance_mm": 0.5771085993620204,
+      "nearby_cells": 29,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_10",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_11",
+      "min_distance_mm": 0.29888527117067554,
+      "nearby_cells": 29,
+      "scope": "distance for cells within 2 mm expanded component box"
+    },
+    {
+      "part": "pin_12",
+      "min_distance_mm": null,
+      "nearby_cells": 0,
+      "scope": "distance for cells within 2 mm expanded component box"
+    }
+  ],
+  "physical_qualified": false,
+  "remaining": [
+    "Legacy FPS route is superseded by separate corrected-switch/pair study; its hits are not silently waived",
+    "Camera FPC has no full 16 mm developable geometry or complete stored 200 mm stock; generous envelope hits are unresolved, not exact material contact",
+    "USB, power button, OLED and other reservation boxes do not constitute modeled complete stock or a staging procedure",
+    "Every listed crossing loom must be explicitly staged/released before HDMI-only extraction",
+    "Terminal and adapter dimensions, neutral axis, real laminate thickness/radius, EMI, retention, lengths and mechanical tolerances unmeasured",
+    "Baseline 56 and M1 physical gates remain open"
+  ]
+}

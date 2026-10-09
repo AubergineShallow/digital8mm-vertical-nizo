@@ -1,0 +1,149 @@
+{
+  "scope": "Unchanged minimal coupon generator and selected/optional input restoration from the separately supplied structural-analysis-and-coupons archive. No current geometry helper or retained output overwritten; no coupon regeneration, slicing or physical test.",
+  "restored_files": [
+    {
+      "path": "make_coupons.py",
+      "recovered_sha256": "d6c0497615032dbc6e30c0732eb2f6340802e5d84bcc93f546650592d324f6d5",
+      "restored_sha256": "d6c0497615032dbc6e30c0732eb2f6340802e5d84bcc93f546650592d324f6d5",
+      "bytes": 5103,
+      "identical": true
+    },
+    {
+      "path": "check_coupon_meshes.py",
+      "recovered_sha256": "75ebdf7571a10be272d3c12967fc6f1bc02002eee06bc64edde089997ef86175",
+      "restored_sha256": "75ebdf7571a10be272d3c12967fc6f1bc02002eee06bc64edde089997ef86175",
+      "bytes": 1777,
+      "identical": true
+    },
+    {
+      "path": "render_coupons.py",
+      "recovered_sha256": "9b7228c7aa691b428130ab42f7165e79ccf6d5e9d6d345b780d8f4a535603c4f",
+      "restored_sha256": "9b7228c7aa691b428130ab42f7165e79ccf6d5e9d6d345b780d8f4a535603c4f",
+      "bytes": 1262,
+      "identical": true
+    },
+    {
+      "path": "j4-trial/grip.step",
+      "recovered_sha256": "2e69b5e5d427ee2844e4644163be5efbe7d371dfc7d3dff45b6a4378062ccf41",
+      "restored_sha256": "2e69b5e5d427ee2844e4644163be5efbe7d371dfc7d3dff45b6a4378062ccf41",
+      "bytes": 829227,
+      "identical": true
+    },
+    {
+      "path": "j4-trial/tub.step",
+      "recovered_sha256": "5212d50370a40d9316a6ea0399105d2cf21ab958a8d52e4d847dda5f174c68f8",
+      "restored_sha256": "5212d50370a40d9316a6ea0399105d2cf21ab958a8d52e4d847dda5f174c68f8",
+      "bytes": 1604153,
+      "identical": true
+    },
+    {
+      "path": "input-baseline/step/base_grip.step",
+      "recovered_sha256": "a0eed2940579148dcb26be971cb438c6aa31126ce012774660fc7d78c0e38ec7",
+      "restored_sha256": "a0eed2940579148dcb26be971cb438c6aa31126ce012774660fc7d78c0e38ec7",
+      "bytes": 862421,
+      "identical": true
+    },
+    {
+      "path": "input-baseline/step/tub.step",
+      "recovered_sha256": "ba1f210706c03563415c90be84490e3608e88d23e208724d4dc8f3d0025ec14b",
+      "restored_sha256": "ba1f210706c03563415c90be84490e3608e88d23e208724d4dc8f3d0025ec14b",
+      "bytes": 1682881,
+      "identical": true
+    }
+  ],
+  "retained_output_identity": [
+    {
+      "path": "coupons/C01_carrier_original.step",
+      "sha256": "72bde5c3e04316935e77f181bd3d3373a50c2e64bafd81ddd1abd8b020cce72f",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C01_carrier_original.stl",
+      "sha256": "411366b56940f1bdf7d1e5d45d48c812776754ebc75c1cba7560b5ebc2485295",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C02_carrier_reinforced.step",
+      "sha256": "a587e29e0b8820e4dc9a8bc9d20a2425fc70b9ef63829916a3c18aa4fc4acef9",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C02_carrier_reinforced.stl",
+      "sha256": "c811a81b3255e5553f72191d5f866c24b82d73c224b8e39a4cd4160596596b95",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C03_heel_original.step",
+      "sha256": "cf09ba0d88fdd8f246f1ebe57ef6686b8903964ac9bff6a723faefe815de3e09",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C03_heel_original.stl",
+      "sha256": "f07d1de40c6f8e9ea4f58cc5a800fd5c2531b768a62862f60da67aa16f61caba",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C04_heel_reinforced.step",
+      "sha256": "79a8e9010b3449692ed663e5bce4210f0e0f02a7ed7e52be905e15f90c6b76dd",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C04_heel_reinforced.stl",
+      "sha256": "28675676c847fe06d923db4811116369c31682f296a7b1dbcd49ffe100bc0709",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C05_upper_original.step",
+      "sha256": "73893dbf38275b7515914fb7b16f3d112c3399931accbe2628607ff641ba4f4a",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C05_upper_original.stl",
+      "sha256": "eee4ef2cc81dfdcc0cd6cfc516c5cc4195493b349c47f713bd1e3f6ce4bde71a",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C06_upper_widened.step",
+      "sha256": "543353c5634891c7537c7f1dc915eee5cb15ddb3805d66446c20328ae8864de8",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C06_upper_widened.stl",
+      "sha256": "c3b4f56a8dac85deb9fb3d7841a1aed379c7b7f20987a688166c60a73c21268a",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C07_M2_5_seat.step",
+      "sha256": "c587516a3257ba65fee83811d4d1063cca0617ffdc7df753657ddafbc883e7db",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C07_M2_5_seat.stl",
+      "sha256": "4b2c6facc4f235e1d9239f8f96e5fe59fafc6f6c3457acafb78fd5cfd3efccb7",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C08_J4_base.step",
+      "sha256": "61f21264953b1e1583c390f320fa5375f6abc947cca48b45bf7c3235cd78df67",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C08_J4_base.stl",
+      "sha256": "eb6ad8047e3ca9ede5d06b95d876403b4175047a3dda3b06eb91bc5f99889d33",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C09_J4_tongue.step",
+      "sha256": "928f5c000c15d5b818f207dd3188d71be2e98db2d83606f73944795aa310509b",
+      "matches_retained_manifest": true
+    },
+    {
+      "path": "coupons/C09_J4_tongue.stl",
+      "sha256": "13c900f431844ce3b5273eab0c8c189d72fd960bca9333e05e6461f0be08b9c3",
+      "matches_retained_manifest": true
+    }
+  ],
+  "selected_j4_inputs_match_coupon_manifest": true,
+  "old_load_targets": "Historical; use CONCEALED-VENT-STRUCTURAL.md and the current manifest-bound sensitivity for revised loads",
+  "physical_qualified": false
+}

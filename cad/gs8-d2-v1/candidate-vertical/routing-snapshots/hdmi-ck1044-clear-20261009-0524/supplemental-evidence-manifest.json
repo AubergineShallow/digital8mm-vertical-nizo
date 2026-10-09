@@ -1,0 +1,246 @@
+{
+  "created_utc": "2026-10-09T06:21:03.800701+00:00",
+  "status": "Frozen supplemental source registration and mutual-clearance evidence; hardware qualification remains open",
+  "prior_manifest_sha256": "e4c10ea56d000e2b5eb4750f0fd7d4b82fa3d47e9c5ec93d472cc49ebc9433c7",
+  "prior_frozen_files_verified": 31,
+  "files": {
+    "MATED-CARRY-ADDENDUM.md": {
+      "sha256": "028b2f785ad92307e2dc37a482411a3e4574451aebdaa47672d73e15d3a3ac1b",
+      "bytes": 2639
+    },
+    "OFFICIAL-PI5-CORRECTION.md": {
+      "sha256": "e6eac07e42561341bff8b4d2264e9a1bf870431267fe64ca16bb5baa6858bbf2",
+      "bytes": 9332
+    },
+    "evidence-manifest.json": {
+      "sha256": "e4c10ea56d000e2b5eb4750f0fd7d4b82fa3d47e9c5ec93d472cc49ebc9433c7",
+      "bytes": 4844
+    },
+    "fps-deployed-carrier-context-0551-superseded.json": {
+      "sha256": "62cc6f287a4135ff36e5ed592746722ac9f3be925f5d1f3394c8fa987c3d4caa",
+      "bytes": 164
+    },
+    "fps-deployed-carrier-context-0551.json": {
+      "sha256": "b35f99005e7ab3fca5e304050f06d8c2476cabc115eeb6a83136ea3b11747d33",
+      "bytes": 394733
+    },
+    "fps-deployed-context-0550-superseded.json": {
+      "sha256": "69aca579bcac5827b173bd82ba7a003c4d54f19248b8e93efbae55440e20c856",
+      "bytes": 199
+    },
+    "fps-deployed-context-0550.json": {
+      "sha256": "9aaf7d1f9c93e3a8e31eb2a86570145bfbe47de8eff1d4242f47d23ba2cf8131",
+      "bytes": 394583
+    },
+    "fps-mated-carry-context-0556.json": {
+      "sha256": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+      "bytes": 352979
+    },
+    "fps-mated-carry-context-checks.json": {
+      "sha256": "5b1141c7187cdfdb20db093e0703955dac21248669231c0cb549dd2802575bdd",
+      "bytes": 1265
+    },
+    "official-csi-context-checks.json": {
+      "sha256": "6831ea043a125d43ab3e963bf82d50909f6f96eb260ce7db0688b9d540255717",
+      "bytes": 26408
+    },
+    "official-fpc-sources/LICENSE.txt": {
+      "sha256": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
+      "bytes": 1881
+    },
+    "official-fpc-sources/cam_disp0-candidate.step": {
+      "sha256": "8408e856350c472db7adbf11293b2f49c006e3549a72f268b7b14bf437c09ea8",
+      "bytes": 8093674
+    },
+    "official-fpc-sources/cam_disp0-native.step": {
+      "sha256": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
+      "bytes": 7705717
+    },
+    "official-fpc-sources/cam_disp1-candidate.step": {
+      "sha256": "d7d9cca207d20ac55082768d549bdbafe6762703ddb0d1bb57e35cce85a9fc16",
+      "bytes": 8094987
+    },
+    "official-fpc-sources/cam_disp1-native.step": {
+      "sha256": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
+      "bytes": 7705769
+    },
+    "official-fpc-sources/connector-extraction.json": {
+      "sha256": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
+      "bytes": 839633
+    },
+    "official-fpc-sources/download.json": {
+      "sha256": "27a286028ba44715e69efda65e1f14c4f5d83d5d84e23d65c301bdfc3106e375",
+      "bytes": 314
+    },
+    "official-fpc-sources/ethernet-native.step": {
+      "sha256": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
+      "bytes": 861714
+    },
+    "official-fpc-sources/extract_pi5_connectors.py": {
+      "sha256": "9f6fb2731e5d19e22c5684b27e8495730e5041dc2bc17de4c4f53ca4d0d4da9c",
+      "bytes": 4227
+    },
+    "official-fpc-sources/extract_pi5_landmarks.py": {
+      "sha256": "4debd946c1213f54f8886416fde0b5f088330bda8e7f2e458846b0b38c841496",
+      "bytes": 1959
+    },
+    "official-fpc-sources/gpio-native.step": {
+      "sha256": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+      "bytes": 2204272
+    },
+    "official-fpc-sources/gs-camera-drawing.png": {
+      "sha256": "439ebd9ab0f57f11f278dab559339cc9f30bd7e2d7d181696f2b3453a7dbc992",
+      "bytes": 128014
+    },
+    "official-fpc-sources/gs-camera-mechanical-drawing.pdf": {
+      "sha256": "0d56051a260faf22cef78e13ddf93e46856994e9347dcfb2044316214af1b6e2",
+      "bytes": 806330
+    },
+    "official-fpc-sources/hdmi-mouth-inspection.json": {
+      "sha256": "ffa4ac12b1e058cfe9d035394d7408e3552d9abe76974d274aeb06923330b561",
+      "bytes": 7996
+    },
+    "official-fpc-sources/inspect_hdmi_mouth.py": {
+      "sha256": "ddaf471fb0c574dd8f8ff895e7212f08836dc9dd5fd8486df5223aaa4f1346b0",
+      "bytes": 1352
+    },
+    "official-fpc-sources/inspect_pi5_step.py": {
+      "sha256": "345ce13641e8583891c3b4e7916ab21ffbe49c0d6cfb3a1cbcd00d2d561ad8d5",
+      "bytes": 1055
+    },
+    "official-fpc-sources/inspect_usb_openings.py": {
+      "sha256": "516ed3f0ae213272d36563e33820835546060d557569fb78bc6ce659b89e55f0",
+      "bytes": 1547
+    },
+    "official-fpc-sources/pi5-connector-identification.png": {
+      "sha256": "390c031a8435731d5d18a3b261399764a790030d95ac1d2d312e980059e690f2",
+      "bytes": 1028893
+    },
+    "official-fpc-sources/pi5-official-no-graphics.zip": {
+      "sha256": "6841637b4cfa97637bf34b529bfe896f24d9634b2c40b57a156781f55d88f06f",
+      "bytes": 13270704
+    },
+    "official-fpc-sources/pi5-solid-bounds.json": {
+      "sha256": "77024fac28712268b3dad9e09075a849e7ea3afc93db61e128aec2ed69b71707",
+      "bytes": 874613
+    },
+    "official-fpc-sources/port-edge-leaf-1926.step": {
+      "sha256": "9035c8b515d06af22301dcd0a64098527d5994881cb0dd76f10cf9b12df96524",
+      "bytes": 6847802
+    },
+    "official-fpc-sources/port-edge-leaf-1937.step": {
+      "sha256": "68d7027c36252760e54c797b0ba4012727ab08ee3b08ee34f7f3eb58f5f33a25",
+      "bytes": 6847756
+    },
+    "official-fpc-sources/port-landmarks.json": {
+      "sha256": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+      "bytes": 90171
+    },
+    "official-fpc-sources/rpi-5b_no_graphics.step": {
+      "sha256": "78164070c1cc7ab854382950d2e85926c6e35432f1e5a146b733397a7c6afb44",
+      "bytes": 77627469
+    },
+    "official-fpc-sources/usb-opening-sections.json": {
+      "sha256": "d619e5ef705e471de8819bb171fed6dd7632d97e2b1ad8da3259f96f0330e508",
+      "bytes": 68326
+    },
+    "official-fpc-sources/usb-opening-sections.png": {
+      "sha256": "ebedefa1dd464ed1a6b95a59b29834bd6e8292039753067b17440921bb6d8dab",
+      "bytes": 31537
+    },
+    "official-fpc-sources/usb2-native.step": {
+      "sha256": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+      "bytes": 12389326
+    },
+    "official-fpc-sources/usb3-native.step": {
+      "sha256": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+      "bytes": 18294692
+    },
+    "official-fpc-sources/usbc-native.step": {
+      "sha256": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
+      "bytes": 392283
+    },
+    "official-pi5-geometry-checks-v2.json": {
+      "sha256": "1a60b3a62de9ecfddfaedb185aae3fc24f392c38604158965333835e7b4cf952",
+      "bytes": 22164
+    },
+    "official-pi5-geometry-checks.json": {
+      "sha256": "bb8816b54709135fd0b0c2b89f5eb7274f069193944bd46da167a3d5710cd8dd",
+      "bytes": 21414
+    },
+    "reinforced-carrier-checks.json": {
+      "sha256": "27857f88fa6500951683aeae09fc3715c0f35b486467410fea240b5116cdaece",
+      "bytes": 1353
+    },
+    "reinforced-carrier-input.step": {
+      "sha256": "0befe19c07e62b430d691c7b263e1b0aeed41f3a254685b7cffe3e1c943dd268",
+      "bytes": 319783
+    },
+    "source-fps_ck1044_mated_carry-0556.py": {
+      "sha256": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb",
+      "bytes": 4042
+    },
+    "source-fps_ck1044_service-0550.py": {
+      "sha256": "3c02015ad0e75225419bbdc61d211bafe2dbf4e0a8424c1d8f924a550da44b8a",
+      "bytes": 4060
+    },
+    "source-fps_ck1044_service_carrier-0551.py": {
+      "sha256": "f7fd84a652301b1566d7178127be9e23b94c19d81e1fc3c4003d200ecb89a0fc",
+      "bytes": 4056
+    },
+    "source-official_pi5_assembly.py": {
+      "sha256": "9d02914af24d2ab1f975f7809c8f3aacfe8a7e89a22d622bf56e6a97769bc094",
+      "bytes": 3950
+    },
+    "source-official_pi5_csi.py": {
+      "sha256": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+      "bytes": 4844
+    },
+    "source-official_pi5_geometry.py": {
+      "sha256": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+      "bytes": 8217
+    },
+    "verify_fps_deployed_carrier_context.py": {
+      "sha256": "1adfd16129ba3f1dc3678f39a258762affffeb9715b3265ab5c9826183695dac",
+      "bytes": 2845
+    },
+    "verify_fps_deployed_context.py": {
+      "sha256": "855ad9369a6e6e84044d0b44488d98051325b65dbf99c25154949c53a2fa43a9",
+      "bytes": 2813
+    },
+    "verify_fps_mated_carry_context.py": {
+      "sha256": "0c1694d93e2ce6a3deef1bf1ad84e91445bd68d57443a168270121a0f00894d3",
+      "bytes": 2898
+    },
+    "verify_official_csi_context.py": {
+      "sha256": "0a9324ae0ca8aa0ab277cee6423d46b09aadac35bf6229f8972ddab4cb5bf624",
+      "bytes": 6094
+    },
+    "verify_official_pi5_geometry.py": {
+      "sha256": "342f77daf41c972cf1f450d83460e7f263747ef900ed69922a7ba7d98f4df267",
+      "bytes": 3948
+    },
+    "verify_official_pi5_geometry_v2.py": {
+      "sha256": "94630abaf0e5bc894b7155a8a79f374bf46628bf1de55bf0f4fcfd437e9c73a1",
+      "bytes": 4252
+    },
+    "verify_reinforced_carrier.py": {
+      "sha256": "f92d67c29d341ea4e0b8e4e70d48cea34f3f23d764596755e4d21759a4440ae7",
+      "bytes": 2824
+    }
+  },
+  "isolated_helpers_sha256": {
+    "official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+    "official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+    "official_pi5_assembly.py": "9d02914af24d2ab1f975f7809c8f3aacfe8a7e89a22d622bf56e6a97769bc094"
+  },
+  "physical_qualified": false,
+  "remaining": [
+    "Whole-Pi composed occupied union and final corrected-port export are parent integration checks",
+    "Actual cooler perimeter/fan registration and CSI cable/latch/tool corridor",
+    "Complete200mm16mm-wide camera FPC with both engaged/stiffener free-flex frames",
+    "Adafruit3557 body and ribbon-root transform relative to the actual HDMI0 mating socket",
+    "Corrected USB5V complete material/staging and whole-loom motion",
+    "Baseline56 andM1 physical gates remain open"
+  ]
+}

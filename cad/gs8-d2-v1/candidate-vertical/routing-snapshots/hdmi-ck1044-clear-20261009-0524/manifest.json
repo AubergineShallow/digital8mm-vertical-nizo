@@ -1,0 +1,84 @@
+{
+  "status": "Unadopted geometry hypothesis; no release or physical gate closure",
+  "source_sha256": {
+    "candidate-vertical/routes.py": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+    "candidate-vertical/hdmi_routes.py": "e768e42274e8ee0bf862c3c568950e22e0e827c78fa89aad65d6488d91fc5dac",
+    "candidate-vertical/power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+    "candidate-vertical/signal_routes.py": "56ea22ba23d160349eaf589bd995d24d880a1683a6ba88a113291e7882c546b2",
+    "candidate-vertical/fps_service_routes.py": "69240ce1331a31b208435d0046cf1db1966a6b2e2c18c77437847442881eea28",
+    "candidate-vertical/verify_hdmi.py": "7c12d0789205c8ddc9c602b2d5914aa809180adfbd8e1561005b286220a2d3d9",
+    "candidate-vertical/verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+    "candidate-vertical/power_geometry.py": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+    "candidate-vertical/study_hdmi_ck1044.py": "f47a55683694b2aa3e30455fcdeeb10151f97e6c1ea8993fb0a1c6505bda1e09",
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b"
+  },
+  "mechanical_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "files": {
+    "sampled-50-poses.json": {
+      "sha256": "f5775517f6581f93c2ea46b404414c830c0160d46f662da7021374f9bcf155ec",
+      "bytes": 67950
+    },
+    "source-verify_hdmi.py": {
+      "sha256": "7c12d0789205c8ddc9c602b2d5914aa809180adfbd8e1561005b286220a2d3d9",
+      "bytes": 12333
+    },
+    "source-hdmi_routes.py": {
+      "sha256": "e768e42274e8ee0bf862c3c568950e22e0e827c78fa89aad65d6488d91fc5dac",
+      "bytes": 8959
+    },
+    "source-signal_routes.py": {
+      "sha256": "56ea22ba23d160349eaf589bd995d24d880a1683a6ba88a113291e7882c546b2",
+      "bytes": 13672
+    },
+    "source-run_locked.py": {
+      "sha256": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+      "bytes": 7103
+    },
+    "context.json": {
+      "sha256": "d054ac2ad404b74eb2cd7770c6f13fe7cd6f9bdc48780a5adaff75e3a58c5196",
+      "bytes": 17077314
+    },
+    "hdmi300.py": {
+      "sha256": "285353a7472d6cbf8e9058cefffa93f6d0c2aebb5be3c55c556dea5169955f74",
+      "bytes": 8989
+    },
+    "source-verify_fps_access.py": {
+      "sha256": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+      "bytes": 8494
+    },
+    "source-routes.py": {
+      "sha256": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+      "bytes": 66620
+    },
+    "source-study_hdmi_ck1044.py": {
+      "sha256": "f47a55683694b2aa3e30455fcdeeb10151f97e6c1ea8993fb0a1c6505bda1e09",
+      "bytes": 5292
+    },
+    "source-power_geometry.py": {
+      "sha256": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+      "bytes": 3677
+    },
+    "input.json": {
+      "sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+      "bytes": 11060747
+    },
+    "source-layout.py": {
+      "sha256": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+      "bytes": 229684
+    },
+    "source-power_routes.py": {
+      "sha256": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+      "bytes": 13819
+    },
+    "source-fps_service_routes.py": {
+      "sha256": "69240ce1331a31b208435d0046cf1db1966a6b2e2c18c77437847442881eea28",
+      "bytes": 3758
+    }
+  },
+  "length_error_max_mm": 0.0,
+  "wall_failures": 0,
+  "source_proxy_failures": 0,
+  "previous_input_preserved": true,
+  "physical_qualified": false
+}

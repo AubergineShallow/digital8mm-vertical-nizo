@@ -1,0 +1,212 @@
+{
+  "summary": {
+    "pass": 8,
+    "fail": 4,
+    "info": 0
+  },
+  "checks": [
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_evf",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_usb_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "installed",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "premate",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "both_unplugged",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2322,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "carried_sweep",
+      "id": "carrier_headers_hdmi_premate",
+      "status": "pass",
+      "step_mm": 2.0,
+      "full_material": true,
+      "exact_intersections": 225,
+      "hits": [],
+      "hit_count": 0
+    },
+    {
+      "category": "hdmi_only_removal",
+      "id": "both_heads_and_full_material",
+      "status": "pass",
+      "step_mm": 2.0,
+      "exact_intersections": 1339,
+      "hits": [],
+      "hit_count": 0,
+      "note": "Panel and its controls removed first; other flexible looms not included in these rigid STEP obstacles"
+    },
+    {
+      "category": "fpc_tool_without_hdmi",
+      "id": "-87",
+      "status": "fail",
+      "rigid_hits": [
+        {
+          "part": "pi5",
+          "overlap_mm3": 1.684260569763773
+        }
+      ],
+      "note": "Requires HDMI removed/parked first; real jaws/latch remain measured gates"
+    },
+    {
+      "category": "fpc_tool_with_hdmi",
+      "id": "-87",
+      "status": "fail",
+      "rigid_hits": [
+        {
+          "part": "pi5",
+          "overlap_mm3": 1.684260569763773
+        }
+      ],
+      "hdmi_hits": [
+        {
+          "cell": 1714,
+          "overlap_mm3": 0.01469722776342312
+        },
+        {
+          "cell": 1715,
+          "overlap_mm3": 0.09208974921174842
+        },
+        {
+          "cell": 1716,
+          "overlap_mm3": 0.15159354490604574
+        },
+        {
+          "cell": 1717,
+          "overlap_mm3": 0.19682719556391393
+        },
+        {
+          "cell": 1718,
+          "overlap_mm3": 0.2338052737330933
+        },
+        {
+          "cell": 1719,
+          "overlap_mm3": 0.26508481781573257
+        },
+        {
+          "cell": 1720,
+          "overlap_mm3": 0.292047440825665
+        },
+        {
+          "cell": 1721,
+          "overlap_mm3": 0.3155416606912437
+        }
+      ],
+      "hdmi_hit_count": 40,
+      "note": "TEST ONLY:4mm tip for15mm then8mm shank; actual latch/jaws and tool dimensions unmeasured, not a completed release procedure"
+    },
+    {
+      "category": "fpc_tool_without_hdmi",
+      "id": "-79",
+      "status": "fail",
+      "rigid_hits": [
+        {
+          "part": "pi5",
+          "overlap_mm3": 1.6842605840143317
+        }
+      ],
+      "note": "Requires HDMI removed/parked first; real jaws/latch remain measured gates"
+    },
+    {
+      "category": "fpc_tool_with_hdmi",
+      "id": "-79",
+      "status": "fail",
+      "rigid_hits": [
+        {
+          "part": "pi5",
+          "overlap_mm3": 1.6842605840143317
+        }
+      ],
+      "hdmi_hits": [
+        {
+          "cell": 1674,
+          "overlap_mm3": 0.02522213864255121
+        },
+        {
+          "cell": 1675,
+          "overlap_mm3": 0.10383244093409244
+        },
+        {
+          "cell": 1676,
+          "overlap_mm3": 0.1601102518884263
+        },
+        {
+          "cell": 1677,
+          "overlap_mm3": 0.20365421607191408
+        },
+        {
+          "cell": 1678,
+          "overlap_mm3": 0.23952062400871194
+        },
+        {
+          "cell": 1679,
+          "overlap_mm3": 0.2699821024738956
+        },
+        {
+          "cell": 1680,
+          "overlap_mm3": 0.296300250148802
+        },
+        {
+          "cell": 1681,
+          "overlap_mm3": 0.3192626449545933
+        }
+      ],
+      "hdmi_hit_count": 40,
+      "note": "TEST ONLY:4mm tip for15mm then8mm shank; actual latch/jaws and tool dimensions unmeasured, not a completed release procedure"
+    }
+  ],
+  "analysis_bbox_mm": [
+    -153.01,
+    -40.96,
+    -22.360000000000003,
+    84.16000000000001,
+    7.92,
+    119.00519549754252
+  ],
+  "verification_source_sha256": "37f53281fe4bef43e6476bddd92eb0807de46b98068809c6a203000da4441873",
+  "snapshot_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "mechanical_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "corrected_ck1044_and_separate_fixed_cradle": true,
+  "physical_qualified": false,
+  "note": "Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation."
+}

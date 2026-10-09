@@ -1,0 +1,25 @@
+{
+  "files": {
+    "check-source.py": "d468dd49201b7cccfff675f27a4bdfbd9ab40529f5fa883a26fb4a90c45e4d64",
+    "routes-source.py": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+    "twenty-one-full-wire-shapes.json": "cd01e0b5c42b3d3b4c262b464b5c6ef4ef2e1ff7310a03b49e985c86bebacfed",
+    "source-review.json": "9a8d2f80fec5ad268b5e15c09ba6a11891a02ad96a4e13dcbc8788c8d52ecfa7",
+    "fps_service_routes-source.py": "69240ce1331a31b208435d0046cf1db1966a6b2e2c18c77437847442881eea28"
+  },
+  "nominal_junction_box": {
+    "x": [
+      -137.5,
+      -129.5
+    ],
+    "y": [
+      3.1,
+      15.1
+    ],
+    "z": [
+      76.7,
+      82.7
+    ]
+  },
+  "existing_selected_fps_pose": "signal_routes.py remains the prior right-wall checkpoint until parent adoption",
+  "minimum_fps_piece_to_piece_gap_mm": 9.4
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "main",
+    "exit_code": 1,
+    "log": "/tmp/d2-final-main.log",
+    "completed_utc": "2026-10-09T08:17:00Z"
+  },
+  {
+    "name": "hdmi",
+    "exit_code": 0,
+    "log": "/tmp/d2-final-hdmi.log",
+    "completed_utc": "2026-10-09T08:19:04Z"
+  },
+  {
+    "name": "fps",
+    "exit_code": 0,
+    "log": "/tmp/d2-final-fps.log",
+    "completed_utc": "2026-10-09T08:21:46Z"
+  }
+]

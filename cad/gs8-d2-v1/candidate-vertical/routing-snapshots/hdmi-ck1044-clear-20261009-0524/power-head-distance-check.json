@@ -1,0 +1,162 @@
+{
+  "method": "Exact distance between each original full sampled polyline segment and shifted hard-head AABB; no simplification or radial padding",
+  "rows": [
+    {
+      "shift_y_mm": 0,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 1.3499999999999979,
+          "nominal_surface_gap_mm": -0.2500000000000022,
+          "segment": 297,
+          "parameter": 0.29786879293796215
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 4,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 1.9500000000000028,
+          "nominal_surface_gap_mm": 0.35000000000000275,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 6,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 8,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 10,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 12,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 14,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 16,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 18,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 20,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 22,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 0.0,
+          "nominal_surface_gap_mm": -1.6,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    },
+    {
+      "shift_y_mm": 24,
+      "near": [
+        {
+          "core": "positive",
+          "part": "positive_board_to_fuse",
+          "distance_mm": 1.0499999999999972,
+          "nominal_surface_gap_mm": -0.5500000000000029,
+          "segment": 20,
+          "parameter": 0.25
+        }
+      ]
+    }
+  ],
+  "physical_qualified": false
+}

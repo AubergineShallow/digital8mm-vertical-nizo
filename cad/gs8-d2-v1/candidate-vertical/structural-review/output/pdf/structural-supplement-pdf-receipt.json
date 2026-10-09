@@ -1,0 +1,31 @@
+{
+  "artifact": "D2-shadow-plenum-structural-supplement.pdf",
+  "pdf_sha256": "7cb47b145befbb69901c82638d1ced418a5a3405cc6415770f7bd62601c3a1c9",
+  "pages": 2,
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "source_sha256": {
+    "structural-review/CONCEALED-VENT-STRUCTURAL.md": "aa673fefcc05e5b4e31ac4711a90ee65ffedcffad7d8ff21c5a23d625d624ff2",
+    "structural-review/concealed-vent-structural.json": "cd9fd62d27ad44be1a4010a0c66fa169d1355ecdbb0905c2171e92310e2f3976",
+    "structural-review/update_concealed_vent_structure.py": "aa9e3f51115970bbf17f51b55053ea315787e610196fcb23597e04825e05b4fc",
+    "structural-review/reference-export18-structural-binding.json": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
+    "out/compact-kowa_lm6hc/manifest.json": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+    "out/compact-kowa_lm6hc/shadow-plenum-checks.json": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+    "vent-study/shadow-plenum-coupon/coupon-index.json": "58f5c9017d1d59808305587ca0aa54598dfa266e1a501a8fb4b82fe720364d23",
+    "structural-review/build_shadow_structural_pdf.py": "03e6e210ac26dbd67e6772a364b9ec8a1ead9f3c52fb4aed2c4735b5887a3eee"
+  },
+  "text_checks_pass": true,
+  "visual_review": {
+    "status": "passed",
+    "pages_inspected": [
+      1,
+      2
+    ],
+    "findings": "Both complete page PNGs inspected. No clipping, overlap, missing glyphs or table overflow. Print hold and 0.95 N m target are visible; source hashes and page numbers are legible.",
+    "rendered_page_sha256": {
+      "supplement-1.png": "a05acdf8ae2d293506681c21877f826e4eee6eb56c1e10d7348c1aa81ee7cdf5",
+      "supplement-2.png": "c6a650cf8e117df7b28834b399c7f964592c7cb42c6ecadcd38f470553568040"
+    },
+    "text_within_page_bounds": true
+  },
+  "physical_qualified": false
+}

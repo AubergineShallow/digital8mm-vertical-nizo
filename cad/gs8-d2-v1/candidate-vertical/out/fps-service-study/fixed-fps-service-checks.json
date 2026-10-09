@@ -1,0 +1,1658 @@
+{
+  "status": "diagnostic proposal only",
+  "mechanical_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "source_sha256": {
+    "verify_fps_fixed_service.py": "96f0151a097f9d74457a1ceffd0003ea74f5690e7141e32d98f6c027c3804217",
+    "fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "fps_ck1044_static.py": "4868e8fe0b90d2f3f16aef7aaab35ca57cfcbe5729e7456d150ad7381119abd7",
+    "fps_fixed_support.py": "b670274536734783d5702dbdba263b01bace0d283843611959b94f25c90e13f1",
+    "routes.py": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d"
+  },
+  "rest": {
+    "valid": true,
+    "solids": 1,
+    "tub_common_mm3": 56.07000000000008,
+    "tub_union_valid": true,
+    "tub_union_solids": 1
+  },
+  "wire_lengths": {
+    "A": 73.95968526097207,
+    "2": 80.97124239392238
+  },
+  "checks": [
+    {
+      "item": "rest/static",
+      "hits": [],
+      "near": [
+        {
+          "part": "pi5",
+          "gap_mm": 1.1313708498984811,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "x1203",
+          "gap_mm": 1.4000000000000057,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "x1203_kit",
+          "gap_mm": 1.1809955658943512,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "switch_1824",
+          "gap_mm": 0.2499999999999703,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "carrier",
+          "gap_mm": 0.7201532544552847,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "panel",
+          "gap_mm": 0.6999999999999993,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "fps_header_branch",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 1.3000000000000007,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "fps_200_main",
+      "hits": [],
+      "near": [
+        {
+          "part": "pi5",
+          "gap_mm": 2.4202150475476634,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "cooler",
+          "gap_mm": 7.999999999999999,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "x1203",
+          "gap_mm": 10.359892769802112,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "x1203_kit",
+          "gap_mm": 23.136141266574803,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "usb_stick",
+          "gap_mm": 11.692786460186282,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "switch_1824",
+          "gap_mm": 7.266290014248282,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "carrier",
+          "gap_mm": 1.2083010379430976,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "tub",
+          "gap_mm": 0.7000000000000002,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "panel",
+          "gap_mm": 0.5999999999999908,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "p_carrier1",
+          "gap_mm": 0.9140507712448307,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "fps_rest",
+          "gap_mm": 0.7000000000000028,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "fps_switch_bundle",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 0.8659084751828705,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "panel",
+          "gap_mm": 12.669999999999987,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "fps_ck1044_pin_A",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 15.169773749523996,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "panel",
+          "gap_mm": 18.111667510199055,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "fps_ck1044_pin_2",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 14.260946423933582,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "panel",
+          "gap_mm": 18.1,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "fps_rest",
+          "gap_mm": 5.004578616305285,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "picoblade_body",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 5.252020941084436,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "panel",
+          "gap_mm": 9.439047886307184,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "header_splice_reserve_41",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 0.6000000000000014,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "header_splice_reserve_55",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 0.6000000000000014,
+          "overlap_mm3": 0
+        },
+        {
+          "part": "fps_rest",
+          "gap_mm": 0.5,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "panel/switch/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/0.5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/0.5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/1",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/1",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/1.5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/1.5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/3",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/3",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/7",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/7",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/8.5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "shaft_finger/8.5",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/9",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/11",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/15",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/45",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "panel/switch/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "switch_rigid_remove/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/0",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/2",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/4",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/6",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/8",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/10",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/12",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/14",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/16",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/18",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/20",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/22",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/24",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/26",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/28",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/30",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/32",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/34",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/36",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/38",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/40",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/42",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/44",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/46",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/48",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/50",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/52",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/54",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/56",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/58",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/60",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/62",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/62",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/62",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/62",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/62",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/62",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/64",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/64",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/64",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/64",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/64",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/64",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/66",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/66",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/66",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/66",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/66",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/66",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/68",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/68",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/68",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/68",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/68",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/68",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/pi5/70",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/cooler/70",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203/70",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/x1203_kit/70",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/carrier/70",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "carried/microsd/70",
+      "hits": [],
+      "near": []
+    },
+    {
+      "item": "near_x_jaws",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 4.838756403188123,
+          "overlap_mm3": 0
+        }
+      ]
+    },
+    {
+      "item": "far_z_jaws",
+      "hits": [],
+      "near": [
+        {
+          "part": "tub",
+          "gap_mm": 4.255523176492895,
+          "overlap_mm3": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Mechanical manifest is old export15; corrected switch and local panel modification are separately source-bound proposal",
+    "Real nut/washer dimensions and actual fingertip envelope/friction require physical verification",
+    "Two forceps are bounding geometric hypotheses, not sourced qualified tools",
+    "Connector support and wire deformation during unplug/removal remain unresolved",
+    "Other panel wires are not proved by stationary FPS body removal",
+    "True two-core fanout, solderlap, receivedterminal numbering/mirror and splice dimensions remain gates"
+  ]
+}

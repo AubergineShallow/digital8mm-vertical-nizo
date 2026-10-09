@@ -1,0 +1,72 @@
+{
+  "state": "FROZEN SHADOW-PLENUM REVIEW CANDIDATE; PRINT AND PHYSICAL HOLDS REMAIN",
+  "updated_utc": "2026-10-09T15:49:33Z",
+  "baseline_head": "d38468e58eb2b02d56743e2e0cfdd8f780818a65",
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "manifest": {
+    "path": "out/compact-kowa_lm6hc/manifest.json",
+    "sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77"
+  },
+  "geometry_source_current": true,
+  "source_and_export_hashes_verified": true,
+  "selected_evidence": {
+    "path": "out/compact-kowa_lm6hc/current-review-evidence.json",
+    "sha256": "4f8985876ea14648411f4f6162c0302b1a762d4ab8845139a9776ae84fcfd017"
+  },
+  "evidence_reconciler": {
+    "path": "reconcile_review_evidence.py",
+    "sha256": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9"
+  },
+  "main_summary": {
+    "pass": 292,
+    "fail": 1,
+    "info": 18
+  },
+  "plenum_summary": {
+    "pass": 49,
+    "fail": 0,
+    "info": 21
+  },
+  "physical_qualified": false,
+  "open_inherited_gates": 56,
+  "M1": "open",
+  "prominent_holds": [
+    "Front-mouth frame is absent inZ5..40; first roof paths may require about35mm bridging. Slicer/expanded coupon and full-body cleanout are unqualified.",
+    "Cooler/source overlap79.902671mm3 remains unresolved; measured cooler registration and real thermal tests are required.",
+    "Exterior bay connectivity is not a sealed main-cavity cooler duct or a fan-flow/cooling result. Hand/strap/stand blockage requires separate tests.",
+    "Complete camera FPC, USB-feed wire roots/stow and combined flexible service remain unresolved."
+  ],
+  "scope": "Compact Kowa detailed scoped review; alternative exports, mesh checks, STEP envelopes and core-void intervals have separate bindings. No alternative service transfer.",
+  "variants": {
+    "compact-kowa_lm6hc": {
+      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "source_and_export_binding": "See out/review-docs-audit.json; no physical qualification"
+    },
+    "compact-fujinon_hf6xa": {
+      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+      "source_and_export_binding": "See out/review-docs-audit.json; no physical qualification"
+    },
+    "original-kowa_lm6hc": {
+      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+      "source_and_export_binding": "See out/review-docs-audit.json; no physical qualification"
+    }
+  },
+  "guide": {
+    "identity": "D2-vertical-concealed-vents-review",
+    "receipt": {
+      "path": "guide/out-concealed-vents/guide-receipt.json",
+      "sha256": "d03df5f2b6d616fad932bedf773bbb976d066a4d1673ce9825db066e056c6afe"
+    },
+    "pdf": "guide/out-concealed-vents/D2-vertical-concealed-vents-review.pdf",
+    "pages": 32,
+    "manifest_binding_current": true,
+    "visual_review_recorded": true,
+    "physical_release": false
+  },
+  "preserved_export18_checkpoint": {
+    "path": "history/reviewed-export18/CHECKPOINT-STATUS.json",
+    "sha256": "13af0ab0e7d82f35b0d98b8304bb4c09971588259f1e5597a0f8d47a095927d1"
+  },
+  "historical_attempt": "history/shadow-first-check-run/review-check-run.json preserves the initial USB-head dependency failure. The separately executed current whole-assembly checker replaces missing standalone support extracts with mandatory integrated-tub coverage and canonical helper hashes; it does not invent a USB service path.",
+  "delivery_note": "Separate review identity. Publication state is not asserted by this status file. No fabrication, energization or complete-service release."
+}

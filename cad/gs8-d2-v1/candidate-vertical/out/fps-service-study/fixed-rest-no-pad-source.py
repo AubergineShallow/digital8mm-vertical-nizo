@@ -1,0 +1,13 @@
+"""Separate source for the stationary-switch assembly rest; not integrated CAD."""
+import cadquery as cq
+from verify_fps_access import box,V
+
+def shelf():
+ cradle=box([-112,-98.5,21,24.5,64.4,72.8]).cut(cq.Solid.makeCylinder(14,3.7,V(-111,20.9,80),V(0,1,0)))
+ beam=box([-101.5,-97.3,-27,24.5,64.4,66.9])
+ # Deep rear web avoids the PCB belowZ63.45;45degree transition is above it byY1.9.
+ # Exact obstacle checking, not this description, governs acceptance.
+ points=[(-101.5,-27,58),(-101.5,-4.5,58),(-101.5,1.9,64.4),(-101.5,24.5,64.4),(-101.5,24.5,66.9),(-101.5,-27,66.9)]
+ wire=cq.Wire.makePolygon([V(*p) for p in points]+[V(*points[0])])
+ web=cq.Solid.extrudeLinear(wire,[],V(4.2,0,0))
+ return cradle.fuse(beam,web)

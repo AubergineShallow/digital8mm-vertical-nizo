@@ -1,0 +1,1784 @@
+{
+  "status": "geometric_pass_only",
+  "physical_qualified": false,
+  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "mechanical_sources": {
+    "candidate-vertical/model.py": "61382452ff32d4db90ba612b4d707a68f4817f6c50a5bdb6699f177fe53b228e",
+    "candidate-vertical/vent_geometry.py": "5209e01c97823921cbc27ca16fda5f32c65ac6fa16dca0c29691ec8aae5f316b",
+    "candidate-vertical/export_candidate.py": "b92b103ee8d1404b5dccfe5568b73987df72d8b2b8614b98ac055badbe92faf5",
+    "candidate-vertical/power_geometry.py": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
+    "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "candidate-vertical/structure_geometry.py": "22243dec9a95e7703703fe2986889ed71676a153856e2da6cdda27bf172b9c0a",
+    "candidate-vertical/strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
+    "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "candidate-vertical/official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+    "candidate-vertical/official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+    "candidate-vertical/official_pi5_assembly.py": "ffae358f5c4b882b92ab73ee6519da76eff810fd1e4ee3a1a400c018fea01055",
+    "candidate-vertical/make_corrected_pi.py": "0bb0b4e344d7834e32ac3ce59d84e8fa5369468b1ca6541ba5fd8ee17c11113d",
+    "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
+    "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "candidate-vertical/out/source-components/pi5-corrected.json": "429ab9db6441ec0807f5ef7b599feed75c11238f47e6c42e095288bf2af01820",
+    "candidate-vertical/out/source-components/pi5-corrected.step": "85fae8b04a9b0171d8dc0b15a29800540c85dc748e6910d293ff5d51adbe372f",
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
+    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
+    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
+    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
+    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
+    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
+    "test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
+    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
+    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
+    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
+    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
+    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
+    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
+    "fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324"
+  },
+  "input_sha256": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+  "source_sha256": "cb8da4e0209c7774de3b5a6dac667f26aead19b8e68885503092ce5833d0d82e",
+  "verification_dependency_sha256": {
+    "verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044"
+  },
+  "frozen_helper_sha256": {
+    "fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "fps_ck1044_mated_carry.py": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb"
+  },
+  "step_sha256": {
+    "pi5": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+    "cooler": "d8667135f613b14a18dee538af6bdddba441960c06b88ab94b370e033b01ac2a",
+    "x1203": "63be4fea114078bc3227561ee2a8063de1ecec590daf5656eb8937b29531d891",
+    "x1203_kit": "ef27a3bb35a32ef853c46ede234661278bf20ffbd2f9c9d06b3782670bc47a45",
+    "gs_camera": "2aa0131ac90be90d66494049e535f608998bd701442858272d01cb83ccf4ca6f",
+    "c_cs_adapter": "5a49c23b7ce3869e1b27d70effc70127d7e83aabef764761f63778e0bb155b93",
+    "lens": "82438bad4d7d4e55dbc7b029bdaa4ad3fc21ace4cb660952ce1815608471c923",
+    "eyepiece": "c7f87f7e0e1129148f93bc7826c97255618b6d03092004dd9fe25b583a5b134a",
+    "hmx039": "605476fc56f328d30108d27def367933b825b3939bf8639c6a54d57f72fbd77d",
+    "evf_board": "820c77ffc1541810209fa81f831cf19bb645998e302f491561227590042e6575",
+    "usb_stick": "9a1808537e94cc7569160fc718993f4fe5b17e4678a95339b52ca97ed1c09b41",
+    "encoder": "ea4b72e6a065246fca6e00caaffe6a1aa890da0d493634287af3baaed82af490",
+    "switch_1824": "e0a05c1e5677e530d75ca1e73a291de95eec24531bfadd2aec448d500b3f0b69",
+    "run_button": "8e3888ca5d56170a112ddcff68a701e6fcc141386e8f67bdc5019c31bf8824ee",
+    "pack": "94914b2a9cd5e06657b3f9451dd1aafa03af1387c364c293482d0864807e292d",
+    "xt30_pair": "ec40e43880d661fb565f5c8026d2d95bafb9965dbdb94f7a5ff94f21432c172d",
+    "tripod_nut": "e85f994319b472478d8e8f0ae6549278153738cbe81f289f3a18c7bd8c35639c",
+    "strap": "2173bd56e20dc2a0974dd331b854783ce6eb7903630409020626afaee90a5c8e",
+    "microsd": "6e5db4a4e28717848dec6d9659540b53dfe8d1ffd3f14e4f8eab435ec44afc3b",
+    "foam_pad": "e91efab34a565ed28bd459dbeb4c62e7719baf2df0dbb4b5bf57f8a783a3e360",
+    "usb_storage_plug_reserve": "1c9ccdc877008fe3c6facbc2527197b73f2652a9c3be41ddf835897c529528bb",
+    "fps_nut": "fad6b377afbf9f3d3652f2c2902c435628223c750075f34d1ce1147af27ae8a0",
+    "fps_mounting_washer": "534226c2fa8a3417a037ee20c81f750dc89340b9241bc53f500acfcbf94e678d",
+    "s_c1": "719532c3c240f512e9935b48895d207838dced06f3a8de62ac1d90b96c768031",
+    "s_c2": "4dde1cfee3b96f8f9125b7cea1eba47f16e0d73c3293e947de7eacd72d4003f2",
+    "s_c3": "dd50b878e7eede7d40415d8138dcdb43dc4f53c673daa77117258b0a9cbe75d3",
+    "s_c4": "a48735f74026adf046e0a4e3145e1a6b64a2b035ffef69823f1004262d04a8ca",
+    "base_grip": "8caa9788e877040ea6dc21eedc497359d29aaf444d8f11ab12f551b2fb8f5d6f",
+    "cap": "81af5dad6260b4e03193cf6ce36e7d55c67b2b16997c702761cc3110ae91d7e0",
+    "eyecup": "5fc009b152a6fb53e4b0a8a5c5902ee361ff2e25746b6f50b34e9a1549eadeef",
+    "knob_exp": "a5008f028d70a5439c8c4039a768c4067368eeed464e36f63cb1212167aba356",
+    "knob_fps": "857bc439d9c53761796579c468de11b5d3df9bfca577cc8e12026386f3c31a3b",
+    "carrier": "ab059602b0a08346a4173f2420bf361b6876d98709f55f43fdbdb725e90739ef",
+    "tub": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+    "panel": "6bc8503c4b20c20dc053bc101094d0957753e827caf2e8d3580aac2b06366678",
+    "lens_collar": "3f24e7d2cdf80ce4c4c9cbea6bc91c959ef49daea05b703a22385ddd975578fd",
+    "power_button": "b576af2c6be7d7fd450739eec019fd5ebeba748998af3df32857b86a8966570e",
+    "power_nut_reserve": "dbaac13b44b0cb3b5c880f42432a30581837924b61ec0b0679595bc9b7b28fac",
+    "p_panel1": "2052ae5edc457436cfaac94cde4180d75e1b7505d291d2211b8a0fc87f4e245a",
+    "p_panel2": "6c93474a94ebb1d28583a1c19e1bbaa55248ae66ca18595075e78951efd09b8b",
+    "p_panel3": "a6b5a42323864096663f54734b70d936601f55ddb26dd90196c86cc4fb04f4d5",
+    "p_panel4": "dfd68f69c75978fdd0791f0e51409fe5143e968a8417cb6e516b013c1f51640c",
+    "p_carrier1": "dd30f242d08825fbe25e309168315ed031124497e61c404fb329913db1b33ff6",
+    "p_carrier2": "336f3f610fc9142d9cada6c6100e87d383663e6277bf68f1dc99554c58798c09",
+    "p_grip": "64503812dd1de14d1923753b84fcaae8ba18de465584019fa4c09ddf80e8c831"
+  },
+  "printed_parts_valid": true,
+  "material_inventory": [
+    "base_grip",
+    "c_cs_adapter",
+    "cap",
+    "carrier",
+    "cooler",
+    "encoder",
+    "evf_board",
+    "eyecup",
+    "eyepiece",
+    "foam_pad",
+    "fps_mounting_washer",
+    "fps_nut",
+    "gs_camera",
+    "hmx039",
+    "knob_exp",
+    "knob_fps",
+    "lens",
+    "lens_collar",
+    "microsd",
+    "p_carrier1",
+    "p_carrier2",
+    "p_grip",
+    "p_panel1",
+    "p_panel2",
+    "p_panel3",
+    "p_panel4",
+    "pack",
+    "panel",
+    "pi5",
+    "power_button",
+    "power_nut_reserve",
+    "run_button",
+    "s_c1",
+    "s_c2",
+    "s_c3",
+    "s_c4",
+    "strap",
+    "switch_1824",
+    "tripod_nut",
+    "tub",
+    "usb_stick",
+    "x1203",
+    "x1203_kit",
+    "xt30_pair"
+  ],
+  "non_material_reservation_inventory": [
+    "usb_storage_plug_reserve"
+  ],
+  "non_material_reservation_rows": {
+    "usb_storage_plug_reserve": {
+      "id": "usb_storage_plug_reserve",
+      "kind": "keepout",
+      "mesh": "usb_storage_plug_reserve.json",
+      "bbox_mm": [
+        -122.00000010000001,
+        -109.99999989999999,
+        -12.516000095665008,
+        -8.015999895664992,
+        27.99989489999999,
+        39.99989510000001
+      ],
+      "volume_mm3": 648.0000000000006,
+      "mass_est_g": 0,
+      "source": "NON-MATERIAL estimated USB-A plug envelope. Not an installed part or occupied material. Actual plug shell/contact geometry, engagement and insertion remain OPEN; export16 full-solid conflict preserved. No source contacts removed.",
+      "valid": true,
+      "solid_count": 1,
+      "geometry_role": "non-material keepout",
+      "occupied_material_volume_mm3": 0,
+      "volume_semantics": "shape volume"
+    }
+  },
+  "non_material_reservation_diagnostics": [
+    {
+      "item": "non_material_reservation/fps_header_branch",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/fps_200_main",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/fps_switch_bundle",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/fps_ck1044_pin_A",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/fps_ck1044_pin_2",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/mated_fps_pair",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/splice_41",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/splice_55",
+      "hits": []
+    },
+    {
+      "item": "non_material_reservation/switch_1824",
+      "hits": []
+    }
+  ],
+  "reservation_note": "The explicit usb_storage_plug_reserve row is a non-material fit reservation. Its static relation to co-carried FPS pieces is invariant during the selected translation; diagnostics do not certify a purchased storage head.",
+  "static_and_carried_checks": [
+    {
+      "item": "static/fps_header_branch",
+      "hits": []
+    },
+    {
+      "item": "static/fps_200_main",
+      "hits": []
+    },
+    {
+      "item": "static/fps_switch_bundle",
+      "hits": []
+    },
+    {
+      "item": "static/fps_ck1044_pin_A",
+      "hits": []
+    },
+    {
+      "item": "static/fps_ck1044_pin_2",
+      "hits": []
+    },
+    {
+      "item": "static/mated_fps_pair",
+      "hits": []
+    },
+    {
+      "item": "static/splice_41",
+      "hits": []
+    },
+    {
+      "item": "static/splice_55",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/0",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/0",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/0",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/0",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/0",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/0",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/0",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/0",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/0",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/2",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/2",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/2",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/2",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/2",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/2",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/2",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/2",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/2",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/4",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/4",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/4",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/4",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/4",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/4",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/4",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/4",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/4",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/6",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/6",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/6",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/6",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/6",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/6",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/6",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/6",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/6",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/8",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/8",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/8",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/8",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/8",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/8",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/8",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/8",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/8",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/10",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/10",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/10",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/10",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/10",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/10",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/10",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/10",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/10",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/12",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/12",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/12",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/12",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/12",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/12",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/12",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/12",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/12",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/14",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/14",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/14",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/14",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/14",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/14",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/14",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/14",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/14",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/16",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/16",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/16",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/16",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/16",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/16",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/16",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/16",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/16",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/18",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/18",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/18",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/18",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/18",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/18",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/18",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/18",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/18",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/20",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/20",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/20",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/20",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/20",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/20",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/20",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/20",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/20",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/22",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/22",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/22",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/22",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/22",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/22",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/22",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/22",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/22",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/24",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/24",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/24",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/24",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/24",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/24",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/24",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/24",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/24",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/26",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/26",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/26",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/26",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/26",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/26",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/26",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/26",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/26",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/28",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/28",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/28",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/28",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/28",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/28",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/28",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/28",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/28",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/30",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/30",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/30",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/30",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/30",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/30",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/30",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/30",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/30",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/32",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/32",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/32",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/32",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/32",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/32",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/32",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/32",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/32",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/34",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/34",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/34",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/34",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/34",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/34",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/34",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/34",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/34",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/36",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/36",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/36",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/36",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/36",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/36",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/36",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/36",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/36",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/38",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/38",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/38",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/38",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/38",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/38",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/38",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/38",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/38",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/40",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/40",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/40",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/40",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/40",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/40",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/40",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/40",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/40",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/42",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/42",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/42",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/42",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/42",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/42",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/42",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/42",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/42",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/44",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/44",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/44",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/44",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/44",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/44",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/44",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/44",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/44",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/46",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/46",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/46",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/46",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/46",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/46",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/46",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/46",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/46",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/48",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/48",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/48",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/48",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/48",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/48",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/48",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/48",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/48",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/50",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/50",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/50",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/50",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/50",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/50",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/50",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/50",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/50",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/52",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/52",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/52",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/52",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/52",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/52",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/52",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/52",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/52",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/54",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/54",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/54",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/54",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/54",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/54",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/54",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/54",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/54",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/56",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/56",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/56",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/56",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/56",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/56",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/56",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/56",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/56",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/58",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/58",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/58",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/58",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/58",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/58",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/58",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/58",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/58",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/60",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/60",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/60",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/60",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/60",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/60",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/60",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/60",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/60",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/62",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/62",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/62",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/62",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/62",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/62",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/62",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/62",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/62",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/64",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/64",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/64",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/64",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/64",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/64",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/64",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/64",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/64",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/66",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/66",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/66",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/66",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/66",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/66",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/66",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/66",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/66",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/68",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/68",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/68",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/68",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/68",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/68",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/68",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/68",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/68",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_header_branch/70",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_200_main/70",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_switch_bundle/70",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A/70",
+      "hits": []
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2/70",
+      "hits": []
+    },
+    {
+      "item": "carry/mated_fps_pair/70",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_41/70",
+      "hits": []
+    },
+    {
+      "item": "carry/splice_55/70",
+      "hits": []
+    },
+    {
+      "item": "carry/switch_1824/70",
+      "hits": []
+    }
+  ],
+  "exact_crop_receipts": [
+    {
+      "item": "static/fps_header_branch",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "pi5",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 10058.691957010911
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "cooler",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 5517.116741121491
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "x1203",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 4508.922485742633
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "x1203_kit",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 338.99649896157104
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "usb_stick",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 1344.1050104990352
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "switch_1824",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 5847.7564335037705
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "carrier",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 3060.179113529416
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 7443.600870404448
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "panel",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 113.88007092582369
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "p_panel1",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 80.58892085490719
+    },
+    {
+      "item": "static/fps_200_main",
+      "obstacle": "p_carrier1",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 149.27940296446963
+    },
+    {
+      "item": "static/fps_switch_bundle",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.8679405052161696
+    },
+    {
+      "item": "static/fps_switch_bundle",
+      "obstacle": "panel",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/fps_ck1044_pin_A",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/fps_ck1044_pin_A",
+      "obstacle": "panel",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/fps_ck1044_pin_2",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/fps_ck1044_pin_2",
+      "obstacle": "panel",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/mated_fps_pair",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0378470520001808
+    },
+    {
+      "item": "static/mated_fps_pair",
+      "obstacle": "panel",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/splice_41",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "static/splice_55",
+      "obstacle": "tub",
+      "shift_y_mm": 0,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_header_branch",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main",
+      "obstacle": "usb_stick",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 1344.1050104990352
+    },
+    {
+      "item": "carry/fps_200_main",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 7443.600870404448
+    },
+    {
+      "item": "carry/fps_switch_bundle",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 77.34123313807522
+    },
+    {
+      "item": "carry/fps_ck1044_pin_A",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_ck1044_pin_2",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "carry/mated_fps_pair",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 0.0378470520001808
+    },
+    {
+      "item": "carry/splice_41",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "carry/splice_55",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 0.0
+    },
+    {
+      "item": "carry/switch_1824",
+      "obstacle": "tub",
+      "shift_y_mm": 70,
+      "crop_volume_mm3": 170.83231008917542
+    }
+  ],
+  "closed_pose": true,
+  "carried_pose_count": 36,
+  "carried_step_mm": 2,
+  "carried_end_y_mm": 70,
+  "sequence": "Panel removed; FPS remains mated; Pi HDMI remains mated; EVF HDMI disconnected; switch and completeFPSwires co-carried withPi/carrier.",
+  "remaining": [
+    "New USB2 head has no measured wire exit or accepted full5V soft route; no full-loom pass follows from this test",
+    "Corrected CSI/FPC and other panel wires remain independently gated",
+    "Actual two-core GPIO fanout, solder/heatshrink roots, receivedMolex dimensions and wire bending remain unqualified",
+    "Rest/guide print strength, fit, creep, bushing grip and coordinated hand support require physical trial",
+    "Bench-only PicoBlade separation, continuity and30-cycle tin-contact durability remain gates"
+  ],
+  "completed_utc": "2026-10-09T15:11:35Z"
+}

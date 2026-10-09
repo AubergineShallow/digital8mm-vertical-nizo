@@ -1,0 +1,171 @@
+{
+  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "reconciler_sha256": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9",
+  "generated_utc": "2026-10-09T15:48:08Z",
+  "source_and_export_hashes_verified": true,
+  "reports": [
+    {
+      "check": "rigid",
+      "report": "out/compact-kowa_lm6hc/verification.json",
+      "report_sha256": "6c2a96db753347696ab1b5d42751783aa5faafa10c6e3b72ef8b3148650d795f",
+      "verification_source": "verify_candidate.py",
+      "verification_source_sha256": "f2df03ae9fdda0c115497ac3db6e5f4528d6e7c5b32e617975f162c70133fe1f",
+      "status": null,
+      "summary": {
+        "pass": 292,
+        "fail": 1,
+        "info": 18
+      },
+      "physical_qualified": false
+    },
+    {
+      "check": "mesh",
+      "report": "out/compact-kowa_lm6hc/print-mesh-checks.json",
+      "report_sha256": "2e4e865cbc2571d4d878512d38d95e8003193aa6b3097b790e80137b6d285aaa",
+      "verification_source": "verify_print_meshes.py",
+      "verification_source_sha256": "322928bcdf02f8e524ecd995f81dc201feed9f7989c08af81355340d5ef54ac1",
+      "status": null,
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "csi",
+      "report": "out/compact-kowa_lm6hc/csi-source-tool-checks.json",
+      "report_sha256": "325d92a7a2351025ca558c2d8f58a73c6281fa3aebb5e153eb9d5f0e16beea26",
+      "verification_source": "verify_csi_source.py",
+      "verification_source_sha256": "ac75e22c089b69a591d214abc7b2c5b37207eea1ae7f94d93b7f83fad8139a5f",
+      "status": "HOLD",
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "power_rigid",
+      "report": "out/compact-kowa_lm6hc/power-service-checks.json",
+      "report_sha256": "7c72c8b08db8e90ffb4199c31fd02179f7ee4fea1c5368771659bbe5a5516e55",
+      "verification_source": "verify_power_service.py",
+      "verification_source_sha256": "759ac8914a9d2d931d1e65bc9fe66b2f4f85b6fb1bd1a640017cd2da6cd496ca",
+      "status": "pass",
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "power_static",
+      "report": "out/compact-kowa_lm6hc/wire-solid-checks.json",
+      "report_sha256": "5b4b0d15dedb4db172e53e0da18955828d62ba91735b42f6e2320fbdcb5968b0",
+      "verification_source": "verify_wire_solids.py",
+      "verification_source_sha256": "f5087087b98050cb000e1e5d424bffdee4922cdf746728863ae045dd496765d9",
+      "status": "pass",
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "hdmi",
+      "report": "out/compact-kowa_lm6hc/hdmi-solid-checks.json",
+      "report_sha256": "3673f7a247d396cf5b60840d2961d3005c37960483ce24134dd782c20a323794",
+      "verification_source": "verify_hdmi.py",
+      "verification_source_sha256": "8d842217a75aa1b3ba3b3fabbbf3c5be785e56c637ad3becc2096a836e1fa556",
+      "status": null,
+      "summary": {
+        "pass": 6,
+        "fail": 0,
+        "info": 0
+      },
+      "physical_qualified": false
+    },
+    {
+      "check": "fps",
+      "report": "out/fps-service-study/integrated-fps-checks.json",
+      "report_sha256": "af025a881fea58b34e9d497e1709e7d63533f1f3fd0500bd6ee7fa79e7c7e962",
+      "verification_source": "verify_fps_integrated.py",
+      "verification_source_sha256": "cb8da4e0209c7774de3b5a6dac667f26aead19b8e68885503092ce5833d0d82e",
+      "status": "geometric_pass_only",
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "usb_head",
+      "report": "routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json",
+      "report_sha256": "abd3a4d1f0cd27b9fff8fddd794655c53a0526298916d614834d91b11ac636cb",
+      "verification_source": "verify_shadow_usb_head.py",
+      "verification_source_sha256": "4a1d81f80403bede7ca7a0c5126a23d86fa3e292a9a1420a1ea45ce1f726ee9f",
+      "status": "pass_for_bounded_head_reservation",
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "plenum",
+      "report": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
+      "report_sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+      "verification_source": "verify_shadow_plenum.py",
+      "verification_source_sha256": "58491fdb3550c8a0e1bde7cff0cd306ddcab67e7125d845fd2f1c0ed36332e97",
+      "status": null,
+      "summary": {
+        "pass": 49,
+        "fail": 0,
+        "info": 21
+      },
+      "physical_qualified": false
+    },
+    {
+      "check": "exterior_mouths",
+      "report": "out/compact-kowa_lm6hc/shadow-outlet-context-checks.json",
+      "report_sha256": "1469d1251a61f586c54bac142d4f4622830d03bf4e5389f5519c9be0cc66d96c",
+      "verification_source": "verify_shadow_outlet_context.py",
+      "verification_source_sha256": "ec4977391fc2ef4cb4cf00b92d8ece1325b6183c94358f3f2473879058e794b0",
+      "status": null,
+      "summary": {
+        "pass": 4,
+        "fail": 0
+      },
+      "physical_qualified": false
+    },
+    {
+      "check": "microSD_rejected_closed_path",
+      "report": "out/compact-kowa_lm6hc/microsd-service-dependency.json",
+      "report_sha256": "5119f0895490dca3c58a4928522448bf3b00393e0f3d2f016b7cc836f692cd87",
+      "verification_source": "verify_microsd_service.py",
+      "verification_source_sha256": "c8f637d95168e5a21b6fd696704832431013ed295b078d7f836a82c8e7133067",
+      "status": "REJECTED",
+      "summary": null,
+      "physical_qualified": false
+    },
+    {
+      "check": "void",
+      "report": "out/comparison/volume-compact-kowa_lm6hc.json",
+      "report_sha256": "003b52309e0246553dbbbdafd04a2588951dfdc3e00380551c82fe3e98cfc030",
+      "verification_source": "measure_volume.py",
+      "verification_source_sha256": "3cd9ed261791e56b9c087dae892bd380ad1f80b2329ac7417f231d6720a741e8",
+      "status": null,
+      "summary": null,
+      "physical_qualified": false
+    }
+  ],
+  "active_rigid_failures": [
+    {
+      "category": "interference",
+      "id": "pi5/cooler",
+      "status": "fail",
+      "overlap_mm3": 79.902671,
+      "bbox": [
+        -100.8,
+        -56.203553292294,
+        -1.2,
+        4.5,
+        15.05,
+        56.25
+      ],
+      "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."
+    }
+  ],
+  "verdict": "Review candidate only. Not fabrication, energization or complete-service release.",
+  "physical_qualified": false,
+  "open_inherited_gates": 56,
+  "M1": "open",
+  "prominent_holds": [
+    "Front-mouth frame is absent inZ5..40; first roof paths may require about35mm bridging. Slicer/expanded coupon and full-body cleanout are unqualified.",
+    "Cooler/source overlap79.902671mm3 remains unresolved; measured cooler registration and real thermal tests are required.",
+    "Exterior bay connectivity is not a sealed main-cavity cooler duct or a fan-flow/cooling result. Hand/strap/stand blockage requires separate tests.",
+    "Complete camera FPC, USB-feed wire roots/stow and combined flexible service remain unresolved."
+  ],
+  "historical_attempt": "history/shadow-first-check-run/review-check-run.json preserves the initial USB-head dependency failure. The separately executed current whole-assembly checker replaces missing standalone support extracts with mandatory integrated-tub coverage and canonical helper hashes; it does not invent a USB service path."
+}

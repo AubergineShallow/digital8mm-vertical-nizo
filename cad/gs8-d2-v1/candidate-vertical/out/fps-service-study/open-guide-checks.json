@@ -1,0 +1,383 @@
+{
+  "status": "geometric guide proposal only",
+  "mechanical_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "carrier_sha256": "0befe19c07e62b430d691c7b263e1b0aeed41f3a254685b7cffe3e1c943dd268",
+  "source_sha256": {
+    "verify_fps_pair_guide.py": "99e2100002c6aba17a5b92dec8cb5ee67096eb903fb6c5892bb38b7dca4a02d5",
+    "fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "fps_fixed_support.py": "659326ac9f92d85bafce1ad018db2d2ecba965e8afb91abfd935b6cc50a0daae",
+    "fps_ck1044_mated_carry.py": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb"
+  },
+  "guide": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 467.29296357615823,
+    "tub_common_mm3": 7.874999999999998,
+    "combined_tub_valid": true,
+    "combined_tub_solids": 1,
+    "inner_x": [
+      -136.125,
+      -130.875
+    ],
+    "floor_top_z": 78.05,
+    "lip_bottom_z": 81.85,
+    "lip_top_z": 83.35,
+    "wire_slot_width_bottom_mm": 2.8,
+    "wire_slot_width_top_mm": 4.6,
+    "y": [
+      6,
+      15
+    ]
+  },
+  "checks": [
+    {
+      "item": "static/panel",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/4",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/4",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/4",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/5",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/5",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/5",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/6",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/6",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/6",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/7",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/7",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/7",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/8",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/8",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/pair/8",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/9",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/9",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/10",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/10",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/11",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/11",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/12",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/12",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/13",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/13",
+      "overlap_mm3": 3.568465743875261e-07
+    },
+    {
+      "item": "carry/fps_200_main/14",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/14",
+      "overlap_mm3": 3.568465743846649e-07
+    },
+    {
+      "item": "carry/fps_200_main/15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/15",
+      "overlap_mm3": 3.568465743801306e-07
+    },
+    {
+      "item": "carry/fps_200_main/16",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/16",
+      "overlap_mm3": 3.5684657438147546e-07
+    },
+    {
+      "item": "carry/fps_200_main/17",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/17",
+      "overlap_mm3": 3.568465743776579e-07
+    },
+    {
+      "item": "carry/fps_200_main/18",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/18",
+      "overlap_mm3": 3.5684657438564217e-07
+    },
+    {
+      "item": "carry/fps_200_main/19",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/19",
+      "overlap_mm3": 3.5684657438004027e-07
+    },
+    {
+      "item": "carry/fps_200_main/20",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/20",
+      "overlap_mm3": 3.568465743869024e-07
+    },
+    {
+      "item": "carry/fps_200_main/21",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/21",
+      "overlap_mm3": 3.5684657437813137e-07
+    },
+    {
+      "item": "carry/fps_200_main/22",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/22",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/23",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/23",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/24",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/24",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/25",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/25",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/26",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/26",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/27",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/27",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/28",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/28",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/29",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/29",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/30",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/30",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/31",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/31",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/33",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/33",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/34",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/34",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/35",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_switch_bundle/35",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/36",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/37",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/38",
+      "overlap_mm3": 0.0
+    },
+    {
+      "item": "carry/fps_200_main/39",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "physical_gates": [
+    "Actual maximum body profile/corner radii and narrow throat retention",
+    "Print tolerance, lip flex/strength and handling loads",
+    "Whole harness staging, received wire insulation OD and bend memory"
+  ]
+}

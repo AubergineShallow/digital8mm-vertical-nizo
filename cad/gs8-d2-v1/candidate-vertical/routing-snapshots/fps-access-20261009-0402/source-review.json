@@ -1,0 +1,601 @@
+{
+  "status": "Provisional source screening only; own housing root contacts remain local and actual unplugging/tool proof absent",
+  "rows": [
+    {
+      "panel_shift": 0.0,
+      "junction_shift": 0.0,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            12.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 0.5,
+      "junction_shift": 0.25,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            12.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 1.0,
+      "junction_shift": 0.5,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            13.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 1.5,
+      "junction_shift": 0.75,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            13.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 2.0,
+      "junction_shift": 1.0,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            14.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 2.5,
+      "junction_shift": 1.25,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            14.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 3.0,
+      "junction_shift": 1.5,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            15.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 3.5,
+      "junction_shift": 1.75,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            15.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 4.0,
+      "junction_shift": 2.0,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            16.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 4.5,
+      "junction_shift": 2.25,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            16.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 5.0,
+      "junction_shift": 2.5,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            17.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 5.5,
+      "junction_shift": 2.75,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            17.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 6.0,
+      "junction_shift": 3.0,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            18.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 6.5,
+      "junction_shift": 3.25,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            18.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 7.0,
+      "junction_shift": 3.5,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            19.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 7.5,
+      "junction_shift": 3.75,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            19.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 8.0,
+      "junction_shift": 4.0,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            20.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 8.5,
+      "junction_shift": 4.25,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            20.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 9.0,
+      "junction_shift": 4.5,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            21.2,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 9.5,
+      "junction_shift": 4.75,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            21.7,
+            78.0
+          ]
+        }
+      ]
+    },
+    {
+      "panel_shift": 10.0,
+      "junction_shift": 5.0,
+      "status": "PROVISIONAL SOURCE ACCESS SHAPE; actual connector, printed solids, latch/tool and separation stroke remain gates",
+      "hits": [
+        {
+          "wire": "fps_header_branch",
+          "item": "connector_p_fps_hdr",
+          "gap": -0.8,
+          "point": [
+            -82.91,
+            -15.400000000000002,
+            10.5
+          ]
+        },
+        {
+          "wire": "fps_50_pigtail",
+          "item": "switch_1824",
+          "gap": -1.3,
+          "point": [
+            -111.0,
+            22.2,
+            78.0
+          ]
+        }
+      ]
+    }
+  ],
+  "minimums": {
+    "fps_header_branch / qt": 17.17059339475905,
+    "fps_header_branch / run_pin37": 0.20239192598016187,
+    "fps_header_branch / run_pin39": 4.909263929764669,
+    "fps_header_branch / positive": 2.7313842769850907,
+    "fps_header_branch / negative": 0.9171160460680929,
+    "fps_header_branch / usb_5v": 33.88980657588543,
+    "fps_header_branch / fan": 17.31224999836492,
+    "fps_header_branch / power_button": 49.97281466007171,
+    "fps_header_branch / HDMI": 53.089702170266264,
+    "fps_200_main / qt": 7.400000005012071,
+    "fps_200_main / run_pin37": 4.6451348245719215,
+    "fps_200_main / run_pin39": 13.307130704238316,
+    "fps_200_main / positive": 2.2319102253751617,
+    "fps_200_main / negative": 0.8003859472353274,
+    "fps_200_main / usb_5v": 1.6023596783328173,
+    "fps_200_main / fan": 16.32646893674469,
+    "fps_200_main / power_button": 48.842502733334555,
+    "fps_200_main / HDMI": 5.4665195442735035,
+    "fps_50_pigtail / qt": 19.135719987234104,
+    "fps_50_pigtail / run_pin37": 66.15992130864451,
+    "fps_50_pigtail / run_pin39": 69.43587900811714,
+    "fps_50_pigtail / positive": 13.99522971617357,
+    "fps_50_pigtail / negative": 27.6005688649539,
+    "fps_50_pigtail / usb_5v": 4.337463056303326,
+    "fps_50_pigtail / fan": 50.28811862875783,
+    "fps_50_pigtail / power_button": 76.40478283262085,
+    "fps_50_pigtail / HDMI": 2.386267363495496
+  }
+}

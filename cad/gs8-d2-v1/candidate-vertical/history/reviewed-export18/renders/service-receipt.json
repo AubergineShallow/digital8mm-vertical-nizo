@@ -1,0 +1,8 @@
+{
+  "manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+  "renderer_sha256": "b638c3767837908a0c0c262f9bffbf6f564e05a1fd68c696713b51d3cc4b45a2",
+  "view": "service",
+  "image_sha256": "f4fdd47e971bb27f0f53a50da69db17182770226c8c55ab329ff722ff311de01",
+  "physical_qualified": false,
+  "scope": "Source tessellation product illustration; service view omits flexible harnesses"
+}

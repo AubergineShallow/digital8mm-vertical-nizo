@@ -1,0 +1,914 @@
+{
+  "status": "pass",
+  "four_main_holes": [
+    {
+      "source_candidate_xz": [
+        -37.5,
+        59.5
+      ],
+      "inherited_candidate_xz": [
+        -37.5,
+        59.5
+      ],
+      "residual_mm": 0.0
+    },
+    {
+      "source_candidate_xz": [
+        -37.5,
+        10.5
+      ],
+      "inherited_candidate_xz": [
+        -37.5,
+        10.5
+      ],
+      "residual_mm": 0.0
+    },
+    {
+      "source_candidate_xz": [
+        -95.5,
+        59.5
+      ],
+      "inherited_candidate_xz": [
+        -95.5,
+        59.5
+      ],
+      "residual_mm": 0.0
+    },
+    {
+      "source_candidate_xz": [
+        -95.5,
+        10.5
+      ],
+      "inherited_candidate_xz": [
+        -95.5,
+        10.5
+      ],
+      "residual_mm": 0.0
+    }
+  ],
+  "max_main_hole_residual_mm": 0.0,
+  "transform": [
+    [
+      -1,
+      0,
+      0,
+      -34
+    ],
+    [
+      0,
+      0,
+      -1,
+      3.7
+    ],
+    [
+      0,
+      -1,
+      0,
+      63
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "features": {
+    "usb2": {
+      "native_bbox_mm": [
+        70.32999906449501,
+        87.779999264573,
+        39.74968045593278,
+        54.24968065625294,
+        -0.16597917321599986,
+        17.36100087151
+      ],
+      "source": "port-landmarks.json",
+      "source_solid_indices": [
+        1340
+      ],
+      "source_file_sha256": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+      "box": {
+        "x": [
+          -121.779999264573,
+          -104.32999906449501
+        ],
+        "y": [
+          -13.661000871510002,
+          3.865979173215999
+        ],
+        "z": [
+          8.750319343747059,
+          23.250319544067217
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -121.779999264573,
+          -104.32999906449501
+        ],
+        "y": [
+          -13.955000871510002,
+          3.895979173215999
+        ],
+        "z": [
+          8.750319343747059,
+          23.250319544067217
+        ]
+      },
+      "exact_native_file_sha256": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1"
+    },
+    "usb3": {
+      "native_bbox_mm": [
+        70.46999990862399,
+        88.00000009094799,
+        21.75010490739499,
+        36.250105092605,
+        -0.1640000971950008,
+        17.526000092034003
+      ],
+      "source": "port-landmarks.json",
+      "source_solid_indices": [
+        1339
+      ],
+      "source_file_sha256": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+      "box": {
+        "x": [
+          -122.00000009094799,
+          -104.46999990862399
+        ],
+        "y": [
+          -13.826000092034004,
+          3.864000097195
+        ],
+        "z": [
+          26.749894907395003,
+          41.24989509260501
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -122.00000009094799,
+          -104.46999990862399
+        ],
+        "y": [
+          -14.120000092034005,
+          3.8940000971949997
+        ],
+        "z": [
+          26.749894907395003,
+          41.24989509260501
+        ]
+      },
+      "exact_native_file_sha256": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34"
+    },
+    "ethernet": {
+      "native_bbox_mm": [
+        66.44999999999999,
+        88.05000000000001,
+        2.2849999999999984,
+        18.215000000000003,
+        -0.6639999999999998,
+        14.636000000000001
+      ],
+      "source": "port-landmarks.json",
+      "source_solid_indices": [
+        1600,
+        1601
+      ],
+      "source_file_sha256": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
+      "box": {
+        "x": [
+          -122.05000000000001,
+          -100.44999999999999
+        ],
+        "y": [
+          -10.936000000000002,
+          4.363999999999999
+        ],
+        "z": [
+          44.785,
+          60.715
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -122.05000000000001,
+          -100.44999999999999
+        ],
+        "y": [
+          -11.230000000000004,
+          4.393999999999999
+        ],
+        "z": [
+          44.785,
+          60.715
+        ]
+      },
+      "exact_native_file_sha256": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8"
+    },
+    "gpio": {
+      "native_bbox_mm": [
+        7.1000000000000005,
+        57.9,
+        49.959999999999994,
+        55.040000000000006,
+        -0.564000000001001,
+        9.876000000001001
+      ],
+      "source": "port-landmarks.json",
+      "source_solid_indices": [
+        1341,
+        1342,
+        1343,
+        1344,
+        1345,
+        1346,
+        1347,
+        1348,
+        1349,
+        1350,
+        1351,
+        1352,
+        1353,
+        1354,
+        1355,
+        1356,
+        1357,
+        1358,
+        1359,
+        1360,
+        1361,
+        1362,
+        1363,
+        1364,
+        1365,
+        1366,
+        1367,
+        1368,
+        1369,
+        1370,
+        1371,
+        1372,
+        1373,
+        1374,
+        1375,
+        1376,
+        1377,
+        1378,
+        1379,
+        1380,
+        1381
+      ],
+      "source_file_sha256": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+      "box": {
+        "x": [
+          -91.9,
+          -41.1
+        ],
+        "y": [
+          -6.176000000001002,
+          4.264000000001
+        ],
+        "z": [
+          7.959999999999994,
+          13.040000000000006
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -91.9,
+          -41.1
+        ],
+        "y": [
+          -6.470000000001003,
+          4.294000000001001
+        ],
+        "z": [
+          7.959999999999994,
+          13.040000000000006
+        ]
+      },
+      "exact_native_file_sha256": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4"
+    },
+    "usbc": {
+      "native_bbox_mm": [
+        6.729999999999999,
+        15.67,
+        -1.200000000000001,
+        6.15,
+        0.3360000000000001,
+        4.596000000000004
+      ],
+      "source": "port-landmarks.json",
+      "source_solid_indices": [
+        1939,
+        1940
+      ],
+      "source_file_sha256": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
+      "box": {
+        "x": [
+          -49.67,
+          -40.73
+        ],
+        "y": [
+          -0.8960000000000043,
+          3.363999999999999
+        ],
+        "z": [
+          56.85,
+          64.2
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -49.67,
+          -40.73
+        ],
+        "y": [
+          -1.1900000000000057,
+          3.3939999999999992
+        ],
+        "z": [
+          56.85,
+          64.2
+        ]
+      },
+      "exact_native_file_sha256": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9"
+    },
+    "hdmi0": {
+      "native_bbox_mm": [
+        22.203553292294,
+        29.396446707707003,
+        -1.6303501000002756,
+        6.8696501,
+        0.2354998999999996,
+        4.6819467094070015
+      ],
+      "source": "connector-extraction.json",
+      "source_leaf_index": 1937,
+      "source_shape_type": "Shell",
+      "note": "Whole connector shell bounds enclose the ten associated free-shell contact fragments; source has no closed HDMI solid",
+      "box": {
+        "x": [
+          -63.396446707707,
+          -56.203553292294
+        ],
+        "y": [
+          -0.9819467094070022,
+          3.4645000999999995
+        ],
+        "z": [
+          56.1303499,
+          64.63035010000027
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -63.396446707707,
+          -56.203553292294
+        ],
+        "y": [
+          -1.2759467094070036,
+          3.4945000999999993
+        ],
+        "z": [
+          56.1303499,
+          64.63035010000027
+        ]
+      },
+      "exact_native_file_sha256": "68d7027c36252760e54c797b0ba4012727ab08ee3b08ee34f7f3eb58f5f33a25"
+    },
+    "hdmi1": {
+      "native_bbox_mm": [
+        35.603553292294,
+        42.796446707707005,
+        -1.6303501000002756,
+        6.8696501,
+        0.2354998999999996,
+        4.6819467094070015
+      ],
+      "source": "connector-extraction.json",
+      "source_leaf_index": 1926,
+      "source_shape_type": "Shell",
+      "note": "Whole connector shell bounds enclose the ten associated free-shell contact fragments; source has no closed HDMI solid",
+      "box": {
+        "x": [
+          -76.796446707707,
+          -69.60355329229401
+        ],
+        "y": [
+          -0.9819467094070022,
+          3.4645000999999995
+        ],
+        "z": [
+          56.1303499,
+          64.63035010000027
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -76.796446707707,
+          -69.60355329229401
+        ],
+        "y": [
+          -1.2759467094070036,
+          3.4945000999999993
+        ],
+        "z": [
+          56.1303499,
+          64.63035010000027
+        ]
+      },
+      "exact_native_file_sha256": "9035c8b515d06af22301dcd0a64098527d5994881cb0dd76f10cf9b12df96524"
+    },
+    "cam_disp0": {
+      "native_bbox_mm": [
+        53.305,
+        56.852250500938005,
+        0.14499999999990143,
+        16.845000000000077,
+        1.3359999999996586,
+        5.2860000000000005
+      ],
+      "source": "connector-extraction.json",
+      "source_solid_indices": [
+        1215,
+        1216,
+        1217,
+        1218,
+        1219,
+        1220,
+        1221,
+        1222,
+        1223,
+        1224,
+        1225,
+        1226,
+        1227,
+        1228,
+        1229,
+        1230,
+        1231,
+        1232,
+        1233,
+        1234,
+        1235,
+        1236,
+        1237,
+        1238,
+        1239,
+        1240,
+        1241,
+        1242,
+        1243,
+        1244,
+        1245,
+        1246,
+        1247,
+        1248,
+        1249,
+        1250,
+        1251,
+        1252,
+        1253,
+        1254,
+        1255,
+        1256,
+        1257,
+        1258,
+        1259,
+        1260,
+        1261,
+        1262
+      ],
+      "source_file_sha256": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
+      "box": {
+        "x": [
+          -90.852250500938,
+          -87.305
+        ],
+        "y": [
+          -1.5860000000000012,
+          2.364000000000341
+        ],
+        "z": [
+          46.15499999999992,
+          62.855000000000096
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -90.852250500938,
+          -87.305
+        ],
+        "y": [
+          -1.8800000000000026,
+          2.3940000000003403
+        ],
+        "z": [
+          46.15499999999992,
+          62.855000000000096
+        ]
+      },
+      "exact_native_file_sha256": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d"
+    },
+    "cam_disp1": {
+      "native_bbox_mm": [
+        47.105,
+        50.652250500938,
+        0.14499999999990143,
+        16.845000000000077,
+        1.3359999999996586,
+        5.2860000000000005
+      ],
+      "source": "connector-extraction.json",
+      "source_solid_indices": [
+        1263,
+        1264,
+        1265,
+        1266,
+        1267,
+        1268,
+        1269,
+        1270,
+        1271,
+        1272,
+        1273,
+        1274,
+        1275,
+        1276,
+        1277,
+        1278,
+        1279,
+        1280,
+        1281,
+        1282,
+        1283,
+        1284,
+        1285,
+        1286,
+        1287,
+        1288,
+        1289,
+        1290,
+        1291,
+        1292,
+        1293,
+        1294,
+        1295,
+        1296,
+        1297,
+        1298,
+        1299,
+        1300,
+        1301,
+        1302,
+        1303,
+        1304,
+        1305,
+        1306,
+        1307,
+        1308,
+        1309,
+        1310
+      ],
+      "source_file_sha256": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
+      "box": {
+        "x": [
+          -84.65225050093801,
+          -81.10499999999999
+        ],
+        "y": [
+          -1.5860000000000012,
+          2.364000000000341
+        ],
+        "z": [
+          46.15499999999992,
+          62.855000000000096
+        ]
+      },
+      "kind": "source-derived conservative whole-component envelope",
+      "bracket_box": {
+        "x": [
+          -84.65225050093801,
+          -81.10499999999999
+        ],
+        "y": [
+          -1.8800000000000026,
+          2.3940000000003403
+        ],
+        "z": [
+          46.15499999999992,
+          62.855000000000096
+        ]
+      },
+      "exact_native_file_sha256": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23"
+    }
+  },
+  "csi_latches": {
+    "cam_disp0": {
+      "original_source_solid_index": 1262,
+      "native_bbox_mm": [
+        53.305,
+        56.305,
+        0.145,
+        16.845,
+        1.636,
+        5.286
+      ],
+      "box": {
+        "x": [
+          -90.305,
+          -87.305
+        ],
+        "y": [
+          -1.5860000000000003,
+          2.063999999999999
+        ],
+        "z": [
+          46.155,
+          62.855
+        ]
+      },
+      "state": "Single static closed source pose",
+      "operation": "Qualitative pull-out then tilt away in manufacturer installation instructions; no quantified stroke, pivot or tool corridor"
+    },
+    "cam_disp1": {
+      "original_source_solid_index": 1310,
+      "native_bbox_mm": [
+        47.105,
+        50.105,
+        0.145,
+        16.845,
+        1.636,
+        5.286
+      ],
+      "box": {
+        "x": [
+          -84.10499999999999,
+          -81.10499999999999
+        ],
+        "y": [
+          -1.5860000000000003,
+          2.063999999999999
+        ],
+        "z": [
+          46.155,
+          62.855
+        ]
+      },
+      "state": "Single static closed source pose",
+      "operation": "Qualitative pull-out then tilt away in manufacturer installation instructions; no quantified stroke, pivot or tool corridor"
+    }
+  },
+  "cooler_mount_axes": [
+    {
+      "native_xy": [
+        3.5,
+        9.5
+      ],
+      "candidate_xz": [
+        -37.5,
+        53.5
+      ],
+      "pcb_hole_diameter_mm": 3.1,
+      "meaning": "Actual board hole axis only; push-pin profile and cooler fan/perimeter location are not dimensioned"
+    },
+    {
+      "native_xy": [
+        61.5,
+        46.5
+      ],
+      "candidate_xz": [
+        -95.5,
+        16.5
+      ],
+      "pcb_hole_diameter_mm": 3.1,
+      "meaning": "Actual board hole axis only; push-pin profile and cooler fan/perimeter location are not dimensioned"
+    }
+  ],
+  "usb2_upper_head": {
+    "box": {
+      "x": [
+        -152.779999264573,
+        -121.779999264573
+      ],
+      "y": [
+        -15.12600076744,
+        -5.32600076744
+      ],
+      "z": [
+        8.250319443808003,
+        23.750319443808003
+      ]
+    },
+    "port_face_centre": [
+      -121.779999264573,
+      -10.22600076744,
+      16.000319443808003
+    ],
+    "port_identity": "GPIO-side USB2 stack, upper receptacle away from PCB",
+    "full_original_allowance_mm": [
+      31,
+      15.5,
+      9.8
+    ],
+    "native_face_centre": [
+      87.779999264573,
+      46.999680556192,
+      13.92600076744
+    ],
+    "mating_axis_candidate": [
+      1,
+      0,
+      0
+    ],
+    "unplug_direction_candidate": [
+      -1,
+      0,
+      0
+    ],
+    "bracket_scope": "Nominal native Z0 to local underside18.5",
+    "cable_exit": null,
+    "physical_qualified": false,
+    "remaining": [
+      "Unknown received USB head shape and engagement",
+      "Separate full200mm 5V lead/stow geometry",
+      "Lateral departure required before crossing storage height",
+      "All staged motions need refreshed whole-loom checks"
+    ]
+  },
+  "usb2_upper_head_with_registration_bracket": {
+    "box": {
+      "x": [
+        -152.779999264573,
+        -121.779999264573
+      ],
+      "y": [
+        -15.420000767440001,
+        -5.29600076744
+      ],
+      "z": [
+        8.250319443808003,
+        23.750319443808003
+      ]
+    },
+    "port_face_centre": [
+      -121.779999264573,
+      -10.22600076744,
+      16.000319443808003
+    ],
+    "port_identity": "GPIO-side USB2 stack, upper receptacle away from PCB",
+    "full_original_allowance_mm": [
+      31,
+      15.5,
+      9.8
+    ],
+    "native_face_centre": [
+      87.779999264573,
+      46.999680556192,
+      13.92600076744
+    ],
+    "mating_axis_candidate": [
+      1,
+      0,
+      0
+    ],
+    "unplug_direction_candidate": [
+      -1,
+      0,
+      0
+    ],
+    "bracket_scope": "Explicit native substrate-bottom/top registration bracket; does not move the kit datum",
+    "cable_exit": null,
+    "physical_qualified": false,
+    "remaining": [
+      "Unknown received USB head shape and engagement",
+      "Separate full200mm 5V lead/stow geometry",
+      "Lateral departure required before crossing storage height",
+      "All staged motions need refreshed whole-loom checks"
+    ]
+  },
+  "usb2_axis_evidence": {
+    "section_file": "official-fpc-sources/usb-opening-sections.json",
+    "upper_shell_window_native_z": [
+      11.36600076793,
+      16.48600076744
+    ],
+    "lower_shell_window_native_z": [
+      2.786000767444,
+      7.906000766601
+    ],
+    "scope": "Geometric window centre, not a measured cable-head or engagement datum"
+  },
+  "usb3_upper_window_candidate": [
+    -122.0000001,
+    -10.265999995665,
+    33.999894999999995
+  ],
+  "pcb": {
+    "bbox_mm": [
+      -119.0,
+      -34.0,
+      2.099999999999998,
+      3.6999999999999993,
+      7.0,
+      63.0
+    ],
+    "volume_mm3": 7555.203898967738,
+    "hole_count": 6,
+    "kit_thickness_mm": 1.6,
+    "source_datum": "Inherited kit underside remains fixed; four\u00d82.7 main holes plus two source\u00d83.1 cooler holes"
+  },
+  "source_sha256": {
+    "official_pi5_geometry.py": "c52c276256784b4e30731294b6f3d3b912dd470de59845efadbb9ed245661d23",
+    "official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb-opening-sections.json": "d619e5ef705e471de8819bb171fed6dd7632d97e2b1ad8da3259f96f0330e508"
+  },
+  "provenance": {
+    "source_url": "https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-010083-CA-1-rpi-5%203D%20STEP%20-%20No%20Graphics%20small%20file.zip",
+    "source_sha256": "78164070c1cc7ab854382950d2e85926c6e35432f1e5a146b733397a7c6afb44",
+    "identity_url": "https://www.raspberrypi.com/app/uploads/2023/09/58f150c0-bd72-4e42-a77f-6be0890c8a80-1024x685.png",
+    "identity": {
+      "cam_disp0": "J3, nativeX55.205, Ethernet-side",
+      "cam_disp1": "J4, nativeX49.005, HDMI-side"
+    },
+    "nominal_native_exit_direction": [
+      0,
+      0,
+      1
+    ],
+    "nominal_candidate_exit_direction": [
+      0,
+      -1,
+      0
+    ],
+    "nominal_native_width_direction": [
+      0,
+      1,
+      0
+    ],
+    "nominal_candidate_width_direction": [
+      0,
+      0,
+      -1
+    ],
+    "direction_scope": "Directions follow the vertical opening/contact arrangement of the bare source connector. Actual fully inserted cable free-flex station/contact-side normal remains unassigned.",
+    "latch_scope": "Official installation instructions prescribe gently pulling the flap out, then tilting away from the opening. The STEP has only one static pose; travel and open-latch swept volume are not dimensioned.",
+    "physical_qualified": false,
+    "selected_cable_width_reservation_mm": 16,
+    "remaining": [
+      "Source model is guidance only, may differ from received hardware",
+      "No guessed connector SKU",
+      "Cable engagement/stiffener/transition and contact clocking",
+      "Latch travel/tool jaws",
+      "Physical fit and laminate capability"
+    ],
+    "landmark_scope": "Four-hole registered port envelopes, both CSI assemblies, actual cooler board holes and an exterior upper USB2 head reservation",
+    "nominal_matrix": [
+      [
+        -1,
+        0,
+        0,
+        -34
+      ],
+      [
+        0,
+        0,
+        -1,
+        3.7
+      ],
+      [
+        0,
+        -1,
+        0,
+        63
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "cooler_hold": "Official RP-008187 drawing does not dimension fan-to-pin offsets or complete outline. Retain32.3614mm3 CSI/coarse-cooler conflicts until received-part geometry is registered.",
+    "changed_claims": [
+      "Inherited RJ45 and USB2 rows were reversed",
+      "Inherited second HDMI had the wrong sign of its spacing",
+      "Old CSI proxy had only one short connector and an unsupported departure direction",
+      "Four cooler feet were estimated; actual board has two cooler mounting holes"
+    ]
+  },
+  "physical_qualified": false
+}

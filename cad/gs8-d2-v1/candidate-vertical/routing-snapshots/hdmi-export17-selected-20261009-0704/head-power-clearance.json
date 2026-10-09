@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "rows": [
+    {
+      "core": "positive",
+      "part": "positive_board_to_fuse",
+      "radius_with_allowance_mm": 1.6400000000000001,
+      "axis_to_box_distance_mm": 23.226191654504753,
+      "conservative_gap_mm": 21.586191654504752,
+      "segment": 832,
+      "parameter": 0.7308651168695514
+    },
+    {
+      "core": "positive",
+      "part": "positive_fuse_to_housing",
+      "radius_with_allowance_mm": 1.6400000000000001,
+      "axis_to_box_distance_mm": 62.81812657746285,
+      "conservative_gap_mm": 61.17812657746285,
+      "segment": 0,
+      "parameter": 0.0
+    },
+    {
+      "core": "negative",
+      "part": "negative_complete",
+      "radius_with_allowance_mm": 1.6400000000000001,
+      "axis_to_box_distance_mm": 18.54168041387527,
+      "conservative_gap_mm": 16.90168041387527,
+      "segment": 731,
+      "parameter": 0.5085535738045791
+    },
+    {
+      "core": "rigid_inline_fuse",
+      "radius_mm": 2.5,
+      "conservative_gap_mm": 45.482536486112174,
+      "method": "Containing finite-axis capsule; source cylinder can occupy no more"
+    }
+  ],
+  "input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "power_context_sha256": "d054ac2ad404b74eb2cd7770c6f13fe7cd6f9bdc48780a5adaff75e3a58c5196",
+  "distance_source_sha256": "fbe5d43ed2c6617fbe03a720c0e37aebfb7756eb6213cda7cb6f09b27df78310",
+  "verification_source_sha256": "638fd822c35ef65ffc2a8070cbe455e018fb041ce1b433e107b12faeb2de8d2a",
+  "physical_qualified": false,
+  "scope": "Static corrected USB head versus every segment of unchanged full modeled power cores and fuse. Full original sampled polylines retained;0.04mm radial allowance. Does not model missing terminal/root material or the unplaced cuttable USB lead."
+}

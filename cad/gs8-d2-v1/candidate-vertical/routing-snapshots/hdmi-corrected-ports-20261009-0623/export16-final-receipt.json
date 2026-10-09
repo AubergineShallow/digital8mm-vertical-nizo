@@ -1,0 +1,174 @@
+{
+  "created_utc": "2026-10-09T06:42:09.584237+00:00",
+  "status": "FAILED corrected USB head versus rear lower panel boss; no assembly/service release",
+  "geometry_input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "authoritative_donor_addendum_sha256": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+  "mechanical_manifest_sha256": "8a288f3ac9cdae1731867b5ffed0660b7598047ae572d1c2eb410ae60cb5a2e0",
+  "selected_hdmi_summary": {
+    "pass": 4,
+    "fail": 2,
+    "failure_object": "corrected USB5V head versus tub",
+    "installed_overlap_mm3": 283.86630358379057,
+    "carried_failed_offsets_y_mm": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38
+    ]
+  },
+  "files": {
+    "EXPORT16-RESULT.md": {
+      "sha256": "adb55c37c269f07a6f9818e74add9d681194d7535f6420d8f24e46719f83e5d2",
+      "bytes": 2713
+    },
+    "README.md": {
+      "sha256": "9406f1e53a188df45e8dade13fe811a42a3281db643d74faf0a86b984a5e5199",
+      "bytes": 2109
+    },
+    "central-rest-pad.step": {
+      "sha256": "2f46173f6bfdd20af94202a88926df51a8497cb42f96976e69e94bbb244a02ac",
+      "bytes": 60106
+    },
+    "check_head_fps_arc_bounds.py": {
+      "sha256": "a31435122a5fa0c294d930ec8ea14bde64dce2f8cc933f81fcbe52d100b6e93d",
+      "bytes": 2919
+    },
+    "check_head_power_clearance.py": {
+      "sha256": "638fd822c35ef65ffc2a8070cbe455e018fb041ce1b433e107b12faeb2de8d2a",
+      "bytes": 2099
+    },
+    "context-input-receipt.json": {
+      "sha256": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
+      "bytes": 501
+    },
+    "creation-checks.json": {
+      "sha256": "c7cf6bde5d623d5a06a8ea98ac0a8b6d589c6e7178ca015b3b92d4031e543f89",
+      "bytes": 999
+    },
+    "export16-head-checks.json": {
+      "sha256": "ee23ceb9cb39cda408c568bb77fad6868f1d4d95c4b4fd2ec6622c0c87d06707",
+      "bytes": 24191
+    },
+    "export16-selected-hdmi-checks.json": {
+      "sha256": "774fe5d21768623fe1e0d8dcd1ac33d5a85df7b5ed5dde39173a5f335ce57f34",
+      "bytes": 5133
+    },
+    "export16-selected-hdmi-receipt.json": {
+      "sha256": "77386a94bae7ee79934faa37b40c6031cb3861b81483d4bdd8fed621f0165d0f",
+      "bytes": 751
+    },
+    "fps-final-source-receipt.json": {
+      "sha256": "4dd81f22c8c683657ec66788d3d9e7802c49b0ecbb4c62ce9e1f033d7fe77a0a",
+      "bytes": 3261
+    },
+    "fps_geometry.py": {
+      "sha256": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+      "bytes": 4506
+    },
+    "head-fps-conservative-screen.json": {
+      "sha256": "1824c6e841efd770beaa6d6220310a97f10d3b02130ae5137907a31830868c0a",
+      "bytes": 2152
+    },
+    "head-fps-exact-arc-bounds.json": {
+      "sha256": "1427a2f9a5afb29bc4fa16b110c2560bef371a7aba5c334b9a55115ff81081d8",
+      "bytes": 17335
+    },
+    "head-fps-support-checks.json": {
+      "sha256": "020358b32096f7a72214cbda6714e87d9c6ebd895021a41aca095815881d6c1d",
+      "bytes": 5738
+    },
+    "head-power-clearance.json": {
+      "sha256": "4ff375a60d9ccb9df71ade12266cdb9120dbc83abf0e904b914daf42301cb64c",
+      "bytes": 1768
+    },
+    "input.json": {
+      "sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+      "bytes": 11064600
+    },
+    "mated-carry-input.json": {
+      "sha256": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+      "bytes": 352979
+    },
+    "picoblade-open-guide.step": {
+      "sha256": "bc22a57f938246b06e773bab3b2de862e1890d29a63d270a6e28d04229d30c81",
+      "bytes": 133186
+    },
+    "prior-hdmi-solid-checks-321b333f3a9c.json": {
+      "sha256": "321b333f3a9cd0847155c7eb7942eeeaa64f4d1f11a10dd31aaacce7985eaf5d",
+      "bytes": 5305
+    },
+    "rejected-previous-usb-head.json": {
+      "sha256": "25538a9962d6275d690dcc0d98677b42419bf2c22196c3ad41461a752d44c84b",
+      "bytes": 829
+    },
+    "run_selected_hdmi_export16.py": {
+      "sha256": "53fee76824e6213d3ea37e5b827311b5d758cf7a07822ee9faa75292c43b7368",
+      "bytes": 2150
+    },
+    "source-create_corrected_port_hdmi_snapshot.py": {
+      "sha256": "21d6d73c94db09d5979868e760b777b1a1335d5ca589b7fbc61ea097fc6a2524",
+      "bytes": 4175
+    },
+    "source-export16-verify_hdmi.py": {
+      "sha256": "72439840fbb66463e6fbaf9e1311138232b81706ace46e84d1c5d5002e9c118e",
+      "bytes": 12838
+    },
+    "source-official_pi5_csi.py": {
+      "sha256": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+      "bytes": 4844
+    },
+    "source-official_pi5_geometry.py": {
+      "sha256": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+      "bytes": 8217
+    },
+    "source-verify_fps_access.py": {
+      "sha256": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+      "bytes": 8494
+    },
+    "source-verify_hdmi.py": {
+      "sha256": "7c12d0789205c8ddc9c602b2d5914aa809180adfbd8e1561005b286220a2d3d9",
+      "bytes": 12333
+    },
+    "usb-donor-provenance.json": {
+      "sha256": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+      "bytes": 1198
+    },
+    "usb2-head-reservation.json": {
+      "sha256": "3e411f4de1d471cfcbbfa9f4311f25e0182da4678f7e2e09b7efd7b5a540eaf3",
+      "bytes": 1019
+    },
+    "verify_corrected_usb_head.py": {
+      "sha256": "a8ff3f38a60a284167d8c094d2af3f4e6500a853783a5a4855b2f964daa78f4c",
+      "bytes": 7137
+    }
+  },
+  "prior_frozen_study": {
+    "input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+    "supplemental_manifest_sha256": "5e2fabfa1c0cf9c17c97453a45c68f67032f4fabfeeb5448be30e88dd03d46a7"
+  },
+  "physical_qualified": false,
+  "remaining": [
+    "Correct rear lower panel boss/head conflict and recheck a newly bound export",
+    "Received USBovermold/exit and all final installed cuttable donor cuts/rigid joints/staging",
+    "Adafruit3557 body-to-inserted-plug/ribbon-root registration",
+    "Complete200mm16mm-wide camera FPC and real engaged/stiffener frames",
+    "Received cooler geometry and actual CSI latch/tool corridor",
+    "All baseline56 andM1 physical gates"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "variant": "baseline",
+  "core_dimensions_mm": [
+    154,
+    70,
+    100
+  ],
+  "core_envelope_mm3": 1078000.0,
+  "model_solid_union_mm3": 337016.7989561792,
+  "model_void_mm3": 740983.2010438208,
+  "model_void_fraction": 0.6873684610796111,
+  "definition": "Exact core box minus the union of all exported model solids, including enclosure, hardware and purchased-part proxies. Cooling air, cable space, assembly/service clearance and proxy omissions are included in this void; it is NOT a claim that all this volume can be removed.",
+  "qualification": "CAD proxy volume, not measured internal volume; cables and reserved access envelopes not subtracted.",
+  "generated_utc": "2026-10-09T03:59:32Z"
+}

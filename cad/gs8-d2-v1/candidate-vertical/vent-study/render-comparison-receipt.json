@@ -1,0 +1,32 @@
+{
+  "output": "D2-concealed-vent-comparison.png",
+  "sha256": "996d038e33c8737508cdd74e3e441b554668fc46b9a8a2a2588f2a284a66a800",
+  "sources": [
+    {
+      "file": "vent-study/reviewed-export18-renders/vent_side.png",
+      "sha256": "ce2d91852a262eb1568bbe03eabfad1821a5c0fc28249ecb677a758d356a4b69"
+    },
+    {
+      "file": "vent-study/reviewed-export18-renders/vent_front.png",
+      "sha256": "faafc6f0c011e76fd478fae92c05b96fd628abd67eef0bb3b4a0cf80dc4e2a6a"
+    },
+    {
+      "file": "vent-study/angled-channel-trial/renders/vent_side.png",
+      "sha256": "6887940e3786e7438541651818c644ed0dc96f5fdf10581aa47c2937fca81729"
+    },
+    {
+      "file": "vent-study/angled-channel-trial/renders/vent_front.png",
+      "sha256": "db2a51cfba8d9a27bf1fb999b651048cb864410428fc837ba32081f768bdf599"
+    },
+    {
+      "file": "out/compact-kowa_lm6hc/renders/vent_side.png",
+      "sha256": "39d0b9b0a02feb90ca506d06ce5ff8ca5c1774e63b09afe2de9320214d3673fa"
+    },
+    {
+      "file": "out/compact-kowa_lm6hc/renders/vent_front.png",
+      "sha256": "55836ad090a70e873fd7a4057bc9d02d554fd400bcf594fbba2bd08fa2b339f4"
+    }
+  ],
+  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "physical_qualified": false
+}

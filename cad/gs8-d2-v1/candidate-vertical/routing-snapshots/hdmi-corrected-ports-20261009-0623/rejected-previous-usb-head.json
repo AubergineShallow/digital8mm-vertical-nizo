@@ -1,0 +1,47 @@
+{
+  "id": "p_usb_pi",
+  "cable": "usb_5v",
+  "end": "pi5",
+  "box": {
+    "x": [
+      -153.0,
+      -122.0
+    ],
+    "y": [
+      -14.8,
+      -5.0
+    ],
+    "z": [
+      44.75,
+      60.25
+    ]
+  },
+  "rigid": true,
+  "mated": [
+    "after",
+    "keeper_in"
+  ],
+  "why": "USB-A in the upper USB 2 port",
+  "source_keepout": "ko_usb_evf",
+  "incorrect_baseline_port_box": {
+    "x": [
+      -153.0,
+      -122.0
+    ],
+    "y": [
+      -14.8,
+      -5.0
+    ],
+    "z": [
+      7.299999999999997,
+      22.799999999999997
+    ]
+  },
+  "port_center": [
+    -122,
+    -9.900000000000002,
+    52.5
+  ],
+  "note": "Full original 31 x 15.5 x 9.8 plug+bend proxy retained; corrected upper USB2 port location. Housing versus strain-relief split is unknown.",
+  "qualification": "unmeasured source proxy; no hardware fit approval"
+}

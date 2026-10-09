@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "state": "installed",
+      "status": "pass",
+      "full_material_mm": 300.0,
+      "exact_intersections": 0,
+      "hits": [],
+      "minimum_nearby_distance_mm": null
+    },
+    {
+      "state": "premate",
+      "status": "pass",
+      "full_material_mm": 300.0,
+      "exact_intersections": 0,
+      "hits": [],
+      "minimum_nearby_distance_mm": null
+    },
+    {
+      "state": "both_unplugged",
+      "status": "pass",
+      "full_material_mm": 300.0,
+      "exact_intersections": 0,
+      "hits": [],
+      "minimum_nearby_distance_mm": null
+    }
+  ],
+  "step_sha256": "0befe19c07e62b430d691c7b263e1b0aeed41f3a254685b7cffe3e1c943dd268",
+  "input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "source_sha256": "f92d67c29d341ea4e0b8e4e70d48cea34f3f23d764596755e4d21759a4440ae7",
+  "physical_qualified": false,
+  "selected_motion": "Premate ribbon and reinforced carrier translate together in the selected sequence, so their relative geometry is constant. This checks that mutual clearance, not the combined swept volume versus external wires or solids.",
+  "remaining": "Parent must recheck reinforced carrier against fixed parts; complete carried/stowed loom deployment and FPC remain open. Both-unplugged is a separate rejected in-body head-motion diagnostic."
+}

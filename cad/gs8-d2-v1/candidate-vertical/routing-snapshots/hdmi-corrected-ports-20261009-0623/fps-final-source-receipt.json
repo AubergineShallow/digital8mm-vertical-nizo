@@ -1,0 +1,60 @@
+{
+  "status": "Frozen selected FPS sources; awaits combined corrected-USB/CSI mechanical export and final receipts",
+  "frozen_utc": "2026-10-09T06:22:16Z",
+  "mechanical_start_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "canonical_sources": {
+    "fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "fps_ck1044_mated_carry.py": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb",
+    "fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "routes.py": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d"
+  },
+  "canonical_adoption": {
+    "tested_source": "fps_fixed_support_pad_proposal.py",
+    "canonical_source": "fps_fixed_support.py",
+    "sha256": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "byte_identical": true
+  },
+  "guide_dependency_equivalence": {
+    "tested_dependency": "out/fps-service-study/right-rest-standalone-failed-source.py",
+    "called_helpers": [
+      "box",
+      "connector_rest"
+    ],
+    "ast_equal": true,
+    "explanation": "Guide uses only these unchanged helpers and V=cq.Vector; unrelated shelf implementation changed to the tested central rest."
+  },
+  "selected_geometry": {
+    "switch_rest_volume_mm3": 1297.6740351959065,
+    "switch_rest_root_overlap_mm3": 90.78000000000003,
+    "guide_volume_mm3": 467.29296357615823,
+    "guide_root_overlap_mm3": 7.874999999999998,
+    "main_axis_mm": 200,
+    "switch_axes_mm": {
+      "A": 95.4643746619727,
+      "2": 102.47593179492301
+    }
+  },
+  "verification_reports": {
+    "fixed-fps-service-checks.json": "87cb0350f16029ded3ffa888e6902a29a1435c3e469e28a167af6006926c88dd",
+    "mated-carry-checks.json": "30850e6a08f800c995e8debc07cbb1958b04288f16055cddb90691a77e25adb8",
+    "central-rest-checks.json": "8c8b79112de3681a5cfc4a8df669b5dff5c4702d6508d93169aa9d26f38b1524",
+    "central-rest-wide-checks.json": "983894975ace07785859ed5db875ab4150c5682f10c5ba0b8bb968e4d8481517",
+    "central-rest-pad-checks.json": "1f7feb5af8b23dc968c2f788a1d87d85bc91df26676520b18adcca01918c4299",
+    "open-guide-checks.json": "065a998dff8055bf2374de7e3ab1cb1bf2599f0a457488721abe0564c6ac8c33",
+    "selected-support-hdmi-bounds.json": "91e1b3b8c5e4a59ed802ce451a70bd53943db74049a4fdd85d557d67fff2f11f"
+  },
+  "physical_qualified": false,
+  "frozen_input": {
+    "path": "out/fps-service-study/mated-carry-input.json",
+    "sha256": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "source_sha256": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb",
+    "routes_source_sha256": "ca3e8332029b892a7a76b05812ef09c85342b903eebb021246412a548455a15d",
+    "generation": "fps_ck1044_mated_carry.build(routes,0,0); full sampled wire_parts and junction box",
+    "rebuild_byte_identical": true
+  },
+  "selected_step_receipts": {
+    "out/fps-service-study/central-rest-pad.step": "2f46173f6bfdd20af94202a88926df51a8497cb42f96976e69e94bbb244a02ac",
+    "out/fps-service-study/picoblade-open-guide.step": "bc22a57f938246b06e773bab3b2de862e1890d29a63d270a6e28d04229d30c81"
+  }
+}

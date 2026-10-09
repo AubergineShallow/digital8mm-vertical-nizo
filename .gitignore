@@ -24,3 +24,15 @@ cad/gs8-d2-v1/research/r5-lens-support/*.png
 
 # guide mesh cache (rebuilt by guide/build_guide.py --remesh)
 cad/gs8-d2-v1/guide/_cache/
+
+# Vertical review caches: regenerate tessellations and page images from source/STEP.
+cad/gs8-d2-v1/candidate-vertical/out/*/meshes/
+cad/gs8-d2-v1/candidate-vertical/guide/out/
+cad/gs8-d2-v1/candidate-vertical/guide/out-concealed-vents/page-*.png
+cad/gs8-d2-v1/candidate-vertical/guide/out-concealed-vents/figures/
+cad/gs8-d2-v1/candidate-vertical/guide/*.so
+cad/gs8-d2-v1/candidate-vertical/guide/raster
+# Nonselected hero/service pictures remain in the complete review archive.
+cad/gs8-d2-v1/candidate-vertical/vent-study/angled-channel-trial/renders/hero.png
+cad/gs8-d2-v1/candidate-vertical/vent-study/angled-channel-trial/renders/rear.png
+cad/gs8-d2-v1/candidate-vertical/history/reviewed-export18/renders/*.png

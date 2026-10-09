@@ -1,0 +1,652 @@
+{
+  "mechanical_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+  "source_files": {
+    "out/compact-kowa_lm6hc/step/base_grip.step": "a0eed2940579148dcb26be971cb438c6aa31126ce012774660fc7d78c0e38ec7",
+    "out/compact-kowa_lm6hc/step/c_cs_adapter.step": "b67892a5c8c6d755b23bf0fb4fdc5986b61ea89909f79a58696cb89214b9d1e4",
+    "out/compact-kowa_lm6hc/step/cap.step": "e29ea23b2bf58a7cc702fd139662dfc6cea68badcd221654029523268b16d56b",
+    "out/compact-kowa_lm6hc/step/centring_gauge.step": "6bf861b597b397292f37b8ee04cd38909818b328acc45ee8b5e768fb0ce02afa",
+    "out/compact-kowa_lm6hc/step/cooler.step": "4a40ceb1295561057daf1608d212a04e31660d8dac06e029df8d904f2ad77f62",
+    "out/compact-kowa_lm6hc/step/encoder.step": "d1be90c22b7aabff6666b425f30d7c3e0db0d015b29e215a0b96a230ae269a5b",
+    "out/compact-kowa_lm6hc/step/evf_board.step": "ce78ae5bea3e72d89cbf20a0647af062a3de3920cfd5bb359b658d6acc9fe179",
+    "out/compact-kowa_lm6hc/step/eyecup.step": "d95e093f9210f38a59532a8273560e54d56db1b455e994f4106c7982a5bb04ab",
+    "out/compact-kowa_lm6hc/step/eyepiece.step": "34836e4baac8290177bfb0831e359cafcb87762b1690a941bdb99341b8480eaf",
+    "out/compact-kowa_lm6hc/step/foam_pad.step": "0406200e035e5b15cd0da7f4076735f0e5601187a74696deeff991c1c412acca",
+    "out/compact-kowa_lm6hc/step/gs_camera.step": "0394b2d793d802cc682db086a9c06bca46016e498b6860cfc25d724de89d32f7",
+    "out/compact-kowa_lm6hc/step/hmx039.step": "d68ba8c05a39f537fd14ececa5a40c3bbc5643af55a074994d779d6106188fab",
+    "out/compact-kowa_lm6hc/step/knob_exp.step": "9801c715b22e6f4adb6f31757ef5d630e7a62863161f732b3b0b51848d9c59b1",
+    "out/compact-kowa_lm6hc/step/knob_fps.step": "2b2e4c526fa8a336d7d6446be6337a246fcd1efd00ca1cd39c8cfee1d3c3e3c6",
+    "out/compact-kowa_lm6hc/step/lens.step": "7fce270fb427a9f20f660db0c3653058e2c00a51f5e51eadb96a680e149f6aea",
+    "out/compact-kowa_lm6hc/step/lens_collar.step": "5a3fa207f64e736e66d6cb422de4cbc3e6f94429438cf9a4bbfbdc7b5ecd2d1e",
+    "out/compact-kowa_lm6hc/step/microsd.step": "20d14f702ec02dafa50935da1d8e4d8fbdb3150061aa6e09e728ee90bd415273",
+    "out/compact-kowa_lm6hc/step/p_carrier1.step": "ff0470a1e2e6dce1b51a8da7dc1a0c8aebb3383582b9983e66458141f97fbfe7",
+    "out/compact-kowa_lm6hc/step/p_carrier2.step": "0d2139f157da4afbe0d42872ad26138fc1bb9b648845884d1fd3df918f41079d",
+    "out/compact-kowa_lm6hc/step/p_grip.step": "ab06cfa362b323ca1756ad42f4b4da502d668e7c46a85c235ee9aa98ff5829af",
+    "out/compact-kowa_lm6hc/step/p_panel1.step": "89b1e3a2e83bc0d9ddc94581e19970891387b8307f77885fab40eb722e9a5f64",
+    "out/compact-kowa_lm6hc/step/p_panel2.step": "43a0a9db7d8be866180e142d6df64725352d55b2dc4cda8ae7af6de3c77c36e5",
+    "out/compact-kowa_lm6hc/step/p_panel3.step": "5aa63dbac5aa936e5c34f01e6542460836f03996866e3667d49342c7797071c4",
+    "out/compact-kowa_lm6hc/step/p_panel4.step": "9e25ed0bad20e44ac26db10ab936cb3fb3f4f0c487834474546a4633553663e2",
+    "out/compact-kowa_lm6hc/step/pack.step": "8e0b10146b16cf3f1d6deb21727e9294e9740e6856734bde19a1f6b70aae4b18",
+    "out/compact-kowa_lm6hc/step/panel.step": "30e32dbaaad3495b09f77194181f9752bf1218de76aa1ec34065f3c8605722d3",
+    "out/compact-kowa_lm6hc/step/power_button.step": "2a298589e29f6543ba0ea648d7b450dcb7957da05e2a2a6402985240664d2f4e",
+    "out/compact-kowa_lm6hc/step/power_nut_reserve.step": "3a4871865fdcb3e80af28dac3671df7bde99f01040bdca46f089c8adf7e59871",
+    "out/compact-kowa_lm6hc/step/run_button.step": "68d4e2d640b3bf8eaa60d4ef1d5834cfbd4b1ae293f4d9a0b79d1a8e37ca470d",
+    "out/compact-kowa_lm6hc/step/s_c1.step": "f768144daac3406801263bf2f3f938195fd84c6897a412dce5a6a4f2c09e0f82",
+    "out/compact-kowa_lm6hc/step/s_c2.step": "b3863b5a70aff4172acddc700efb43fdf1a40726a1ea26e2e2a04ac180e5a498",
+    "out/compact-kowa_lm6hc/step/s_c3.step": "2f1f291359ab21133bc0cc00196109f651e15fe9424b0a724407cf1ec72e532e",
+    "out/compact-kowa_lm6hc/step/s_c4.step": "323bd4098d374b3ec83c5194d31079687b773319fe4d969d92547ee8a8237a87",
+    "out/compact-kowa_lm6hc/step/strap.step": "eaa2317f4829cfbb6786606c1d75e742d2bc3b912f2ae2d8b194fd6a11559d4b",
+    "out/compact-kowa_lm6hc/step/switch_1824.step": "494d63bdc67ddd659b61557f99e70ae20b99e28b7864957e285429a59acf94fd",
+    "out/compact-kowa_lm6hc/step/tripod_nut.step": "46a4284faee6cdb4219b4b3cdd724785198e98b482df4ca36ec35a8e36153379",
+    "out/compact-kowa_lm6hc/step/tub.step": "ba1f210706c03563415c90be84490e3608e88d23e208724d4dc8f3d0025ec14b",
+    "out/compact-kowa_lm6hc/step/usb_stick.step": "515753763e46df6e92748cde1ce24a7aaeea8b5239bf2548504ed0008baa7db3",
+    "out/compact-kowa_lm6hc/step/x1203.step": "2d0b5401dc859883ba491830635a67e81e9df54f4c790f34e0f19f9925fcdfd1",
+    "out/compact-kowa_lm6hc/step/x1203_kit.step": "cd26d2da8826a9c19263dec705ca7ad7586ae0d75deafb283d2a325acecf003b",
+    "out/compact-kowa_lm6hc/step/xt30_pair.step": "0e611e78a5cb075b4489b8811f74415479178aaeebb83fafe60e941413e932ee",
+    "out/structural-proposals/reinforced-carrier.step": "0befe19c07e62b430d691c7b263e1b0aeed41f3a254685b7cffe3e1c943dd268"
+  },
+  "checks": [
+    {
+      "component": "cam_disp0",
+      "kind": "exact official source nominal underside registration",
+      "bbox_mm": [
+        -90.85225050093803,
+        -87.30499999999998,
+        -1.5860000000000032,
+        2.364000000000349,
+        46.15499999999993,
+        62.8550000000001
+      ],
+      "hits": [
+        {
+          "obstacle": "cooler",
+          "sum_pair_overlap_mm3": 32.3614367007127,
+          "witnesses": [
+            {
+              "overlap_mm3": 0.15394511635272096,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.932112895759003,
+                0.6000000000000041,
+                49.15,
+                49.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273087,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.932112895759003,
+                0.6000000000000043,
+                50.15,
+                50.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273092,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000043,
+                51.15,
+                51.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273095,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000045,
+                52.15,
+                52.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273103,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000045,
+                53.15,
+                53.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273103,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000048,
+                54.15,
+                54.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273095,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.355,
+                -0.9321128957590016,
+                0.6000000000000048,
+                55.15,
+                55.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.0769725581763668,
+              "bbox_mm": [
+                -89.89784837303074,
+                -88.35499999999998,
+                -0.9321128957590016,
+                0.600000000000005,
+                56.15,
+                56.25
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163526433,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.932112895759003,
+                0.6000000000000043,
+                49.65,
+                49.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163526534,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.932112895759003,
+                0.6000000000000043,
+                50.65,
+                50.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265348,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000045,
+                51.65,
+                51.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265357,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000045,
+                52.65,
+                52.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163526536,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.35500000000002,
+                -0.9321128957590016,
+                0.6000000000000048,
+                53.65,
+                53.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265354,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.355,
+                -0.9321128957590016,
+                0.6000000000000048,
+                54.65,
+                54.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163526535,
+              "bbox_mm": [
+                -89.89784837303077,
+                -88.355,
+                -0.9321128957590016,
+                0.600000000000005,
+                55.65,
+                55.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 16.402594916667027,
+              "bbox_mm": [
+                -90.35500000000005,
+                -88.05499999999999,
+                -1.2,
+                0.6000000000000048,
+                46.5,
+                56.25
+              ]
+            },
+            {
+              "overlap_mm3": 13.726637596931633,
+              "bbox_mm": [
+                -90.30499999999999,
+                -87.30499999999968,
+                -1.2,
+                0.6000000000000048,
+                46.15499999999983,
+                56.25
+              ]
+            }
+          ]
+        }
+      ],
+      "exact_intersections": 281
+    },
+    {
+      "component": "cam_disp1",
+      "kind": "exact official source nominal underside registration",
+      "bbox_mm": [
+        -84.65225050093801,
+        -81.10500000000002,
+        -1.5860000000000023,
+        2.36400000000035,
+        46.15499999999993,
+        62.8550000000001
+      ],
+      "hits": [
+        {
+          "obstacle": "cooler",
+          "sum_pair_overlap_mm3": 32.36143670071272,
+          "witnesses": [
+            {
+              "overlap_mm3": 0.15394511635273278,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957590012,
+                0.6000000000000041,
+                49.15,
+                49.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635273272,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957590012,
+                0.6000000000000043,
+                50.15,
+                50.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163527328,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000043,
+                51.15,
+                51.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163527328,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000045,
+                52.15,
+                52.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163527329,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000045,
+                53.15,
+                53.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163527329,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000048,
+                54.15,
+                54.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163527329,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999996,
+                -0.9321128957589998,
+                0.6000000000000048,
+                55.15,
+                55.35000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.07697255817636418,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999996,
+                -0.9321128957589998,
+                0.600000000000005,
+                56.150000000000006,
+                56.25
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265506,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957590012,
+                0.6000000000000043,
+                49.65,
+                49.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163526553,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957590012,
+                0.6000000000000043,
+                50.65,
+                50.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265537,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000045,
+                51.65,
+                51.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265543,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000045,
+                52.65,
+                52.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.1539451163526555,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999997,
+                -0.9321128957589998,
+                0.6000000000000048,
+                53.65,
+                53.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265543,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999996,
+                -0.9321128957589998,
+                0.6000000000000048,
+                54.65,
+                54.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 0.15394511635265543,
+              "bbox_mm": [
+                -83.69784837303072,
+                -82.15499999999996,
+                -0.9321128957589998,
+                0.600000000000005,
+                55.65,
+                55.85000000000001
+              ]
+            },
+            {
+              "overlap_mm3": 16.402594916667073,
+              "bbox_mm": [
+                -84.15500000000004,
+                -81.855,
+                -1.2,
+                0.6000000000000048,
+                46.5,
+                56.25
+              ]
+            },
+            {
+              "overlap_mm3": 13.726637596931571,
+              "bbox_mm": [
+                -84.10500000000002,
+                -81.1049999999997,
+                -1.2,
+                0.6000000000000052,
+                46.15499999999984,
+                56.25
+              ]
+            }
+          ]
+        }
+      ],
+      "exact_intersections": 288
+    },
+    {
+      "component": "cam_disp0",
+      "kind": "source-derived envelope spanning explicit PCB thickness datum bracket",
+      "bbox_mm": [
+        -90.852250500938,
+        -87.305,
+        -1.8800000000000026,
+        2.3940000000003403,
+        46.15499999999992,
+        62.855000000000096
+      ],
+      "hits": [
+        {
+          "obstacle": "cooler",
+          "sum_pair_overlap_mm3": 64.45708885254473,
+          "witnesses": [
+            {
+              "overlap_mm3": 64.45708885254473,
+              "bbox_mm": [
+                -90.852250500938,
+                -87.305,
+                -1.2,
+                0.6000000000000048,
+                46.15499999999992,
+                56.25
+              ]
+            }
+          ]
+        }
+      ],
+      "exact_intersections": 8
+    },
+    {
+      "component": "cam_disp1",
+      "kind": "source-derived envelope spanning explicit PCB thickness datum bracket",
+      "bbox_mm": [
+        -84.65225050093801,
+        -81.10499999999999,
+        -1.8800000000000026,
+        2.3940000000003403,
+        46.15499999999992,
+        62.855000000000096
+      ],
+      "hits": [
+        {
+          "obstacle": "cooler",
+          "sum_pair_overlap_mm3": 64.45708885254525,
+          "witnesses": [
+            {
+              "overlap_mm3": 64.45708885254525,
+              "bbox_mm": [
+                -84.65225050093801,
+                -81.10499999999999,
+                -1.2,
+                0.6000000000000048,
+                46.15499999999992,
+                56.25
+              ]
+            }
+          ]
+        }
+      ],
+      "exact_intersections": 9
+    }
+  ],
+  "provenance": {
+    "source_url": "https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-010083-CA-1-rpi-5%203D%20STEP%20-%20No%20Graphics%20small%20file.zip",
+    "source_sha256": "78164070c1cc7ab854382950d2e85926c6e35432f1e5a146b733397a7c6afb44",
+    "identity_url": "https://www.raspberrypi.com/app/uploads/2023/09/58f150c0-bd72-4e42-a77f-6be0890c8a80-1024x685.png",
+    "identity": {
+      "cam_disp0": "J3, nativeX55.205, Ethernet-side",
+      "cam_disp1": "J4, nativeX49.005, HDMI-side"
+    },
+    "nominal_native_exit_direction": [
+      0,
+      0,
+      1
+    ],
+    "nominal_candidate_exit_direction": [
+      0,
+      -1,
+      0
+    ],
+    "nominal_native_width_direction": [
+      0,
+      1,
+      0
+    ],
+    "nominal_candidate_width_direction": [
+      0,
+      0,
+      -1
+    ],
+    "direction_scope": "Directions follow the vertical opening/contact arrangement of the bare source connector. Actual fully inserted cable free-flex station/contact-side normal remains unassigned.",
+    "latch_scope": "Official installation instructions prescribe gently pulling the flap out, then tilting away from the opening. The STEP has only one static pose; travel and open-latch swept volume are not dimensioned.",
+    "physical_qualified": false,
+    "selected_cable_width_reservation_mm": 16,
+    "remaining": [
+      "Source model is guidance only, may differ from received hardware",
+      "No guessed connector SKU",
+      "Cable engagement/stiffener/transition and contact clocking",
+      "Latch travel/tool jaws",
+      "Physical fit and laminate capability"
+    ]
+  },
+  "helper_sha256": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+  "context_sha256": "d054ac2ad404b74eb2cd7770c6f13fe7cd6f9bdc48780a5adaff75e3a58c5196",
+  "fps_input_sha256": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+  "hdmi_input_sha256": "7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb",
+  "object_notes": {
+    "base_grip": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "c_cs_adapter": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "cap": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "centring_gauge": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "cooler": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "encoder": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "evf_board": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "eyecup": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "eyepiece": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "foam_pad": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "gs_camera": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "hmx039": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "knob_exp": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "knob_fps": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "lens": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "lens_collar": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "microsd": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_carrier1": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_carrier2": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_grip": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_panel1": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_panel2": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_panel3": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "p_panel4": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "pack": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "panel": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "power_button": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "power_nut_reserve": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "run_button": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "s_c1": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "s_c2": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "s_c3": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "s_c4": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "strap": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "switch_1824": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "tripod_nut": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "tub": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "usb_stick": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "x1203": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "x1203_kit": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "xt30_pair": "Candidate rigid proxy; source geometry not hardware-qualified",
+    "reinforced_carrier": "Reinforced carrier candidate",
+    "wire_usb_5v": "Analytic modeled route, may not include whole stock",
+    "wire_fan": "Analytic modeled route, may not include whole stock",
+    "wire_power_button": "Analytic modeled route, may not include whole stock",
+    "branch_hdr_qt_1": "Analytic modeled branch",
+    "branch_hdr_qt_3": "Analytic modeled branch",
+    "branch_hdr_qt_5": "Analytic modeled branch",
+    "branch_hdr_qt_6": "Analytic modeled branch",
+    "branch_hdr_fps_lead_33_34": "Analytic modeled branch",
+    "branch_run_pin37": "Analytic modeled branch",
+    "branch_run_pin39": "Analytic modeled branch",
+    "wire_qt": "Analytic modeled QT",
+    "wire_run_pin37": "Analytic modeled RUN",
+    "wire_run_pin39": "Analytic modeled RUN",
+    "fps_fps_header_branch": "Selected complete mated FPS branch",
+    "fps_fps_200_main": "Selected complete mated FPS branch",
+    "fps_fps_switch_bundle": "Selected complete mated FPS branch",
+    "fps_fps_ck1044_pin_A": "Selected complete mated FPS branch",
+    "fps_fps_ck1044_pin_2": "Selected complete mated FPS branch",
+    "power_positive_positive_board_to_fuse": "Complete polyline diameter capsules including0.04mm chord allowance; root joints remain gated",
+    "power_positive_positive_fuse_to_housing": "Complete polyline diameter capsules including0.04mm chord allowance; root joints remain gated",
+    "power_negative_negative_complete": "Complete polyline diameter capsules including0.04mm chord allowance; root joints remain gated",
+    "p_hdmi_evf": "HDMI hard-head envelope",
+    "p_hdmi_pi": "HDMI hard-head envelope",
+    "hdmi_installed": "No full-width HDMI cell bounds overlap either CSI region; complete material screened",
+    "hdmi_premate": "No full-width HDMI cell bounds overlap either CSI region; complete material screened",
+    "fps_junction": "Complete selected mated junction box"
+  },
+  "excluded_inherited_pi": "The inherited pi5 STEP contains the old CSI proxy itself and is superseded locally by this isolated source correction. PCB mounting contact is inherent to the source model, not a cable clearance exception.",
+  "physical_qualified": false,
+  "remaining": [
+    "USB5V route is the old wrong-jack diagnostic and will be corrected separately",
+    "The GS camera connector/stiffener free-flex datum remains absent",
+    "No full200mm16mm-wide FPC geometry exists",
+    "Open latch and tools are not represented by the closed source pose",
+    "Cooler proxy conflicts require source-derived cooler geometry, not invented local cuts"
+  ]
+}
