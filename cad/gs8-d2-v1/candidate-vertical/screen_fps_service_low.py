@@ -1,4 +1,5 @@
 """Fast sampled screening, never a substitute for exact swept-solid checks."""
+from cv_io import write_text
 import sys,json,importlib.util
 from pathlib import Path
 import numpy as np
@@ -17,4 +18,4 @@ for j,u in [(0,0),(5,0),(10,0),(15,0),(20,0),(23,0),(23,5),(23,10)]:
   pts=np.array(w['curve']['sampled_centerline']);rad=w['od_mm']/2;gaps={n:float(cKDTree(p).query(pts)[0].min()-rad-od/2) for n,p,od in obs};d=np.linalg.norm(np.maximum(np.maximum(hb[None,:,:,0]-pts[:,None,:],pts[:,None,:]-hb[None,:,:,1]),0),axis=2);ix=np.unravel_index(d.argmin(),d.shape);gaps['HDMI_conservative_AABB_lower_bound']=float(d[ix]-rad)
   rows.append(dict(wire=w['id'],pair_shift=j,unplug=u,minimum_sampled_gaps_mm=gaps,closest_hdmi_point=pts[ix[0]].tolist(),cell=int(ix[1])))
 result=dict(status='Sampled source-only screening; HDMI segment AABB is conservative',rows=rows)
-(P/'out/fps-service-study/ck1044-service-low-source-screen.json').write_text(json.dumps(result,indent=2));print(json.dumps([r for r in rows if min(r['minimum_sampled_gaps_mm'].values())<0],indent=2))
+write_text(P/'out/fps-service-study/ck1044-service-low-source-screen.json',json.dumps(result,indent=2));print(json.dumps([r for r in rows if min(r['minimum_sampled_gaps_mm'].values())<0],indent=2))

@@ -1,4 +1,5 @@
 """Stationary switch, mated-pair deployment and straight separation: diagnostic exact study."""
+from cv_io import read_text, write_text
 from pathlib import Path
 import sys,json,math,time
 P=Path(__file__).parent;sys.path.insert(0,str(P.parent))
@@ -6,7 +7,7 @@ import cadquery as cq
 import routes as R, fps_geometry as FG, fps_ck1044_service as F, fps_fixed_support as FS
 from verify_fps_access import V,box,bb,overlaps,digest,tube,bbox
 sourcehash={q:digest(P/q) for q in ['verify_fps_pair_deployment.py','fps_ck1044_service.py','fps_fixed_support.py','fps_geometry.py']}
-mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(mp.read_text());mh=digest(mp)
+mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(read_text(mp));mh=digest(mp)
 sh={row['id']:cq.importers.importStep(str(mp.parent/'step'/f"{row['id']}.step")).val() for row in m['rows']};sh.update(FG.switch_parts())
 fixed={n:s for n,s in sh.items() if n not in {'panel','encoder','knob_exp','knob_fps','power_button','power_nut_reserve','foam_pad','fps_nut','fps_mounting_washer'} and not n.startswith('p_panel')}
 support=FS.shelf();rest=FS.connector_rest();fixed.update(fps_rest=support,connector_rest=rest)
@@ -44,4 +45,4 @@ for u in range(11):
   for k,t in pads.items():
    if k>n:check('finger_mutual/'+n+'/'+k+'/'+str(u),s,{k:t})
 result=dict(status='diagnostic only; not adopted',mechanical_manifest_sha256=mh,source_sha256=sourcehash,support=dict(connector_rest_valid=rest.isValid(),connector_rest_solids=len(rest.Solids()),tub_contact_mm3=root,tub_union_valid=ru.isValid(),tub_union_solids=len(ru.Solids())),poses=poses,checks=checks,remaining=['Actual pair dimensions/tolerances, housing profile and gripping force;9mm mating dimension isreference','Thin-jaw acquisition and whole hand articulation not qualified by fingertip spheres','Complete corrected HDMI and neighboring-wire dynamic checks separate','Actual label removal, wire retention, bend fatigue and fanoutjoint dimensions','No wire deformation proof for switch removal after connector separation yet'])
-out=P/'out/fps-service-study';(out/('pair-deployment-xy-quick-checks.json' if '--quick' in sys.argv else 'pair-deployment-xy-checks.json')).write_text(json.dumps(result,indent=2));cq.exporters.export(rest,str(out/'picoblade-rear-rest.step'));print('DONE',sum(bool(q['hits']) for q in checks),'failingchecks',flush=True)
+out=P/'out/fps-service-study';write_text(out/('pair-deployment-xy-quick-checks.json' if '--quick' in sys.argv else 'pair-deployment-xy-checks.json'),json.dumps(result,indent=2));cq.exporters.export(rest,str(out/'picoblade-rear-rest.step'));print('DONE',sum(bool(q['hits']) for q in checks),'failingchecks',flush=True)

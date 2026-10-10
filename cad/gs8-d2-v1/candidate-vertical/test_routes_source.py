@@ -1,4 +1,5 @@
 """Fast source-only regression tests. These are NOT physical release tests."""
+from cv_io import read_text
 import hashlib
 import json
 import math
@@ -90,7 +91,7 @@ class RoutesStudyTests(unittest.TestCase):
         p=self.r['power_geometry'];ref=p['mechanical_snapshot']
         path=Path(routes.__file__).parent/ref['path']
         self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),ref['sha256'])
-        old=json.loads(path.read_text())
+        old=json.loads(read_text(path))
         for key in ['junction_center','junction_yaw_deg','junction_pitch_deg','fuse','rigid_service_poses']:
             self.assertEqual(p[key],old[key])
         self.assertEqual(p['cores'][1]['local_points'],old['cores'][1]['local_points'])

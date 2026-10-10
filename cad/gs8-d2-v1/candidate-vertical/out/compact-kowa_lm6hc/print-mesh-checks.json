@@ -1,6 +1,6 @@
 {
   "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "verification_source_sha256": "322928bcdf02f8e524ecd995f81dc201feed9f7989c08af81355340d5ef54ac1",
+  "verification_source_sha256": "d74b06c7f1ae25f11135cd1a068ab6d13933c2d19266304728ac478dd0eab12d",
   "variant": "compact-kowa_lm6hc",
   "pass_count": 10,
   "fail_count": 0,
@@ -8,11 +8,14 @@
     {
       "id": "base_grip",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "1e099f67616c334278c64a1769c46d59adb8fbaab973b5370dfdd02f9f8dc685",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 66875.28542958056,
       "expected_print_stock_mm3": 66883.96650611637,
       "volume_error_mm3": 8.681076535809552,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
@@ -38,11 +41,14 @@
     {
       "id": "cap",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 6738.099531606457,
       "expected_print_stock_mm3": 6739.347417514938,
       "volume_error_mm3": 1.2478859084803844,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
@@ -68,11 +74,14 @@
     {
       "id": "eyecup",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "900c1d06f9253acca9a1c03d6ec1e2f43f5c7bbd59097c04935188d2d060ec6e",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 4395.724421042337,
       "expected_print_stock_mm3": 4406.391069641452,
       "volume_error_mm3": 10.666648599115433,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0005273062270134687,
@@ -98,11 +107,14 @@
     {
       "id": "knob_exp",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 4792.027316957697,
       "expected_print_stock_mm3": 4792.9768372145845,
       "volume_error_mm3": 0.9495202568878085,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
@@ -128,11 +140,14 @@
     {
       "id": "knob_fps",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 2168.115074525833,
       "expected_print_stock_mm3": 2168.466251538382,
       "volume_error_mm3": 0.35117701254921485,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
@@ -158,11 +173,14 @@
     {
       "id": "carrier",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "abab22a32890ee0b7a522fded75ad59e42411040b613232590d80ff5651af5f2",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 8783.586539009948,
       "expected_print_stock_mm3": 8784.067479688094,
       "volume_error_mm3": 0.4809406781459984,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0030498330015689135,
@@ -188,11 +206,14 @@
     {
       "id": "tub",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "6032aed64a07e64c02fb5cb6b8874d74324f5a1e1a48a8514357dc9a3ac4a59e",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 169965.7826951777,
       "expected_print_stock_mm3": 169977.29178617612,
       "volume_error_mm3": 11.50909099841374,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
@@ -218,11 +239,14 @@
     {
       "id": "panel",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "e7c2c6541dcb18b3e2995af60f67986e12d09ad4251f92168b7807c9e182e32d",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 41916.024076178015,
       "expected_print_stock_mm3": 41914.69132897457,
       "volume_error_mm3": 1.3327472034434322,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
@@ -248,11 +272,14 @@
     {
       "id": "lens_collar",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "5e9bf7ba6002db80e56a93bdda24408ba714b6fb3166135a7fa81fbea373b5ed",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 11150.542839484717,
       "expected_print_stock_mm3": 11142.947608565419,
       "volume_error_mm3": 7.5952309192980465,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           9.105474600801244e-05,
@@ -278,11 +305,14 @@
     {
       "id": "centring_gauge",
       "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "fc46a972019428f886b1ac0fd9e8e1ac83c0c5b28af1d90f21fb88b7052e8352",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 20527.563693212873,
       "expected_print_stock_mm3": null,
       "volume_error_mm3": null,
+      "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.006884618662297726,

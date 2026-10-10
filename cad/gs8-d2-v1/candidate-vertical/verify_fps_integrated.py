@@ -1,6 +1,7 @@
 """Final FPS static and36-pose carried checks bound to the accepted integrated STEP.
 Uses the frozen sampled/analytic input; never invents a replacement USB/FPC wire.
 """
+from cv_io import read_text, write_text
 from pathlib import Path
 import json,time,argparse
 import cadquery as cq
@@ -9,7 +10,7 @@ P=Path(__file__).parent
 audit_source_sha256=digest(Path(__file__))
 verification_dependencies={"verify_fps_access.py":digest(P/"verify_fps_access.py")}
 ap=argparse.ArgumentParser();ap.add_argument('--variant',default='compact-kowa_lm6hc');ap.add_argument('--pair-part-id',default=None);args=ap.parse_args()
-mp=P/'out'/args.variant/'manifest.json';m=json.loads(mp.read_text());mh=digest(mp);inputp=P/'out/fps-service-study/mated-carry-input.json';f=json.loads(inputp.read_text());receipt=json.loads((P/'out/fps-service-study/fps-final-source-receipt.json').read_text())
+mp=P/'out'/args.variant/'manifest.json';m=json.loads(read_text(mp));mh=digest(mp);inputp=P/'out/fps-service-study/mated-carry-input.json';f=json.loads(read_text(inputp));receipt=json.loads(read_text(P/'out/fps-service-study/fps-final-source-receipt.json'))
 input_sha256=digest(inputp)
 assert input_sha256==receipt['frozen_input']['sha256']
 for n in ['fps_fixed_support.py','fps_pair_guide.py','fps_ck1044_mated_carry.py']:
@@ -67,4 +68,4 @@ for n,h in verification_dependencies.items():assert digest(P/n)==h
 for n,h in m['sources'].items():assert digest(P.parent/n)==h
 for n,h in step_hashes.items():assert digest(mp.parent/'step'/f'{n}.step')==h
 result=dict(status='geometric_pass_only' if not any(q['hits'] for q in checks) else 'fail',physical_qualified=False,mechanical_manifest_sha256=mh,mechanical_sources=m['sources'],input_sha256=input_sha256,source_sha256=audit_source_sha256,verification_dependency_sha256=verification_dependencies,frozen_helper_sha256={n:digest(P/n) for n in ['fps_fixed_support.py','fps_pair_guide.py','fps_ck1044_mated_carry.py']},step_sha256=step_hashes,printed_parts_valid=True,material_inventory=sorted(sh),non_material_reservation_inventory=sorted(reservations),non_material_reservation_rows=reservation_rows,non_material_reservation_diagnostics=reservation_diagnostics,reservation_note="The explicit usb_storage_plug_reserve row is a non-material fit reservation. Its static relation to co-carried FPS pieces is invariant during the selected translation; diagnostics do not certify a purchased storage head.",static_and_carried_checks=checks,exact_crop_receipts=crop_receipts,closed_pose=True,carried_pose_count=36,carried_step_mm=2,carried_end_y_mm=70,sequence='Panel removed; FPS remains mated; Pi HDMI remains mated; EVF HDMI disconnected; switch and completeFPSwires co-carried withPi/carrier.',remaining=['New USB2 head has no measured wire exit or accepted full5V soft route; no full-loom pass follows from this test','Corrected CSI/FPC and other panel wires remain independently gated','Actual two-core GPIO fanout, solder/heatshrink roots, receivedMolex dimensions and wire bending remain unqualified','Rest/guide print strength, fit, creep, bushing grip and coordinated hand support require physical trial','Bench-only PicoBlade separation, continuity and30-cycle tin-contact durability remain gates'],completed_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()))
-out=P/'out/fps-service-study/integrated-fps-checks.json';out.write_text(json.dumps(result,indent=2));print(json.dumps(dict(status=result['status'],failures=sum(bool(q['hits']) for q in checks),report=str(out))),flush=True)
+out=P/'out/fps-service-study/integrated-fps-checks.json';write_text(out,json.dumps(result,indent=2));print(json.dumps(dict(status=result['status'],failures=sum(bool(q['hits']) for q in checks),report=str(out))),flush=True)

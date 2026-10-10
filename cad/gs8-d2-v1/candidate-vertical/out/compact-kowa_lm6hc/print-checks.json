@@ -1,0 +1,9282 @@
+{
+ "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+ "variant": "compact-kowa_lm6hc",
+ "categories": [
+  "print_overhang",
+  "print_bridge_direction",
+  "thin_wall",
+  "critical_features"
+ ],
+ "complete": true,
+ "verification_source_sha256": "504ba8bf8a6f87e0ea1c1e558bbefff535d9e1df8521e188ea619e9d48fed40c",
+ "check_sources": {
+  "candidate-vertical/verify_print_checks.py": "504ba8bf8a6f87e0ea1c1e558bbefff535d9e1df8521e188ea619e9d48fed40c",
+  "candidate-vertical/print_rules.py": "be0502832892c970ff8756231ba1b8f52986e2faea48ce3b469ee2b7f29c2ef0",
+  "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+  "candidate-vertical/model.py": "34aea1cab7a1423520843f8972883def280b5c893627b1fc642fd21afb0b7659",
+  "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+  "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+  "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+  "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08"
+ },
+ "rule": {
+  "layer": 0.2,
+  "overhang_deg": 45.0,
+  "cantilever_max": 1.0,
+  "bridge_max": 30.0,
+  "edge_tol": 0.3,
+  "px": 0.1,
+  "directions": 8,
+  "min_area": 0.05,
+  "single_direction_per_region": true
+ },
+ "summary": {
+  "print_overhang": {
+   "pass": 6,
+   "fail": 4,
+   "info": 0,
+   "stub": 0
+  },
+  "print_bridge_direction": {
+   "pass": 6,
+   "fail": 4,
+   "info": 0,
+   "stub": 0
+  },
+  "thin_wall": {
+   "pass": 9,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  },
+  "critical_features": {
+   "pass": 49,
+   "fail": 56,
+   "info": 37,
+   "stub": 0
+  },
+  "unclassified_thin_spots": {
+   "pass": 0,
+   "fail": 0,
+   "info": 1,
+   "stub": 0
+  }
+ },
+ "failing": {
+  "print_overhang": [
+   "base_grip",
+   "carrier",
+   "lens_collar",
+   "tub"
+  ],
+  "print_bridge_direction": [
+   "base_grip",
+   "carrier",
+   "lens_collar",
+   "tub"
+  ],
+  "thin_wall": [],
+  "critical_features": [
+   "J12_encoder_cradle",
+   "J13_strap",
+   "J1_hood_hooks",
+   "J2_panel_tongue",
+   "J3_panel_tub",
+   "J4_base_tub",
+   "J7_camera",
+   "J8_evf",
+   "J9_pi_keeper",
+   "base_grip",
+   "carrier",
+   "lens_collar",
+   "load_bearing_parts",
+   "panel",
+   "part:carrier",
+   "tub"
+  ],
+  "unclassified_thin_spots": []
+ },
+ "physical_print_release": false,
+ "note": "Computed geometry gates only (r7 rules plus the per-region single-direction bridge rule). Slicer review, coupons and every physical gate remain unrun.",
+ "results": {
+  "print_overhang": [
+   {
+    "kind": "print_overhang",
+    "part": "base_grip",
+    "face_down": "+Z",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 550,
+    "regions": 19,
+    "short_overhangs": 10,
+    "bridge_regions": 9,
+    "longest_bridge_mm": 25.7,
+    "apex_line_mm2": 0.08,
+    "hole_edge_bridges": 1,
+    "hole_edge_mm2": 0.96,
+    "bridges": [
+     {
+      "z": 5.4,
+      "span_mm": 25.7,
+      "area_mm2": 635.52,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       34.0,
+       7.1,
+       52.0,
+       43.3
+      ],
+      "bbox_assembly": [
+       -83.0,
+       -65.0,
+       -18.1,
+       18.1,
+       -5.6,
+       -5.4
+      ]
+     },
+     {
+      "z": 20.2,
+      "span_mm": 24.7,
+      "area_mm2": 41.99,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       80.2,
+       12.9,
+       81.8,
+       37.5
+      ],
+      "bbox_assembly": [
+       -36.8,
+       -35.2,
+       -12.3,
+       12.3,
+       -20.4,
+       -20.2
+      ]
+     },
+     {
+      "z": 27.4,
+      "span_mm": 21.9,
+      "area_mm2": 176.7,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       82.0,
+       12.9,
+       90.8,
+       37.5
+      ],
+      "bbox_assembly": [
+       -35.0,
+       -26.2,
+       -12.3,
+       12.3,
+       -27.6,
+       -27.4
+      ]
+     },
+     {
+      "z": 5.4,
+      "span_mm": 18.2,
+      "area_mm2": 658.84,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       95.0,
+       7.1,
+       113.0,
+       43.3
+      ],
+      "bbox_assembly": [
+       -22.0,
+       -4.0,
+       -18.1,
+       18.1,
+       -5.6,
+       -5.4
+      ]
+     },
+     {
+      "z": 2.0,
+      "span_mm": 12.7,
+      "area_mm2": 52.07,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       16.2,
+       34.4,
+       20.2,
+       47.0
+      ],
+      "bbox_assembly": [
+       -100.8,
+       -96.8,
+       -21.8,
+       -9.2,
+       -2.2,
+       -2.0
+      ]
+     },
+     {
+      "z": 98.8,
+      "span_mm": 12.7,
+      "area_mm2": 71.42,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       43.0,
+       20.9,
+       48.9,
+       33.5
+      ],
+      "bbox_assembly": [
+       -74.0,
+       -68.1,
+       -8.3,
+       4.3,
+       -99.0,
+       -98.8
+      ]
+     },
+     {
+      "z": 105.8,
+      "span_mm": 12.7,
+      "area_mm2": 71.44,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       43.0,
+       20.9,
+       48.9,
+       33.5
+      ],
+      "bbox_assembly": [
+       -74.0,
+       -68.1,
+       -8.3,
+       4.3,
+       -106.0,
+       -105.8
+      ]
+     },
+     {
+      "z": 35.0,
+      "span_mm": 11.7,
+      "area_mm2": 16.38,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       92.7,
+       19.4,
+       94.0,
+       31.0
+      ],
+      "bbox_assembly": [
+       -24.3,
+       -23.0,
+       -5.8,
+       5.8,
+       -35.2,
+       -35.0
+      ]
+     },
+     {
+      "z": 5.6,
+      "span_mm": 10.6,
+      "area_mm2": 71.42,
+      "hole_edge_mm2": 0.96,
+      "bbox": [
+       3.6,
+       19.7,
+       16.4,
+       30.7
+      ],
+      "bbox_assembly": [
+       -113.4,
+       -100.6,
+       -5.5,
+       5.5,
+       -5.8,
+       -5.6
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [
+     {
+      "z": 5.4,
+      "area_mm2": 102.94,
+      "bbox": [
+       40.9,
+       17.0,
+       50.9,
+       36.7
+      ],
+      "bbox_assembly": [
+       -76.1,
+       -66.1,
+       -11.5,
+       8.2,
+       -5.6,
+       -5.4
+      ]
+     }
+    ],
+    "status": "fail",
+    "error": "1 unsupported region(s) outside the declared support zones, largest 102.9 mm2 at z 5.40",
+    "stl": "stl/base_grip.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       -1.0
+      ]
+     ],
+     "t": [
+      117.0,
+      25.2,
+      5.704881012036367e-13
+     ]
+    },
+    "seconds": 1.1,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "cap",
+    "face_down": "-Z",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 50,
+    "regions": 6,
+    "short_overhangs": 5,
+    "bridge_regions": 1,
+    "longest_bridge_mm": 3.4,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 0,
+    "hole_edge_mm2": 0.0,
+    "bridges": [
+     {
+      "z": 0.4,
+      "span_mm": 3.4,
+      "area_mm2": 15.33,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       21.2,
+       12.4,
+       30.1,
+       17.6
+      ],
+      "bbox_assembly": [
+       -49.8,
+       -40.9,
+       -2.6,
+       2.6,
+       -115.6,
+       -115.4
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass",
+    "stl": "stl/cap.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "t": [
+      71.0,
+      15.000000000000002,
+      116.0
+     ]
+    },
+    "seconds": 0.1,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "carrier",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 30,
+    "regions": 8,
+    "short_overhangs": 1,
+    "bridge_regions": 3,
+    "longest_bridge_mm": 27.4,
+    "apex_line_mm2": 0.67,
+    "hole_edge_bridges": 3,
+    "hole_edge_mm2": 191.56,
+    "bridges": [
+     {
+      "z": 2.0,
+      "span_mm": 27.4,
+      "area_mm2": 2201.37,
+      "hole_edge_mm2": 190.85,
+      "bbox": [
+       31.8,
+       0.0,
+       111.6,
+       60.0
+      ],
+      "bbox_assembly": [
+       -100.0,
+       -20.2,
+       20.0,
+       20.2,
+       4.0,
+       64.0
+      ]
+     },
+     {
+      "z": 2.4,
+      "span_mm": 5.0,
+      "area_mm2": 19.36,
+      "hole_edge_mm2": 0.37,
+      "bbox": [
+       103.8,
+       2.0,
+       109.8,
+       8.0
+      ],
+      "bbox_assembly": [
+       -28.0,
+       -22.0,
+       19.6,
+       19.8,
+       6.0,
+       12.0
+      ]
+     },
+     {
+      "z": 2.4,
+      "span_mm": 5.0,
+      "area_mm2": 19.33,
+      "hole_edge_mm2": 0.34,
+      "bbox": [
+       1.8,
+       62.0,
+       7.8,
+       68.0
+      ],
+      "bbox_assembly": [
+       -130.0,
+       -124.0,
+       19.6,
+       19.8,
+       66.0,
+       72.0
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [
+     {
+      "z": 2.0,
+      "area_mm2": 1963.09,
+      "bbox": [
+       31.7,
+       -0.0,
+       111.5,
+       60.0
+      ],
+      "bbox_assembly": [
+       -100.1,
+       -20.3,
+       20.0,
+       20.2,
+       4.0,
+       64.0
+      ]
+     }
+    ],
+    "status": "fail",
+    "error": "1 unsupported region(s) outside the declared support zones, largest 1963.1 mm2 at z 2.00",
+    "stl": "stl/carrier.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      131.8,
+      -4.000000000000002,
+      22.199999999999996
+     ]
+    },
+    "seconds": 2.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "centring_gauge",
+    "face_down": "-X",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 121,
+    "regions": 0,
+    "short_overhangs": 0,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 0,
+    "hole_edge_mm2": 0.0,
+    "bridges": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass",
+    "stl": "stl/centring_gauge.stl",
+    "pose": {
+     "R": [
+      [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       1.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "t": [
+      82.15,
+      22.15,
+      3.3999999999999955
+     ]
+    },
+    "seconds": 0.4,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "eyecup",
+    "face_down": "+X",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 81,
+    "regions": 0,
+    "short_overhangs": 0,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 0,
+    "hole_edge_mm2": 0.0,
+    "bridges": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass",
+    "stl": "stl/eyecup.stl",
+    "pose": {
+     "R": [
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "t": [
+      -55.23631981389993,
+      11.763680186100048,
+      -175.3
+     ]
+    },
+    "seconds": 0.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "knob_exp",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 45,
+    "regions": 61,
+    "short_overhangs": 61,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 0,
+    "hole_edge_mm2": 0.0,
+    "bridges": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass",
+    "stl": "stl/knob_exp.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      68.99827285474325,
+      -64.00172714525675,
+      37.199999999999996
+     ]
+    },
+    "seconds": 0.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "knob_fps",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 35,
+    "regions": 33,
+    "short_overhangs": 33,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 0,
+    "hole_edge_mm2": 0.0,
+    "bridges": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass",
+    "stl": "stl/knob_fps.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      122.99479570202425,
+      -68.00520429797575,
+      37.199999999999996
+     ]
+    },
+    "seconds": 0.1,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "lens_collar",
+    "face_down": "+X",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 56,
+    "regions": 20,
+    "short_overhangs": 16,
+    "bridge_regions": 3,
+    "longest_bridge_mm": 7.1,
+    "apex_line_mm2": 0.04,
+    "hole_edge_bridges": 0,
+    "hole_edge_mm2": 0.0,
+    "bridges": [
+     {
+      "z": 5.8,
+      "span_mm": 7.1,
+      "area_mm2": 40.28,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       62.6,
+       15.5,
+       69.6,
+       22.5
+      ],
+      "bbox_assembly": [
+       2.6,
+       2.8,
+       -14.5,
+       -7.5,
+       87.0,
+       94.0
+      ]
+     },
+     {
+      "z": 5.8,
+      "span_mm": 7.1,
+      "area_mm2": 40.28,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       62.6,
+       37.5,
+       69.6,
+       44.5
+      ],
+      "bbox_assembly": [
+       2.6,
+       2.8,
+       7.5,
+       14.5,
+       87.0,
+       94.0
+      ]
+     },
+     {
+      "z": 5.8,
+      "span_mm": 7.1,
+      "area_mm2": 40.28,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       2.1,
+       44.5,
+       9.1,
+       51.5
+      ],
+      "bbox_assembly": [
+       2.6,
+       2.8,
+       14.5,
+       21.5,
+       26.5,
+       33.5
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [
+     {
+      "z": 8.2,
+      "area_mm2": 11.0,
+      "bbox": [
+       15.8,
+       7.2,
+       21.0,
+       11.9
+      ],
+      "bbox_assembly": [
+       0.2,
+       0.4,
+       -22.8,
+       -18.1,
+       40.2,
+       45.4
+      ]
+     }
+    ],
+    "status": "fail",
+    "error": "1 unsupported region(s) outside the declared support zones, largest 11.0 mm2 at z 8.20",
+    "stl": "stl/lens_collar.stl",
+    "pose": {
+     "R": [
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "t": [
+      -24.4,
+      30.000000000000004,
+      8.599999999999998
+     ]
+    },
+    "seconds": 0.6,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "panel",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 123,
+    "regions": 30,
+    "short_overhangs": 26,
+    "bridge_regions": 4,
+    "longest_bridge_mm": 5.7,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 4,
+    "hole_edge_mm2": 1.4,
+    "bridges": [
+     {
+      "z": 2.4,
+      "span_mm": 5.7,
+      "area_mm2": 25.55,
+      "hole_edge_mm2": 0.35,
+      "bbox": [
+       141.3,
+       1.9,
+       147.9,
+       8.5
+      ],
+      "bbox_assembly": [
+       -14.1,
+       -7.5,
+       25.4,
+       25.6,
+       5.0,
+       11.6
+      ]
+     },
+     {
+      "z": 2.4,
+      "span_mm": 5.7,
+      "area_mm2": 25.55,
+      "hole_edge_mm2": 0.35,
+      "bbox": [
+       23.6,
+       41.6,
+       30.2,
+       48.2
+      ],
+      "bbox_assembly": [
+       -131.8,
+       -125.2,
+       25.4,
+       25.6,
+       44.7,
+       51.3
+      ]
+     },
+     {
+      "z": 2.4,
+      "span_mm": 5.7,
+      "area_mm2": 25.55,
+      "hole_edge_mm2": 0.35,
+      "bbox": [
+       141.3,
+       85.3,
+       147.9,
+       91.9
+      ],
+      "bbox_assembly": [
+       -14.1,
+       -7.5,
+       25.4,
+       25.6,
+       88.4,
+       95.0
+      ]
+     },
+     {
+      "z": 2.4,
+      "span_mm": 5.7,
+      "area_mm2": 25.55,
+      "hole_edge_mm2": 0.35,
+      "bbox": [
+       19.1,
+       85.3,
+       25.7,
+       91.9
+      ],
+      "bbox_assembly": [
+       -136.3,
+       -129.7,
+       25.4,
+       25.6,
+       88.4,
+       95.0
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass",
+    "stl": "stl/panel.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      155.4,
+      -3.0999999000000034,
+      28.00000010000001
+     ]
+    },
+    "seconds": 1.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_overhang",
+    "part": "tub",
+    "face_down": "-Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1
+    },
+    "layers": 317,
+    "regions": 318,
+    "short_overhangs": 281,
+    "bridge_regions": 17,
+    "longest_bridge_mm": 30.0,
+    "apex_line_mm2": 14.45,
+    "hole_edge_bridges": 2,
+    "hole_edge_mm2": 614.39,
+    "bridges": [
+     {
+      "z": 7.6,
+      "span_mm": 30.0,
+      "area_mm2": 5072.42,
+      "hole_edge_mm2": 483.04,
+      "bbox": [
+       96.2,
+       2.7,
+       158.0,
+       100.0
+      ],
+      "bbox_assembly": [
+       -61.8,
+       0.0,
+       -28.0,
+       -27.8,
+       0.0,
+       97.3
+      ]
+     },
+     {
+      "z": 7.6,
+      "span_mm": 30.0,
+      "area_mm2": 7559.47,
+      "hole_edge_mm2": 131.35,
+      "bbox": [
+       0.0,
+       2.7,
+       92.8,
+       100.0
+      ],
+      "bbox_assembly": [
+       -158.0,
+       -65.2,
+       -28.0,
+       -27.8,
+       0.0,
+       97.3
+      ]
+     },
+     {
+      "z": 38.6,
+      "span_mm": 27.7,
+      "area_mm2": 72.02,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       0.0,
+       52.2,
+       2.5,
+       79.8
+      ],
+      "bbox_assembly": [
+       -158.0,
+       -155.5,
+       3.0,
+       3.2,
+       20.2,
+       47.8
+      ]
+     },
+     {
+      "z": 37.0,
+      "span_mm": 13.6,
+      "area_mm2": 39.44,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       6.2,
+       15.3,
+       9.0,
+       28.8
+      ],
+      "bbox_assembly": [
+       -151.8,
+       -149.0,
+       1.4,
+       1.6,
+       71.2,
+       84.7
+      ]
+     },
+     {
+      "z": 44.6,
+      "span_mm": 13.2,
+      "area_mm2": 34.32,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       116.7,
+       97.5,
+       129.8,
+       100.0
+      ],
+      "bbox_assembly": [
+       -41.3,
+       -28.2,
+       9.0,
+       9.2,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 41.4,
+      "span_mm": 11.7,
+      "area_mm2": 62.01,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       152.8,
+       60.4,
+       158.0,
+       72.0
+      ],
+      "bbox_assembly": [
+       -5.2,
+       0.0,
+       5.8,
+       6.0,
+       28.0,
+       39.6
+      ]
+     },
+     {
+      "z": 37.6,
+      "span_mm": 10.5,
+      "area_mm2": 27.3,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       92.4,
+       97.5,
+       102.8,
+       100.0
+      ],
+      "bbox_assembly": [
+       -65.6,
+       -55.2,
+       2.0,
+       2.2,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 24.4,
+      "span_mm": 10.1,
+      "area_mm2": 36.94,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       145.7,
+       12.2,
+       149.8,
+       21.5
+      ],
+      "bbox_assembly": [
+       -12.3,
+       -8.2,
+       -11.2,
+       -11.0,
+       78.5,
+       87.8
+      ]
+     },
+     {
+      "z": 51.6,
+      "span_mm": 7.7,
+      "area_mm2": 11.55,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       4.6,
+       18.2,
+       6.0,
+       25.8
+      ],
+      "bbox_assembly": [
+       -153.4,
+       -152.0,
+       16.0,
+       16.2,
+       74.2,
+       81.8
+      ]
+     },
+     {
+      "z": 53.8,
+      "span_mm": 4.2,
+      "area_mm2": 10.92,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       155.5,
+       38.0,
+       158.0,
+       42.0
+      ],
+      "bbox_assembly": [
+       -2.5,
+       0.0,
+       18.2,
+       18.4,
+       58.0,
+       62.0
+      ]
+     },
+     {
+      "z": 61.2,
+      "span_mm": 3.8,
+      "area_mm2": 9.88,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       0.0,
+       20.1,
+       2.5,
+       23.9
+      ],
+      "bbox_assembly": [
+       -158.0,
+       -155.5,
+       25.6,
+       25.8,
+       76.1,
+       79.9
+      ]
+     },
+     {
+      "z": 32.8,
+      "span_mm": 3.3,
+      "area_mm2": 8.58,
+      "hole_edge_mm2": 0.0,
+      "bbox": [
+       104.2,
+       97.5,
+       107.4,
+       100.0
+      ],
+      "bbox_assembly": [
+       -53.8,
+       -50.6,
+       -2.8,
+       -2.6,
+       0.0,
+       2.5
+      ]
+     }
+    ],
+    "supports_used": {
+     "tongue_f_minus_y_wing": 20.21,
+     "tongue_r_minus_y_wing": 20.21
+    },
+    "declared_zones": [
+     {
+      "id": "tongue_f_minus_y_wing",
+      "why": "J4 keyhole T-head -Y wing (the T undercut cannot face the bed; candidate tongue has no -Y chamfer): paint-on support from the bed, as r7 PRINT_SUPPORT_ZONES"
+     },
+     {
+      "id": "tongue_r_minus_y_wing",
+      "why": "J4 keyhole T-head -Y wing (the T undercut cannot face the bed; candidate tongue has no -Y chamfer): paint-on support from the bed, as r7 PRINT_SUPPORT_ZONES"
+     }
+    ],
+    "unsupported": [
+     {
+      "z": 7.6,
+      "area_mm2": 665.92,
+      "bbox": [
+       -0.0,
+       27.0,
+       72.9,
+       100.0
+      ],
+      "bbox_assembly": [
+       -158.0,
+       -85.1,
+       -28.0,
+       -27.8,
+       0.0,
+       73.0
+      ]
+     },
+     {
+      "z": 7.6,
+      "area_mm2": 417.86,
+      "bbox": [
+       101.2,
+       61.6,
+       158.0,
+       100.0
+      ],
+      "bbox_assembly": [
+       -56.8,
+       0.0,
+       -28.0,
+       -27.8,
+       0.0,
+       38.4
+      ]
+     },
+     {
+      "z": 43.8,
+      "area_mm2": 48.04,
+      "bbox": [
+       143.4,
+       13.2,
+       149.8,
+       21.4
+      ],
+      "bbox_assembly": [
+       -14.6,
+       -8.2,
+       8.2,
+       8.4,
+       78.6,
+       86.8
+      ]
+     },
+     {
+      "z": 15.4,
+      "area_mm2": 16.34,
+      "bbox": [
+       143.4,
+       13.2,
+       145.4,
+       21.4
+      ],
+      "bbox_assembly": [
+       -14.6,
+       -12.6,
+       -20.2,
+       -20.0,
+       78.6,
+       86.8
+      ]
+     },
+     {
+      "z": 24.4,
+      "area_mm2": 14.96,
+      "bbox": [
+       147.0,
+       13.9,
+       149.8,
+       21.5
+      ],
+      "bbox_assembly": [
+       -11.0,
+       -8.2,
+       -11.2,
+       -11.0,
+       78.5,
+       86.1
+      ]
+     },
+     {
+      "z": 41.6,
+      "area_mm2": 13.66,
+      "bbox": [
+       26.0,
+       16.6,
+       28.6,
+       23.7
+      ],
+      "bbox_assembly": [
+       -132.0,
+       -129.4,
+       6.0,
+       6.2,
+       76.3,
+       83.4
+      ]
+     },
+     {
+      "z": 57.0,
+      "area_mm2": 7.98,
+      "bbox": [
+       6.0,
+       94.5,
+       10.9,
+       96.0
+      ],
+      "bbox_assembly": [
+       -152.0,
+       -147.1,
+       21.4,
+       21.6,
+       4.0,
+       5.5
+      ]
+     },
+     {
+      "z": 41.6,
+      "area_mm2": 7.81,
+      "bbox": [
+       20.3,
+       16.6,
+       22.9,
+       21.1
+      ],
+      "bbox_assembly": [
+       -137.7,
+       -135.1,
+       6.0,
+       6.2,
+       78.9,
+       83.4
+      ]
+     },
+     {
+      "z": 32.6,
+      "area_mm2": 2.82,
+      "bbox": [
+       103.0,
+       97.5,
+       104.0,
+       100.0
+      ],
+      "bbox_assembly": [
+       -55.0,
+       -54.0,
+       -3.0,
+       -2.8,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 49.6,
+      "area_mm2": 1.72,
+      "bbox": [
+       150.3,
+       69.1,
+       151.2,
+       70.9
+      ],
+      "bbox_assembly": [
+       -7.7,
+       -6.8,
+       14.0,
+       14.2,
+       29.1,
+       30.9
+      ]
+     }
+    ],
+    "status": "fail",
+    "error": "10 unsupported region(s) outside the declared support zones, largest 665.9 mm2 at z 7.60",
+    "stl": "stl/tub.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      158.0,
+      100.0,
+      35.6
+     ]
+    },
+    "seconds": 23.9,
+    "zones_assembly": [
+     {
+      "id": "tongue_f_minus_y_wing",
+      "box": [
+       -22.5,
+       -13.5,
+       -18.5,
+       -12.5,
+       -5.25,
+       0.2
+      ]
+     },
+     {
+      "id": "tongue_r_minus_y_wing",
+      "box": [
+       -83.5,
+       -74.5,
+       -18.5,
+       -12.5,
+       -5.25,
+       0.2
+      ]
+     }
+    ]
+   }
+  ],
+  "print_bridge_direction": [
+   {
+    "kind": "print_bridge_direction",
+    "part": "base_grip",
+    "face_down": "+Z",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 550,
+    "regions": 19,
+    "short_overhangs": 10,
+    "bridge_regions": 9,
+    "longest_bridge_mm": 24.7,
+    "failing_region_count": 1,
+    "failing_regions": [
+     {
+      "z": 5.4,
+      "area_mm2": 635.52,
+      "direction_deg": 135.0,
+      "span_mm": 25.7,
+      "longest_two_ended_run_mm": 25.7,
+      "open_ended_run": true,
+      "bad_area_mm2": 266.03,
+      "bbox": [
+       34.0,
+       7.1,
+       52.0,
+       43.3
+      ],
+      "bad_bbox": [
+       35.2,
+       17.0,
+       50.9,
+       41.9
+      ],
+      "per_direction": [
+       [
+        0.0,
+        18.2,
+        true,
+        325.4
+       ],
+       [
+        22.5,
+        19.7,
+        true,
+        329.4
+       ],
+       [
+        45.0,
+        25.7,
+        true,
+        299.8
+       ],
+       [
+        67.5,
+        39.2,
+        true,
+        399.1
+       ],
+       [
+        90.0,
+        36.2,
+        true,
+        528.1
+       ],
+       [
+        112.5,
+        39.2,
+        true,
+        405.9
+       ],
+       [
+        135.0,
+        25.7,
+        true,
+        266.0
+       ],
+       [
+        157.5,
+        19.7,
+        true,
+        325.7
+       ]
+      ],
+      "min_single_direction_span_mm": 18.2,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -83.0,
+       -65.0,
+       -18.1,
+       18.1,
+       -5.6,
+       -5.4
+      ]
+     }
+    ],
+    "regions_by_span": [
+     {
+      "z": 20.2,
+      "area_mm2": 41.99,
+      "direction_deg": 90.0,
+      "span_mm": 24.7,
+      "longest_two_ended_run_mm": 24.7,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       80.2,
+       12.9,
+       81.8,
+       37.5
+      ],
+      "bbox_assembly": [
+       -36.8,
+       -35.2,
+       -12.3,
+       12.3,
+       -20.4,
+       -20.2
+      ]
+     },
+     {
+      "z": 27.4,
+      "area_mm2": 176.7,
+      "direction_deg": 90.0,
+      "span_mm": 22.3,
+      "longest_two_ended_run_mm": 22.3,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       82.0,
+       12.9,
+       90.8,
+       37.5
+      ],
+      "bbox_assembly": [
+       -35.0,
+       -26.2,
+       -12.3,
+       12.3,
+       -27.6,
+       -27.4
+      ]
+     },
+     {
+      "z": 5.4,
+      "area_mm2": 658.84,
+      "direction_deg": 0.0,
+      "span_mm": 18.2,
+      "longest_two_ended_run_mm": 18.2,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       95.0,
+       7.1,
+       113.0,
+       43.3
+      ],
+      "bbox_assembly": [
+       -22.0,
+       -4.0,
+       -18.1,
+       18.1,
+       -5.6,
+       -5.4
+      ]
+     },
+     {
+      "z": 2.0,
+      "area_mm2": 52.07,
+      "direction_deg": 90.0,
+      "span_mm": 12.7,
+      "longest_two_ended_run_mm": 12.7,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       16.2,
+       34.4,
+       20.2,
+       47.0
+      ],
+      "bbox_assembly": [
+       -100.8,
+       -96.8,
+       -21.8,
+       -9.2,
+       -2.2,
+       -2.0
+      ]
+     },
+     {
+      "z": 98.8,
+      "area_mm2": 71.42,
+      "direction_deg": 90.0,
+      "span_mm": 12.7,
+      "longest_two_ended_run_mm": 12.7,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       43.0,
+       20.9,
+       48.9,
+       33.5
+      ],
+      "bbox_assembly": [
+       -74.0,
+       -68.1,
+       -8.3,
+       4.3,
+       -99.0,
+       -98.8
+      ]
+     },
+     {
+      "z": 105.8,
+      "area_mm2": 71.44,
+      "direction_deg": 90.0,
+      "span_mm": 12.7,
+      "longest_two_ended_run_mm": 12.7,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       43.0,
+       20.9,
+       48.9,
+       33.5
+      ],
+      "bbox_assembly": [
+       -74.0,
+       -68.1,
+       -8.3,
+       4.3,
+       -106.0,
+       -105.8
+      ]
+     },
+     {
+      "z": 5.6,
+      "area_mm2": 71.42,
+      "direction_deg": 0.0,
+      "span_mm": 8.8,
+      "longest_two_ended_run_mm": 8.8,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       3.6,
+       19.7,
+       16.4,
+       30.7
+      ],
+      "bbox_assembly": [
+       -113.4,
+       -100.6,
+       -5.5,
+       5.5,
+       -5.8,
+       -5.6
+      ]
+     },
+     {
+      "z": 35.0,
+      "area_mm2": 16.38,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       92.7,
+       19.4,
+       94.0,
+       31.0
+      ],
+      "bbox_assembly": [
+       -24.3,
+       -23.0,
+       -5.8,
+       5.8,
+       -35.2,
+       -35.0
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "fail",
+    "error": "1 region(s) need more than one bridge direction or a bridge over 30 mm (largest 266.0 mm2 at z 5.40)",
+    "stl": "stl/base_grip.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       -1.0
+      ]
+     ],
+     "t": [
+      117.0,
+      25.2,
+      5.704881012036367e-13
+     ]
+    },
+    "seconds": 1.1,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "cap",
+    "face_down": "-Z",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 50,
+    "regions": 6,
+    "short_overhangs": 5,
+    "bridge_regions": 1,
+    "longest_bridge_mm": 3.9,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [
+     {
+      "z": 0.4,
+      "area_mm2": 15.33,
+      "direction_deg": 45.0,
+      "span_mm": 3.9,
+      "longest_two_ended_run_mm": 3.9,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       21.2,
+       12.4,
+       30.1,
+       17.6
+      ],
+      "bbox_assembly": [
+       -49.8,
+       -40.9,
+       -2.6,
+       2.6,
+       -115.6,
+       -115.4
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass",
+    "stl": "stl/cap.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "t": [
+      71.0,
+      15.000000000000002,
+      116.0
+     ]
+    },
+    "seconds": 0.1,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "carrier",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 30,
+    "regions": 8,
+    "short_overhangs": 1,
+    "bridge_regions": 7,
+    "longest_bridge_mm": 4.9,
+    "failing_region_count": 1,
+    "failing_regions": [
+     {
+      "z": 2.0,
+      "area_mm2": 2201.37,
+      "direction_deg": 112.5,
+      "span_mm": 27.4,
+      "longest_two_ended_run_mm": 27.4,
+      "open_ended_run": true,
+      "bad_area_mm2": 2041.72,
+      "bbox": [
+       31.8,
+       0.0,
+       111.6,
+       60.0
+      ],
+      "bad_bbox": [
+       31.7,
+       -0.0,
+       111.5,
+       60.0
+      ],
+      "per_direction": [
+       [
+        0.0,
+        55.8,
+        true,
+        2109.2
+       ],
+       [
+        22.5,
+        9.1,
+        true,
+        2134.6
+       ],
+       [
+        45.0,
+        10.4,
+        true,
+        2158.8
+       ],
+       [
+        67.5,
+        2.8,
+        true,
+        2171.9
+       ],
+       [
+        90.0,
+        32.8,
+        true,
+        2158.4
+       ],
+       [
+        112.5,
+        27.4,
+        true,
+        2041.7
+       ],
+       [
+        135.0,
+        14.9,
+        true,
+        2077.8
+       ],
+       [
+        157.5,
+        11.4,
+        true,
+        2086.3
+       ]
+      ],
+      "min_single_direction_span_mm": 2.8,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -100.0,
+       -20.2,
+       20.0,
+       20.2,
+       4.0,
+       64.0
+      ]
+     }
+    ],
+    "regions_by_span": [
+     {
+      "z": 2.4,
+      "area_mm2": 19.36,
+      "direction_deg": 0.0,
+      "span_mm": 4.9,
+      "longest_two_ended_run_mm": 4.9,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       103.8,
+       2.0,
+       109.8,
+       8.0
+      ],
+      "bbox_assembly": [
+       -28.0,
+       -22.0,
+       19.6,
+       19.8,
+       6.0,
+       12.0
+      ]
+     },
+     {
+      "z": 2.4,
+      "area_mm2": 19.33,
+      "direction_deg": 0.0,
+      "span_mm": 4.9,
+      "longest_two_ended_run_mm": 4.9,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       1.8,
+       62.0,
+       7.8,
+       68.0
+      ],
+      "bbox_assembly": [
+       -130.0,
+       -124.0,
+       19.6,
+       19.8,
+       66.0,
+       72.0
+      ]
+     },
+     {
+      "z": 3.0,
+      "area_mm2": 12.95,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       91.9,
+       4.1,
+       96.7,
+       8.9
+      ],
+      "bbox_assembly": [
+       -39.9,
+       -35.1,
+       19.0,
+       19.2,
+       8.1,
+       12.9
+      ]
+     },
+     {
+      "z": 3.0,
+      "area_mm2": 12.96,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       33.9,
+       4.1,
+       38.7,
+       8.9
+      ],
+      "bbox_assembly": [
+       -97.9,
+       -93.1,
+       19.0,
+       19.2,
+       8.1,
+       12.9
+      ]
+     },
+     {
+      "z": 3.0,
+      "area_mm2": 12.95,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       91.9,
+       53.1,
+       96.7,
+       57.9
+      ],
+      "bbox_assembly": [
+       -39.9,
+       -35.1,
+       19.0,
+       19.2,
+       57.1,
+       61.9
+      ]
+     },
+     {
+      "z": 3.0,
+      "area_mm2": 12.97,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       33.9,
+       53.1,
+       38.7,
+       57.9
+      ],
+      "bbox_assembly": [
+       -97.9,
+       -93.1,
+       19.0,
+       19.2,
+       57.1,
+       61.9
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "fail",
+    "error": "1 region(s) need more than one bridge direction or a bridge over 30 mm (largest 2041.7 mm2 at z 2.00)",
+    "stl": "stl/carrier.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      131.8,
+      -4.000000000000002,
+      22.199999999999996
+     ]
+    },
+    "seconds": 2.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "centring_gauge",
+    "face_down": "-X",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 121,
+    "regions": 0,
+    "short_overhangs": 0,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass",
+    "stl": "stl/centring_gauge.stl",
+    "pose": {
+     "R": [
+      [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       1.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "t": [
+      82.15,
+      22.15,
+      3.3999999999999955
+     ]
+    },
+    "seconds": 0.4,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "eyecup",
+    "face_down": "+X",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 81,
+    "regions": 0,
+    "short_overhangs": 0,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass",
+    "stl": "stl/eyecup.stl",
+    "pose": {
+     "R": [
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "t": [
+      -55.23631981389993,
+      11.763680186100048,
+      -175.3
+     ]
+    },
+    "seconds": 0.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "knob_exp",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 45,
+    "regions": 61,
+    "short_overhangs": 61,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass",
+    "stl": "stl/knob_exp.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      68.99827285474325,
+      -64.00172714525675,
+      37.199999999999996
+     ]
+    },
+    "seconds": 0.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "knob_fps",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 35,
+    "regions": 33,
+    "short_overhangs": 33,
+    "bridge_regions": 0,
+    "longest_bridge_mm": 0.0,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass",
+    "stl": "stl/knob_fps.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      122.99479570202425,
+      -68.00520429797575,
+      37.199999999999996
+     ]
+    },
+    "seconds": 0.1,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "lens_collar",
+    "face_down": "+X",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 56,
+    "regions": 20,
+    "short_overhangs": 16,
+    "bridge_regions": 4,
+    "longest_bridge_mm": 7.2,
+    "failing_region_count": 1,
+    "failing_regions": [
+     {
+      "z": 8.2,
+      "area_mm2": 21.4,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 11.0,
+      "bbox": [
+       15.8,
+       7.2,
+       22.5,
+       13.4
+      ],
+      "bad_bbox": [
+       15.8,
+       7.2,
+       21.0,
+       11.9
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        11.0
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        11.0
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       0.2,
+       0.4,
+       -22.8,
+       -16.6,
+       40.2,
+       46.9
+      ]
+     }
+    ],
+    "regions_by_span": [
+     {
+      "z": 5.8,
+      "area_mm2": 40.28,
+      "direction_deg": 0.0,
+      "span_mm": 7.2,
+      "longest_two_ended_run_mm": 7.2,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       62.6,
+       15.5,
+       69.6,
+       22.5
+      ],
+      "bbox_assembly": [
+       2.6,
+       2.8,
+       -14.5,
+       -7.5,
+       87.0,
+       94.0
+      ]
+     },
+     {
+      "z": 5.8,
+      "area_mm2": 40.28,
+      "direction_deg": 0.0,
+      "span_mm": 7.2,
+      "longest_two_ended_run_mm": 7.2,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       62.6,
+       37.5,
+       69.6,
+       44.5
+      ],
+      "bbox_assembly": [
+       2.6,
+       2.8,
+       7.5,
+       14.5,
+       87.0,
+       94.0
+      ]
+     },
+     {
+      "z": 5.8,
+      "area_mm2": 40.28,
+      "direction_deg": 0.0,
+      "span_mm": 7.2,
+      "longest_two_ended_run_mm": 7.2,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       2.1,
+       44.5,
+       9.1,
+       51.5
+      ],
+      "bbox_assembly": [
+       2.6,
+       2.8,
+       14.5,
+       21.5,
+       26.5,
+       33.5
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "fail",
+    "error": "1 region(s) need more than one bridge direction or a bridge over 30 mm (largest 11.0 mm2 at z 8.20)",
+    "stl": "stl/lens_collar.stl",
+    "pose": {
+     "R": [
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "t": [
+      -24.4,
+      30.000000000000004,
+      8.599999999999998
+     ]
+    },
+    "seconds": 0.6,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "panel",
+    "face_down": "+Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 123,
+    "regions": 30,
+    "short_overhangs": 26,
+    "bridge_regions": 4,
+    "longest_bridge_mm": 5.5,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [
+     {
+      "z": 2.4,
+      "area_mm2": 25.55,
+      "direction_deg": 45.0,
+      "span_mm": 5.5,
+      "longest_two_ended_run_mm": 5.5,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       141.3,
+       1.9,
+       147.9,
+       8.5
+      ],
+      "bbox_assembly": [
+       -14.1,
+       -7.5,
+       25.4,
+       25.6,
+       5.0,
+       11.6
+      ]
+     },
+     {
+      "z": 2.4,
+      "area_mm2": 25.55,
+      "direction_deg": 45.0,
+      "span_mm": 5.5,
+      "longest_two_ended_run_mm": 5.5,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       23.6,
+       41.6,
+       30.2,
+       48.2
+      ],
+      "bbox_assembly": [
+       -131.8,
+       -125.2,
+       25.4,
+       25.6,
+       44.7,
+       51.3
+      ]
+     },
+     {
+      "z": 2.4,
+      "area_mm2": 25.55,
+      "direction_deg": 45.0,
+      "span_mm": 5.5,
+      "longest_two_ended_run_mm": 5.5,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       141.3,
+       85.3,
+       147.9,
+       91.9
+      ],
+      "bbox_assembly": [
+       -14.1,
+       -7.5,
+       25.4,
+       25.6,
+       88.4,
+       95.0
+      ]
+     },
+     {
+      "z": 2.4,
+      "area_mm2": 25.55,
+      "direction_deg": 45.0,
+      "span_mm": 5.5,
+      "longest_two_ended_run_mm": 5.5,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       19.1,
+       85.3,
+       25.7,
+       91.9
+      ],
+      "bbox_assembly": [
+       -136.3,
+       -129.7,
+       25.4,
+       25.6,
+       88.4,
+       95.0
+      ]
+     }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass",
+    "stl": "stl/panel.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ],
+      [
+       0.0,
+       -1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      155.4,
+      -3.0999999000000034,
+      28.00000010000001
+     ]
+    },
+    "seconds": 1.2,
+    "zones_assembly": []
+   },
+   {
+    "kind": "print_bridge_direction",
+    "part": "tub",
+    "face_down": "-Y",
+    "rule": {
+     "layer": 0.2,
+     "overhang_deg": 45.0,
+     "cantilever_max": 1.0,
+     "bridge_max": 30.0,
+     "edge_tol": 0.3,
+     "directions": 8,
+     "px": 0.1,
+     "single_direction_per_region": true
+    },
+    "layers": 317,
+    "regions": 318,
+    "short_overhangs": 281,
+    "bridge_regions": 37,
+    "longest_bridge_mm": 27.7,
+    "failing_region_count": 10,
+    "failing_regions": [
+     {
+      "z": 7.6,
+      "area_mm2": 7559.47,
+      "direction_deg": 22.5,
+      "span_mm": 30.0,
+      "longest_two_ended_run_mm": 46.3,
+      "open_ended_run": true,
+      "bad_area_mm2": 1162.18,
+      "bbox": [
+       0.0,
+       2.7,
+       92.8,
+       100.0
+      ],
+      "bad_bbox": [
+       -0.0,
+       26.5,
+       72.9,
+       100.0
+      ],
+      "per_direction": [
+       [
+        0.0,
+        92.9,
+        true,
+        4371.3
+       ],
+       [
+        22.5,
+        46.3,
+        true,
+        1162.2
+       ],
+       [
+        45.0,
+        82.4,
+        true,
+        3352.5
+       ],
+       [
+        67.5,
+        43.8,
+        true,
+        1263.6
+       ],
+       [
+        90.0,
+        97.4,
+        true,
+        4139.1
+       ],
+       [
+        112.5,
+        43.8,
+        true,
+        1309.1
+       ],
+       [
+        135.0,
+        130.3,
+        true,
+        3362.9
+       ],
+       [
+        157.5,
+        46.3,
+        true,
+        1222.2
+       ]
+      ],
+      "min_single_direction_span_mm": 43.8,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -158.0,
+       -65.2,
+       -28.0,
+       -27.8,
+       0.0,
+       97.3
+      ]
+     },
+     {
+      "z": 7.6,
+      "area_mm2": 5072.42,
+      "direction_deg": 157.5,
+      "span_mm": 29.7,
+      "longest_two_ended_run_mm": 47.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 732.62,
+      "bbox": [
+       96.2,
+       2.7,
+       158.0,
+       100.0
+      ],
+      "bad_bbox": [
+       101.2,
+       61.5,
+       158.0,
+       100.0
+      ],
+      "per_direction": [
+       [
+        0.0,
+        61.9,
+        true,
+        2974.2
+       ],
+       [
+        22.5,
+        50.7,
+        true,
+        795.8
+       ],
+       [
+        45.0,
+        81.0,
+        true,
+        2261.4
+       ],
+       [
+        67.5,
+        54.0,
+        true,
+        1303.5
+       ],
+       [
+        90.0,
+        97.4,
+        true,
+        3201.5
+       ],
+       [
+        112.5,
+        52.4,
+        true,
+        1141.6
+       ],
+       [
+        135.0,
+        78.5,
+        true,
+        2086.2
+       ],
+       [
+        157.5,
+        47.0,
+        true,
+        732.6
+       ]
+      ],
+      "min_single_direction_span_mm": 47.0,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -61.8,
+       0.0,
+       -28.0,
+       -27.8,
+       0.0,
+       97.3
+      ]
+     },
+     {
+      "z": 43.8,
+      "area_mm2": 57.72,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 48.04,
+      "bbox": [
+       143.5,
+       11.2,
+       149.8,
+       21.5
+      ],
+      "bad_bbox": [
+       143.4,
+       13.2,
+       149.8,
+       21.4
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        48.0
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        48.0
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -14.5,
+       -8.2,
+       8.2,
+       8.4,
+       78.5,
+       88.8
+      ]
+     },
+     {
+      "z": 15.4,
+      "area_mm2": 19.92,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 16.34,
+      "bbox": [
+       143.5,
+       11.2,
+       145.5,
+       21.5
+      ],
+      "bad_bbox": [
+       143.4,
+       13.2,
+       145.4,
+       21.4
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        16.3
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        16.3
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -14.5,
+       -12.5,
+       -20.2,
+       -20.0,
+       78.5,
+       88.8
+      ]
+     },
+     {
+      "z": 24.4,
+      "area_mm2": 36.94,
+      "direction_deg": 112.5,
+      "span_mm": 10.1,
+      "longest_two_ended_run_mm": 10.1,
+      "open_ended_run": true,
+      "bad_area_mm2": 14.96,
+      "bbox": [
+       145.7,
+       12.2,
+       149.8,
+       21.5
+      ],
+      "bad_bbox": [
+       147.0,
+       13.9,
+       149.8,
+       21.5
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        21.4
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        21.4
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        21.4
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        21.4
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        21.4
+       ],
+       [
+        112.5,
+        10.1,
+        true,
+        15.0
+       ],
+       [
+        135.0,
+        5.9,
+        true,
+        20.3
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        21.4
+       ]
+      ],
+      "min_single_direction_span_mm": 5.9,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -12.3,
+       -8.2,
+       -11.2,
+       -11.0,
+       78.5,
+       87.8
+      ]
+     },
+     {
+      "z": 41.6,
+      "area_mm2": 16.33,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 13.66,
+      "bbox": [
+       25.2,
+       16.6,
+       28.6,
+       23.7
+      ],
+      "bad_bbox": [
+       26.0,
+       16.6,
+       28.6,
+       23.7
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        13.7
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        13.7
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -132.8,
+       -129.4,
+       6.0,
+       6.2,
+       76.3,
+       83.4
+      ]
+     },
+     {
+      "z": 57.0,
+      "area_mm2": 14.79,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 7.98,
+      "bbox": [
+       6.0,
+       94.5,
+       11.0,
+       97.3
+      ],
+      "bad_bbox": [
+       6.0,
+       94.5,
+       10.9,
+       96.0
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        8.0
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        8.0
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -152.0,
+       -147.0,
+       21.4,
+       21.6,
+       2.7,
+       5.5
+      ]
+     },
+     {
+      "z": 41.6,
+      "area_mm2": 12.53,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 7.81,
+      "bbox": [
+       20.4,
+       16.6,
+       23.1,
+       23.7
+      ],
+      "bad_bbox": [
+       20.3,
+       16.6,
+       22.9,
+       21.1
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        7.8
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        7.8
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -137.6,
+       -134.9,
+       6.0,
+       6.2,
+       76.3,
+       83.4
+      ]
+     },
+     {
+      "z": 32.6,
+      "area_mm2": 2.86,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 2.82,
+      "bbox": [
+       103.0,
+       97.5,
+       104.0,
+       100.0
+      ],
+      "bad_bbox": [
+       103.0,
+       97.5,
+       104.0,
+       100.0
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        2.8
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        2.8
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -55.0,
+       -54.0,
+       -3.0,
+       -2.8,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 49.6,
+      "area_mm2": 4.37,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 1.72,
+      "bbox": [
+       150.4,
+       69.1,
+       152.6,
+       70.9
+      ],
+      "bad_bbox": [
+       150.3,
+       69.1,
+       151.2,
+       70.9
+      ],
+      "per_direction": [
+       [
+        0.0,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        22.5,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        45.0,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        67.5,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        90.0,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        112.5,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        135.0,
+        0.0,
+        true,
+        1.7
+       ],
+       [
+        157.5,
+        0.0,
+        true,
+        1.7
+       ]
+      ],
+      "min_single_direction_span_mm": null,
+      "open_in_every_direction": true,
+      "bbox_assembly": [
+       -7.6,
+       -5.4,
+       14.0,
+       14.2,
+       29.1,
+       30.9
+      ]
+     }
+    ],
+    "regions_by_span": [
+     {
+      "z": 38.6,
+      "area_mm2": 72.02,
+      "direction_deg": 90.0,
+      "span_mm": 27.7,
+      "longest_two_ended_run_mm": 27.7,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       0.0,
+       52.2,
+       2.5,
+       79.8
+      ],
+      "bbox_assembly": [
+       -158.0,
+       -155.5,
+       3.0,
+       3.2,
+       20.2,
+       47.8
+      ]
+     },
+     {
+      "z": 37.0,
+      "area_mm2": 39.44,
+      "direction_deg": 90.0,
+      "span_mm": 13.6,
+      "longest_two_ended_run_mm": 13.6,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       6.2,
+       15.3,
+       9.0,
+       28.8
+      ],
+      "bbox_assembly": [
+       -151.8,
+       -149.0,
+       1.4,
+       1.6,
+       71.2,
+       84.7
+      ]
+     },
+     {
+      "z": 44.6,
+      "area_mm2": 34.32,
+      "direction_deg": 0.0,
+      "span_mm": 13.2,
+      "longest_two_ended_run_mm": 13.2,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       116.7,
+       97.5,
+       129.8,
+       100.0
+      ],
+      "bbox_assembly": [
+       -41.3,
+       -28.2,
+       9.0,
+       9.2,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 41.4,
+      "area_mm2": 62.01,
+      "direction_deg": 90.0,
+      "span_mm": 11.7,
+      "longest_two_ended_run_mm": 11.7,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       152.8,
+       60.4,
+       158.0,
+       72.0
+      ],
+      "bbox_assembly": [
+       -5.2,
+       0.0,
+       5.8,
+       6.0,
+       28.0,
+       39.6
+      ]
+     },
+     {
+      "z": 37.6,
+      "area_mm2": 27.3,
+      "direction_deg": 0.0,
+      "span_mm": 10.5,
+      "longest_two_ended_run_mm": 10.5,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       92.4,
+       97.5,
+       102.8,
+       100.0
+      ],
+      "bbox_assembly": [
+       -65.6,
+       -55.2,
+       2.0,
+       2.2,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 51.6,
+      "area_mm2": 11.55,
+      "direction_deg": 90.0,
+      "span_mm": 7.7,
+      "longest_two_ended_run_mm": 7.7,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       4.6,
+       18.2,
+       6.0,
+       25.8
+      ],
+      "bbox_assembly": [
+       -153.4,
+       -152.0,
+       16.0,
+       16.2,
+       74.2,
+       81.8
+      ]
+     },
+     {
+      "z": 53.8,
+      "area_mm2": 10.92,
+      "direction_deg": 90.0,
+      "span_mm": 4.2,
+      "longest_two_ended_run_mm": 4.2,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       155.5,
+       38.0,
+       158.0,
+       42.0
+      ],
+      "bbox_assembly": [
+       -2.5,
+       0.0,
+       18.2,
+       18.4,
+       58.0,
+       62.0
+      ]
+     },
+     {
+      "z": 61.2,
+      "area_mm2": 9.88,
+      "direction_deg": 90.0,
+      "span_mm": 3.8,
+      "longest_two_ended_run_mm": 3.8,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       0.0,
+       20.1,
+       2.5,
+       23.9
+      ],
+      "bbox_assembly": [
+       -158.0,
+       -155.5,
+       25.6,
+       25.8,
+       76.1,
+       79.9
+      ]
+     },
+     {
+      "z": 32.8,
+      "area_mm2": 8.58,
+      "direction_deg": 0.0,
+      "span_mm": 3.3,
+      "longest_two_ended_run_mm": 3.3,
+      "open_ended_run": false,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       104.2,
+       97.5,
+       107.4,
+       100.0
+      ],
+      "bbox_assembly": [
+       -53.8,
+       -50.6,
+       -2.8,
+       -2.6,
+       0.0,
+       2.5
+      ]
+     },
+     {
+      "z": 17.6,
+      "area_mm2": 20.25,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       136.0,
+       102.7,
+       144.0,
+       105.1
+      ],
+      "bbox_assembly": [
+       -22.0,
+       -14.0,
+       -18.0,
+       -17.8,
+       -5.1,
+       -2.7
+      ]
+     },
+     {
+      "z": 17.6,
+      "area_mm2": 20.25,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       75.0,
+       102.7,
+       83.0,
+       105.1
+      ],
+      "bbox_assembly": [
+       -83.0,
+       -75.0,
+       -18.0,
+       -17.8,
+       -5.1,
+       -2.7
+      ]
+     },
+     {
+      "z": 20.8,
+      "area_mm2": 5.98,
+      "direction_deg": 0.0,
+      "span_mm": 0.0,
+      "longest_two_ended_run_mm": 0.0,
+      "open_ended_run": true,
+      "bad_area_mm2": 0.0,
+      "bbox": [
+       155.5,
+       54.9,
+       158.0,
+       57.1
+      ],
+      "bbox_assembly": [
+       -2.5,
+       0.0,
+       -14.8,
+       -14.6,
+       42.9,
+       45.1
+      ]
+     }
+    ],
+    "supports_used": {
+     "tongue_f_minus_y_wing": 20.21,
+     "tongue_r_minus_y_wing": 20.21
+    },
+    "declared_zones": [
+     {
+      "id": "tongue_f_minus_y_wing",
+      "why": "J4 keyhole T-head -Y wing (the T undercut cannot face the bed; candidate tongue has no -Y chamfer): paint-on support from the bed, as r7 PRINT_SUPPORT_ZONES"
+     },
+     {
+      "id": "tongue_r_minus_y_wing",
+      "why": "J4 keyhole T-head -Y wing (the T undercut cannot face the bed; candidate tongue has no -Y chamfer): paint-on support from the bed, as r7 PRINT_SUPPORT_ZONES"
+     }
+    ],
+    "status": "fail",
+    "error": "10 region(s) need more than one bridge direction or a bridge over 30 mm (largest 1162.2 mm2 at z 7.60)",
+    "stl": "stl/tub.stl",
+    "pose": {
+     "R": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ]
+     ],
+     "t": [
+      158.0,
+      100.0,
+      35.6
+     ]
+    },
+    "seconds": 23.9,
+    "zones_assembly": [
+     {
+      "id": "tongue_f_minus_y_wing",
+      "box": [
+       -22.5,
+       -13.5,
+       -18.5,
+       -12.5,
+       -5.25,
+       0.2
+      ]
+     },
+     {
+      "id": "tongue_r_minus_y_wing",
+      "box": [
+       -83.5,
+       -74.5,
+       -18.5,
+       -12.5,
+       -5.25,
+       0.2
+      ]
+     }
+    ]
+   }
+  ],
+  "thin_wall": [
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.599,
+     "share_below_min_wall": 0.0027
+    },
+    "part": "base_grip",
+    "samples": 1500,
+    "min": 0.373,
+    "p1": 1.599,
+    "p5": 2.487,
+    "share_below_min_wall": 0.0007,
+    "share_below_min_feature": 0.0007,
+    "loaded_samples": 0,
+    "share_loaded_below_1_6": null,
+    "loaded_zones": 0,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 0.373,
+      "at": [
+       -112.9,
+       -25.0,
+       -6.4
+      ]
+     },
+     {
+      "t": 1.338,
+      "at": [
+       -73.6,
+       -4.5,
+       -105.8
+      ]
+     },
+     {
+      "t": 1.499,
+      "at": [
+       -58.6,
+       13.5,
+       -105.9
+      ]
+     },
+     {
+      "t": 1.499,
+      "at": [
+       -53.4,
+       13.5,
+       -106.9
+      ]
+     },
+     {
+      "t": 1.499,
+      "at": [
+       -43.6,
+       -13.5,
+       -105.7
+      ]
+     },
+     {
+      "t": 1.499,
+      "at": [
+       -31.4,
+       -13.5,
+       -105.8
+      ]
+     }
+    ],
+    "below_min_wall": [
+     {
+      "t": 0.373,
+      "at": [
+       -112.87,
+       -24.96,
+       -6.38
+      ]
+     }
+    ],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/base_grip.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.299,
+     "share_below_min_wall": 0.0
+    },
+    "part": "cap",
+    "samples": 1500,
+    "min": 1.599,
+    "p1": 1.599,
+    "p5": 2.599,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 0,
+    "share_loaded_below_1_6": null,
+    "loaded_zones": 0,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 1.599,
+      "at": [
+       -30.4,
+       12.2,
+       -108.4
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -56.9,
+       12.2,
+       -109.0
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -40.6,
+       12.2,
+       -108.3
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -46.1,
+       12.2,
+       -108.8
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -52.1,
+       12.2,
+       -108.3
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -46.8,
+       12.2,
+       -109.1
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/cap.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.597,
+     "share_below_min_wall": 0.0
+    },
+    "part": "carrier",
+    "samples": 1500,
+    "min": 1.593,
+    "p1": 2.592,
+    "p5": 2.999,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 280,
+    "share_loaded_below_1_6": 0.0,
+    "loaded_zones": 6,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 1.593,
+      "at": [
+       -128.9,
+       21.5,
+       71.6
+      ]
+     },
+     {
+      "t": 1.593,
+      "at": [
+       -128.6,
+       21.5,
+       71.8
+      ]
+     },
+     {
+      "t": 1.594,
+      "at": [
+       -130.2,
+       22.0,
+       68.6
+      ]
+     },
+     {
+      "t": 1.594,
+      "at": [
+       -24.7,
+       20.1,
+       5.8
+      ]
+     },
+     {
+      "t": 1.594,
+      "at": [
+       -126.5,
+       20.2,
+       72.1
+      ]
+     },
+     {
+      "t": 1.595,
+      "at": [
+       -126.8,
+       21.9,
+       72.2
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/carrier.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.595,
+     "share_below_min_wall": 0.0
+    },
+    "part": "eyecup",
+    "samples": 1500,
+    "min": 1.595,
+    "p1": 1.595,
+    "p5": 1.595,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 0,
+    "share_loaded_below_1_6": null,
+    "loaded_zones": 0,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 1.595,
+      "at": [
+       -176.4,
+       6.9,
+       97.2
+      ]
+     },
+     {
+      "t": 1.595,
+      "at": [
+       -176.4,
+       6.6,
+       95.5
+      ]
+     },
+     {
+      "t": 1.595,
+      "at": [
+       -176.7,
+       -0.9,
+       91.6
+      ]
+     },
+     {
+      "t": 1.595,
+      "at": [
+       -177.2,
+       7.8,
+       95.7
+      ]
+     },
+     {
+      "t": 1.595,
+      "at": [
+       -176.8,
+       5.4,
+       95.1
+      ]
+     },
+     {
+      "t": 1.595,
+      "at": [
+       -175.5,
+       27.0,
+       69.7
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/eyecup.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 0.683,
+     "share_below_min_wall": 0.1293
+    },
+    "part": "knob_exp",
+    "samples": 1500,
+    "min": 4.337,
+    "p1": 4.72,
+    "p5": 5.196,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 0,
+    "share_loaded_below_1_6": null,
+    "loaded_zones": 0,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 4.337,
+      "at": [
+       -63.8,
+       36.9,
+       75.1
+      ]
+     },
+     {
+      "t": 4.404,
+      "at": [
+       -63.8,
+       37.2,
+       75.1
+      ]
+     },
+     {
+      "t": 4.514,
+      "at": [
+       -51.5,
+       37.1,
+       69.4
+      ]
+     },
+     {
+      "t": 4.545,
+      "at": [
+       -59.7,
+       37.0,
+       86.0
+      ]
+     },
+     {
+      "t": 4.549,
+      "at": [
+       -55.1,
+       37.2,
+       68.7
+      ]
+     },
+     {
+      "t": 4.559,
+      "at": [
+       -61.9,
+       37.1,
+       84.2
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/knob_exp.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.312,
+     "share_below_min_wall": 0.0
+    },
+    "part": "knob_fps",
+    "samples": 1500,
+    "min": 3.383,
+    "p1": 3.594,
+    "p5": 3.749,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 0,
+    "share_loaded_below_1_6": null,
+    "loaded_zones": 0,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 3.383,
+      "at": [
+       -118.9,
+       30.7,
+       81.1
+      ]
+     },
+     {
+      "t": 3.388,
+      "at": [
+       -118.9,
+       30.2,
+       81.0
+      ]
+     },
+     {
+      "t": 3.4,
+      "at": [
+       -103.3,
+       30.2,
+       82.0
+      ]
+     },
+     {
+      "t": 3.403,
+      "at": [
+       -118.8,
+       30.4,
+       78.1
+      ]
+     },
+     {
+      "t": 3.412,
+      "at": [
+       -118.9,
+       31.2,
+       80.9
+      ]
+     },
+     {
+      "t": 3.436,
+      "at": [
+       -103.0,
+       31.2,
+       79.3
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/knob_fps.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.839,
+     "share_below_min_wall": 0.0
+    },
+    "part": "lens_collar",
+    "samples": 1500,
+    "min": 1.789,
+    "p1": 1.848,
+    "p5": 2.193,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 256,
+    "share_loaded_below_1_6": 0.0,
+    "loaded_zones": 5,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 1.789,
+      "at": [
+       2.7,
+       -26.5,
+       55.0
+      ]
+     },
+     {
+      "t": 1.843,
+      "at": [
+       3.3,
+       11.7,
+       94.2
+      ]
+     },
+     {
+      "t": 1.843,
+      "at": [
+       7.0,
+       21.2,
+       28.1
+      ]
+     },
+     {
+      "t": 1.844,
+      "at": [
+       6.8,
+       13.9,
+       92.8
+      ]
+     },
+     {
+      "t": 1.844,
+      "at": [
+       7.0,
+       11.2,
+       94.2
+      ]
+     },
+     {
+      "t": 1.846,
+      "at": [
+       5.9,
+       9.9,
+       94.1
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/lens_collar.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.599,
+     "share_below_min_wall": 0.0007
+    },
+    "part": "panel",
+    "samples": 1500,
+    "min": 1.599,
+    "p1": 1.599,
+    "p5": 2.799,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 95,
+    "share_loaded_below_1_6": 0.0,
+    "loaded_zones": 5,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 1.599,
+      "at": [
+       -147.5,
+       6.4,
+       74.3
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -69.5,
+       23.8,
+       68.2
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -147.5,
+       16.3,
+       83.6
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -147.5,
+       7.2,
+       84.4
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -147.5,
+       12.5,
+       74.0
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -147.5,
+       11.7,
+       73.0
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/panel.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   },
+   {
+    "declared_exception": null,
+    "wall_threshold": 1.2,
+    "normal_ray": {
+     "p1": 1.399,
+     "share_below_min_wall": 0.0
+    },
+    "part": "tub",
+    "samples": 1500,
+    "min": 1.199,
+    "p1": 1.399,
+    "p5": 1.599,
+    "share_below_min_wall": 0.0,
+    "share_below_min_feature": 0.0,
+    "loaded_samples": 115,
+    "share_loaded_below_1_6": 0.0,
+    "loaded_zones": 10,
+    "role": "secondary screen (share-based); local thickness is gated by critical_features",
+    "thinnest": [
+     {
+      "t": 1.199,
+      "at": [
+       -2.7,
+       12.6,
+       49.0
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -3.9,
+       -17.1,
+       64.0
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -2.7,
+       5.0,
+       76.1
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -3.9,
+       -14.0,
+       69.0
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -2.7,
+       5.4,
+       43.9
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -3.9,
+       -10.8,
+       73.0
+      ]
+     }
+    ],
+    "below_min_wall": [],
+    "status": "pass",
+    "method": "wall = max over a 30 deg cone of inward rays of hit x cos tilt (7 rays, tessellation 0.08 mm)",
+    "step": "step/tub.step",
+    "loaded_zone_source": "print_rules.candidate_state"
+   }
+  ],
+  "critical_features": [
+   {
+    "kind": "feature",
+    "id": "tub_tongue_f_wing_l",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -18.0,
+     15.5,
+     -2.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 keyhole T-head wing (head_h 1.8): carries base-to-tub pull-off and the grip moment",
+    "cls": "wing",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -3.0,
+     3.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4,
+     2.4,
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -18.0,
+     15.5,
+     -5.05
+    ],
+    "exit": [
+     -18.0,
+     15.5,
+     -2.65
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_tongue_f_wing_r",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -18.0,
+     -15.5,
+     -2.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 keyhole T-head wing (head_h 1.8): carries base-to-tub pull-off and the grip moment",
+    "cls": "wing",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -3.0,
+     3.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4,
+     2.4,
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -18.0,
+     -15.5,
+     -5.05
+    ],
+    "exit": [
+     -18.0,
+     -15.5,
+     -2.65
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_tongue_r_wing_l",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.0,
+     15.5,
+     -2.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 keyhole T-head wing (head_h 1.8): carries base-to-tub pull-off and the grip moment",
+    "cls": "wing",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -3.0,
+     3.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4,
+     2.4,
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -79.0,
+     15.5,
+     -5.05
+    ],
+    "exit": [
+     -79.0,
+     15.5,
+     -2.65
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_tongue_r_wing_r",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.0,
+     -15.5,
+     -2.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 keyhole T-head wing (head_h 1.8): carries base-to-tub pull-off and the grip moment",
+    "cls": "wing",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -3.0,
+     3.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4,
+     2.4,
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -79.0,
+     -15.5,
+     -5.05
+    ],
+    "exit": [
+     -79.0,
+     -15.5,
+     -2.65
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_ledge_hk1",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     -32.45,
+     88.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J1 catch ledge root, 0.05 off the wall face (0.8 lug, 45 deg top chamfer, 1.6 at the root by design); lug in shear, so MIN_WALL; not part of the r1 loaded zones",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_ledge_hk2",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -125.0,
+     -32.45,
+     88.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J1 catch ledge root, 0.05 off the wall face (0.8 lug, 45 deg top chamfer, 1.6 at the root by design); lug in shear, so MIN_WALL; not part of the r1 loaded zones",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_ledge_hk3",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -5.25,
+     22.0,
+     88.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J1 catch ledge root, 0.05 off the wall face (0.8 lug, 45 deg top chamfer, 1.6 at the root by design); lug in shear, so MIN_WALL; not part of the r1 loaded zones",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_ledge_hk4",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -151.45,
+     -20.0,
+     88.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J1 catch ledge root, 0.05 off the wall face (0.8 lug, 45 deg top chamfer, 1.6 at the root by design); lug in shear, so MIN_WALL; not part of the r1 loaded zones",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_front_wall_seat",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -3.95,
+     11.0,
+     86.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "r5: front wall at the TL insert-boss root (collar anchor load)",
+    "cls": "wall",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     5.2
+    ],
+    "measured_mm": 5.2,
+    "entry": [
+     -5.2,
+     11.0,
+     86.0
+    ],
+    "exit": [
+     0.0,
+     11.0,
+     86.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_hook_hk1",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     -30.65,
+     92.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 snap beam t 1.6 (hood retention)",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_hook_hk2",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -125.0,
+     -30.65,
+     92.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 snap beam t 1.6 (hood retention)",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_hook_hk3",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -7.05,
+     22.0,
+     92.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 snap beam t 1.6 (hood retention)",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_hook_hk4",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -149.64999999999998,
+     -20.0,
+     92.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 snap beam t 1.6 (hood retention)",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_groove_lower_lip",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -70.0,
+     28.0,
+     90.8
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J2 lip under the panel-tongue groove (carries the panel top edge)",
+    "cls": "lip",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_band",
+    "part": "hood",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -140.0,
+     -20.0,
+     98.65
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; band (roof) over the tub walls",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_tongue",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -70.0,
+     29.0,
+     93.3
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J2 tongue in the hood groove",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -50.0,
+     -25.0,
+     25.0,
+     50.0
+    ],
+    "rays_outside": 4,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_wall",
+    "part": "panel",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -80.0,
+     33.6,
+     30.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "panel wall 2.8",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_end_land_rear",
+    "part": "panel",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -152.566,
+     32.8,
+     50.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "rear R5 end land (eyepiece side)",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -20.0,
+     -10.0,
+     10.0,
+     20.0
+    ],
+    "rays_outside": 4,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_end_land_front",
+    "part": "panel",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -4.134,
+     32.8,
+     50.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "front R5 end: 1.2 land square to the inner face (replaces the R3 seed)",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -20.0,
+     -10.0,
+     10.0,
+     20.0
+    ],
+    "rays_outside": 4,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "base_keyhole_lip_f_l",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -18.0,
+     15.75,
+     -0.8
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 base lip over the tongue head (pull-off load)",
+    "cls": "lip",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -18.0,
+     15.75,
+     -2.4
+    ],
+    "exit": [
+     -18.0,
+     15.75,
+     0.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_keyhole_lip_f_r",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -18.0,
+     -15.75,
+     -0.8
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 base lip over the tongue head (pull-off load)",
+    "cls": "lip",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -18.0,
+     -15.75,
+     -2.4
+    ],
+    "exit": [
+     -18.0,
+     -15.75,
+     0.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_keyhole_lip_r_l",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.0,
+     15.75,
+     -0.8
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 base lip over the tongue head (pull-off load)",
+    "cls": "lip",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -79.0,
+     15.75,
+     -2.4
+    ],
+    "exit": [
+     -79.0,
+     15.75,
+     0.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_keyhole_lip_r_r",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.0,
+     -15.75,
+     -0.8
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J4 base lip over the tongue head (pull-off load)",
+    "cls": "lip",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.4
+    ],
+    "measured_mm": 2.4,
+    "entry": [
+     -79.0,
+     -15.75,
+     -2.4
+    ],
+    "exit": [
+     -79.0,
+     -15.75,
+     0.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_column_wall",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -47.0,
+     13.75,
+     -60.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "grip column side wall 2.5 (hand load)",
+    "cls": "wall",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.5
+    ],
+    "measured_mm": 2.5,
+    "entry": [
+     -47.0,
+     12.5,
+     -60.0
+    ],
+    "exit": [
+     -47.0,
+     15.0,
+     -60.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_strap_bridge",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.25,
+     -27.5,
+     -4.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "bridge between the upper strap slots (strap load)",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_locate_rib_f",
+    "part": "panel",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -5.949999999999999,
+     28.0,
+     55.65
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J3 locating rib (1.2, LOCATE inside the front wall): X location of the panel; the 4 panel screws carry the closure load (class wall = MIN_WALL; review if the ribs are meant to carry shear)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin on the surface"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_locate_rib_r",
+    "part": "panel",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -150.75,
+     28.0,
+     35.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J3 locating rib (1.2, LOCATE inside the rear wall): X location of the panel; the 4 panel screws carry the closure load (class wall = MIN_WALL; review if the ribs are meant to carry shear)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin on the surface"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_encoder_hook_side_l",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -76.7,
+     28.0,
+     47.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J12 encoder cradle l side hook beam (t 1.6)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin on the surface"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_encoder_hook_side_r",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -49.300000000000004,
+     28.0,
+     47.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J12 encoder cradle r side hook beam (t 1.6)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin on the surface"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_boss_b2_cap",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -105.0,
+     27.85,
+     11.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J3/J4 boss_b2 cap over the pilot end (as panel_boss_b1_cap)",
+    "cls": "boss",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     90.472
+    ],
+    "measured_mm": 90.472,
+    "entry": [
+     -105.0,
+     27.85,
+     3.1
+    ],
+    "exit": [
+     -105.0,
+     27.85,
+     93.57
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_sb2_head_floor",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -102.4,
+     27.85,
+     -1.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "s_b2 head shoulder: base material over the counterbore (as s_b1)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "base_sj_head_floor",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -108.4,
+     -20.0,
+     -1.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "s_j (J4 lock) head shoulder: base material over the counterbore",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.0
+    ],
+    "measured_mm": 2.0,
+    "entry": [
+     -108.4,
+     -20.0,
+     -2.0
+    ],
+    "exit": [
+     -108.4,
+     -20.0,
+     0.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_rib_l_tip",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -12.049999999999999,
+     31.6,
+     24.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "J7 rib_l 45 deg gusset tip (front wall to the panel plane): 1.2 land at x -12.1, y 31.0..32.2",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -12.0,
+     -6.0,
+     6.0,
+     12.0
+    ],
+    "rays_outside": 4,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_finger_kf1",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -90.44999999999999,
+     -20.0,
+     8.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; finger tip over the X1203 edge, 0.1 in from the tip (1.6 tip, 45 deg back): carries the stack lift-off",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_finger_kf2",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -90.44999999999999,
+     12.0,
+     8.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; finger tip over the X1203 edge, 0.1 in from the tip (1.6 tip, 45 deg back): carries the stack lift-off",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_finger_kf3",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -80.0,
+     23.150000000000002,
+     8.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; finger tip over the X1203 edge, 0.1 in from the tip (1.6 tip, 45 deg back): carries the stack lift-off",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_finger_kf4",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     23.150000000000002,
+     8.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; finger tip over the X1203 edge, 0.1 in from the tip (1.6 tip, 45 deg back): carries the stack lift-off",
+    "cls": "hook",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_arm",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -97.0,
+     -2.0,
+     12.7
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; USB-edge arm (low part, 5.8 deep), s_k1 to finger kf1 (31 mm under the stick rail)",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_bridge",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -91.0,
+     27.7,
+     14.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; bridge over panel boss_b1 (z >= 12.5): ties the arm to the port bar",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "keeper_bar",
+    "part": "pi_keeper",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -62.0,
+     27.8,
+     14.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; port bar (5.8 deep, 4.5 at the s_k2 spot face) carrying kf3/kf4",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_keeper_boss_s_k1",
+    "part": "tub",
+    "min_mm": 2.25,
+    "structural": true,
+    "origin": [
+     -97.25,
+     16.0,
+     6.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "PT boss wall round the 2.5 pilot (teardrop, +X side): carries a keeper screw",
+    "cls": "boss",
+    "entry_min_mm": 2.25,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_keeper_boss_s_k2",
+    "part": "tub",
+    "min_mm": 2.25,
+    "structural": true,
+    "origin": [
+     -61.75,
+     28.25,
+     6.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "PT boss wall round the 2.5 pilot (teardrop, +X side): carries a keeper screw",
+    "cls": "boss",
+    "entry_min_mm": 2.25,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_pi_boss_0",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -5.9,
+     -28.799999999999997,
+     4.8
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "Pi floor boss wall round the kit-head pocket: the stack sits and locates here",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_pi_boss_1",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -5.9,
+     20.2,
+     4.8
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "Pi floor boss wall round the kit-head pocket: the stack sits and locates here",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_pi_boss_2",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -63.900000000000006,
+     -28.799999999999997,
+     4.8
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "Pi floor boss wall round the kit-head pocket: the stack sits and locates here",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     3.0
+    ],
+    "measured_mm": 3.0,
+    "entry": [
+     -65.0,
+     -28.8,
+     4.8
+    ],
+    "exit": [
+     -62.0,
+     -28.8,
+     4.8
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_pi_boss_3",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -63.900000000000006,
+     20.2,
+     4.8
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "Pi floor boss wall round the kit-head pocket: the stack sits and locates here",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_pad_pad_r1_under_head",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -28.9,
+     -31.45,
+     85.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "right-wall pad under the s_r head (counterbore shoulder)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_pad_pad_r2_under_head",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -140.9,
+     -31.45,
+     47.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "right-wall pad under the s_r head (counterbore shoulder)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_tongue_f_neck",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -18.0,
+     0.0,
+     -0.9
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J4 T-tongue neck (base pull-off in tension)",
+    "cls": "neck",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     8.0
+    ],
+    "measured_mm": 8.0,
+    "entry": [
+     -22.0,
+     0.0,
+     -0.9
+    ],
+    "exit": [
+     -14.0,
+     0.0,
+     -0.9
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_tongue_r_neck",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.0,
+     0.0,
+     -0.9
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J4 T-tongue neck (base pull-off in tension)",
+    "cls": "neck",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     8.0
+    ],
+    "measured_mm": 8.0,
+    "entry": [
+     -83.0,
+     0.0,
+     -0.9
+    ],
+    "exit": [
+     -75.0,
+     0.0,
+     -0.9
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_tongue_tooth",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -121.0,
+     29.0,
+     93.3
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "J2 top tongue tooth: holds the panel top in z",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -8.0,
+     -4.0,
+     4.0,
+     8.0
+    ],
+    "rays_outside": 4,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_boss_b1_wall",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -91.0,
+     25.3,
+     7.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "s_b1 boss wall round the 2.5 pilot (-Y side, thinnest); tab fills the lip notch",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.8
+    ],
+    "measured_mm": 2.8,
+    "entry": [
+     -91.0,
+     25.2,
+     7.0
+    ],
+    "exit": [
+     -91.0,
+     28.0,
+     7.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_boss_b2_wall",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -105.0,
+     25.3,
+     7.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "s_b2 boss wall",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.8
+    ],
+    "measured_mm": 2.8,
+    "entry": [
+     -105.0,
+     25.2,
+     7.0
+    ],
+    "exit": [
+     -105.0,
+     28.0,
+     7.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_post_f_wall",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -34.1,
+     -25.0,
+     85.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "s_r1 post wall round the pilot",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_evf_clamp_prong",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -149.8,
+     24.3,
+     64.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "EVF cap U clamp, lower prong at its -Y tip (spigot clamp, G-EVF-1)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_evf_stop",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -137.6,
+     29.5,
+     78.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "EVF board +Y stop rib (finding 6)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -6.0,
+     -3.0,
+     3.0,
+     6.0
+    ],
+    "rays_outside": 4,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_cam_keeper",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -29.0,
+     15.0,
+     71.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "r5: keeper finger = rear catch, 0.5 behind the cover at s_max",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     3.33
+    ],
+    "measured_mm": 3.33,
+    "entry": [
+     -30.67,
+     15.0,
+     71.0
+    ],
+    "exit": [
+     -27.34,
+     15.0,
+     71.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_encoder_hook_top",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -63.0,
+     28.0,
+     70.85
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "encoder cradle top hook beam (t 1.6)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin on the surface"
+   },
+   {
+    "kind": "feature",
+    "id": "base_strap_web",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -79.25,
+     -27.5,
+     -5.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "strap anchor: web between the 2 upper slots",
+    "cls": "bar",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -5.0,
+     -2.5,
+     2.5,
+     5.0
+    ],
+    "rays_outside": 2,
+    "expected_outside": [],
+    "values": [
+     106.697,
+     105.036
+    ],
+    "measured_mm": 105.036,
+    "entry": [
+     -107.54,
+     -22.5,
+     -5.0
+    ],
+    "exit": [
+     -2.5,
+     -22.5,
+     -5.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_strap_bar",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -69.75,
+     -3.0,
+     -100.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "strap anchor: heel bar between the lower slots",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -2.0,
+     2.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     5.5,
+     5.5,
+     5.5
+    ],
+    "measured_mm": 5.5,
+    "entry": [
+     -74.0,
+     -3.0,
+     -100.5
+    ],
+    "exit": [
+     -68.5,
+     -3.0,
+     -100.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_tripod_wall",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -102.5,
+     0.0,
+     -6.9
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "1/4-20 nut bearing wall (tripod load)",
+    "cls": "wall",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.3
+    ],
+    "measured_mm": 2.3,
+    "entry": [
+     -102.5,
+     0.0,
+     -8.0
+    ],
+    "exit": [
+     -102.5,
+     0.0,
+     -5.7
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "base_sb1_head_floor",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -88.4,
+     27.85,
+     -1.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "material under the s_b1 head (clamps base + tub floor to the panel boss)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_cap_lip_l",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     12.6,
+     -109.2
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "battery retention: 45 deg lip under the +Y cap groove",
+    "cls": "lip",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.696,
+     1.696,
+     1.696,
+     1.696,
+     1.696
+    ],
+    "measured_mm": 1.696,
+    "entry": [
+     -45.0,
+     12.6,
+     -110.0
+    ],
+    "exit": [
+     -45.0,
+     12.6,
+     -108.3
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_cap_lip_r",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     -12.6,
+     -109.2
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "battery retention: lip under the -Y cap groove",
+    "cls": "lip",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.696,
+     1.696,
+     1.696,
+     1.696,
+     1.696
+    ],
+    "measured_mm": 1.696,
+    "entry": [
+     -45.0,
+     -12.6,
+     -110.0
+    ],
+    "exit": [
+     -45.0,
+     -12.6,
+     -108.3
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_cap_detent_arm",
+    "part": "base_grip",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -50.0,
+     14.25,
+     -107.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "cap detent arm: the side-wall strip outside the groove that flexes 0.1 as the bump passes",
+    "cls": "flexure",
+    "entry_min_mm": 1.2,
+    "gate": "G-CAP-1 (physical, not run)",
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -3.0,
+     3.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.5,
+     1.5,
+     1.5
+    ],
+    "measured_mm": 1.5,
+    "entry": [
+     -50.0,
+     13.5,
+     -107.0
+    ],
+    "exit": [
+     -50.0,
+     15.0,
+     -107.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "info",
+    "exception": "gated exception: 1.500 >= class floor 1.20 but acceptance rests on G-CAP-1 (physical, not run); not an ordinary 1.6 structural pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_cap_detent_dimple_wall",
+    "part": "base_grip",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -57.0,
+     14.4,
+     -106.8
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "detent arm at the dimple (thinnest point of the arm)",
+    "cls": "flexure",
+    "entry_min_mm": 1.2,
+    "gate": "G-CAP-1 (physical, not run)",
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.25
+    ],
+    "measured_mm": 1.25,
+    "entry": [
+     -57.0,
+     13.75,
+     -106.8
+    ],
+    "exit": [
+     -57.0,
+     15.0,
+     -106.8
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "info",
+    "exception": "gated exception: 1.250 >= class floor 1.20 but acceptance rests on G-CAP-1 (physical, not run); not an ordinary 1.6 structural pass"
+   },
+   {
+    "kind": "feature",
+    "id": "cap_key_web_l",
+    "part": "cap",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     11.45,
+     -108.6
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "battery retention: key web (+Y)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6
+    ],
+    "measured_mm": 1.6,
+    "entry": [
+     -45.0,
+     10.65,
+     -108.6
+    ],
+    "exit": [
+     -45.0,
+     12.25,
+     -108.6
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "cap_key_web_r",
+    "part": "cap",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     -11.45,
+     -108.6
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "battery retention: key web (-Y)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6
+    ],
+    "measured_mm": 1.6,
+    "entry": [
+     -45.0,
+     -12.25,
+     -108.6
+    ],
+    "exit": [
+     -45.0,
+     -10.65,
+     -108.6
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "cap_key_head_root",
+    "part": "cap",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     12.3,
+     -107.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "key head at the web face (shear section of the 45 deg hook)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.45
+    ],
+    "measured_mm": 2.45,
+    "entry": [
+     -45.0,
+     12.3,
+     -108.25
+    ],
+    "exit": [
+     -45.0,
+     12.3,
+     -105.8
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "cap_key_head_tip",
+    "part": "cap",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     13.1,
+     -106.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "key head tip (was 0.8, now 1.4 nominal)",
+    "cls": "hook",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.65,
+     1.65,
+     1.65,
+     1.65,
+     1.65
+    ],
+    "measured_mm": 1.65,
+    "entry": [
+     -45.0,
+     13.1,
+     -107.45
+    ],
+    "exit": [
+     -45.0,
+     13.1,
+     -105.8
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "cap_detent_bump",
+    "part": "cap",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -57.0,
+     13.3,
+     -106.6
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "detent bump root along the slide (load) direction; NOT a nonstructural exception: it alone holds the cap shut against +X (lens-down carry, knocks)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.6
+    ],
+    "measured_mm": 1.6,
+    "entry": [
+     -57.8,
+     13.3,
+     -106.6
+    ],
+    "exit": [
+     -56.2,
+     13.3,
+     -106.6
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "cap_floor",
+    "part": "cap",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     5.0,
+     -114.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "plate floor under the top pocket (pack side)",
+    "cls": "wall",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     3.0
+    ],
+    "measured_mm": 3.0,
+    "entry": [
+     -45.0,
+     5.0,
+     -116.0
+    ],
+    "exit": [
+     -45.0,
+     5.0,
+     -113.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_front_wall_pad_top",
+    "part": "base_grip",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -25.0,
+     0.0,
+     -8.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "grip front wall at the run-pad recess top (grip/base junction); was 1.0, the pad boss now runs to z -6",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -5.0,
+     -2.5,
+     2.5,
+     5.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.75,
+     1.75,
+     1.75,
+     1.75,
+     1.75
+    ],
+    "measured_mm": 1.75,
+    "entry": [
+     -26.25,
+     0.0,
+     -8.5
+    ],
+    "exit": [
+     -24.5,
+     0.0,
+     -8.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_cap_groove_corner",
+    "part": "base_grip",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -30.0,
+     13.9,
+     -106.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "cap groove outer wall at the front-corner exit (cut out forward of x -29.7)",
+    "cls": "flexure",
+    "entry_min_mm": 1.2,
+    "gate": "G-CAP-1 (physical, not run)",
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.275
+    ],
+    "measured_mm": 1.275,
+    "entry": [
+     -30.0,
+     13.5,
+     -106.5
+    ],
+    "exit": [
+     -30.0,
+     14.77,
+     -106.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "info",
+    "exception": "gated exception: 1.275 >= class floor 1.20 but acceptance rests on G-CAP-1 (physical, not run); not an ordinary 1.6 structural pass"
+   },
+   {
+    "kind": "feature",
+    "id": "grip_heel_slot_end",
+    "part": "base_grip",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -69.75,
+     -8.0,
+     -100.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "heel strap bar at the -Y slot end (slots moved to y -8.5..4.5, clear of the er 9 corner)",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     5.815
+    ],
+    "measured_mm": 5.815,
+    "entry": [
+     -74.0,
+     -8.0,
+     -100.5
+    ],
+    "exit": [
+     -68.18,
+     -8.0,
+     -100.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_boss_b1_cap",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -91.0,
+     27.85,
+     11.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "boss material over the blind s_b1 pilot end (z 11.0): 1.3, was 1.0",
+    "cls": "boss",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     93.8
+    ],
+    "measured_mm": 93.8,
+    "entry": [
+     -91.0,
+     27.85,
+     3.1
+    ],
+    "exit": [
+     -91.0,
+     27.85,
+     96.9
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_tooth_hk1",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -45.0,
+     -31.48,
+     87.42
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 hook tooth root (catch lug in shear: holds the hood down); was 1.05 in r1 (unclassified screen spot)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_tooth_hk2",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -125.0,
+     -31.48,
+     87.42
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 hook tooth root (catch lug in shear: holds the hood down); was 1.05 in r1 (unclassified screen spot)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_tooth_hk3",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -6.220000000000001,
+     22.0,
+     87.42
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 hook tooth root (catch lug in shear: holds the hood down); was 1.05 in r1 (unclassified screen spot)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_tooth_hk4",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -150.48,
+     -20.0,
+     87.42
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; J1 hook tooth root (catch lug in shear: holds the hood down); was 1.05 in r1 (unclassified screen spot)",
+    "cls": "lug",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_keeper_boss_s_k2_seam",
+    "part": "tub",
+    "min_mm": 2.25,
+    "structural": true,
+    "origin": [
+     -64.0,
+     31.0,
+     9.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "s_k2 boss +Y wall above the lip gusset (z 7.6..9.8, where the PT thread starts): verifier M-V-MPS-1",
+    "cls": "boss",
+    "entry_min_mm": 2.25,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_wall_bot_mx",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -139.3,
+     2.0,
+     64.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "EVF board bot rail, mx groove wall (board +-X arrest; 1.3 by design)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -0.5,
+     0.5
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.95,
+     1.95,
+     1.95
+    ],
+    "measured_mm": 1.95,
+    "entry": [
+     -140.55,
+     2.0,
+     64.5
+    ],
+    "exit": [
+     -138.6,
+     2.0,
+     64.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_wall_bot_px",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -135.9,
+     2.0,
+     64.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "EVF board bot rail, px groove wall (board +-X arrest; 1.3 by design)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -0.5,
+     0.5
+    ],
+    "rays_outside": 2,
+    "expected_outside": [
+     -0.5
+    ],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "expect_outside_why": "y 1.5 lies in the ko_5v_end relief: printed_tub cuts the bottom rail +X groove wall for y < ko_5v_end y1 + SEAM = 1.8 (5 V lead end); the rays at y 2.0 and 2.5 measure the wall (1.3)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_wall_top_mx",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -139.3,
+     12.0,
+     92.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "EVF board top rail, mx groove wall (board +-X arrest; 1.3 by design)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.3,
+     1.3,
+     1.3,
+     1.3,
+     1.3
+    ],
+    "measured_mm": 1.3,
+    "entry": [
+     -140.55,
+     12.0,
+     92.0
+    ],
+    "exit": [
+     -139.25,
+     12.0,
+     92.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_wall_top_px",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -135.9,
+     12.0,
+     92.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "EVF board top rail, px groove wall (board +-X arrest; 1.3 by design)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 5,
+    "offsets": [
+     0.0,
+     -10.0,
+     -5.0,
+     5.0,
+     10.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     8.98,
+     8.98,
+     8.98,
+     3.277,
+     3.277
+    ],
+    "measured_mm": 3.277,
+    "entry": [
+     -137.49,
+     17.0,
+     92.0
+    ],
+    "exit": [
+     -134.21,
+     17.0,
+     92.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_floor_bot",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -137.6,
+     2.0,
+     62.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "EVF bottom rail under the groove (board -Z arrest), y 0.7..3.0 before the plug gap",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_roof_top",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -137.6,
+     12.0,
+     93.4
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "EVF top rail over the groove (board +Z arrest; rail top 94.0, 0.3 under the hood lip)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_end_bot",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -137.6,
+     0.2,
+     64.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "EVF bot groove end at y 0.7 (board -Y arrest)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_groove_end_top",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -137.6,
+     0.2,
+     92.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "EVF top groove end at y 0.7 (board -Y arrest)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_collar_radial",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -150.5,
+     0.4,
+     78.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "eyepiece half-collar under the 29.3 bore (G-EVF-1 20 N pull-out, spigot clamp)",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_evf_collar_axial",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -152.0,
+     0.4,
+     78.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "rear wall + half-collar along the eyepiece axis (G-EVF-1 pull-out)",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin on the surface"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_j4_lock_boss",
+    "part": "tub",
+    "min_mm": 2.25,
+    "structural": true,
+    "origin": [
+     -108.75,
+     -20.0,
+     8.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "J4 lock boss wall round the 2.5 pilot (base pull-off and slide lock)",
+    "cls": "boss",
+    "entry_min_mm": 2.25,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     6.928
+    ],
+    "measured_mm": 6.928,
+    "entry": [
+     -114.46,
+     -20.0,
+     8.0
+    ],
+    "exit": [
+     -107.54,
+     -20.0,
+     8.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_stack_post",
+    "part": "hood",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -8.6,
+     -29.45,
+     30.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; far-side stack stop post (3.7 thick in y): compression stop over the kit screw head",
+    "cls": "bar",
+    "entry_min_mm": 1.6,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_encoder_hook_tooth_top",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -63.0,
+     23.5,
+     70.02
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "J12 encoder tooth shear root, 0.03 inside beam face; retention catch plane unchanged; G-SNAP-2 open",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -3.0,
+     3.0
+    ],
+    "rays_outside": 2,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_encoder_hook_tooth_left",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -75.87,
+     23.5,
+     47.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "J12 encoder tooth shear root, 0.03 inside beam face; retention catch plane unchanged; G-SNAP-2 open",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -2.0,
+     2.0
+    ],
+    "rays_outside": 2,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "panel_encoder_hook_tooth_right",
+    "part": "panel",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -50.13,
+     23.5,
+     47.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "J12 encoder tooth shear root, 0.03 inside beam face; retention catch plane unchanged; G-SNAP-2 open",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 3,
+    "offsets": [
+     0.0,
+     -2.0,
+     2.0
+    ],
+    "rays_outside": 2,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_front_wall_lr_foot",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -3.95,
+     -19.0,
+     44.0
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "r6: front wall under the LR compression foot (collar reaction)",
+    "cls": "wall",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.5
+    ],
+    "measured_mm": 2.5,
+    "entry": [
+     -5.2,
+     -19.0,
+     44.0
+    ],
+    "exit": [
+     -2.7,
+     -19.0,
+     44.0
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_lip",
+    "part": "tub",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -3.3,
+     0.0,
+     42.5
+    ],
+    "direction": [
+     1,
+     0,
+     0
+    ],
+    "note": "r5: lip land x -3.9..-2.7 under the adapter (a catch: the BFAR face stands 0.5 behind)",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     1.2
+    ],
+    "measured_mm": 1.2,
+    "entry": [
+     -3.9,
+     0.0,
+     42.5
+    ],
+    "exit": [
+     -2.7,
+     0.0,
+     42.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_insert_boss_tl",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -6.3,
+     11.0,
+     93.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: wall round the dia 4.0 insert bore (OD 8; LL: the 24.0 chin side, 0.3 off the pi5 box)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.0
+    ],
+    "measured_mm": 2.0,
+    "entry": [
+     -6.3,
+     11.0,
+     92.5
+    ],
+    "exit": [
+     -6.3,
+     11.0,
+     94.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_insert_boss_tr",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -6.3,
+     -11.0,
+     93.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: wall round the dia 4.0 insert bore (OD 8; LL: the 24.0 chin side, 0.3 off the pi5 box)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.0
+    ],
+    "measured_mm": 2.0,
+    "entry": [
+     -6.3,
+     -11.0,
+     92.5
+    ],
+    "exit": [
+     -6.3,
+     -11.0,
+     94.5
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_insert_boss_ll",
+    "part": "tub",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -6.3,
+     25.0,
+     36.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "r5: wall round the dia 4.0 insert bore (OD 8; LL: the 24.0 chin side, 0.3 off the pi5 box)",
+    "cls": "boss",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_foot_tl",
+    "part": "lens_collar",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -1.2,
+     11.0,
+     93.25
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: collar foot dia 7.6 through the hood hole onto the tub face (wall round the 3.4 screw hole)",
+    "cls": "pin",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.1
+    ],
+    "measured_mm": 2.1,
+    "entry": [
+     -1.2,
+     11.0,
+     92.2
+    ],
+    "exit": [
+     -1.2,
+     11.0,
+     94.3
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_foot_tr",
+    "part": "lens_collar",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -1.2,
+     -11.0,
+     93.25
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: collar foot dia 7.6 through the hood hole onto the tub face (wall round the 3.4 screw hole)",
+    "cls": "pin",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     2.1
+    ],
+    "measured_mm": 2.1,
+    "entry": [
+     -1.2,
+     -11.0,
+     92.2
+    ],
+    "exit": [
+     -1.2,
+     -11.0,
+     94.3
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_foot_ll",
+    "part": "lens_collar",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -1.2,
+     28.0,
+     38.75
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: collar foot dia 7.6 through the hood hole onto the tub face (wall round the 3.4 screw hole)",
+    "cls": "pin",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_foot_lr",
+    "part": "lens_collar",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     -1.2,
+     -19.0,
+     44.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: collar foot dia 7.6 through the hood hole onto the tub face (solid compression foot)",
+    "cls": "pin",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     7.6
+    ],
+    "measured_mm": 7.6,
+    "entry": [
+     -1.2,
+     -19.0,
+     40.2
+    ],
+    "exit": [
+     -1.2,
+     -19.0,
+     47.8
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_lug_upper",
+    "part": "lens_collar",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     4.7,
+     -34.15,
+     63.5
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "r5: upper pinch lug outboard of the 3.4 hole",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_lug_lower",
+    "part": "lens_collar",
+    "min_mm": 1.6,
+    "structural": true,
+    "origin": [
+     4.7,
+     -34.15,
+     53.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "r5: lower pinch lug outboard of the 4.0 insert bore",
+    "cls": "lug",
+    "entry_min_mm": 1.6,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [],
+    "measured_mm": null,
+    "entry": null,
+    "exit": null,
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "fail",
+    "error": "stale origin: origin outside the material"
+   },
+   {
+    "kind": "feature",
+    "id": "collar_wall_min",
+    "part": "lens_collar",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     5.9,
+     0.0,
+     34.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "r5: ring under the bore (bore r 21.15 to body r 30, 8.85 Kowa)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 1,
+    "offsets": [
+     0.0
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     6.516
+    ],
+    "measured_mm": 6.516,
+    "entry": [
+     5.9,
+     0.0,
+     32.33
+    ],
+    "exit": [
+     5.9,
+     0.0,
+     38.85
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_foot_hole_tl",
+    "part": "hood",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -0.3,
+     11.0,
+     95.9
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; r5: plate above the TL hole",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_foot_hole_tr",
+    "part": "hood",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -0.3,
+     -11.0,
+     95.9
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "part not in PARTS (removed): entry not measured; r5: plate above the TR hole",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_foot_hole_ll",
+    "part": "hood",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -1.2,
+     33.65,
+     36.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; r5: plate +Y of the LL hole",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_foot_hole_lr",
+    "part": "hood",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -1.2,
+     -14.84,
+     47.5
+    ],
+    "direction": [
+     0,
+     -0.7649,
+     -0.6441
+    ],
+    "note": "part not in PARTS (removed): entry not measured; r5: plate between the lens bore and the LR hole",
+    "cls": "land",
+    "entry_min_mm": 1.2,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_tab_catch_p",
+    "part": "hood",
+    "min_mm": 2.4,
+    "structural": true,
+    "origin": [
+     -11.35,
+     9.78,
+     88.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; r7 C4: camera tab catch, 1.2 off the lock-screw heads; contact only while a lens is turned",
+    "cls": "wing",
+    "entry_min_mm": 2.4,
+    "status": "info"
+   },
+   {
+    "kind": "feature",
+    "id": "hood_tab_catch_n",
+    "part": "hood",
+    "min_mm": 2.4,
+    "structural": true,
+    "origin": [
+     -11.35,
+     -9.78,
+     88.0
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "part not in PARTS (removed): entry not measured; r7 C4: camera tab catch, 1.2 off the lock-screw heads; contact only while a lens is turned",
+    "cls": "wing",
+    "entry_min_mm": 2.4,
+    "status": "info"
+   },
+   {
+    "kind": "joint",
+    "id": "J1_hood_hooks",
+    "parts": [
+     "hood",
+     "tub"
+    ],
+    "required": [
+     "hood_hook_hk1",
+     "hood_hook_hk2",
+     "hood_hook_hk3",
+     "hood_hook_hk4",
+     "hood_tooth_hk1",
+     "hood_tooth_hk2",
+     "hood_tooth_hk3",
+     "hood_tooth_hk4",
+     "tub_ledge_hk1",
+     "tub_ledge_hk2",
+     "tub_ledge_hk3",
+     "tub_ledge_hk4",
+     "hood_band"
+    ],
+    "note": "hood retention: 4 snap hooks, teeth and tub catch ledges",
+    "gated_exceptions": {},
+    "problems": [
+     "hood_hook_hk1: not measured",
+     "hood_hook_hk2: not measured",
+     "hood_hook_hk3: not measured",
+     "hood_hook_hk4: not measured",
+     "hood_tooth_hk1: not measured",
+     "hood_tooth_hk2: not measured",
+     "hood_tooth_hk3: not measured",
+     "hood_tooth_hk4: not measured",
+     "tub_ledge_hk1: stale origin: origin outside the material",
+     "tub_ledge_hk2: stale origin: origin outside the material",
+     "tub_ledge_hk3: stale origin: origin outside the material",
+     "tub_ledge_hk4: stale origin: origin outside the material",
+     "hood_band: not measured"
+    ],
+    "status": "fail",
+    "error": "hood_hook_hk1: not measured; hood_hook_hk2: not measured; hood_hook_hk3: not measured; hood_hook_hk4: not measured; hood_tooth_hk1: not measured; hood_tooth_hk2: not measured; hood_tooth_hk3: not measured; hood_tooth_hk4: not measured; tub_ledge_hk1: stale origin: origin outside the material; tub_ledge_hk2: stale origin: origin outside the material; tub_ledge_hk3: stale origin: origin outside the material; tub_ledge_hk4: stale origin: origin outside the material; hood_band: not measured"
+   },
+   {
+    "kind": "joint",
+    "id": "J2_panel_tongue",
+    "parts": [
+     "panel",
+     "hood"
+    ],
+    "required": [
+     "panel_tongue",
+     "panel_tongue_tooth",
+     "hood_groove_lower_lip"
+    ],
+    "note": "panel top edge: tongue + tooth in the hood rail groove",
+    "gated_exceptions": {},
+    "problems": [
+     "panel_tongue: stale origin: origin outside the material",
+     "panel_tongue_tooth: stale origin: origin outside the material",
+     "hood_groove_lower_lip: not measured"
+    ],
+    "status": "fail",
+    "error": "panel_tongue: stale origin: origin outside the material; panel_tongue_tooth: stale origin: origin outside the material; hood_groove_lower_lip: not measured"
+   },
+   {
+    "kind": "joint",
+    "id": "J3_panel_tub",
+    "parts": [
+     "panel",
+     "tub"
+    ],
+    "required": [
+     "panel_wall",
+     "panel_end_land_front",
+     "panel_end_land_rear",
+     "panel_locate_rib_f",
+     "panel_locate_rib_r",
+     "panel_boss_b1_wall",
+     "panel_boss_b2_wall",
+     "panel_boss_b1_cap",
+     "panel_boss_b2_cap",
+     "panel_post_f_wall",
+     "tub_pad_pad_r1_under_head",
+     "tub_pad_pad_r2_under_head"
+    ],
+    "note": "panel closure: end lands, locate ribs, bosses, post, pads",
+    "gated_exceptions": {},
+    "problems": [
+     "panel_wall: stale origin: origin outside the material",
+     "panel_end_land_front: stale origin: origin outside the material",
+     "panel_end_land_rear: stale origin: origin outside the material",
+     "panel_locate_rib_f: stale origin: origin on the surface",
+     "panel_locate_rib_r: stale origin: origin on the surface",
+     "panel_post_f_wall: stale origin: origin outside the material",
+     "tub_pad_pad_r1_under_head: stale origin: origin outside the material",
+     "tub_pad_pad_r2_under_head: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "panel_wall: stale origin: origin outside the material; panel_end_land_front: stale origin: origin outside the material; panel_end_land_rear: stale origin: origin outside the material; panel_locate_rib_f: stale origin: origin on the surface; panel_locate_rib_r: stale origin: origin on the surface; panel_post_f_wall: stale origin: origin outside the material; tub_pad_pad_r1_under_head: stale origin: origin outside the material; tub_pad_pad_r2_under_head: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "J4_base_tub",
+    "parts": [
+     "tub",
+     "base_grip"
+    ],
+    "required": [
+     "tub_tongue_f_wing_l",
+     "tub_tongue_f_wing_r",
+     "tub_tongue_r_wing_l",
+     "tub_tongue_r_wing_r",
+     "tub_tongue_f_neck",
+     "tub_tongue_r_neck",
+     "base_keyhole_lip_f_l",
+     "base_keyhole_lip_f_r",
+     "base_keyhole_lip_r_l",
+     "base_keyhole_lip_r_r",
+     "tub_j4_lock_boss",
+     "base_sj_head_floor",
+     "base_sb1_head_floor",
+     "base_sb2_head_floor"
+    ],
+    "note": "grip load path: T-tongues, keyhole lips, s_j lock, s_b heads",
+    "gated_exceptions": {},
+    "problems": [
+     "base_sb1_head_floor: stale origin: origin outside the material",
+     "base_sb2_head_floor: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "base_sb1_head_floor: stale origin: origin outside the material; base_sb2_head_floor: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "J6_cap_grip",
+    "parts": [
+     "cap",
+     "base_grip"
+    ],
+    "required": [
+     "grip_cap_lip_l",
+     "grip_cap_lip_r",
+     "cap_key_web_l",
+     "cap_key_web_r",
+     "cap_key_head_root",
+     "cap_key_head_tip",
+     "cap_detent_bump",
+     "cap_floor",
+     "grip_cap_detent_arm",
+     "grip_cap_detent_dimple_wall",
+     "grip_cap_groove_corner"
+    ],
+    "note": "battery door: dovetail keys + lips; flexures gated G-CAP-1",
+    "gated_exceptions": {
+     "grip_cap_detent_arm": "G-CAP-1 (physical, not run)",
+     "grip_cap_detent_dimple_wall": "G-CAP-1 (physical, not run)",
+     "grip_cap_groove_corner": "G-CAP-1 (physical, not run)"
+    },
+    "problems": [],
+    "status": "info",
+    "exception": "coverage complete; acceptance of 3 feature(s) rests on G-CAP-1 (physical, not run)"
+   },
+   {
+    "kind": "joint",
+    "id": "J7_camera",
+    "parts": [
+     "tub",
+     "panel",
+     "hood",
+     "lens_collar"
+    ],
+    "required": [
+     "tub_front_wall_seat",
+     "tub_front_wall_lr_foot",
+     "tub_lip",
+     "tub_insert_boss_tl",
+     "tub_insert_boss_tr",
+     "tub_insert_boss_ll",
+     "collar_foot_tl",
+     "collar_foot_tr",
+     "collar_foot_ll",
+     "collar_foot_lr",
+     "collar_lug_upper",
+     "collar_lug_lower",
+     "collar_wall_min",
+     "hood_foot_hole_tl",
+     "hood_foot_hole_tr",
+     "hood_foot_hole_ll",
+     "hood_foot_hole_lr",
+     "hood_tab_catch_p",
+     "hood_tab_catch_n",
+     "panel_cam_keeper",
+     "tub_rib_l_tip"
+    ],
+    "note": "r5 J7-R float: lens collar on the lens fixed band (3 M3 + inserts, LR foot, pinch lugs); camera hangs on the lens; tub lip, hood tab catch (r7 C4) and panel keeper are catches with gaps",
+    "gated_exceptions": {},
+    "problems": [
+     "tub_insert_boss_ll: stale origin: origin outside the material",
+     "collar_foot_ll: stale origin: origin outside the material",
+     "collar_lug_upper: stale origin: origin outside the material",
+     "collar_lug_lower: stale origin: origin outside the material",
+     "hood_foot_hole_tl: not measured",
+     "hood_foot_hole_tr: not measured",
+     "hood_foot_hole_ll: not measured",
+     "hood_foot_hole_lr: not measured",
+     "hood_tab_catch_p: not measured",
+     "hood_tab_catch_n: not measured",
+     "tub_rib_l_tip: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "tub_insert_boss_ll: stale origin: origin outside the material; collar_foot_ll: stale origin: origin outside the material; collar_lug_upper: stale origin: origin outside the material; collar_lug_lower: stale origin: origin outside the material; hood_foot_hole_tl: not measured; hood_foot_hole_tr: not measured; hood_foot_hole_ll: not measured; hood_foot_hole_lr: not measured; hood_tab_catch_p: not measured; hood_tab_catch_n: not measured; tub_rib_l_tip: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "J8_evf",
+    "parts": [
+     "tub",
+     "panel"
+    ],
+    "required": [
+     "tub_evf_groove_wall_bot_mx",
+     "tub_evf_groove_wall_bot_px",
+     "tub_evf_groove_wall_top_mx",
+     "tub_evf_groove_wall_top_px",
+     "tub_evf_groove_floor_bot",
+     "tub_evf_groove_roof_top",
+     "tub_evf_groove_end_bot",
+     "tub_evf_groove_end_top",
+     "tub_evf_collar_radial",
+     "tub_evf_collar_axial",
+     "panel_evf_clamp_prong",
+     "panel_evf_stop"
+    ],
+    "note": "EVF board rails + stop, eyepiece collar + panel clamp",
+    "gated_exceptions": {},
+    "problems": [
+     "tub_evf_groove_wall_bot_px: stale origin: origin outside the material",
+     "tub_evf_groove_floor_bot: stale origin: origin outside the material",
+     "tub_evf_groove_roof_top: stale origin: origin outside the material",
+     "tub_evf_groove_end_bot: stale origin: origin outside the material",
+     "tub_evf_groove_end_top: stale origin: origin outside the material",
+     "tub_evf_collar_radial: stale origin: origin outside the material",
+     "tub_evf_collar_axial: stale origin: origin on the surface",
+     "panel_evf_clamp_prong: stale origin: origin outside the material",
+     "panel_evf_stop: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "tub_evf_groove_wall_bot_px: stale origin: origin outside the material; tub_evf_groove_floor_bot: stale origin: origin outside the material; tub_evf_groove_roof_top: stale origin: origin outside the material; tub_evf_groove_end_bot: stale origin: origin outside the material; tub_evf_groove_end_top: stale origin: origin outside the material; tub_evf_collar_radial: stale origin: origin outside the material; tub_evf_collar_axial: stale origin: origin on the surface; panel_evf_clamp_prong: stale origin: origin outside the material; panel_evf_stop: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "J9_pi_keeper",
+    "parts": [
+     "pi_keeper",
+     "tub"
+    ],
+    "required": [
+     "keeper_finger_kf1",
+     "keeper_finger_kf2",
+     "keeper_finger_kf3",
+     "keeper_finger_kf4",
+     "keeper_arm",
+     "keeper_bridge",
+     "keeper_bar",
+     "tub_keeper_boss_s_k1",
+     "tub_keeper_boss_s_k2",
+     "tub_keeper_boss_s_k2_seam",
+     "tub_pi_boss_0",
+     "tub_pi_boss_1",
+     "tub_pi_boss_2",
+     "tub_pi_boss_3"
+    ],
+    "note": "Pi stack: keeper fingers/arm/bridge/bar, floor bosses",
+    "gated_exceptions": {},
+    "problems": [
+     "keeper_finger_kf1: not measured",
+     "keeper_finger_kf2: not measured",
+     "keeper_finger_kf3: not measured",
+     "keeper_finger_kf4: not measured",
+     "keeper_arm: not measured",
+     "keeper_bridge: not measured",
+     "keeper_bar: not measured",
+     "tub_keeper_boss_s_k1: stale origin: origin outside the material",
+     "tub_keeper_boss_s_k2: stale origin: origin outside the material",
+     "tub_keeper_boss_s_k2_seam: stale origin: origin outside the material",
+     "tub_pi_boss_0: stale origin: origin outside the material",
+     "tub_pi_boss_1: stale origin: origin outside the material",
+     "tub_pi_boss_3: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "keeper_finger_kf1: not measured; keeper_finger_kf2: not measured; keeper_finger_kf3: not measured; keeper_finger_kf4: not measured; keeper_arm: not measured; keeper_bridge: not measured; keeper_bar: not measured; tub_keeper_boss_s_k1: stale origin: origin outside the material; tub_keeper_boss_s_k2: stale origin: origin outside the material; tub_keeper_boss_s_k2_seam: stale origin: origin outside the material; tub_pi_boss_0: stale origin: origin outside the material; tub_pi_boss_1: stale origin: origin outside the material; tub_pi_boss_3: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "J9_stack_stop",
+    "parts": [
+     "hood"
+    ],
+    "required": [
+     "hood_stack_post",
+     "hood_band"
+    ],
+    "note": "parts removed: far-side stack stop post from the hood roof",
+    "status": "info"
+   },
+   {
+    "kind": "joint",
+    "id": "J12_encoder_cradle",
+    "parts": [
+     "panel"
+    ],
+    "required": [
+     "panel_encoder_hook_top",
+     "panel_encoder_hook_side_l",
+     "panel_encoder_hook_side_r",
+     "panel_encoder_hook_tooth_top",
+     "panel_encoder_hook_tooth_left",
+     "panel_encoder_hook_tooth_right"
+    ],
+    "note": "encoder snap cradle: top + 2 side hooks",
+    "gated_exceptions": {},
+    "problems": [
+     "panel_encoder_hook_top: stale origin: origin on the surface",
+     "panel_encoder_hook_side_l: stale origin: origin on the surface",
+     "panel_encoder_hook_side_r: stale origin: origin on the surface",
+     "panel_encoder_hook_tooth_top: stale origin: origin outside the material",
+     "panel_encoder_hook_tooth_left: stale origin: origin outside the material",
+     "panel_encoder_hook_tooth_right: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "panel_encoder_hook_top: stale origin: origin on the surface; panel_encoder_hook_side_l: stale origin: origin on the surface; panel_encoder_hook_side_r: stale origin: origin on the surface; panel_encoder_hook_tooth_top: stale origin: origin outside the material; panel_encoder_hook_tooth_left: stale origin: origin outside the material; panel_encoder_hook_tooth_right: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "J13_grip",
+    "parts": [
+     "base_grip"
+    ],
+    "required": [
+     "grip_column_wall",
+     "grip_front_wall_pad_top",
+     "base_tripod_wall"
+    ],
+    "note": "hand load: grip column, front wall pad, tripod nut wall",
+    "gated_exceptions": {},
+    "problems": [],
+    "status": "pass"
+   },
+   {
+    "kind": "joint",
+    "id": "J13_strap",
+    "parts": [
+     "base_grip"
+    ],
+    "required": [
+     "base_strap_bridge",
+     "base_strap_web",
+     "grip_strap_bar",
+     "grip_heel_slot_end"
+    ],
+    "note": "wrist strap anchors",
+    "gated_exceptions": {},
+    "problems": [
+     "base_strap_bridge: stale origin: origin outside the material",
+     "base_strap_web: stale origin: origin outside the material"
+    ],
+    "status": "fail",
+    "error": "base_strap_bridge: stale origin: origin outside the material; base_strap_web: stale origin: origin outside the material"
+   },
+   {
+    "kind": "joint",
+    "id": "part:carrier",
+    "status": "fail",
+    "error": "load-bearing part carrier is in no CRITICAL_JOINTS entry"
+   },
+   {
+    "kind": "coverage",
+    "part": "tub",
+    "structural_entries": 37,
+    "status": "pass",
+    "error": null
+   },
+   {
+    "kind": "coverage",
+    "part": "panel",
+    "structural_entries": 21,
+    "status": "pass",
+    "error": null
+   },
+   {
+    "kind": "coverage",
+    "part": "hood",
+    "status": "info",
+    "note": "not in PARTS (part removed): no entry needed"
+   },
+   {
+    "kind": "coverage",
+    "part": "base_grip",
+    "structural_entries": 19,
+    "status": "pass",
+    "error": null
+   },
+   {
+    "kind": "coverage",
+    "part": "cap",
+    "structural_entries": 6,
+    "status": "pass",
+    "error": null
+   },
+   {
+    "kind": "coverage",
+    "part": "pi_keeper",
+    "status": "info",
+    "note": "not in PARTS (part removed): no entry needed"
+   },
+   {
+    "kind": "coverage",
+    "part": "lens_collar",
+    "structural_entries": 7,
+    "status": "pass",
+    "error": null
+   },
+   {
+    "kind": "coverage",
+    "part": "carrier",
+    "structural_entries": 0,
+    "status": "fail",
+    "error": "missing coverage: load-bearing part has no structural entry"
+   },
+   {
+    "part": "panel",
+    "id": "antirot_slot_skin",
+    "measured_mm": 0.8,
+    "at": [
+     -122.5,
+     34.2,
+     64.9
+    ],
+    "why": "face skin over the blind 18/24 anti-rotation slot (slot 2.0 deep in the 2.8 wall): it closes the face only; the switching torque bears on the slot side walls through the 1.2 x 2.5 tab. Sample (-122.5, 34.2, 64.9), r2 trial screen. A shallower slot waits for the measured tab height (MEASURED-PARTS).",
+    "kind": "exception",
+    "status": "info"
+   },
+   {
+    "part": "panel",
+    "id": "badge_glyph_ridge",
+    "measured_mm": 0.33,
+    "at": [
+     -23.9,
+     35.0,
+     88.0
+    ],
+    "why": "ridge of face material between 2 engraved strokes of the \"GS8\" badge (0.4 deep, paint-filled); decoration only, no load. Sample (-23.9, 35.0, 88.0), r2 trial screen.",
+    "kind": "exception",
+    "status": "info"
+   },
+   {
+    "part": "hood",
+    "id": "plunger_channel_vent_web",
+    "measured_mm": 1.08,
+    "at": [
+     0.86,
+     9.68,
+     23.8
+    ],
+    "why": "hood front plate: the web between the top of the plunger channel (z 24.7) and the exhaust band slots (z 25.9) is 1.2 nominal, 1.08 at a slot edge; no joint load (the plunger stops on the tub recess). Pre-existing; surfaced when the screen samples moved in the fixer build. Open: lower the channel top 0.2 or raise the band.",
+    "kind": "exception",
+    "status": "info"
+   },
+   {
+    "part": "panel",
+    "id": "exposure_label_glyph_ridge",
+    "measured_mm": 0.3,
+    "at": [
+     -56.01,
+     34.99,
+     35.71
+    ],
+    "why": "face material between engraved strokes of the \"exposure\" label (0.4 deep, paint-filled); decoration.",
+    "kind": "exception",
+    "status": "info"
+   },
+   {
+    "part": "panel",
+    "id": "exposure_label_glyph_ridge_2",
+    "measured_mm": 0.44,
+    "at": [
+     -58.27,
+     34.91,
+     37.04
+    ],
+    "why": "as exposure_label_glyph_ridge (second sample, 2.6 mm away).",
+    "kind": "exception",
+    "status": "info"
+   },
+   {
+    "part": "tub",
+    "id": "stick_rail_lip_tip",
+    "measured_mm": 0.19,
+    "at": [
+     -117.56,
+     7.34,
+     20.18
+    ],
+    "also_at": [
+     [
+      -131,
+      7.5,
+      20.3
+     ],
+     [
+      -127,
+      7.5,
+      20.3
+     ],
+     [
+      -123,
+      7.5,
+      20.3
+     ],
+     [
+      -119,
+      7.5,
+      20.3
+     ],
+     [
+      -115,
+      7.5,
+      20.3
+     ],
+     [
+      -111,
+      7.5,
+      20.3
+     ],
+     [
+      -107,
+      7.5,
+      20.3
+     ],
+     [
+      -103,
+      7.5,
+      20.3
+     ],
+     [
+      -99,
+      7.5,
+      20.3
+     ],
+     [
+      -95,
+      7.5,
+      20.3
+     ]
+    ],
+    "why": "last 0.2-0.8 mm of the 45 deg print lip on the stick floor rail, x -131.5..-94.5 (a chamfer feather, y 5.6..7.65, z 18.4..20.5); the lip root is 2.05 deep. Pre-existing in r1/r2; it surfaced when the screen samples moved (0.19..0.79 in the fixer builds).",
+    "kind": "exception",
+    "status": "info"
+   },
+   {
+    "id": "thin_spot_classification",
+    "part": "load_bearing_parts",
+    "status": "fail",
+    "unclassified_count": 1,
+    "error": "unclassified thin spots require geometry-backed classification",
+    "method": "classification coverage of the sampled secondary thin-wall screen; no threshold waiver"
+   }
+  ],
+  "unclassified_thin_spots": [
+   {
+    "part": "base_grip",
+    "at": [
+     -112.87,
+     -24.96,
+     -6.38
+    ],
+    "t_min": 0.373,
+    "samples": 1,
+    "wall_threshold": 1.2,
+    "nearest_entry": "base_sj_head_floor",
+    "status": "info",
+    "note": "unclassified: owner adds a structural CRITICAL_FEATURES entry or a named NONSTRUCTURAL_EXCEPTIONS entry with at=(x, y, z)"
+   }
+  ]
+ }
+}

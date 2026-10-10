@@ -1,11 +1,13 @@
 """Exact central-rest candidate: rigid, wire, complete carried sweep."""
+from cv_io import read_text, write_text
+import export_cache as EC  # fixup-1 (VN-17): the bound STEP gets a fixed header time
 from pathlib import Path
 import sys,json
 P=Path(__file__).parent;sys.path.insert(0,str(P.parent))
 import cadquery as cq
 import routes as R,fps_geometry as FG,fps_fixed_support_pad_proposal as F,fps_ck1044_mated_carry as W
 from verify_fps_access import V,box,bb,overlaps,digest,tube
-mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(mp.read_text());sh={r['id']:cq.importers.importStep(str(mp.parent/'step'/f"{r['id']}.step")).val() for r in m['rows']};sh.update(FG.switch_parts());cp=P/'out/structural-proposals/reinforced-carrier.step';sh['carrier']=cq.importers.importStep(str(cp)).val();full_rest=F.shelf();import fps_fixed_support_central_wide as Previous
+mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(read_text(mp));sh={r['id']:cq.importers.importStep(str(mp.parent/'step'/f"{r['id']}.step")).val() for r in m['rows']};sh.update(FG.switch_parts());cp=P/'out/structural-proposals/reinforced-carrier.step';sh['carrier']=cq.importers.importStep(str(cp)).val();full_rest=F.shelf();import fps_fixed_support_central_wide as Previous
 rest=full_rest.cut(Previous.shelf());checks=[]
 def check(label,s):
  if not overlaps(bb(rest),bb(s)):return
@@ -31,4 +33,4 @@ for sign in [-1,1]:
   if vol>1e-6:row['bbox_mm']=bb(c);print(json.dumps(row),flush=True)
   checks.append(row)
 result=dict(status='interim proposal; corrected USB and CSI pending',mechanical_manifest_sha256=digest(mp),carrier_sha256=digest(cp),source_sha256={n:digest(P/n) for n in ['verify_fps_contact_pad.py','fps_fixed_support_pad_proposal.py','fps_ck1044_mated_carry.py','fps_geometry.py']},rest=dict(valid=full_rest.isValid(),solids=len(full_rest.Solids()),volume_mm3=full_rest.Volume(),added_contact_material_mm3=rest.Volume(),tub_contact_mm3=sh['tub'].intersect(rest).Volume(),tub_union_valid=u.isValid(),tub_union_solids=len(u.Solids())),checks=checks)
-out=P/'out/fps-service-study';(out/'central-rest-pad-checks.json').write_text(json.dumps(result,indent=2));cq.exporters.export(full_rest,str(out/'central-rest-pad.step'));print(json.dumps(result['rest']),flush=True);print('DONE',sum(q['overlap_mm3']>1e-6 for q in checks),'hits',flush=True)
+out=P/'out/fps-service-study';write_text(out/'central-rest-pad-checks.json',json.dumps(result,indent=2));EC.export_step(full_rest,out/'central-rest-pad.step');print(json.dumps(result['rest']),flush=True);print('DONE',sum(q['overlap_mm3']>1e-6 for q in checks),'hits',flush=True)

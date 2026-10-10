@@ -1,11 +1,12 @@
 """Bound static corrected FPS wires, rest and staged panel/shaft service to exact STEP."""
+from cv_io import read_text, write_text
 from pathlib import Path
 import sys,json,math,time
 P=Path(__file__).parent;sys.path.insert(0,str(P.parent))
 import cadquery as cq
 import routes as R, fps_geometry as FG, fps_ck1044_static as F, fps_fixed_support as FS
 from verify_fps_access import V,box,bb,overlaps,digest,tube,bbox
-mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(mp.read_text());mh=digest(mp)
+mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(read_text(mp));mh=digest(mp)
 sh={row['id']:cq.importers.importStep(str(mp.parent/'step'/f"{row['id']}.step")).val() for row in m['rows']}
 sourcehash={q:digest(P/q) for q in ['verify_fps_fixed_service.py','fps_geometry.py','fps_ck1044_static.py','fps_fixed_support.py','routes.py']}
 sh.update(FG.switch_parts());sh['knob_fps']=FG.knob();support=FS.shelf()
@@ -57,6 +58,6 @@ tools={
  'far_z_jaws':cq.Compound.makeCompound([box([cx-1.5,cx+1.5,6.1,65,b[4]-1.5,b[4]]),box([cx-1.5,cx+1.5,6.1,65,b[5],b[5]+1.5])])}
 for n,s in tools.items():check(n,s,{**fixed,'fps_rest':support},True)
 result=dict(status='diagnostic proposal only',mechanical_manifest_sha256=mh,source_sha256=sourcehash,rest=rr,wire_lengths=f['switch_branch_lengths_mm'],checks=allchecks,limitations=['Mechanical manifest is old export15; corrected switch and local panel modification are separately source-bound proposal','Real nut/washer dimensions and actual fingertip envelope/friction require physical verification','Two forceps are bounding geometric hypotheses, not sourced qualified tools','Connector support and wire deformation during unplug/removal remain unresolved','Other panel wires are not proved by stationary FPS body removal','True two-core fanout, solderlap, receivedterminal numbering/mirror and splice dimensions remain gates'])
-out=P/'out/fps-service-study';(out/'fixed-fps-service-checks.json').write_text(json.dumps(result,indent=2));cq.exporters.export(support,str(out/'fixed-fps-reinforced-rest.step'));cq.exporters.export(cq.Compound.makeCompound(list(wires.values())),str(out/'fixed-fps-wires.step'))
+out=P/'out/fps-service-study';write_text(out/'fixed-fps-service-checks.json',json.dumps(result,indent=2));cq.exporters.export(support,str(out/'fixed-fps-reinforced-rest.step'));cq.exporters.export(cq.Compound.makeCompound(list(wires.values())),str(out/'fixed-fps-wires.step'))
 assert digest(mp)==mh
 print('DONE',sum(bool(q['hits']) for q in allchecks),'failingchecks',flush=True)

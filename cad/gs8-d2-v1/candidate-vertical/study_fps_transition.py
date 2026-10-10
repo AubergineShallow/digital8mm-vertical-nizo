@@ -1,11 +1,12 @@
 """Diagnostic-only rear screw avoidance search; never changes selected routes."""
+from cv_io import read_text, write_text
 import json,hashlib,math
 from pathlib import Path
 import cadquery as cq
 import routes as R
 from verify_fps_access import tube,bb,box,overlaps,digest
-P=Path(__file__).parent;mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(mp.read_text());mh=digest(mp)
-nom=json.loads((P/'routing-snapshots/fps-access-20261009-0402/twenty-one-full-wire-shapes.json').read_text())['shapes'][0]
+P=Path(__file__).parent;mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(read_text(mp));mh=digest(mp)
+nom=json.loads(read_text(P/'routing-snapshots/fps-access-20261009-0402/twenty-one-full-wire-shapes.json'))['shapes'][0]
 branch=nom['lead_200']['branch'];out=P/'out/fps-service-study';out.mkdir(exist_ok=True)
 names=['tub','panel','carrier','p_carrier1','evf_board','switch_1824'];ss={n:cq.importers.importStep(str(mp.parent/'step'/f'{n}.step')).val() for n in names};crop=box([-140,-79,-26,27,25,95])
 ss={n:s.intersect(crop) for n,s in ss.items() if overlaps(bb(s),bb(crop))};ss={n:s for n,s in ss.items() if s.Volume()>1e-8}
@@ -26,4 +27,4 @@ for xx in [-125,-126,-127,-128,-129,-130,-131]:
    if v>1e-6:row['hits'].append(dict(part=n,overlap_mm3=v,bbox_mm=bb(common)))
   row['clearances'].append(dict(part=n,gap_mm=d))
  rows.append(row);print(json.dumps({k:v for k,v in row.items() if k!='curve'}),flush=True)
- (out/'transition-search.json').write_text(json.dumps(dict(diagnostic_only=True,mechanical_manifest_sha256=mh,verification_source_sha256=digest(Path(__file__)),routes_source_sha256=digest(P/'routes.py'),rows=rows),indent=2))
+ write_text(out/'transition-search.json',json.dumps(dict(diagnostic_only=True,mechanical_manifest_sha256=mh,verification_source_sha256=digest(Path(__file__)),routes_source_sha256=digest(P/'routes.py'),rows=rows),indent=2))

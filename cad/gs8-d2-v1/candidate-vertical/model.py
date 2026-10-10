@@ -5,6 +5,7 @@ A separate, non-release design. Baseline modules/data remain untouched on disk.
 The Pi, UPS, cooler and supplied standoffs rotate as a rigid assembly. Purchased
 parts are dimensioned proxies, not measurements. No physical gate is inherited.
 """
+from cv_io import read_text
 from pathlib import Path
 import copy, json, math, sys
 import cadquery as cq
@@ -141,7 +142,7 @@ def candidate_strap_layout():
 def load_corrected_pi():
     import hashlib,json
     folder=Path(__file__).resolve().parent/'out/source-components'
-    meta=json.loads((folder/'pi5-corrected.json').read_text())
+    meta=json.loads(read_text(folder/'pi5-corrected.json'))
     for relative,expected in meta['sources'].items():
         if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()!=expected:
             raise ValueError('Corrected Pi source changed; rerun make_corrected_pi.py: '+relative)
@@ -431,7 +432,7 @@ def _build(storage='compact',lens='kowa_lm6hc'):
     rows['p_grip']=dict(shape=cots.screw(L,sj),kind='hardware',mass=.8,source='PT 3x12 PH1')
     return dict(revision=REV,storage=storage,lens=lens,length=length,width=WIDTH,height=HEIGHT,rows=rows,
                 core_origin=(-length,VG.OUTER_Y,0),ventilation=VG.metadata(length),collar_print_stock=stock,gauge=gauge,fps_geometry=FG.provenance(),pi_source_geometry=OP.provenance(),
-                physical_state='UNQUALIFIED REVIEW CANDIDATE; all 56 inherited physical gates and M1 remain open')
+                physical_state='UNQUALIFIED REVIEW CANDIDATE; every inherited r7 physical gate (r7 out/build-receipt.json hardware_gates) and M1 remain open')
 
 
 def build(storage='compact',lens='kowa_lm6hc'):

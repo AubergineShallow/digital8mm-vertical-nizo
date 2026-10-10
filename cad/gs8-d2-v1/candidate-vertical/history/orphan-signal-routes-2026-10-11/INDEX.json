@@ -1,0 +1,16 @@
+{
+  "task": "FP-10 (VN-28)",
+  "reason": "Orphan route report: no runner or document uses it; it binds power_source_sha256 that matches no tracked file and the superseded revision; replaced by the manifest-bound out/compact-kowa_lm6hc/harness-checks.json (verify_harness_checks.py).",
+  "moved": [
+    {
+      "from": "signal_routes_review.json",
+      "to": "history/orphan-signal-routes-2026-10-11/signal_routes_review.json",
+      "sha256": "c21423131a580a5ee543176ce66dde6f265ce3adcc4c5a577a21176a5e4aba72"
+    }
+  ],
+  "recorded_bindings": {
+    "power_source_sha256": "3b7db74acf7f0e24f77764dd91872b91c30dbb346ee7b77f14f03db73ef2722a",
+    "source_geometry_sha256": "56ea22ba23d160349eaf589bd995d24d880a1683a6ba88a113291e7882c546b2"
+  },
+  "revision": "signal-reconciliation-2026-10-09-v2-rigid-fps-angled-csi"
+}

@@ -5,6 +5,7 @@ RP-010083-CA-1 STEP. Component identity comes from manufacturer silkscreen, not
 an invented connector SKU. Preserve the manufacturer's LICENSE.txt with copies.
 Bare connector geometry does not define the cable stiffener or latch travel.
 """
+from cv_io import read_text
 from pathlib import Path
 import hashlib,json,itertools
 import cadquery as cq
@@ -30,7 +31,7 @@ def place(shape,native_board_z=0,local_board_z=18.5,stack_y=22.2):
                  .translate(cq.Vector(-34,stack_y-local_board_z+native_board_z,63)))
 
 def load_native():
-    meta=json.loads((SOURCE/'connector-extraction.json').read_text())
+    meta=json.loads(read_text(SOURCE/'connector-extraction.json'))
     if meta['source_step_sha256']!=OFFICIAL_STEP_SHA256:raise ValueError('Unexpected official STEP')
     if meta['max_main_hole_residual_mm']>1e-6:raise ValueError('Official board registration did not match source holes')
     out={}
@@ -51,7 +52,7 @@ def conservative_envelopes(stack_y=22.2):
     pads1.336 registrations lie within this wider0.324mm bracket. This changes
     connector reservation only, never the stack/pogo/standoff datum.
     """
-    meta=json.loads((SOURCE/'connector-extraction.json').read_text());out={}
+    meta=json.loads(read_text(SOURCE/'connector-extraction.json'));out={}
     for name,row in meta['components'].items():
         b=row['native_bbox_mm'];pts=[]
         for point in itertools.product(*[b[i:i+2] for i in (0,2,4)]):

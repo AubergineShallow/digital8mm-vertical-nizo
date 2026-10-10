@@ -9,6 +9,7 @@ make the body appear to fit. build() is JSON serializable and has no file writes
 
 X lensward; Y operator-left; Z up. The parent model owns printed geometry.
 """
+from cv_io import read_text, write_text
 from pathlib import Path
 import copy
 import importlib.util
@@ -229,11 +230,11 @@ def source_obstacles(length, stack_y=22.2, evf_shift_y=11, power_button=True, pa
     f=L.COTS['pi5']['features'];x0,x1=L.PI['x'];y0,y1=L.PI['y']
     add('pi_pcb',f['pcb'],roll);add('pi_underside',B(x0+6.5,x1-6.5,y0+6.5,y1-6.5,16,18.5),roll)
     source=Path(__file__).resolve().parent/'routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources'
-    portdata=json.loads((source/'port-landmarks.json').read_text())['objects']
+    portdata=json.loads(read_text(source/'port-landmarks.json'))['objects']
     transform=lambda p:[-34-p[0],stack_y-18.5-p[2],63-p[1]]
     for name,row in portdata.items():
         q=row['bbox_native_mm'];add('pi_'+name,B(*q),transform)
-    csi=json.loads((source/'connector-extraction.json').read_text())['components']
+    csi=json.loads(read_text(source/'connector-extraction.json'))['components']
     for name,row in csi.items():add('pi_'+name,B(*row['native_bbox_mm']),transform)
     add('ups_pcb',L.COTS['x1203']['features']['pcb'],roll)
     add('ups_pogo',B(x1-58,x1-7,y0+.5,y0+5,7.6,16),roll)
@@ -858,5 +859,5 @@ if __name__=='__main__':
     import argparse
     ap=argparse.ArgumentParser();ap.add_argument('--length',type=float,default=158);ap.add_argument('--output',type=Path)
     a=ap.parse_args();result=build(a.length);data=json.dumps(result,indent=2)
-    if a.output:a.output.write_text(data+'\n')
+    if a.output:write_text(a.output,data+'\n')
     else:print(data)

@@ -2,6 +2,7 @@
 No own-root contacts, retained guides, connector latch, or physical loads are waived.
 Run only through ../run_locked.py, using the pinned CAD interpreter.
 """
+from cv_io import read_text, write_text
 import argparse, hashlib, json, math, time
 from pathlib import Path
 import cadquery as cq
@@ -38,7 +39,7 @@ def tube(c,od):
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--variant',default='compact-kowa_lm6hc');ap.add_argument('--snapshot',default='fps-access-20261009-0402');ap.add_argument('--poses',default='all');ap.add_argument('--label',default='saved-fps');ap.add_argument('--allow-invalid-diagnostic',action='store_true');a=ap.parse_args()
- sd=ROOT/'routing-snapshots'/a.snapshot;mp=ROOT/'out'/a.variant/'manifest.json';mh=digest(mp);m=json.loads(mp.read_text());sm=json.loads((sd/'manifest.json').read_text());src=sd/'twenty-one-full-wire-shapes.json';data=json.loads(src.read_text())
+ sd=ROOT/'routing-snapshots'/a.snapshot;mp=ROOT/'out'/a.variant/'manifest.json';mh=digest(mp);m=json.loads(read_text(mp));sm=json.loads(read_text(sd/'manifest.json'));src=sd/'twenty-one-full-wire-shapes.json';data=json.loads(read_text(src))
  for n,h in sm['files'].items():
   if digest(sd/n)!=h:raise ValueError('Snapshot hash mismatch: '+n)
  stale_sources=[n for n,h in m['sources'].items() if digest(ROOT.parent/n)!=h]
@@ -61,7 +62,7 @@ def main():
   print('Loaded/cropped',n,flush=True)
  result=dict(status='running',physical_qualified=False,mechanical_input_acceptable=not(stale_sources or invalid_rows),stale_sources=stale_sources,invalid_printed_rows=invalid_rows,diagnostic_only=a.allow_invalid_diagnostic,source_sha256=digest(Path(__file__)),snapshot_sha256=digest(src),snapshot_manifest_sha256=digest(sd/'manifest.json'),mechanical_manifest_sha256=mh,mechanical_built_utc=m.get('built_utc'),mechanical_sources=m['sources'],step_sha256=step_hashes,wire_representation='Exact cylinders and circular corner arcs swept at nominal full wire OD, planar end faces; no endpoint waivers.',checks=[],access_studies=[],remaining_gates=['Actual PH purchased geometry, two housings, key and latch orientation, separation stroke and root datums','Support carried through all poses without traction on crimp wires; no supported carrier geometry is present','Printed guide attachment, release and retention absent','Other moving panel wires and complete full-width camera FPC service states','Tolerances, material bend strain and fatigue, real tool jaw dimensions and grip force','Electrical isolation and physical assembly/disassembly trial'])
  out=ROOT/'out'/'fps-service-study';out.mkdir(exist_ok=True);dest=out/f'{a.label}-checks.json'
- def save():dest.write_text(json.dumps(result,indent=2))
+ def save():write_text(dest,json.dumps(result,indent=2))
  indices=list(range(len(data['shapes']))) if a.poses=='all' else [int(v) for v in a.poses.split(',')]
  exact=0
  for i in indices:

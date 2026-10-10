@@ -3,12 +3,15 @@ The inherited upper free body excludes the lower grip/battery hardware. Only
 upper tub/panel may change, so transfer their first-moment change from complete
 assembly manifests. Refuse if any other manifest row changes.
 """
+import sys as _cvsys; _cvsys.path.append(str(__import__('pathlib').Path(__file__).resolve().parents[1]))  # candidate-vertical root: cv_io
+from cv_io import read_text, rel_posix, write_text
+import evidence_rules as ER  # FP-04: numeric row tolerance (VN-06) and the inherited gate count from its source (VN-08)
 from pathlib import Path
 import argparse, hashlib, json, math
 P=Path(__file__).resolve().parent; C=P.parent
 
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
-def read(p): return json.loads(p.read_text())
+def read(p): return json.loads(read_text(p))
 def make():
     oldpath=C/'history/reviewed-export18/manifest.json'; newpath=C/'out/compact-kowa_lm6hc/manifest.json'
     refpath=P/'reference-export18-structural-binding.json'
@@ -16,7 +19,7 @@ def make():
     assert sha(oldpath)==ref['manifest_sha256'], 'Reference structural binding is not export18'
     a={r['id']:r for r in old['rows']}; b={r['id']:r for r in new['rows']}
     assert a.keys()==b.keys(), 'Changed component inventory needs a new free body'
-    changed=[k for k in a if a[k]!=b[k]]
+    changed=ER.changed_rows(a,b)  # numbers within max(ER.ABS_TOL, ER.REL_TOL*|x|); ids, kinds, sources and other strings exact
     assert set(changed)<= {'tub','panel'}, f'Unexpected changed components: {changed}'
     oldup=ref['integrated_upper_body_screen']; oldloads=ref['integrated_comparison_loads']
     delta_mass=new['mass_est_g']-old['mass_est_g']; um=oldup['estimated_mass_g']+delta_mass
@@ -27,27 +30,36 @@ def make():
     gf=new['mass_est_g']/1000*g*5; gm=gf*(uc[2]+55); grip_ratio=gm/oldloads['grip_moment_Nmm']
     wire=ref['unresolved_wiring_mass_sensitivity']['added_5g_moment_Nmm']
     coupon=(floor+wire)/2000; proposed=math.ceil(coupon*20)/20
+    # FP-12 (VN-33): the same transfer per variant (check_scope.j4_screen refuses a variant whose lower free-body rows
+    # change); the stated screen is the one that covers every valid variant.
+    import check_scope as CS
+    per={mp.parent.name:dict(CS.j4_screen(ref,old,read(mp),ER.changed_rows),manifest_sha256=sha(mp)) for mp in sorted((C/'out').glob('*/manifest.json')) if 'storage' in read(mp)}
+    env=CS.j4_envelope(per)
+    assert abs(per['compact-kowa_lm6hc']['equal_share_plus_wiring_Nm']-coupon)<1e-12 and CS.J4_COMPACT_SCREEN_NM==proposed, 'per-variant J4 screen disagrees with the compact calculation'
     vent_report='shadow-plenum-checks.json' if 'shadow' in new.get('ventilation',{}).get('revision','').lower() else 'ventilation-checks.json'
     vp=C/'out/compact-kowa_lm6hc'/vent_report; vr=read(vp) if vp.exists() else {}
+    gates=ER.inherited_gates(C)
     out={
       'method':'CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification',
       'manifest_sha256':h,'built_utc':new['built_utc'],'verification_source_sha256':sha(Path(__file__)),
       'reference_manifest_sha256':sha(oldpath),'reference_structural_binding_sha256':sha(refpath),
       'changed_manifest_rows':changed,'unchanged_manifest_rows_checked':len(a)-len(changed),
+      'row_comparison':{'numeric_abs_tol':ER.ABS_TOL,'numeric_rel_tol':ER.REL_TOL,'rule':'numbers equal within max(abs_tol, rel_tol*max(|a|,|b|)); ids, kinds, sources, other strings and bools exact'},
+      'inherited_gates':gates,
       'geometry_scope':'All non-tub/panel manifest rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.',
-      'ventilation_report':{'path':str(vp.relative_to(C)), 'sha256':sha(vp) if vp.exists() else None,'same_manifest':vr.get('manifest_sha256')==h,'summary':vr.get('summary')},
+      'ventilation_report':{'path':rel_posix(vp,C), 'sha256':sha(vp) if vp.exists() else None,'same_manifest':vr.get('manifest_sha256')==h,'summary':vr.get('summary')},
       'assembly':{'reference_mass_g':old['mass_est_g'],'current_mass_g':new['mass_est_g'],'delta_mass_g':delta_mass,'delta_mass_percent':delta_mass/old['mass_est_g']*100,'com_mm':new['com_est_mm'],'manifest_mesh_dimensions_mm':new['complete_dimensions_mm'],'core_dimensions_mm':new['core_dimensions_mm']},
       'printed':{k:{'reference_proxy_mass_g':a[k]['mass_est_g'],'current_proxy_mass_g':b[k]['mass_est_g'],'delta_volume_mm3':b[k]['volume_mm3']-a[k]['volume_mm3']} for k in ['tub','panel']},
       'upper_body':{'mass_g':um,'com_mm':uc,'force_5g_N':um/1000*g*5,'floor_moment_5g_Nmm':floor,'moment_change_percent':(floor_ratio-1)*100,'lip_stress_MPa':oldup['lip_stress_MPa']*floor_ratio,'head_wing_stress_MPa':oldup['head_wing_stress_MPa']*floor_ratio,'unequal_station_sharing_multiplier':[0.6,1.4]},
       'grip':{'force_5g_N':gf,'load_point_z_mm':uc[2],'hand_plane_z_mm':-55,'moment_Nmm':gm,'moment_change_percent':(grip_ratio-1)*100,'nominal_stress_x_y_MPa':[v*grip_ratio for v in oldloads['grip_nominal_stress_x_y_MPa']]},
       'carrier':{'payload_g':oldloads['carrier_payload_g'],'reinforced_screen':oldloads['carrier_reinforced_at_integrated_payload'],'reason':'Carried inventory and all carrier/payload manifest rows unchanged; added tub/panel material is fixed housing, not carrier payload.'},
-      'coupon_load':{'wiring_mass_sensitivity_g':12,'wiring_upper_height_mm':100,'added_5g_moment_Nmm':wire,'equal_share_plus_wiring_Nm':coupon,'proposed_rounded_equal_share_screen_Nm':proposed,'seventy_percent_share_plus_wiring_Nm':(floor+wire)*.7/1000,'old_0_90_Nm_covers_equal_share_plus_wiring':.9>=coupon,'warning':'Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified.'},
+      'coupon_load':{'wiring_mass_sensitivity_g':12,'wiring_upper_height_mm':100,'added_5g_moment_Nmm':wire,'equal_share_plus_wiring_Nm':coupon,'proposed_rounded_equal_share_screen_Nm':proposed,'seventy_percent_share_plus_wiring_Nm':(floor+wire)*.7/1000,'old_0_90_Nm_covers_equal_share_plus_wiring':.9>=coupon,'all_variants_screen_Nm':env['all_variants_screen_Nm'],'governing_variant':env['governing_variant'],'compact_screen_covers':env['compact_screen_covers'],'per_variant':{v:{k:r[k] for k in ('valid','changed_rows','added_rows','upper_mass_g','floor_moment_5g_Nmm','equal_share_plus_wiring_Nm','seventy_percent_share_plus_wiring_Nm','proposed_rounded_equal_share_screen_Nm','manifest_sha256') if k in r} for v,r in per.items()},'warning':'Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified.'},
       'material_sensitivity':{'E_MPa':[800,1600,2400],'deflection_multiplier_relative_to_1600':[2,1,2/3],'normal_strength_scenarios_MPa':[5,10,20,30],'not_allowables':True,'notches_creep_fatigue_impact_excluded':True},
       'physical_qualified':False}
     ass=out['assembly'];up=out['upper_body'];gr=out['grip'];car=out['carrier'];cl=out['coupon_load']; dims=ass['manifest_mesh_dimensions_mm']; cg=ass['com_mm']
     text=f'''# Concealed vent structural supplement
 
-This supplement updates mass and quasi-static load sensitivity for the selected shadow-plenum compact Kowa candidate. It uses the retained export18 section models and the current manifest. It is not FEA, a drop rating, a physical strength result, or permission to print/energize. All 56 inherited physical gates and M1 remain open.
+This supplement updates mass and quasi-static load sensitivity for the selected shadow-plenum compact Kowa candidate. It uses the retained export18 section models and the current manifest. It is not FEA, a drop rating, a physical strength result, or permission to print/energize. All {gates['open']} inherited physical gates and M1 remain open.
 
 **PRINT HOLD:** the front mouth removes the frame beneath the first roof layer over Z5..40. The nominal 10.7 mm distance is not a two-ended supported span in that band; raster direction may require about 35 mm bridging. The expanded coupon includes this region, but slicer paths, bridge behavior and closed-body cleanout remain unqualified. Geometry is frozen for review, not released for printing.
 
@@ -82,6 +94,8 @@ The carrier payload remains {car['payload_g']:.2f} g because the added material 
 
 The old 0.90 N·m per-front-joint coupon target {'still covers' if cl['old_0_90_Nm_covers_equal_share_plus_wiring'] else 'does not cover'} the new equal-share floor moment plus the retained 12 g-at-Z100 wiring-location sensitivity. The calculated minimum is {cl['equal_share_plus_wiring_Nm']:.4f} N·m; use {cl['proposed_rounded_equal_share_screen_Nm']:.2f} N·m as the rounded proposed equal-share screening target after fixture review. A 70% station reaction with that same wiring sensitivity would be {cl['seventy_percent_share_plus_wiring_Nm']:.4f} N·m and is a separate unqualified case. Existing C08/C09 geometry can screen the retained local mating surfaces; it omits the rear joint, independent lock and full tub. Do not turn a local coupon result into a whole-camera rating.
 
+Variant coverage (FP-12, VN-33). The same first-moment transfer applies to every exported variant whose lower grip/battery rows are unchanged; {sum(r['valid'] for r in cl['per_variant'].values())} of {len(cl['per_variant'])} qualify{'' if all(r['valid'] for r in cl['per_variant'].values()) else ' (' + ', '.join(v for v,r in cl['per_variant'].items() if not r['valid']) + ' need a new free body)'}. Equal-share plus wiring targets: {'; '.join('{} {:.4f} N·m (70% share {:.4f} N·m)'.format(v,r['equal_share_plus_wiring_Nm'],r['seventy_percent_share_plus_wiring_Nm']) for v,r in cl['per_variant'].items() if r['valid'])}. The {CS.J4_COMPACT_SCREEN_NM:.2f} N·m compact value covers {', '.join(v for v,ok in cl['compact_screen_covers'].items() if ok) or 'no variant'} and does not cover {', '.join(v for v,ok in cl['compact_screen_covers'].items() if not ok) or 'none'}. Use {cl['all_variants_screen_Nm']:.2f} N·m (governed by {cl['governing_variant']}) as the rounded equal-share screen that covers every variant. The 70% cases remain separate unqualified cases.
+
 ## Print material and thermal implications
 
 Retain the current broad-face starting poses and 0.20 mm layer baseline: tub −Y face down, panel/carrier +Y face down, grip +Z top down and collar +X front down. The selected 1.6 mm skin and support posts, 6 mm plenum gap, divider and CSI sleeve change toolpath transitions, warping and local cooling; they do not establish greater shell stiffness or printability. The retained 2.5 mm inner wall forms a roof over the plenum in this print pose. Its spans around post exclusions and ports require section coupons, contiguous toolpaths, bridge/sag inspection and verified cleanout. Concealment of broadside grilles does not establish a self-supporting roof.
@@ -98,6 +112,6 @@ if __name__=='__main__':
     if args.check: assert d['ventilation_report']['same_manifest'], 'Ventilation report does not bind the selected manifest'
     outputs={'concealed-vent-structural.json':json.dumps(d,indent=2)+'\n','CONCEALED-VENT-STRUCTURAL.md':t}
     for n,content in outputs.items():
-        if args.check: assert (P/n).read_text()==content, f'Stale structural output: {n}'
-        else: (P/n).write_text(content)
+        if args.check: assert read_text(P/n)==content, f'Stale structural output: {n}'
+        else: write_text(P/n,content)
     print(json.dumps({'manifest_sha256':d['manifest_sha256'],'mass_delta_g':d['assembly']['delta_mass_g'],'coupon_load':d['coupon_load'],'physical_qualified':False},indent=2))

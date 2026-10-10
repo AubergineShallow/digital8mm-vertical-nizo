@@ -1,11 +1,12 @@
 """Mechanical reservations from frozen provisional power routing. Physical gates remain open."""
+from cv_io import read_text
 import json,math
 from pathlib import Path
 from functools import lru_cache
 import cadquery as cq
 V=cq.Vector
 SOURCE=Path(__file__).parent/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json'
-DATA=json.loads(SOURCE.read_text())
+DATA=json.loads(read_text(SOURCE))
 def cylinder(a,b,r):
  a=V(*a);d=V(*b)-a;return cq.Solid.makeCylinder(r,d.Length,a,d.normalized())
 def ball(p,r):

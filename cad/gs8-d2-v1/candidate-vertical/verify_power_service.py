@@ -1,12 +1,13 @@
 """Saved-STEP check of closed-body, cap-off rigid battery-junction withdrawal.
 Full flexible harness deformation, finger force, electrical isolation and hot-load gates stay open.
 """
+from cv_io import read_text, write_text
 import json,math,hashlib,argparse
 from pathlib import Path
 import cadquery as cq
 P=Path(__file__).parent
 ap=argparse.ArgumentParser();ap.add_argument('--variant',default='compact-kowa_lm6hc');a=ap.parse_args();out=P/'out'/a.variant
-src=P/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json';snap=json.loads(src.read_text());mf=out/'manifest.json';manifest_hash=hashlib.sha256(mf.read_bytes()).hexdigest();m=json.loads(mf.read_text())
+src=P/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json';snap=json.loads(read_text(src));mf=out/'manifest.json';manifest_hash=hashlib.sha256(mf.read_bytes()).hexdigest();m=json.loads(read_text(mf))
 r={x['id']:x for x in m['rows']};sh={}
 for n in r:
  f=out/'step'/f'{n}.step';actual=hashlib.sha256(f.read_bytes()).hexdigest()
@@ -38,4 +39,4 @@ for i,p in enumerate(snap['rigid_service_poses']):
   if v>.02:hits.append(dict(pose=i,mover='junction',fixed='moving_pack',overlap_mm3=v))
 if hashlib.sha256(mf.read_bytes()).hexdigest()!=manifest_hash:raise ValueError('Manifest changed during verification')
 result=dict(status='pass' if not hits else 'fail',poses=len(snap['rigid_service_poses']),exact_intersections=count,hits=hits,body='closed; cap removed before withdrawal',source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),snapshot_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),manifest_sha256=manifest_hash,physical_qualified=False,remaining_stop=['Full270mm flexible-core deployment and retention','Unmeasured pad and pin exits','Finger grip and unplug force','Hot voltage drop and fuse/contact heating','Printed attachment strength and wear'])
-(out/'power-service-checks.json').write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True);raise SystemExit(bool(hits))
+write_text(out/'power-service-checks.json',json.dumps(result,indent=2));print(json.dumps(result),flush=True);raise SystemExit(bool(hits))

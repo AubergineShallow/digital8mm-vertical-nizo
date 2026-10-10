@@ -1,0 +1,298 @@
+{
+ "about": "Tracked text files whose committed bytes contain CR. Frozen: r7-inherited entries must stay byte-identical to the r7 release commit; vendor-verbatim entries keep the manufacturer bytes that manifests bind by SHA-256. Rewriting them would break those bindings. Every other tracked text file must be CR-free (FP-01, VN-01).",
+ "r7_commit": "d38468e58eb2b02d56743e2e0cfdd8f780818a65",
+ "files": {
+  "audit/d2-readiness-2026-10-04/artifact-audit.json": {
+   "blob_sha1": "392fcfa9c1cb595266bfa0873ed8d8999de4946a",
+   "reason": "r7-inherited"
+  },
+  "audit/d2-readiness-2026-10-05-r3/artifact-audit.json": {
+   "blob_sha1": "7d67ceea7a794b9a86a5197968ccc69da6417044",
+   "reason": "r7-inherited"
+  },
+  "audit/d2-readiness-2026-10-05-r3/r3-logic-audit.json": {
+   "blob_sha1": "54d84735d941c7e2d2075aa8704f61a6fe22fde1",
+   "reason": "r7-inherited"
+  },
+  "audit/d2-readiness-2026-10-05/artifact-audit.json": {
+   "blob_sha1": "5febdb1b56fcb7e73d8fab582c23100310759539",
+   "reason": "r7-inherited"
+  },
+  "audit/d2-readiness-2026-10-05/evidence-logic-audit.json": {
+   "blob_sha1": "fc5132e33869502f19d25c3419beb22ddccba53a",
+   "reason": "r7-inherited"
+  },
+  "audit/d2-readiness-2026-10-06/artifact-audit.json": {
+   "blob_sha1": "4651a8e43e349e4c0c741e9aea5c26c8b249728c",
+   "reason": "r7-inherited"
+  },
+  "audit/d2-readiness-2026-10-06/logic-audit.json": {
+   "blob_sha1": "54042e2dbeec1eed0b94ef9f49f9c8d1c2308b04",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/buoyancy.json": {
+   "blob_sha1": "09db4f183152de4bb60b456117c522a806b7e38e",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/metrics-2.0-finaxis.json": {
+   "blob_sha1": "3f18f90d33589cee21d519a63d5dbd244d767e21",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/metrics-2.0-pass1-10k.json": {
+   "blob_sha1": "4853e7dbc4c45164b36d49b013a9e9eb3486bd58",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/network.json": {
+   "blob_sha1": "0c50b95617e87fbb56d82104b87747676d698cb8",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/network.md": {
+   "blob_sha1": "736422809bbfe147c826f435421af1d2c95974a8",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/run-2.0-finaxis.stdout": {
+   "blob_sha1": "1e74948ec7f69711a0d5ccf302ac9853ecde42e5",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/run-2.0.stdout": {
+   "blob_sha1": "c86869d6836528ffe143f2cedd1a792b30a8da46",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/tests/bench.json": {
+   "blob_sha1": "0edcce03a64148713a69397d038fd6b79a59addd",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/tests/bench_converge_150000.json": {
+   "blob_sha1": "e8509e3dedae9fe9eb67f3ea05abdb9a85fcfca7",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/tests/test_lbm.json": {
+   "blob_sha1": "9a240222631601f5edff9ae0f628164c1af2facd",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/tests/test_thermal.json": {
+   "blob_sha1": "7375db03dc2207e582e78ff6e520e9c96d190616",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/variants/domain-edits.json": {
+   "blob_sha1": "bc5bfcf2b09e53855c1d8ad2b5d85519d24faa0b",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/variants/metrics-variants.json": {
+   "blob_sha1": "b28291822159ce4a3e4731bb09ddd02bfd268d66",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/out/variants/soc-length-basis.json": {
+   "blob_sha1": "58d49ad9ae6f8ce02a0097e1190318eb7620e9c0",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/params.json": {
+   "blob_sha1": "e4ead067a13bd8570a1d2aee44a3934b0effa5e6",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/airflow/run_airflow.py": {
+   "blob_sha1": "74377f07c757ff483200ed1d83d8deb0c4cd69ac",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/STUDY-base-cap.md": {
+   "blob_sha1": "8dc3dea23f728c07fbb1455d367905c923676ecf",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/_cmp_build.py": {
+   "blob_sha1": "12c620e03389726c75cedc013cfa9702b05b6c7c",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/_study42.py": {
+   "blob_sha1": "2f643c97a744348189d2a73aa2c1fee6d7a26a1d",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/estimates/opts.py": {
+   "blob_sha1": "ba009d3c7caec568e05f6a4e84f00d6af687b422",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/estimates/opts2-output.txt": {
+   "blob_sha1": "d107761de358ec5a1fd12d985effc69378503981",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/fr1_validation.py": {
+   "blob_sha1": "a7cfa14f5b3efaeee9202f076c4032627ceeddf1",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/layout.py": {
+   "blob_sha1": "ec6917c2101ed56eae0ee1a975940823d7bdf701",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/make_coupons.py": {
+   "blob_sha1": "bd606317685ce14599bff3531623374262e6786a",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/preview/mesh-export-report.json": {
+   "blob_sha1": "241518597f7aac9df42bba7573e2ed6e579a36f9",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-fr1/render_fr1.py": {
+   "blob_sha1": "3dc28e37ca6fcb4361c774b8b36fa147f6415291",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": {
+   "blob_sha1": "c3d8922e10ad7a2578b678bb29238e03c5a4745e",
+   "reason": "vendor-verbatim"
+  },
+  "cad/gs8-d2-v1/guide/build_guide.py": {
+   "blob_sha1": "785598d2a55c93716eaec288eea8a0af86d9aa45",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/guide/diagrams.py": {
+   "blob_sha1": "89df0da1b4e1ea3ae21cb02b7d6b17d507aa20bb",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/guide/guide_steps.py": {
+   "blob_sha1": "84d908d3307450ff26279e1c7d915d945fb80bdf",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/guide/out/artifact.html": {
+   "blob_sha1": "f93d972f8a60b79e63f00ba12affaec845205b8d",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/guide/out/guide-data.json": {
+   "blob_sha1": "9144165948f31966cc100f5c8ab7db1e05e93f22",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/guide/out/index.html": {
+   "blob_sha1": "071fd7e1c88f616ce565d1e9ca7e960512998e75",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/out/coupons-manifest.json": {
+   "blob_sha1": "2d6cdf5b8d75c80db81d337e732daaac7ad36b2c",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/out/test_common.json": {
+   "blob_sha1": "2f00df6b2bacbc63463850d65903b21a12278f35",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/r7-blockers/PLAN.md": {
+   "blob_sha1": "3526e69cb3bd8d706f5a3b5d26cfc0d4a8bd4170",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/r7-blockers/SPEC-C1.md": {
+   "blob_sha1": "8eaf64606b37232d38a864ca6d00d60180599e16",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/r7-blockers/SPEC-C2.md": {
+   "blob_sha1": "b537f4a1f198eebac1da4b08dffdefab13365507",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/cloud-polish/ADOPTION-COPY-LOG.txt": {
+   "blob_sha1": "1d89b33699be7f99871fdce42e08973b00f2b1b3",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/cloud-polish/desktop-adoption-audit.json": {
+   "blob_sha1": "5b3c1a3c9b2122f628f3cafc04ae6617c94366ac",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/design_1.md": {
+   "blob_sha1": "0789aeae1305e56bc495fdd0caee6e767ed986b6",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/dossier_external.md": {
+   "blob_sha1": "5046df088dfbdb2c81510d613a982cbda43a4882",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/judge_3.md": {
+   "blob_sha1": "fd1bfc4a1cac1862f625adaed63bef554324ef3e",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/d3_loads.json": {
+   "blob_sha1": "9de9207d38a973f71027304fcfa8c9ef036ff59f",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/d3_plate.json": {
+   "blob_sha1": "d399d7778cbcb6370dc3227725c7a9ef8a9653d6",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/d3_plate2.json": {
+   "blob_sha1": "4bf3b9f86ff41f3b6a86ff9aa578ea4cf20ded96",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/d3_plate3.json": {
+   "blob_sha1": "64fa03791e8ff01816ae89eedaf9b8d6c15dee4a",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/d3_probe_d2.json": {
+   "blob_sha1": "a5031a1487239bf6a1d43e5150b9de5e9a96b910",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/d3_probe_xf2.5.json": {
+   "blob_sha1": "ac643660778694f4976afd92829e726412e10a56",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/probe2.json": {
+   "blob_sha1": "5a129a52452ea43f0fa1d274391034208ca32439",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/probe_d2.json": {
+   "blob_sha1": "cba43ce3a5c5aa65085be88d0f8a2705301f3af4",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/probes/probe_d2_lib.py": {
+   "blob_sha1": "378cf1c0c2538178be4709029051b313aaa6b843",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/specs_j1_j3.txt": {
+   "blob_sha1": "b026c13f8010672536bbdc06ba4705eb452afe3e",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-d2-v1/research/r5-lens-support/verify/p_integrity.json": {
+   "blob_sha1": "cdce7bd0d7910b37dde08f6973db368c9506a814",
+   "reason": "r7-inherited"
+  },
+  "cad/gs8-pxl-v3/cad-requirements-lock.txt": {
+   "blob_sha1": "e806fb12121d8127f1656c192f90d643b3ceed89",
+   "reason": "r7-inherited"
+  },
+  "outputs/bom-release-2026-09-25/prices.json": {
+   "blob_sha1": "d8d983402e4a54e73f935e8c2e694100a8b8d633",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/gs8_camera_evf/hardware_cli.py": {
+   "blob_sha1": "1b57ffe199e784b2001be89d1e0bf05811b3bdae",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/gs8_camera_evf/power.py": {
+   "blob_sha1": "2db8269ffc79caea5465f49390ed5b08b5daba0e",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/tests/test_audit_regressions.py": {
+   "blob_sha1": "4a4a28442d8c4c3251ac9725a7961b748e9d3a41",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/tests/test_controller.py": {
+   "blob_sha1": "9531c9b9f61d2e38c826f177670407f86d0cb991",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/tests/test_controls.py": {
+   "blob_sha1": "f6a5ef402151e3b8c3cc108209c4ebf3fb69b686",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/tests/test_end_to_end.py": {
+   "blob_sha1": "3cd2f704bd1b85768533573a08404df0fb919052",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/tests/test_power.py": {
+   "blob_sha1": "d023ad5b8899bb5d9a438b3d66f4a4950b4207f9",
+   "reason": "r7-inherited"
+  },
+  "software/gs8-camera-evf/tests/test_storage.py": {
+   "blob_sha1": "24a8cea53d30afde82c2677626587c731b4ac894",
+   "reason": "r7-inherited"
+  },
+  "validation/rebuilt-cad-integrity-local.json": {
+   "blob_sha1": "b703664f0b4b6ecceded57de3080baa4fe0fcb8e",
+   "reason": "r7-inherited"
+  },
+  "validation/rebuilt-cad-integrity.json": {
+   "blob_sha1": "e35ca8de31bc4cdcaf326b197fd240456a5592b0",
+   "reason": "r7-inherited"
+  }
+ }
+}

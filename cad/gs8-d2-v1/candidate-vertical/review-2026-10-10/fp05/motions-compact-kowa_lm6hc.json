@@ -1,0 +1,2723 @@
+{
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "verification_source_sha256": "ef0d56f1ac2210038cb8cf1dcc73de503242349f36e128e03e4c2b9f8d07255e",
+  "state_model_sha256": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+  "scope": "motion,assembly_state",
+  "variant": "compact-kowa_lm6hc",
+  "summary": {
+    "pass": 185,
+    "fail": 7,
+    "info": 14
+  },
+  "checks": [
+    {
+      "category": "integrity",
+      "id": "pi5",
+      "status": "pass",
+      "solids": 149,
+      "volume_mm3": 24187.427381756304,
+      "step_sha256": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "pi5",
+      "status": "pass",
+      "volume_delta_mm3": -1.9281287677586079e-10
+    },
+    {
+      "category": "integrity",
+      "id": "cooler",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 19363.802004962905,
+      "step_sha256": "d8667135f613b14a18dee538af6bdddba441960c06b88ab94b370e033b01ac2a",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "cooler",
+      "status": "pass",
+      "volume_delta_mm3": 4.001776687800884e-11
+    },
+    {
+      "category": "integrity",
+      "id": "x1203",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 12836.75646328851,
+      "step_sha256": "63be4fea114078bc3227561ee2a8063de1ecec590daf5656eb8937b29531d891",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "x1203",
+      "status": "pass",
+      "volume_delta_mm3": -1.6370904631912708e-11
+    },
+    {
+      "category": "integrity",
+      "id": "x1203_kit",
+      "status": "pass",
+      "solids": 4,
+      "volume_mm3": 1355.9859958462825,
+      "step_sha256": "ef27a3bb35a32ef853c46ede234661278bf20ffbd2f9c9d06b3782670bc47a45",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "x1203_kit",
+      "status": "pass",
+      "volume_delta_mm3": -7.307789928745478e-10
+    },
+    {
+      "category": "integrity",
+      "id": "gs_camera",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 21799.127215194538,
+      "step_sha256": "2aa0131ac90be90d66494049e535f608998bd701442858272d01cb83ccf4ca6f",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "gs_camera",
+      "status": "pass",
+      "volume_delta_mm3": 6.548361852765083e-11
+    },
+    {
+      "category": "integrity",
+      "id": "c_cs_adapter",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 1159.6894756415702,
+      "step_sha256": "5a49c23b7ce3869e1b27d70effc70127d7e83aabef764761f63778e0bb155b93",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "c_cs_adapter",
+      "status": "pass",
+      "volume_delta_mm3": 2.4783730623312294e-11
+    },
+    {
+      "category": "integrity",
+      "id": "lens",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 84855.40717514655,
+      "step_sha256": "82438bad4d7d4e55dbc7b029bdaa4ad3fc21ace4cb660952ce1815608471c923",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "lens",
+      "status": "pass",
+      "volume_delta_mm3": 3.346940502524376e-10
+    },
+    {
+      "category": "integrity",
+      "id": "eyepiece",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 19098.05197344695,
+      "step_sha256": "c7f87f7e0e1129148f93bc7826c97255618b6d03092004dd9fe25b583a5b134a",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "eyepiece",
+      "status": "pass",
+      "volume_delta_mm3": 4.3655745685100555e-11
+    },
+    {
+      "category": "integrity",
+      "id": "hmx039",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 364.1087999999996,
+      "step_sha256": "605476fc56f328d30108d27def367933b825b3939bf8639c6a54d57f72fbd77d",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "hmx039",
+      "status": "pass",
+      "volume_delta_mm3": -5.684341886080802e-14
+    },
+    {
+      "category": "integrity",
+      "id": "evf_board",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 3947.9999999999873,
+      "step_sha256": "820c77ffc1541810209fa81f831cf19bb645998e302f491561227590042e6575",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "evf_board",
+      "status": "pass",
+      "volume_delta_mm3": -1.4097167877480388e-11
+    },
+    {
+      "category": "integrity",
+      "id": "usb_stick",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 3569.9999999974502,
+      "step_sha256": "9a1808537e94cc7569160fc718993f4fe5b17e4678a95339b52ca97ed1c09b41",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "usb_stick",
+      "status": "pass",
+      "volume_delta_mm3": -2.5511326384730637e-09
+    },
+    {
+      "category": "integrity",
+      "id": "encoder",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 2928.4629076546717,
+      "step_sha256": "ea4b72e6a065246fca6e00caaffe6a1aa890da0d493634287af3baaed82af490",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "encoder",
+      "status": "pass",
+      "volume_delta_mm3": 3.001332515850663e-11
+    },
+    {
+      "category": "integrity",
+      "id": "switch_1824",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 9188.61174139509,
+      "step_sha256": "e0a05c1e5677e530d75ca1e73a291de95eec24531bfadd2aec448d500b3f0b69",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "switch_1824",
+      "status": "pass",
+      "volume_delta_mm3": 3.1468516681343317e-10
+    },
+    {
+      "category": "integrity",
+      "id": "run_button",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 2122.39373768498,
+      "step_sha256": "8e3888ca5d56170a112ddcff68a701e6fcc141386e8f67bdc5019c31bf8824ee",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "run_button",
+      "status": "pass",
+      "volume_delta_mm3": -3.2741809263825417e-11
+    },
+    {
+      "category": "integrity",
+      "id": "pack",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 45274.12083388741,
+      "step_sha256": "94914b2a9cd5e06657b3f9451dd1aafa03af1387c364c293482d0864807e292d",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "pack",
+      "status": "pass",
+      "volume_delta_mm3": -8.512870408594608e-10
+    },
+    {
+      "category": "integrity",
+      "id": "xt30_pair",
+      "status": "pass",
+      "solids": 2,
+      "volume_mm3": 1990.1390816984874,
+      "step_sha256": "ec40e43880d661fb565f5c8026d2d95bafb9965dbdb94f7a5ff94f21432c172d",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "xt30_pair",
+      "status": "pass",
+      "volume_delta_mm3": -2.360138751100749e-10
+    },
+    {
+      "category": "integrity",
+      "id": "tripod_nut",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 478.6086125129732,
+      "step_sha256": "e85f994319b472478d8e8f0ae6549278153738cbe81f289f3a18c7bd8c35639c",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "tripod_nut",
+      "status": "pass",
+      "volume_delta_mm3": 5.696733751392458e-09
+    },
+    {
+      "category": "integrity",
+      "id": "strap",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 2671.363883702864,
+      "step_sha256": "2173bd56e20dc2a0974dd331b854783ce6eb7903630409020626afaee90a5c8e",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "strap",
+      "status": "pass",
+      "volume_delta_mm3": -1.122498360928148e-08
+    },
+    {
+      "category": "integrity",
+      "id": "microsd",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 97.89999999999993,
+      "step_sha256": "6e5db4a4e28717848dec6d9659540b53dfe8d1ffd3f14e4f8eab435ec44afc3b",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "microsd",
+      "status": "pass",
+      "volume_delta_mm3": -5.684341886080802e-14
+    },
+    {
+      "category": "integrity",
+      "id": "foam_pad",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 212.15999999999994,
+      "step_sha256": "e91efab34a565ed28bd459dbeb4c62e7719baf2df0dbb4b5bf57f8a783a3e360",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "foam_pad",
+      "status": "pass",
+      "volume_delta_mm3": 0.0
+    },
+    {
+      "category": "integrity",
+      "id": "usb_storage_plug_reserve",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 647.9999999992801,
+      "step_sha256": "1c9ccdc877008fe3c6facbc2527197b73f2652a9c3be41ddf835897c529528bb",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "usb_storage_plug_reserve",
+      "status": "pass",
+      "volume_delta_mm3": -7.204334906418808e-10
+    },
+    {
+      "category": "integrity",
+      "id": "fps_nut",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 160.06680050752254,
+      "step_sha256": "fad6b377afbf9f3d3652f2c2902c435628223c750075f34d1ce1147af27ae8a0",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "fps_nut",
+      "status": "pass",
+      "volume_delta_mm3": 8.046185939747375e-10
+    },
+    {
+      "category": "integrity",
+      "id": "fps_mounting_washer",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 60.77096829104237,
+      "step_sha256": "534226c2fa8a3417a037ee20c81f750dc89340b9241bc53f500acfcbf94e678d",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "fps_mounting_washer",
+      "status": "pass",
+      "volume_delta_mm3": 1.3002932064409833e-12
+    },
+    {
+      "category": "integrity",
+      "id": "s_c1",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 161.59092831411834,
+      "step_sha256": "719532c3c240f512e9935b48895d207838dced06f3a8de62ac1d90b96c768031",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "s_c1",
+      "status": "pass",
+      "volume_delta_mm3": 2.2737367544323206e-13
+    },
+    {
+      "category": "integrity",
+      "id": "s_c2",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 161.59092831411834,
+      "step_sha256": "4dde1cfee3b96f8f9125b7cea1eba47f16e0d73c3293e947de7eacd72d4003f2",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "s_c2",
+      "status": "pass",
+      "volume_delta_mm3": 2.2737367544323206e-13
+    },
+    {
+      "category": "integrity",
+      "id": "s_c3",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 161.5909283141184,
+      "step_sha256": "dd50b878e7eede7d40415d8138dcdb43dc4f53c673daa77117258b0a9cbe75d3",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "s_c3",
+      "status": "pass",
+      "volume_delta_mm3": 3.979039320256561e-13
+    },
+    {
+      "category": "integrity",
+      "id": "s_c4",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 213.3768473681125,
+      "step_sha256": "a48735f74026adf046e0a4e3145e1a6b64a2b035ffef69823f1004262d04a8ca",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "s_c4",
+      "status": "pass",
+      "volume_delta_mm3": -1.7053025658242404e-13
+    },
+    {
+      "category": "integrity",
+      "id": "base_grip",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 66883.96633610575,
+      "step_sha256": "8caa9788e877040ea6dc21eedc497359d29aaf444d8f11ab12f551b2fb8f5d6f",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "base_grip",
+      "status": "pass",
+      "volume_delta_mm3": -0.0001700106222415343
+    },
+    {
+      "category": "integrity",
+      "id": "cap",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 6739.347417515049,
+      "step_sha256": "81af5dad6260b4e03193cf6ce36e7d55c67b2b16997c702761cc3110ae91d7e0",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "cap",
+      "status": "pass",
+      "volume_delta_mm3": 1.1095835361629725e-10
+    },
+    {
+      "category": "integrity",
+      "id": "eyecup",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 4406.391069639741,
+      "step_sha256": "5fc009b152a6fb53e4b0a8a5c5902ee361ff2e25746b6f50b34e9a1549eadeef",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "eyecup",
+      "status": "pass",
+      "volume_delta_mm3": -1.711669028736651e-09
+    },
+    {
+      "category": "integrity",
+      "id": "knob_exp",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 4792.976837214222,
+      "step_sha256": "a5008f028d70a5439c8c4039a768c4067368eeed464e36f63cb1212167aba356",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "knob_exp",
+      "status": "pass",
+      "volume_delta_mm3": -3.6288838600739837e-10
+    },
+    {
+      "category": "integrity",
+      "id": "knob_fps",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 2168.4662515379487,
+      "step_sha256": "857bc439d9c53761796579c468de11b5d3df9bfca577cc8e12026386f3c31a3b",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "knob_fps",
+      "status": "pass",
+      "volume_delta_mm3": -4.333742253948003e-10
+    },
+    {
+      "category": "integrity",
+      "id": "carrier",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 8784.067479687099,
+      "step_sha256": "ab059602b0a08346a4173f2420bf361b6876d98709f55f43fdbdb725e90739ef",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "carrier",
+      "status": "pass",
+      "volume_delta_mm3": -9.949872037395835e-10
+    },
+    {
+      "category": "integrity",
+      "id": "tub",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 169977.29240452632,
+      "step_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "tub",
+      "status": "pass",
+      "volume_delta_mm3": 0.0006183501973282546
+    },
+    {
+      "category": "integrity",
+      "id": "panel",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 41914.691362009595,
+      "step_sha256": "6bc8503c4b20c20dc053bc101094d0957753e827caf2e8d3580aac2b06366678",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "panel",
+      "status": "pass",
+      "volume_delta_mm3": 3.3035023079719394e-05
+    },
+    {
+      "category": "integrity",
+      "id": "lens_collar",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 11137.500086911754,
+      "step_sha256": "3f24e7d2cdf80ce4c4c9cbea6bc91c959ef49daea05b703a22385ddd975578fd",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "lens_collar",
+      "status": "pass",
+      "volume_delta_mm3": 7.659764378331602e-09
+    },
+    {
+      "category": "integrity",
+      "id": "power_button",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 7192.0621990300415,
+      "step_sha256": "b576af2c6be7d7fd450739eec019fd5ebeba748998af3df32857b86a8966570e",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "power_button",
+      "status": "pass",
+      "volume_delta_mm3": -1.2732925824820995e-11
+    },
+    {
+      "category": "integrity",
+      "id": "power_nut_reserve",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 522.0384512470274,
+      "step_sha256": "dbaac13b44b0cb3b5c880f42432a30581837924b61ec0b0679595bc9b7b28fac",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "power_nut_reserve",
+      "status": "pass",
+      "volume_delta_mm3": 1.1482370609883219e-11
+    },
+    {
+      "category": "integrity",
+      "id": "p_panel1",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 149.27940296446965,
+      "step_sha256": "2052ae5edc457436cfaac94cde4180d75e1b7505d291d2211b8a0fc87f4e245a",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_panel1",
+      "status": "pass",
+      "volume_delta_mm3": 5.6843418860808015e-12
+    },
+    {
+      "category": "integrity",
+      "id": "p_panel2",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 149.2794029644696,
+      "step_sha256": "6c93474a94ebb1d28583a1c19e1bbaa55248ae66ca18595075e78951efd09b8b",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_panel2",
+      "status": "pass",
+      "volume_delta_mm3": 5.5706550483591855e-12
+    },
+    {
+      "category": "integrity",
+      "id": "p_panel3",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 149.2794029644696,
+      "step_sha256": "a6b5a42323864096663f54734b70d936601f55ddb26dd90196c86cc4fb04f4d5",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_panel3",
+      "status": "pass",
+      "volume_delta_mm3": 5.6843418860808015e-12
+    },
+    {
+      "category": "integrity",
+      "id": "p_panel4",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 149.2794029644696,
+      "step_sha256": "dfd68f69c75978fdd0791f0e51409fe5143e968a8417cb6e516b013c1f51640c",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_panel4",
+      "status": "pass",
+      "volume_delta_mm3": 5.7127635955112055e-12
+    },
+    {
+      "category": "integrity",
+      "id": "p_carrier1",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 149.27940296446963,
+      "step_sha256": "dd30f242d08825fbe25e309168315ed031124497e61c404fb329913db1b33ff6",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_carrier1",
+      "status": "pass",
+      "volume_delta_mm3": 5.6843418860808015e-12
+    },
+    {
+      "category": "integrity",
+      "id": "p_carrier2",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 149.27940296446965,
+      "step_sha256": "336f3f610fc9142d9cada6c6100e87d383663e6277bf68f1dc99554c58798c09",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_carrier2",
+      "status": "pass",
+      "volume_delta_mm3": 5.7696070143720135e-12
+    },
+    {
+      "category": "integrity",
+      "id": "p_grip",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 147.25273085906076,
+      "step_sha256": "64503812dd1de14d1923753b84fcaae8ba18de465584019fa4c09ddf80e8c831",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "roundtrip",
+      "id": "p_grip",
+      "status": "pass",
+      "volume_delta_mm3": 2.842170943040401e-14
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/model.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/vent_geometry.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/export_candidate.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/power_geometry.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/fps_geometry.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/structure_geometry.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/strap_route_proposal.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/fps_fixed_support.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/fps_pair_guide.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/official_pi5_geometry.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/official_pi5_csi.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/official_pi5_assembly.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/make_corrected_pi.py",
+      "status": "fail"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/structural-review/j4_trial_geometry.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/out/source-components/pi5-corrected.json",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/out/source-components/pi5-corrected.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "layout.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_collar.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c1.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "_thin_spot_rib_l.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_collar_rear_land.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_tub.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_grip_small.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "audit_cloud_release.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_mechanical_refinements.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c4.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_tub.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_print_stock_exports.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "make_tables.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_build_outputs.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "coupons_r1.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_collar.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_hood.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "make_coupons.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r3_regressions.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_small.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_audit_cloud_release.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_datum_inputs.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "build_d2.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c5_handling.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_keeper.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_release_gates.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_run_locked.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_lead_access.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "d2_common.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "checks.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_panel_refinements.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c2_mate_reach.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_common.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "sweep_tub.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_integration.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_hood_panel.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "cots.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_keeper.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_grip.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_fixup.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "run_locked.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_panel.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "fonts/DejaVuSans-Bold.ttf",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "../gs8-pxl-v3/cad-requirements-lock.txt",
+      "status": "pass"
+    },
+    {
+      "category": "integrity",
+      "id": "centring_gauge",
+      "status": "pass",
+      "kind": "assembly tool",
+      "solids": 1,
+      "volume_mm3": 20540.751561488963,
+      "step_sha256": "c3067fb6e2988d62c8a2e3ad442a8c3c34ff9a2931df391e7035b8782b08dcc6",
+      "manifest_file_binding": true
+    },
+    {
+      "category": "assembly_state",
+      "id": "model_lint",
+      "status": "pass",
+      "errors": [],
+      "build_ops": 35,
+      "service_routes": 10,
+      "motions": 32,
+      "state_model_sha256": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9"
+    },
+    {
+      "category": "assembly_state",
+      "id": "tool_exclusion:centring_gauge/gs_camera",
+      "status": "pass",
+      "seated_overlap_mm3": 0.0,
+      "reason": "seated gauge overlaps c_cs_adapter by 927.752 mm3 (review VN-39, reproduced 2026-10-10 on all three variants); its rear cone references the EMPTY tub lip (printed_collar.centring_gauge docstring)"
+    },
+    {
+      "category": "assembly_state",
+      "id": "tool_exclusion:centring_gauge/c_cs_adapter",
+      "status": "pass",
+      "seated_overlap_mm3": 927.752,
+      "reason": "seated gauge overlaps c_cs_adapter by 927.752 mm3 (review VN-39, reproduced 2026-10-10 on all three variants); its rear cone references the EMPTY tub lip (printed_collar.centring_gauge docstring)"
+    },
+    {
+      "category": "motion_coverage",
+      "id": "collar_on",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "collar_off",
+      "open_reason": null,
+      "op": "collar_on",
+      "movers": [
+        "lens_collar"
+      ],
+      "obstacles": [
+        "base_grip",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "p_grip",
+        "run_button",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "gauge_in",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "gauge_out",
+      "open_reason": null,
+      "op": "gauge_in",
+      "movers": [
+        "centring_gauge"
+      ],
+      "obstacles": [
+        "base_grip",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "lens_in",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "lens_out",
+      "open_reason": null,
+      "op": "lens_in",
+      "movers": [
+        "lens"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "carrier_in",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "carrier_out",
+      "open_reason": null,
+      "op": "carrier_in",
+      "movers": [
+        "carrier",
+        "cooler",
+        "microsd",
+        "pi5",
+        "switch_1824",
+        "x1203",
+        "x1203_kit"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "panel_in",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "panel_out",
+      "open_reason": null,
+      "op": "panel_in",
+      "movers": [
+        "encoder",
+        "knob_exp",
+        "panel",
+        "power_button",
+        "power_nut_reserve"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pi5",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "fps_washer_on",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "fps_washer_off",
+      "open_reason": null,
+      "op": "fps_washer_on",
+      "movers": [
+        "fps_mounting_washer"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "fps_nut_on",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "fps_nut_after_unthread",
+      "open_reason": null,
+      "op": "fps_nut_on",
+      "movers": [
+        "fps_nut"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "knob_fps_on",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "fps_knob_off",
+      "open_reason": null,
+      "op": "knob_fps_on",
+      "movers": [
+        "knob_fps"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "storage_in",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "storage_out",
+      "open_reason": null,
+      "op": "storage_in",
+      "movers": [
+        "usb_stick"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "storage_plug_in",
+      "status": "pass",
+      "runner": "covered",
+      "covered_by": "storage_plug_reservation_through_enclosure",
+      "open_reason": null,
+      "op": "storage_in",
+      "movers": [
+        "usb_storage_plug_reserve"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "base_on",
+      "status": "info",
+      "runner": "open",
+      "covered_by": null,
+      "open_reason": "keyhole engagement not swept for the candidate (r7 INSERTIONS base_on moves the base (-10,0,-15)->(-10,0,0)->0; this is the same relative motion with the tub moving); lock moved 2 mm and lip/head 2.4 mm differ from r7; the strap is already threaded (its over-bridge pass lies in the base-top recess under the tub floor), so it is an obstacle of this motion",
+      "op": "tub_on",
+      "movers": [
+        "tub"
+      ],
+      "obstacles": [
+        "base_grip",
+        "run_button",
+        "strap",
+        "tripod_nut"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "grip_off",
+      "status": "info",
+      "runner": "open",
+      "covered_by": null,
+      "open_reason": "reverse keyhole motion of base_on; not swept for the candidate",
+      "op": "svc_grip_off",
+      "movers": [
+        "base_grip",
+        "run_button",
+        "strap",
+        "tripod_nut"
+      ],
+      "obstacles": [
+        "c_cs_adapter",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "tub"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "pack_in",
+      "status": "info",
+      "runner": "open",
+      "covered_by": null,
+      "open_reason": "r7 INSERTIONS pack_in path from the XT30 mating pose; the candidate re-posed the XT30 (21/45 deg) and needs the FP-10 mate_reach/cable_stow port first",
+      "op": "pack_in",
+      "movers": [
+        "pack",
+        "xt30_pair"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "pack_out",
+      "status": "info",
+      "runner": "open",
+      "covered_by": null,
+      "open_reason": "as pack_in; the parted pigtail half stays (xt30_pair proxy)",
+      "op": "svc_pack_out",
+      "movers": [
+        "pack"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "cap_on",
+      "status": "info",
+      "runner": "open",
+      "covered_by": null,
+      "open_reason": "r7 INSERTIONS cap_on uses layout.CAP travel (grip/cap unchanged in the candidate); not swept for the candidate",
+      "op": "cap_on",
+      "movers": [
+        "cap"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "pack",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion_coverage",
+      "id": "cap_off",
+      "status": "info",
+      "runner": "open",
+      "covered_by": null,
+      "open_reason": "reverse of cap_on; not swept",
+      "op": "svc_cap_off",
+      "movers": [
+        "cap"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "pack",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ]
+    },
+    {
+      "category": "motion",
+      "id": "fps_knob_off",
+      "status": "pass",
+      "movers": [
+        "knob_fps"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_knob_fps_off",
+      "phase": "service",
+      "route": "panel",
+      "step_mm": 2.0,
+      "samples": 11,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "fps_nut_after_unthread",
+      "status": "pass",
+      "movers": [
+        "fps_nut"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_fps_nut_off",
+      "phase": "service",
+      "route": "panel",
+      "step_mm": 2.0,
+      "samples": 11,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "fps_washer_off",
+      "status": "pass",
+      "movers": [
+        "fps_mounting_washer"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_fps_washer_off",
+      "phase": "service",
+      "route": "panel",
+      "step_mm": 2.0,
+      "samples": 11,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "carrier_out",
+      "status": "pass",
+      "movers": [
+        "carrier",
+        "cooler",
+        "microsd",
+        "pi5",
+        "switch_1824",
+        "x1203",
+        "x1203_kit"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "tripod_nut",
+        "tub",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_carrier_out",
+      "phase": "service",
+      "route": "module",
+      "step_mm": 2.0,
+      "samples": 36,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "panel_out",
+      "status": "pass",
+      "movers": [
+        "encoder",
+        "knob_exp",
+        "panel",
+        "power_button",
+        "power_nut_reserve"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pi5",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_panel_out",
+      "phase": "service",
+      "route": "panel",
+      "step_mm": 2.0,
+      "samples": 36,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "camera_in",
+      "status": "pass",
+      "movers": [
+        "c_cs_adapter",
+        "gs_camera"
+      ],
+      "obstacles": [
+        "base_grip",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ],
+      "exempt": {},
+      "state_op": "camera_in",
+      "phase": "build",
+      "route": null,
+      "step_mm": 2.0,
+      "samples": 38,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "evf_in",
+      "status": "pass",
+      "movers": [
+        "evf_board",
+        "foam_pad",
+        "hmx039"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "eyecup",
+        "eyepiece",
+        "gs_camera",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pi5",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "evf_in",
+      "phase": "build",
+      "route": null,
+      "step_mm": 2.0,
+      "samples": 31,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "storage_plug_reservation_through_enclosure",
+      "status": "pass",
+      "movers": [
+        "usb_storage_plug_reserve"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {
+        "pi5": "the USB-A plug envelope starts seated in the Pi USB3 receptacle (reported as the non_material_keepout pi5/usb_storage_plug_reserve info row, 195.9 mm3); unplugging is the mating itself, actual plug/receptacle geometry HOLD (9ced753 excluded pi5 the same way)"
+      },
+      "state_op": "svc_storage_out",
+      "phase": "service",
+      "route": "storage",
+      "step_mm": 2.0,
+      "samples": 36,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "storage_out",
+      "status": "pass",
+      "movers": [
+        "usb_stick"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_storage_out",
+      "phase": "service",
+      "route": "storage",
+      "step_mm": 2.0,
+      "samples": 36,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "microsd_out",
+      "status": "pass",
+      "movers": [
+        "microsd"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pi5",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_microsd_out",
+      "phase": "service",
+      "route": "microsd",
+      "step_mm": 2.0,
+      "samples": 30,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "gauge_out",
+      "status": "pass",
+      "movers": [
+        "centring_gauge"
+      ],
+      "obstacles": [
+        "base_grip",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ],
+      "exempt": {},
+      "state_op": "gauge_out",
+      "phase": "build",
+      "route": null,
+      "step_mm": 2.0,
+      "samples": 21,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "collar_off",
+      "status": "pass",
+      "movers": [
+        "lens_collar",
+        "s_c4"
+      ],
+      "obstacles": [
+        "base_grip",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "p_grip",
+        "run_button",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ],
+      "exempt": {},
+      "state_op": "svc_collar_off",
+      "phase": "service",
+      "route": "collar",
+      "step_mm": 2.0,
+      "samples": 16,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "lens_out",
+      "status": "pass",
+      "movers": [
+        "lens"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_lens_out",
+      "phase": "service",
+      "route": "lens",
+      "step_mm": 2.0,
+      "samples": 21,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "eyepiece_in",
+      "status": "pass",
+      "movers": [
+        "eyepiece"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "gs_camera",
+        "lens",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ],
+      "exempt": {},
+      "state_op": "eyepiece_in",
+      "phase": "build",
+      "route": null,
+      "step_mm": 2.0,
+      "samples": 16,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "camera_out",
+      "status": "pass",
+      "movers": [
+        "c_cs_adapter",
+        "gs_camera"
+      ],
+      "obstacles": [
+        "base_grip",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "lens_collar",
+        "p_grip",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "tripod_nut",
+        "tub"
+      ],
+      "exempt": {},
+      "state_op": "svc_camera_out",
+      "phase": "service",
+      "route": "camera",
+      "step_mm": 2.0,
+      "samples": 38,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "motion",
+      "id": "evf_out",
+      "status": "pass",
+      "movers": [
+        "evf_board",
+        "foam_pad",
+        "hmx039"
+      ],
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "eyecup",
+        "eyepiece",
+        "gs_camera",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pi5",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "usb_storage_plug_reserve",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "exempt": {},
+      "state_op": "svc_evf_out",
+      "phase": "service",
+      "route": "evf",
+      "step_mm": 2.0,
+      "samples": 31,
+      "printed_obstacle_region_method": "Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged",
+      "worst_overlap_mm3": 0,
+      "first_hits": [],
+      "total_hits": 0
+    },
+    {
+      "category": "nominal_features",
+      "id": "panel_screw_bearing_land",
+      "status": "info",
+      "value_mm": 2.1,
+      "minimum_mm": 1.6,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "nominal_features",
+      "id": "panel_head_radial_wall",
+      "status": "info",
+      "value_mm": 1.7,
+      "minimum_mm": 1.6,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "nominal_features",
+      "id": "carrier_PT_head_radial_wall",
+      "status": "info",
+      "value_mm": 1.6,
+      "minimum_mm": 1.6,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "nominal_features",
+      "id": "carrier_M25_head_radial_wall",
+      "status": "info",
+      "value_mm": 1.85,
+      "minimum_mm": 1.6,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "nominal_features",
+      "id": "carrier_M25_thread_engagement",
+      "status": "info",
+      "value_mm": 3.4,
+      "minimum_mm": 2.5,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "nominal_features",
+      "id": "collar_hoop_nominal",
+      "status": "info",
+      "value_mm": 3.8500000000000014,
+      "minimum_mm": 1.6,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "nominal_features",
+      "id": "collar_relief_nominal_after_bed_chamfer",
+      "status": "info",
+      "value_mm": 1.8262592452662019,
+      "minimum_mm": 1.6,
+      "analytical_meets_rule": true,
+      "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
+    },
+    {
+      "category": "step_aperture_probes",
+      "id": "intentional_CSI_opening",
+      "status": "pass",
+      "material_span_mm": 0,
+      "origin": [
+        -80,
+        -40,
+        50
+      ],
+      "end": [
+        -80,
+        -20,
+        50
+      ],
+      "note": "Designated service aperture; old export18 tub_right_wall probe crossed this opening. No latch/tool qualification follows."
+    },
+    {
+      "category": "physical",
+      "id": "qualification",
+      "status": "info",
+      "open_inherited_gates": 56,
+      "inherited_gate_source": {
+        "total": 58,
+        "open": 56,
+        "withdrawn": 2,
+        "source": "../out/build-receipt.json",
+        "field": "hardware_gates.gates",
+        "source_sha256": "2128ccead1284e777c1d67f1b621c3c8de1a5c92137a6d10179c8cf014d47ad1"
+      },
+      "M1": "open",
+      "candidate_gates": "unrun",
+      "fabrication_release": false
+    }
+  ],
+  "geometry_computed_pass": false,
+  "physical_qualified": false,
+  "generated_utc": "2026-10-10T19:56:34Z"
+}

@@ -4,6 +4,7 @@ No geometry is modified. Every result is tied to the nominated export and
 source parts; a discrepancy is retained instead of declaring either method exact.
 Run under the shared CAD lock.
 """
+from cv_io import rel_posix, write_text
 from pathlib import Path
 import hashlib, json, sys, time
 import cadquery as cq
@@ -44,7 +45,7 @@ def save(name, s):
 
 files = [ROOT/n for n in ('official_pi5_assembly.py','official_pi5_geometry.py','official_pi5_csi.py')]
 files += [ROOT.parent/'layout.py', OUT/'manifest.json', OUT/'step/pi5.step', OUT/'step/cooler.step', ROOT/'out/source-components/pi5-corrected.json']
-before = {str(f.relative_to(ROOT.parent)):sha(f) for f in files}
+before = {rel_posix(f, ROOT.parent):sha(f) for f in files}
 print('Load saved Pi, cooler, and named source parts', flush=True)
 pi = cq.importers.importStep(str(OUT/'step/pi5.step')).val()
 cooler = cq.importers.importStep(str(OUT/'step/cooler.step')).val()
@@ -76,7 +77,7 @@ for name,q in pieces:
     outside = q.cut(pi)
     records[name]['outside_saved_pi'] = save('outside-saved-pi-'+name, outside)
     print(json.dumps(dict(component=name,outside_saved_pi=records[name]['outside_saved_pi'])),flush=True)
-after = {str(f.relative_to(ROOT.parent)):sha(f) for f in files}
+after = {rel_posix(f, ROOT.parent):sha(f) for f in files}
 assert before == after, 'Source changed during diagnosis'
 result = dict(generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),
     mechanical_manifest_sha256=EXPECTED,source_sha256=after,verification_source_sha256=sha(Path(__file__)),
@@ -85,5 +86,5 @@ result = dict(generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),
     agreement=max(extra.Volume(),missing.Volume())<.001,
     interpretation='Diagnostic only. Investigate any positive difference before treating the two CAD representations as identical occupied space.',
     physical_qualified=False)
-(P/'static-comparison.json').write_text(json.dumps(result,indent=2))
+write_text(P/'static-comparison.json', json.dumps(result,indent=2))
 print(json.dumps(dict(agreement=result['agreement'],differences=differences)),flush=True)

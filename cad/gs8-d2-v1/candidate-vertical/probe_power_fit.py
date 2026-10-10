@@ -1,11 +1,12 @@
 """Exploratory source-bound power pockets and rigid service; not release geometry."""
+from cv_io import read_text, write_text
 import json,math
 from pathlib import Path
 import cadquery as cq
 import model as M
 import power_geometry as PG
 P=Path(__file__).parent
-s=json.loads((P/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json').read_text())
+s=json.loads(read_text(P/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json'))
 V=cq.Vector
 out=P/'out/power-fit-study';out.mkdir(exist_ok=True)
 r={n:dict(shape=cq.importers.importStep(str(P/'out/compact-kowa_lm6hc/step'/f'{n}.step')).val()) for n in ('tub','base_grip')};print('STEP loaded',flush=True)
@@ -60,4 +61,4 @@ for i,d in enumerate(s['rigid_service_poses']):
    inter=sh.intersect(solid);v=inter.Volume()
    if v>.02:hits.append(dict(pose=i,part=name,fixed=fn,volume_mm3=v,bbox=bb(inter)))
 print(json.dumps(dict(hits=hits[:30],count=len(hits))),flush=True)
-(out/'result.json').write_text(json.dumps(dict(hits=hits,physical_qualified=False),indent=2))
+write_text(out/'result.json',json.dumps(dict(hits=hits,physical_qualified=False),indent=2))

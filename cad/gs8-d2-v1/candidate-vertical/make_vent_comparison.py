@@ -1,4 +1,5 @@
 """Compose unretouched CAD renders into a labeled engineering comparison."""
+from cv_io import rel_posix, write_text
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 import json,hashlib
@@ -12,8 +13,8 @@ receipts=[]
 for col,(title,sub,folder) in enumerate(cols):
  x=col*800;txt(x+24,122,title,25,True);txt(x+24,157,sub,22)
  for row,view in enumerate(['vent_side','vent_front']):
-  f=folder/(view+'.png');im=Image.open(f).convert('RGB');im.thumbnail((780,607),Image.Resampling.LANCZOS);canvas.paste(im,(x+(800-im.width)//2,195+row*610));receipts.append(dict(file=str(f.relative_to(P)),sha256=hashlib.sha256(f.read_bytes()).hexdigest()))
+  f=folder/(view+'.png');im=Image.open(f).convert('RGB');im.thumbnail((780,607),Image.Resampling.LANCZOS);canvas.paste(im,(x+(800-im.width)//2,195+row*610));receipts.append(dict(file=rel_posix(f,P),sha256=hashlib.sha256(f.read_bytes()).hexdigest()))
 txt(34,1428,'Broad-side grille concealed. Front/rear edge openings remain visible; the central side aperture is CSI service access.',23)
 f=out/'D2-concealed-vent-comparison.png';canvas.save(f)
-(out/'render-comparison-receipt.json').write_text(json.dumps(dict(output=f.name,sha256=hashlib.sha256(f.read_bytes()).hexdigest(),sources=receipts,mechanical_manifest_sha256=hashlib.sha256((D/'manifest.json').read_bytes()).hexdigest(),physical_qualified=False),indent=2))
+write_text(out/'render-comparison-receipt.json',json.dumps(dict(output=f.name,sha256=hashlib.sha256(f.read_bytes()).hexdigest(),sources=receipts,mechanical_manifest_sha256=hashlib.sha256((D/'manifest.json').read_bytes()).hexdigest(),physical_qualified=False),indent=2))
 print(f)

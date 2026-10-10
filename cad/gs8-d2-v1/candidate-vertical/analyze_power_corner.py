@@ -1,7 +1,8 @@
 """Sampled spacing around an intentionally relieved grip tongue; not stress analysis."""
+from cv_io import read_text, write_text
 import json,math,hashlib
 from pathlib import Path
-P=Path(__file__).parent;src=P/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json';s=json.loads(src.read_text())
+P=Path(__file__).parent;src=P/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json';s=json.loads(read_text(src))
 poly=[(-83,-13),(-78,-13),(-75,-10),(-75,13),(-83,13)]
 def edge_distance(p,a,b):
  v=[b[i]-a[i] for i in range(2)];t=max(0,min(1,sum((p[i]-a[i])*v[i] for i in range(2))/sum(x*x for x in v)));return math.dist(p[:2],[a[i]+t*v[i] for i in range(2)])
@@ -18,4 +19,4 @@ for i,pose in enumerate(s['rigid_service_poses']):
   if -5<p[2]<6:fuse.append((dist(p,-1.85,2.5)-2.8,i,p))
 d,i,p=min(fuse);values['fuse_motion']=dict(conservative_sampled_sphere_envelope_spacing_mm=d,pose=i,axis_point_mm=p)
 result=dict(source_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),neck_polygon_xy_mm=poly,clip_leg_mm=3,original_area_mm2=208,remaining_area_mm2=203.5,remaining_fraction=203.5/208,wire_cut_radius_mm=1.94,values=values,scope='Sampled spacing to retained attachment prism; not continuous motion proof, printed strength, layer bonding, contact wear, or a closed physical gate.')
-out=P/'out/power-fit-study';out.mkdir(exist_ok=True);(out/'corner-analysis.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
+out=P/'out/power-fit-study';out.mkdir(exist_ok=True);write_text(out/'corner-analysis.json',json.dumps(result,indent=2));print(json.dumps(result,indent=2))

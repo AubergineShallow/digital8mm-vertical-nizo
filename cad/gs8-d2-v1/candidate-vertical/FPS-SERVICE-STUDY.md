@@ -14,12 +14,17 @@ This is an engineering study, not a print or assembly release. The selected serv
 
 ## Intended sequence
 
-1. Shut down, isolate the battery and release the other required panel connections according to their own verified service instructions.
-2. Remove the FPS knob, mounting nut and mounting washer while preserving the two-position stop setting. Measure the actual nut and use a matching tool; the proxy does not establish wrench size.
-3. Give the shaft tip gentle axial support while sliding the panel +Y8.5 mm. At that nominal position the panel inner face is Y33.7, beyond the Y33.2 bushing end. The outer face is Y36.5, leaving only 0.5 mm of shaft tip; this does not establish a pinch grip. Transfer support to the accessible bushing as the panel clears, then finish removing the panel. Actual fingertip shape, friction, sag and panel tilt remain physical checks.
+Removal (service route `panel`, then `module`, in [`steps.py`](steps.py); the generated routes are in
+[ASSEMBLY-VERTICAL.md section 5](ASSEMBLY-VERTICAL.md#5-service-routes)):
+
+1. Shut down, isolate the battery (`safety` route) and release the other required panel connections according to their own verified service instructions.
+2. Remove the FPS knob (`svc_knob_fps_off`), then the mounting nut with a deep socket on the bushing axis (`svc_fps_nut_off`, straight-driver rule, VN-46) while supporting the switch, then the mounting washer (`svc_fps_washer_off`), preserving the two-position stop setting. Measure the actual nut and choose the matching deep socket; the proxy does not establish its across-flats.
+3. Remove the four panel screws. Give the shaft tip gentle axial support while sliding the panel +Y8.5 mm. At that nominal position the panel inner face is Y33.7, beyond the Y33.2 bushing end. The outer face is Y36.5, leaving only 0.5 mm of shaft tip; this does not establish a pinch grip. Transfer support to the accessible bushing as the panel clears, then finish removing the panel and part QT and J2 by their housings. Actual fingertip shape, friction, sag and panel tilt remain physical checks.
 4. Disconnect the EVF HDMI end. Keep the Pi HDMI head mated; its in-body unplugging has a separate known power-wire conflict. Release the other fixed-to-carried connections and carrier screws under their own instructions.
 5. Support the exposed switch bushing with one hand and the carrier with the other. Translate the switch, complete mated FPS harness, Pi/carrier and full Pi-mated HDMI together +Y. The group must preserve its checked relative arrangement. The rest and pair guide remain attached to the tub.
 6. Set the group on a supported bench. Separate the PicoBlade pair there only if needed, holding the housings and pulling along their mating axis. Never pull on the wires.
+
+Refit (build order, ASSEMBLY-VERTICAL.md section 4; review VN-40): the switch and its mated pair are part of the module (B2) and ride in with the carrier, hand-supported (step 4). The panel subassembly carries no FPS hardware (B3). In step 6 the panel goes on along −Y, guiding the bushing and its locating peg into the panel hole and slot while the other hand supports the switch body (`panel_in`); the four panel screws are driven before the FPS knob is on (`panel_screws`); then the mounting washer (`fps_washer_on`), the nut with the deep socket on the bushing axis and an anti-rotation check (`fps_nut_on`), and last the knob on the two paper strips, backed by the nut on the panel (`knob_fps_on`). Every removal above names its refit in `steps.SERVICE` (`reverse_of`).
 
 This is a modeled sequence with a coordinated-hand trial still required. It does not certify all other panel leads, the camera FPC, a real hand’s motion, connector friction or the printed supports’ strength.
 

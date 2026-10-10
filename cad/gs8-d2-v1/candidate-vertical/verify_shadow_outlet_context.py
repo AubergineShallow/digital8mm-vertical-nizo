@@ -3,6 +3,7 @@
 Run through run_locked.py. These finite 12 mm rectangular continuations test
 nominal saved material only; they do not model hands, air flow or physical fit.
 """
+from cv_io import read_text, write_text
 from pathlib import Path
 import argparse
 import hashlib
@@ -33,7 +34,7 @@ def overlap(a, b):
 
 mf = D / 'manifest.json'
 mh = sha(mf)
-m = json.loads(mf.read_text())
+m = json.loads(read_text(mf))
 assert m.get('ventilation', {}).get('revision', '').startswith('shadow-gap')
 length = m['core_dimensions_mm'][0]
 sources = {name: sha(P / name) for name in ('model.py', 'vent_geometry.py')}
@@ -94,6 +95,6 @@ result = dict(manifest_sha256=mh, verification_source_sha256=sha(Path(__file__))
                            'No hand/finger/garment, desk contact or airflow streamlines are modeled.',
                            'COTS proxies, real parts, flexible looms, print deformation and thermal performance remain unqualified.',
                            'Clear outward prisms do not prove whole-plenum pressure loss, external recirculation or all-view concealment.'])
-(D / 'shadow-outlet-context-checks.json').write_text(json.dumps(result, indent=2))
+write_text(D / 'shadow-outlet-context-checks.json', json.dumps(result, indent=2))
 print(json.dumps(result['summary']), flush=True)
 raise SystemExit(bool(result['summary']['fail']))

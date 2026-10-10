@@ -1,0 +1,335 @@
+{
+  "status": "pass",
+  "rows": [
+    {
+      "id": "positive_board_to_fuse",
+      "status": "pass",
+      "terminal_problems": [],
+      "core_id": "positive",
+      "original_points": 966,
+      "simplified_points": 137,
+      "radius_mm": 1.6400000000000001,
+      "max_polyline_chord_deviation_mm": 0.04,
+      "exact_intersections": 9,
+      "hits": [],
+      "hit_count": 0,
+      "hit_parts": [],
+      "terminals": [
+        "x1203",
+        "xt30_pair"
+      ],
+      "terminal_runs": [
+        {
+          "wire": "positive_board_to_fuse",
+          "end": "end",
+          "part": "xt30_pair",
+          "entry": "fuse",
+          "pieces": 3,
+          "stations": [
+            135.0,
+            136.0
+          ],
+          "run_length_mm": 0.8373752998870976,
+          "max_entry_mm": 20.000000000000004,
+          "max_entry_source": "snapshot fuse start->end (sleeve length)",
+          "gate": "actual fuse-holder lead / sleeve entry (unmeasured; power gates)",
+          "max_overlap_mm3": 9.23825973189431,
+          "status": "pass"
+        }
+      ],
+      "root_joint_omission_mm": 6.299999999999999,
+      "root_warning": "Actual pads and wire exit/strain-relief construction are unknown. This allowance is NOT a passedR8 transition and must not be counted as a completed physical pad connection."
+    },
+    {
+      "id": "positive_fuse_to_housing",
+      "status": "pass",
+      "terminal_problems": [],
+      "core_id": "positive",
+      "original_points": 15,
+      "simplified_points": 2,
+      "radius_mm": 1.6400000000000001,
+      "max_polyline_chord_deviation_mm": 0.04,
+      "exact_intersections": 3,
+      "hits": [],
+      "hit_count": 0,
+      "hit_parts": [],
+      "terminals": [
+        "xt30_pair",
+        "xt30_pair"
+      ],
+      "terminal_runs": [
+        {
+          "wire": "positive_fuse_to_housing",
+          "end": "start",
+          "part": "xt30_pair",
+          "entry": "fuse",
+          "pieces": 1,
+          "stations": [
+            0.0,
+            0.0
+          ],
+          "run_length_mm": 0.0,
+          "max_entry_mm": 20.000000000000004,
+          "max_entry_source": "snapshot fuse start->end (sleeve length)",
+          "gate": "actual fuse-holder lead / sleeve entry (unmeasured; power gates)",
+          "max_overlap_mm3": 9.238259071370322,
+          "status": "pass"
+        },
+        {
+          "wire": "positive_fuse_to_housing",
+          "end": "end",
+          "part": "xt30_pair",
+          "entry": "housing",
+          "pieces": 1,
+          "stations": [
+            1.0,
+            1.0
+          ],
+          "run_length_mm": 0.0,
+          "max_entry_mm": 26.0,
+          "max_entry_source": "snapshot junction_housing_original_box longest edge",
+          "gate": "actual XT30 solder-cup entry depth (unmeasured; power gates)",
+          "max_overlap_mm3": 9.238259839639852,
+          "status": "pass"
+        }
+      ],
+      "root_joint_omission_mm": 6.299999999999999,
+      "root_warning": "Actual pads and wire exit/strain-relief construction are unknown. This allowance is NOT a passedR8 transition and must not be counted as a completed physical pad connection."
+    },
+    {
+      "id": "negative_complete",
+      "status": "pass",
+      "terminal_problems": [],
+      "core_id": "negative",
+      "original_points": 1485,
+      "simplified_points": 133,
+      "radius_mm": 1.6400000000000001,
+      "max_polyline_chord_deviation_mm": 0.04,
+      "exact_intersections": 71,
+      "hits": [],
+      "hit_count": 0,
+      "hit_parts": [],
+      "terminals": [
+        "x1203",
+        "xt30_pair"
+      ],
+      "terminal_runs": [
+        {
+          "wire": "negative_complete",
+          "end": "end",
+          "part": "xt30_pair",
+          "entry": "housing",
+          "pieces": 2,
+          "stations": [
+            131.5,
+            132.0
+          ],
+          "run_length_mm": 4.8000034810555,
+          "max_entry_mm": 26.0,
+          "max_entry_source": "snapshot junction_housing_original_box longest edge",
+          "gate": "actual XT30 solder-cup entry depth (unmeasured; power gates)",
+          "max_overlap_mm3": 9.238259839625686,
+          "status": "pass"
+        }
+      ],
+      "root_joint_omission_mm": 1.9000000000000004,
+      "root_warning": "Actual pads and wire exit/strain-relief construction are unknown. This allowance is NOT a passedR8 transition and must not be counted as a completed physical pad connection."
+    },
+    {
+      "id": "fixture_buried_xt30_wire",
+      "status": "pass",
+      "planted_wire": [
+        [
+          [
+            -56.710839121842255,
+            -9.55826093081986,
+            -9.762205999177702
+          ],
+          [
+            -56.710839121842255,
+            -1.5582609308198583,
+            -9.762205999177702
+          ]
+        ],
+        0.4
+      ],
+      "terminal_problems": [
+        "positive_fuse_to_housing: the runs from both ends meet inside xt30_pair (the wire lies inside it end to end: a buried route, not two terminal entries)"
+      ],
+      "purpose": "regression fixture: a wire inside xt30_pair end to end must fail the terminal rule"
+    },
+    {
+      "id": "fixture_hardware",
+      "status": "pass",
+      "planted_ball_mm": [
+        [
+          -126.99999999999996,
+          16.88833154695855,
+          69.00000000000007
+        ],
+        0.5
+      ],
+      "part": "p_carrier1",
+      "detected": [
+        "p_carrier1"
+      ],
+      "purpose": "regression fixture: hardware solids are in the obstacle set"
+    },
+    {
+      "id": "fixture_cots",
+      "status": "pass",
+      "planted_ball_mm": [
+        [
+          -75.39259169265311,
+          -5.1683162516967425,
+          31.66333150425441
+        ],
+        0.5
+      ],
+      "part": "cooler",
+      "detected": [
+        "cooler"
+      ],
+      "purpose": "regression fixture: cots solids are in the obstacle set"
+    }
+  ],
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "snapshot_sha256": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
+  "verification_source_sha256": "dbe500f5ebf6cc9ac28cb05c3cb65ba71318f96599dd640d8b77eaa50773afcf",
+  "helper_source_sha256": "583b6ddabfc8ff0fd00ba8ba2b8f0a31ead31a81222e9d3f8ac2517f8a918d6d",
+  "obstacles": [
+    "base_grip",
+    "c_cs_adapter",
+    "cap",
+    "carrier",
+    "cooler",
+    "encoder",
+    "evf_board",
+    "eyecup",
+    "eyepiece",
+    "foam_pad",
+    "fps_mounting_washer",
+    "fps_nut",
+    "gs_camera",
+    "hmx039",
+    "knob_exp",
+    "knob_fps",
+    "lens",
+    "lens_collar",
+    "microsd",
+    "p_carrier1",
+    "p_carrier2",
+    "p_grip",
+    "p_panel1",
+    "p_panel2",
+    "p_panel3",
+    "p_panel4",
+    "pack",
+    "panel",
+    "pi5",
+    "power_button",
+    "power_nut_reserve",
+    "run_button",
+    "s_c1",
+    "s_c2",
+    "s_c3",
+    "s_c4",
+    "strap",
+    "switch_1824",
+    "tripod_nut",
+    "tub",
+    "usb_stick",
+    "x1203",
+    "x1203_kit",
+    "xt30_pair"
+  ],
+  "obstacle_count": 44,
+  "exclusions": [
+    {
+      "id": "usb_storage_plug_reserve",
+      "kind": "keepout",
+      "reason": "non-material reservation, not occupied hardware"
+    }
+  ],
+  "terminal_rule": "a wire may touch only its declared terminal part, in one run contiguous from that end, no longer than the declared max entry (snapshot figure, gate named); runs from both ends of one part must not meet; every run is listed in terminal_runs",
+  "terminal_rule_source_sha256": "b0e18a70a85e07d8ecd7e0552124cbc63c8b3077e15400aaa759fcace7293234",
+  "terminal_runs": [
+    {
+      "wire": "positive_board_to_fuse",
+      "end": "end",
+      "part": "xt30_pair",
+      "entry": "fuse",
+      "pieces": 3,
+      "stations": [
+        135.0,
+        136.0
+      ],
+      "run_length_mm": 0.8373752998870976,
+      "max_entry_mm": 20.000000000000004,
+      "max_entry_source": "snapshot fuse start->end (sleeve length)",
+      "gate": "actual fuse-holder lead / sleeve entry (unmeasured; power gates)",
+      "max_overlap_mm3": 9.23825973189431,
+      "status": "pass"
+    },
+    {
+      "wire": "positive_fuse_to_housing",
+      "end": "start",
+      "part": "xt30_pair",
+      "entry": "fuse",
+      "pieces": 1,
+      "stations": [
+        0.0,
+        0.0
+      ],
+      "run_length_mm": 0.0,
+      "max_entry_mm": 20.000000000000004,
+      "max_entry_source": "snapshot fuse start->end (sleeve length)",
+      "gate": "actual fuse-holder lead / sleeve entry (unmeasured; power gates)",
+      "max_overlap_mm3": 9.238259071370322,
+      "status": "pass"
+    },
+    {
+      "wire": "positive_fuse_to_housing",
+      "end": "end",
+      "part": "xt30_pair",
+      "entry": "housing",
+      "pieces": 1,
+      "stations": [
+        1.0,
+        1.0
+      ],
+      "run_length_mm": 0.0,
+      "max_entry_mm": 26.0,
+      "max_entry_source": "snapshot junction_housing_original_box longest edge",
+      "gate": "actual XT30 solder-cup entry depth (unmeasured; power gates)",
+      "max_overlap_mm3": 9.238259839639852,
+      "status": "pass"
+    },
+    {
+      "wire": "negative_complete",
+      "end": "end",
+      "part": "xt30_pair",
+      "entry": "housing",
+      "pieces": 2,
+      "stations": [
+        131.5,
+        132.0
+      ],
+      "run_length_mm": 4.8000034810555,
+      "max_entry_mm": 26.0,
+      "max_entry_source": "snapshot junction_housing_original_box longest edge",
+      "gate": "actual XT30 solder-cup entry depth (unmeasured; power gates)",
+      "max_overlap_mm3": 9.238259839625686,
+      "status": "pass"
+    }
+  ],
+  "pi5_method": "verify_candidate.py component set (official_pi5_assembly.build_parts); pi5.step hash-checked",
+  "physical_qualified": false,
+  "scope": "Static power-wire conservative capsules versus every saved material solid (printed, COTS, hardware; FP-12 VN-30). Keepouts excluded as non-material. No socket/pad/contact waiver beyond the listed terminal entry runs, and no assertion that omitted root joints are solved. Wire-wire checks are separate source-envelope studies. Positive finished allocation includes rigid fuse/joint zone; it is not270mm copper plus fuse.",
+  "remaining_stop": [
+    "Full flexible withdrawal/staging",
+    "Real pad/pin/lug geometry and joint cut convention",
+    "Retention and abrasion",
+    "Supplier bend capability, hot drop and thermal tests"
+  ]
+}

@@ -1,6 +1,7 @@
 """Corrected CK1044Z80: separate fixed-switch shelf and panel-removal study.
 Uses primary saved solids as obstacles; no mechanical source is changed.
 """
+from cv_io import read_text, write_text
 import json,math,hashlib,ast,itertools
 from pathlib import Path
 import numpy as np
@@ -8,7 +9,7 @@ import cadquery as cq
 from OCP.BRepBuilderAPI import BRepBuilderAPI_Sewing
 from verify_fps_access import V,box,bb,overlaps,digest,bbox,tube
 import routes as R
-P=Path(__file__).parent;mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(mp.read_text());mh=digest(mp)
+P=Path(__file__).parent;mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(read_text(mp));mh=digest(mp)
 def cy(r,y0,y1,x=-111,z=80):return cq.Solid.makeCylinder(r,y1-y0,V(x,y0,z),V(0,1,0))
 sh={n['id']:cq.importers.importStep(str(mp.parent/'step'/f"{n['id']}.step")).val() for n in m['rows']}
 # Source-supported body/bushing, provisional pin-hole-envelope cylinders; no old nut/bore assumptions silently retained.
@@ -44,7 +45,7 @@ for i in range(121):
  common=moving.intersect(switch);v=common.Volume()
  if v>1e-6:panel_hits.append(dict(shift_y_mm=dy,overlap_mm3=v,bbox_mm=bb(common)))
 # Exact full-material HDMI cells. The switch is removed before ordinary carrier/HDMI translation.
-tree=ast.parse((P/'verify_hdmi.py').read_text());node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='cell');exec(compile(ast.Module(body=[node],type_ignores=[]),str(P/'verify_hdmi.py'),'exec'))
+tree=ast.parse(read_text(P/'verify_hdmi.py'));node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='cell');exec(compile(ast.Module(body=[node],type_ignores=[]),str(P/'verify_hdmi.py'),'exec'))
 hds=[]
 for name,key in [('installed','hdmi_ribbon'),('premate','hdmi_ribbon_premate'),('both_unplugged','hdmi_ribbon_unplugged')]:
  hd=r[key]
@@ -71,4 +72,4 @@ for dy in range(0,71,2):
   common=s.intersect(shelf);v=common.Volume()
   if v>1e-6:stack_hits.append(dict(part=n,shift_y_mm=dy,overlap_mm3=v,bbox_mm=bb(common)))
 result=dict(status='HYPOTHESIS; not adopted',mechanical_manifest_sha256=mh,source_sha256=digest(Path(__file__)),switch_source='https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf',switch=dict(center=[-111,80],body_radius=13.75,body_y=[11.1,25.2],bushing_radius=4.76,bushing_y=[25.2,33.2],conservative_shaft_radius=3.175,trim_end_y=37,anti_rotation_center=[-111,89.5],anti_pin_radius=1.525,pins=pinspec,unqualified=['terminal section inferred only from1.5mm PCBholes,0.85mm envelope used','actual pin clocking/mirror and electrical selected throw','anti-pin axial projection1.5mm remains legacy estimate','nut and washer dimensions are not published','received shafttrim,knobborefit and30deg endpoints']),shelf=dict(valid=shelf.isValid(),solids=len(shelf.Solids()),tub_contact_mm3=root_common.Volume(),tub_union_valid=union.isValid(),tub_union_solids=len(union.Solids()),block=[-112,-98.5,21,24.5,64,74],cradle_inner_radius_mm=14.0,beam=[-101.5,-98.5,-27,24.5,64,66],shelf_switch_overlap_mm3=sw,rigid_hits=shelf_hits,source_wire_hits=wire_hits,full_width_fpc_reservation=R.B(-116.8,-102.1,-21.6,-4.5,64.7,75),full_width_fpc_reservation_overlap=R.overlap(R.B(-101.5,-98.5,-27,24.5,64,66),R.B(-116.8,-102.1,-21.6,-4.5,64.7,75))),panel_slide=dict(poses=121,step_mm=.5,end_mm=60,hits=panel_hits),hdmi_checks=hds,carrier_translation_hits=stack_hits,remaining=['axial body restraint while nut is off and before hand support','actual printed flex/strength and contact surfacefit','nuttool,knobpull and electricalrootmetrology','PicoBlade pair/support/unplug and splices','otherpanelwirestagings remain independently gated'])
-out=P/'out/fps-service-study';out.mkdir(exist_ok=True);(out/'fixed-switch-proposal-checks.json').write_text(json.dumps(result,indent=2));cq.exporters.export(shelf,str(out/'fixed-switch-shelf.step'));cq.exporters.export(switch,str(out/'ck1044-corrected-proxy.step'));print(json.dumps({k:v for k,v in result.items() if k not in ('switch','hdmi_checks')}),flush=True)
+out=P/'out/fps-service-study';out.mkdir(exist_ok=True);write_text(out/'fixed-switch-proposal-checks.json',json.dumps(result,indent=2));cq.exporters.export(shelf,str(out/'fixed-switch-shelf.step'));cq.exporters.export(switch,str(out/'ck1044-corrected-proxy.step'));print(json.dumps({k:v for k,v in result.items() if k not in ('switch','hdmi_checks')}),flush=True)

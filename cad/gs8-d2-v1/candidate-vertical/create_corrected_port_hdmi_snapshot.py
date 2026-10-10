@@ -1,4 +1,5 @@
 """Freeze a new USB-port-corrected input while preserving accepted HDMI material."""
+from cv_io import read_text, write_text
 from pathlib import Path
 import copy,hashlib,json,shutil
 P=Path(__file__).resolve().parent
@@ -6,9 +7,9 @@ OLD=P/'routing-snapshots/hdmi-ck1044-clear-20261009-0524'
 NEW=P/'routing-snapshots/hdmi-corrected-ports-20261009-0623'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 assert sha(OLD/'input.json')=='7c02b81255cbc9806e8ab6ada9cd24860ef3cd383882ea2c12afd94e772cabbb'
-bound=json.loads((OLD/'official-pi5-geometry-checks-v2.json').read_text())
+bound=json.loads(read_text(OLD/'official-pi5-geometry-checks-v2.json'))
 for name,h in bound['source_sha256'].items():assert sha(P/name)==h,name
-old=json.loads((OLD/'input.json').read_text());new=copy.deepcopy(old)
+old=json.loads(read_text(OLD/'input.json'));new=copy.deepcopy(old)
 reservation=bound['usb2_upper_head'];head=next(c for c in new['connectors'] if c['id']=='p_usb_pi')
 previous=copy.deepcopy(head)
 head.clear();head.update(id='p_usb_pi',cable='usb_5v',end='pi5',rigid=True,
@@ -33,9 +34,9 @@ NEW.mkdir(parents=True,exist_ok=False)
 for key in ('hdmi_installed','hdmi_premate','hdmi_both_unplugged'):
     assert new[key]==old[key]
     assert abs(new[key]['routed_length_mm']-300)<1e-8
-(NEW/'input.json').write_text(json.dumps(new,indent=2))
-(NEW/'rejected-previous-usb-head.json').write_text(json.dumps(previous,indent=2))
-(NEW/'usb2-head-reservation.json').write_text(json.dumps(reservation,indent=2))
+write_text(NEW/'input.json',json.dumps(new,indent=2))
+write_text(NEW/'rejected-previous-usb-head.json',json.dumps(previous,indent=2))
+write_text(NEW/'usb2-head-reservation.json',json.dumps(reservation,indent=2))
 (NEW/'source-create_corrected_port_hdmi_snapshot.py').write_bytes(Path(__file__).read_bytes())
 for name in ('source-verify_fps_access.py','source-verify_hdmi.py','source-official_pi5_geometry.py','source-official_pi5_csi.py'):
     shutil.copyfile(OLD/name,NEW/name)
@@ -45,4 +46,4 @@ record=dict(previous_input_sha256=sha(OLD/'input.json'),new_input_sha256=sha(NEW
         canonical_shape_sha256=hashlib.sha256(json.dumps(new[key],sort_keys=True,separators=(',',':')).encode()).hexdigest())
         for key in ('hdmi_installed','hdmi_premate','hdmi_both_unplugged')},
     physical_qualified=False,mechanical_binding='pending new parent manifest')
-(NEW/'creation-checks.json').write_text(json.dumps(record,indent=2));print(json.dumps(record,indent=2))
+write_text(NEW/'creation-checks.json',json.dumps(record,indent=2));print(json.dumps(record,indent=2))

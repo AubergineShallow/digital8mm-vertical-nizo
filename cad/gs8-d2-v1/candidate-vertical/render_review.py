@@ -113,4 +113,4 @@ bpy.ops.render.render(write_still=True)
 
 if hashlib.sha256((assets/'manifest.json').read_bytes()).hexdigest()!=manifest_hash:raise RuntimeError('Manifest changed during render')
 receipt={'manifest_sha256':manifest_hash,'renderer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'view':a.view,'image_sha256':hashlib.sha256(Path(scene.render.filepath).read_bytes()).hexdigest(),'physical_qualified':False,'scope':'Source tessellation product illustration; service view omits flexible harnesses'}
-(out/(a.view+('-raw' if a.raw else '')+'-receipt.json')).write_text(json.dumps(receipt,indent=2))
+(out/(a.view+('-raw' if a.raw else '')+'-receipt.json')).write_text(json.dumps(receipt,indent=2),encoding='utf-8',newline='\n')

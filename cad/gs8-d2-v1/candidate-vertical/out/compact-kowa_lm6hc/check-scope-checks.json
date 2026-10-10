@@ -1,0 +1,2146 @@
+{
+  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "verification_source_sha256": "6d085b567c85ceefd2170c1b9989bafbfc7f78e6d949dbd7cf08b69e8571f485",
+  "helper_source_sha256": {
+    "check_scope.py": "8b01de75aba36e333e24464ae2e1661052fdceaf19366c89ad535570d8d2fe34",
+    "steps.py": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+    "evidence_rules.py": "813df938c4ecfbd363f7b7446503fc6dd4a45230dad120615db35248aeb0f97e",
+    "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+    "print_rules.py": "be0502832892c970ff8756231ba1b8f52986e2faea48ce3b469ee2b7f29c2ef0",
+    "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb"
+  },
+  "input_sha256": {
+    "candidate-vertical/structural-review/reference-export18-structural-binding.json": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
+    "candidate-vertical/history/reviewed-export18/manifest.json": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
+    "candidate-vertical/structural-review/concealed-vent-structural.json": "0b458076fb93a537fce3e92ab9d97e71c85481f0891ba98bd2c69b70535a5a76",
+    "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json": "687970c8edfb01dd2d0163985178b8b73631fd7e8b683323d875157c1680029e",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+    "out/checks.json": "2d6f68b24619f4e4db39e22a4c72f4a15f322188e7dbefe643c2c9657e7b7c8b",
+    "out/parts-manifest.json": "6bb65631747c84974fa245a3a97e98f855e828c893e99c1b9234fc6b2fd26dd4"
+  },
+  "variant": "compact-kowa_lm6hc",
+  "scope": "full",
+  "summary": {
+    "pass": 31,
+    "fail": 3,
+    "info": 14
+  },
+  "checks": [
+    {
+      "category": "j4_screen",
+      "id": "compact-fujinon_hf6xa",
+      "status": "pass",
+      "stated_supplement_screen_Nm": 1.0,
+      "changed_rows": [
+        "lens",
+        "lens_collar",
+        "panel",
+        "tub"
+      ],
+      "added_rows": [],
+      "removed_rows": [],
+      "lower_rows": [
+        "base_grip",
+        "tripod_nut",
+        "run_button",
+        "strap",
+        "p_grip",
+        "xt30_pair",
+        "pack",
+        "cap"
+      ],
+      "lower_rows_touched": [],
+      "valid": true,
+      "upper_mass_g": 559.733094400986,
+      "upper_com_mm": [
+        -60.33479865319177,
+        1.7563778686213456,
+        53.53789332869487
+      ],
+      "floor_moment_5g_Nmm": 1469.3760047742285,
+      "wiring_5g_moment_Nmm": 58.8399,
+      "equal_share_plus_wiring_Nm": 0.7641079523871143,
+      "seventy_percent_share_plus_wiring_Nm": 1.0697511333419598,
+      "proposed_rounded_equal_share_screen_Nm": 0.8,
+      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a"
+    },
+    {
+      "category": "j4_screen",
+      "id": "compact-kowa_lm6hc",
+      "status": "pass",
+      "stated_supplement_screen_Nm": 1.0,
+      "changed_rows": [
+        "panel",
+        "tub"
+      ],
+      "added_rows": [],
+      "removed_rows": [],
+      "lower_rows": [
+        "base_grip",
+        "tripod_nut",
+        "run_button",
+        "strap",
+        "p_grip",
+        "xt30_pair",
+        "pack",
+        "cap"
+      ],
+      "lower_rows_touched": [],
+      "valid": true,
+      "upper_mass_g": 673.1523132387147,
+      "upper_com_mm": [
+        -44.797002345297116,
+        1.4596686715188585,
+        54.62669162336193
+      ],
+      "floor_moment_5g_Nmm": 1803.0547794987315,
+      "wiring_5g_moment_Nmm": 58.8399,
+      "equal_share_plus_wiring_Nm": 0.9309473397493657,
+      "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+      "proposed_rounded_equal_share_screen_Nm": 0.95,
+      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77"
+    },
+    {
+      "category": "j4_screen",
+      "id": "original-kowa_lm6hc",
+      "status": "pass",
+      "stated_supplement_screen_Nm": 1.0,
+      "changed_rows": [
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "hmx039",
+        "p_panel1",
+        "p_panel2",
+        "panel",
+        "tub",
+        "usb_stick"
+      ],
+      "added_rows": [
+        "stick_sleeve"
+      ],
+      "removed_rows": [],
+      "lower_rows": [
+        "base_grip",
+        "tripod_nut",
+        "run_button",
+        "strap",
+        "p_grip",
+        "xt30_pair",
+        "pack",
+        "cap"
+      ],
+      "lower_rows_touched": [],
+      "valid": true,
+      "upper_mass_g": 715.4161353042974,
+      "upper_com_mm": [
+        -54.547393171764234,
+        0.9129090697170091,
+        53.986590153830036
+      ],
+      "floor_moment_5g_Nmm": 1893.805217302459,
+      "wiring_5g_moment_Nmm": 58.8399,
+      "equal_share_plus_wiring_Nm": 0.9763225586512294,
+      "seventy_percent_share_plus_wiring_Nm": 1.3668515821117213,
+      "proposed_rounded_equal_share_screen_Nm": 1.0,
+      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849"
+    },
+    {
+      "category": "j4_screen",
+      "id": "envelope",
+      "status": "pass",
+      "computed": {
+        "all_variants_screen_Nm": 1.0,
+        "governing_variant": "original-kowa_lm6hc",
+        "compact_screen_Nm": 0.95,
+        "compact_screen_covers": {
+          "compact-fujinon_hf6xa": true,
+          "compact-kowa_lm6hc": true,
+          "original-kowa_lm6hc": false
+        },
+        "invalid_variants": []
+      },
+      "stated_supplement_screen_Nm": 1.0,
+      "note": "The supplement must state the screen that covers every variant (VN-33); the 0.95 N m compact value covers only the variants listed in compact_screen_covers. The 70 percent rows stay separate cases."
+    },
+    {
+      "category": "area_parity",
+      "id": "cold_branch_series",
+      "status": "pass",
+      "branches": [
+        {
+          "name": "cold_rear",
+          "mouth_mm2": 420.0,
+          "series_min_mm2": 464.4000000000003,
+          "effective_mm2": 420.0,
+          "governed_by": "mouth"
+        },
+        {
+          "name": "cold_bottom",
+          "mouth_mm2": 425.9999999999999,
+          "series_min_mm2": 437.39999999999986,
+          "effective_mm2": 425.9999999999999,
+          "governed_by": "mouth"
+        }
+      ],
+      "effective_sum_mm2": 845.9999999999999,
+      "wall_ports_mm2": 420.0,
+      "margin_mm2": 425.9999999999999,
+      "margin_percent": 101.4285714285714,
+      "sections": {
+        "cold_rear": {
+          "axis": "x",
+          "positions_mm": [
+            -155.0,
+            -153.0,
+            -151.0,
+            -150.0,
+            -149.0,
+            -147.0,
+            -145.0,
+            -143.0,
+            -142.0,
+            -141.0,
+            -139.0,
+            -137.0,
+            -135.0,
+            -134.0,
+            -133.0,
+            -131.0,
+            -129.0,
+            -127.0,
+            -126.0,
+            -125.0,
+            -123.0,
+            -121.0,
+            -119.0,
+            -118.0,
+            -117.0,
+            -115.0,
+            -113.0,
+            -111.0,
+            -110.0,
+            -109.0,
+            -107.0,
+            -105.0
+          ],
+          "free_area_mm2": [
+            570.0,
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0
+          ]
+        },
+        "cold_bottom": {
+          "axis": "z",
+          "positions_mm": [
+            2.6,
+            3.0,
+            3.4,
+            3.8,
+            4.2,
+            4.6,
+            5.0,
+            5.4,
+            5.8,
+            6.2,
+            6.6,
+            7.0,
+            7.4,
+            7.8,
+            8.0,
+            8.2,
+            8.6,
+            9.0,
+            9.4,
+            9.8,
+            10.2,
+            10.6,
+            11.0,
+            11.4,
+            11.8,
+            12.2,
+            12.6,
+            13.0,
+            13.4,
+            13.8,
+            14.2,
+            14.6,
+            15.0,
+            15.4,
+            15.8,
+            16.0,
+            16.2,
+            16.6,
+            17.0,
+            17.4,
+            17.8
+          ],
+          "free_area_mm2": [
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            473.1521653878947,
+            440.7532396601239,
+            437.39999999999986,
+            440.7532396601239,
+            473.1521653878947,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            473.1521653878947,
+            440.7532396601239,
+            437.39999999999986,
+            440.7532396601239,
+            473.15216538789605,
+            543.0,
+            543.0,
+            543.0
+          ]
+        }
+      },
+      "rule": "sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 (replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)"
+    },
+    {
+      "category": "area_parity",
+      "id": "hot_branch_series",
+      "status": "fail",
+      "branches": [
+        {
+          "name": "hot_bottom",
+          "mouth_mm2": 324.0,
+          "series_min_mm2": 299.40000000000003,
+          "effective_mm2": 299.40000000000003,
+          "governed_by": "series section"
+        },
+        {
+          "name": "hot_front",
+          "mouth_mm2": 210.0,
+          "series_min_mm2": 464.4000000000003,
+          "effective_mm2": 210.0,
+          "governed_by": "mouth"
+        }
+      ],
+      "effective_sum_mm2": 509.40000000000003,
+      "wall_ports_mm2": 510.0,
+      "margin_mm2": -0.5999999999999659,
+      "margin_percent": -0.11764705882352272,
+      "sections": {
+        "hot_bottom": {
+          "axis": "z",
+          "positions_mm": [
+            2.6,
+            3.0,
+            3.4,
+            3.8,
+            4.2,
+            4.6,
+            5.0,
+            5.4,
+            5.8,
+            6.2,
+            6.6,
+            7.0,
+            7.4,
+            7.8,
+            8.0,
+            8.2,
+            8.6,
+            9.0,
+            9.4,
+            9.8,
+            10.2,
+            10.6,
+            11.0,
+            11.4,
+            11.8,
+            12.2,
+            12.6,
+            13.0,
+            13.4,
+            13.8,
+            14.2,
+            14.6,
+            15.0,
+            15.4,
+            15.8
+          ],
+          "free_area_mm2": [
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            318.90118112066995,
+            301.22903981461326,
+            299.40000000000003,
+            301.22903981461326,
+            318.9011811206699,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            357.0,
+            350.65019685344487,
+            347.7048399691022
+          ]
+        },
+        "hot_front": {
+          "axis": "x",
+          "positions_mm": [
+            -16.0,
+            -15.0,
+            -14.0,
+            -13.0,
+            -12.0,
+            -11.0,
+            -10.0,
+            -9.0,
+            -8.0,
+            -7.0,
+            -6.0,
+            -5.0,
+            -4.0,
+            -3.0
+          ],
+          "free_area_mm2": [
+            570.0,
+            570.0,
+            464.4000000000003,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0,
+            570.0
+          ]
+        }
+      },
+      "rule": "sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 (replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)"
+    },
+    {
+      "category": "flow_network",
+      "id": "baseline_drift",
+      "status": "pass",
+      "drifts": [],
+      "missing_cases": [],
+      "baseline_reason": "first computed values: FP-12 run on manifest 53e668d4 (2026-10-11)",
+      "rel_tol": 1e-06,
+      "compared_cases": 8
+    },
+    {
+      "category": "flow_network",
+      "id": "nominal",
+      "status": "info",
+      "note": "all mouths, ports and the CSI slot open",
+      "open_fraction": {},
+      "cold_path_eff_mm2": 347.13698573797353,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 670.2785783915772,
+      "exhaust_eff_mm2": 320.1284854969488,
+      "system_eff_mm2": 288.8725513889426,
+      "csi_share_of_intake": 0.48210043267237473,
+      "cold_path_share_of_intake": 0.5178995673276252,
+      "system_flow_ratio_vs_nominal": 1.0,
+      "intake_area_change_percent": 0.0
+    },
+    {
+      "category": "flow_network",
+      "id": "cold_rear_blocked",
+      "status": "info",
+      "note": "rear cold mouth covered (hand/strap)",
+      "open_fraction": {
+        "cold_rear": 0.0
+      },
+      "cold_path_eff_mm2": 246.88585870838287,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 570.0274513619864,
+      "exhaust_eff_mm2": 320.1284854969488,
+      "system_eff_mm2": 279.1232104153011,
+      "csi_share_of_intake": 0.5668877733546167,
+      "cold_path_share_of_intake": 0.4331122266453833,
+      "system_flow_ratio_vs_nominal": 0.9662503726063096,
+      "intake_area_change_percent": -14.956635981140366
+    },
+    {
+      "category": "flow_network",
+      "id": "cold_bottom_blocked",
+      "status": "info",
+      "note": "underside cold mouth covered",
+      "open_fraction": {
+        "cold_bottom": 0.0
+      },
+      "cold_path_eff_mm2": 250.19837072683396,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 573.3399633804376,
+      "exhaust_eff_mm2": 320.1284854969488,
+      "system_eff_mm2": 279.50956506440593,
+      "csi_share_of_intake": 0.563612539318464,
+      "cold_path_share_of_intake": 0.43638746068153594,
+      "system_flow_ratio_vs_nominal": 0.9675878297210377,
+      "intake_area_change_percent": -14.462436684722457
+    },
+    {
+      "category": "flow_network",
+      "id": "cold_bottom_strap_20_of_71",
+      "status": "info",
+      "note": "strap envelope over 20 of 71 mm of the underside cold mouth (review PRI-12 geometry, not a measurement)",
+      "open_fraction": {
+        "cold_bottom": 0.7183098591549295
+      },
+      "cold_path_eff_mm2": 329.34428719820687,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 652.4858798518105,
+      "exhaust_eff_mm2": 320.1284854969488,
+      "system_eff_mm2": 287.4008103206617,
+      "csi_share_of_intake": 0.4952468745024704,
+      "cold_path_share_of_intake": 0.5047531254975295,
+      "system_flow_ratio_vs_nominal": 0.994905223562417,
+      "intake_area_change_percent": -2.6545229272376014
+    },
+    {
+      "category": "flow_network",
+      "id": "hot_bottom_blocked",
+      "status": "info",
+      "note": "underside hot mouth covered",
+      "open_fraction": {
+        "hot_bottom": 0.0
+      },
+      "cold_path_eff_mm2": 347.13698573797353,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 670.2785783915772,
+      "exhaust_eff_mm2": 179.15169109642548,
+      "system_eff_mm2": 173.07619048929314,
+      "csi_share_of_intake": 0.48210043267237473,
+      "cold_path_share_of_intake": 0.5178995673276252,
+      "system_flow_ratio_vs_nominal": 0.5991437734638227,
+      "intake_area_change_percent": 0.0
+    },
+    {
+      "category": "flow_network",
+      "id": "hot_front_blocked",
+      "status": "info",
+      "note": "front hot mouth covered",
+      "open_fraction": {
+        "hot_front": 0.0
+      },
+      "cold_path_eff_mm2": 347.13698573797353,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 670.2785783915772,
+      "exhaust_eff_mm2": 201.92194833286584,
+      "system_eff_mm2": 193.33946475098932,
+      "csi_share_of_intake": 0.48210043267237473,
+      "cold_path_share_of_intake": 0.5178995673276252,
+      "system_flow_ratio_vs_nominal": 0.6692898436399863,
+      "intake_area_change_percent": 0.0
+    },
+    {
+      "category": "flow_network",
+      "id": "set_down_on_table",
+      "status": "info",
+      "note": "both underside mouths on a flat surface",
+      "open_fraction": {
+        "cold_bottom": 0.0,
+        "hot_bottom": 0.0
+      },
+      "cold_path_eff_mm2": 250.19837072683396,
+      "csi_eff_mm2": 323.1415926536036,
+      "intake_eff_mm2": 573.3399633804376,
+      "exhaust_eff_mm2": 179.15169109642548,
+      "system_eff_mm2": 170.99814963315038,
+      "csi_share_of_intake": 0.563612539318464,
+      "cold_path_share_of_intake": 0.43638746068153594,
+      "system_flow_ratio_vs_nominal": 0.5919501482953835,
+      "intake_area_change_percent": -14.462436684722457
+    },
+    {
+      "category": "flow_network",
+      "id": "csi_plugged",
+      "status": "info",
+      "note": "CSI slot sealed: information for user decision VN-36 only, not adopted",
+      "open_fraction": {
+        "csi": 0.0
+      },
+      "cold_path_eff_mm2": 347.13698573797353,
+      "csi_eff_mm2": 0.0,
+      "intake_eff_mm2": 347.13698573797353,
+      "exhaust_eff_mm2": 320.1284854969488,
+      "system_eff_mm2": 235.33476273996908,
+      "csi_share_of_intake": 0.0,
+      "cold_path_share_of_intake": 1.0,
+      "system_flow_ratio_vs_nominal": 0.8146664042964421,
+      "intake_area_change_percent": -48.21004326723748
+    },
+    {
+      "category": "flow_network",
+      "id": "model",
+      "status": "info",
+      "elements": {
+        "cold_rear": {
+          "mouth_mm2": 420.0,
+          "series_min_mm2": 464.4000000000003
+        },
+        "cold_bottom": {
+          "mouth_mm2": 425.9999999999999,
+          "series_min_mm2": 437.39999999999986
+        },
+        "hot_bottom": {
+          "mouth_mm2": 324.0,
+          "series_min_mm2": 299.40000000000003
+        },
+        "hot_front": {
+          "mouth_mm2": 210.0,
+          "series_min_mm2": 464.4000000000003
+        },
+        "cold_ports_mm2": 420.0,
+        "hot_ports_mm2": 510.0,
+        "csi_mm2": 323.1415926536036
+      },
+      "fan_curve": "UNKNOWN: no Active Cooler fan P-Q curve in the repo; operating point not computed (gate: MEASUREMENTS-TO-CLOSE shadow-gap airflow row, G-W10/G-W11/G-W12 thermal tests)",
+      "excluded": [
+        "panel seams and other unmodelled leaks",
+        "laminar channel friction (review estimate < 1 Pa)",
+        "turn losses",
+        "per-element discharge coefficients (one common Cd assumed)"
+      ],
+      "decision": "A CSI plug is user decision VN-36; this report only informs it."
+    },
+    {
+      "category": "hdmi_face",
+      "id": "installed/continuity",
+      "status": "pass",
+      "frames": 1393,
+      "max_point_step_mm": 0.4963542300952213,
+      "max_turn_deg": 6.703137179224859,
+      "formula_sign_changes_at": [],
+      "start_normal": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "end_normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "start_point": [
+        -59.8,
+        -14.650000000000002,
+        77.5
+      ],
+      "end_point": [
+        -145.6,
+        5.5,
+        37.3
+      ],
+      "rule": "consecutive frames <= 2.5 mm apart and the carried normal turns <= 30 deg per frame"
+    },
+    {
+      "category": "hdmi_face",
+      "id": "installed/end_frames",
+      "status": "pass",
+      "pi_end_gap_mm": 0.0,
+      "evf_end_gap_mm": 0.0,
+      "pi_normal_dot_exit": 0.0,
+      "pi_normal_dot_width": 0.0,
+      "evf_normal_dot_exit": 0.0,
+      "evf_normal_dot_width": 0.0,
+      "rule": "route ends on each head wire exit, strip normal perpendicular to the exit direction and width"
+    },
+    {
+      "category": "hdmi_face",
+      "id": "installed/contact_sides",
+      "status": "info",
+      "face_a_at_pi": "-Z",
+      "face_a_at_evf": "-X",
+      "required_if_ribbon": {
+        "same": {
+          "pi_head_3557": "-Z",
+          "evf_head_3556": "-X"
+        },
+        "opposite": {
+          "pi_head_3557": "-Z",
+          "evf_head_3556": "+X"
+        }
+      },
+      "recorded": {
+        "pi_head_3557": null,
+        "evf_head_3556": null,
+        "ribbon_3562": null
+      },
+      "hold": "head and ribbon contact sides unmeasured (G-V-HDMI receipt gate)",
+      "operational_status": "HOLD",
+      "note": "face A = the strip face whose outward normal is face_a_at_pi at the Pi head. Record the measured sides in check_scope.HDMI_CONTACT_SIDES (receipt) and this row becomes pass/fail."
+    },
+    {
+      "category": "hdmi_face",
+      "id": "premate/continuity",
+      "status": "pass",
+      "frames": 1393,
+      "max_point_step_mm": 0.4963542300952213,
+      "max_turn_deg": 6.703137179224859,
+      "formula_sign_changes_at": [],
+      "start_normal": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "end_normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "start_point": [
+        -59.8,
+        -14.650000000000002,
+        77.5
+      ],
+      "end_point": [
+        -145.6,
+        5.5,
+        31.299999999999997
+      ],
+      "rule": "consecutive frames <= 2.5 mm apart and the carried normal turns <= 30 deg per frame"
+    },
+    {
+      "category": "hdmi_face",
+      "id": "premate/end_frames",
+      "status": "pass",
+      "pi_end_gap_mm": 0.0,
+      "evf_end_gap_mm": 0.0,
+      "pi_normal_dot_exit": 0.0,
+      "pi_normal_dot_width": 0.0,
+      "evf_normal_dot_exit": 0.0,
+      "evf_normal_dot_width": 0.0,
+      "rule": "route ends on each head wire exit, strip normal perpendicular to the exit direction and width"
+    },
+    {
+      "category": "hdmi_face",
+      "id": "premate/contact_sides",
+      "status": "info",
+      "face_a_at_pi": "-Z",
+      "face_a_at_evf": "-X",
+      "required_if_ribbon": {
+        "same": {
+          "pi_head_3557": "-Z",
+          "evf_head_3556": "-X"
+        },
+        "opposite": {
+          "pi_head_3557": "-Z",
+          "evf_head_3556": "+X"
+        }
+      },
+      "recorded": {
+        "pi_head_3557": null,
+        "evf_head_3556": null,
+        "ribbon_3562": null
+      },
+      "hold": "head and ribbon contact sides unmeasured (G-V-HDMI receipt gate)",
+      "operational_status": "HOLD",
+      "note": "face A = the strip face whose outward normal is face_a_at_pi at the Pi head. Record the measured sides in check_scope.HDMI_CONTACT_SIDES (receipt) and this row becomes pass/fail."
+    },
+    {
+      "category": "evf_restraint",
+      "id": "+X",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arresting": "tub",
+      "gap_mm": 0.25,
+      "first_contact_by_zone": {
+        "hdmi receptacle": null,
+        "ZIF (OLED flex)": null,
+        "components": null,
+        "pcb": {
+          "gap_mm": 0.25,
+          "on": "tub"
+        },
+        "hdmi plug": null
+      },
+      "contact_bbox": [
+        -136.85,
+        -136.8,
+        1.0,
+        28.0,
+        64.0,
+        92.5
+      ],
+      "bears_on": [
+        "pcb"
+      ],
+      "contact_share": {
+        "pcb": 1.0
+      },
+      "r7_gap_mm": 0.25,
+      "r7_arresting": "tub",
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "-X",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arresting": "tub",
+      "gap_mm": 0.25,
+      "first_contact_by_zone": {
+        "hdmi receptacle": null,
+        "ZIF (OLED flex)": null,
+        "components": {
+          "gap_mm": 0.27,
+          "on": "panel"
+        },
+        "pcb": {
+          "gap_mm": 0.25,
+          "on": "tub"
+        },
+        "hdmi plug": null
+      },
+      "contact_bbox": [
+        -138.4,
+        -138.35,
+        1.0,
+        28.0,
+        64.0,
+        92.5
+      ],
+      "bears_on": [
+        "pcb"
+      ],
+      "contact_share": {
+        "pcb": 1.0
+      },
+      "r7_gap_mm": 0.25,
+      "r7_arresting": "tub",
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "+Y",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arresting": "panel",
+      "gap_mm": 0.3,
+      "first_contact_by_zone": {
+        "hdmi receptacle": null,
+        "ZIF (OLED flex)": null,
+        "components": null,
+        "pcb": {
+          "gap_mm": 0.3,
+          "on": "panel"
+        },
+        "hdmi plug": {
+          "gap_mm": 0.53,
+          "on": "tub"
+        }
+      },
+      "contact_bbox": [
+        -138.4,
+        -136.8,
+        27.95,
+        28.0,
+        70.0,
+        86.0
+      ],
+      "bears_on": [
+        "pcb"
+      ],
+      "contact_share": {
+        "pcb": 1.0
+      },
+      "r7_gap_mm": 0.3,
+      "r7_arresting": "panel",
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "-Y",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arresting": "tub",
+      "gap_mm": 0.31,
+      "first_contact_by_zone": {
+        "hdmi receptacle": null,
+        "ZIF (OLED flex)": null,
+        "components": null,
+        "pcb": {
+          "gap_mm": 0.31,
+          "on": "tub"
+        },
+        "hdmi plug": {
+          "gap_mm": 0.52,
+          "on": "tub"
+        }
+      },
+      "contact_bbox": [
+        -138.4,
+        -136.8,
+        1.0,
+        1.06,
+        64.0,
+        92.5
+      ],
+      "bears_on": [
+        "pcb"
+      ],
+      "contact_share": {
+        "pcb": 1.0
+      },
+      "r7_gap_mm": 0.31,
+      "r7_arresting": "tub",
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "+Z",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arresting": "tub",
+      "gap_mm": 0.25,
+      "first_contact_by_zone": {
+        "hdmi receptacle": null,
+        "ZIF (OLED flex)": null,
+        "components": null,
+        "pcb": {
+          "gap_mm": 0.25,
+          "on": "tub"
+        },
+        "hdmi plug": null
+      },
+      "contact_bbox": [
+        -138.4,
+        -136.8,
+        1.0,
+        28.0,
+        92.45,
+        92.5
+      ],
+      "bears_on": [
+        "pcb"
+      ],
+      "contact_share": {
+        "pcb": 1.0
+      },
+      "r7_gap_mm": 0.25,
+      "r7_arresting": "tub",
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "-Z",
+      "status": "fail",
+      "limit_mm": 0.6,
+      "arresting": "tub",
+      "gap_mm": 0.25,
+      "first_contact_by_zone": {
+        "hdmi receptacle": {
+          "gap_mm": 0.27,
+          "on": "tub"
+        },
+        "ZIF (OLED flex)": null,
+        "components": null,
+        "pcb": {
+          "gap_mm": 0.25,
+          "on": "tub"
+        },
+        "hdmi plug": null
+      },
+      "connector_stop": {
+        "hdmi receptacle": 0.27
+      },
+      "contact_bbox": [
+        -138.5,
+        -136.8,
+        1.0,
+        28.0,
+        64.0,
+        64.05
+      ],
+      "bears_on": [
+        "hdmi receptacle",
+        "pcb"
+      ],
+      "contact_share": {
+        "hdmi receptacle": 0.029,
+        "pcb": 0.971
+      },
+      "error": "connector/plug zone within PCB first contact + 0.2: hdmi receptacle 0.27",
+      "r7_gap_mm": 0.25,
+      "r7_arresting": "tub",
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "support_span_final",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arrest": [
+        "tub",
+        "panel"
+      ],
+      "band_z": [
+        64.0,
+        65.0
+      ],
+      "slice_mm": 1.0,
+      "end_window_mm": 3.0,
+      "supported": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          2.0,
+          3.0
+        ],
+        [
+          3.0,
+          4.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          5.0,
+          6.0
+        ],
+        [
+          6.0,
+          7.0
+        ],
+        [
+          7.0,
+          8.0
+        ],
+        [
+          8.0,
+          9.0
+        ],
+        [
+          9.0,
+          10.0
+        ],
+        [
+          10.0,
+          11.0
+        ],
+        [
+          11.0,
+          12.0
+        ],
+        [
+          12.0,
+          13.0
+        ],
+        [
+          13.0,
+          14.0
+        ],
+        [
+          14.0,
+          15.0
+        ],
+        [
+          15.0,
+          16.0
+        ],
+        [
+          16.0,
+          17.0
+        ],
+        [
+          17.0,
+          18.0
+        ],
+        [
+          18.0,
+          19.0
+        ],
+        [
+          19.0,
+          20.0
+        ],
+        [
+          20.0,
+          21.0
+        ],
+        [
+          21.0,
+          22.0
+        ],
+        [
+          22.0,
+          23.0
+        ],
+        [
+          23.0,
+          24.0
+        ],
+        [
+          24.0,
+          25.0
+        ],
+        [
+          25.0,
+          26.0
+        ],
+        [
+          26.0,
+          27.0
+        ],
+        [
+          27.0,
+          28.0
+        ]
+      ],
+      "slices": [
+        [
+          1.0,
+          2.0,
+          0.26,
+          "tub"
+        ],
+        [
+          2.0,
+          3.0,
+          0.26,
+          "tub"
+        ],
+        [
+          3.0,
+          4.0,
+          0.26,
+          "tub"
+        ],
+        [
+          4.0,
+          5.0,
+          0.26,
+          "tub"
+        ],
+        [
+          5.0,
+          6.0,
+          0.26,
+          "tub"
+        ],
+        [
+          6.0,
+          7.0,
+          0.26,
+          "tub"
+        ],
+        [
+          7.0,
+          8.0,
+          0.26,
+          "tub"
+        ],
+        [
+          8.0,
+          9.0,
+          0.26,
+          "tub"
+        ],
+        [
+          9.0,
+          10.0,
+          0.26,
+          "tub"
+        ],
+        [
+          10.0,
+          11.0,
+          0.26,
+          "tub"
+        ],
+        [
+          11.0,
+          12.0,
+          0.26,
+          "tub"
+        ],
+        [
+          12.0,
+          13.0,
+          0.26,
+          "tub"
+        ],
+        [
+          13.0,
+          14.0,
+          0.26,
+          "tub"
+        ],
+        [
+          14.0,
+          15.0,
+          0.26,
+          "tub"
+        ],
+        [
+          15.0,
+          16.0,
+          0.26,
+          "tub"
+        ],
+        [
+          16.0,
+          17.0,
+          0.26,
+          "tub"
+        ],
+        [
+          17.0,
+          18.0,
+          0.26,
+          "tub"
+        ],
+        [
+          18.0,
+          19.0,
+          0.26,
+          "tub"
+        ],
+        [
+          19.0,
+          20.0,
+          0.26,
+          "tub"
+        ],
+        [
+          20.0,
+          21.0,
+          0.26,
+          "tub"
+        ],
+        [
+          21.0,
+          22.0,
+          0.26,
+          "tub"
+        ],
+        [
+          22.0,
+          23.0,
+          0.26,
+          "tub"
+        ],
+        [
+          23.0,
+          24.0,
+          0.26,
+          "tub"
+        ],
+        [
+          24.0,
+          25.0,
+          0.26,
+          "tub"
+        ],
+        [
+          25.0,
+          26.0,
+          0.26,
+          "tub"
+        ],
+        [
+          26.0,
+          27.0,
+          0.26,
+          "tub"
+        ],
+        [
+          27.0,
+          28.0,
+          0.26,
+          "tub"
+        ]
+      ],
+      "gap_mm": 0.26,
+      "r7_gap_mm": 0.26,
+      "r7_arresting": [
+        "tub",
+        "panel",
+        "hood"
+      ],
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "support_span_prepanel",
+      "status": "pass",
+      "limit_mm": 0.6,
+      "arrest": [
+        "tub"
+      ],
+      "band_z": [
+        64.0,
+        65.0
+      ],
+      "slice_mm": 1.0,
+      "end_window_mm": 3.0,
+      "supported": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          2.0,
+          3.0
+        ],
+        [
+          3.0,
+          4.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          5.0,
+          6.0
+        ],
+        [
+          6.0,
+          7.0
+        ],
+        [
+          7.0,
+          8.0
+        ],
+        [
+          8.0,
+          9.0
+        ],
+        [
+          9.0,
+          10.0
+        ],
+        [
+          10.0,
+          11.0
+        ],
+        [
+          11.0,
+          12.0
+        ],
+        [
+          12.0,
+          13.0
+        ],
+        [
+          13.0,
+          14.0
+        ],
+        [
+          14.0,
+          15.0
+        ],
+        [
+          15.0,
+          16.0
+        ],
+        [
+          16.0,
+          17.0
+        ],
+        [
+          17.0,
+          18.0
+        ],
+        [
+          18.0,
+          19.0
+        ],
+        [
+          19.0,
+          20.0
+        ],
+        [
+          20.0,
+          21.0
+        ],
+        [
+          21.0,
+          22.0
+        ],
+        [
+          22.0,
+          23.0
+        ],
+        [
+          23.0,
+          24.0
+        ],
+        [
+          24.0,
+          25.0
+        ],
+        [
+          25.0,
+          26.0
+        ],
+        [
+          26.0,
+          27.0
+        ],
+        [
+          27.0,
+          28.0
+        ]
+      ],
+      "slices": [
+        [
+          1.0,
+          2.0,
+          0.26,
+          "tub"
+        ],
+        [
+          2.0,
+          3.0,
+          0.26,
+          "tub"
+        ],
+        [
+          3.0,
+          4.0,
+          0.26,
+          "tub"
+        ],
+        [
+          4.0,
+          5.0,
+          0.26,
+          "tub"
+        ],
+        [
+          5.0,
+          6.0,
+          0.26,
+          "tub"
+        ],
+        [
+          6.0,
+          7.0,
+          0.26,
+          "tub"
+        ],
+        [
+          7.0,
+          8.0,
+          0.26,
+          "tub"
+        ],
+        [
+          8.0,
+          9.0,
+          0.26,
+          "tub"
+        ],
+        [
+          9.0,
+          10.0,
+          0.26,
+          "tub"
+        ],
+        [
+          10.0,
+          11.0,
+          0.26,
+          "tub"
+        ],
+        [
+          11.0,
+          12.0,
+          0.26,
+          "tub"
+        ],
+        [
+          12.0,
+          13.0,
+          0.26,
+          "tub"
+        ],
+        [
+          13.0,
+          14.0,
+          0.26,
+          "tub"
+        ],
+        [
+          14.0,
+          15.0,
+          0.26,
+          "tub"
+        ],
+        [
+          15.0,
+          16.0,
+          0.26,
+          "tub"
+        ],
+        [
+          16.0,
+          17.0,
+          0.26,
+          "tub"
+        ],
+        [
+          17.0,
+          18.0,
+          0.26,
+          "tub"
+        ],
+        [
+          18.0,
+          19.0,
+          0.26,
+          "tub"
+        ],
+        [
+          19.0,
+          20.0,
+          0.26,
+          "tub"
+        ],
+        [
+          20.0,
+          21.0,
+          0.26,
+          "tub"
+        ],
+        [
+          21.0,
+          22.0,
+          0.26,
+          "tub"
+        ],
+        [
+          22.0,
+          23.0,
+          0.26,
+          "tub"
+        ],
+        [
+          23.0,
+          24.0,
+          0.26,
+          "tub"
+        ],
+        [
+          24.0,
+          25.0,
+          0.26,
+          "tub"
+        ],
+        [
+          25.0,
+          26.0,
+          0.26,
+          "tub"
+        ],
+        [
+          26.0,
+          27.0,
+          0.26,
+          "tub"
+        ],
+        [
+          27.0,
+          28.0,
+          0.26,
+          "tub"
+        ]
+      ],
+      "gap_mm": 0.26,
+      "r7_gap_mm": 0.26,
+      "r7_arresting": [
+        "tub",
+        "hood"
+      ],
+      "r7_status": "pass",
+      "frame": "r7 frame: candidate shapes translated by -[-4.0, -5.0, 0.0] (EVF set moved by model.py tr(154-length, EY-16, 0))",
+      "frame_check": {
+        "ok": true,
+        "measured_translation": [
+          -4.0,
+          -5.0,
+          0.0
+        ],
+        "span_error_mm": 0.0
+      },
+      "plug_zone": "selected HDMI snapshot p_hdmi_evf head box (rides with the board)"
+    },
+    {
+      "category": "evf_restraint",
+      "id": "control_without_panel",
+      "status": "pass",
+      "control_plus_y": {
+        "direction": "+Y",
+        "limit_mm": 0.6,
+        "arresting": "tub",
+        "gap_mm": 0.53,
+        "first_contact_by_zone": {
+          "hdmi receptacle": null,
+          "ZIF (OLED flex)": null,
+          "components": null,
+          "pcb": null,
+          "hdmi plug": {
+            "gap_mm": 0.53,
+            "on": "tub"
+          }
+        },
+        "connector_stop": {
+          "hdmi plug": 0.53
+        },
+        "contact_bbox": [
+          -139.95,
+          -139.6,
+          19.07,
+          19.15,
+          61.5,
+          63.75
+        ],
+        "bears_on": [],
+        "contact_share": {},
+        "status": "fail",
+        "error": "connector/plug zone within PCB first contact + 0.2: hdmi plug 0.53"
+      },
+      "purpose": "regression fixture: with the panel removed from the arrest set the +Y row must fail (the panel is the +Y stop), so the check still sees a missing stop"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-fujinon_hf6xa/axis_side_by_side",
+      "status": "info",
+      "r7": {
+        "axis_y": 16.0,
+        "axis_z": 78.00999999999999,
+        "flange_x": -153.98,
+        "eyecup_rear_x": -187.63,
+        "body_rear_x": -170.22,
+        "eyecup_protrusion_mm": 17.409999999999997,
+        "left_extent_mm": 19.03,
+        "right_extent_mm": 51.0,
+        "top_extent_mm": 21.99000000000001,
+        "body_ids": [
+          "tub",
+          "panel",
+          "hood"
+        ]
+      },
+      "candidate": {
+        "axis_y": 11.0,
+        "axis_z": 78.0,
+        "flange_x": -157.98986011943177,
+        "eyecup_rear_x": -191.61645213603123,
+        "body_rear_x": -158.01024477484998,
+        "eyecup_protrusion_mm": 33.60620736118125,
+        "left_extent_mm": 17.031028157290894,
+        "right_extent_mm": 46.60069939521161,
+        "top_extent_mm": 22.001398690423215,
+        "body_ids": [
+          "tub",
+          "panel"
+        ]
+      },
+      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+      "delta": {
+        "axis_y": -5.0,
+        "axis_z": -0.009999999999990905,
+        "flange_x": -4.009860119431778
+      },
+      "r7_layout": "layout.py EVF axis Y16 Z78, F -154 (EVF dict); candidate model.EY=11.0"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-fujinon_hf6xa/eyecup_protrusion_mm",
+      "status": "pass",
+      "candidate": 33.60620736118125,
+      "r7": 17.409999999999997,
+      "delta": 16.19620736118125,
+      "better": "higher",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-fujinon_hf6xa/left_extent_mm",
+      "status": "pass",
+      "candidate": 17.031028157290894,
+      "r7": 19.03,
+      "delta": -1.998971842709107,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-fujinon_hf6xa/right_extent_mm",
+      "status": "pass",
+      "candidate": 46.60069939521161,
+      "r7": 51.0,
+      "delta": -4.399300604788387,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-fujinon_hf6xa/top_extent_mm",
+      "status": "pass",
+      "candidate": 22.001398690423215,
+      "r7": 21.99000000000001,
+      "delta": 0.011398690423206403,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-kowa_lm6hc/axis_side_by_side",
+      "status": "info",
+      "r7": {
+        "axis_y": 16.0,
+        "axis_z": 78.00999999999999,
+        "flange_x": -153.98,
+        "eyecup_rear_x": -187.63,
+        "body_rear_x": -170.22,
+        "eyecup_protrusion_mm": 17.409999999999997,
+        "left_extent_mm": 19.03,
+        "right_extent_mm": 51.0,
+        "top_extent_mm": 21.99000000000001,
+        "body_ids": [
+          "tub",
+          "panel",
+          "hood"
+        ]
+      },
+      "candidate": {
+        "axis_y": 11.0,
+        "axis_z": 78.0,
+        "flange_x": -157.98986011943177,
+        "eyecup_rear_x": -191.61645213603123,
+        "body_rear_x": -158.01024477484998,
+        "eyecup_protrusion_mm": 33.60620736118125,
+        "left_extent_mm": 17.031028157290894,
+        "right_extent_mm": 46.60069939521161,
+        "top_extent_mm": 22.001398690423215,
+        "body_ids": [
+          "tub",
+          "panel"
+        ]
+      },
+      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "delta": {
+        "axis_y": -5.0,
+        "axis_z": -0.009999999999990905,
+        "flange_x": -4.009860119431778
+      },
+      "r7_layout": "layout.py EVF axis Y16 Z78, F -154 (EVF dict); candidate model.EY=11.0"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-kowa_lm6hc/eyecup_protrusion_mm",
+      "status": "pass",
+      "candidate": 33.60620736118125,
+      "r7": 17.409999999999997,
+      "delta": 16.19620736118125,
+      "better": "higher",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-kowa_lm6hc/left_extent_mm",
+      "status": "pass",
+      "candidate": 17.031028157290894,
+      "r7": 19.03,
+      "delta": -1.998971842709107,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-kowa_lm6hc/right_extent_mm",
+      "status": "pass",
+      "candidate": 46.60069939521161,
+      "r7": 51.0,
+      "delta": -4.399300604788387,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "compact-kowa_lm6hc/top_extent_mm",
+      "status": "pass",
+      "candidate": 22.001398690423215,
+      "r7": 21.99000000000001,
+      "delta": 0.011398690423206403,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "original-kowa_lm6hc/axis_side_by_side",
+      "status": "info",
+      "r7": {
+        "axis_y": 16.0,
+        "axis_z": 78.00999999999999,
+        "flange_x": -153.98,
+        "eyecup_rear_x": -187.63,
+        "body_rear_x": -170.22,
+        "eyecup_protrusion_mm": 17.409999999999997,
+        "left_extent_mm": 19.03,
+        "right_extent_mm": 51.0,
+        "top_extent_mm": 21.99000000000001,
+        "body_ids": [
+          "tub",
+          "panel",
+          "hood"
+        ]
+      },
+      "candidate": {
+        "axis_y": 11.0,
+        "axis_z": 78.0,
+        "flange_x": -184.98986011943177,
+        "eyecup_rear_x": -218.61645213603123,
+        "body_rear_x": -185.01024477484998,
+        "eyecup_protrusion_mm": 33.60620736118125,
+        "left_extent_mm": 17.031028157290894,
+        "right_extent_mm": 46.60069939521161,
+        "top_extent_mm": 22.001398690423215,
+        "body_ids": [
+          "tub",
+          "panel"
+        ]
+      },
+      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+      "delta": {
+        "axis_y": -5.0,
+        "axis_z": -0.009999999999990905,
+        "flange_x": -31.009860119431778
+      },
+      "r7_layout": "layout.py EVF axis Y16 Z78, F -154 (EVF dict); candidate model.EY=11.0"
+    },
+    {
+      "category": "evf_face",
+      "id": "original-kowa_lm6hc/eyecup_protrusion_mm",
+      "status": "pass",
+      "candidate": 33.60620736118125,
+      "r7": 17.409999999999997,
+      "delta": 16.19620736118125,
+      "better": "higher",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "original-kowa_lm6hc/left_extent_mm",
+      "status": "pass",
+      "candidate": 17.031028157290894,
+      "r7": 19.03,
+      "delta": -1.998971842709107,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "original-kowa_lm6hc/right_extent_mm",
+      "status": "pass",
+      "candidate": 46.60069939521161,
+      "r7": 51.0,
+      "delta": -4.399300604788387,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "evf_face",
+      "id": "original-kowa_lm6hc/top_extent_mm",
+      "status": "pass",
+      "candidate": 22.001398690423215,
+      "r7": 21.99000000000001,
+      "delta": 0.011398690423206403,
+      "better": "lower",
+      "resolution_mm": 0.05,
+      "gate": "face/nose fit with a user at the eyecup (no anthropometric data in the repo): r7 is the baseline"
+    },
+    {
+      "category": "stack_retention",
+      "id": "vertical_carrier",
+      "status": "fail",
+      "retention_points": [
+        [
+          -127.0,
+          69.0,
+          0.0
+        ],
+        [
+          -25.0,
+          9.0,
+          0.0
+        ]
+      ],
+      "hull": [
+        [
+          -127.0,
+          69.0
+        ],
+        [
+          -25.0,
+          9.0
+        ]
+      ],
+      "stack_com_xz": [
+        -79.48424149909167,
+        33.960053002128696
+      ],
+      "com_inside_hull_margin_mm": null,
+      "max_lift_mm": {
+        "(-37.5, 10.5)": null,
+        "(-37.5, 59.5)": null,
+        "(-95.5, 10.5)": null,
+        "(-95.5, 59.5)": null,
+        "(-131.8, 4.0)": null,
+        "(-131.8, 73.8)": null,
+        "(-20.2, 4.0)": null,
+        "(-20.2, 73.8)": null
+      },
+      "lift_bounded": false,
+      "com_distance_from_screw_line_mm": 6.110683325893842,
+      "bearing_radius_mm": 4.8,
+      "com_within_bearing_stadium": false,
+      "stack": [
+        "carrier",
+        "pi5",
+        "x1203",
+        "x1203_kit",
+        "cooler",
+        "microsd"
+      ],
+      "stack_mass_g": 117.59895220326626,
+      "stack_com_mm": [
+        -79.48424149909167,
+        5.051141373822636,
+        33.960053002128696
+      ],
+      "declared_retention": "model.CARRIER_SCREWS (two PT screws clamping the carrier ears onto the tub posts); no keeper, hood stop or locating feature",
+      "rule": "r7 check_stack_retention: CoM inside the hull of the retention points (margin > 0) and a bounded rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited.",
+      "remedy": "CAD phase: a third printed locating feature (tongue or slot) with no new screw (register VN-38)"
+    },
+    {
+      "category": "post_root_bending",
+      "id": "carrier_posts_5g",
+      "status": "pass",
+      "mass_g": 129.59895220326626,
+      "post_count": 2,
+      "g_level": 5.0,
+      "force_N": 6.354657823120805,
+      "diameter_mm": 9.6,
+      "length_mm": 42.75,
+      "eccentricity_mm": 12.148858626177363,
+      "section_modulus_mm3": 86.85875368645058,
+      "cases": [
+        {
+          "share": 0.5,
+          "post_force_N": 3.1773289115604024,
+          "root_moment_Nmm": 174.43173072462054,
+          "root_stress_MPa": 2.0082228137223526
+        },
+        {
+          "share": 0.7,
+          "post_force_N": 4.448260476184563,
+          "root_moment_Nmm": 244.20442301446874,
+          "root_stress_MPa": 2.811511939211293
+        }
+      ],
+      "worst_stress_MPa": 2.811511939211293,
+      "screen_MPa": 5,
+      "posts": [
+        {
+          "axis_xz": [
+            -127.0,
+            69.0
+          ],
+          "root_section_area_mm2": 72.38229473870884,
+          "root_section_faces": 1,
+          "equivalent_d_mm": 9.6,
+          "length_mm": 42.75,
+          "length_spans": 1
+        },
+        {
+          "axis_xz": [
+            -25.0,
+            9.0
+          ],
+          "root_section_area_mm2": 72.38229473870884,
+          "root_section_faces": 1,
+          "equivalent_d_mm": 9.6,
+          "length_mm": 42.75,
+          "length_spans": 1
+        }
+      ],
+      "mass_basis": "rigid stack 117.599 g + 12.0 g wiring sensitivity (reference-export18 unresolved wiring)",
+      "post_top_y_mm": 17.2,
+      "screen_basis": "lowest normal-strength scenario of the structural supplement (5.0 MPa, across layers: the posts print along the build axis); a screen, not an allowable; coupon and creep gates open"
+    }
+  ],
+  "physical_qualified": false,
+  "note": "FP-12 check-scope rows (VN-33/34/35/36/37/38). Report-only rows are info; HOLD rows wait for a named measurement. Not a thermal, strength or optical qualification."
+}

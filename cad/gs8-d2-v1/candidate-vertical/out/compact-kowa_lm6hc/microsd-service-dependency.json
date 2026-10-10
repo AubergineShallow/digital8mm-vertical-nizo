@@ -1,7 +1,10 @@
 {
   "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "verification_source_sha256": "c8f637d95168e5a21b6fd696704832431013ed295b078d7f836a82c8e7133067",
-  "generated_utc": "2026-10-09T15:36:04Z",
+  "verification_source_sha256": "e32df7b2cd064edd8cd5c2c0437e1a04c93ed0fadc3004a9d0cdf18c9359249b",
+  "helper_source_sha256": {
+    "rigid_sweep.py": "2a5fcce72309e870a5ee7ef6299fb41bd00096629ed3d283f79c20a3e9c1c378",
+    "steps.py": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9"
+  },
   "closed_panel_case": "REJECTED",
   "sample_step_mm": 1,
   "hits": [
@@ -35,7 +38,7 @@
     },
     {
       "translation_x_mm": 12,
-      "overlap_mm3": 30.929004808795664
+      "overlap_mm3": 30.92900480879566
     },
     {
       "translation_x_mm": 13,
@@ -95,10 +98,599 @@
     },
     {
       "translation_x_mm": 27,
-      "overlap_mm3": 0.8456360925443395
+      "overlap_mm3": 0.8456360925443396
     }
   ],
-  "selected_procedure": "Install OS microSD on bench before carrier insertion and retain it with the module. Any in-body +X extraction requires the panel and its power switch removed first; the main microsd_out check has only panel-removed scope. Real tool reach remains unqualified.",
-  "scope": "This diagnostic tests card versus conservative panel-switch body only, not a complete insertion or socket-mating qualification.",
+  "panel_off": {
+    "motion": "microsd_out",
+    "op": "svc_microsd_out",
+    "movers": [
+      "microsd"
+    ],
+    "obstacles": [
+      "base_grip",
+      "c_cs_adapter",
+      "carrier",
+      "cooler",
+      "evf_board",
+      "eyecup",
+      "eyepiece",
+      "foam_pad",
+      "gs_camera",
+      "hmx039",
+      "lens",
+      "lens_collar",
+      "p_carrier1",
+      "p_carrier2",
+      "p_grip",
+      "pi5",
+      "run_button",
+      "s_c1",
+      "s_c2",
+      "s_c3",
+      "s_c4",
+      "strap",
+      "switch_1824",
+      "tripod_nut",
+      "tub",
+      "usb_stick",
+      "usb_storage_plug_reserve",
+      "x1203",
+      "x1203_kit",
+      "xt30_pair"
+    ],
+    "obstacle_source": "steps.motion_table (present before/after svc_microsd_out minus movers)",
+    "pi5_method": "verify_candidate.py component set (official_pi5_assembly.build_parts); pi5.step hash-checked; component overlaps summed (upper bound)",
+    "step_bindings": {
+      "base_grip": {
+        "step_sha256": "8caa9788e877040ea6dc21eedc497359d29aaf444d8f11ab12f551b2fb8f5d6f",
+        "manifest_file_binding": true
+      },
+      "c_cs_adapter": {
+        "step_sha256": "5a49c23b7ce3869e1b27d70effc70127d7e83aabef764761f63778e0bb155b93",
+        "manifest_file_binding": true
+      },
+      "carrier": {
+        "step_sha256": "ab059602b0a08346a4173f2420bf361b6876d98709f55f43fdbdb725e90739ef",
+        "manifest_file_binding": true
+      },
+      "cooler": {
+        "step_sha256": "d8667135f613b14a18dee538af6bdddba441960c06b88ab94b370e033b01ac2a",
+        "manifest_file_binding": true
+      },
+      "evf_board": {
+        "step_sha256": "820c77ffc1541810209fa81f831cf19bb645998e302f491561227590042e6575",
+        "manifest_file_binding": true
+      },
+      "eyecup": {
+        "step_sha256": "5fc009b152a6fb53e4b0a8a5c5902ee361ff2e25746b6f50b34e9a1549eadeef",
+        "manifest_file_binding": true
+      },
+      "eyepiece": {
+        "step_sha256": "c7f87f7e0e1129148f93bc7826c97255618b6d03092004dd9fe25b583a5b134a",
+        "manifest_file_binding": true
+      },
+      "foam_pad": {
+        "step_sha256": "e91efab34a565ed28bd459dbeb4c62e7719baf2df0dbb4b5bf57f8a783a3e360",
+        "manifest_file_binding": true
+      },
+      "gs_camera": {
+        "step_sha256": "2aa0131ac90be90d66494049e535f608998bd701442858272d01cb83ccf4ca6f",
+        "manifest_file_binding": true
+      },
+      "hmx039": {
+        "step_sha256": "605476fc56f328d30108d27def367933b825b3939bf8639c6a54d57f72fbd77d",
+        "manifest_file_binding": true
+      },
+      "lens": {
+        "step_sha256": "82438bad4d7d4e55dbc7b029bdaa4ad3fc21ace4cb660952ce1815608471c923",
+        "manifest_file_binding": true
+      },
+      "lens_collar": {
+        "step_sha256": "3f24e7d2cdf80ce4c4c9cbea6bc91c959ef49daea05b703a22385ddd975578fd",
+        "manifest_file_binding": true
+      },
+      "microsd": {
+        "step_sha256": "6e5db4a4e28717848dec6d9659540b53dfe8d1ffd3f14e4f8eab435ec44afc3b",
+        "manifest_file_binding": true
+      },
+      "p_carrier1": {
+        "step_sha256": "dd30f242d08825fbe25e309168315ed031124497e61c404fb329913db1b33ff6",
+        "manifest_file_binding": true
+      },
+      "p_carrier2": {
+        "step_sha256": "336f3f610fc9142d9cada6c6100e87d383663e6277bf68f1dc99554c58798c09",
+        "manifest_file_binding": true
+      },
+      "p_grip": {
+        "step_sha256": "64503812dd1de14d1923753b84fcaae8ba18de465584019fa4c09ddf80e8c831",
+        "manifest_file_binding": true
+      },
+      "pi5": {
+        "step_sha256": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+        "manifest_file_binding": true
+      },
+      "run_button": {
+        "step_sha256": "8e3888ca5d56170a112ddcff68a701e6fcc141386e8f67bdc5019c31bf8824ee",
+        "manifest_file_binding": true
+      },
+      "s_c1": {
+        "step_sha256": "719532c3c240f512e9935b48895d207838dced06f3a8de62ac1d90b96c768031",
+        "manifest_file_binding": true
+      },
+      "s_c2": {
+        "step_sha256": "4dde1cfee3b96f8f9125b7cea1eba47f16e0d73c3293e947de7eacd72d4003f2",
+        "manifest_file_binding": true
+      },
+      "s_c3": {
+        "step_sha256": "dd50b878e7eede7d40415d8138dcdb43dc4f53c673daa77117258b0a9cbe75d3",
+        "manifest_file_binding": true
+      },
+      "s_c4": {
+        "step_sha256": "a48735f74026adf046e0a4e3145e1a6b64a2b035ffef69823f1004262d04a8ca",
+        "manifest_file_binding": true
+      },
+      "strap": {
+        "step_sha256": "2173bd56e20dc2a0974dd331b854783ce6eb7903630409020626afaee90a5c8e",
+        "manifest_file_binding": true
+      },
+      "switch_1824": {
+        "step_sha256": "e0a05c1e5677e530d75ca1e73a291de95eec24531bfadd2aec448d500b3f0b69",
+        "manifest_file_binding": true
+      },
+      "tripod_nut": {
+        "step_sha256": "e85f994319b472478d8e8f0ae6549278153738cbe81f289f3a18c7bd8c35639c",
+        "manifest_file_binding": true
+      },
+      "tub": {
+        "step_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+        "manifest_file_binding": true
+      },
+      "usb_stick": {
+        "step_sha256": "9a1808537e94cc7569160fc718993f4fe5b17e4678a95339b52ca97ed1c09b41",
+        "manifest_file_binding": true
+      },
+      "usb_storage_plug_reserve": {
+        "step_sha256": "1c9ccdc877008fe3c6facbc2527197b73f2652a9c3be41ddf835897c529528bb",
+        "manifest_file_binding": true
+      },
+      "x1203": {
+        "step_sha256": "63be4fea114078bc3227561ee2a8063de1ecec590daf5656eb8937b29531d891",
+        "manifest_file_binding": true
+      },
+      "x1203_kit": {
+        "step_sha256": "ef27a3bb35a32ef853c46ede234661278bf20ffbd2f9c9d06b3782670bc47a45",
+        "manifest_file_binding": true
+      },
+      "xt30_pair": {
+        "step_sha256": "ec40e43880d661fb565f5c8026d2d95bafb9965dbdb94f7a5ff94f21432c172d",
+        "manifest_file_binding": true
+      }
+    },
+    "summary": {
+      "pass": 4,
+      "fail": 0,
+      "info": 2
+    },
+    "checks": [
+      {
+        "id": "panel_off_straight_x45",
+        "status": "pass",
+        "expected": "hit",
+        "purpose": "rejected 9ced753 path; must stay detected",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            45,
+            0,
+            0
+          ]
+        ],
+        "samples": 24,
+        "step_mm": 2.0,
+        "worst_overlap_mm3": 72.7936026732883,
+        "total_hits": 7,
+        "hit_parts": [
+          "lens_collar"
+        ],
+        "first_hit": {
+          "moving": "microsd",
+          "fixed": "lens_collar",
+          "offset": [
+            33.26087,
+            0.0,
+            0.0
+          ],
+          "overlap_mm3": 13.499699253376834
+        },
+        "first_hits": [
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              33.26087,
+              0.0,
+              0.0
+            ],
+            "overlap_mm3": 13.499699253376834
+          },
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              35.217391,
+              0.0,
+              0.0
+            ],
+            "overlap_mm3": 31.579576416429344
+          },
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              37.173913,
+              0.0,
+              0.0
+            ],
+            "overlap_mm3": 49.65920949224855
+          },
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              39.130435,
+              0.0,
+              0.0
+            ],
+            "overlap_mm3": 67.73884256806782
+          },
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              41.086957,
+              0.0,
+              0.0
+            ],
+            "overlap_mm3": 72.7936026732883
+          },
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              43.043478,
+              0.0,
+              0.0
+            ],
+            "overlap_mm3": 54.71364831608018
+          },
+          {
+            "moving": "microsd",
+            "fixed": "lens_collar",
+            "offset": [
+              45,
+              0,
+              0
+            ],
+            "overlap_mm3": 36.633916086618555
+          }
+        ]
+      },
+      {
+        "id": "dogleg_selected",
+        "status": "pass",
+        "expected": "clear",
+        "purpose": "selected procedure (steps.MOTIONS microsd_out)",
+        "knots": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            18.0,
+            0.0,
+            0.0
+          ],
+          [
+            18.0,
+            40.0,
+            0.0
+          ]
+        ],
+        "samples": 30,
+        "step_mm": 2.0,
+        "worst_overlap_mm3": 0.0,
+        "total_hits": 0,
+        "hit_parts": [],
+        "first_hit": null,
+        "first_hits": []
+      },
+      {
+        "id": "dogleg_window_x10",
+        "status": "pass",
+        "expected": "hit",
+        "purpose": "regression fixture: carrier",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            10,
+            40.0,
+            0
+          ]
+        ],
+        "samples": 26,
+        "step_mm": 2.0,
+        "worst_overlap_mm3": 15.399999999999979,
+        "total_hits": 2,
+        "hit_parts": [
+          "carrier"
+        ],
+        "first_hit": {
+          "moving": "microsd",
+          "fixed": "carrier",
+          "offset": [
+            10.0,
+            12.0,
+            0.0
+          ],
+          "overlap_mm3": 1.5400000000000198
+        },
+        "first_hits": [
+          {
+            "moving": "microsd",
+            "fixed": "carrier",
+            "offset": [
+              10.0,
+              12.0,
+              0.0
+            ],
+            "overlap_mm3": 1.5400000000000198
+          },
+          {
+            "moving": "microsd",
+            "fixed": "carrier",
+            "offset": [
+              10.0,
+              14.0,
+              0.0
+            ],
+            "overlap_mm3": 15.399999999999979
+          }
+        ]
+      },
+      {
+        "id": "dogleg_window_x12",
+        "status": "info",
+        "expected": null,
+        "purpose": "window edge, reported",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            12,
+            0,
+            0
+          ],
+          [
+            12,
+            40.0,
+            0
+          ]
+        ],
+        "samples": 27,
+        "step_mm": 2.0,
+        "worst_overlap_mm3": 0.0,
+        "total_hits": 0,
+        "hit_parts": [],
+        "first_hit": null,
+        "first_hits": []
+      },
+      {
+        "id": "dogleg_window_x24",
+        "status": "info",
+        "expected": null,
+        "purpose": "window edge, reported",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            24,
+            0,
+            0
+          ],
+          [
+            24,
+            40.0,
+            0
+          ]
+        ],
+        "samples": 33,
+        "step_mm": 2.0,
+        "worst_overlap_mm3": 0.45271547387933747,
+        "total_hits": 4,
+        "hit_parts": [
+          "tub"
+        ],
+        "first_hit": {
+          "moving": "microsd",
+          "fixed": "tub",
+          "offset": [
+            24.0,
+            10.0,
+            0.0
+          ],
+          "overlap_mm3": 0.40411311499031316
+        },
+        "first_hits": [
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              24.0,
+              10.0,
+              0.0
+            ],
+            "overlap_mm3": 0.40411311499031316
+          },
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              24.0,
+              12.0,
+              0.0
+            ],
+            "overlap_mm3": 0.32750307315167915
+          },
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              24.0,
+              14.0,
+              0.0
+            ],
+            "overlap_mm3": 0.2682688451660764
+          },
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              24.0,
+              16.0,
+              0.0
+            ],
+            "overlap_mm3": 0.45271547387933747
+          }
+        ]
+      },
+      {
+        "id": "dogleg_window_x26",
+        "status": "pass",
+        "expected": "hit",
+        "purpose": "regression fixture: tub",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            26,
+            0,
+            0
+          ],
+          [
+            26,
+            40.0,
+            0
+          ]
+        ],
+        "samples": 34,
+        "step_mm": 2.0,
+        "worst_overlap_mm3": 9.507024951466118,
+        "total_hits": 6,
+        "hit_parts": [
+          "s_c3",
+          "tub"
+        ],
+        "first_hit": {
+          "moving": "microsd",
+          "fixed": "tub",
+          "offset": [
+            26.0,
+            10.0,
+            0.0
+          ],
+          "overlap_mm3": 8.486375414796605
+        },
+        "first_hits": [
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              26.0,
+              10.0,
+              0.0
+            ],
+            "overlap_mm3": 8.486375414796605
+          },
+          {
+            "moving": "microsd",
+            "fixed": "s_c3",
+            "offset": [
+              26.0,
+              12.0,
+              0.0
+            ],
+            "overlap_mm3": 3.855974565109507
+          },
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              26.0,
+              12.0,
+              0.0
+            ],
+            "overlap_mm3": 5.600518491951868
+          },
+          {
+            "moving": "microsd",
+            "fixed": "s_c3",
+            "offset": [
+              26.0,
+              14.0,
+              0.0
+            ],
+            "overlap_mm3": 4.288385964989477
+          },
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              26.0,
+              14.0,
+              0.0
+            ],
+            "overlap_mm3": 4.795228129025115
+          },
+          {
+            "moving": "microsd",
+            "fixed": "tub",
+            "offset": [
+              26.0,
+              16.0,
+              0.0
+            ],
+            "overlap_mm3": 9.507024951466118
+          }
+        ]
+      }
+    ]
+  },
+  "selected_procedure": "Bench-fit the OS microSD before carrier insertion and carry it with the module. In-body service only with the panel off, by the dog-leg: straight fine-tip non-conductive tweezers, +X 18 out of the socket, then +Y 40 out of the open panel side. The straight +X path meets the lens collar and the closed-panel path meets the power switch. Tool and finger reach remain a HOLD.",
+  "tool": "straight fine-tip non-conductive tweezers",
+  "scope": "Rigid card proxy translations against saved STEPs with the derived obstacle set; no socket-latch, card grasp, tool-body or finger-reach qualification. The front slit (model.py) passes no card path: its closure is user decision VN-29.",
   "physical_qualified": false
 }

@@ -1,4 +1,6 @@
 """Independent checks against saved STEP, not a fabricated release pass."""
+from cv_io import read_text, write_text
+import evidence_rules as EVR  # FP-04: keepout mating partners (VN-31) and the inherited gate count (VN-08); CAD-free
 import argparse,hashlib,json,math,itertools,time
 from pathlib import Path
 import cadquery as cq
@@ -6,10 +8,12 @@ import numpy as np
 from OCP.BRepClass3d import BRepClass3d_SolidClassifier
 from OCP.gp import gp_Pnt
 from OCP.TopAbs import TopAbs_IN
-p=argparse.ArgumentParser();p.add_argument('--variant',default='compact-kowa_lm6hc');p.add_argument('--motion-step',type=float,default=2.0);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--variant',default='compact-kowa_lm6hc');p.add_argument('--motion-step',type=float,default=2.0);p.add_argument('--only',default='',help='comma list of heavy categories to run (interference, motion, assembly_state, step_material_probes); needs --out');p.add_argument('--out',default='',help='result path instead of out/<variant>/verification.json');a=p.parse_args()
+want=lambda c:not a.only or c in a.only.split(',')
+if a.only and not a.out:raise SystemExit('--only is a partial run: give --out; verification.json is never overwritten by a partial run')
 ROOT=Path(__file__).resolve().parent;out=ROOT/'out'/a.variant
 manifest_start=hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest()
-meta=json.loads((out/'manifest.json').read_text());rows={r['id']:r for r in meta['rows']};shapes={}
+meta=json.loads(read_text(out/'manifest.json'));rows={r['id']:r for r in meta['rows']};shapes={}
 checks=[]
 def add(category,id,ok=None,**kw):
  r=dict(category=category,id=id,status='info' if ok is None else ('pass' if ok else 'fail'),**kw);checks.append(r)
@@ -69,15 +73,17 @@ def intersect_pair(na,nb,offset=(0,0,0),fixed_shape=None,fixed_key=None):
 
 # Narrow local contact allowances. Never a blanket part-pair exception.
 L=meta['core_dimensions_mm'][0];ey=11
-for na,nb in itertools.combinations(shapes,2):
+for na,nb in (itertools.combinations(shapes,2) if want('interference') else ()):
  ra,rb=rows[na],rows[nb]
  if not broad(ra['bbox_mm'],rb['bbox_mm']):continue
  s=intersect_pair(na,nb);v=s.Volume()
  if v<.05:
   add('interference',na+'/'+nb,True,overlap_mm3=round(v,6));continue
  pair={na,nb};allowed=False;why=None
- if (ra['kind']=='keepout' or rb['kind']=='keepout') and ra['kind']!='printed' and rb['kind']!='printed':
-  add('non_material_keepout',na+'/'+nb,None,overlap_mm3=round(v,6),bbox=bb(s),operational_status='HOLD',reason='Estimated mating envelope is not material. Actual plug/contact geometry and insertion remain unmeasured; failed full-solid export16 diagnostic is preserved.')
+ # FP-04 (VN-31): a keepout overlap is info ONLY with the keepout's declared mating partner (evidence_rules.KEEPOUT_MATING_PARTNERS);
+ # any other part that enters a keepout falls through to the physical-overlap rules below and fails unless allowed there.
+ if EVR.keepout_mating_info(na,nb,{na:ra['kind'],nb:rb['kind']}):
+  add('non_material_keepout',na+'/'+nb,None,mating_partner=True,overlap_mm3=round(v,6),bbox=bb(s),operational_status='HOLD',reason='Estimated mating envelope is not material. Actual plug/contact geometry and insertion remain unmeasured; failed full-solid export16 diagnostic is preserved.')
   continue
  # Self-tapping shanks deliberately cut into their own pilot; restrict to actual pilot cylinder.
  hardware=na if na.startswith('p_') else (nb if nb.startswith('p_') else None)
@@ -95,22 +101,28 @@ for na,nb in itertools.combinations(shapes,2):
   why='Only the explicitly modelled 0.1 mm radial EVF clamp region; G-EVF-1 open'
  if pair=={'pi5','cooler'}:why='Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred.'
  add('interference',na+'/'+nb,None if allowed else False,overlap_mm3=round(v,6),bbox=bb(s),reason=why or 'Unclassified physical proxy overlap')
-# Required rigid-body service motions. Discrete sweeps are not continuous swept-volume proofs.
-# Rigid submotions only. Battery isolation, named free-end disconnections and full
-# carried harness checks are separate source-bound requirements. Pi HDMI stays mated.
-# FPS knob/nut/washer are removed first; the switch is hand-supported on its rest.
-paths=[
- ('fps_knob_off',['knob_fps'],['panel','switch_1824','fps_nut','fps_mounting_washer'],[(0,0,0),(0,20,0)]),
- ('fps_nut_after_unthread',['fps_nut'],['panel','switch_1824','fps_mounting_washer'],[(0,0,0),(0,20,0)]),
- ('fps_washer_off',['fps_mounting_washer'],['panel','switch_1824'],[(0,0,0),(0,20,0)]),
- ('carrier_out',['carrier','pi5','cooler','x1203','x1203_kit','microsd','switch_1824'],['tub','gs_camera','c_cs_adapter','evf_board','hmx039','foam_pad'],[(0,0,0),(0,70,0)]),
- ('panel_out',['panel','encoder','knob_exp','power_button','power_nut_reserve'],['tub','pi5','cooler','x1203','carrier','switch_1824','gs_camera','c_cs_adapter','eyepiece','evf_board','hmx039','foam_pad'],[(0,0,0),(0,70,0)]),
- ('camera_in',['gs_camera','c_cs_adapter'],['tub','lens_collar'],[(-11.1,60,2),(-11.1,0,2),(-11.1,0,0),(0,0,0)]),
- ('evf_in',['hmx039','foam_pad','evf_board'],['tub'],[(0,60,0),(0,0,0)]),
- ('storage_plug_reservation_through_enclosure',['usb_storage_plug_reserve'],['tub','evf_board','hmx039'],[(0,0,0),(-70,0,0)]),
- ('storage_out',['usb_stick'],['tub','pi5','evf_board','hmx039'],[(0,0,0),(-70,0,0)]),
- ('microsd_out',['microsd'],['tub','gs_camera','c_cs_adapter'],[(0,0,0),(45,0,0)])]
-for pid,moving,fixed,knots in paths:
+# Required rigid-body build and service motions. Discrete sweeps are not continuous swept-volume proofs.
+# FP-05 (VN-22): movers, obstacles and knots come from the assembly-state model steps.py, never typed here:
+# obstacles = parts present before/after the op minus movers, riders and named exemptions. Battery isolation,
+# named free-end disconnections and the flexible loom are separate (FP-10) checks. Pi HDMI stays mated.
+import steps as ST
+for tool,spec in ST.TOOLS.items():
+ tp=out/spec['step_file']
+ if spec['step_file'] in meta['files'] and tp.exists():
+  shapes[tool]=cq.importers.importStep(str(tp)).val();tsha=hashlib.sha256(tp.read_bytes()).hexdigest();tb=tsha==meta['files'][spec['step_file']]
+  add('integrity',tool,tb and shapes[tool].isValid() and len(shapes[tool].Solids())==1,kind='assembly tool',solids=len(shapes[tool].Solids()),volume_mm3=shapes[tool].Volume(),step_sha256=tsha,manifest_file_binding=tb)
+avail=set(rows)|{t for t in ST.TOOLS if t in shapes}
+paths=ST.verify_paths(avail);motion_meta={m['id']:m for m in ST.motion_table(avail)}
+if want('assembly_state'):
+ errs=ST.lint()+ST.check_manifest(set(rows))
+ add('assembly_state','model_lint',not errs,errors=errs,build_ops=len(ST.STEPS),service_routes=len(ST.SERVICE),motions=len(ST.MOTIONS),state_model_sha256=hashlib.sha256((ROOT/'steps.py').read_bytes()).hexdigest())
+ for tool,spec in ST.TOOLS.items():
+  for x in spec['excludes']:
+   v=shapes[tool].intersect(shapes[x]).Volume() if tool in shapes and x in shapes else None
+   add('assembly_state','tool_exclusion:%s/%s'%(tool,x),all(not(tool in s and x in s) for _,_,_,s in ST.all_states()),seated_overlap_mm3=None if v is None else round(v,3),reason=spec['reason'])
+ for m in motion_meta.values():
+  if m['runner']!='verify_candidate':add('motion_coverage',m['id'],(not [e for e in errs if e[0]=='COVERAGE' and e[1].split()[0].rstrip(':')==m['id']]) if m['runner']=='covered' else None,runner=m['runner'],covered_by=m['covered_by'],open_reason=m['open_reason'],op=m['op'],movers=m['movers'],obstacles=m['obstacles'])
+for pid,moving,fixed,knots in (paths if want('motion') else []):
  print('Checking motion',pid,flush=True)
  points=[]
  for u,v in zip(knots,knots[1:]):
@@ -147,7 +159,9 @@ for pid,moving,fixed,knots in paths:
     if pid=='panel_out' and name=='panel' and fn=='eyepiece' and t[1]<.2 and iv<8:continue
     worst=max(worst,iv)
     if iv>.05:hits.append(dict(moving=name,fixed=fn,offset=t,overlap_mm3=iv))
- add('motion',pid,not hits,step_mm=a.motion_step,samples=len(points),printed_obstacle_region_method='Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged',worst_overlap_mm3=worst,first_hits=hits[:12],total_hits=len(hits))
+ add('motion',pid,not hits,movers=moving,obstacles=fixed,exempt=motion_meta[pid]['exempt'],state_op=motion_meta[pid]['op'],phase=motion_meta[pid]['phase'],route=motion_meta[pid]['route'],step_mm=a.motion_step,samples=len(points),printed_obstacle_region_method='Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged',worst_overlap_mm3=worst,first_hits=hits[:12],total_hits=len(hits))
+for r in (__import__('driver_checks').driver_rows(shapes,rows,avail) if want('driver') else []):add(**r)  # FP-07 (VN-23): r7 check_driver/service driver port on steps.driver_contexts(); driver_checks.py
+for r in (__import__('j7_collar_checks').j7_rows(shapes,rows,meta,a.variant) if want('j7') else []):add(**r)  # FP-08 (VN-24): r7 j7_float (full BFAR range), roll_catch, lens_support, collar gauge, lens_clamp (+ washer seat), inserts on the candidate; j7_collar_checks.py
 # Basic load-bearing nominal dimensions; all tolerance/coupon checks remain physical gates.
 for ident,value,minv in [('panel_screw_bearing_land',2.1,1.6),('panel_head_radial_wall',1.7,1.6),('carrier_PT_head_radial_wall',1.6,1.6),('carrier_M25_head_radial_wall',1.85,1.6),('carrier_M25_thread_engagement',3.4,2.5),('collar_hoop_nominal',25-21.15,1.6),('collar_relief_nominal_after_bed_chamfer',math.hypot(22.8,6)-21.15-.6,1.6)]:
  add('nominal_features',ident,None,value_mm=value,minimum_mm=minv,analytical_meets_rule=value+1e-8>=minv,note='Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result')
@@ -165,7 +179,7 @@ probes=[('panel_skin','panel',(-90,20,50),(-90,32,50)),
  ('grip_rear_wall','base_grip',(-73,0,-50),(-66,0,-50)),
  ('grip_upper_rear_path','base_grip',(-73,0,-8.5),(-63,0,-8.5)),
  ('carrier_tie_eye_land','carrier',(-97,18.5,25),(-93.5,18.5,25))]
-for ident,pid,pa,pb in probes:
+for ident,pid,pa,pb in (probes if want('step_material_probes') else []):
  edge=cq.Edge.makeLine(cq.Vector(*pa),cq.Vector(*pb))
  spans=shapes[pid].intersect(edge).Edges();value=sum(e.Length() for e in spans)
  add('step_material_probes',ident,len(spans)==1 and value>=1.6-1e-7,value_mm=value,spans=len(spans),minimum_mm=1.6,origin=pa,end=pb,note='Local ray through actual saved STEP only; other locations and material strength remain unqualified')
@@ -173,10 +187,11 @@ for ident,pid,pa,pb in probes:
 pa=(-80,-40,50);pb=(-80,-20,50)
 es=shapes['tub'].intersect(cq.Edge.makeLine(cq.Vector(*pa),cq.Vector(*pb))).Edges()
 add('step_aperture_probes','intentional_CSI_opening',len(es)==0,material_span_mm=sum(e.Length() for e in es),origin=pa,end=pb,note='Designated service aperture; old export18 tub_right_wall probe crossed this opening. No latch/tool qualification follows.')
-add('physical','qualification',None,open_inherited_gates=56,M1='open',candidate_gates='unrun',fabrication_release=False)
+_gates=EVR.inherited_gates(ROOT)  # FP-04 (VN-08): counted from the r7 build receipt, never typed
+add('physical','qualification',None,open_inherited_gates=_gates['open'],inherited_gate_source=_gates,M1='open',candidate_gates='unrun',fabrication_release=False)
 summary={k:sum(r['status']==k for r in checks) for k in ('pass','fail','info')}
 if hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest()!=manifest_start:raise ValueError('Manifest changed during verification')
-result=dict(manifest_sha256=manifest_start,verification_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),variant=a.variant,summary=summary,checks=checks,geometry_computed_pass=summary['fail']==0,physical_qualified=False,generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()))
-(out/'verification.json').write_text(json.dumps(result,indent=2));print(json.dumps(summary),flush=True)
+result=dict(manifest_sha256=manifest_start,verification_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),state_model_sha256=hashlib.sha256((ROOT/'steps.py').read_bytes()).hexdigest(),scope=a.only or 'full',variant=a.variant,summary=summary,checks=checks,geometry_computed_pass=summary['fail']==0,physical_qualified=False,generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()))
+write_text(Path(a.out) if a.out else out/'verification.json',json.dumps(result,indent=2));print(json.dumps(summary),flush=True)
 sys_exit=summary['fail']>0
 raise SystemExit(1 if sys_exit else 0)

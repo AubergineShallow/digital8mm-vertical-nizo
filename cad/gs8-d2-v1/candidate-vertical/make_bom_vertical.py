@@ -5,6 +5,8 @@ Run from any directory: python path/to/make_bom_vertical.py [--check]
 Reads the unchanged baseline make_bom.py LINES only; never invokes its write().
 Installed quantities, purchases and included-kit detail are distinct fields.
 """
+from cv_io import read_text, write_text
+import evidence_rules as ER  # FP-04 (VN-08): repeated figures come from their source rows; CAD-free
 from pathlib import Path
 import argparse
 import csv
@@ -55,6 +57,12 @@ def baseline():
     return mod
 
 
+def export18_power():
+    """Frozen export18 rigid-power counts, formatted from that report's row (FP-04, VN-08)."""
+    c = ER.power_counts(json.loads(read_text(HERE / 'history/reviewed-export18/power-service-checks.json')))
+    return dict(poses=c['poses'], queries=c['queries'], hits=c['hits'] or 'zero')
+
+
 def build_rows():
     base = baseline()
     rows = []
@@ -100,7 +108,7 @@ def build_rows():
     change('D2-13', note='Pack, BMS, existing 60 mm 18 AWG lead and XT30 male retained. Check the numeric R-PACK-BMS specification in baseline WIRING; no 2S or other power architecture substitution. Battery is physically disconnected before any internal service.')
     change('D2-14', installed_qty=1, installed_unit='female connector', spare_or_remainder='1 spare female + 2 loose male connectors when pack already has its male',
            note='Buy two pairs as baseline provision. Fit one female to the camera pigtail; pack-side male is included with D2-13. Loose males are not additionally installed; one can replace a missing pack male (+2 joints).')
-    change('D2-14F', installed_qty=1, spare_or_remainder='1 spare fuse', note='Retain 15 A axial fuse near the XT30 female in the positive pigtail conductor. ONE installed inline fuse; legacy side-mounted duplicate is removed from the proxy. Frozen 21-degree yaw/45-degree pitch pose and source-driven swept floor passage are integrated. Export18 rigid-power report: 201 poses/625 queries/zero hits. This is not a complete flexible-harness service pass. Flexible-path deployment, actual copper cuts/overlaps, pad/pin exits, retention and hot-drop remain STOPs; positive 270 mm finished path includes the 20 mm rigid fuse/joint-sleeve zone.')
+    change('D2-14F', installed_qty=1, spare_or_remainder='1 spare fuse', note='Retain 15 A axial fuse near the XT30 female in the positive pigtail conductor. ONE installed inline fuse; legacy side-mounted duplicate is removed from the proxy. Frozen 21-degree yaw/45-degree pitch pose and source-driven swept floor passage are integrated. Export18 rigid-power report: {poses} poses/{queries} queries/{hits} hits. This is not a complete flexible-harness service pass. Flexible-path deployment, actual copper cuts/overlaps, pad/pin exits, retention and hot-drop remain STOPs; positive 270 mm finished path includes the 20 mm rigid fuse/joint-sleeve zone.'.format(**export18_power()))
     change('D2-15', note='Same hand strap; upper anchors move 12 mm in Y and 18.5 mm rearward in X. Check access with the strap installed.')
     change('D2-16', installed_qty=1, spare_or_remainder='1 spare diode', note='Baseline EVF feed provision only; G-W6 remains open. The vertical redesign does not qualify this feed or adopt the optional regulator.')
     for lid in ('D2-16R', 'D2-16D', 'D2-16C', 'D2-16P'):
@@ -188,8 +196,11 @@ def build_rows():
     add('V-31', base.S_FA, 'M2.5 x 8 pan-head PH1 lower stack/carrier screws', 4, 5,
         spare_or_remainder='1 spare', sku_or_class='ISO 7045 PH1 class', layout_id='x1203_kit',
         note='Replace four original lower M2.5 x 5 screws. Recessed 4 mm bosses leave 3 mm below the heads; 8 - 3 - 1.6 = 3.4 mm nominal thread engagement. Actual thread depth, head profile and bottoming must be measured. Eight stack screws installed in total, never twelve.')
-    add('V-62', base.S_TO, 'Power-button nut tool, only if existing tool cannot fit', 0, 0,
-        status='provisional; tool/access gate', note='Nut across-flats and approach are unknown. First check existing spanner fit. Add a suitable thin tool only after measurement; no claim of a tool-free nut.')
+    # FP-06 (VN-46): straight-driver rule for both switch nuts: deep socket on the nut axis, never a spanner.
+    change('D2-61', item='1/2 in (12.7 mm) deep socket for the CK1044 switch nut, driven on the bushing axis',
+        note='Straight-driver rule (review VN-46): deep socket on the nut axis, never a spanner. 12.7 mm across-flats is the inherited reservation, not a published Lorlin dimension; confirm on receipt. Socket clearance to the panel face and exposure knob belongs to the straight-driver check (FP-07).')
+    add('V-62', base.S_TO, 'Deep socket for the Adafruit 1505 power-button nut, sized to the measured across-flats', 0, 0,
+        status='provisional; size gate', note='Straight-driver rule (review VN-46): the nut is run down with a deep socket on the button axis, never a spanner. Across-flats unknown until receipt: measure the nut, then reuse an existing deep socket that fits; buy the matching one only if none fits (purchase stays 0 until that measurement). Review CAD probe: a socket up to OD 28 mm clears the panel; actual reach unverified.')
     for lid,item in [('V-63','Smooth-jaw long-nose pliers, fine tips'),('V-64','Soft-jaw vise or vise with wood jaw pads'),('V-65','Flat steel rule / bar'),('V-66','Printer-paper knob shims and panel support block'),('V-67','Small inspection mirror, optional')]:
         add(lid,base.S_TO,item,0,0 if lid=='V-67' else 1,status='baseline toolset retained',
             note='Explicit ASSEMBLY section 1.1 tool formerly lacking its own baseline BOM line; not a new installed part. Reuse existing workshop item.')
@@ -276,19 +287,26 @@ def validate(rows, base):
 
 def outputs(rows, base):
     manifest_path=HERE/'out/compact-kowa_lm6hc/manifest.json'
-    manifest=json.loads(manifest_path.read_text())
+    manifest=json.loads(read_text(manifest_path))
     core=' x '.join(format(v,'g') for v in manifest['core_dimensions_mm'])
     ventilation_revision=manifest.get('ventilation',{}).get('revision','source-defined ventilation candidate')
     manifest_hash=hashlib.sha256(manifest_path.read_bytes()).hexdigest()
     def bound_report(relative, verifier):
         path=HERE/relative
         if not path.exists():return None
-        value=json.loads(path.read_text())
+        value=json.loads(read_text(path))
         expected=hashlib.sha256((HERE/verifier).read_bytes()).hexdigest()
         if value.get('manifest_sha256',value.get('mechanical_manifest_sha256'))!=manifest_hash:return None
         if value.get('verification_source_sha256',value.get('source_sha256'))!=expected:return None
         return value
     main_report=bound_report('out/compact-kowa_lm6hc/verification.json','verify_candidate.py')
+    # FP-04 (VN-08): quote the witness from the main-audit row of a report bound to this manifest; never a typed figure.
+    main_path=HERE/'out/compact-kowa_lm6hc/verification.json';main_any=json.loads(read_text(main_path)) if main_path.exists() else {}
+    witness=ER.cooler_witness_mm3(main_any) if main_any.get('manifest_sha256')==manifest_hash else None
+    cooler_text=('active cooler/source-Pi witness '+ER.fmt_mm3(witness)+' mm3 (main-audit row interference pi5/cooler'
+                 +('' if main_report is not None else '; that report predates the current verifier source')+')') if witness is not None else \
+                'active cooler/source-Pi witness (no main-audit report is bound to this manifest; see verification.json once rerun)'
+    gates=ER.inherited_gates(HERE)
     plenum_report=bound_report('out/compact-kowa_lm6hc/shadow-plenum-checks.json','verify_shadow_plenum.py')
     hdmi_report=bound_report('out/compact-kowa_lm6hc/hdmi-solid-checks.json','verify_hdmi.py')
     fps_report=bound_report('out/fps-service-study/integrated-fps-checks.json','verify_fps_integrated.py')
@@ -312,7 +330,7 @@ def outputs(rows, base):
         '- Current compact ventilation geometry: '+ventilation_revision+'. Core '+core+' mm. Geometry identity: '+manifest_hash+'. The panel is plain 2.8 mm; four former grooves had blind 0.2 mm floors, not through-vent area. Nine printed production parts and every purchased selection/quantity are unchanged from reviewed export18.',
         current_check_note,
         '- Reviewed export18 is frozen history, manifest c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76. Its 288 pass / 2 fail / 18 info, six scoped HDMI passes, 332 clear FPS material checks plus nine separate clear keepout diagnostics and other service checks are not automatically current evidence for the shadow-plenum tub. Read the new manifest-bound ventilation report and structural supplement for this revision.',
-        '- Retained unresolved failure: active cooler/source-Pi witness 79.902671 mm3. The old right-wall ray runs through the intentional CSI opening and does not measure adjacent wall thickness. The new checker records that location as expected-empty and separately probes outer skin and original wall; read its manifest-bound result for the current count. The original 288/2/18 result and old wall supplement remain historical. The former 11.669 mm3 Boolean-difference witness is not an established lost-material volume; the Pi raw component-volume sum is not occupied material. Full FPC and EVF donor wire routes remain unplaced. Storage plug keepout is non-material; actual mating stays open.',
+        '- Retained unresolved failure: '+cooler_text+'. The old right-wall ray runs through the intentional CSI opening and does not measure adjacent wall thickness. The new checker records that location as expected-empty and separately probes outer skin and original wall; read its manifest-bound result for the current count. The original 288/2/18 result and old wall supplement remain historical. The former 11.669 mm3 Boolean-difference witness is not an established lost-material volume; the Pi raw component-volume sum is not occupied material. Full FPC and EVF donor wire routes remain unplaced. Storage plug keepout is non-material; actual mating stays open.',
         '- Pigtail convention: positive 270 mm is the FINISHED PATH including a 20 mm rigid fuse/joint-sleeve zone; both 270 mm total path budgets include unresolved pad-root allowances; they are not extra length to add later. Actual copper cuts/overlaps and offcuts are not established. Buy one 914.4 mm stock length per colour; full flexible deployment remains unqualified.',
         '- Conservatively charging both paths as 270 mm copper gives 0.142811 V at 8.6 A with copper at 60 C, just 7.2 mV below G-W5 before hot fuse/contact uncertainty. This nominal calculation is not a pass.',
         '- PRINT HOLD: the front mouth removes first-roof frame support over Z5..40. The nominal 10.7 mm distance is not a two-ended supported span; raster direction may require about 35 mm bridging. The expanded coupon contains the region, but slicer/bridge/cleanout qualification remains open.',
@@ -384,7 +402,7 @@ def outputs(rows, base):
     md += ['## Primary source checks','',
            'Supplier facts were read on 2026-10-09. No current availability or pricing is asserted. CAD envelopes and bend allowances are proxies; vendor dimensions do not qualify service fit.','']
     md += ['- ['+key+']('+url+')' for key,url in SOURCES.items()]
-    md += ['', 'All 56 inherited physical gates and M1 remain open. New candidate-specific gates are documented in `REVIEW.md`. '
+    md += ['', 'All '+str(gates['open'])+' inherited physical gates and M1 remain open. New candidate-specific gates are documented in `REVIEW.md`. '
            'Physical HDMI bend/retention and complete-loom service, final power-slack retention, J2 full connector placement/route, power-nut access and warm storage speed remain blockers; a CSV validation pass is not a fabrication release.','']
     return {'BOM-VERTICAL.csv':buf.getvalue(),'BOM-VERTICAL.md':'\n'.join(md)}
 
@@ -396,8 +414,8 @@ def main():
     for name,content in result.items():
         path=HERE/name
         if args.check:
-            if not path.exists() or path.read_text()!=content:stale.append(name)
-        else:path.write_text(content,encoding='utf-8')
+            if not path.exists() or read_text(path)!=content:stale.append(name)
+        else:write_text(path,content)
     if stale:raise SystemExit('Stale output: '+', '.join(stale))
     print(f'BOM schema/count checks passed: {len(rows)} explicit rows; all {len(base.LINES)} baseline source lines covered; CAD not imported.')
     print('No physical qualification, procurement or price/stock assertion.')

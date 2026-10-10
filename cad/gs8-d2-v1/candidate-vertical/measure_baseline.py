@@ -1,4 +1,5 @@
 """Read-only baseline complete-assembly bounds and proxy mass for both lenses."""
+from cv_io import rel_posix, write_text
 import json,sys,hashlib
 from pathlib import Path
 import cadquery as cq
@@ -22,5 +23,5 @@ for lens in ('kowa_lm6hc','fujinon_hf6xa'):
  com=[x/mass for x in moment]
  results.append(dict(lens=lens,complete_bbox_mm=bounds,complete_dimensions_mm=dims,complete_bbox_volume_mm3=dims[0]*dims[1]*dims[2],core_dimensions_mm=[154,70,100],core_envelope_mm3=154*70*100,printed_part_count=len(printed),mass_est_g=mass,com_est_mm=com,grip_axis_x=L.GRIP['axis_x'],com_offset_from_grip_mm=com[0]-L.GRIP['axis_x'],extrema_parts={str(i):[n for n,b in boxes.items() if abs(b[i]-bounds[i])<1e-5] for i in range(6)}))
 sourcefiles=list(R.glob('*.py'))+list((R/'out/step/parts').glob('*.step'))
-result=dict(baseline_head='d38468e58eb2b02d56743e2e0cfdd8f780818a65',rows=results,sources={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sourcefiles},definition='Axis-aligned bounding union of every baseline printed/COTS/individual hardware solid; not occupied material volume.',mass_caveat='Source proxy masses, printed density/infill estimates and lens source CoM. LegacyXT30 mass12g includes fused pigtail lump at rigid proxy; other harness masses omitted. No measured balance.',physical_qualified=False)
-folder=P/'out/comparison';folder.mkdir(exist_ok=True);(folder/'baseline-envelopes.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
+result=dict(baseline_head='d38468e58eb2b02d56743e2e0cfdd8f780818a65',rows=results,sources={rel_posix(p,R):hashlib.sha256(p.read_bytes()).hexdigest() for p in sourcefiles},definition='Axis-aligned bounding union of every baseline printed/COTS/individual hardware solid; not occupied material volume.',mass_caveat='Source proxy masses, printed density/infill estimates and lens source CoM. LegacyXT30 mass12g includes fused pigtail lump at rigid proxy; other harness masses omitted. No measured balance.',physical_qualified=False)
+folder=P/'out/comparison';folder.mkdir(exist_ok=True);write_text(folder/'baseline-envelopes.json',json.dumps(result,indent=2));print(json.dumps(result,indent=2))

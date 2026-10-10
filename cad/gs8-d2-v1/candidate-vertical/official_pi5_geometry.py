@@ -5,6 +5,7 @@ source voids; they are conservative reservations, not connector mating solids.
 Both complete CSI assemblies are available through official_pi5_csi.exact_parts.
 Redistributed manufacturer extracts retain official-fpc-sources/LICENSE.txt.
 """
+from cv_io import read_text
 from pathlib import Path
 import hashlib,itertools,json
 import cadquery as cq
@@ -21,8 +22,8 @@ HDMI0_SOCKET_WINDOW_CENTRE_NATIVE=[25.8,-1.0,2.8855]
 HDMI0_SOCKET_OUTER_LIP_NATIVE_Y=-1.6303501
 
 def source_features():
-    ports=json.loads((SOURCE/'port-landmarks.json').read_text())
-    extracted=json.loads((SOURCE/'connector-extraction.json').read_text())
+    ports=json.loads(read_text(SOURCE/'port-landmarks.json'))
+    extracted=json.loads(read_text(SOURCE/'connector-extraction.json'))
     if ports['source_step_sha256']!=C.OFFICIAL_STEP_SHA256:raise ValueError('Unexpected board source')
     if extracted['max_main_hole_residual_mm']>1e-6:raise ValueError('Unregistered board source')
     out={name:dict(native_bbox_mm=row['bbox_native_mm'],source='port-landmarks.json',
@@ -62,7 +63,7 @@ def exact_port_parts(names=('usb2','usb3','ethernet','gpio','usbc'),stack_y=22.2
     Such a result is a mating-envelope limitation, not permission to remove the
     source contacts or globally exempt that connector from collision checks.
     """
-    rows=json.loads((SOURCE/'port-landmarks.json').read_text())['objects'];out={}
+    rows=json.loads(read_text(SOURCE/'port-landmarks.json'))['objects'];out={}
     for name in names:
         path=SOURCE/(name+'-native.step')
         if hashlib.sha256(path.read_bytes()).hexdigest()!=rows[name]['sha256']:raise ValueError('Changed official port extract:'+name)
@@ -128,5 +129,5 @@ def hdmi_socket_datum():
 def provenance():
     return dict(**C.provenance(),landmark_scope='Four-hole registered port envelopes, both CSI assemblies, actual cooler board holes and an exterior upper USB2 head reservation',
         nominal_matrix=[[-1,0,0,-34],[0,0,-1,3.7],[0,-1,0,63],[0,0,0,1]],
-        cooler_hold='Official RP-008187 drawing does not dimension fan-to-pin offsets or complete outline. Retain32.3614mm3 CSI/coarse-cooler conflicts until received-part geometry is registered.',
+        cooler_hold='Official RP-008187 drawing does not dimension fan-to-pin offsets or complete outline. Retain the CSI/coarse-cooler conflicts that the main audit reports (verification.json row interference pi5/cooler; no figure is typed here, FP-04) until received-part geometry is registered.',
         changed_claims=['Inherited RJ45 and USB2 rows were reversed','Inherited second HDMI had the wrong sign of its spacing','Old CSI proxy had only one short connector and an unsupported departure direction','Four cooler feet were estimated; actual board has two cooler mounting holes'])

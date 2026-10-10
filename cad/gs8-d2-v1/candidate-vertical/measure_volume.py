@@ -1,6 +1,7 @@
 """Exact model void inside the stated core box, not all void is removable waste.
 COTS are source proxies; service/cooling/cable reservations are separately reported.
 """
+from cv_io import read_text, write_text
 import sys,json,hashlib,time
 from pathlib import Path
 import cadquery as cq
@@ -12,7 +13,7 @@ if variant=='baseline':
  shapes += [r['shape'].val() for r in cots.build_all(L).values() if r.get('shape') is not None]
  dims=(154,70,100);origin=(-154,-35,0)
 else:
- out=ROOT/'out'/variant;manifest_start=hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest();meta=json.loads((out/'manifest.json').read_text())
+ out=ROOT/'out'/variant;manifest_start=hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest();meta=json.loads(read_text(out/'manifest.json'))
  for rel,h in meta['sources'].items():
   if hashlib.sha256((BASE/rel).read_bytes()).hexdigest()!=h:raise ValueError('Source binding mismatch:'+rel)
  for r in meta['rows']:
@@ -58,4 +59,4 @@ if variant!='baseline':
  result['qualification']='Conservative CAD proxy-volume interval, rounded outward to whole cm3; source/kernel and baseline representation caveats remain. The slow/unreliable complete CSI Boolean was stopped and preserved as a diagnostic. No physical measurement or precise unused-volume claim.'
  result['comparison_caveat']='The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes.'
 folder=ROOT/'out'/'comparison';folder.mkdir(exist_ok=True)
-(folder/f'volume-{variant}.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
+write_text(folder/f'volume-{variant}.json',json.dumps(result,indent=2));print(json.dumps(result,indent=2))

@@ -3,6 +3,7 @@
 A closed connector model cannot prove opening travel, real jaws, an engaged FPC,
 or cooler clearance. This report always retains that operational HOLD.
 """
+from cv_io import read_text, write_text
 import hashlib,json,time
 from pathlib import Path
 import cadquery as cq
@@ -12,7 +13,7 @@ def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def bb(s):
  b=s.BoundingBox();return [b.xmin,b.xmax,b.ymin,b.ymax,b.zmin,b.zmax]
 def overlap(a,b):return all(min(a[i+1],b[i+1])>max(a[i],b[i])+1e-7 for i in (0,2,4))
-mh=digest(D/'manifest.json');m=json.loads((D/'manifest.json').read_text());parts={}
+mh=digest(D/'manifest.json');m=json.loads(read_text(D/'manifest.json'));parts={}
 for r in m['rows']:
  f=D/'step'/(r['id']+'.step')
  if digest(f)!=m['files']['step/'+f.name]:raise ValueError('Stale STEP:'+f.name)
@@ -39,5 +40,5 @@ report={'generated_utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'mecha
  'Full200mm FPC placement and camera-end inserted/free-flex datum remain unresolved.',
  'Official CSI parts conflict with the inherited cooler proxy; actual cooler fan/perimeter geometry is unregistered.',
  'Other flexible harnesses are not included in this rigid STEP check; no combined-looms access pass.']}
-(D/'csi-source-tool-checks.json').write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
+write_text(D/'csi-source-tool-checks.json',json.dumps(report,indent=2));print(json.dumps(report),flush=True)
 raise SystemExit(0 if report['declared_rigid_reservation_clear'] else 1)

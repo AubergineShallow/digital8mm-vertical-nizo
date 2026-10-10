@@ -1,8 +1,20 @@
-# Treat generated CAD and document artifacts as opaque review assets.
+# Store every file byte-for-byte. Build receipts and verification records hash the exact bytes of sources,
+# outputs and docs, so any line-ending conversion on commit or checkout would break them on a fresh clone.
+# This rule must stay first, and no later rule may set text, eol, filter or working-tree-encoding
+# (guarded by cad/gs8-d2-v1/candidate-vertical/tests/test_repo_eol.py; review VN-01, fix FP-01).
+* -text
+
+# Treat generated CAD and document artifacts as opaque review assets (no textual diff).
 *.step -diff -text
 *.stp -diff -text
 *.stl -diff -text
 *.pdf -diff -text
 *.png -diff -text
+*.jpg -diff -text
+*.jpeg -diff -text
 *.ttf -diff -text
 *.docx -diff -text
+*.pkl -diff -text
+*.gz -diff -text
+*.zip -diff -text
+*.npz -diff -text

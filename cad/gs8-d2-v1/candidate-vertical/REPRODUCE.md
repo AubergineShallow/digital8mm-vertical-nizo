@@ -6,17 +6,31 @@ Work from the repository root. Use the pinned Python 3.12.14 / CadQuery 2.6.1 en
 
 ## Inspect the supplied snapshot
 
-These commands do not rebuild geometry. The BOM and structural `--check` options verify their generated outputs; the documentation audit writes a fresh identity report. They do not establish physical qualification.
+These commands do not rebuild geometry and write nothing. The BOM and structural `--check` options verify their generated outputs. The documentation audit and the reconciler are read-only by default (review FP-04): they list every failed binding, missing link, stale selected report, foreign-manifest report in the selected folder and repeated figure that differs from its source row, and exit 0 (clean), 3 (docs audit only: nothing but rebuildable git-ignored caches missing) or 1 (any failure). `--check` also fails when the committed `out/review-docs-audit.json` or `current-review-evidence.json` differs from a fresh run; `--out PATH` writes the result elsewhere; `--write` rewrites the committed file. They do not establish physical qualification.
 
 ```sh
 python3 cad/gs8-d2-v1/candidate-vertical/make_bom_vertical.py --check
 python3 cad/gs8-d2-v1/candidate-vertical/structural-review/update_concealed_vent_structure.py --check
-python3 cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py
+python3 cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py --check
+python3 cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py --check
 ```
+
+## Bound caches that git does not carry
+
+The manifests bind every `out/<variant>/meshes/*.json` file and the guide receipt binds every `guide/out-concealed-vents/page-*.png`, by SHA-256. Both are git-ignored (about 34 MB of meshes per variant) and are not committed; the bindings stay. [export_cache.py](export_cache.py) sorts each binding into tracked file or git-ignored cache, checks the caches that are present, and prints what must be rebuilt (exit 0 complete, 3 only caches missing, 1 anything else):
+
+```sh
+python3 cad/gs8-d2-v1/candidate-vertical/export_cache.py status
+.venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/export_cache.py regenerate
+```
+
+`regenerate` rebuilds each missing mesh JSON from its bound, tracked STEP file and writes it only if its SHA-256 equals the binding; a non-matching rebuild goes to `meshes/_mismatch/` for inspection. Page images come from the guide build below; it rewrites the tracked receipt and PDF, so after it `git diff` must show no change. The reconciler stops with `Bound cache missing` (not a traceback) and the same command when a cache is absent; the docs audit reports it under `bound_cache` and `guide_bound_cache`.
+
+The supplied `53e668d4` snapshot predates this (review FP-03): its meshes were tessellated in memory on the author's machine and its guide page 20 printed the build time, so they cannot be rebuilt byte-for-byte, and `status` says so. The next full re-export (FP-16) makes them rebuildable.
 
 ## Rebuild geometry and scoped evidence
 
-Use a separate checkout or copy to retain the supplied review snapshot. Exporting rewrites outputs and timestamped receipts, so a new run will have a new manifest hash even with unchanged geometry. Rerun and rebind every dependent report; do not paste the supplied `53e668d4` identity onto regenerated files.
+Use a separate checkout or copy to retain the supplied review snapshot, or pass `--out <scratch folder>` to `export_candidate.py`. Exports are deterministic (FP-03): the STEP header time is fixed at `1970-01-01T00:00:00`, manifests and receipts record no wall-clock time, keys are sorted, and mesh JSON is made from the saved STEP. Two exports from the same sources on the same platform and pinned runtime (Python, CadQuery, OCP; recorded in each manifest) are byte-identical. A different platform can still change last-digit float formatting, and any source change gives a new manifest hash. Rerun and rebind every dependent report; do not paste the supplied `53e668d4` identity onto regenerated files.
 
 ```sh
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/make_corrected_pi.py
@@ -25,7 +39,8 @@ Use a separate checkout or copy to retain the supplied review snapshot. Exportin
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/verify_shadow_outlet_context.py
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/run_shadow_checks.py
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/export_shadow_alternatives.py
-python3 cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py
+python3 cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py --write
+python3 cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py --write
 ```
 
 `make_corrected_pi.py` creates the source-bound, overlapping named-component Pi assembly. Its raw solid-volume sum is not occupied union material. `export_candidate.py` then writes individual and assembly STEP, print-oriented STL, regenerable mesh JSON, and source/file-bound manifests. Mesh checks establish limited geometric properties, not slicing or strength.
@@ -34,9 +49,11 @@ The plenum and finite exterior-mouth checks are separate from `run_shadow_checks
 
 `export_shadow_alternatives.py` exports compact Fujinon and original-storage Kowa, checks their print meshes, calculates their core-void intervals, then computes fresh untessellated STEP bounds for all three variants. It does not rerun alternative service/harness audits. The compact-Kowa service results must not be transferred to alternatives. Bounding boxes are reported to 0.1 mm, not as measured camera volume. Empty-model core intervals include useful plenum/cooling, cable and service space and the Pi proxy-representation caveat; they are not removable waste.
 
-`reconcile_review_evidence.py` checks already-written report, source and manifest identities and preserves the one active rigid failure. It does not execute CAD. It rejects a changed evidence set rather than certifying a new design automatically. Inspect failures and every report's scope before updating the top-level checkpoint or documentation.
+`reconcile_review_evidence.py` checks already-written report, source and manifest identities and preserves the one active rigid failure. It does not execute CAD. It rejects a changed evidence set rather than certifying a new design automatically: the main audit's info rows must be exactly the accepted set in `evidence_rules.py` (new info rows are never accepted silently), print-check failures must equal the accepted set (empty), and any JSON in `out/compact-kowa_lm6hc/` bound to another manifest fails unless `evidence_rules.DECLARED_HISTORICAL` names it with the manifest it must bind. Stale reports moved out of the selected folder are indexed in `history/stale-selected-reports-2026-10-10/INDEX.json`. It writes only with `--write` and only when every gate passes. Inspect failures and every report's scope before updating the top-level checkpoint or documentation.
 
 For a new export, refresh the BOM and structural supplement without `--check`, then run their checks and the document audit. The structural script accepts only tub/panel row changes relative to the retained reference. Any other geometry, mass or carried-part change requires a fresh engineering calculation. Regenerating its PDF requires renewed visual review and receipt validation.
+
+STEP writers outside the exporter (fixup-1, VN-17): `make_shadow_plenum_coupon.py`, `verify_fps_contact_pad.py` and `verify_fps_pair_guide.py` write their receipt-bound STEP files through `export_cache.export_step` (fixed header time; the coupon receipts record no wall-clock time), so a re-run reproduces the bound hashes on the same runtime. Their committed STEP files and receipts predate this and are rebound by the FP-16 rebuild. Every other live script that writes a STEP file keeps OCCT's wall-clock header and is listed with its reason in `tests/test_deterministic_export.py` (`RAW_STEP_WRITERS`): exploratory probes and study proposals that no live receipt binds, the retained structural-review coupon reproducer and the rejected angled-channel trial. Their STEP bytes are not reproducible; never bind them as current evidence.
 
 ## Renders, coupons and pictorial guide
 

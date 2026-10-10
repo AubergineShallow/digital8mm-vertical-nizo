@@ -1,8 +1,9 @@
 """Render saved candidate meshes, without rebuilding CAD."""
+from cv_io import read_text
 from pathlib import Path
 import subprocess,json,hashlib
 P=Path(__file__).resolve().parent;D=P/'out/compact-kowa_lm6hc'
-m=json.loads((D/'manifest.json').read_text())
+m=json.loads(read_text(D/'manifest.json'))
 for rel,h in m['sources'].items():
  assert hashlib.sha256((P.parent/rel).read_bytes()).hexdigest()==h,('Source-stale meshes',rel)
 for view in ['hero','rear','vent_side','vent_front']:

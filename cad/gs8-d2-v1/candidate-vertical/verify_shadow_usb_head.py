@@ -3,6 +3,7 @@ The recovered source package lacks a historical standalone guide STEP. This
 version requires current complete mechanical STEP coverage and canonical support
 source binding, rather than silently reconstructing or relabeling that file.
 """
+from cv_io import read_text, rel_posix, write_text
 """Exact corrected USB head reservation checks, with optional final export binding.
 
 The final installed cuttable lead, overmold/exit and rigid joints are unresolved.
@@ -21,21 +22,21 @@ def bounds(d):return [v for a in 'xyz' for v in d[a]]
 def overlaps(a,b):return all(min(a[i+1],b[i+1])-max(a[i],b[i])>1e-8 for i in (0,2,4))
 def xz_overlaps(a,b):return all(min(a[i+1],b[i+1])-max(a[i],b[i])>1e-8 for i in (0,4))
 def box(b):return cq.Solid.makeBox(b[1]-b[0],b[3]-b[2],b[5]-b[4],V(b[0],b[2],b[4]))
-tree=ast.parse((P/'source-verify_fps_access.py').read_text());nodes=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in {'rounded_wire','tube'}]
+tree=ast.parse(read_text(P/'source-verify_fps_access.py'));nodes=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in {'rounded_wire','tube'}]
 exec(compile(ast.Module(body=nodes,type_ignores=[]),str(P/'source-verify_fps_access.py'),'exec'))
 ap=argparse.ArgumentParser();ap.add_argument('--mechanical-manifest',type=Path,required=True);ap.add_argument('--expected-sha');ap.add_argument('--report-name',default='head-fps-support-checks.json');args=ap.parse_args()
 dependency_names=('source-verify_fps_access.py','fps_geometry.py','mated-carry-input.json','context-input-receipt.json','usb-donor-provenance.json','input.json')
-dependency_hashes={str((P/n).relative_to(ROOT)):digest(P/n) for n in dependency_names}
+dependency_hashes={rel_posix(P/n,ROOT):digest(P/n) for n in dependency_names}
 report_path=P/args.report_name
 if report_path.exists():raise ValueError('Do not overwrite a completed named report')
 input_hash=digest(P/'input.json');assert input_hash=='cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88'
-receipt=json.loads((P/'context-input-receipt.json').read_text())
+receipt=json.loads(read_text(P/'context-input-receipt.json'))
 for name,h in receipt['files'].items():
  if name not in ('central-rest-pad.step','picoblade-open-guide.step'):assert digest(P/name)==h,name
 # Historical standalone support exports are replaced by the current integrated
 # tub STEP below. This is stricter spatial coverage, not an own-part waiver.
 assert digest(P/'usb-donor-provenance.json')==receipt['donor_addendum_sha256']
-d=json.loads((P/'input.json').read_text());f=json.loads((P/'mated-carry-input.json').read_text());head_row=next(x for x in d['connectors'] if x['id']=='p_usb_pi');head=box(bounds(head_row['box']));hb=bb(head)
+d=json.loads(read_text(P/'input.json'));f=json.loads(read_text(P/'mated-carry-input.json'));head_row=next(x for x in d['connectors'] if x['id']=='p_usb_pi');head=box(bounds(head_row['box']));hb=bb(head)
 objects={};groups={};sources={}
 for w in f['wire_parts']:
  objects[w['id']]=tube(w['curve'],w['od_mm'])[0];groups[w['id']]='carried FPS complete analytic wire'
@@ -66,8 +67,8 @@ mechanical=None
 if args.mechanical_manifest:
  mp=args.mechanical_manifest.resolve();mh=digest(mp)
  if not args.expected_sha or mh!=args.expected_sha:raise ValueError('Final export manifest hash must match explicit parent receipt')
- m=json.loads(mp.read_text());rows=[];all_step_hashes={}
- canonical=json.loads((ROOT/'out/fps-service-study/fps-final-source-receipt.json').read_text())['canonical_sources']
+ m=json.loads(read_text(mp));rows=[];all_step_hashes={}
+ canonical=json.loads(read_text(ROOT/'out/fps-service-study/fps-final-source-receipt.json'))['canonical_sources']
  for name in ('fps_fixed_support.py','fps_pair_guide.py'):
   assert digest(ROOT/name)==canonical[name], ('Changed support source',name)
   assert m['sources']['candidate-vertical/'+name]==canonical[name], ('Unbound support source',name)
@@ -95,5 +96,5 @@ result=dict(status='pass_for_bounded_head_reservation' if all(x['status']=='pass
  overlap_volume_scope='Per-solid positive witnesses establish contact; their sum is not reported as occupied union volume where source components may overlap.',
  physical_qualified=False,remaining=['Final mechanical binding pending' if mechanical is None else 'Final binding applies to installed hard-head reservation only',
  'Adafruit4448 cuttable donor final copper cuts, two Pololu tails, diode/joints and full installed lead placement remain TBD',
- 'Received overmold, actual exit and engagement are unmeasured; no wire exit is invented','Complete camera FPC and cooler/latch/tool corridor','Adafruit3557 adapter-to-socket/root transform','All baseline56 andM1 physical gates'])
-report_path.write_text(json.dumps(result,indent=2));print(json.dumps(dict(report=str(report_path),status=result['status'],mechanical_bound=bool(mechanical))),flush=True)
+ 'Received overmold, actual exit and engagement are unmeasured; no wire exit is invented','Complete camera FPC and cooler/latch/tool corridor','Adafruit3557 adapter-to-socket/root transform','All inherited r7 physical gates and M1'])
+write_text(report_path,json.dumps(result,indent=2));print(json.dumps(dict(report=str(report_path),status=result['status'],mechanical_bound=bool(mechanical))),flush=True)

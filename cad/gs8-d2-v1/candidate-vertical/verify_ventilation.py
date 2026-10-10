@@ -1,9 +1,10 @@
 """Saved-STEP ventilation connectivity, concealment and local-land review; not airflow qualification."""
+from cv_io import read_text, write_text
 from pathlib import Path
 import json,hashlib,math,time
 import cadquery as cq
 import vent_geometry as VG
-P=Path(__file__).resolve().parent;D=P/'out/compact-kowa_lm6hc';H=P/'history/reviewed-export18';mf=D/'manifest.json';mh=hashlib.sha256(mf.read_bytes()).hexdigest();m=json.loads(mf.read_text())
+P=Path(__file__).resolve().parent;D=P/'out/compact-kowa_lm6hc';H=P/'history/reviewed-export18';mf=D/'manifest.json';mh=hashlib.sha256(mf.read_bytes()).hexdigest();m=json.loads(read_text(mf))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(n):
  p=D/'step'/(n+'.step');assert sha(p)==m['files']['step/'+n+'.step'];return cq.importers.importStep(str(p)).val()
@@ -46,5 +47,5 @@ meta=VG.metadata();areas={'intake':meta['intake_normal_throat_mm2'],'side_exhaus
 for k,baseline in [('intake',420),('side_exhaust',96),('front_exhaust',412.5)]:add(k+'_nominal_normal_throat',areas[k]>=baseline,normal_throat_mm2=areas[k],baseline_gross_mm2=baseline,note='Geometric free-throat comparison only; longer/bent ducts have additional losses')
 result=dict(manifest_sha256=mh,verification_source_sha256=sha(Path(__file__)),vent_source_sha256=sha(P/'vent_geometry.py'),historical_tub_sha256=sha(H/'tub.step'),historical_panel_sha256=sha(H/'panel.step'),generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),summary={'pass':sum(r['passed'] for r in rows),'fail':sum(not r['passed'] for r in rows)},checks=rows,ventilation=meta,delta={'tub_volume_mm3':s.Volume()-old.Volume(),'panel_volume_mm3':panel.Volume()-op.Volume(),'printed_mass_proxy_delta_g':(s.Volume()-old.Volume()+panel.Volume()-op.Volume())*.00107*.85},physical_qualified=False,remaining='No sealed air domain, fan operating point, thermal/hand/slicer qualification or real cooler clearance pass. CSI remains an unsealed service bypass.')
 assert sha(mf)==mh
-(D/'ventilation-checks.json').write_text(json.dumps(result,indent=2));print(json.dumps(result['summary']),flush=True)
+write_text(D/'ventilation-checks.json',json.dumps(result,indent=2));print(json.dumps(result['summary']),flush=True)
 raise SystemExit(bool(result['summary']['fail']))

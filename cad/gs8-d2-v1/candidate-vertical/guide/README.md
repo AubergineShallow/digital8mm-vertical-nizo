@@ -1,5 +1,9 @@
 # Vertical assembly and wiring review guide
 
+> **STALE (review 2026-10-10, FP-06; VN-12).** Any existing `out/` PDF or page set from this superseded builder shows
+> the old build order. The builder text now follows `../steps.py` and `../ASSEMBLY-VERTICAL.md`; rebuild before use
+> (Linux rasterizer, VN-12).
+
 This is the separate compact-Princeton / Kowa LM6HC vertical candidate. It does not reuse the horizontal candidate's drawings or declare a fabrication release. All 56 inherited physical gates and M1 remain open.
 
 ## Rebuild

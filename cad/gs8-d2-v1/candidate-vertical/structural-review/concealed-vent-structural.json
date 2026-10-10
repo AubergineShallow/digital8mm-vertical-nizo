@@ -2,7 +2,7 @@
   "method": "CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification",
   "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
   "built_utc": "2026-10-09T14:58:12Z",
-  "verification_source_sha256": "aa9e3f51115970bbf17f51b55053ea315787e610196fcb23597e04825e05b4fc",
+  "verification_source_sha256": "c77f737c82495f548bff4b0cc360b92b5f51a5ec8b631d3d8e16afc89fb0e121",
   "reference_manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
   "reference_structural_binding_sha256": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
   "changed_manifest_rows": [
@@ -10,6 +10,19 @@
     "panel"
   ],
   "unchanged_manifest_rows_checked": 43,
+  "row_comparison": {
+    "numeric_abs_tol": 1e-06,
+    "numeric_rel_tol": 1e-09,
+    "rule": "numbers equal within max(abs_tol, rel_tol*max(|a|,|b|)); ids, kinds, sources, other strings and bools exact"
+  },
+  "inherited_gates": {
+    "total": 58,
+    "open": 56,
+    "withdrawn": 2,
+    "source": "../out/build-receipt.json",
+    "field": "hardware_gates.gates",
+    "source_sha256": "2128ccead1284e777c1d67f1b621c3c8de1a5c92137a6d10179c8cf014d47ad1"
+  },
   "geometry_scope": "All non-tub/panel manifest rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
   "ventilation_report": {
     "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
@@ -98,6 +111,69 @@
     "proposed_rounded_equal_share_screen_Nm": 0.95,
     "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
     "old_0_90_Nm_covers_equal_share_plus_wiring": false,
+    "all_variants_screen_Nm": 1.0,
+    "governing_variant": "original-kowa_lm6hc",
+    "compact_screen_covers": {
+      "compact-fujinon_hf6xa": true,
+      "compact-kowa_lm6hc": true,
+      "original-kowa_lm6hc": false
+    },
+    "per_variant": {
+      "compact-fujinon_hf6xa": {
+        "valid": true,
+        "changed_rows": [
+          "lens",
+          "lens_collar",
+          "panel",
+          "tub"
+        ],
+        "added_rows": [],
+        "upper_mass_g": 559.733094400986,
+        "floor_moment_5g_Nmm": 1469.3760047742285,
+        "equal_share_plus_wiring_Nm": 0.7641079523871143,
+        "seventy_percent_share_plus_wiring_Nm": 1.0697511333419598,
+        "proposed_rounded_equal_share_screen_Nm": 0.8,
+        "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a"
+      },
+      "compact-kowa_lm6hc": {
+        "valid": true,
+        "changed_rows": [
+          "panel",
+          "tub"
+        ],
+        "added_rows": [],
+        "upper_mass_g": 673.1523132387147,
+        "floor_moment_5g_Nmm": 1803.0547794987315,
+        "equal_share_plus_wiring_Nm": 0.9309473397493657,
+        "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+        "proposed_rounded_equal_share_screen_Nm": 0.95,
+        "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77"
+      },
+      "original-kowa_lm6hc": {
+        "valid": true,
+        "changed_rows": [
+          "evf_board",
+          "eyecup",
+          "eyepiece",
+          "foam_pad",
+          "hmx039",
+          "p_panel1",
+          "p_panel2",
+          "panel",
+          "tub",
+          "usb_stick"
+        ],
+        "added_rows": [
+          "stick_sleeve"
+        ],
+        "upper_mass_g": 715.4161353042974,
+        "floor_moment_5g_Nmm": 1893.805217302459,
+        "equal_share_plus_wiring_Nm": 0.9763225586512294,
+        "seventy_percent_share_plus_wiring_Nm": 1.3668515821117213,
+        "proposed_rounded_equal_share_screen_Nm": 1.0,
+        "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849"
+      }
+    },
     "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
   },
   "material_sensitivity": {

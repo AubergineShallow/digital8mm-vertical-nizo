@@ -3,6 +3,7 @@
 Does not modify a selected route, mechanical source, or previous evidence.
 Run with the pinned CAD interpreter. This generator itself does not import CAD.
 """
+from cv_io import read_text, rel_posix, write_text
 from pathlib import Path
 import hashlib, importlib.util, json, math, shutil
 import routes as R
@@ -10,15 +11,15 @@ import routes as R
 P = Path(__file__).resolve().parent
 DEST = P / 'routing-snapshots/hdmi-ck1044-clear-20261009-0524'
 def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
-def write(name, value): (DEST/name).write_text(json.dumps(value, indent=2))
+def write(name, value): write_text(DEST/name,json.dumps(value, indent=2))
 
 def main():
     DEST.mkdir(exist_ok=False)
-    source = (P/'hdmi_routes.py').read_text()
+    source = read_text(P/'hdmi_routes.py')
     source = source.replace('max(3.0, 5.0-lift/2)', 'max(3.0, 5.5-lift/2)')
     source = source.replace('R5 installed, R3 both-unplugged', 'R5.5 installed, R3 both-unplugged')
     source = source.replace('Full intact300mm compact HDMI material geometry', 'CK1044 pin-clearance study; full intact300mm compact HDMI material geometry')
-    (DEST/'hdmi300.py').write_text(source)
+    write_text(DEST/'hdmi300.py',source)
     spec = importlib.util.spec_from_file_location('hdmi_ck1044', DEST/'hdmi300.py')
     hd = importlib.util.module_from_spec(spec); spec.loader.exec_module(hd)
     r = R.build()
@@ -33,7 +34,7 @@ def main():
         cyl('corrected_ck1044_pin_'+str(pin),-111+11.1*math.cos(angle),80+11.1*math.sin(angle),.85,7.1,11.1)
     for mirror in (-1,1):
         cyl('corrected_ck1044_A_mirror_'+str(mirror),-111+mirror*3.85*math.cos(math.radians(225)),80+3.85*math.sin(math.radians(225)),.85,7.1,11.1)
-    data=json.loads((P/'routing-snapshots/hdmi-300-exact-input/input.json').read_text())
+    data=json.loads(read_text(P/'routing-snapshots/hdmi-300-exact-input/input.json'))
     for key,lift,drop in [('hdmi_installed',0,0),('hdmi_premate',0,6),('hdmi_both_unplugged',6,6)]:
         data[key]=hd.compact_300_service(lift,drop,obs)
     data['revision']='hdmi-ck1044-clear-20261009-0524'
@@ -59,7 +60,7 @@ def main():
     write('sampled-50-poses.json',samples)
     sources={}
     for name in ['routes.py','hdmi_routes.py','power_routes.py','signal_routes.py','fps_service_routes.py','verify_hdmi.py','verify_fps_access.py','power_geometry.py','study_hdmi_ck1044.py']:
-        src=P/name;shutil.copyfile(src,DEST/('source-'+name));sources[str(src.relative_to(P.parent))]=digest(src)
+        src=P/name;shutil.copyfile(src,DEST/('source-'+name));sources[rel_posix(src,P.parent)]=digest(src)
     for name in ['layout.py','run_locked.py']:
         src=P.parent/name;shutil.copyfile(src,DEST/('source-'+name));sources[name]=digest(src)
     write('manifest.json',dict(status='Unadopted geometry hypothesis; no release or physical gate closure',

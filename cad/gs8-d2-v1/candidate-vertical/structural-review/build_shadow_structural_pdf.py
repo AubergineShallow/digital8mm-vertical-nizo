@@ -1,4 +1,6 @@
 """Two-page structural supplement from bound review inputs; no CAD or FEA."""
+import sys as _cvsys; _cvsys.path.append(str(__import__('pathlib').Path(__file__).resolve().parents[1]))  # candidate-vertical root: cv_io
+from cv_io import read_text, rel_posix, write_text
 from pathlib import Path
 import hashlib,json,html
 from reportlab.pdfgen import canvas
@@ -10,10 +12,12 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
 P=Path(__file__).resolve().parent;C=P.parent
+import evidence_rules as _ER  # fixup-1 (VN-08): inherited-gate count from the r7 build receipt
+GATES_TEXT='All %d inherited physical gates'%_ER.inherited_gates(C)['open']
 OUT=P/'output/pdf';OUT.mkdir(parents=True,exist_ok=True)
 PDF=OUT/'D2-shadow-plenum-structural-supplement.pdf'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def read(p):return json.loads(p.read_text())
+def read(p):return json.loads(read_text(p))
 d=read(P/'concealed-vent-structural.json');m=read(C/'out/compact-kowa_lm6hc/manifest.json')
 vr=C/d['ventilation_report']['path'];v=read(vr)
 assert sha(C/'out/compact-kowa_lm6hc/manifest.json')==d['manifest_sha256']
@@ -23,7 +27,7 @@ assert d['verification_source_sha256']==sha(P/'update_concealed_vent_structure.p
 ci=C/'vent-study/shadow-plenum-coupon/coupon-index.json';cr=read(ci)
 assert cr['manifest_sha256']==d['manifest_sha256'] and cr['coupon_count']==2
 sources=[P/'CONCEALED-VENT-STRUCTURAL.md',P/'concealed-vent-structural.json',P/'update_concealed_vent_structure.py',P/'reference-export18-structural-binding.json',C/'out/compact-kowa_lm6hc/manifest.json',vr,ci,Path(__file__)]
-start={str(f.relative_to(C)):sha(f) for f in sources}
+start={rel_posix(f,C):sha(f) for f in sources}
 pdfmetrics.registerFont(TTFont('ReviewSans',str(C.parent/'fonts/DejaVuSans.ttf')))
 pdfmetrics.registerFont(TTFont('ReviewBold',str(C.parent/'fonts/DejaVuSans-Bold.ttf')))
 pdfmetrics.registerFontFamily('ReviewSans',normal='ReviewSans',bold='ReviewBold')
@@ -45,7 +49,7 @@ add('D2 shadow plenum<br/>structural supplement','title')
 add('Compact Kowa candidate | 9 October 2026 | Separate supplement to the historical structural report','sub')
 add(f"The selected housing adds <b>{A['delta_mass_g']:.2f} g</b> in the planning mass model. The same analytical assumptions raise J4 floor moment by <b>{U['moment_change_percent']:.2f}%</b> and conservative grip moment by <b>{G['moment_change_percent']:.2f}%</b>. The revised proposed equal-share J4 coupon screen is <b>{L['proposed_rounded_equal_share_screen_Nm']:.2f} N m</b>.")
 add('<b>PRINT HOLD:</b> the front mouth removes first-roof frame support over Z5..40. A nominal 10.7 mm distance there is not a two-ended supported span; raster direction may require about 35 mm bridging. The expanded coupon includes it, but slicer, bridge and cleanout evidence remain open.','small')
-add('<b>Unqualified review only.</b> No FEA, drop rating, print test or physical strength result is claimed. All 56 inherited physical gates and collar M1 remain open.','small')
+add('<b>Unqualified review only.</b> No FEA, drop rating, print test or physical strength result is claimed. '+GATES_TEXT+' and collar M1 remain open.','small')
 rows=[['Planning quantity','Reviewed export18','Shadow plenum'],
  ['Complete mass',f"{A['reference_mass_g']:.2f} g",f"{A['current_mass_g']:.2f} g"],
  ['Tub / panel mass',f"{T['tub']['reference_proxy_mass_g']:.2f} / {T['panel']['reference_proxy_mass_g']:.2f} g",f"{T['tub']['current_proxy_mass_g']:.2f} / {T['panel']['current_proxy_mass_g']:.2f} g"],
@@ -89,8 +93,8 @@ doc.build(story,onFirstPage=footer,onLaterPages=footer)
 assert all(sha(C/name)==h for name,h in start.items()), 'Source changed during PDF generation'
 r=PdfReader(str(PDF));assert len(r.pages)==2, f'Expected 2 pages, got {len(r.pages)}'
 text='\n'.join(x.extract_text() for x in r.pages)
-for required in ['864.10','0.95','299.4','210','510',d['manifest_sha256'],'All 56 inherited physical gates']:
+for required in ['864.10','0.95','299.4','210','510',d['manifest_sha256'],GATES_TEXT]:
  assert required in ' '.join(text.split()), 'Missing PDF text: '+required
 receipt={'artifact':PDF.name,'pdf_sha256':sha(PDF),'pages':len(r.pages),'manifest_sha256':d['manifest_sha256'],'source_sha256':start,'text_checks_pass':True,'visual_review':'pending PNG inspection','physical_qualified':False}
-(OUT/'structural-supplement-pdf-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+write_text(OUT/'structural-supplement-pdf-receipt.json',json.dumps(receipt,indent=2)+'\n')
 print(PDF)

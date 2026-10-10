@@ -1,0 +1,474 @@
+# SPDX-License-Identifier: MIT
+"""CAD-free evidence rules shared by the verifiers, the reconciler and the docs audit (review 2026-10-10, FP-04).
+
+* Numbers that documents repeat are formatted from their source rows, never typed (VN-08): the inherited
+  physical-gate count from the r7 build receipt, the cooler/source-Pi witness from the main-audit row, and the
+  rigid-power poses/queries from the power report.
+* Manifest rows are compared with a stated numeric tolerance; ids, kinds and sources stay exact (VN-06).
+* A keepout overlap is info only with that keepout's declared mating partner (VN-31).
+* The exact info-row set the reconciler accepts from the main audit, and the exact print-check failure set (VN-31).
+* Selected-folder hygiene: every JSON report in a selected output folder binds the selected manifest, or is
+  declared historical together with the manifest it must bind (VN-09).
+* evaluate_docs_audit(): the failure list behind review_docs_audit.py's exit code (VN-05).
+Nothing here imports CAD; every function is pure apart from reading the named JSON files.
+"""
+from cv_io import read_text
+from pathlib import Path
+import hashlib
+import json
+import math
+
+HERE = Path(__file__).resolve().parent
+CAD = HERE.parent
+R7_BUILD_RECEIPT = '../out/build-receipt.json'          # relative to candidate-vertical; r7 hardware_gates.gates
+UNRECORDED = 'unrecorded (deterministic output, FP-04)'
+
+
+def sha(p):
+    return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+
+def read(p):
+    return json.loads(read_text(p))
+
+
+# ------------------------------------------------------------------ numbers from source rows (VN-08)
+
+def inherited_gates(root=HERE):
+    """Inherited r7 physical gates, counted from the r7 build receipt (the same rule as r7 audit_cloud_release.py)."""
+    p = (Path(root) / R7_BUILD_RECEIPT).resolve()
+    gates = read(p)['hardware_gates']['gates']
+    return dict(total=len(gates), open=sum(v.startswith('open') for v in gates.values()),
+                withdrawn=sum(v.startswith('withdrawn') for v in gates.values()),
+                source=R7_BUILD_RECEIPT, field='hardware_gates.gates', source_sha256=sha(p))
+
+
+def dependency_mismatches(report, root=HERE):
+    """[(field, path)] for every helper_source_sha256 entry (paths relative to candidate-vertical) and input_sha256 entry
+    (relative to cad/gs8-d2-v1) of a run report that no longer matches the current file, plus the single-file bindings
+    state_model_sha256 (steps.py), terminal_rule_source_sha256 (wire_terminal_rules.py) and a string
+    helper_source_sha256 (power_geometry.py, the wire check). fixup-1 (FP-12): a rule change in a helper invalidates
+    the report as a verifier change does."""
+    root = Path(root)
+    out = []
+    single = {'state_model_sha256': 'steps.py', 'terminal_rule_source_sha256': 'wire_terminal_rules.py'}
+    for field, base in (('helper_source_sha256', root), ('input_sha256', root.parent)):
+        items = report.get(field)
+        if isinstance(items, str) and field == 'helper_source_sha256':
+            items = {'power_geometry.py': items}
+        for rel, h in sorted((items or {}).items()):
+            p = base / rel
+            if not p.is_file() or sha(p) != h:
+                out.append((field, rel))
+    for field, rel in single.items():
+        if field in report and (not (root / rel).is_file() or sha(root / rel) != report[field]):
+            out.append((field, rel))
+    return out
+
+
+def main_audit_row(verification, category, ident):
+    rows = [c for c in verification.get('checks', []) if c.get('category') == category and c.get('id') == ident]
+    return rows[0] if len(rows) == 1 else None
+
+
+def cooler_witness_mm3(verification):
+    """overlap_mm3 of the main-audit interference row pi5/cooler (the retained active rigid failure), or None."""
+    row = main_audit_row(verification, 'interference', 'pi5/cooler')
+    return None if row is None else row.get('overlap_mm3')
+
+
+def fmt_mm3(v):
+    return '%.6f' % v
+
+
+def power_counts(report):
+    return dict(poses=report['poses'], queries=report['exact_intersections'], hits=len(report['hits']))
+
+
+# ------------------------------------------------------------------ numeric row comparison (VN-06)
+
+ABS_TOL = 1e-6      # mm (and the same absolute value for g / mm3 fields)
+REL_TOL = 1e-9
+
+
+def same_value(a, b, abs_tol=ABS_TOL, rel_tol=REL_TOL):
+    """Numbers within max(abs_tol, rel_tol*max(|a|,|b|)); bools, strings, None and keys exact; lists element-wise."""
+    if isinstance(a, bool) or isinstance(b, bool):
+        return type(a) is type(b) and a == b
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        if not (math.isfinite(a) and math.isfinite(b)):
+            return a == b
+        return abs(a - b) <= max(abs_tol, rel_tol * max(abs(a), abs(b)))
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(same_value(x, y, abs_tol, rel_tol) for x, y in zip(a, b))
+    if isinstance(a, dict) and isinstance(b, dict):
+        return a.keys() == b.keys() and all(same_value(a[k], b[k], abs_tol, rel_tol) for k in a)
+    return type(a) is type(b) and a == b
+
+
+def changed_rows(old_rows, new_rows):
+    """Ids whose manifest row differs beyond the numeric tolerance (inventories must already match)."""
+    return [k for k in old_rows if not same_value(old_rows[k], new_rows[k])]
+
+
+# ------------------------------------------------------------------ keepouts and the accepted info set (VN-31)
+
+# A keepout is a non-material mating envelope. Its overlap is info ONLY with the part it mates with.
+KEEPOUT_MATING_PARTNERS = {
+    'usb_storage_plug_reserve': ('pi5', 'usb_stick'),   # USB-A plug envelope: Pi USB3 receptacle; the stick carrying it
+}
+
+
+def keepout_mating_info(a, b, kinds):
+    for k, other in ((a, b), (b, a)):
+        if kinds.get(k) == 'keepout' and other in KEEPOUT_MATING_PARTNERS.get(k, ()) and kinds.get(other) != 'printed':
+            return True
+    return False
+
+
+MAIN_AUDIT_INFO = frozenset(
+    [('non_material_keepout', 'pi5/usb_storage_plug_reserve'),
+     ('interference', 'eyepiece/eyecup'), ('interference', 'eyepiece/panel')]
+    + [('interference', 'tub/' + p) for p in ('p_panel1', 'p_panel2', 'p_panel3', 'p_panel4',
+                                             'p_carrier1', 'p_carrier2', 'p_grip')]
+    + [('nominal_features', n) for n in ('panel_screw_bearing_land', 'panel_head_radial_wall',
+                                         'carrier_PT_head_radial_wall', 'carrier_M25_head_radial_wall',
+                                         'carrier_M25_thread_engagement', 'collar_hoop_nominal',
+                                         'collar_relief_nominal_after_bed_chamfer')]
+    + [('physical', 'qualification')])
+
+
+def open_motion_ids():
+    """Motions the assembly-state model declares 'open' (with an open_reason); verify_candidate.py reports each as an
+    info row motion_coverage/<id>."""
+    import steps
+    return sorted(mid for mid, m in steps.MOTIONS.items() if m['runner'] == 'open')
+
+
+def expected_main_info():
+    return set(MAIN_AUDIT_INFO) | {('motion_coverage', m) for m in open_motion_ids()} | set(__import__('j7_collar_checks').INFO_ROWS)  # FP-08 (VN-24): J7-R family WARN rows, not yet in the committed verification.json (FP-16)
+
+
+def info_set_findings(verification, expected=None):
+    """[(code, category, id)]: info rows the reconciler did not accept, and accepted rows that vanished."""
+    expected = expected_main_info() if expected is None else set(expected)
+    got = {(c['category'], c['id']) for c in verification.get('checks', []) if c.get('status') == 'info'}
+    return ([('unexpected_info_row',) + k for k in sorted(got - expected)]
+            + [('missing_info_row',) + k for k in sorted(expected - got)])
+
+
+# Print checks (FP-09, verify_print_checks.py): failures the reconciler accepts. Empty: every current failure is a
+# CAD-phase defect (VN-51..VN-58) that must be fixed, not accepted.
+EXPECTED_PRINT_FAILURES = {}
+
+
+def print_failure_findings(report, expected=None):
+    expected = EXPECTED_PRINT_FAILURES if expected is None else expected
+    got = {k: sorted(v) for k, v in report.get('failing', {}).items() if v}
+    want = {k: sorted(v) for k, v in expected.items() if v}
+    return [] if got == want else [('print_failures_differ', json.dumps(got, sort_keys=True), json.dumps(want, sort_keys=True))]
+
+
+# Harness checks (FP-10, verify_harness_checks.py): failures the reconciler accepts. Empty: every current failure is a
+# CAD/docs-phase defect or a documented user decision (VN-47, VN-62), never accepted here.
+EXPECTED_HARNESS_FAILURES = {}
+
+
+def harness_failure_findings(report, expected=None):
+    expected = EXPECTED_HARNESS_FAILURES if expected is None else expected
+    got = {k: sorted(v) for k, v in report.get('failing', {}).items() if v}
+    want = {k: sorted(v) for k, v in expected.items() if v}
+    return [] if got == want else [('harness_failures_differ', json.dumps(got, sort_keys=True), json.dumps(want, sort_keys=True))]
+
+
+# ------------------------------------------------------------------ selected-folder hygiene (VN-09)
+
+# Reports that stay at their path although they bind another manifest: path (relative to candidate-vertical) ->
+# (manifest they must bind, relative to candidate-vertical; reason). Anything else foreign moves to history/.
+DECLARED_HISTORICAL = {
+    'out/compact-kowa_lm6hc/wall-probe-context.json': (
+        'history/reviewed-export18/manifest.json',
+        'Frozen export18 right-wall probe supplement. The concealed guide builder reads it at this path and the guide '
+        'receipt binds it here; historical context only, never current evidence.'),
+    'out/fps-service-study/integrated-fps-export18-checks.json': (
+        'history/reviewed-export18/manifest.json', 'Frozen export18 FPS integrated check; history only.'),
+    'history/stale-selected-reports-2026-10-10/ventilation-checks.json': (
+        'vent-study/angled-channel-trial/manifest.json', 'Rejected angled-channel trial report (moved out of the '
+        'selected folder by FP-04).'),
+}
+SKIP_DIRS = frozenset({'step', 'stl', 'meshes', 'check-logs'})
+
+
+def bound_manifest(report):
+    for path in ('manifest_sha256', 'mechanical_manifest_sha256', 'mechanical.manifest_sha256'):
+        v = report
+        for k in path.split('.'):
+            v = v.get(k) if isinstance(v, dict) else None
+        if isinstance(v, str):
+            return v
+    return None
+
+
+def historical_binding(rel, root=HERE):
+    """(ok, detail) for a DECLARED_HISTORICAL report: it exists and binds exactly its declared manifest."""
+    want_path, _ = DECLARED_HISTORICAL[rel]
+    p, m = Path(root) / rel, Path(root) / want_path
+    if not p.is_file():
+        return False, 'missing'
+    want = sha(m) if m.is_file() else None
+    got = bound_manifest(read(p))
+    return got is not None and got == want, 'binds %s, declared %s = %s' % (
+        (got or 'nothing')[:8], want_path, (want or 'missing')[:8])
+
+
+def selected_folder_findings(folder, manifest_sha, root=HERE):
+    """[(code, path, detail)] for every JSON in a selected output folder that does not bind manifest_sha, unless it is
+    DECLARED_HISTORICAL and binds its declared manifest. manifest.json and cache/STEP/STL/log folders are skipped."""
+    folder, root = Path(folder), Path(root)
+    out = []
+    for p in sorted(folder.rglob('*.json')):
+        inner = p.relative_to(folder).as_posix()
+        if inner == 'manifest.json' or SKIP_DIRS & set(inner.split('/')[:-1]):
+            continue
+        rel = p.relative_to(root).as_posix() if p.is_relative_to(root) else inner
+        if rel in DECLARED_HISTORICAL:
+            ok, detail = historical_binding(rel, root)
+            if not ok:
+                out.append(('historical_report_binding', rel, detail))
+            continue
+        try:
+            data = read(p)
+        except ValueError as e:
+            out.append(('unreadable_report', rel, str(e)[:120]))
+            continue
+        bound = bound_manifest(data) if isinstance(data, dict) else None
+        if bound is None:
+            out.append(('unbound_report', rel, 'no manifest_sha256 / mechanical_manifest_sha256 field'))
+        elif bound != manifest_sha:
+            out.append(('foreign_manifest_report', rel, 'binds %s, selected manifest %s' % (bound[:8], manifest_sha[:8])))
+    return out
+
+
+# ------------------------------------------------------------------ document numbers vs source rows (VN-08)
+
+import re as _re
+
+_MM3 = _re.compile(r'(\d+\.\d{4,})\s*mm(?:3|³)')
+_POWER = _re.compile(r'(\d+)\s*(?:rigid\s+power-service\s+)?poses\s*/\s*(\d+)\s*(?:exact\s+)?queries')
+_GATES = [_re.compile(r'(?i)(?:\b|all)(\d+)\s*inherited\s+(?:physical\s+)?gates'),
+          _re.compile(r'"open_inherited_gates":\s*(\d+)'), _re.compile(r'(?i)\bbaseline\s*(\d+)\s*and\s*M1')]
+_HISTORY_WORDS = ('export18', 'historical', 'frozen')
+NUMBER_DOCUMENTS = ['README.md', 'REVIEW.md', 'ASSEMBLY-VERTICAL.md', 'MEASUREMENTS-TO-CLOSE.md', 'REPRODUCE.md',
+                    'BOM-VERTICAL.md', 'BOM-VERTICAL.csv', 'CHECKPOINT-STATUS.json',
+                    'structural-review/CONCEALED-VENT-STRUCTURAL.md', 'out/compact-kowa_lm6hc/current-review-evidence.json',
+                    # Manifest text is generated from model/source helpers at export (e.g. provenance cooler_hold).
+                    'out/compact-kowa_lm6hc/manifest.json', 'out/compact-fujinon_hf6xa/manifest.json',
+                    'out/original-kowa_lm6hc/manifest.json']
+
+
+def number_sources(root=HERE):
+    """The source rows the repeated figures come from (current selected reports and frozen export18 history)."""
+    root = Path(root)
+    cur, old = root / 'out/compact-kowa_lm6hc', root / 'history/reviewed-export18'
+    src = {'gates': inherited_gates(root)}
+    for key, folder in (('current', cur), ('export18', old)):
+        v = folder / 'verification.json'
+        w = cooler_witness_mm3(read(v)) if v.is_file() else None
+        pw = folder / 'power-service-checks.json'
+        src[key] = {'cooler_witness_mm3': w, 'cooler_witness_text': None if w is None else fmt_mm3(w),
+                    'power': power_counts(read(pw)) if pw.is_file() else None,
+                    'verification': v.relative_to(root).as_posix(), 'power_report': pw.relative_to(root).as_posix()}
+    return src
+
+
+def _sentence(text, start, end):
+    a = max(text.rfind('\n', 0, start), text.rfind('. ', 0, start), text.rfind('|', 0, start))
+    bs = [i for i in (text.find('\n', end), text.find('. ', end), text.find('|', end)) if i >= 0]
+    return text[a + 1:min(bs) if bs else len(text)]
+
+
+def document_number_findings(name, text, src):
+    """[(code, document, found, expected, context)] for repeated figures that differ from their source row."""
+    out = []
+    for m in _MM3.finditer(text):
+        ctx = _sentence(text, m.start(), m.end())
+        if 'cooler' not in ctx.lower():
+            continue
+        era = 'export18' if any(w in ctx.lower() for w in _HISTORY_WORDS) else 'current'
+        want = src[era]['cooler_witness_text']
+        if m.group(1) != want:
+            out.append(('cooler_witness_number', name, m.group(1), '%s (%s %s)' % (want, era, src[era]['verification']), ctx.strip()[:160]))
+    for m in _POWER.finditer(text):
+        ctx = _sentence(text, m.start(), m.end())
+        era = 'export18' if any(w in ctx.lower() for w in _HISTORY_WORDS) else 'current'
+        p = src[era]['power']
+        got = (int(m.group(1)), int(m.group(2)))
+        if p is None or got != (p['poses'], p['queries']):
+            out.append(('power_query_number', name, '%d/%d' % got, '%s (%s %s)' % (
+                None if p is None else '%d/%d' % (p['poses'], p['queries']), era, src[era]['power_report']), ctx.strip()[:160]))
+    for rx in _GATES:
+        for m in rx.finditer(text):
+            if int(m.group(1)) != src['gates']['open']:
+                out.append(('inherited_gate_number', name, m.group(1), '%d (%s %s)' % (
+                    src['gates']['open'], src['gates']['source'], src['gates']['field']), _sentence(text, m.start(), m.end()).strip()[:160]))
+    return out
+
+
+def documents_number_findings(root=HERE, names=None, src=None):
+    root = Path(root)
+    src = number_sources(root) if src is None else src
+    out = []
+    for n in (NUMBER_DOCUMENTS if names is None else names):
+        p = root / n
+        if p.is_file():
+            out += document_number_findings(n, read_text(p), src)
+    return out
+
+
+# ------------------------------------------------------------------ docs-audit verdict (VN-05)
+
+CURRENT_ROLE = 'current manifest-bound scoped evidence'
+HEAD_CURRENT_ROLE = 'current manifest-bound limited head reservation'
+
+
+def evaluate_docs_audit(a):
+    """Verdict of a review_docs_audit.py result: failures (exit 1), rebuildable caches only (exit 3) or clean (0).
+
+    Selected evidence must bind the current manifest and current verifier; declared-historical reports must bind
+    their declared manifest; declared-pending items (FP-13 alternative audits) are listed, not failed."""
+    F, R, N = [], [], []
+
+    def fail(code, *detail):
+        F.append([code] + [str(x) for x in detail])
+
+    def cache(state, label, action):
+        if state == 'cache_missing':
+            R.append([label, action])
+        elif state != 'complete':
+            fail('bound_files', label, state, action)
+
+    def binding(label, path, b):
+        if b is not None and not b.get('pass'):
+            fail('binding', path, label, 'missing %d changed %d: %s' % (
+                len(b['missing']), len(b['changed']), ', '.join((b['missing'] + b['changed'])[:5])))
+
+    for v in a['variants']:
+        name = v['variant']
+        binding('sources', 'out/%s/manifest.json' % name, v['sources'])
+        cache(v['bound_cache']['state'], name, v['bound_cache']['action'])
+        if v['bound_cache']['state'] == 'complete' and not v['mesh_manifest_identical']:
+            fail('mesh_manifest_copy', name)
+        if v['printed_count'] != v['expected_printed_count']:
+            fail('printed_count', name, v['printed_count'], v['expected_printed_count'])
+        for k in ('printed_valid_one_solid', 'keepouts_non_material'):
+            if not v[k]:
+                fail(k, name)
+        for f in v.get('selected_folder_findings', []):
+            fail(*f)
+        for r in v['reports']:
+            if r.get('declared_pending'):
+                N.append([r['path'], r['declared_pending']])
+            elif r.get('missing'):
+                fail('selected_report_missing', r['path'])
+            elif not r['same_manifest']:
+                fail('stale_selected_report', r['path'], 'binds manifest %s' % str(r['manifest_sha256'])[:8])
+            elif not r['verifier_hash_current']:
+                fail('stale_selected_report', r['path'], 'verifier %s changed since the report' % r['verifier_file'])
+    b = a['bom']
+    if not b['generator_outputs_current']:
+        fail('bom_outputs_stale', 'make_bom_vertical.py --check')
+    for x in b['invalid_parent_references']:
+        fail('bom_parent_reference', *x)
+    for x in b['missing_local_sources']:
+        fail('bom_missing_source', *x)
+    if b['cad_imported']:
+        fail('cad_imported', 'the docs audit must stay CAD-free')
+    if b.get('export18_selection_claim', {}).get('claimed') and not a['concealed_bom_preservation']['unchanged']:
+        fail('bom_claim', 'BOM-VERTICAL.md claims purchased selections are unchanged from export18, but %d line(s) differ'
+             % len(a['concealed_bom_preservation']['differences']))
+    for x in a['missing_document_local_links']:
+        fail('missing_local_link', x['document'], x['target'])
+
+    def report(r, current_role=CURRENT_ROLE):
+        if r.get('declared_historical'):
+            if not r.get('historical_binding_ok'):
+                fail('historical_report_binding', r['path'], r.get('historical_binding'))
+            return
+        if r.get('pending'):
+            fail('selected_report_missing', r['path'])
+            return
+        if 'evidence_role' in r and r['evidence_role'] != current_role:
+            fail('stale_selected_report', r['path'], r['evidence_role'])
+        elif r.get('same_primary_manifest') is False:
+            fail('stale_selected_report', r['path'], 'binds another manifest')
+        elif r.get('verifier_hash_current') is False:
+            fail('stale_selected_report', r['path'], 'verifier %s changed since the report' % r.get('verifier_file'))
+        for k in ('helper_bindings', 'verification_dependencies', 'step_bindings', 'checked_sources', 'saved_material_bindings'):
+            binding(k, r['path'], r.get(k))
+        if r.get('frozen_input_matches') is False:
+            fail('binding', r['path'], 'frozen input')
+
+    for r in a['selected_supplemental_reports']:
+        report(r)
+    for r in a['concealed_vent_reports']:
+        report(r)
+    for key, x in a['report_inputs'].items():
+        if not x['matches_report']:
+            fail('report_input', key, x['path'])
+    for item in a['assembly_comparison']['candidate_manifest_bindings']:
+        for variant, ok in item.items():
+            if not ok:
+                fail('stale_selected_report', 'out/comparison/assembled-comparison.json', 'binds an old %s manifest' % variant)
+    for r in a['core_void_reports']:
+        if not r['same_variant_manifest']:
+            fail('stale_selected_report', r['path'], 'binds another manifest')
+        elif not r['verifier_hash_current']:
+            fail('stale_selected_report', r['path'], 'verifier measure_volume.py changed since the report')
+    head = a.get('selected_usb_head_report')
+    if head is None:
+        fail('selected_report_missing', 'USB-head report')
+    else:
+        report(head, HEAD_CURRENT_ROLE)
+    c = a.get('plenum_coupon_identity')
+    if c is None:
+        fail('selected_report_missing', 'vent-study/shadow-plenum-coupon/coupon-index.json')
+    else:
+        if not (c['same_primary_manifest'] and c['source_current']):
+            fail('stale_selected_report', c['path'], 'manifest %s, source %s' % (c['same_primary_manifest'], c['source_current']))
+        binding('receipts', c['path'], c['receipt_bindings'])
+        for r in c['receipts']:
+            if not r['same_primary_manifest']:
+                fail('stale_selected_report', r['path'], 'binds another manifest')
+            binding('files', r['path'], r['files'])
+    rc = a.get('restored_coupon_reproducer')
+    if rc is not None:
+        binding('restored files', rc['receipt']['path'], rc['restored_file_bindings'])
+        binding('retained outputs', rc['receipt']['path'], rc['retained_output_bindings'])
+    s = a.get('structural_pdf')
+    if s is None:
+        fail('selected_report_missing', 'structural-review/output/pdf/structural-supplement-pdf-receipt.json')
+    else:
+        if not s['same_primary_manifest']:
+            fail('stale_selected_report', s['receipt']['path'], 'binds another manifest')
+        if not s['pdf_hash_matches']:
+            fail('binding', s['receipt']['path'], 'pdf')
+        binding('sources', s['receipt']['path'], s['source_bindings'])
+    cp = a['checkpoint_status']
+    for k in ('same_primary_manifest', 'selected_evidence_binding', 'preserved_export18_binding', 'guide_receipt_current'):
+        if not cp.get(k):
+            fail('checkpoint_binding', 'CHECKPOINT-STATUS.json', k)
+    if cp.get('guide_manifest_claim') and not cp.get('guide_nominated_manifest_current'):
+        fail('checkpoint_claim', 'CHECKPOINT-STATUS.json',
+             'guide.manifest_binding_current is true but the guide receipt nominates another manifest')
+    for x in a.get('checkpoint_numbers', []):
+        if not x['match']:
+            fail('checkpoint_number', 'CHECKPOINT-STATUS.json', x['field'], json.dumps(x['recorded']), json.dumps(x['source_value']))
+    for x in a.get('document_numbers', []):
+        fail(*x)
+    g = a['guide_bound_cache']
+    binding('sources', g.get('receipt'), g.get('sources'))   # fixup-1: guide receipt sources (inputs and documents)
+    if not g.get('nominated_manifest_current'):
+        fail('guide_manifest_stale', g.get('receipt'),
+             'nominates %s, not the current manifest' % str(g.get('nominated_manifest_sha256'))[:8])
+    cache(g['state'], 'guide', g['action'])
+    return {'failures': F, 'rebuildable_caches': R, 'declared_pending': N, 'exit_code': 1 if F else (3 if R else 0)}

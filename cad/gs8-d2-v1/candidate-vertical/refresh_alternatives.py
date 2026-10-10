@@ -1,3 +1,4 @@
+from cv_io import child_env, open_text, write_text
 import subprocess,sys,json
 from pathlib import Path
 P=Path(__file__).parent
@@ -5,8 +6,8 @@ jobs=[('export-fujinon','export_candidate.py',['--storage','compact','--lens','f
 results=[]
 for name,script,args in jobs:
  print('START',name,flush=True)
- with open('/tmp/d2-final-'+name+'.log','w') as f:r=subprocess.run([sys.executable,str(P/script),*args],stdout=f,stderr=subprocess.STDOUT)
+ with open_text('/tmp/d2-final-'+name+'.log','w') as f:r=subprocess.run([sys.executable,str(P/script),*args],stdout=f,stderr=subprocess.STDOUT,env=child_env())
  results.append(dict(id=name,exit=r.returncode));print('END',name,r.returncode,flush=True)
  if r.returncode and name.startswith('export'):break
  # A retained source/proxy collision is reported, not hidden by stopping measurements.
-(P/'out/alternative-refresh.json').write_text(json.dumps(results,indent=2))
+write_text(P/'out/alternative-refresh.json',json.dumps(results,indent=2))

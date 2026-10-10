@@ -4,6 +4,7 @@ This measures named sections and finite paths. It does not establish a global
 minimum flow area, fan operating point, printability, strength or cooling.
 The older diagonal-channel verifier is deliberately left unchanged.
 """
+from cv_io import read_text, write_text
 from pathlib import Path
 import argparse
 import hashlib
@@ -33,7 +34,7 @@ def box(x0, x1, y0, y1, z0, z1):
 
 mf = D / 'manifest.json'
 mh = sha(mf)
-m = json.loads(mf.read_text())
+m = json.loads(read_text(mf))
 length = m['core_dimensions_mm'][0]
 source_hashes = {name: sha(P / name) for name in ('model.py', 'vent_geometry.py')}
 for name, digest in source_hashes.items():
@@ -42,7 +43,7 @@ assert m.get('ventilation', {}).get('revision', '').startswith('shadow-gap'), 'N
 step = D / 'step/tub.step'
 assert sha(step) == m['files']['step/tub.step'], 'Tub STEP hash mismatch'
 s = cq.importers.importStep(str(step)).val()
-hm = json.loads((H / 'manifest.json').read_text())
+hm = json.loads(read_text(H / 'manifest.json'))
 assert sha(H / 'tub.step') == hm['files']['step/tub.step'], 'Historical tub hash mismatch'
 old = cq.importers.importStep(str(H / 'tub.step')).val()
 rows = []
@@ -211,6 +212,6 @@ result = dict(manifest_sha256=mh, saved_tub_sha256=sha(step), historical_tub_sha
               summary={k: sum(q['status'] == k for q in rows) for k in ('pass', 'fail', 'info')},
               checks=rows, physical_qualified=False,
               scope='Exact saved-STEP named planar sections, finite rays, external void connectivity and local material comparison; no global flow/strength/print/thermal qualification')
-(D / 'shadow-plenum-checks.json').write_text(json.dumps(result, indent=2))
+write_text(D / 'shadow-plenum-checks.json', json.dumps(result, indent=2))
 print(json.dumps(result['summary']), flush=True)
 raise SystemExit(bool(result['summary']['fail']))

@@ -1,0 +1,328 @@
+{
+  "selected_service": "Pi HDMI stays mated; EVF end disconnected; complete ribbon and heads carried with carrier. Other looms need their own complete checks.",
+  "includes_rejected_diagnostics": false,
+  "summary": {
+    "pass": 13,
+    "fail": 0,
+    "info": 0
+  },
+  "checks": [
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_hdmi_evf",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_printed",
+      "id": "p_usb_pi",
+      "status": "pass",
+      "hits": []
+    },
+    {
+      "category": "hard_head_vs_material",
+      "id": "p_hdmi_pi",
+      "status": "pass",
+      "hits": [],
+      "excluded_mating_partner": "pi5"
+    },
+    {
+      "category": "hard_head_vs_material",
+      "id": "p_hdmi_evf",
+      "status": "pass",
+      "hits": [],
+      "excluded_mating_partner": "evf_board"
+    },
+    {
+      "category": "hard_head_vs_material",
+      "id": "p_usb_pi",
+      "status": "pass",
+      "hits": [],
+      "excluded_mating_partner": "pi5"
+    },
+    {
+      "category": "obstacle_fixture",
+      "id": "p_carrier1",
+      "status": "pass",
+      "planted_cube_centre": [
+        -126.99999999999996,
+        16.88833154695855,
+        69.00000000000007
+      ],
+      "detected_overlap_mm3": 1.0000000000000002,
+      "purpose": "hardware is in the installed ribbon obstacle set"
+    },
+    {
+      "category": "obstacle_fixture",
+      "id": "p_grip",
+      "status": "pass",
+      "planted_cube_centre": [
+        -110.99999999999996,
+        -21.552888394808676,
+        8.96000000000007
+      ],
+      "detected_overlap_mm3": 1.0,
+      "purpose": "hardware is in the installed ribbon obstacle set"
+    },
+    {
+      "category": "obstacle_fixture",
+      "id": "p_panel1",
+      "status": "pass",
+      "planted_cube_centre": [
+        -128.49999999999997,
+        22.688331546958562,
+        48.00000000000008
+      ],
+      "detected_overlap_mm3": 0.9999999999999998,
+      "purpose": "hardware is in the installed ribbon obstacle set"
+    },
+    {
+      "category": "obstacle_fixture",
+      "id": "p_panel2",
+      "status": "pass",
+      "planted_cube_centre": [
+        -133.0,
+        22.68833154695856,
+        91.70000000000007
+      ],
+      "detected_overlap_mm3": 1.0,
+      "purpose": "hardware is in the installed ribbon obstacle set"
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "installed",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "full_ribbon_vs_solids",
+      "id": "premate",
+      "status": "pass",
+      "material_length_mm": 300.0,
+      "cells": 2283,
+      "exact_intersections": 0,
+      "hits": [],
+      "hit_count": 0,
+      "max_overlap_mm3": 0
+    },
+    {
+      "category": "carried_sweep",
+      "id": "carrier_headers_hdmi_premate",
+      "status": "pass",
+      "step_mm": 2.0,
+      "full_material": true,
+      "exact_intersections": 225,
+      "hits": [],
+      "hit_count": 0
+    }
+  ],
+  "analysis_bbox_mm": [
+    -152.789999264573,
+    -40.96,
+    -22.360000000000003,
+    84.16000000000001,
+    7.92,
+    119.00519549754252
+  ],
+  "verification_source_sha256": "3974bc84a34ca405d8938899b10d9baa9a1dc5d8b03c1143f6096b072c4d77de",
+  "snapshot_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "physical_qualified": false,
+  "note": "Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation.",
+  "obstacle_sets": {
+    "installed": {
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "cap",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "pack",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "state_source": "final build state (closed body)",
+      "excluded_present_ids": [
+        {
+          "id": "usb_storage_plug_reserve",
+          "reason": "non-material keepout"
+        }
+      ]
+    },
+    "premate": {
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "cap",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pack",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "state_source": "body before op evf_mate (carrier screwed in, panel not yet on)",
+      "excluded_present_ids": []
+    },
+    "both_unplugged": {
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "cap",
+        "carrier",
+        "cooler",
+        "encoder",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "fps_mounting_washer",
+        "fps_nut",
+        "gs_camera",
+        "hmx039",
+        "knob_exp",
+        "knob_fps",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "p_panel1",
+        "p_panel2",
+        "p_panel3",
+        "p_panel4",
+        "pack",
+        "panel",
+        "pi5",
+        "power_button",
+        "power_nut_reserve",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "state_source": "final build state (closed body)",
+      "excluded_present_ids": [
+        {
+          "id": "usb_storage_plug_reserve",
+          "reason": "non-material keepout"
+        }
+      ]
+    },
+    "carried": {
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "cap",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "p_grip",
+        "pack",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "tripod_nut",
+        "tub",
+        "xt30_pair"
+      ],
+      "state_source": "body before op carrier_in, minus the moving module",
+      "excluded_present_ids": []
+    }
+  },
+  "state_model_sha256": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+  "obstacle_rule": "FP-12 (VN-30): every material part steps.py has in the body in that state (screws and hardware included) plus the 9ced753 sets; exclusions listed per state; rejected --include-rejected diagnostics keep their 9ced753 sets"
+}

@@ -1,5 +1,12 @@
 # D2 concealed ventilation assembly and wiring review
 
+> **STALE (review 2026-10-10, FP-06; VN-12).** The tracked PDF, `guide-receipt.json`, page images and QA contact
+> sheets in `out-concealed-vents/` show the superseded build order (camera before the collar gauge, lens after the
+> panel, EVF matings in step 3, FPS washer/nut/knob on the bench panel, nut tools not specified as on-axis deep sockets). The
+> builder and `../ASSEMBLY-VERTICAL.md` now follow the corrected order of `../steps.py`. Do not use the PDF as an
+> assembly reference until it is rebuilt in the rebuild worktree (Linux rasterizer, VN-12) and its receipt binds the
+> current sources; `tests/test_build_order_docs.py` keeps this banner until then.
+
 This revised guide covers the compact Princeton and Kowa LM6HC vertical candidate with an integral outer shadow-gap plenum. It has a distinct output identity from the original reviewed 29-page guide. The original generator, `out/` PDF, receipt and page images are preserved. The revised guide remains an unqualified review: all 56 inherited physical gates, M1 and the candidate-specific holds stay open.
 
 ## Final source nomination

@@ -69,4 +69,4 @@ def metadata():
         occupied_space='Named closed source components retained in overlapping assembly; raw compound volume is not occupied volume. Core void must subtract components as a union without summing their volumes',
         proxies=['Inherited kit1.6mm PCB thickness','Underside electronics','SoC body','Power button body','Closed envelopes of non-solid source HDMI shells'],
         preserved_mating_contacts=True,artificial_plug_subtractions=False,physical_qualified=False,
-        remaining=['Detailed plug/source contacts require actual mating geometry; coarse plug boxes are only reservations','Adapter mating/root registration','Cooler/source CSI conflict','Full200mm FPC and both real cable roots','All baseline56 and M1 physical gates'])
+        remaining=['Detailed plug/source contacts require actual mating geometry; coarse plug boxes are only reservations','Adapter mating/root registration','Cooler/source CSI conflict','Full200mm FPC and both real cable roots','All inherited r7 physical gates and M1'])

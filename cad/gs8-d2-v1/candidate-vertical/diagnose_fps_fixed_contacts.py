@@ -1,10 +1,11 @@
+from cv_io import read_text, write_text
 import ast,itertools,json,math
 from pathlib import Path
 import cadquery as cq,numpy as np
 from OCP.BRepBuilderAPI import BRepBuilderAPI_Sewing
 import routes as R
 from verify_fps_access import V,bb,overlaps,digest
-P=Path(__file__).parent;tree=ast.parse((P/'verify_hdmi.py').read_text());node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='cell');exec(compile(ast.Module(body=[node],type_ignores=[]),str(P/'verify_hdmi.py'),'exec'));r=R.build();s=json.loads((P/'out/fps-service-study/fixed-switch-proposal-checks.json').read_text());old=s['hdmi_checks'];out=[]
+P=Path(__file__).parent;tree=ast.parse(read_text(P/'verify_hdmi.py'));node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='cell');exec(compile(ast.Module(body=[node],type_ignores=[]),str(P/'verify_hdmi.py'),'exec'));r=R.build();s=json.loads(read_text(P/'out/fps-service-study/fixed-switch-proposal-checks.json'));old=s['hdmi_checks'];out=[]
 for state,key in [('installed','hdmi_ribbon'),('premate','hdmi_ribbon_premate')]:
  rows=next(x for x in old if x['state']==state and x['shift_y_mm']==0);idxs=[h['cell'] for h in rows['switch_left_fixed_hits']];hd=r[key]
  for i in idxs:
@@ -20,4 +21,4 @@ for h in old:
  hd=r[{'premate':'hdmi_ribbon_premate','both_unplugged':'hdmi_ribbon_unplugged'}[h['state']]]
  for hit in h['shelf_hits']:
   c=cell(hd['segments'][hit['cell']]['vertices']).translate(V(0,20,0));q=c.intersect(shelf);shelfrows.append(dict(state=h['state'],cell=hit['cell'],overlap_mm3=q.Volume(),bbox_mm=bb(q)))
-result=dict(pin_hits=out,shelf_hits=shelfrows);(P/'out/fps-service-study/fixed-switch-contact-diagnosis.json').write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True)
+result=dict(pin_hits=out,shelf_hits=shelfrows);write_text(P/'out/fps-service-study/fixed-switch-contact-diagnosis.json',json.dumps(result,indent=2));print(json.dumps(result),flush=True)

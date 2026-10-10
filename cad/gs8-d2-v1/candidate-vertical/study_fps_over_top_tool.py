@@ -1,9 +1,10 @@
 """Exact test-only angled forceps envelopes; no actual tool or latch qualification."""
+from cv_io import read_text, write_text
 import json,math
 from pathlib import Path
 import cadquery as cq
 from verify_fps_access import V,box,bbox,bb,overlaps,tube,digest
-P=Path(__file__).parent;mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(mp.read_text());mh=digest(mp);sp=P/'routing-snapshots/fps-access-20261009-0402/twenty-one-full-wire-shapes.json';pose=json.loads(sp.read_text())['shapes'][20]
+P=Path(__file__).parent;mp=P/'out/compact-kowa_lm6hc/manifest.json';m=json.loads(read_text(mp));mh=digest(mp);sp=P/'routing-snapshots/fps-access-20261009-0402/twenty-one-full-wire-shapes.json';pose=json.loads(read_text(sp))['shapes'][20]
 rows={r['id']:r for r in m['rows']};moving={'panel','encoder','switch_1824','knob_exp','knob_fps','power_button','power_nut_reserve','foam_pad'}
 sh={}
 for n in rows:
@@ -51,4 +52,4 @@ for label,entry in [('parent_angled',V(-118,48,117)),('vertical_x',V(-133.5,43,1
     if volume>1e-6:swept_hits.append(dict(tool_withdrawal_mm=dist,part=n,overlap_mm3=volume,bbox_mm=bb(common)))
   row['sampled_rigid_tool_approach']=dict(poses=len(steps),step_mm=.5,translation_mm=40,status='blocked' if swept_hits else 'sampled_clear_only',hits=swept_hits,note='Discrete poses only. Whole rigid jaw pads, arms and shaft move; actual jaw closing remains unmodeled.')
  results.append(row);print(json.dumps(row),flush=True)
- (out/'over-top-long-tine-checks.json').write_text(json.dumps(dict(diagnostic_only=True,physical_qualified=False,source_sha256=digest(Path(__file__)),mechanical_manifest_sha256=mh,snapshot_sha256=digest(sp),checks=results),indent=2))
+ write_text(out/'over-top-long-tine-checks.json',json.dumps(dict(diagnostic_only=True,physical_qualified=False,source_sha256=digest(Path(__file__)),mechanical_manifest_sha256=mh,snapshot_sha256=digest(sp),checks=results),indent=2))

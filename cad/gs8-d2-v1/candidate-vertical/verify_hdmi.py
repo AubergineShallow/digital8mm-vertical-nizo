@@ -1,6 +1,7 @@
 """Exact printed-solid checks of the frozen complete-material HDMI reservation.
 The reservation is a sampled developable strip, not a strength/material approval.
 """
+from cv_io import read_text, write_text
 import argparse,hashlib,json,itertools,math,time
 from pathlib import Path
 import numpy as np
@@ -9,8 +10,8 @@ from OCP.BRepBuilderAPI import BRepBuilderAPI_Sewing
 from OCP.BRepClass3d import BRepClass3d_SolidClassifier
 from OCP.gp import gp_Pnt
 from OCP.TopAbs import TopAbs_IN
-p=argparse.ArgumentParser();p.add_argument('--variant',default='compact-kowa_lm6hc');p.add_argument('--snapshot',required=True);p.add_argument('--step',type=float,default=2);p.add_argument('--include-rejected',action='store_true',help='Reproduce archived in-body Pi-unplug and obsolete FPC-tool diagnostics; not selected service');a=p.parse_args()
-ROOT=Path(__file__).resolve().parent;out=ROOT/'out'/a.variant;src=Path(a.snapshot);snap=json.loads(src.read_text());meta=json.loads((out/'manifest.json').read_text())
+p=argparse.ArgumentParser();p.add_argument('--variant',default='compact-kowa_lm6hc');p.add_argument('--snapshot',required=True);p.add_argument('--step',type=float,default=2);p.add_argument('--include-rejected',action='store_true',help='Reproduce archived in-body Pi-unplug and obsolete FPC-tool diagnostics; not selected service');p.add_argument('--out',default='',help='report path instead of out/<variant>/hdmi-solid-checks.json');a=p.parse_args()
+ROOT=Path(__file__).resolve().parent;out=ROOT/'out'/a.variant;src=Path(a.snapshot);snap=json.loads(read_text(src));meta=json.loads(read_text(out/'manifest.json'))
 rows={r['id']:r for r in meta['rows']};shapes={name:cq.importers.importStep(str(out/'step'/f'{name}.step')).val() for name in rows}
 for name in rows:
  fp=out/'step'/f'{name}.step'
@@ -94,6 +95,25 @@ connectors={r['id']:r for r in snap['connectors']}
 heads={n:bsolid(connectors[n]['box']) for n in ('p_hdmi_pi','p_hdmi_evf','p_usb_pi')}
 # Fixed parts exclude the open panel and removed storage for assembly/service.
 fixed_names=[n for n,r in rows.items() if r['kind']!='keepout' and not n.startswith(('p_','s_')) and n not in ('panel','encoder','switch_1824','knob_exp','knob_fps','power_button','power_nut_reserve','fps_nut','fps_mounting_washer','usb_stick')]
+# FP-12 (VN-30): the 9ced753 sets above dropped every p_/s_ screw (and the stick). Each state now also takes every
+# material part steps.py has in the body at that moment (screws, hardware, COTS), never fewer than before.
+import steps as ST
+material={n for n,r in rows.items() if r['kind']!='keepout'}
+MOVERS=set(ST.MODULE)
+STATE_SETS={'installed':(set(ST.final_state()),'final build state (closed body)'),
+            'premate':(set(ST.state_before('evf_mate')),'body before op evf_mate (carrier screwed in, panel not yet on)'),
+            'carried':(set(ST.state_before('carrier_in')),'body before op carrier_in, minus the moving module')}
+PANEL_SET=[n for n in ['panel','encoder','switch_1824','power_button','power_nut_reserve','fps_nut','fps_mounting_washer'] if n in rows]
+def state_fixed(state,legacy):
+ present,_=STATE_SETS[state];derived=(present&material)-(MOVERS if state=='carried' else set())
+ return sorted(set(legacy)|derived)
+def state_exclusions(state,used):
+ present,why=STATE_SETS[state];ex=[]
+ for n in sorted((present&set(rows))-set(used)):
+  ex.append(dict(id=n,reason='non-material keepout' if rows[n]['kind']=='keepout' else ('moves with the carried module (rider of the sweep)' if n in MOVERS else 'not in this state')))
+ return dict(state_source=why,excluded_present_ids=ex)
+STATE_FIXED={'installed':state_fixed('installed',fixed_names+PANEL_SET),'premate':state_fixed('premate',fixed_names+PANEL_SET),'both_unplugged':state_fixed('installed',fixed_names+PANEL_SET)}
+obstacle_report={s:dict(obstacles=v,**state_exclusions('installed' if s=='both_unplugged' else s,v)) for s,v in STATE_FIXED.items()}
 printed=[n for n,r in rows.items() if r['kind']=='printed' and n not in ('panel','knob_exp','knob_fps')]
 for n,head in heads.items():
  hits=[]
@@ -102,6 +122,27 @@ for n,head in heads.items():
   v=head.intersect(shapes[fn]).Volume()
   if v>.02:hits.append(dict(part=fn,overlap_mm3=v))
  add('hard_head_vs_printed',n,not hits,hits=hits)
+# FP-12 (VN-30): installed heads against every other material part present; only the head's own mating partner
+# (the receptacle it is plugged into) is excluded, and named.
+HEAD_PARTNER={'p_hdmi_pi':'pi5','p_hdmi_evf':'evf_board','p_usb_pi':'pi5'}
+for n,head in heads.items():
+ hits=[];hb=bb(head)
+ for fn in STATE_FIXED['installed']:
+  if fn==HEAD_PARTNER[n] or not potential(fn,hb):continue
+  v=head.intersect(shapes[fn]).Volume()
+  if v>.02:hits.append(dict(part=fn,overlap_mm3=v))
+ add('hard_head_vs_material',n,not hits,hits=hits,excluded_mating_partner=HEAD_PARTNER[n])
+# Regression fixtures: a 1 mm cube at each installed screw/hardware centroid must be found by the same broad phase
+# and Boolean the ribbon cells use (the 9ced753 sets would miss all of them).
+for fn in [x for x in STATE_FIXED['installed'] if rows[x]['kind']=='hardware']:
+ c=shapes[fn].Center();q=cq.Solid.makeBox(1,1,1,cq.Vector(c.x-.5,c.y-.5,c.z-.5));qb=bb(q)
+ if not overlaps(qb,analysis_bbox):continue          # cropped away: no ribbon cell can reach it either
+ cls_in=False
+ for k in classifiers[fn]:
+  k.Perform(gp_Pnt(c.x,c.y,c.z),1e-7);cls_in=cls_in or k.State()==TopAbs_IN
+ if not cls_in:continue                              # hollow centroid (nut, washer): no interior point to plant
+ v=q.intersect(shapes[fn]).Volume() if potential(fn,qb) else 0.0
+ add('obstacle_fixture',fn,v>1e-4,planted_cube_centre=[c.x,c.y,c.z],detected_overlap_mm3=v,purpose='hardware is in the installed ribbon obstacle set')
 # Full material shapes in closed and pre-mate poses, checked against exact printed parts.
 all_cells={};all_bounds={};all_vertices={}
 def get_cell(state,i):
@@ -113,7 +154,7 @@ for state,key in [('installed','hdmi_installed'),('premate','hdmi_premate')]+([(
  for i,seg in enumerate(rr['segments']):
   
   if i%250==0:print(f'{state}: cell {i}/{len(rr["segments"])}',flush=True)
-  b=bounds(seg['box']);possible=[n for n in fixed_names+[n for n in ['panel','encoder','switch_1824','power_button','power_nut_reserve','fps_nut','fps_mounting_washer'] if n in rows] if potential(n,b)]
+  b=bounds(seg['box']);possible=[n for n in STATE_FIXED[state] if potential(n,b)]
   if not possible:continue
   s=get_cell(state,i)
   if s is None:continue
@@ -123,7 +164,8 @@ for state,key in [('installed','hdmi_installed'),('premate','hdmi_premate')]+([(
  add('full_ribbon_vs_solids',state,not hits,material_length_mm=rr['routed_length_mm'],cells=len(rr['segments']),exact_intersections=tested,hits=hits[:25],hit_count=len(hits),max_overlap_mm3=max((h['overlap_mm3'] for h in hits),default=0))
 # Rigid carried pre-mate shape + adapters + headers. Ribbon/head stay below EVF mouth until final6mm upward mate.
 carried={'pi_head':heads['p_hdmi_pi'],'evf_head':heads['p_hdmi_evf'].translate(cq.Vector(0,0,-6)),'usb_5v_head':heads['p_usb_pi'],**headers}
-fixed=[n for n in fixed_names if n not in ('pi5','cooler','x1203','x1203_kit','carrier','microsd')]
+fixed=state_fixed('carried',[n for n in fixed_names if n not in ('pi5','cooler','x1203','x1203_kit','carrier','microsd')])
+obstacle_report['carried']=dict(obstacles=fixed,**state_exclusions('carried',fixed))
 hits=[];tested=0
 for yy in np.arange(0,70.0001,a.step):
  print(f'Carried sweep Y={yy}',flush=True)
@@ -187,4 +229,5 @@ for xx in ((-87,-79) if a.include_rejected else ()):
 if hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest()!=manifest_start:raise ValueError('Manifest changed during check')
 summary={k:sum(r['status']==k for r in checks) for k in ('pass','fail','info')}
 result=dict(selected_service='Pi HDMI stays mated; EVF end disconnected; complete ribbon and heads carried with carrier. Other looms need their own complete checks.',includes_rejected_diagnostics=a.include_rejected,summary=summary,checks=checks,analysis_bbox_mm=analysis_bbox,verification_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),snapshot_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),mechanical_manifest_sha256=hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest(),physical_qualified=False,note='Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation.')
-(out/'hdmi-solid-checks.json').write_text(json.dumps(result,indent=2));print(json.dumps(summary),flush=True);raise SystemExit(bool(summary['fail']))
+result.update(obstacle_sets=obstacle_report,state_model_sha256=hashlib.sha256((ROOT/'steps.py').read_bytes()).hexdigest(),obstacle_rule='FP-12 (VN-30): every material part steps.py has in the body in that state (screws and hardware included) plus the 9ced753 sets; exclusions listed per state; rejected --include-rejected diagnostics keep their 9ced753 sets')
+write_text(Path(a.out) if a.out else out/'hdmi-solid-checks.json',json.dumps(result,indent=2));print(json.dumps(summary),flush=True);raise SystemExit(bool(summary['fail']))

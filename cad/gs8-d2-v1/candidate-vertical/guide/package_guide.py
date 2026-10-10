@@ -1,10 +1,12 @@
 """Package the exact guide checkpoint, editable renderer and supplied mesh inputs."""
+import sys as _cvsys; _cvsys.path.append(str(__import__('pathlib').Path(__file__).resolve().parents[1]))  # candidate-vertical root: cv_io
+from cv_io import read_text, rel_posix
 from pathlib import Path
 from zipfile import ZipFile,ZIP_DEFLATED
 import importlib.metadata as md,json,hashlib
 G=Path(__file__).resolve().parent;V=G.parent;CAD=V.parent;REPO=CAD.parents[1]
 OUT=G/'out';target=OUT/'D2-vertical-guide-source-and-pages.zip'
-receipt=json.loads((OUT/'guide-receipt.json').read_text())
+receipt=json.loads(read_text(OUT/'guide-receipt.json'))
 for name,digest in receipt['sources'].items():
  if hashlib.sha256((CAD/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('Guide source changed after render: '+name)
 if hashlib.sha256((OUT/'D2-vertical-assembly-wiring-review.pdf').read_bytes()).hexdigest()!=receipt['guide_pdf_sha256']:raise RuntimeError('PDF no longer matches receipt')
@@ -26,14 +28,14 @@ for dirname in ['hdmi-corrected-ports-20261009-0623','hdmi-export17-selected-202
  for p in (V/'routing-snapshots'/dirname).iterdir():
   if p.suffix in ('.json','.py','.md','.txt'):paths.append(p)
 paths += [CAD/'guide/lineart.py',CAD/'fonts/DejaVuSans-Bold.ttf',CAD/'fonts/LICENSE-DejaVu.txt']
-manifest=json.loads((M/'manifest.json').read_text())
+manifest=json.loads(read_text(M/'manifest.json'))
 for name,digest in manifest['sources'].items():
  p=CAD/name
  if p in paths and hashlib.sha256(p.read_bytes()).hexdigest()!=digest:
   raise RuntimeError('Bundled CAD source differs from frozen export: '+name)
 readme='''D2 vertical assembly and wiring review source bundle
 
-Review only. All 56 inherited physical gates and M1 remain open.
+Review only. All %d inherited physical gates and M1 remain open.
 
 This bundle rebuilds the pictorial guide from the included exported mesh snapshots.
 It includes the PDF, all page PNGs, editable Python/C++ renderer, source hashes,
@@ -51,13 +53,13 @@ when generating the guide. The C++ rasterizer is compiled locally from its sourc
 Geometry source files are included for provenance. This is a guide-only bundle;
 the complete CAD project and fabrication exports are separate. Do not manufacture
 or energize the camera from this review checkpoint.
-'''
+'''%(__import__('evidence_rules').inherited_gates(Path(__file__).resolve().parents[1])['open'])  # fixup-1 (VN-08)
 requirements='\n'.join(f'{p}=={md.version(p)}' for p in ['numpy','Pillow','reportlab','vtk'])+'\n'
 with ZipFile(target,'w',ZIP_DEFLATED,compresslevel=9) as z:
  z.writestr('START-HERE.txt',readme);z.writestr('requirements-guide.txt',requirements)
  for p in sorted({p.resolve() for p in paths}):
   if not p.is_file():raise FileNotFoundError(p)
-  z.write(p,str(p.resolve().relative_to(REPO.resolve())))
+  z.write(p,rel_posix(p.resolve(),REPO.resolve()))
 with ZipFile(target) as z:
  bad=z.testzip()
  if bad:raise RuntimeError('Corrupt archive member: '+bad)

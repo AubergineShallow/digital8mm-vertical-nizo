@@ -3,6 +3,8 @@
 This module imports neither CadQuery nor the guide renderer. It can preflight a
 nominated manifest without running CAD, compiling the rasterizer or rendering.
 """
+import sys as _cvsys; _cvsys.path.append(str(__import__('pathlib').Path(__file__).resolve().parents[1]))  # candidate-vertical root: cv_io
+from cv_io import read_text, rel_posix
 from pathlib import Path
 import argparse
 import ast
@@ -23,17 +25,17 @@ def inspect_inputs(root, nominated_hash):
         raise ValueError('Supply the exact lowercase SHA-256 of the nominated manifest')
     if sha(manifest_path) != nominated_hash:
         raise RuntimeError('The mechanical manifest differs from the nominated checkpoint')
-    manifest = json.loads(manifest_path.read_text())
+    manifest = json.loads(read_text(manifest_path))
     for name, expected in manifest['sources'].items():
         path = root.parent / name
         if not path.is_file() or sha(path) != expected:
             raise RuntimeError('Mechanical source differs from nominated export: ' + name)
     source = root / 'vent_geometry.py'
-    source_key = str(source.relative_to(root.parent))
+    source_key = rel_posix(source, root.parent)
     if manifest['sources'].get(source_key) != sha(source):
         raise RuntimeError('Nominated manifest does not bind the ventilation source')
     report_path = export / 'shadow-plenum-checks.json'
-    report = json.loads(report_path.read_text())
+    report = json.loads(read_text(report_path))
     expected_fields = {
         'manifest_sha256': nominated_hash,
         'verification_source_sha256': sha(root / 'verify_shadow_plenum.py'),
@@ -66,7 +68,7 @@ def inspect_inputs(root, nominated_hash):
         raise RuntimeError('Plenum report is missing a required geometry or limitation check')
     constants = {}
     wanted = {'OUTER_Y', 'INNER_Y', 'SKIN_INNER', 'WALL_OUTER', 'GAP', 'SIDE_Z', 'HOT_Z'}
-    for node in ast.parse(source.read_text()).body:
+    for node in ast.parse(read_text(source)).body:
         if isinstance(node, ast.Assign) and len(node.targets) == 1:
             target = node.targets[0]
             if isinstance(target, ast.Name) and target.id in wanted:
@@ -89,7 +91,7 @@ def inspect_inputs(root, nominated_hash):
             metadata.get('csi_unchanged_straight_access') is not True):
         raise RuntimeError('Plenum slot or CSI topology changed; revise the guide')
     structural = root / 'structural-review'
-    structural_report = json.loads((structural / 'concealed-vent-structural.json').read_text())
+    structural_report = json.loads(read_text(structural / 'concealed-vent-structural.json'))
     structural_expected = {
         'manifest_sha256': nominated_hash,
         'verification_source_sha256': sha(structural / 'update_concealed_vent_structure.py'),

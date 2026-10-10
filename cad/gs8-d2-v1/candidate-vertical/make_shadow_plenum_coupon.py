@@ -4,10 +4,11 @@ Run through run_locked.py after verify_shadow_plenum.py. This is a separate test
 artifact, not a tenth production print or a replacement for the older coupons.
 No support geometry is invented and no print or thermal release is granted.
 """
+from cv_io import read_text, write_text
+import export_cache as EC  # fixup-1 (VN-17): fixed STEP header time, no wall-clock receipt time
 from pathlib import Path
 import hashlib
 import json
-import time
 
 import cadquery as cq
 
@@ -22,9 +23,9 @@ def sha(p):
 
 mf = D / 'manifest.json'
 mh = sha(mf)
-m = json.loads(mf.read_text())
+m = json.loads(read_text(mf))
 checks_path = D / 'shadow-plenum-checks.json'
-checks = json.loads(checks_path.read_text())
+checks = json.loads(read_text(checks_path))
 assert checks['manifest_sha256'] == mh, 'Plenum check belongs to another export'
 assert checks['summary']['fail'] == 0, 'Resolve failed saved-STEP checks before coupon export'
 source = D / 'step/tub.step'
@@ -40,7 +41,7 @@ def make_coupon(name, crop_bounds, stem, receipt_name, purpose, local_limit):
     coupon = tub.intersect(crop)
     receipt = dict(name=name, manifest_sha256=mh, tub_sha256=sha(source),
                    source_check_sha256=sha(checks_path), crop_bounds_mm=crop_bounds,
-                   generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                   generated_utc=EC.UNRECORDED,
                    valid=coupon.isValid(), solid_count=len(coupon.Solids()),
                    volume_mm3=coupon.Volume(), production_part=False,
                    physical_qualified=False, purpose=purpose,
@@ -51,12 +52,12 @@ def make_coupon(name, crop_bounds, stem, receipt_name, purpose, local_limit):
     if not receipt['valid'] or receipt['solid_count'] != 1:
         receipt['exported'] = False
         receipt['status'] = 'BLOCKED: invalid or disconnected crop; no substitute supports generated'
-        (O / receipt_name).write_text(json.dumps(receipt, indent=2))
+        write_text(O / receipt_name, json.dumps(receipt, indent=2))
         print(json.dumps(receipt), flush=True)
         raise SystemExit(1)
     step = O / (stem + '.step')
     stl = O / (stem + '.stl')
-    cq.exporters.export(coupon, str(step))
+    EC.export_step(coupon, step)
     check = cq.importers.importStep(str(step)).val()
     assert check.isValid() and len(check.Solids()) == 1
     assert abs(check.Volume()-coupon.Volume()) < .001
@@ -74,7 +75,7 @@ def make_coupon(name, crop_bounds, stem, receipt_name, purpose, local_limit):
                    files={step.name: sha(step), stl.name: sha(stl)},
                    source_sha256=sha(Path(__file__)))
     assert sha(mf) == mh, 'Manifest changed during coupon export'
-    (O / receipt_name).write_text(json.dumps(receipt, indent=2))
+    write_text(O / receipt_name, json.dumps(receipt, indent=2))
     print(json.dumps(receipt), flush=True)
     return receipt_name
 
@@ -90,7 +91,7 @@ receipts.append(make_coupon(
     'plenum-port-service-open-edge-coupon', 'port-service-receipt.json',
     'Open-edge crop retaining inlet/hot ports, CSI sleeve, post exclusions, front mouth, bottom support row and top/front frame spans',
     'The rear section and complete cold-rear mouth are absent; retained edge spans are not a global maximum-span proof.'))
-(O / 'coupon-index.json').write_text(json.dumps(dict(
+write_text(O / 'coupon-index.json', json.dumps(dict(
     manifest_sha256=mh, source_sha256=sha(Path(__file__)),
     coupon_count=2, production_part_count_change=0, replaces_earlier_coupon_set=False,
     receipts={name: sha(O / name) for name in receipts}, physical_qualified=False,
