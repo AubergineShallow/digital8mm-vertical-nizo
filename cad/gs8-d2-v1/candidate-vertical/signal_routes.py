@@ -7,7 +7,7 @@ All nominal stock lengths, diameters, source roots, and bend radii stay explicit
 """
 import math
 
-REVISION = 'signal-reconciliation-2026-10-09-v2-rigid-fps-angled-csi'
+REVISION = 'signal-reconciliation-2026-10-11-v4-qt-fanin-free-leads'
 
 
 def _solve_top(make_curve, target, low=35., high=95.):
@@ -37,6 +37,14 @@ def _station(points, distance):
 
 def build(R, step=.2):
     hs=R.header_housings(); branches=[]
+    # Review 2026-10-10 (H2, VN-28): the QT fan-in is modeled. Every QT branch (OD 1.6, R 3.2) keeps its source root,
+    # lane and the pin-6 dogleg to Z25, then converges on ONE fan-in point F=(qt_x,-23.4,QT_FZ): a straight S-bend
+    # from its own X at Z25 to qt_x at Z25+QT_FANIN_RISE and a final QT_FANIN_TAIL straight along the main start
+    # direction (+Z), so each branch ends on the main start, tangent to it (no invisible straight jump). The longest
+    # branch including its fan-in is the qt_longest of the stock solve. Breakout construction stays MP-QT.
+    QT_FANIN_RISE,QT_FANIN_TAIL=8.,4.
+    QT_FZ=25.+QT_FANIN_RISE+QT_FANIN_TAIL
+    qt_x=sum(h['wire_exit'][0] for h in hs if h['cable']=='qt')/4
     # Source-derived housing and root coordinates are unchanged. Pin 6 turns
     # rearward before rising: the old pin-5 and pin-6 upward paths overlap.
     for h in hs:
@@ -44,31 +52,33 @@ def build(R, step=.2):
         root=h['wire_exit'];lane=-23.4
         knots=[root,[root[0],lane,root[2]]]
         knots+=([[-54,lane,root[2]],[-54,lane,25]] if h['id']=='hdr_qt_6' else [[root[0],lane,25]])
+        if h['cable']=='qt':
+            knots+=[[qt_x,lane,25.+QT_FANIN_RISE],[qt_x,lane,QT_FZ]]
         c=R.rounded_path(knots,3.2,3,0,step)
         branches.append(dict(id=h['id'],cable=h['cable'],pins=h['pins'],housing_box=h['box'],
             source_wire_exit=root,od_mm=1.6,curve=c,
-            change='Pin 6 turns toward X=-54 before rising to avoid the pin-5 branch' if h['id']=='hdr_qt_6' else 'source root and original branch retained',
+            change=('Pin 6 turns toward X=-54 before rising to avoid the pin-5 branch' if h['id']=='hdr_qt_6' else 'source root and original branch retained')
+                   +('; modeled fan-in to the QT main start (H2, VN-28)' if h['cable']=='qt' else ''),
             status='ROOT CONTACT AND ACTUAL CORE SECTION UNQUALIFIED; screen against the current dogleg power revision'))
     qt_branches=[b for b in branches if b['cable']=='qt']
     qt_longest=max(b['curve']['rounded_length_mm'] for b in qt_branches)
-    qt_x=sum(h['wire_exit'][0] for h in hs if h['cable']=='qt')/4
-    def qt_curve(low):
-        top=87.5
-        return R.rounded_path([[qt_x,-23.4,25],[qt_x,-23.4,top],[-72.5,-23.4,top],
-            [-72.5,-23.4,low],[-93.2,-23.4,low],[-93.2,-23.4,65],
+    # H2 (VN-28): the storage variable is the height of the top run (knots 1 and 2); the under-tool run is fixed at
+    # Z38 (QT_LOW): 4.5 mm above the FPS mated-carry 200 main, which lies in the same Y-23.4 lane at Z33.5 (the
+    # superseded family's Z34 bound member overlapped it), and below the CSI tool. The shortest member (top 56) is
+    # the minimum route; the longest (top 87.5, the superseded top run) is the spare home. Top >= 56: the top run passes
+    # over the tub wall rib at X-64 (top about Z52) with its 3.4 mm capsule (exact member sweep, H2 run 1: top 52 hit 17.21 mm3).
+    QT_LOW=38.
+    def qt_curve(top):
+        return R.rounded_path([[qt_x,-23.4,QT_FZ],[qt_x,-23.4,top],[-72.5,-23.4,top],
+            [-72.5,-23.4,QT_LOW],[-93.2,-23.4,QT_LOW],[-93.2,-23.4,65],
             [-93.2,14.8,65],[-85,14.8,77],[-72,14.8,77]],6.4,3,4,step)
-    lo,hi=34.,50.
-    for _ in range(64):
-        mid=(lo+hi)/2;c=qt_curve(mid)
-        if c['errors']:raise ValueError(c['errors'])
-        if c['rounded_length_mm']>250-qt_longest:lo=mid
-        else:hi=mid
-    qc=qt_curve((lo+hi)/2)
+    qc=_solve_top(qt_curve,250-qt_longest,56.,87.5)
     qt=dict(id='qt',stock_length_mm=250,od_mm=3.2,minimum_centerline_radius_mm=6.4,
         curve=qc,nominal_longest_breakout_plus_main_mm=qt_longest+qc['rounded_length_mm'],
         nominal_other_branch_remainders_mm={b['id']:250-qc['rounded_length_mm']-b['curve']['rounded_length_mm'] for b in qt_branches},
-        status='UPPER ROUTE RECONCILED ONLY; individual branch-to-bundle fan-in and actual QT construction are unmodeled',
-        fan_in_gate='Source branches end at their own X/Y coordinates, not the averaged main start. Do not join them by invisible straight jumps. Reserve and measure a real fan-in; re-solve the top-loop height after its exact length is known.',
+        fan_in_point=[qt_x,-23.4,QT_FZ],fan_in_rise_mm=QT_FANIN_RISE,fan_in_tail_mm=QT_FANIN_TAIL,
+        status='UPPER ROUTE AND MODELED FAN-IN RECONCILED; actual QT breakout construction (MP-QT) unmeasured',
+        fan_in_gate='H2: the modeled fan-in brings every branch onto the main start at F, tangent to it, with no invisible straight jump; the stock solve uses the longest branch including its fan-in. The real breakout position, core OD and bundle construction remain MP-QT measurements; re-solve the top-run height after they are known.',
         section_gate='The main OD3.2 envelope and branch OD1.6 proxies are retained. Four real OD1.6 circular cores cannot fit inside a round OD3.2 bundle (minimum enclosing OD3.863 for a square pack). Measure the actual breakout/core OD and bundle construction; do not shrink the proxy cores or claim a passed merge.',
         final_root_gate='The modeled endpoint is on the socket rear face. Only the local terminal approach may enter that source envelope; connector/root measurement remains required.')
     fps_branch=next(b for b in branches if b['cable']=='fps_lead')
@@ -125,14 +135,25 @@ def build(R, step=.2):
         status='NOMINAL STATIC GEOMETRY RECONCILED; exact actual terminal/core section, printed solids, and service access remain open',
         source_root_gate='Source housing/root positions remain unchanged. The original low positive-power return is incompatible; use only the current revised dogleg power geometry and repeat the complete check after any power change.')
     runs=[]
-    for name,rx,lane,front,down in [('run_pin37',-87.99,-21.6,-12,-30),('run_pin39',-90.53,-24.3,-14,-32)]:
+    # Review 2026-10-10 (H1, VN-26): the 9ced753 floor lay ran under the two full-width lower bosses (carrier
+    # (-25,9) r4.8 and panel (-10.8,8.3) r4.5, both spanning the cavity in Y; 1.7 / 1.3 mm above the z2.5 floor, under
+    # the 1.8 mm swept envelope) to a riser at X-12/-14 inside the panel boss, and pin37 dropped through the carrier
+    # boss flank at X-30. The storage loop now rises behind the carrier boss: pin37 riser X-34 (clear of the negative
+    # return's Y-19.7 lane, which reaches X-36 at Z47), front drop X-27 (clear of the camera), a diagonal Y crossing at
+    # Z15 over the boss to X-31.5/Y7, then slanting down the floor hole to the X-30 terminal; pin39 riser X-39.5, drop and Y crossing at X-32/Z12 to
+    # Y3. The leads cross in Y at different heights and descend at different Y. Source roots, terminal hypotheses and
+    # the solver call are unchanged; the knots carrying 'top' keep their indices (harness_rules.FAMILIES).
+    run_loops={'run_pin37':[[-34.,-21.6,4.9],[-34.,-21.6,'top'],[-27.,-21.6,'top'],[-27.,-21.6,15.],
+                            [-31.5,7.,15.],[-30.,5.25,-14.2]],
+               'run_pin39':[[-39.5,-24.3,4.9],[-39.5,-24.3,'top'],[-32.,-24.3,'top'],[-32.,-24.3,12.],
+                            [-32.,3.,12.],[-32.,5.25,-14.2]]}
+    for name,rx,lane in [('run_pin37',-87.99,-21.6),('run_pin39',-90.53,-24.3)]:
         h=next(h for h in hs if h['pins']==([37] if name=='run_pin37' else [39]))
         def make(top):
             p=[list(h['wire_exit']),[rx,lane,11.77]]
             # The forward shelf keeps pin37 above the negative return until X=-75.
             p+=([[rx,lane,18.5],[-75,lane,18.5],[-75,lane,4.9]] if name=='run_pin37' else [[rx,lane,4.9]])
-            p += [[front,lane,4.9],[front,lane,top],[down,lane,top],[down,lane,12],
-                  [down,5.25,12],[down,5.25,-14.2]]
+            p+=[[top if v=='top' else v for v in k] for k in run_loops[name]]
             return R.rounded_path(p,3.2,3,3,step)
         c=_solve_top(make,250,35,80)
         runs.append(dict(id=name,cable='run_lead',pins=h['pins'],stock_length_mm=250,
@@ -143,9 +164,29 @@ def build(R, step=.2):
     fpc=R.rounded_path([[-83,-.8,61],[-83,-.8,82],[-33.5,-.8,82],[-33.5,0,43.75],[-28.09,0,43.75]],1,5,4,step)
     j2=R.rounded_path([[-37,4.5,48],[-37,4.5,55],[-30.5,4.5,55],[-30.5,-12,55],
         [-33.8,-12,51],[-33.8,-12,33],[-20,-12,33],[-20,-12,25.5],[-20,-1.4,25.5]],3.2,3,3,step)
+    # Review 2026-10-10 (H2, VN-28): free-lead routes for the panel_prop mates (steps.py leaves QT and J2 free until
+    # panel_in). Panel group propped PANEL_PROP_Y along +Y (ASSEMBLY s6 baseline, harness_rules MATE_POSES). Each starts
+    # on the body-fixed end of its free lead along the installed first leg and ends on the posed plug / far end along
+    # the installed last leg, at the cable's own bend radius. Design aid: 1 mm voxel clearance search (scratch, not
+    # evidence); the exact capsule sweep, separation and reach are harness_rules.free_lead_eval in
+    # verify_harness_checks.py. QT: lane exit -> over the cooler fins and the Pi top edge -> over the carrier where it
+    # is open (X-46) -> across the prop gap to the encoder from -X. J2: up off the pads, +Y past the FPC strip edge,
+    # down in front of the X1203 and through the carrier's switch opening -> straight out to the switch terminals.
+    PANEL_PROP_Y=60.
+    qe=[-72.,14.8+PANEL_PROP_Y,77.];je=[-20.,-1.4+PANEL_PROP_Y,25.5]
+    free_leads={
+        'qt_enc':dict(cable='qt',op='panel_prop',od_mm=3.2,radius=6.4,first_tail=3,last_tail=4,hdmi_state='installed',
+            knots=[[qt_x,-23.4,QT_FZ],[qt_x,-23.4,43.1],[-59.7,-18.9,55.2],[-45.5,-6.3,58.],[-46.,8.,68.8],
+                   [-88.7,qe[1],qe[2]],qe],
+            src='signal_routes.py free_leads (H2): QT main free from the modeled fan-in point to the propped encoder plug'),
+        'j2_btn':dict(cable='power_button',op='panel_prop',od_mm=1.6,radius=3.2,first_tail=3,last_tail=3,hdmi_state='installed',
+            knots=[[-37.,4.5,48.],[-37.,4.5,54.2],[-37.,11.5,54.3],[-28.1,12.1,48.4],[-24.,20.,30.],[-20.,48.,25.5],je],
+            src='signal_routes.py free_leads (H2): J2 pair free from the (hypothetical, VN-73) pads to the propped switch terminals')}
+    for fl in free_leads.values():
+        fl['curve']=R.rounded_path(fl['knots'],fl['radius'],fl['first_tail'],fl['last_tail'],step)
     return dict(revision=REVISION,status='BLOCKED SOURCE GEOMETRY; DO NOT FREEZE, CUT, OR CLAIM ASSEMBLY PASS',
         body_inner_y_mm=[-25.5,25.2],body_inner_z_mm=[2.5,97.5],source_headers=hs,
-        branches=branches,qt=qt,fps=fps,run_cores=runs,
+        branches=branches,qt=qt,fps=fps,run_cores=runs,free_leads=free_leads,
         fpc=dict(id='fpc',stock_length_mm=200,full_width_mm=16,thickness_allowance_mm=.3,
             curve=fpc,unmodeled_stock_mm=200-fpc['rounded_length_mm'],
             status='PROVISIONAL CENTERLINE ONLY; 16 mm developable shape, stock stow, endpoint clocking, and 4 mm final tail remain unresolved'),

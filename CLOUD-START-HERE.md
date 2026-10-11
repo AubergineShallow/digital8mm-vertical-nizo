@@ -1,5 +1,7 @@
 # GS8 D2 · cloud-polish copy
 
+> **Historical text (review 2026-10-10 VN-14).** Everything below this notice is the upstream r5/r6 cloud-polish handoff, unchanged from r7 `d38468e`. It does not describe the vertical candidate. Start at the [repository README](README.md), the [candidate overview](cad/gs8-d2-v1/candidate-vertical/README.md) and the [candidate reproduction notes](cad/gs8-d2-v1/candidate-vertical/REPRODUCE.md).
+
 **Fork: `r5-cloud-polish-20261007`.** This independent copy starts from the stable desktop r5 capture of
 6 October 2026, 14:04–14:05 UTC, with verified CAD exports captured by 14:11:53 UTC. Later desktop work is a separate
 history. Extract into a new folder; do not overwrite or blindly merge into the active desktop project.

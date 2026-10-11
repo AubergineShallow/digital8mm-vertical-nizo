@@ -37,6 +37,7 @@ mh = sha(mf)
 m = json.loads(read_text(mf))
 length = m['core_dimensions_mm'][0]
 source_hashes = {name: sha(P / name) for name in ('model.py', 'vent_geometry.py')}
+helper_hashes = {name: sha(P / name) for name in ('cavity_rules.py',)}
 for name, digest in source_hashes.items():
     assert m['sources']['candidate-vertical/' + name] == digest, 'Source-stale export: ' + name
 assert m.get('ventilation', {}).get('revision', '').startswith('shadow-gap'), 'Not a shadow-plenum export'
@@ -188,17 +189,31 @@ for z in (9.5, 15.5, 21.5, 27.5, 33.5):
     record('old_front_grille_closed_z' + str(z), material >= 5.1-1e-5, material_span_mm=material)
 
 # Compare only original cavity material, independently of the revised helper.
+# FX (verifier C1+T2 major): FP-11c and T2 added material here on purpose (carrier locator seat, print-pose fills, FPS
+# guide corbel, tab-catch ceiling and pad). The row now subtracts an explicit, test-pinned inventory of those declared
+# additions, each rebuilt from model.py (cavity_rules.py); any other added material still fails (< 1e-5 mm3, as before),
+# and a declared addition missing from the tub fails as stale. The declared additions are part of the tub that the
+# interference, motion, harness, FPS and HDMI rows check (cavity_rules.COVERED_BY).
+import cavity_rules as CR
+import model as MODEL
 cavity = box(-length+2.6, -5.3, -25.4, 25.1, 2.6, 97.4)
-added_in_cavity = s.intersect(cavity).cut(old.intersect(cavity)).Volume()
-record('no_added_material_in_original_cavity', added_in_cavity < 1e-5,
-       overlap_mm3=added_in_cavity, boundary_exclusion_mm=.1)
+declared = CR.declared_additions(MODEL, length, m.get('lens', 'kowa_lm6hc'))
+cav = CR.undeclared_material(s, old, cavity, declared)
+record('no_added_material_in_original_cavity', cav['passed'], boundary_exclusion_mm=.1,
+       added_total_mm3=cav['added_mm3'], undeclared_mm3=cav['undeclared_mm3'], undeclared_bbox=cav['undeclared_bbox'],
+       declared_inside_mm3=cav['declared_inside_mm3'], stale_declarations=cav['stale'], tol_mm3=cav['tol_mm3'],
+       inventory={k: CR.INVENTORY[k] for k, _ in declared}, declared_additions_covered_by=CR.COVERED_BY,
+       rule='saved tub minus historical tub inside the original cavity, minus the declared additions (cavity_rules.'
+            'INVENTORY, rebuilt from model.py) < 1e-5 mm3; every declared addition present in the tub')
 
+# Info row only (no pass/fail): describes the roof support of the checked source. FP-11a (trial2) replaced the
+# trial1 1.6 mm post grid with continuous ribs; the bridge rule itself is computed by verify_print_checks.py.
 record('print_and_thermal_limits', None,
-       post_count=len(VG.post_centres(length)), post_diameter_mm=1.6, nominal_grid_pitch_mm=8.,
-       diagonal_between_post_surface_extent_mm=8*math.sqrt(2)-1.6,
+       post_count=len(VG.post_centres(length)), roof_support=VG.support_summary(length),
        support_free_claim=False, cleanout_qualified=False, thermal_qualified=False,
-       limitations=['Discrete post tops do not prove continuous support for every first-roof bridge line.',
-                    'Port-avoidance exclusions make some local support spacing larger than the nominal grid.',
+       limitations=['Roof bridges run between continuous 1.2 mm ribs; the per-region single-direction bridge rule is '
+                    'computed by verify_print_checks.py (print_bridge_direction), not here, and no slicer result exists.',
+                    'Ribs, row breaks, mullions and lintels add flow resistance beyond the sampled planar sections.',
                     'No trapped support is permitted; slicer/bridge coupon and debris removal remain gates.',
                     'Cold/hot mouths may be occluded by hands and may recirculate externally.',
                     'CSI remains an unsealed direct bypass to the main enclosure.',
@@ -208,6 +223,7 @@ assert sha(mf) == mh, 'Manifest changed during verification'
 assert all(sha(P / n) == h for n, h in source_hashes.items()), 'Source changed during verification'
 result = dict(manifest_sha256=mh, saved_tub_sha256=sha(step), historical_tub_sha256=sha(H / 'tub.step'),
               verification_source_sha256=sha(Path(__file__)), checked_source_sha256=source_hashes,
+              helper_source_sha256=helper_hashes,
               generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
               summary={k: sum(q['status'] == k for q in rows) for k in ('pass', 'fail', 'info')},
               checks=rows, physical_qualified=False,

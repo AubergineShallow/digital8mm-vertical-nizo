@@ -36,10 +36,77 @@ def round_screen(x):
     return math.ceil(x * 20 - 1e-9) / 20
 
 
-def j4_screen(ref, old, new, changed_rows):
+def lower_first_moments(manifest, step_dir, center_of, sha):
+    """FX (verifier C2 major): first moments (g mm) of the J4 lower rows of a manifest, each = row mass_est_g x the
+    centre of mass of its manifest-bound STEP (the per-row moment export_candidate sums into com_est_mm).
+    center_of(path) -> (x, y, z) is the caller's CAD measurement; sha(path) its hash (checked against manifest files)."""
+    rows = {r['id']: r for r in manifest['rows']}
+    out = {}
+    for i in J4_LOWER_IDS:
+        rel = 'step/%s.step' % i
+        p = step_dir / rel
+        if i not in rows or manifest['files'].get(rel) != sha(p):
+            raise ValueError('J4 lower row STEP not bound to the manifest: %s' % rel)
+        c = center_of(p)
+        out[i] = [rows[i]['mass_est_g'] * c[k] for k in range(3)]
+    return out
+
+
+def lower_centres(manifest, step_dir, center_of, sha, cache=None):
+    """FX: {id: dict(step_sha256, centre_mm)} of the J4 lower rows. From the bound STEPs when they are present (each
+    file hash must equal manifest['files']); otherwise from `cache` (same structure, e.g. the committed
+    structural-review/j4-lower-centres.json entry of the variant) whose step_sha256 must equal manifest['files'] (the
+    light CAD-free fixture copies carry no STEPs). Raises when neither binds."""
+    out = {}
+    for i in J4_LOWER_IDS:
+        rel = 'step/%s.step' % i
+        want = manifest['files'].get(rel)
+        p = step_dir / rel
+        if p.exists():
+            if sha(p) != want:
+                raise ValueError('J4 lower row STEP not bound to the manifest: %s' % rel)
+            out[i] = dict(step_sha256=want, centre_mm=list(center_of(p)))
+        elif cache and i in cache and cache[i]['step_sha256'] == want:
+            out[i] = dict(cache[i])
+        else:
+            raise ValueError('J4 lower row centre unavailable (no STEP, no bound cache): %s' % rel)
+    return out
+
+
+def first_from_centres(manifest, centres):
+    rows = {r['id']: r for r in manifest['rows']}
+    return {i: [rows[i]['mass_est_g'] * c['centre_mm'][k] for k in range(3)] for i, c in centres.items()}
+
+
+def _j4_loads(ref, um, first):
+    floor = first[2] / 1000 * G * 5
+    wire = ref['unresolved_wiring_mass_sensitivity']['added_5g_moment_Nmm']
+    equal = (floor + wire) / 2000
+    return dict(upper_mass_g=um, upper_com_mm=[x / um for x in first], floor_moment_5g_Nmm=floor,
+                wiring_5g_moment_Nmm=wire, equal_share_plus_wiring_Nm=equal,
+                seventy_percent_share_plus_wiring_Nm=(floor + wire) * SHARE_70 / 1000,
+                proposed_rounded_equal_share_screen_Nm=round_screen(equal))
+
+
+def j4_direct(ref, new, lower_first):
+    """FX (verifier C2 major): the J4 upper free body computed directly from one manifest: total first moment
+    (mass_est_g x com_est_mm) minus the lower rows' first moments from their bound STEPs (lower_first_moments). It
+    needs no unchanged lower rows; tests/test_fx_fixup.py shows it reproduces the export18 transfer on the phase-1
+    export whose lower rows equal export18's."""
+    rows = {r['id']: r for r in new['rows']}
+    missing = [i for i in J4_LOWER_IDS if i not in rows or i not in lower_first]
+    if missing:
+        return dict(valid=False, method='direct', reason='lower rows without a STEP first moment: %s' % missing)
+    um = new['mass_est_g'] - sum(rows[i]['mass_est_g'] for i in J4_LOWER_IDS)
+    first = [new['mass_est_g'] * new['com_est_mm'][k] - sum(lower_first[i][k] for i in J4_LOWER_IDS) for k in range(3)]
+    return dict(valid=True, method='direct (total minus lower rows from the bound STEPs)', **_j4_loads(ref, um, first))
+
+
+def j4_screen(ref, old, new, changed_rows, lower_first=None):
     """First-moment transfer of the export18 upper free body to manifest `new` (update_concealed_vent_structure
-    method). `changed_rows(a, b)` is evidence_rules.changed_rows. Refuses (valid=False) when a lower row changed,
-    appeared or disappeared, because the transfer then needs a new free body."""
+    method). `changed_rows(a, b)` is evidence_rules.changed_rows. When a lower row changed, appeared or disappeared the
+    transfer is refused; FX: with `lower_first` (lower_first_moments of `new`) the free body is then computed directly
+    (j4_direct) and the row is valid; with unchanged lower rows both are computed and their difference reported."""
     lower, _ = j4_lower_set(ref, old)
     a = {r['id']: r for r in old['rows']}
     b = {r['id']: r for r in new['rows']}
@@ -51,20 +118,20 @@ def j4_screen(ref, old, new, changed_rows):
     up = ref['integrated_upper_body_screen']
     res = dict(changed_rows=list(changed), added_rows=added, removed_rows=removed, lower_rows=lower,
                lower_rows_touched=bad, valid=not bad)
+    direct = j4_direct(ref, new, lower_first) if lower_first is not None else None
     if bad:
+        if direct is not None and direct['valid']:
+            res.update(direct, free_body='new (lower rows changed: %s)' % bad)
+            return res
         res['reason'] = 'lower free-body rows changed: %s; the first-moment transfer needs a new free body' % bad
         return res
     dm = new['mass_est_g'] - old['mass_est_g']
     um = up['estimated_mass_g'] + dm
     first = [up['estimated_mass_g'] * up['estimated_com_mm'][i] + new['mass_est_g'] * new['com_est_mm'][i]
              - old['mass_est_g'] * old['com_est_mm'][i] for i in range(3)]
-    floor = first[2] / 1000 * G * 5
-    wire = ref['unresolved_wiring_mass_sensitivity']['added_5g_moment_Nmm']
-    equal = (floor + wire) / 2000
-    res.update(upper_mass_g=um, upper_com_mm=[x / um for x in first], floor_moment_5g_Nmm=floor,
-               wiring_5g_moment_Nmm=wire, equal_share_plus_wiring_Nm=equal,
-               seventy_percent_share_plus_wiring_Nm=(floor + wire) * SHARE_70 / 1000,
-               proposed_rounded_equal_share_screen_Nm=round_screen(equal))
+    res.update(_j4_loads(ref, um, first), method='export18 first-moment transfer')
+    if direct is not None and direct['valid']:
+        res['direct_minus_transfer_floor_moment_Nmm'] = direct['floor_moment_5g_Nmm'] - res['floor_moment_5g_Nmm']
     return res
 
 
@@ -265,6 +332,60 @@ def stack_retention(ret_points, com_xz, targets, CK, bearing_r=None):
                 com_within_bearing_stadium=None if line is None or bearing_r is None else line <= bearing_r,
                 passed=margin is not None and margin > 0 and ok_lift)
 
+
+
+# FP-11c (VN-38): r7 check_stack_retention credits its hood stack stop only with an exact measured gap in this window.
+STOP_GAP_WINDOW = (0.1, 0.3)
+SEAT_CONTACT_TOL = 1e-3
+
+
+def locator_point(decl, carrier, seat_part, stop_part, window=STOP_GAP_WINDOW, contact_tol=SEAT_CONTACT_TOL):
+    """Credit a declared printed locating feature of the vertical carrier as a stack-retention point from measured
+    geometry only (r7 check_stack_retention measures its hood stop gap with an exact OCP distance, window 0.1-0.3).
+
+    decl: dict(id, at=(x, z), tongue_box, seat_box, stop_box) with boxes (x0, x1, y0, y1, z0, z1) in the assembly frame
+    (lift axis = Y). The carrier material inside tongue_box is the tongue, the seat part's material inside seat_box the
+    seat, the stop part's material inside stop_box the stop. Credited when (1) the seat lies on the tongue's -Y side
+    and touches it (exact distance <= contact_tol: the -Y bearing, lift >= 0), (2) the stop lies on its +Y side with an
+    exact gap inside `window` (+Y retention, lift <= gap), and (3) `at` lies inside the XZ overlap of tongue, seat and
+    stop. Nothing is assumed from the declaration beyond where to look. -> dict (credited, stop_gap_mm, ...)."""
+    import cadquery as cq
+
+    def crop(shape, b):
+        x0, x1, y0, y1, z0, z1 = b
+        c = shape.intersect(cq.Solid.makeBox(x1 - x0, y1 - y0, z1 - z0, cq.Vector(x0, y0, z0)))
+        return c if c.Volume() > 1e-6 else None
+
+    def bb(s):
+        b = s.BoundingBox()
+        return [b.xmin, b.xmax, b.ymin, b.ymax, b.zmin, b.zmax]
+
+    t, s, p = crop(carrier, decl['tongue_box']), crop(seat_part, decl['seat_box']), crop(stop_part, decl['stop_box'])
+    out = dict(id=decl['id'], at=list(decl['at']), tongue_found=t is not None, seat_found=s is not None,
+               stop_found=p is not None, stop_gap_window_mm=list(window), seat_contact_tol_mm=contact_tol,
+               credited=False)
+    if t is None or s is None or p is None:
+        out['reason'] = 'declared tongue, seat or stop has no material in its box'
+        return out
+    tb, sb, pb = bb(t), bb(s), bb(p)
+    d_seat, d_stop = float(t.distance(s)), float(t.distance(p))
+    overlap_seat = float(t.intersect(s).Volume())
+    overlap_stop = float(t.intersect(p).Volume())
+    x, z = decl['at']
+    xz = [max(tb[0], sb[0], pb[0]), min(tb[1], sb[1], pb[1]), max(tb[4], sb[4], pb[4]), min(tb[5], sb[5], pb[5])]
+    seat_side = sb[3] <= tb[2] + contact_tol            # seat material ends at or below the tongue's -Y face
+    stop_side = pb[2] >= tb[3]                         # stop material starts beyond the tongue's +Y face
+    at_ok = xz[0] <= x <= xz[1] and xz[2] <= z <= xz[3]
+    seat_ok = seat_side and d_seat <= contact_tol and overlap_seat <= 1e-6
+    stop_ok = stop_side and window[0] - 1e-3 <= d_stop <= window[1] + 1e-3 and overlap_stop <= 1e-6
+    out.update(tongue_bbox=tb, seat_bbox=sb, stop_bbox=pb, seat_distance_mm=d_seat, stop_gap_mm=d_stop,
+               seat_overlap_mm3=overlap_seat, stop_overlap_mm3=overlap_stop, seat_on_minus_y=seat_side,
+               stop_on_plus_y=stop_side, xz_overlap=xz, at_inside_overlap=at_ok, seat_bears=seat_ok,
+               stop_retains=stop_ok, credited=bool(seat_ok and stop_ok and at_ok))
+    if not out['credited']:
+        out['reason'] = ', '.join(k for k, v in (('seat does not bear', seat_ok), ('stop gap outside window', stop_ok),
+                                                 ('declared point outside the contact overlap', at_ok)) if not v)
+    return out
 
 def post_root_bending(mass_g, posts, d_mm, length_mm, ecc_mm, g_level=5.0, shares=(0.5, SHARE_70),
                       screen_mpa=5.0):

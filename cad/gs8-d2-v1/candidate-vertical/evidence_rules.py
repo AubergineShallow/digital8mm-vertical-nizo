@@ -10,6 +10,9 @@
 * Selected-folder hygiene: every JSON report in a selected output folder binds the selected manifest, or is
   declared historical together with the manifest it must bind (VN-09).
 * evaluate_docs_audit(): the failure list behind review_docs_audit.py's exit code (VN-05).
+* FX-D (2026-10-11): FPS counts / status / hit volume and core-void intervals in the documents are checked against
+  their reports, unfilled [[FX-NUM:...]] placeholders fail, and every path/git_object + sha256 pair in
+  CHECKPOINT-STATUS.json must match what it names.
 Nothing here imports CAD; every function is pure apart from reading the named JSON files.
 """
 from cv_io import read_text
@@ -278,6 +281,15 @@ def number_sources(root=HERE):
         src[key] = {'cooler_witness_mm3': w, 'cooler_witness_text': None if w is None else fmt_mm3(w),
                     'power': power_counts(read(pw)) if pw.is_file() else None,
                     'verification': v.relative_to(root).as_posix(), 'power_report': pw.relative_to(root).as_posix()}
+    src['fps'] = {}
+    for era, rel in FPS_REPORTS.items():
+        s = fps_summary(root / rel)
+        src['fps'][era] = None if s is None else dict(s, report=rel)
+    src['core_void'] = {}
+    for v in VOID_VARIANTS:
+        p = root / (VOID_REPORT % v)
+        iv = read(p).get(VOID_FIELD) if p.is_file() else None
+        src['core_void'][v] = None if iv is None else {'interval': list(iv), 'report': VOID_REPORT % v, 'field': VOID_FIELD}
     return src
 
 
@@ -311,7 +323,216 @@ def document_number_findings(name, text, src):
             if int(m.group(1)) != src['gates']['open']:
                 out.append(('inherited_gate_number', name, m.group(1), '%d (%s %s)' % (
                     src['gates']['open'], src['gates']['source'], src['gates']['field']), _sentence(text, m.start(), m.end()).strip()[:160]))
+    if src.get('fps') is not None:
+        out += fps_number_findings(name, text, src)
+    if src.get('core_void') is not None:
+        out += core_void_number_findings(name, text, src)
+    out += placeholder_findings(name, text)
     return out
+
+
+# ------------------------------------------------------------------ FPS, core-void and placeholder figures (FX-D)
+# Added 2026-10-11 (phase-2 verifier finding): the rules above covered the cooler witness, the power counts and the
+# gate count only, so REVIEW.md kept "332 material checks / zero hits" after the selected FPS report failed.
+# "material checks" is the FPS report's phrase in these documents (static_and_carried_checks rows). A sentence is
+# historical when it names export18 / historical / frozen; otherwise it is current when it carries a current marker
+# (now, selected, refreshed); otherwise a sentence that opens with a back-reference (Its, Their, These, ...) takes
+# the era of the sentence before it on the same line (so "Its 288 pass ... 332 clear FPS material checks" after
+# "Reviewed export18 is frozen history." is history); otherwise it is current. Historical FPS claims are checked
+# against the export18 FPS report; historical core-void intervals have no source here and are skipped. Unfilled
+# [[FX-NUM:...]] placeholders are also looked for in every other candidate Markdown page (PLACEHOLDER_SKIP aside).
+
+FPS_REPORTS = {'current': 'out/fps-service-study/integrated-fps-checks.json',
+               'export18': 'out/fps-service-study/integrated-fps-export18-checks.json'}
+VOID_REPORT = 'out/comparison/volume-%s.json'
+VOID_FIELD = 'model_void_interval_cm3_outward_rounded'
+VOID_VARIANTS = ('compact-kowa_lm6hc', 'compact-fujinon_hf6xa', 'original-kowa_lm6hc')
+_VOID_NAMES = (('compact kowa', 'compact-kowa_lm6hc'), ('compact fujinon', 'compact-fujinon_hf6xa'),
+               ('original-storage kowa', 'original-kowa_lm6hc'), ('original kowa', 'original-kowa_lm6hc'))
+_HISTORY_RE = _re.compile(r'(?i)export18|historical|frozen')
+_CURRENT_RE = _re.compile(r'(?i)\b(now|selected|refreshed)\b')
+_WORDNUM = dict(zero=0, no=0, one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9, ten=10,
+                eleven=11, twelve=12)
+_N = r'(\d+|zero|no|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)'
+_FPS_OF = _re.compile(r'(?i)(\d+)\s+of\s+(\d+)\s+(?:FPS\s+)?material\s+checks\s+(?:are\s+)?clear(?:,?\s*and\s+' + _N + r'\s+hit)?')
+_FPS_HITS = _re.compile(r'(?i)(\d+)\s+(?:FPS\s+)?material\s+checks?\s*(?:/|,|with|:)\s*' + _N + r'\s+hits?\b')
+_FPS_CLEAR = _re.compile(r'(?i)(\d+)\s+clear\s+(?:FPS\s+)?material\s+checks')
+_FPS_DIAG = _re.compile(r'(?i)\b' + _N + r'\s+(?:separate\s+)?(clear\s+)?(?:non-material|keepout)\s+(?:[\w-]+\s+)?diagnostics?')
+_FPS_STATUS = _re.compile(r'\bFPS\b(?:\s+[\w-]+){0,3}?\s+\**(passes|passed|fails|failed)\**')
+_FPS_MM3 = _re.compile(r'(\d+\.\d+)\s*mm(?:3|³)')
+_VOID = _re.compile(r'(\d+)\s*[–-]\s*(\d+)\s*cm(?:3|³)')
+_PLACEHOLDER = _re.compile(r'\[\[FX-NUM:([^\]]*)\]\]')
+
+
+def _num(s):
+    return int(s) if s.isdigit() else _WORDNUM[s.lower()]
+
+
+_BACKREF = _re.compile(r'^\W*(its|their|these|they|this|that|both)\b', _re.I)
+
+
+def _sentence_start(text, start):
+    return max(text.rfind('\n', 0, start), text.rfind('. ', 0, start), text.rfind('|', 0, start)) + 1
+
+
+def _era(text, start, end, depth=2):
+    ctx = _sentence(text, start, end)
+    if _HISTORY_RE.search(ctx):
+        return 'export18', ctx
+    if _CURRENT_RE.search(ctx):
+        return 'current', ctx
+    a = _sentence_start(text, start)
+    # "Its 288 pass ... 332 clear FPS material checks" after "Reviewed export18 is frozen history." takes the era of
+    # the sentence it refers back to (same line only, at most two sentences back).
+    if depth and _BACKREF.match(ctx) and a >= 2 and text[a - 1] == '.':     # a is the ' ' of the '. ' delimiter
+        return _era(text, a - 1, a - 1, depth - 1)[0], ctx
+    return 'current', ctx
+
+
+def fps_summary(report_path):
+    """Status and counts of an integrated FPS report (None if absent)."""
+    p = Path(report_path)
+    if not p.is_file():
+        return None
+    d = read(p)
+    rows = d['static_and_carried_checks']
+    hits = [h['overlap_mm3'] for r in rows for h in r['hits']]
+    diag = d.get('non_material_reservation_diagnostics', [])
+    return {'status': d['status'], 'total': len(rows), 'hit_rows': sum(bool(r['hits']) for r in rows),
+            'clear_rows': sum(not r['hits'] for r in rows), 'max_hit_mm3': max(hits) if hits else None,
+            'diagnostics': len(diag), 'diagnostics_clear': all(not r['hits'] for r in diag)}
+
+
+def fps_number_findings(name, text, src):
+    """[(code, document, found, expected, context)] for FPS counts, hit volumes and pass/fail claims that differ from
+    the integrated FPS report of their era."""
+    out = []
+
+    def check(m, era, ctx, code, got, want):
+        if got != want:
+            s = src['fps'].get(era)
+            out.append((code, name, str(got), '%s (%s %s)' % (want, era, None if s is None else s['report']), ctx.strip()[:160]))
+
+    def summary(era):
+        return src['fps'].get(era) or {}
+
+    for m in _FPS_OF.finditer(text):
+        era, ctx = _era(text, m.start(), m.end())
+        s = summary(era)
+        check(m, era, ctx, 'fps_check_number', '%s of %s clear' % (m.group(1), m.group(2)),
+              '%s of %s clear' % (s.get('clear_rows'), s.get('total')))
+        if m.group(3):
+            check(m, era, ctx, 'fps_check_number', '%d hit' % _num(m.group(3)), '%s hit' % s.get('hit_rows'))
+    for m in _FPS_HITS.finditer(text):
+        era, ctx = _era(text, m.start(), m.end())
+        s = summary(era)
+        check(m, era, ctx, 'fps_check_number', '%s checks / %d hits' % (m.group(1), _num(m.group(2))),
+              '%s checks / %s hits' % (s.get('total'), s.get('hit_rows')))
+    for m in _FPS_CLEAR.finditer(text):
+        era, ctx = _era(text, m.start(), m.end())
+        s = summary(era)
+        check(m, era, ctx, 'fps_check_number', '%s clear checks of %s' % (m.group(1), m.group(1)),
+              '%s clear checks of %s' % (s.get('clear_rows'), s.get('total')))
+    for m in _FPS_DIAG.finditer(text):
+        era, ctx = _era(text, m.start(), m.end())
+        s = summary(era)
+        check(m, era, ctx, 'fps_check_number', '%d diagnostics' % _num(m.group(1)), '%s diagnostics' % s.get('diagnostics'))
+        if m.group(2):
+            check(m, era, ctx, 'fps_check_number', 'diagnostics clear', 'diagnostics clear' if s.get('diagnostics_clear') else 'diagnostics with hits')
+    for m in _FPS_STATUS.finditer(text):
+        era, ctx = _era(text, m.start(), m.end())
+        st = str(summary(era).get('status', 'missing'))
+        claim = 'fail' if m.group(1).startswith('fail') else 'pass'
+        check(m, era, ctx, 'fps_status_claim', claim, 'fail' if st.startswith('fail') else 'pass' if 'pass' in st else st)
+    # Hit volume: the first mm3 figure within 120 characters after a non-zero FPS hit count ("7 hit the tub (switch
+    # bundle ..., 23.131 mm3"), rounded to the decimals the document uses, vs the report's largest hit overlap.
+    hit_claims = [m for m in _FPS_OF.finditer(text) if m.group(3) and _num(m.group(3))] + \
+                 [m for m in _FPS_HITS.finditer(text) if _num(m.group(2))]
+    for m in hit_claims:
+        era, ctx = _era(text, m.start(), m.end())
+        v = _FPS_MM3.search(text, m.end(), min(len(text), m.end() + 120))
+        if v is None:
+            continue
+        mx = summary(era).get('max_hit_mm3')
+        want = None if mx is None else '%.*f' % (len(v.group(1).split('.')[1]), mx)
+        check(m, era, ctx, 'fps_hit_volume', v.group(1), want)
+    return out
+
+
+def core_void_number_findings(name, text, src):
+    """Current core-void intervals (A–B cm3 followed by a variant name or its volume report link) vs the report's
+    model_void_interval_cm3_outward_rounded."""
+    out = []
+    for m in _VOID.finditer(text):
+        era, ctx = _era(text, m.start(), m.end())
+        tail = text[m.end():m.end() + 160].lower()
+        cands = [(tail.find(k), v) for k, v in _VOID_NAMES if k in tail]
+        cands += [(tail.find('volume-%s.json' % v), v) for v in VOID_VARIANTS if 'volume-%s.json' % v in tail]
+        if not cands or era != 'current':
+            continue
+        variant = min(cands)[1]
+        s = src['core_void'].get(variant)
+        want = None if s is None else '%d-%d' % tuple(s['interval'])
+        got = '%s-%s' % (m.group(1), m.group(2))
+        if got != want:
+            out.append(('core_void_interval', name, got, '%s (%s %s)' % (want, variant, VOID_REPORT % variant), ctx.strip()[:160]))
+    return out
+
+
+def placeholder_findings(name, text):
+    """An unfilled [[FX-NUM:<name>]] token marks a figure that must come from a refreshed report before release."""
+    return [('unfilled_number_placeholder', name, m.group(0), 'a figure from its source report', _sentence(text, m.start(), m.end()).strip()[:160])
+            for m in _PLACEHOLDER.finditer(text)]
+
+
+# ------------------------------------------------------------------ CHECKPOINT-STATUS.json hash pairs (FX-D)
+
+def _git_blob(obj, root):
+    import subprocess
+    try:
+        r = subprocess.run(['git', 'show', obj], cwd=str(root), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except OSError:
+        return None
+    return r.stdout if r.returncode == 0 else None
+
+
+def checkpoint_hash_pairs(status, root=HERE, git_blob=None):
+    """Every {path|git_object, sha256} pair in CHECKPOINT-STATUS.json with the hash of what it names.
+
+    path is relative to candidate-vertical (a working-tree file); git_object is '<commit>:<repo path>' (a committed
+    blob). evidence_reconciler_that_wrote_current_evidence must also equal the reconciler_sha256 recorded inside the
+    selected evidence file it claims to have written."""
+    root = Path(root)
+    git_blob = git_blob or (lambda obj: _git_blob(obj, root))
+    rows = []
+
+    def walk(o, field):
+        if isinstance(o, dict):
+            if isinstance(o.get('sha256'), str) and ('path' in o or 'git_object' in o):
+                if 'path' in o:
+                    p = root / o['path']
+                    actual = sha(p) if p.is_file() else None
+                    rows.append(dict(field=field, kind='path', target=o['path'], recorded=o['sha256'], actual=actual))
+                else:
+                    blob = git_blob(o['git_object'])
+                    actual = None if blob is None else hashlib.sha256(blob).hexdigest()
+                    rows.append(dict(field=field, kind='git_object', target=o['git_object'], recorded=o['sha256'], actual=actual))
+            for k, v in o.items():
+                walk(v, '%s.%s' % (field, k) if field else k)
+        elif isinstance(o, list):
+            for i, v in enumerate(o):
+                walk(v, '%s[%d]' % (field, i))
+
+    walk(status, '')
+    w, ev = status.get('evidence_reconciler_that_wrote_current_evidence'), status.get('selected_evidence')
+    if isinstance(w, dict) and isinstance(ev, dict):
+        p = root / ev.get('path', '')
+        recorded = read(p).get('reconciler_sha256') if p.is_file() else None
+        rows.append(dict(field='evidence_reconciler_that_wrote_current_evidence.sha256', kind='writer_of_selected_evidence',
+                         target='%s reconciler_sha256' % ev.get('path'), recorded=w.get('sha256'), actual=recorded))
+    for r in rows:
+        r['match'] = r['actual'] is not None and r['actual'] == r['recorded']
+    return rows
 
 
 def documents_number_findings(root=HERE, names=None, src=None):
@@ -322,7 +543,17 @@ def documents_number_findings(root=HERE, names=None, src=None):
         p = root / n
         if p.is_file():
             out += document_number_findings(n, read_text(p), src)
+    if names is None:      # FX-D: unfilled placeholders anywhere else in the candidate's live Markdown pages
+        for p in sorted(root.rglob('*.md')):
+            rel = p.relative_to(root).as_posix()
+            if rel not in NUMBER_DOCUMENTS and not set(rel.split('/')[:-1]) & PLACEHOLDER_SKIP:
+                out += placeholder_findings(rel, read_text(p))
     return out
+
+
+# Folders whose Markdown is not scanned for placeholders: frozen history, the review records (the fix log names the
+# placeholder tokens it left) and generated or cache folders.
+PLACEHOLDER_SKIP = frozenset({'history', 'review-2026-10-10', 'meshes', '__pycache__', 'step', 'stl', 'check-logs'})
 
 
 # ------------------------------------------------------------------ docs-audit verdict (VN-05)
@@ -463,6 +694,10 @@ def evaluate_docs_audit(a):
     for x in a.get('checkpoint_numbers', []):
         if not x['match']:
             fail('checkpoint_number', 'CHECKPOINT-STATUS.json', x['field'], json.dumps(x['recorded']), json.dumps(x['source_value']))
+    for x in a.get('checkpoint_hashes', []):      # FX-D: every path/git_object + sha256 pair in CHECKPOINT-STATUS.json
+        if not x['match']:
+            fail('checkpoint_hash', 'CHECKPOINT-STATUS.json', x['field'], x['target'],
+                 'recorded %s, actual %s' % (str(x['recorded'])[:12], str(x['actual'])[:12]))
     for x in a.get('document_numbers', []):
         fail(*x)
     g = a['guide_bound_cache']

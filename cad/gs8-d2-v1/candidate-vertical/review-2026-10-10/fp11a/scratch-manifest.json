@@ -1,0 +1,468 @@
+{
+ "scratch": true,
+ "note": "T1 scratch tub-only export (build_tub.py); not evidence",
+ "sources": {
+  "candidate-vertical/model.py": "e74cd9b454069598b9542af23c49dcf7c1bf6f0b85160b87187f08275db6b047",
+  "candidate-vertical/vent_geometry.py": "56bc0a3f33269a609d909582966adccb528471edce41d012223377e0363d13ae"
+ },
+ "files": {
+  "step/tub.step": "8cc121977879ce93d86a9b29e73a27c660b6721f1443d6f6f9108321130a87c7",
+  "stl/tub.stl": "6b9069c6442f7bbddcfdc3f0d116c9ec5b3965e4ee101884560ea079c72fba6f"
+ },
+ "ventilation": {
+  "revision": "shadow-gap plenum trial2 (flow ribs, 45 deg cold-mouth lintels, mullions, skin bed chamfer)",
+  "outer_side_y_mm": -35.6,
+  "inner_side_y_mm": -25.5,
+  "outer_skin_mm": 1.6,
+  "plenum_gap_mm": 6.0,
+  "original_side_wall_mm": 2.5,
+  "intake_wall_throat_mm2": 420.0,
+  "exhaust_wall_throat_mm2": 510.0,
+  "cold_rear_mouth_mm2": 302.0,
+  "cold_bottom_mouth_mm2": 343.0,
+  "hot_bottom_mouth_mm2": 316.8,
+  "hot_front_mouth_mm2": 202.8,
+  "mouth_gross_mm2": {
+   "cold_rear": 420.0,
+   "cold_bottom": 426.0,
+   "hot_bottom": 324.0,
+   "hot_front": 210.0
+  },
+  "csi_access_open_area_mm2": 323.1415926535898,
+  "csi_unchanged_straight_access": true,
+  "panel_previous_relief": "Four blind grooves with0.2mm retained floors, not through-vents; removed for plain2.8mm panel",
+  "airflow": "Separate integral cold/hot outer bays; rear/underside intake and front/underside exhaust. 1.2 mm flow ribs with staggered breaks; internal baffle and CSI bypass remain unsealed. Area is not flow or cooling.",
+  "print": "Outer face on bed with 0.6 mm bed chamfer. Roof bridges run between continuous 1.2 mm ribs (one slicer direction per roof region; spans computed by verify_print_checks print_bridge_direction); cold mouths have 45 deg lintels, every mouth has mullions. Slicer inspection and the all-four-mouth plenum coupon remain gates. No automatic trapped supports.",
+  "support": {
+   "revision": "trial2 ribs + lintels",
+   "rib_thickness_mm": 1.2,
+   "rib_y_mm": [
+    -34.05,
+    -27.9
+   ],
+   "break_width_mm": 3.0,
+   "cold_rows": [
+    [
+     18.45,
+     [
+      [
+       -158.0,
+       -104.0
+      ]
+     ]
+    ],
+    [
+     22.5,
+     [
+      [
+       -158.0,
+       -150.5
+      ],
+      [
+       -144.5,
+       -131.5
+      ],
+      [
+       -125.5,
+       -64.9
+      ]
+     ]
+    ],
+    [
+     28.5,
+     [
+      [
+       -158.0,
+       -141.5
+      ],
+      [
+       -135.5,
+       -119.5
+      ],
+      [
+       -113.5,
+       -64.9
+      ]
+     ]
+    ],
+    [
+     34.5,
+     [
+      [
+       -158.0,
+       -150.5
+      ],
+      [
+       -144.5,
+       -131.5
+      ],
+      [
+       -125.5,
+       -64.9
+      ]
+     ]
+    ],
+    [
+     43.0,
+     [
+      [
+       -158.0,
+       -141.5
+      ],
+      [
+       -135.5,
+       -119.5
+      ],
+      [
+       -113.5,
+       -90.9
+      ]
+     ]
+    ],
+    [
+     51.0,
+     [
+      [
+       -158.0,
+       -150.5
+      ],
+      [
+       -144.5,
+       -131.5
+      ],
+      [
+       -125.5,
+       -90.9
+      ]
+     ]
+    ],
+    [
+     59.0,
+     [
+      [
+       -158.0,
+       -141.5
+      ],
+      [
+       -135.5,
+       -119.5
+      ],
+      [
+       -113.5,
+       -90.9
+      ]
+     ]
+    ],
+    [
+     67.0,
+     [
+      [
+       -158.0,
+       -150.5
+      ],
+      [
+       -144.5,
+       -131.5
+      ],
+      [
+       -125.5,
+       -90.9
+      ]
+     ]
+    ],
+    [
+     55.0,
+     [
+      [
+       -75.1,
+       -64.9
+      ]
+     ]
+    ],
+    [
+     76.0,
+     [
+      [
+       -155.6,
+       -141.5
+      ],
+      [
+       -135.5,
+       -119.5
+      ],
+      [
+       -113.5,
+       -64.9
+      ]
+     ]
+    ],
+    [
+     84.0,
+     [
+      [
+       -155.6,
+       -150.5
+      ],
+      [
+       -144.5,
+       -131.5
+      ],
+      [
+       -125.5,
+       -64.9
+      ]
+     ]
+    ],
+    [
+     92.0,
+     [
+      [
+       -155.6,
+       -141.5
+      ],
+      [
+       -135.5,
+       -119.5
+      ],
+      [
+       -113.5,
+       -64.9
+      ]
+     ]
+    ]
+   ],
+   "hot_rows": [
+    [
+     21.0,
+     [
+      [
+       -59.8,
+       -17.3
+      ],
+      [
+       -10.5,
+       0.0
+      ]
+     ]
+    ],
+    [
+     28.0,
+     [
+      [
+       -59.8,
+       -9.5
+      ]
+     ]
+    ],
+    [
+     35.0,
+     [
+      [
+       -59.8,
+       -17.3
+      ]
+     ]
+    ],
+    [
+     43.0,
+     [
+      [
+       -62.1,
+       -26.5
+      ],
+      [
+       -23.5,
+       -2.4
+      ]
+     ]
+    ],
+    [
+     51.0,
+     [
+      [
+       -62.1,
+       -41.5
+      ],
+      [
+       -38.5,
+       -2.4
+      ]
+     ]
+    ],
+    [
+     59.0,
+     [
+      [
+       -62.1,
+       -26.5
+      ],
+      [
+       -23.5,
+       -2.4
+      ]
+     ]
+    ],
+    [
+     67.0,
+     [
+      [
+       -62.1,
+       -41.5
+      ],
+      [
+       -38.5,
+       -2.4
+      ]
+     ]
+    ],
+    [
+     75.0,
+     [
+      [
+       -62.1,
+       -26.5
+      ],
+      [
+       -23.5,
+       -2.4
+      ]
+     ]
+    ],
+    [
+     83.0,
+     [
+      [
+       -62.1,
+       -41.5
+      ],
+      [
+       -38.5,
+       -2.4
+      ]
+     ]
+    ],
+    [
+     91.0,
+     [
+      [
+       -62.1,
+       -26.5
+      ],
+      [
+       -23.5,
+       -2.4
+      ]
+     ]
+    ]
+   ],
+   "hot_z_ribs": [
+    [
+     -48.0,
+     2.75,
+     16.3
+    ],
+    [
+     -31.0,
+     2.4,
+     16.3
+    ],
+    [
+     -19.0,
+     2.75,
+     16.3
+    ]
+   ],
+   "hot_diagonal": [
+    [
+     -3.2,
+     2.0
+    ],
+    [
+     -17.5,
+     17.0
+    ]
+   ],
+   "hot_left_separator": [
+    -62.1,
+    -58.5,
+    15.85,
+    17.05
+   ],
+   "cold_bottom_mullions_x": [
+    -130.33333333333334,
+    -106.66666666666666
+   ],
+   "hot_bottom_mullion_x": -31.0,
+   "hot_front_mullion_z": 21.0,
+   "lintel_mm": 1.0,
+   "lintel_land_mm": 1.2,
+   "lintel_mouths": [
+    "cold_rear",
+    "cold_bottom"
+   ],
+   "skin_bed_chamfer_mm": 0.6,
+   "mouths": {
+    "cold_rear": {
+     "gross": 420.0,
+     "net": 302.0,
+     "mullions": 8,
+     "lintel_mm": 1.0
+    },
+    "cold_bottom": {
+     "gross": 426.0,
+     "net": 343.0,
+     "mullions": 2,
+     "lintel_mm": 1.0
+    },
+    "hot_bottom": {
+     "gross": 324.0,
+     "net": 316.8,
+     "mullions": 1,
+     "lintel_mm": 0.0
+    },
+    "hot_front": {
+     "gross": 210.0,
+     "net": 202.8,
+     "mullions": 1,
+     "lintel_mm": 0.0
+    }
+   }
+  },
+  "physical_qualified": false,
+  "remaining": [
+   "Actual cooler profile/registration",
+   "Fan operating point and plenum pressure loss",
+   "Hand and strap occlusion",
+   "Plenum bridge/cleanout coupon (all four mouths)",
+   "Real CSI latch/jaw access",
+   "All56 inherited gates andM1"
+  ]
+ },
+ "core_dimensions_mm": [
+  158.0,
+  63.6,
+  100.0
+ ],
+ "rows": [],
+ "print_poses": {
+  "tub": {
+   "face_down": "-Y",
+   "rotation_axis": [
+    1,
+    0,
+    0
+   ],
+   "angle_deg": 90,
+   "translation_mm": [
+    158.0,
+    100.0,
+    35.6
+   ],
+   "footprint_mm": [
+    158.0,
+    105.05,
+    63.600000000000016
+   ]
+  }
+ }
+}

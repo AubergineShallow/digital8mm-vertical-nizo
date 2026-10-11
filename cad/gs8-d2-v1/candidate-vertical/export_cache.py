@@ -126,6 +126,10 @@ PI_LICENCE_COPY = 'LICENSE-RaspberryPi.txt'
 PI_LICENCE_COPIES = (PI_LICENCE_COPY, 'step/' + PI_LICENCE_COPY)   # relative to out/<variant>
 EXPORT_FOLDERS = ('step', 'stl', 'meshes')
 GAUGE_FILES = ('step/centring_gauge.step', 'stl/centring_gauge.stl')
+# T2 (VN-53, FP-11b): the bonded +Y tab-catch stub is printed on its own (model.tub_print_parts); like the gauge it is
+# not an assembly row (the 'tub' row is the bonded tub), so its files are planned here.
+TAB_CATCH_INSERT = 'tab_catch_insert'
+INSERT_FILES = ('step/%s.step' % TAB_CATCH_INSERT, 'stl/%s.stl' % TAB_CATCH_INSERT)
 
 
 def licence_bytes(root=HERE):
@@ -144,7 +148,7 @@ def write_licence_copies(out, root=HERE):
 
 def planned_export_files(rows):
     """Every file export_candidate.py writes for rows [(id, kind)], relative to out/<variant> (not manifest.json)."""
-    files = set(GAUGE_FILES) | set(PI_LICENCE_COPIES)
+    files = set(GAUGE_FILES) | set(INSERT_FILES) | set(PI_LICENCE_COPIES)
     for name, kind in rows:
         files |= {'step/%s.step' % name, 'meshes/%s.json' % name}
         if kind == 'printed':

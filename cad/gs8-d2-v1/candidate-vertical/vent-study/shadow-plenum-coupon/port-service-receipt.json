@@ -1,8 +1,8 @@
 {
   "name": "port_service_and_edge_regions",
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "tub_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
-  "source_check_sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "tub_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+  "source_check_sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
   "crop_bounds_mm": [
     -110.0,
     0.0,
@@ -11,10 +11,10 @@
     0.0,
     100.0
   ],
-  "generated_utc": "2026-10-09T15:22:23Z",
+  "generated_utc": "unrecorded (deterministic build, FP-03)",
   "valid": true,
   "solid_count": 1,
-  "volume_mm3": 48720.39367739663,
+  "volume_mm3": 48659.253914198656,
   "production_part": false,
   "physical_qualified": false,
   "purpose": "Open-edge crop retaining inlet/hot ports, CSI sleeve, post exclusions, front mouth, bottom support row and top/front frame spans",
@@ -40,13 +40,13 @@
     35.6
   ],
   "print_dimensions_mm": [
-    110.0,
+    110.000000000001,
     100.0,
     10.100000000000016
   ],
   "files": {
-    "plenum-port-service-open-edge-coupon.step": "265c0e85467608c13a4aace538d1369f8503f3dd59812e784b1519f71fa42cd3",
-    "plenum-port-service-open-edge-coupon.stl": "ddfa2ce491ee8bdd5fbcd30c3ea8155d06204acedd59c589d3bb0f79794fbc78"
+    "plenum-port-service-open-edge-coupon.step": "0a322a5521bc6748fde41430bb25b00d7257ba3139f7eddebaf5d89cc2609a07",
+    "plenum-port-service-open-edge-coupon.stl": "2dfda18fd7d88f7ab2053e86b208707e29c512229b5bb1c7ba3966aa75e8c8e5"
   },
-  "source_sha256": "8d07be5e175cd99100be5f67f08f7736af5c5069eff9e0930d0a4693a7050a3e"
+  "source_sha256": "573f2f8f66df23c1cbb82873bb2364537d5af8d22fb1809c10fc4e27770e12f7"
 }

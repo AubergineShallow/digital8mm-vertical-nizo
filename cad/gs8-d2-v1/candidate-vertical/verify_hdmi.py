@@ -59,8 +59,33 @@ for key in ('hdmi_installed','hdmi_premate','hdmi_both_unplugged'):
  if key not in snap:continue
  for seg in snap[key]['segments']:
   b=bounds(seg['box']);query_boxes.extend([b,[b[0],b[1],b[2]+70,b[3]+70,b[4],b[5]]])
+# H2 (VN-43): the module is carried in with the EVF head held stroke + 3 mm below its mated height (steps.py
+# module_staged), not at the bare 6 mm stroke (0 mm margin). The carried ribbon at that drop comes from
+# hdmi_routes.ribbon300, the generator that reproduces the snapshot's installed and premate ribbons exactly
+# (tests/test_hdmi_carried.py); the snapshot premate (stroke only) stays the premate state.
+import hdmi_routes as HDR
+EVF_STROKE_MM=float(next(q for q in snap['connectors'] if q['id']=='p_hdmi_evf')['stroke'])
+CARRIED_MARGIN_MM=3.0
+CARRIED_DROP_MM=EVF_STROKE_MM+CARRIED_MARGIN_MM
+carried_ribbon=HDR.ribbon300(158,pose='service',lift=0,drop=CARRIED_DROP_MM,initial_u=5.5,tail=2.0)
+if abs(carried_ribbon['routed_length_mm']-300)>1e-6:raise ValueError('carried ribbon is not the full 300 mm stock')
+for seg in carried_ribbon['segments']:
+ b=bounds(seg['box']);query_boxes.extend([b,[b[0],b[1],b[2]+70,b[3]+70,b[4],b[5]]])
+# H2 (VN-43): EVF HDMI unplug corridor (service op svc_evf_unplug, panel off). The 3556 head is pulled straight down
+# its stroke by its body with smooth-jaw long-nose pliers coming in from the open +Y side. Tool numbers from r7
+# layout.ACCESS acc_hdmi_evf_jaws (tips <= 2.0 thick, box 2.2; grip 8.0 of the head width; jaw height 9.4): one jaw on
+# each thin (X) face over the +Y 8.0 mm of the head width and its lowest 9.4 mm, swept down the stroke; the shank box
+# runs from the jaws to UNPLUG_OUT beyond the +Y opening at the jaw height. Defined here so the exact crop keeps
+# the material around them.
+_e=next(q for q in snap['connectors'] if q['id']=='p_hdmi_evf')['box']
+JAW_T,JAW_GRIP,JAW_H,UNPLUG_OUT=2.2,8.0,9.4,10.0
+_uz=(_e['z'][0]-EVF_STROKE_MM,_e['z'][0]+JAW_H);_uy=(_e['y'][1]-JAW_GRIP,_e['y'][1])
+UNPLUG_BOXES={'jaw_minus_x':[_e['x'][0]-JAW_T,_e['x'][0],_uy[0],_uy[1],_uz[0],_uz[1]],
+              'jaw_plus_x':[_e['x'][1],_e['x'][1]+JAW_T,_uy[0],_uy[1],_uz[0],_uz[1]],
+              'shank':[_e['x'][0]-JAW_T,_e['x'][1]+JAW_T,_uy[1],rows['tub']['bbox_mm'][3]+UNPLUG_OUT,_uz[0],_uz[1]]}
+query_boxes.extend(UNPLUG_BOXES.values())
 for row in snap['header_housings']+[q for q in snap['connectors'] if q['id'] in ('p_hdmi_pi','p_hdmi_evf','p_usb_pi')]:
- b=bounds(row['box']);zpad=6 if row['id'] in ('p_hdmi_pi','p_hdmi_evf') else 0;query_boxes.extend([[b[0],b[1],b[2],b[3]+70,b[4]-zpad,b[5]+zpad]])
+ b=bounds(row['box']);zpad=CARRIED_DROP_MM if row['id']=='p_hdmi_evf' else 6 if row['id']=='p_hdmi_pi' else 0;query_boxes.extend([[b[0],b[1],b[2],b[3]+70,b[4]-zpad,b[5]+zpad]])
 for xx in (-87,-79):
  t=np.array([xx,-4.5,61.5]);d=np.array([0,34.5,25.5]);d=d/np.linalg.norm(d);e=t+90*d
  query_boxes.append([xx-4,xx+4,min(t[1],e[1])-4,max(t[1],e[1])+4,min(t[2],e[2])-4,max(t[2],e[2])+4])
@@ -162,8 +187,10 @@ for state,key in [('installed','hdmi_installed'),('premate','hdmi_premate')]+([(
    v=s.intersect(shapes[fn]).Volume();tested+=1
    if v>.001:hits.append(dict(segment=i,part=fn,overlap_mm3=v,bbox=bb(s.intersect(shapes[fn]))))
  add('full_ribbon_vs_solids',state,not hits,material_length_mm=rr['routed_length_mm'],cells=len(rr['segments']),exact_intersections=tested,hits=hits[:25],hit_count=len(hits),max_overlap_mm3=max((h['overlap_mm3'] for h in hits),default=0))
-# Rigid carried pre-mate shape + adapters + headers. Ribbon/head stay below EVF mouth until final6mm upward mate.
-carried={'pi_head':heads['p_hdmi_pi'],'evf_head':heads['p_hdmi_evf'].translate(cq.Vector(0,0,-6)),'usb_5v_head':heads['p_usb_pi'],**headers}
+# Rigid carried pre-mate shape + adapters + headers. Ribbon/head stay below EVF mouth until the final upward mate;
+# H2 (VN-43): the head and the ribbon are carried CARRIED_DROP_MM (stroke + 3) low.
+carried={'pi_head':heads['p_hdmi_pi'],'evf_head':heads['p_hdmi_evf'].translate(cq.Vector(0,0,-CARRIED_DROP_MM)),'usb_5v_head':heads['p_usb_pi'],**headers}
+all_cells['carried']=[None]*len(carried_ribbon['segments']);all_bounds['carried']=[bounds(x['box']) for x in carried_ribbon['segments']];all_vertices['carried']=[x['vertices'] for x in carried_ribbon['segments']]
 fixed=state_fixed('carried',[n for n in fixed_names if n not in ('pi5','cooler','x1203','x1203_kit','carrier','microsd')])
 obstacle_report['carried']=dict(obstacles=fixed,**state_exclusions('carried',fixed))
 hits=[];tested=0
@@ -176,16 +203,41 @@ for yy in np.arange(0,70.0001,a.step):
    if not overlaps(b,rows[fn]['bbox_mm']):continue
    v=moved.intersect(shapes[fn]).Volume();tested+=1
    if v>.02:hits.append(dict(id=n,fixed=fn,y_offset=float(yy),overlap_mm3=v))
- for i,(s,b) in enumerate(zip(all_cells['premate'],all_bounds['premate'])):
+ for i,(s,b) in enumerate(zip(all_cells['carried'],all_bounds['carried'])):
   mb=b.copy();mb[2]+=yy;mb[3]+=yy;possible=[n for n in fixed if potential(n,mb)]
   if not possible:continue
-  s=get_cell('premate',i)
+  s=get_cell('carried',i)
   if s is None:continue
   moved=s.translate(shift)
   for fn in possible:
    v=moved.intersect(shapes[fn]).Volume();tested+=1
    if v>.001:hits.append(dict(id='ribbon-cell-'+str(i),fixed=fn,y_offset=float(yy),overlap_mm3=v))
-add('carried_sweep','carrier_headers_hdmi_premate',not hits,step_mm=a.step,full_material=True,exact_intersections=tested,hits=hits[:30],hit_count=len(hits))
+add('carried_sweep','carrier_headers_hdmi_premate',not hits,step_mm=a.step,full_material=True,exact_intersections=tested,hits=hits[:30],hit_count=len(hits),
+    evf_head_drop_mm=CARRIED_DROP_MM,evf_stroke_mm=EVF_STROKE_MM,margin_below_mouth_mm=CARRIED_MARGIN_MM,
+    ribbon_source='hdmi_routes.ribbon300(158, drop=%.1f): full %.1f mm ribbon, %d cells'%(CARRIED_DROP_MM,carried_ribbon['routed_length_mm'],len(carried_ribbon['segments'])),
+    evf_head_mated_top_z=connectors['p_hdmi_evf']['box']['z'][1],evf_head_carried_top_z=connectors['p_hdmi_evf']['box']['z'][1]-CARRIED_DROP_MM,
+    note='H2 (VN-43): head and ribbon carried stroke + 3 mm below the mated height (steps.py module_staged); the 9ced753 sweep used the bare stroke (0 mm margin)')
+# H2 (VN-43): unplug corridor rows. Obstacles: every material part steps.py has in the body before svc_evf_unplug
+# (the head's receptacle board included: the jaws stay below it) and the installed ribbon cells (exact), so a ribbon
+# loop in the pliers' path fails too.
+_ph,_rt,_op,_before,_after=ST.op_states('svc_evf_unplug')
+UNPLUG_FIXED=sorted(set(_before)&material)
+obstacle_report['evf_unplug']=dict(obstacles=UNPLUG_FIXED,state_source='steps.py state before service op svc_evf_unplug (route %s)'%_rt)
+for _n,_bx in UNPLUG_BOXES.items():
+ _sol=bsolid({'x':_bx[0:2],'y':_bx[2:4],'z':_bx[4:6]});_hits=[];_rib=[];_t=0
+ for fn in UNPLUG_FIXED:
+  if not potential(fn,_bx):continue
+  v=_sol.intersect(shapes[fn]).Volume();_t+=1
+  if v>.001:_hits.append(dict(part=fn,overlap_mm3=v))
+ for i,b in enumerate(all_bounds['installed']):
+  if not overlaps(b,_bx):continue
+  cl_=get_cell('installed',i)
+  if cl_ is None:continue
+  v=cl_.intersect(_sol).Volume();_t+=1
+  if v>.001:_rib.append(dict(segment=i,overlap_mm3=v))
+ add('service_access','evf_head_unplug_'+_n,not _hits and not _rib,box_mm=_bx,exact_intersections=_t,hits=_hits,ribbon_hits=_rib[:20],
+     ribbon_hit_count=len(_rib),tool='smooth-jaw long-nose pliers, tips <= 2.0 thick (r7 tool 15; r7 layout.ACCESS acc_hdmi_evf_jaws / acc_hdmi_evf_pliers_svc)',
+     stroke_mm=EVF_STROKE_MM,note='Head pulled straight down its stroke by its body; the panel is off (service route evf). Physical grip and finger reach stay a hold (MEASUREMENTS-TO-CLOSE EVF HDMI row).')
 # Both HDMI heads disconnected: remove only the complete loom, with Pi/carrier fixed.
 if 'both_unplugged' in all_cells:
  hits=[];tested=0
@@ -229,5 +281,6 @@ for xx in ((-87,-79) if a.include_rejected else ()):
 if hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest()!=manifest_start:raise ValueError('Manifest changed during check')
 summary={k:sum(r['status']==k for r in checks) for k in ('pass','fail','info')}
 result=dict(selected_service='Pi HDMI stays mated; EVF end disconnected; complete ribbon and heads carried with carrier. Other looms need their own complete checks.',includes_rejected_diagnostics=a.include_rejected,summary=summary,checks=checks,analysis_bbox_mm=analysis_bbox,verification_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),snapshot_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),mechanical_manifest_sha256=hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest(),physical_qualified=False,note='Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation.')
+result.update(carried_ribbon_source_sha256={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ('hdmi_routes.py','routes.py')},carried_drop_mm=CARRIED_DROP_MM)  # H2 (VN-43)
 result.update(obstacle_sets=obstacle_report,state_model_sha256=hashlib.sha256((ROOT/'steps.py').read_bytes()).hexdigest(),obstacle_rule='FP-12 (VN-30): every material part steps.py has in the body in that state (screws and hardware included) plus the 9ced753 sets; exclusions listed per state; rejected --include-rejected diagnostics keep their 9ced753 sets')
 write_text(Path(a.out) if a.out else out/'hdmi-solid-checks.json',json.dumps(result,indent=2));print(json.dumps(summary),flush=True);raise SystemExit(bool(summary['fail']))

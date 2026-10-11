@@ -20,7 +20,7 @@ side) and reach verified, or on the bench.
 
 The current compact-Kowa export is a shadow-gap plenum candidate derived from reviewed export18. The earlier visible angled-channel trial is preserved in `vent-study/angled-channel-trial/` as a rejected visual alternative; its dimensions, throat values and 75 geometric passes do not validate the plenum. Its manifest and ventilation report live in `out/compact-kowa_lm6hc/`; the source geometry is `vent_geometry.py`. New evidence is valid only for the manifest hash recorded in that report. Re-export or source changes require rebinding, not reusing old pass counts.
 
-Current selected manifest `53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77` has **292 pass / 1 fail / 18 info** in the main audit. The failure is the retained **79.902671 mm³** cooler/source-Pi conflict. The separate plenum report has **49 pass / 0 fail / 21 info**; current HDMI has six scoped passes, FPS has 332 clear material checks plus nine clear non-material diagnostics, and rigid power service has 201 poses / 659 exact queries with no hits. The declared CSI cylinders and static power-wire checks pass their narrow geometric scope; actual CSI operation stays on HOLD. The new dedicated USB-head report passes the bounded installed-head reservation against the complete current tub and accepted support-source hashes. The earlier missing-extract attempt remains historical. Received overmold/exit, full EVF feed and actual service still remain unqualified.
+Current selected manifest `dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810` (FX re-export, review 2026-10-10) has **620 pass / 14 fail / 32 info** in the main audit (the 9ced753 record was 292 / 1 / 18 before the review ported the r7 checks); failing rows: interference pi5/cooler and the 13 roll_catch stub_tilt_on_joint_edge window rows (s 0..3; the bonded-stub stack-up, worst window 0.055 mm < 0.10, open: [FIX-LOG](review-2026-10-10/FIX-LOG.md) FX). The cooler/source-Pi conflict is **79.902671 mm³**. The separate plenum report has **49 pass / 0 fail / 21 info**: `no_added_material_in_original_cavity` passes against the declared inventory of in-cavity additions (FP-11c seat rib, T2 tub additions; cavity_rules.py), undeclared 0.000 mm³. Path-aware plenum area (check_scope, plenum_flow.py): cold 420.0 of 420 mm² (pass); hot 444.5 of 510 mm² (fail: the bay with no rib reaches only 493.2 mm², so the hot ports and mouths cannot reach parity: user decision 17). FPS passes again: 332 of 332 material checks are clear, and 0 hit (the FX corbel lane keeps the switch bundle clear of the T2 pair-guide corbel), plus 9 clear non-material reservation diagnostics. The declared CSI cylinders and static power-wire checks pass their narrow geometric scope; actual CSI operation stays on HOLD. Received overmold/exit, full EVF feed and actual service still remain unqualified.
 
 The frozen export18 reference is preserved in `history/reviewed-export18/`, manifest
 `c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76` (2026-10-09 07:46:39 UTC).
@@ -132,7 +132,7 @@ camera into the body (step 2); the Pi end is mated only in step 5.
 ### B1. Printed components and inserts (bench)
 
 <!-- BEGIN:ops B1 -->
-1. **`print_inserts`** After the print holds are closed: inspect the nominated parts and the selected lens's collar and centring gauge. Heat-set the 3 short tub inserts and the 1 long collar (pinch-lug) insert under the coupon-validated process, before any electronics are near. No insert may enter an optical, board or wiring clearance.
+1. **`print_inserts`** After the print holds are closed: inspect the nominated parts and the selected lens's collar and centring gauge. Heat-set the 3 short tub inserts and the 1 long collar (pinch-lug) insert under the coupon-validated process, before any electronics are near. No insert may enter an optical, board or wiring clearance. Bond the printed +Y tab-catch stub into the tub (two-part epoxy V-68, default pending user decision 16): tenon into the pocket under the roof, stub pressed toward the camera axis (-Y) onto the pocket datum while it cures, no adhesive on the catch face (T2, VN-53).
    *Tools:* heat-set iron with the M3 tip; insert-repair tools.
 
 Bench step: nothing enters the body.
@@ -140,6 +140,7 @@ Bench step: nothing enters the body.
 
 Details and holds: after the print holds are closed, inspect and slice the nominated part set: compact has nine production parts; original storage adds the sleeve.
 The horizontal optical and EVF bores require a declared support and slicer review; do not assume a support-free tub.
+Base grip (C2, VN-57): paint supports only on the declared zone `grip_rear_pocket_passage_band` (`model.grip_support_zones`), the rear J4 head-pocket floor beside the power passage (x -82.75..-65.8, y -12.6..-3.8). The supports stand on the bed through the neck slot and window and never on the keyhole lips. Pull them out through the window, check that the pocket floor is flat, and slide the rear tongue through its full 10 mm by hand before the grip is used (the floor clears the tongue head by only 0.25 mm). The lens collar needs no support: the cone under the LR compression foot (C2, VN-58) carries it.
 Inspect the separate cold/hot plenums, roof bridges and integral posts for sag, incomplete bonds and support debris. Check all four edge mouths and both banks of inner-wall slots with a representative plenum coupon before a production tub. The 6 mm gap is not a bridge span. Keep the outer skin on the declared bed face; verify actual toolpaths and do not enable inaccessible internal supports. The deeper CSI tunnel must remain straight and open. Remove accessible supports without damaging the skin/posts, optical datums, carrier ears or screw seats. Do not drill out the deleted panel grooves: the selected panel is plain 2.8 mm. Check the selected
 lens's collar and separate centring gauge (a printed tool, never left in the body). Install the three short tub
 inserts and one long collar insert under the coupon-validated process, on the bench before electronics are present.
@@ -159,7 +160,13 @@ Details and holds (unchanged content, now all on the bench):
 1. Identify the actual Pi 5 J2 pads from the official drawing and board itself. Prepare the removable signal
    pair with one half soldered to the two J2 pads and the other to the two power-switch terminals. Insulate and
    strain-relieve all four joints. Confirm normally-open operation and continuity before power; never wire the
-   switch into the battery current path. Use the conditional Molex 2181120201/2181110202 pair in the BOM (28 AWG, two black wires per half). Exact pad access, full connector placement, wire cuts/stow and mating access remain hold points. Label J2 separately from FPS, continuity-test each conductor, and do not infer unlimited service life from the 30-cycle tin-contact rating.
+   switch into the battery current path. Use the keyed J2 set in the BOM (V-28): a 2-circuit wire-to-wire pair of a
+   family used by no other junction in the camera (default Molex Micro-Fit 3.0 class, default pending user decision
+   13; review VN-63), so no J2 half can mate the FPS PicoBlade pair or the EVF RCY pair. Socket (female) half on the
+   J2 pads, pin (male) half on the switch; two distinct wire colours, labelled J2. Before soldering, run the try-mate
+   matrix: each J2 half must refuse every other mateable half. Exact pad access, full connector placement, wire
+   cuts/stow and mating access remain hold points (G-V-POWER). Pins, colours, lengths and plug order:
+   [WIRING-VERTICAL.md](WIRING-VERTICAL.md).
 2. Buy one 914.4 mm stock length of 16 AWG wire per colour. **Positive 270 mm is a finished-path allocation
    including a 20 mm rigid fuse/joint-sleeve zone.** Determine and trim actual copper cuts and solder overlaps
    to that finished path; do not cut 270 mm copper and then add a fuse. Both 270 mm total path budgets include unresolved
@@ -170,7 +177,10 @@ Details and holds (unchanged content, now all on the bench):
    Retain the pack's 60 mm 18 AWG lead and the near-XT30 positive inline fuse. Solder/insulate under the baseline
    fuse-temperature rules. Verify polarity and absence of shorts. Use the measured X1203 battery pads and
    neutral-cure RTV strain relief; do not move an assumed pad to make a route work.
-3. Prepare the baseline EVF feed, 18/24 lead and QT lead. QT remains 250 ± 10 mm made from the two source leads;
+3. Prepare the EVF feed (Adafruit 4448 red/black, 1N5817 in the + conductor with its band toward the EVF board,
+   Pololu 2180 socket half on the USB side), the 18/24 lead and the QT lead exactly as the harness schedule in
+   [WIRING-VERTICAL.md](WIRING-VERTICAL.md) states (both ends, colours, polarity, lengths). The baseline r7
+   WIRING.md sections 5-7 are superseded for this fork. QT remains 250 ± 10 mm made from the two source leads;
    meter pin numbering instead of matching wire colours. Its four staggered splice joints need a new straight,
    accessible location in the vertical route. Do not import obsolete baseline absolute stow coordinates.
 4. Bridge encoder A0 for address 0x37. Map the run, 18/24 and QT header leads before the stack becomes enclosed.
@@ -347,7 +357,9 @@ HDMI head (pushed up from below) and the EVF power pair by their bodies. The nat
 housings were mated on the bench. All individual header sockets must match physical pin numbers and be seated
 straight, then gently tug-tested.
 
-Route and secure the 16 AWG pigtail, pack lead, run lead, QT, 18/24, J2 lead and EVF wiring within qualified lanes.
+Route and secure the 16 AWG pigtail, pack lead, run lead, QT, 18/24, J2 lead and EVF wiring in the lanes of the
+harness schedule ([WIRING-VERTICAL.md](WIRING-VERTICAL.md)). These lanes are NOT yet qualified: the harness rows
+listed there as failing (cable routes, cable stow, mate reach, lead access) are open, so this is a hold point.
 The current XT30/junction pose is 21° yaw/45° pitch, with one inline fuse. The old side-mounted fuse has been
 removed from the proxy; do not build two fuses by combining the old and new layouts. Fit and check the actual
 junction against the source-driven pose; the rigid-motion pass is not proof that all flexible wire deploys or stows. Four carrier
@@ -377,6 +389,15 @@ Remove the four USB jumper ends; separately insulate the unused white and green 
 and add a shield sleeve only if present. Verify continuity/polarity, contact heating, retention and G-W6 drop.
 The 32 × 7 × 7 mm junction reserve is provisional, with undimensioned male thickness and unmeasured mating;
 USB overmold/exit geometry is also unknown. Neither a generic connector current rating nor fit is assumed.
+Installed feed route (review H1, VN-60 / FP-11f; `routes.py` `usb_5v_feed`): GPIO-side USB2 port face, straight
+through the head/bend allowance, down into the -Y channel behind the USB heads, forward along Z20.5 carrying the
+splice zone (diode sleeve 30 × 4.8 × 4.8 mm with the option-C reserve 16 × 7.5 × 4.5 mm centred in it), up short
+of the stored power loops, back along Z38.5 carrying the mated RCY pair (32 × 7 × 7 mm, X−146..−114), up the rear
+corner and over the board rail onto the EVF 5 V pad point from above. The harness verifier checks the route and each
+volume by exact Boolean against the closed camera and the HDMI ribbon cells, cable separation, and each Pololu tail
+and the donor against its own stock with the r7 allowance (`feed_volumes`). The route holds only if the received USB
+head ends within 24.7 mm of the port face; the option-C reserve is the default pending user decision 10 (VN-80);
+RCY finger access at `evf_mate` and the 2181 half's parking during `carrier_in` are not modelled (HOLD).
 
 For the FPS GPIO connection, use two measured female-ended stubs cut from an Adafruit 1950 pack,
 not an unspecified Dupont-to-PH lead. The pack contains twenty 150 mm female/female 2.54 mm jumpers,
@@ -406,7 +427,7 @@ In the body after this step: 39 ids (`steps.present_at`).
 
 Details and holds: support the panel on a stable prop, not its wires. The 18/24 pair stays mated with the supported
 switch/carrier assembly; it is disconnected only on the bench. Service reach/slack for the prop pose must be
-measured; the baseline 60 mm prop offset is a starting target, not an inherited fit result. Move the panel inward
+measured; the baseline 60 mm prop offset is a starting target, not an inherited fit result. Computed for that pose (review H2, harness `mate_reach`): the QT lead, still free, reaches the encoder on its declared free route (`signal_routes.py` free_leads: out of the wall lane over the cooler fins and the Pi top edge, over the carrier where it is open, across the prop gap to the plug from -X) with 30.3 mm to spare on a 240 mm lead (fixed branch 43.1 + route 142.7 + margin 24.0 mm; exact sweep clear). The J2 pair does not yet: from its hypothetical pads (VN-73) the lead starts inside the conservative 16 mm FPC envelope and grazes a cooler fin; measure J2 first. Move the panel inward
 along −Y without rotating it into the camera, EVF or stack. Confirm the tub bosses contact the panel pads at Y23.5
 with no nominal seating gap; the face plate spans Y25.2..28. Tighten the four panel PT screws to the validated limit.
 There is no hood to snap down and no hood-release pin operation. If slack cannot stow without force, stop and
@@ -639,4 +660,4 @@ inherit a baseline “pass” from a different orientation, cable or collar. Use
 and the existing evidence format for the inherited physical gates. No final build/recording claim is made here.
 
 References: [concealed-vent structural supplement](structural-review/CONCEALED-VENT-STRUCTURAL.md), [candidate BOM](BOM-VERTICAL.md), [candidate review](REVIEW.md), [baseline assembly](../ASSEMBLY.md),
-[baseline wiring](../../../electronics/gs8-d2-v1/WIRING.md), [baseline handoff](../HANDOFF.md).
+[candidate wiring](WIRING-VERTICAL.md) (supersedes baseline wiring sections 2 and 5-7 for this fork), [baseline wiring](../../../electronics/gs8-d2-v1/WIRING.md) (sections 4, 8 and 9 still apply), [baseline handoff](../HANDOFF.md).

@@ -1,6 +1,10 @@
 """Proposed printed reinforcements; load screens are not material qualification."""
 import cadquery as cq
 V=cq.Vector
+# FP-11c (VN-56): PT head counterbore 7.0 mm as on the r7 panel (r7 driver bit 6.5) in the r7 panel boss
+# radius 5.2 round it (1.7 mm loaded wall).
+CARRIER_CBORE_R=3.5
+CARRIER_EAR_R=5.2
 
 def heel_doubler():
  p=[(-68.55,-88),(-71,-88),(-74,-91),(-74,-106),(-71,-109),(-68.55,-109)]
@@ -29,10 +33,10 @@ def carrier_arm_addition():
  w=cq.Wire.makePolygon([V(x,17.2,z) for x,z in p]+[V(p[0][0],17.2,p[0][1])])
  s=cq.Solid.extrudeLinear(w,[],V(0,5,0))
  # Rounded root pads spread load into both frame rails without a sharp neck.
- for x,z,r in [(-127,69,4.8),(-96.2,55.5,3),(-96.2,47,3)]:
+ for x,z,r in [(-127,69,CARRIER_EAR_R),(-96.2,55.5,3),(-96.2,47,3)]:
   s=s.fuse(cq.Solid.makeCylinder(r,5,V(x,17.2,z),V(0,1,0)))
  s=s.cut(cq.Solid.makeCylinder(1.7,5.2,V(-127,17.1,69),V(0,1,0)),
-         cq.Solid.makeCylinder(3.2,2.5,V(-127,19.8,69),V(0,1,0)))
+         cq.Solid.makeCylinder(CARRIER_CBORE_R,2.5,V(-127,19.8,69),V(0,1,0)))
  # Preserve the existing lower kit screw-head and driver corridors where the
  # rounded frame-root pad approaches the rear upper stack fastener.
  for x in (-95.5,-37.5):

@@ -40,11 +40,16 @@ import cadquery as cq
 from OCP.BRepClass3d import BRepClass3d_SolidClassifier
 from OCP.gp import gp_Pnt
 from OCP.TopAbs import TopAbs_IN
+from OCP.gp import gp_Trsf
+from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform
 
 DEPENDENCIES = ['harness_rules.py', 'routes.py', 'signal_routes.py', 'power_routes.py', 'hdmi_routes.py', 'steps.py',
-                '../layout.py', 'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json']
+                '../layout.py', 'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json',
+                'out/fps-service-study/mated-carry-input.json']
 out = R.build()
 H = HR.collect(out, rows, R.L, ST)
+# H1: cable context for the installed-route sweeps (HDMI ribbon cells, header branches, FPS mated-carry harness)
+HR.neighbour_context(H, out, json.loads(read_text(P / 'out/fps-service-study/mated-carry-input.json')))
 shapes = {}
 
 
@@ -61,9 +66,22 @@ def box_solid(b):
     return cq.Solid.makeBox(b[1] - b[0], b[3] - b[2], b[5] - b[4], cq.Vector(b[0], b[2], b[4]))
 
 
+def obox_solid(spec):
+    """Oriented box (H1 feed volumes): dims along (axis, width, axis x width), centred on spec['center']."""
+    ax, wv = spec['axis'], spec['width']
+    hv = [ax[1] * wv[2] - ax[2] * wv[1], ax[2] * wv[0] - ax[0] * wv[2], ax[0] * wv[1] - ax[1] * wv[0]]
+    L_, W_, H_ = spec['dims']
+    o = [spec['center'][i] - ax[i] * L_ / 2 - wv[i] * W_ / 2 - hv[i] * H_ / 2 for i in range(3)]
+    t = gp_Trsf()
+    t.SetValues(ax[0], wv[0], hv[0], o[0], ax[1], wv[1], hv[1], o[1], ax[2], wv[2], hv[2], o[2])
+    return cq.Shape.cast(BRepBuilderAPI_Transform(cq.Solid.makeBox(L_, W_, H_).wrapped, t, True).Shape())
+
+
 def _pieces(spec, step=5.0):
     if spec['type'] == 'box':
         return [(spec['box'], box_solid(spec['box']))]
+    if spec['type'] == 'obox':
+        return [(spec['box'], obox_solid(spec))]
     p0, p1, d = spec['p0'], spec['p1'], spec['d']
     n = max(1, math.ceil(math.dist(p0, p1) / step))
     out_ = []
@@ -94,7 +112,7 @@ def exact_hits(spec, targets):
             if any(t['disp']):
                 s = s.translate(cq.Vector(*t['disp']))
             vol += solid.intersect(s).Volume()
-        if vol > HR.SWEEP_TOL:
+        if vol > spec.get('tol', HR.SWEEP_TOL):   # H1 installed / feed sweeps pass a strict tol
             hits.append(dict(obstacle=t['id'], volume_mm3=round(vol, 2), method='exact'))
     return hits
 
@@ -104,6 +122,7 @@ def exact_dist(i, b):
 
 
 res = HR.run_all(H, R.rounded_path, ST, hits=exact_hits, printed_dist=exact_dist, cots_dist=exact_dist)
+res.append(HR.j2_stow_row(out))   # FX (verifier D1 minor): the J2 pair in its stow space (V-28 class envelope)
 
 # Tie slots in the carrier STEP: centre open (through slot), both flanks in rail material.
 carrier = shape('carrier')
@@ -184,7 +203,9 @@ report = dict(manifest_sha256=manifest_sha, verification_source_sha256=sha(Path(
               geometry_computed_pass=summary['fail'] == 0, physical_qualified=False,
               decisions_left_to_user=['VN-47 carrier ties vs RTV-only (both rows computed; retention of record: %s)'
                                       % HR.PIGTAIL_RETENTION, 'VN-62 G-W5 fail branch (decision_data in pigtail_drop)',
-                                      'VN-63 J2 side genders (both assignments computed in j2_btn)'])
+                                      'VN-63 J2 side genders (both assignments computed in j2_btn)',
+                                      'user decision 13 J2 family (criterion: fits the J2 stow space, row cable_stow '
+                                      'power_button_j2_pair at the class upper end; G-V-POWER measures)'])
 write_text(Path(a.out) if a.out else OUT / 'harness-checks.json', json.dumps(report, indent=2) + '\n')
 print(json.dumps(dict(summary=summary, failing=report['failing'])), flush=True)
 raise SystemExit(1 if summary['fail'] else 0)

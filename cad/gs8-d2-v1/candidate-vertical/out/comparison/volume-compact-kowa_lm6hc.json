@@ -11,20 +11,20 @@
   "model_void_fraction": null,
   "definition": "Core box minus exported material/proxy union. Current detailed Pi assembly contributes a conservative interval, not a completed exact occupied union. Cooling air, cable/service clearance and omitted flexible material are within this empty-model volume; it is not removable waste.",
   "qualification": "Conservative CAD proxy-volume interval, rounded outward to whole cm3; source/kernel and baseline representation caveats remain. The slow/unreliable complete CSI Boolean was stopped and preserved as a diagnostic. No physical measurement or precise unused-volume claim.",
-  "generated_utc": "2026-10-09T15:22:19Z",
-  "verification_source_sha256": "3cd9ed261791e56b9c087dae892bd380ad1f80b2329ac7417f231d6720a741e8",
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "generated_utc": "2026-10-11T16:43:28Z",
+  "verification_source_sha256": "7423c23f56f12fb61affb468deb9d7a39690274e601b2a374e5b764b8173e0c6",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
   "model_void_interval_mm3": [
-    672366.7388168719,
-    688998.9614304847
+    666510.0594961103,
+    683142.2821097231
   ],
   "model_void_interval_cm3_outward_rounded": [
-    672,
-    689
+    666,
+    684
   ],
   "model_solid_union_interval_mm3": [
-    315881.03856951534,
-    332513.2611831281
+    321737.7178902769,
+    338369.9405038897
   ],
   "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
   "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."

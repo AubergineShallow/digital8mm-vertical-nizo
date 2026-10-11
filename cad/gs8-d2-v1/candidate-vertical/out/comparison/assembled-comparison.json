@@ -108,7 +108,7 @@
   "candidates": [
     {
       "variant": "compact-kowa_lm6hc",
-      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
       "core_dimensions_mm": [
         158.0,
         63.6,
@@ -116,30 +116,30 @@
       ],
       "core_envelope_mm3": 1004880.0000000001,
       "complete_bbox_mm": [
-        -191.60000010000002,
+        -191.60000000000002,
         57.2,
         -35.6,
         37.20000000000001,
         -116.0,
-        100.76368018609999
+        100.7636800861
       ],
       "complete_dimensions_mm": [
-        248.80000010000003,
+        248.8,
         72.80000000000001,
-        216.76368018609998
+        216.7636800861
       ],
-      "complete_bbox_volume_mm3": 3926162.5058640027,
-      "overall_bbox_reduction_fraction": 0.06814178189788489,
+      "complete_bbox_volume_mm3": 3926162.502474699,
+      "overall_bbox_reduction_fraction": 0.06814178270232185,
       "core_envelope_reduction_fraction": 0.06782931354359911,
       "printed_part_count": 9,
-      "mass_est_g": 864.1029214723824,
+      "mass_est_g": 870.4211825643971,
       "com_est_mm": [
-        -46.36739966405465,
-        0.9200380593247209,
-        29.904586332976425
+        -46.46040340684101,
+        1.0181345136172268,
+        29.95986190354417
       ],
       "grip_axis_x": -47.0,
-      "com_offset_from_grip_mm": 0.632600335945348,
+      "com_offset_from_grip_mm": 0.5395965931589899,
       "extrema_parts": {
         "0": [
           "eyecup"
@@ -164,7 +164,7 @@
     },
     {
       "variant": "compact-fujinon_hf6xa",
-      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+      "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
       "core_dimensions_mm": [
         158.0,
         63.6,
@@ -172,30 +172,30 @@
       ],
       "core_envelope_mm3": 1004880.0000000001,
       "complete_bbox_mm": [
-        -191.60000010000002,
+        -191.60000000000002,
         51.6,
         -35.6,
         37.20000000000001,
         -116.0,
-        100.76368018609999
+        100.7636800861
       ],
       "complete_dimensions_mm": [
-        243.2000001,
+        243.20000000000002,
         72.80000000000001,
-        216.76368018609998
+        216.7636800861
       ],
-      "complete_bbox_volume_mm3": 3837792.288725733,
-      "overall_bbox_reduction_fraction": 0.06779104108330647,
+      "complete_bbox_volume_mm3": 3837792.285377198,
+      "overall_bbox_reduction_fraction": 0.06779104189667362,
       "core_envelope_reduction_fraction": 0.06782931354359911,
       "printed_part_count": 9,
-      "mass_est_g": 750.6837026346536,
+      "mass_est_g": 757.0019643978692,
       "com_est_mm": [
-        -58.19013141325828,
-        1.0597420040984666,
-        25.357533697182927
+        -58.19839200124461,
+        1.171369901536101,
+        25.459042702182806
       ],
       "grip_axis_x": -47.0,
-      "com_offset_from_grip_mm": -11.190131413258278,
+      "com_offset_from_grip_mm": -11.198392001244613,
       "extrema_parts": {
         "0": [
           "eyecup"
@@ -220,7 +220,7 @@
     },
     {
       "variant": "original-kowa_lm6hc",
-      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+      "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
       "core_dimensions_mm": [
         185.0,
         63.6,
@@ -228,30 +228,30 @@
       ],
       "core_envelope_mm3": 1176600.0,
       "complete_bbox_mm": [
-        -218.60000010000002,
+        -218.60000000000002,
         57.2,
-        -35.6,
+        -35.60000000000001,
         37.20000000000001,
         -116.0,
-        100.76368018609999
+        100.7636800861
       ],
       "complete_dimensions_mm": [
-        275.80000010000003,
+        275.8,
         72.80000000000001,
-        216.76368018609998
+        216.7636800861
       ],
-      "complete_bbox_volume_mm3": 4352233.195637801,
-      "overall_bbox_reduction_fraction": -0.032984310861940314,
+      "complete_bbox_volume_mm3": 4352233.192051938,
+      "overall_bbox_reduction_fraction": -0.03298431001085067,
       "core_envelope_reduction_fraction": -0.0914656771799629,
       "printed_part_count": 10,
-      "mass_est_g": 906.3667435379652,
+      "mass_est_g": 912.6780268036464,
       "com_est_mm": [
-        -53.9903800787531,
-        0.5136310589526668,
-        30.552129655582455
+        -54.03804184161832,
+        0.6103617174515239,
+        30.60071764819786
       ],
       "grip_axis_x": -47.0,
-      "com_offset_from_grip_mm": -6.990380078753098,
+      "com_offset_from_grip_mm": -7.038041841618323,
       "extrema_parts": {
         "0": [
           "eyecup"

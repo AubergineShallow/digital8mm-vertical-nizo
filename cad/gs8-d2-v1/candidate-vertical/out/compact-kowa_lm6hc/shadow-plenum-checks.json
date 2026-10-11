@@ -1,13 +1,16 @@
 {
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "saved_tub_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "saved_tub_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
   "historical_tub_sha256": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
-  "verification_source_sha256": "58491fdb3550c8a0e1bde7cff0cd306ddcab67e7125d845fd2f1c0ed36332e97",
+  "verification_source_sha256": "898b9ccd09ee07faf1e4958453d051c3578215d7a6728353f12a3aa2fddd84b4",
   "checked_source_sha256": {
-    "model.py": "61382452ff32d4db90ba612b4d707a68f4817f6c50a5bdb6699f177fe53b228e",
-    "vent_geometry.py": "5209e01c97823921cbc27ca16fda5f32c65ac6fa16dca0c29691ec8aae5f316b"
+    "model.py": "271e02017315dce2abecd5022adf09038e0f6e3c2fc05fc51b926a8e2cd79533",
+    "vent_geometry.py": "fcf624d9180df50e094abc607edeecae8f6498ba7ab8693fa9f2672bfafc63e6"
   },
-  "generated_utc": "2026-10-09T15:01:58Z",
+  "helper_source_sha256": {
+    "cavity_rules.py": "f780df04d1155dc37cb4f8a2bfe8180cd97c1080819f0c9d7c7bab31c18a808b"
+  },
+  "generated_utc": "2026-10-11T17:09:22Z",
   "summary": {
     "pass": 49,
     "fail": 0,
@@ -18,7 +21,7 @@
       "id": "tub_valid_single_solid",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 169977.29240452632
+      "volume_mm3": 171392.24655103454
     },
     {
       "id": "cold_wall_port_0",
@@ -167,13 +170,13 @@
     {
       "id": "cold_rear_sections_and_path",
       "status": "pass",
-      "minimum_sampled_neck_mm2": 420.0,
+      "minimum_sampled_neck_mm2": 332.6399999999999,
       "sections": [
         {
           "position_mm": -157.95,
-          "free_area_mm2": 420.0,
+          "free_area_mm2": 332.6399999999999,
           "gross_area_mm2": 420.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 87.36000000000013,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -184,9 +187,9 @@
         },
         {
           "position_mm": -156.75,
-          "free_area_mm2": 420.0,
+          "free_area_mm2": 335.71999999999935,
           "gross_area_mm2": 420.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 84.28000000000065,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -197,9 +200,9 @@
         },
         {
           "position_mm": -155.51,
-          "free_area_mm2": 420.0,
+          "free_area_mm2": 369.59999999999997,
           "gross_area_mm2": 420.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 50.400000000000034,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -210,9 +213,9 @@
         },
         {
           "position_mm": -155.38,
-          "free_area_mm2": 420.0,
+          "free_area_mm2": 411.5999999999997,
           "gross_area_mm2": 420.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 8.400000000000318,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -233,13 +236,13 @@
     {
       "id": "cold_bottom_sections_and_path",
       "status": "pass",
-      "minimum_sampled_neck_mm2": 425.9999999999999,
+      "minimum_sampled_neck_mm2": 370.43999999999994,
       "sections": [
         {
           "position_mm": 0.05,
-          "free_area_mm2": 425.9999999999999,
+          "free_area_mm2": 370.43999999999994,
           "gross_area_mm2": 426.0,
-          "obstruction_mm2": 1.1368683772161603e-13,
+          "obstruction_mm2": 55.56000000000006,
           "axis": "z",
           "rectangle_uv_mm": [
             -154.0,
@@ -250,9 +253,9 @@
         },
         {
           "position_mm": 1.25,
-          "free_area_mm2": 425.9999999999999,
+          "free_area_mm2": 373.87000000000023,
           "gross_area_mm2": 426.0,
-          "obstruction_mm2": 1.1368683772161603e-13,
+          "obstruction_mm2": 52.12999999999977,
           "axis": "z",
           "rectangle_uv_mm": [
             -154.0,
@@ -263,9 +266,9 @@
         },
         {
           "position_mm": 2.49,
-          "free_area_mm2": 425.9999999999999,
+          "free_area_mm2": 411.6,
           "gross_area_mm2": 426.0,
-          "obstruction_mm2": 1.1368683772161603e-13,
+          "obstruction_mm2": 14.399999999999977,
           "axis": "z",
           "rectangle_uv_mm": [
             -154.0,
@@ -299,13 +302,13 @@
     {
       "id": "hot_bottom_sections_and_path",
       "status": "pass",
-      "minimum_sampled_neck_mm2": 324.0,
+      "minimum_sampled_neck_mm2": 316.79999999999995,
       "sections": [
         {
           "position_mm": 0.05,
-          "free_area_mm2": 324.0,
+          "free_area_mm2": 316.79999999999995,
           "gross_area_mm2": 324.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "z",
           "rectangle_uv_mm": [
             -59.0,
@@ -316,9 +319,9 @@
         },
         {
           "position_mm": 1.25,
-          "free_area_mm2": 324.0,
+          "free_area_mm2": 316.79999999999995,
           "gross_area_mm2": 324.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "z",
           "rectangle_uv_mm": [
             -59.0,
@@ -329,9 +332,9 @@
         },
         {
           "position_mm": 2.49,
-          "free_area_mm2": 324.0,
+          "free_area_mm2": 316.79999999999995,
           "gross_area_mm2": 324.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "z",
           "rectangle_uv_mm": [
             -59.0,
@@ -342,9 +345,9 @@
         },
         {
           "position_mm": 2.62,
-          "free_area_mm2": 324.0,
+          "free_area_mm2": 316.79999999999995,
           "gross_area_mm2": 324.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "z",
           "rectangle_uv_mm": [
             -59.0,
@@ -365,13 +368,13 @@
     {
       "id": "hot_front_sections_and_path",
       "status": "pass",
-      "minimum_sampled_neck_mm2": 210.0,
+      "minimum_sampled_neck_mm2": 197.2,
       "sections": [
         {
           "position_mm": -0.05,
-          "free_area_mm2": 210.0,
+          "free_area_mm2": 202.79999999999995,
           "gross_area_mm2": 210.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -382,9 +385,9 @@
         },
         {
           "position_mm": -1.25,
-          "free_area_mm2": 210.0,
+          "free_area_mm2": 202.79999999999995,
           "gross_area_mm2": 210.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -395,9 +398,9 @@
         },
         {
           "position_mm": -2.49,
-          "free_area_mm2": 210.0,
+          "free_area_mm2": 202.79999999999995,
           "gross_area_mm2": 210.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 7.2000000000000455,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -408,9 +411,9 @@
         },
         {
           "position_mm": -2.62,
-          "free_area_mm2": 210.0,
+          "free_area_mm2": 197.2,
           "gross_area_mm2": 210.0,
-          "obstruction_mm2": 0.0,
+          "obstruction_mm2": 12.800000000000011,
           "axis": "x",
           "rectangle_uv_mm": [
             -34.0,
@@ -431,14 +434,14 @@
     {
       "id": "cold_summed_sampled_mouth_necks",
       "status": "pass",
-      "minimum_sampled_necks_sum_mm2": 845.9999999999999,
+      "minimum_sampled_necks_sum_mm2": 703.0799999999998,
       "wall_ports_mm2": 420.0,
       "note": "Parallel-mouth area comparison, not a proof of global series minimum or pressure loss"
     },
     {
       "id": "hot_summed_sampled_mouth_necks",
       "status": "pass",
-      "minimum_sampled_necks_sum_mm2": 534.0,
+      "minimum_sampled_necks_sum_mm2": 514.0,
       "wall_ports_mm2": 510.0,
       "note": "Parallel-mouth area comparison, not a proof of global series minimum or pressure loss"
     },
@@ -465,9 +468,9 @@
       "status": "info",
       "section": {
         "position_mm": 7.2,
-        "free_area_mm2": 357.0,
+        "free_area_mm2": 353.4,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 0.0,
+        "obstruction_mm2": 3.6000000000000227,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -483,9 +486,9 @@
       "status": "info",
       "section": {
         "position_mm": 8.0,
-        "free_area_mm2": 437.39999999999986,
+        "free_area_mm2": 543.0,
         "gross_area_mm2": 543.0,
-        "obstruction_mm2": 105.60000000000014,
+        "obstruction_mm2": 0.0,
         "axis": "z",
         "rectangle_uv_mm": [
           -155.5,
@@ -501,9 +504,9 @@
       "status": "info",
       "section": {
         "position_mm": 8.0,
-        "free_area_mm2": 299.40000000000003,
+        "free_area_mm2": 353.4,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 57.599999999999966,
+        "obstruction_mm2": 3.6000000000000227,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -537,9 +540,9 @@
       "status": "info",
       "section": {
         "position_mm": 8.8,
-        "free_area_mm2": 357.0,
+        "free_area_mm2": 353.4,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 0.0,
+        "obstruction_mm2": 3.6000000000000227,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -573,9 +576,9 @@
       "status": "info",
       "section": {
         "position_mm": 12.0,
-        "free_area_mm2": 357.0,
+        "free_area_mm2": 353.4,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 0.0,
+        "obstruction_mm2": 3.6000000000000227,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -591,9 +594,9 @@
       "status": "info",
       "section": {
         "position_mm": 16.0,
-        "free_area_mm2": 437.39999999999986,
+        "free_area_mm2": 543.0,
         "gross_area_mm2": 543.0,
-        "obstruction_mm2": 105.60000000000014,
+        "obstruction_mm2": 0.0,
         "axis": "z",
         "rectangle_uv_mm": [
           -155.5,
@@ -609,9 +612,9 @@
       "status": "info",
       "section": {
         "position_mm": 16.0,
-        "free_area_mm2": 347.40000000000003,
+        "free_area_mm2": 328.19999999999993,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 9.599999999999966,
+        "obstruction_mm2": 28.800000000000068,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -645,9 +648,9 @@
       "status": "info",
       "section": {
         "position_mm": 21.0,
-        "free_area_mm2": 299.4000000000001,
+        "free_area_mm2": 300.99999999999994,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 57.59999999999991,
+        "obstruction_mm2": 56.00000000000006,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -663,9 +666,9 @@
       "status": "info",
       "section": {
         "position_mm": 22.5,
-        "free_area_mm2": 495.0000000000002,
+        "free_area_mm2": 416.49999999999994,
         "gross_area_mm2": 543.0,
-        "obstruction_mm2": 47.99999999999977,
+        "obstruction_mm2": 126.50000000000006,
         "axis": "z",
         "rectangle_uv_mm": [
           -155.5,
@@ -681,9 +684,9 @@
       "status": "info",
       "section": {
         "position_mm": 22.5,
-        "free_area_mm2": 357.0,
+        "free_area_mm2": 341.4,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 0.0,
+        "obstruction_mm2": 15.600000000000023,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -699,9 +702,9 @@
       "status": "info",
       "section": {
         "position_mm": 28.5,
-        "free_area_mm2": 495.0000000000002,
+        "free_area_mm2": 410.5,
         "gross_area_mm2": 543.0,
-        "obstruction_mm2": 47.99999999999977,
+        "obstruction_mm2": 132.5,
         "axis": "z",
         "rectangle_uv_mm": [
           -155.5,
@@ -717,9 +720,9 @@
       "status": "info",
       "section": {
         "position_mm": 28.5,
-        "free_area_mm2": 312.0360144115316,
+        "free_area_mm2": 316.3,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 44.963985588468404,
+        "obstruction_mm2": 40.69999999999999,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -735,9 +738,9 @@
       "status": "info",
       "section": {
         "position_mm": 34.5,
-        "free_area_mm2": 495.0000000000002,
+        "free_area_mm2": 416.49999999999994,
         "gross_area_mm2": 543.0,
-        "obstruction_mm2": 47.99999999999977,
+        "obstruction_mm2": 126.50000000000006,
         "axis": "z",
         "rectangle_uv_mm": [
           -155.5,
@@ -753,9 +756,9 @@
       "status": "info",
       "section": {
         "position_mm": 34.5,
-        "free_area_mm2": 312.0360144115316,
+        "free_area_mm2": 322.29999999999995,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 44.963985588468404,
+        "obstruction_mm2": 34.700000000000045,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -771,9 +774,9 @@
       "status": "info",
       "section": {
         "position_mm": 43.0,
-        "free_area_mm2": 519.0,
+        "free_area_mm2": 418.5,
         "gross_area_mm2": 543.0,
-        "obstruction_mm2": 24.0,
+        "obstruction_mm2": 124.5,
         "axis": "z",
         "rectangle_uv_mm": [
           -155.5,
@@ -789,9 +792,9 @@
       "status": "info",
       "section": {
         "position_mm": 43.0,
-        "free_area_mm2": 299.4000000000001,
+        "free_area_mm2": 354.6,
         "gross_area_mm2": 357.0,
-        "obstruction_mm2": 57.59999999999991,
+        "obstruction_mm2": 2.3999999999999773,
         "axis": "z",
         "rectangle_uv_mm": [
           -62.0,
@@ -818,8 +821,8 @@
         ]
       },
       "void_solid_volumes_mm3": [
-        48231.28153680526,
-        34340.4398947148,
+        48218.39999999993,
+        34367.88000000004,
         2743.472121629032
       ],
       "domain": "External cold bay, external hot bay, isolated straight CSI sleeve; main cavity excluded"
@@ -1083,22 +1086,346 @@
     {
       "id": "no_added_material_in_original_cavity",
       "status": "pass",
-      "overlap_mm3": 0.0,
-      "boundary_exclusion_mm": 0.1
+      "boundary_exclusion_mm": 0.1,
+      "added_total_mm3": 1218.1191679907936,
+      "undeclared_mm3": 0.0,
+      "undeclared_bbox": null,
+      "declared_inside_mm3": {
+        "carrier_locator_seat": 200.235,
+        "t2_minus_y_tine_flange": 193.914,
+        "t2_minus_y_tine_fill": 525.225619816867,
+        "t2_ll_insert_boss_cone": 106.46492227936528,
+        "t2_rear_landing_wedge": 25.201619284293294,
+        "t2_fps_guide_corbel": 112.75290016543163,
+        "t2_tab_catch_ceiling": 678.951,
+        "t2_tab_catch_pad": 72.48989000000005
+      },
+      "stale_declarations": [],
+      "tol_mm3": 1e-05,
+      "inventory": {
+        "carrier_locator_seat": "model.carrier_locator_seat (FP-11c, VN-38): tub floor seat rib under the carrier tongue",
+        "t2_minus_y_tine_flange": "model.tub_print_fixes (1) (T2, VN-53): -Y tab-catch flange grown from the -Y wall",
+        "t2_minus_y_tine_fill": "model.tub_print_fixes (1) (T2, VN-53): 50 deg fill under the -Y web outer face",
+        "t2_ll_insert_boss_cone": "model.tub_print_fixes (2) (T2): cone under the LL collar insert boss",
+        "t2_rear_landing_wedge": "model.tub_print_fixes (3) (T2): wedge under the rear panel-screw landing",
+        "t2_fps_guide_corbel": "model.tub_print_fixes (5) (T2; FX bundle lane): corbel under the FPS pair guide",
+        "t2_tab_catch_ceiling": "model.tab_catch_split (T2, VN-53): ceiling over the tab slot above the +Y tine joint",
+        "t2_tab_catch_pad": "model.tab_catch_split (T2, VN-53): +Y web pad above the joint (pocket wall)"
+      },
+      "declared_additions_covered_by": [
+        "verification.json interference (tub vs every part) and motion sweeps",
+        "harness-checks.json installed_clearance / feed_volumes / member sweeps (tub in the obstacle set)",
+        "fps-service-study/integrated-fps-checks.json static and carried checks (tub fixed)",
+        "hdmi-checks.json installed / premate / carried sweeps (tub in the obstacle set)"
+      ],
+      "rule": "saved tub minus historical tub inside the original cavity, minus the declared additions (cavity_rules.INVENTORY, rebuilt from model.py) < 1e-5 mm3; every declared addition present in the tub"
     },
     {
       "id": "print_and_thermal_limits",
       "status": "info",
-      "post_count": 188,
-      "post_diameter_mm": 1.6,
-      "nominal_grid_pitch_mm": 8.0,
-      "diagonal_between_post_surface_extent_mm": 9.713708498984762,
+      "post_count": 0,
+      "roof_support": {
+        "revision": "trial3 windowed ribs (hanging beams on pillars) + lintels",
+        "rib_thickness_mm": 1.2,
+        "rib_y_mm": [
+          -34.05,
+          -27.9
+        ],
+        "beam_y_mm": [
+          -29.0,
+          -27.9
+        ],
+        "pillar_length_mm": 1.2,
+        "window_max_mm": 14.0,
+        "hot_boundary_x": -31.0,
+        "hot_band_row": [
+          10.0,
+          -16.5,
+          -2.6
+        ],
+        "hot_column_x": -17.1,
+        "hot_lip_x": -3.2,
+        "cold_rows": [
+          [
+            22.5,
+            [
+              [
+                -158.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            28.5,
+            [
+              [
+                -158.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            34.5,
+            [
+              [
+                -158.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            43.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            51.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            59.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            67.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            55.0,
+            [
+              [
+                -75.1,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            76.0,
+            [
+              [
+                -155.6,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            84.0,
+            [
+              [
+                -155.6,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            92.0,
+            [
+              [
+                -155.6,
+                -64.9
+              ]
+            ]
+          ]
+        ],
+        "hot_rows": [
+          [
+            21.0,
+            [
+              [
+                -30.4,
+                0.0
+              ]
+            ]
+          ],
+          [
+            28.0,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            35.0,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            40.6,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            49.0,
+            [
+              [
+                -30.4,
+                -2.4
+              ]
+            ]
+          ],
+          [
+            77.0,
+            [
+              [
+                -30.4,
+                -2.4
+              ]
+            ]
+          ],
+          [
+            10.0,
+            [
+              [
+                -16.5,
+                -2.6
+              ]
+            ]
+          ]
+        ],
+        "hot_z_ribs": [
+          [
+            -48.0,
+            2.75,
+            16.0
+          ],
+          [
+            -48.0,
+            19.0,
+            23.0
+          ],
+          [
+            -48.0,
+            26.0,
+            30.0
+          ],
+          [
+            -48.0,
+            33.0,
+            37.0
+          ],
+          [
+            -48.0,
+            40.0,
+            97.6
+          ],
+          [
+            -31.0,
+            2.4,
+            16.0
+          ],
+          [
+            -31.0,
+            19.0,
+            23.0
+          ],
+          [
+            -31.0,
+            26.0,
+            30.0
+          ],
+          [
+            -31.0,
+            33.0,
+            37.0
+          ],
+          [
+            -31.0,
+            40.0,
+            97.6
+          ],
+          [
+            -3.2,
+            2.4,
+            10.6
+          ],
+          [
+            -60.4,
+            15.4,
+            40.6
+          ],
+          [
+            -17.1,
+            9.4,
+            16.0
+          ]
+        ],
+        "hot_diagonal": null,
+        "hot_left_separator": null,
+        "cold_bottom_mullions_x": [
+          -130.33333333333334,
+          -106.66666666666666
+        ],
+        "hot_bottom_mullion_x": -31.0,
+        "hot_front_mullion_z": 21.0,
+        "lintel_mm": 0.6,
+        "lintel_land_mm": 1.2,
+        "lintel_mouths": [
+          "cold_rear",
+          "cold_bottom"
+        ],
+        "skin_bed_chamfer_mm": 0.6,
+        "mouths": {
+          "cold_rear": {
+            "gross": 420.0,
+            "net": 332.64,
+            "mullions": 7,
+            "lintel_mm": 0.6
+          },
+          "cold_bottom": {
+            "gross": 426.0,
+            "net": 370.44000000000005,
+            "mullions": 2,
+            "lintel_mm": 0.6
+          },
+          "hot_bottom": {
+            "gross": 324.0,
+            "net": 316.8,
+            "mullions": 1,
+            "lintel_mm": 0.0
+          },
+          "hot_front": {
+            "gross": 210.0,
+            "net": 202.8,
+            "mullions": 1,
+            "lintel_mm": 0.0
+          }
+        }
+      },
       "support_free_claim": false,
       "cleanout_qualified": false,
       "thermal_qualified": false,
       "limitations": [
-        "Discrete post tops do not prove continuous support for every first-roof bridge line.",
-        "Port-avoidance exclusions make some local support spacing larger than the nominal grid.",
+        "Roof bridges run between continuous 1.2 mm ribs; the per-region single-direction bridge rule is computed by verify_print_checks.py (print_bridge_direction), not here, and no slicer result exists.",
+        "Ribs, row breaks, mullions and lintels add flow resistance beyond the sampled planar sections.",
         "No trapped support is permitted; slicer/bridge coupon and debris removal remain gates.",
         "Cold/hot mouths may be occluded by hands and may recirculate externally.",
         "CSI remains an unsealed direct bypass to the main enclosure.",

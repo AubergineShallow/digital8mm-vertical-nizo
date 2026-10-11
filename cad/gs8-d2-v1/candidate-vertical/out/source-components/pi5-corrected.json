@@ -1,24 +1,24 @@
 {
-  "generated_utc": "2026-10-09T14:21:12Z",
+  "generated_utc": "unrecorded (deterministic build, FP-03)",
   "sources": {
-    "candidate-vertical/official_pi5_assembly.py": "ffae358f5c4b882b92ab73ee6519da76eff810fd1e4ee3a1a400c018fea01055",
-    "candidate-vertical/official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
-    "candidate-vertical/official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
-    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
+    "candidate-vertical/official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
+    "candidate-vertical/official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc"
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b"
   },
-  "generator_sha256": "0bb0b4e344d7834e32ac3ce59d84e8fa5369468b1ca6541ba5fd8ee17c11113d",
+  "generator_sha256": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
   "file": "pi5-corrected.step",
-  "sha256": "85fae8b04a9b0171d8dc0b15a29800540c85dc748e6910d293ff5d51adbe372f",
+  "sha256": "15f13dc88100375c8fd5e8d90fc4d71464cec952168e6e6238d593ba1fde2729",
   "valid": true,
   "solid_count": 149,
   "raw_solid_volume_sum_mm3": 24187.427381817084,
@@ -64,9 +64,9 @@
   },
   "provenance": {
     "source_sha256": {
-      "official_pi5_assembly.py": "ffae358f5c4b882b92ab73ee6519da76eff810fd1e4ee3a1a400c018fea01055",
-      "official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
-      "official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025"
+      "official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
+      "official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
+      "official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b"
     },
     "occupied_space": "Named closed source components retained in overlapping assembly; raw compound volume is not occupied volume. Core void must subtract components as a union without summing their volumes",
     "proxies": [
@@ -84,7 +84,7 @@
       "Adapter mating/root registration",
       "Cooler/source CSI conflict",
       "Full200mm FPC and both real cable roots",
-      "All baseline56 and M1 physical gates"
+      "All inherited r7 physical gates and M1"
     ]
   },
   "physical_qualified": false

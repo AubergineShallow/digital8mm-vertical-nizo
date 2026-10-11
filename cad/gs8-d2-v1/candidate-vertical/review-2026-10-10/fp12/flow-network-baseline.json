@@ -1,74 +1,87 @@
 {
-  "cases": {
-    "cold_bottom_blocked": {
-      "cold_path_eff_mm2": 250.19837072683396,
-      "csi_share_of_intake": 0.563612539318464,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "intake_eff_mm2": 573.3399633804376,
-      "system_eff_mm2": 279.50956506440593
-    },
-    "cold_bottom_strap_20_of_71": {
-      "cold_path_eff_mm2": 329.34428719820687,
-      "csi_share_of_intake": 0.4952468745024704,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "intake_eff_mm2": 652.4858798518105,
-      "system_eff_mm2": 287.4008103206617
-    },
-    "cold_rear_blocked": {
-      "cold_path_eff_mm2": 246.88585870838287,
-      "csi_share_of_intake": 0.5668877733546167,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "intake_eff_mm2": 570.0274513619864,
-      "system_eff_mm2": 279.1232104153011
-    },
-    "csi_plugged": {
-      "cold_path_eff_mm2": 347.13698573797353,
-      "csi_share_of_intake": 0.0,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "intake_eff_mm2": 347.13698573797353,
-      "system_eff_mm2": 235.33476273996908
-    },
-    "hot_bottom_blocked": {
-      "cold_path_eff_mm2": 347.13698573797353,
-      "csi_share_of_intake": 0.48210043267237473,
-      "exhaust_eff_mm2": 179.15169109642548,
-      "intake_eff_mm2": 670.2785783915772,
-      "system_eff_mm2": 173.07619048929314
-    },
-    "hot_front_blocked": {
-      "cold_path_eff_mm2": 347.13698573797353,
-      "csi_share_of_intake": 0.48210043267237473,
-      "exhaust_eff_mm2": 201.92194833286584,
-      "intake_eff_mm2": 670.2785783915772,
-      "system_eff_mm2": 193.33946475098932
-    },
-    "nominal": {
-      "cold_path_eff_mm2": 347.13698573797353,
-      "csi_share_of_intake": 0.48210043267237473,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "intake_eff_mm2": 670.2785783915772,
-      "system_eff_mm2": 288.8725513889426
-    },
-    "set_down_on_table": {
-      "cold_path_eff_mm2": 250.19837072683396,
-      "csi_share_of_intake": 0.563612539318464,
-      "exhaust_eff_mm2": 179.15169109642548,
-      "intake_eff_mm2": 573.3399633804376,
-      "system_eff_mm2": 170.99814963315038
-    }
+ "purpose": "VN-36 regression pin (fixup-1 of FP-12): the orifice-network effective areas and shares for every occlusion case. verify_check_scope.py row flow_network/baseline_drift fails when a recomputed value drifts from these without a recorded reason; to accept a deliberate CAD change, rewrite this file with the new values and a new reason.",
+ "fields": [
+  "intake_eff_mm2",
+  "system_eff_mm2",
+  "exhaust_eff_mm2",
+  "cold_path_eff_mm2",
+  "csi_share_of_intake"
+ ],
+ "rel_tol": 1e-06,
+ "variant": "compact-kowa_lm6hc",
+ "cases": {
+  "cold_bottom_blocked": {
+   "intake_eff_mm2": 557.4593260219305,
+   "system_eff_mm2": 275.1081007520819,
+   "exhaust_eff_mm2": 316.3093414093827,
+   "cold_path_eff_mm2": 234.31773336832683,
+   "csi_share_of_intake": 0.5796684665042113
   },
-  "fields": [
-    "intake_eff_mm2",
-    "system_eff_mm2",
-    "exhaust_eff_mm2",
-    "cold_path_eff_mm2",
-    "csi_share_of_intake"
-  ],
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "purpose": "VN-36 regression pin (fixup-1 of FP-12): the orifice-network effective areas and shares for every occlusion case. verify_check_scope.py row flow_network/baseline_drift fails when a recomputed value drifts from these without a recorded reason; to accept a deliberate CAD change, rewrite this file with the new values and a new reason.",
-  "reason": "first computed values: FP-12 run on manifest 53e668d4 (2026-10-11)",
-  "rel_tol": 1e-06,
-  "source_report": "out/compact-kowa_lm6hc/check-scope-checks.json",
-  "source_report_sha256": "5fc16ca6dfce691bbc87b1c3e65139644818c17f12a9114bb8e4ca2073bd87a6",
-  "verification_source_sha256": "439d870b3e1a18cb5f69dc2cb598f6ea5b0a5a04a647f18779c0b1b9338e5da7"
+  "cold_bottom_strap_20_of_71": {
+   "intake_eff_mm2": 645.3083390542267,
+   "system_eff_mm2": 284.02389150623077,
+   "exhaust_eff_mm2": 316.3093414093827,
+   "cold_path_eff_mm2": 322.16674640062314,
+   "csi_share_of_intake": 0.500755333686226
+  },
+  "cold_rear_blocked": {
+   "intake_eff_mm2": 570.4682150896799,
+   "system_eff_mm2": 276.6311260663055,
+   "exhaust_eff_mm2": 316.3093414093827,
+   "cold_path_eff_mm2": 247.3266224360763,
+   "csi_share_of_intake": 0.5664497760016383
+  },
+  "csi_plugged": {
+   "intake_eff_mm2": 341.8374228884004,
+   "system_eff_mm2": 232.16535875535587,
+   "exhaust_eff_mm2": 316.3093414093827,
+   "cold_path_eff_mm2": 341.8374228884004,
+   "csi_share_of_intake": 0.0
+  },
+  "hot_bottom_blocked": {
+   "intake_eff_mm2": 664.9790155420039,
+   "system_eff_mm2": 168.2694523924933,
+   "exhaust_eff_mm2": 173.93008106796813,
+   "cold_path_eff_mm2": 341.8374228884004,
+   "csi_share_of_intake": 0.48594254119465835
+  },
+  "hot_front_blocked": {
+   "intake_eff_mm2": 664.9790155420039,
+   "system_eff_mm2": 192.06838565063114,
+   "exhaust_eff_mm2": 200.61891051948535,
+   "cold_path_eff_mm2": 341.8374228884004,
+   "csi_share_of_intake": 0.48594254119465835
+  },
+  "nominal": {
+   "intake_eff_mm2": 664.9790155420039,
+   "system_eff_mm2": 285.641103777418,
+   "exhaust_eff_mm2": 316.3093414093827,
+   "cold_path_eff_mm2": 341.8374228884004,
+   "csi_share_of_intake": 0.48594254119465835
+  },
+  "set_down_on_table": {
+   "intake_eff_mm2": 557.4593260219305,
+   "system_eff_mm2": 166.03616311290506,
+   "exhaust_eff_mm2": 173.93008106796813,
+   "cold_path_eff_mm2": 234.31773336832683,
+   "csi_share_of_intake": 0.5796684665042113
+  }
+ },
+ "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+ "source_report": "review-2026-10-10/fx/check-scope-flow-compact-kowa_lm6hc.json",
+ "source_report_sha256": "b1537ebb5eda5ac8141f604ad34dff0ec3dbfee4cdb3741ad569faa8cb48a296",
+ "verification_source_sha256": "0805acebbca976dd1f251149f749ec032fb19d91dcae74419d62671dce4ddaac",
+ "reason": "FX (2026-10-11, verifier T1 major VN-37 + minor flow baseline): plenum trial3 (vent_geometry.py) made every rib a hanging beam on pillars (5 mm flow windows), cleared the wall-port fronts, re-laid the hot bay along the flow and lowered the cold-mouth lintel to 0.6 mm. Measured on manifest dbea5ca5: necks cold rear 332.64, cold underside 370.44, hot underside 316.80, hot front 197.20 mm2; nominal cold path 341.8, exhaust 316.3, system 285.6 mm2 eq.; CSI share of intake 48.6 %. Previous (FP-11a trial2) nominal: cold path 333.2, exhaust 321.7, system 288.9 mm2 eq.",
+ "previous": {
+  "reason": "FP-11a (2026-10-11, review VN-51/52/37): plenum trial2 replaced the 1.6 mm post grid with 1.2 mm flow ribs, added mullions to all four edge mouths and 45 deg lintels to the two cold mouths. Measured on the trial2 tub (scratch manifest e90efbcb): necks cold rear 420 -> 302.00, cold underside 426 -> 343.00, hot underside 324 -> 316.80, hot front 210 -> 202.80 mm2; hot underside series minimum 299.4 -> 325.45 mm2. Nominal cold path 347.1 -> 333.2, exhaust 320.1 -> 321.7, system 288.9 -> 288.9 mm2 eq.; CSI share of intake 48.2 -> 49.2 %. Previous values: FP-12 run on manifest 53e668d4.",
+  "manifest_sha256": "e90efbcbe3c18c1cc375c2136a53aa0484ea9bf070e12ad72779f92eab15e787",
+  "source_report": "review-2026-10-10/fp11a/check-scope-trial2-tub.json",
+  "nominal": {
+   "intake_eff_mm2": 656.3146466974545,
+   "system_eff_mm2": 288.88968878872026,
+   "exhaust_eff_mm2": 321.73399992905325,
+   "cold_path_eff_mm2": 333.17305404385087,
+   "csi_share_of_intake": 0.4923577346317615
+  }
+ }
 }

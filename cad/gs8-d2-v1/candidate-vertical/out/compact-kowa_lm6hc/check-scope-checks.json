@@ -1,19 +1,21 @@
 {
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "verification_source_sha256": "6d085b567c85ceefd2170c1b9989bafbfc7f78e6d949dbd7cf08b69e8571f485",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "verification_source_sha256": "0805acebbca976dd1f251149f749ec032fb19d91dcae74419d62671dce4ddaac",
   "helper_source_sha256": {
-    "check_scope.py": "8b01de75aba36e333e24464ae2e1661052fdceaf19366c89ad535570d8d2fe34",
-    "steps.py": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
-    "evidence_rules.py": "813df938c4ecfbd363f7b7446503fc6dd4a45230dad120615db35248aeb0f97e",
+    "check_scope.py": "bd7aad3d6baf5af417df1fa574754d26ab61ec6885d805b82c167a4d5cbedbb6",
+    "steps.py": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+    "evidence_rules.py": "6d13db8c1cf6536f96f7b20b131aac948d956c5d3f7b9beeec72c1135196a273",
     "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
-    "print_rules.py": "be0502832892c970ff8756231ba1b8f52986e2faea48ce3b469ee2b7f29c2ef0",
+    "print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb",
+    "plenum_flow.py": "22570c7026d0081c17f26bd0eef27d8f01d577588260331f0ab66af56ff34ab8",
+    "vent_geometry.py": "fcf624d9180df50e094abc607edeecae8f6498ba7ab8693fa9f2672bfafc63e6",
     "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb"
   },
   "input_sha256": {
     "candidate-vertical/structural-review/reference-export18-structural-binding.json": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
     "candidate-vertical/history/reviewed-export18/manifest.json": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
-    "candidate-vertical/structural-review/concealed-vent-structural.json": "0b458076fb93a537fce3e92ab9d97e71c85481f0891ba98bd2c69b70535a5a76",
-    "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json": "687970c8edfb01dd2d0163985178b8b73631fd7e8b683323d875157c1680029e",
+    "candidate-vertical/structural-review/concealed-vent-structural.json": "3e208632620a195aaa47d7867007b72284cf23ea2b66f2277e4c45c98209d096",
+    "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json": "5583ae7242211179ada7b0db3a187d0bc37b2bac59e7e04a5e318c1d00d178cd",
     "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
     "out/checks.json": "2d6f68b24619f4e4db39e22a4c72f4a15f322188e7dbefe643c2c9657e7b7c8b",
     "out/parts-manifest.json": "6bb65631747c84974fa245a3a97e98f855e828c893e99c1b9234fc6b2fd26dd4"
@@ -21,8 +23,8 @@
   "variant": "compact-kowa_lm6hc",
   "scope": "full",
   "summary": {
-    "pass": 31,
-    "fail": 3,
+    "pass": 34,
+    "fail": 2,
     "info": 14
   },
   "checks": [
@@ -31,10 +33,16 @@
       "id": "compact-fujinon_hf6xa",
       "status": "pass",
       "stated_supplement_screen_Nm": 1.0,
+      "compact_screen_Nm": 0.95,
+      "covered_by_compact_screen": true,
       "changed_rows": [
+        "base_grip",
+        "carrier",
+        "eyecup",
         "lens",
         "lens_collar",
         "panel",
+        "s_c4",
         "tub"
       ],
       "added_rows": [],
@@ -49,28 +57,39 @@
         "pack",
         "cap"
       ],
-      "lower_rows_touched": [],
-      "valid": true,
-      "upper_mass_g": 559.733094400986,
-      "upper_com_mm": [
-        -60.33479865319177,
-        1.7563778686213456,
-        53.53789332869487
+      "lower_rows_touched": [
+        "base_grip"
       ],
-      "floor_moment_5g_Nmm": 1469.3760047742285,
+      "valid": true,
+      "method": "direct (total minus lower rows from the bound STEPs)",
+      "upper_mass_g": 565.8594999368922,
+      "upper_com_mm": [
+        -60.090356717780324,
+        1.898767015466809,
+        53.37913752676082
+      ],
+      "floor_moment_5g_Nmm": 1481.0538306410776,
       "wiring_5g_moment_Nmm": 58.8399,
-      "equal_share_plus_wiring_Nm": 0.7641079523871143,
-      "seventy_percent_share_plus_wiring_Nm": 1.0697511333419598,
+      "equal_share_plus_wiring_Nm": 0.7699468653205388,
+      "seventy_percent_share_plus_wiring_Nm": 1.077925611448754,
       "proposed_rounded_equal_share_screen_Nm": 0.8,
-      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a"
+      "free_body": "new (lower rows changed: ['base_grip'])",
+      "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835"
     },
     {
       "category": "j4_screen",
       "id": "compact-kowa_lm6hc",
       "status": "pass",
       "stated_supplement_screen_Nm": 1.0,
+      "compact_screen_Nm": 0.95,
+      "covered_by_compact_screen": true,
       "changed_rows": [
+        "base_grip",
+        "carrier",
+        "eyecup",
+        "lens_collar",
         "panel",
+        "s_c4",
         "tub"
       ],
       "added_rows": [],
@@ -85,35 +104,45 @@
         "pack",
         "cap"
       ],
-      "lower_rows_touched": [],
-      "valid": true,
-      "upper_mass_g": 673.1523132387147,
-      "upper_com_mm": [
-        -44.797002345297116,
-        1.4596686715188585,
-        54.62669162336193
+      "lower_rows_touched": [
+        "base_grip"
       ],
-      "floor_moment_5g_Nmm": 1803.0547794987315,
+      "valid": true,
+      "method": "direct (total minus lower rows from the bound STEPs)",
+      "upper_mass_g": 679.27871810342,
+      "upper_com_mm": [
+        -44.73351011984788,
+        1.5809591234016365,
+        54.48462343243173
+      ],
+      "floor_moment_5g_Nmm": 1814.7326035665806,
       "wiring_5g_moment_Nmm": 58.8399,
-      "equal_share_plus_wiring_Nm": 0.9309473397493657,
-      "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+      "equal_share_plus_wiring_Nm": 0.9367862517832902,
+      "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
       "proposed_rounded_equal_share_screen_Nm": 0.95,
-      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77"
+      "free_body": "new (lower rows changed: ['base_grip'])",
+      "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810"
     },
     {
       "category": "j4_screen",
       "id": "original-kowa_lm6hc",
       "status": "pass",
       "stated_supplement_screen_Nm": 1.0,
+      "compact_screen_Nm": 0.95,
+      "covered_by_compact_screen": false,
       "changed_rows": [
+        "base_grip",
+        "carrier",
         "evf_board",
         "eyecup",
         "eyepiece",
         "foam_pad",
         "hmx039",
+        "lens_collar",
         "p_panel1",
         "p_panel2",
         "panel",
+        "s_c4",
         "tub",
         "usb_stick"
       ],
@@ -131,20 +160,24 @@
         "pack",
         "cap"
       ],
-      "lower_rows_touched": [],
-      "valid": true,
-      "upper_mass_g": 715.4161353042974,
-      "upper_com_mm": [
-        -54.547393171764234,
-        0.9129090697170091,
-        53.986590153830036
+      "lower_rows_touched": [
+        "base_grip"
       ],
-      "floor_moment_5g_Nmm": 1893.805217302459,
+      "valid": true,
+      "method": "direct (total minus lower rows from the bound STEPs)",
+      "upper_mass_g": 721.5355623426694,
+      "upper_com_mm": [
+        -54.4196815486044,
+        1.0322010539823767,
+        53.85895217270731
+      ],
+      "floor_moment_5g_Nmm": 1905.4884510286029,
       "wiring_5g_moment_Nmm": 58.8399,
-      "equal_share_plus_wiring_Nm": 0.9763225586512294,
-      "seventy_percent_share_plus_wiring_Nm": 1.3668515821117213,
+      "equal_share_plus_wiring_Nm": 0.9821641755143014,
+      "seventy_percent_share_plus_wiring_Nm": 1.375029845720022,
       "proposed_rounded_equal_share_screen_Nm": 1.0,
-      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849"
+      "free_body": "new (lower rows changed: ['base_grip'])",
+      "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9"
     },
     {
       "category": "j4_screen",
@@ -171,23 +204,23 @@
       "branches": [
         {
           "name": "cold_rear",
-          "mouth_mm2": 420.0,
-          "series_min_mm2": 464.4000000000003,
-          "effective_mm2": 420.0,
+          "mouth_mm2": 332.6399999999999,
+          "series_min_mm2": 534.0,
+          "effective_mm2": 332.6399999999999,
           "governed_by": "mouth"
         },
         {
           "name": "cold_bottom",
-          "mouth_mm2": 425.9999999999999,
-          "series_min_mm2": 437.39999999999986,
-          "effective_mm2": 425.9999999999999,
+          "mouth_mm2": 370.43999999999994,
+          "series_min_mm2": 543.0,
+          "effective_mm2": 370.43999999999994,
           "governed_by": "mouth"
         }
       ],
-      "effective_sum_mm2": 845.9999999999999,
+      "effective_sum_mm2": 703.0799999999998,
       "wall_ports_mm2": 420.0,
-      "margin_mm2": 425.9999999999999,
-      "margin_percent": 101.4285714285714,
+      "margin_mm2": 283.0799999999998,
+      "margin_percent": 67.39999999999996,
       "sections": {
         "cold_rear": {
           "axis": "x",
@@ -195,69 +228,57 @@
             -155.0,
             -153.0,
             -151.0,
-            -150.0,
             -149.0,
             -147.0,
             -145.0,
             -143.0,
-            -142.0,
             -141.0,
             -139.0,
             -137.0,
             -135.0,
-            -134.0,
             -133.0,
             -131.0,
             -129.0,
             -127.0,
-            -126.0,
             -125.0,
             -123.0,
             -121.0,
             -119.0,
-            -118.0,
             -117.0,
             -115.0,
             -113.0,
             -111.0,
-            -110.0,
             -109.0,
             -107.0,
             -105.0
           ],
           "free_area_mm2": [
-            570.0,
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0
+            540.0,
+            557.9999999999995,
+            557.9999999999995,
+            552.0,
+            551.9999999999999,
+            557.9999999999995,
+            557.9999999999995,
+            546.0,
+            557.9999999999995,
+            546.0000000000001,
+            557.9999999999995,
+            546.0000000000001,
+            545.9999999999999,
+            557.9999999999995,
+            557.9999999999995,
+            534.0000000000002,
+            557.9999999999995,
+            557.9999999999995,
+            545.9999999999999,
+            557.9999999999995,
+            557.9999999999995,
+            546.0000000000001,
+            546.0,
+            557.9999999999995,
+            534.0,
+            557.9999999999995
           ]
         },
         "cold_bottom": {
@@ -277,7 +298,6 @@
             7.0,
             7.4,
             7.8,
-            8.0,
             8.2,
             8.6,
             9.0,
@@ -298,7 +318,6 @@
             15.0,
             15.4,
             15.8,
-            16.0,
             16.2,
             16.6,
             17.0,
@@ -318,11 +337,6 @@
             543.0,
             543.0,
             543.0,
-            473.1521653878947,
-            440.7532396601239,
-            437.39999999999986,
-            440.7532396601239,
-            473.1521653878947,
             543.0,
             543.0,
             543.0,
@@ -339,11 +353,14 @@
             543.0,
             543.0,
             543.0,
-            473.1521653878947,
-            440.7532396601239,
-            437.39999999999986,
-            440.7532396601239,
-            473.15216538789605,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
+            543.0,
             543.0,
             543.0,
             543.0
@@ -359,23 +376,23 @@
       "branches": [
         {
           "name": "hot_bottom",
-          "mouth_mm2": 324.0,
-          "series_min_mm2": 299.40000000000003,
-          "effective_mm2": 299.40000000000003,
+          "mouth_mm2": 316.79999999999995,
+          "series_min_mm2": 300.99999999999994,
+          "effective_mm2": 300.99999999999994,
           "governed_by": "series section"
         },
         {
           "name": "hot_front",
-          "mouth_mm2": 210.0,
-          "series_min_mm2": 464.4000000000003,
-          "effective_mm2": 210.0,
+          "mouth_mm2": 197.2,
+          "series_min_mm2": 534.8,
+          "effective_mm2": 197.2,
           "governed_by": "mouth"
         }
       ],
-      "effective_sum_mm2": 509.40000000000003,
+      "effective_sum_mm2": 498.19999999999993,
       "wall_ports_mm2": 510.0,
-      "margin_mm2": -0.5999999999999659,
-      "margin_percent": -0.11764705882352272,
+      "margin_mm2": -11.800000000000068,
+      "margin_percent": -2.313725490196092,
       "sections": {
         "hot_bottom": {
           "axis": "z",
@@ -394,7 +411,6 @@
             7.0,
             7.4,
             7.8,
-            8.0,
             8.2,
             8.6,
             9.0,
@@ -414,44 +430,151 @@
             14.6,
             15.0,
             15.4,
-            15.8
+            15.8,
+            16.05,
+            16.55,
+            17.05,
+            17.55,
+            18.05,
+            18.55,
+            19.05,
+            19.55,
+            20.05,
+            20.55,
+            21.05,
+            21.55,
+            22.05,
+            22.55,
+            23.05,
+            23.55,
+            24.05,
+            24.55,
+            25.05,
+            25.55,
+            26.05,
+            26.55,
+            27.05,
+            27.55,
+            28.05,
+            28.55,
+            29.05,
+            29.55,
+            30.05,
+            30.55,
+            31.05,
+            31.55,
+            32.05,
+            32.55,
+            33.05,
+            33.55,
+            34.05,
+            34.55,
+            35.05,
+            35.55,
+            36.05,
+            36.55,
+            37.05,
+            37.55,
+            38.05,
+            38.55,
+            39.05,
+            39.55,
+            40.05,
+            40.55,
+            41.05,
+            41.55,
+            42.05,
+            42.55
           ],
           "free_area_mm2": [
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            318.90118112066995,
-            301.22903981461326,
-            299.40000000000003,
-            301.22903981461326,
-            318.9011811206699,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            357.0,
-            350.65019685344487,
-            347.7048399691022
+            342.5999999999999,
+            335.4,
+            335.4,
+            347.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            321.5,
+            321.5,
+            321.5,
+            321.5,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            353.4,
+            335.4,
+            328.19999999999993,
+            328.19999999999993,
+            349.79999999999995,
+            349.79999999999995,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            341.4,
+            341.4,
+            341.4,
+            300.99999999999994,
+            300.99999999999994,
+            300.99999999999994,
+            341.4,
+            341.4,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            341.4,
+            341.4,
+            341.4,
+            316.3,
+            316.3,
+            316.3,
+            341.4,
+            341.4,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            341.4,
+            341.4,
+            341.4,
+            322.29999999999995,
+            322.29999999999995,
+            322.29999999999995,
+            341.4,
+            341.4,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            355.8,
+            349.79999999999995,
+            310.29999999999995,
+            310.29999999999995,
+            317.5,
+            354.6,
+            354.6,
+            354.6
           ]
         },
         "hot_front": {
@@ -473,32 +596,176 @@
             -3.0
           ],
           "free_area_mm2": [
-            570.0,
-            570.0,
-            464.4000000000003,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0,
-            570.0
+            553.2,
+            565.1999999999998,
+            565.1999999999998,
+            565.1999999999998,
+            565.1999999999998,
+            565.1999999999998,
+            559.1999999999998,
+            559.2,
+            565.1999999999998,
+            565.1999999999998,
+            565.1999999999998,
+            565.1999999999998,
+            565.1999999999998,
+            534.8
           ]
         }
       },
       "rule": "sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 (replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)"
     },
     {
+      "category": "area_parity",
+      "id": "cold_path_min_cut",
+      "status": "pass",
+      "min_cut_mm2": 420.0,
+      "wall_ports_mm2": 420.0,
+      "shortfall_mm2": 0.0,
+      "port_face_mm2": 420.00000000000136,
+      "port_face_blocked_mm2": 0.0,
+      "mouth_face_mm2": {
+        "cold_rear": 332.6399999999998,
+        "cold_bottom": 370.44000000000005
+      },
+      "cut_composition_mm2": {
+        "port": 420.0,
+        "mouth": 0.0,
+        "internal": 0.0
+      },
+      "internal_cut_bbox_xz": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "grid": {
+        "nx": 269,
+        "nz": 257,
+        "free_cells": 63179,
+        "max_cell_mm": 0.5,
+        "levels": 13,
+        "level_thickness_mm": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.4,
+          0.3,
+          0.3
+        ]
+      },
+      "step_grid": {
+        "levels": 13,
+        "level_thickness_mm": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.4,
+          0.3,
+          0.3
+        ],
+        "slanted_edge_segments": 1248,
+        "cells": 69133
+      },
+      "empty_bay_bound_nominal_mm2": 420.0,
+      "nominal_with_ribs_mm2": 420.0,
+      "empty_bay_bound_reaches_ports": true,
+      "rule": "minimum cut (max flow) from the wall-port faces to the mouth faces of the bay over the free gap volume of the saved tub STEP >= wall ports - 0.002 mm2 (verifier rectangles; plenum_flow.py)",
+      "note": null
+    },
+    {
+      "category": "area_parity",
+      "id": "hot_path_min_cut",
+      "status": "fail",
+      "min_cut_mm2": 444.5,
+      "wall_ports_mm2": 510.0,
+      "shortfall_mm2": 65.5,
+      "port_face_mm2": 509.9999999999981,
+      "port_face_blocked_mm2": 0.0,
+      "mouth_face_mm2": {
+        "hot_bottom": 316.79999999999984,
+        "hot_front": 202.79999999999993
+      },
+      "cut_composition_mm2": {
+        "port": 0.0,
+        "mouth": 0.0,
+        "internal": 444.5
+      },
+      "internal_cut_bbox_xz": [
+        -61.75,
+        -2.25,
+        15.85,
+        39.85
+      ],
+      "grid": {
+        "nx": 134,
+        "nz": 227,
+        "free_cells": 28406,
+        "max_cell_mm": 0.5,
+        "levels": 12,
+        "level_thickness_mm": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "step_grid": {
+        "levels": 12,
+        "level_thickness_mm": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "slanted_edge_segments": 0,
+        "cells": 30418
+      },
+      "empty_bay_bound_nominal_mm2": 493.2,
+      "nominal_with_ribs_mm2": 444.5,
+      "empty_bay_bound_reaches_ports": false,
+      "rule": "minimum cut (max flow) from the wall-port faces to the mouth faces of the bay over the free gap volume of the saved tub STEP >= wall ports - 0.002 mm2 (verifier rectangles; plenum_flow.py)",
+      "note": "No internal layout can pass: with these wall ports, mouths, mullions and frame the bay without any rib reaches only the empty-bay bound; closing the row needs a port or mouth change (user decision 17)"
+    },
+    {
       "category": "flow_network",
       "id": "baseline_drift",
       "status": "pass",
+      "baseline": "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json",
+      "baseline_variant": "compact-kowa_lm6hc",
       "drifts": [],
       "missing_cases": [],
-      "baseline_reason": "first computed values: FP-12 run on manifest 53e668d4 (2026-10-11)",
+      "baseline_reason": "FX (2026-10-11, verifier T1 major VN-37 + minor flow baseline): plenum trial3 (vent_geometry.py) made every rib a hanging beam on pillars (5 mm flow windows), cleared the wall-port fronts, re-laid the hot bay along the flow and lowered the cold-mouth lintel to 0.6 mm. Measured on manifest dbea5ca5: necks cold rear 332.64, cold underside 370.44, hot underside 316.80, hot front 197.20 mm2; nominal cold path 341.8, exhaust 316.3, system 285.6 mm2 eq.; CSI share of intake 48.6 %. Previous (FP-11a trial2) nominal: cold path 333.2, exhaust 321.7, system 288.9 mm2 eq.",
       "rel_tol": 1e-06,
       "compared_cases": 8
     },
@@ -508,13 +775,13 @@
       "status": "info",
       "note": "all mouths, ports and the CSI slot open",
       "open_fraction": {},
-      "cold_path_eff_mm2": 347.13698573797353,
+      "cold_path_eff_mm2": 341.8374228884004,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 670.2785783915772,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "system_eff_mm2": 288.8725513889426,
-      "csi_share_of_intake": 0.48210043267237473,
-      "cold_path_share_of_intake": 0.5178995673276252,
+      "intake_eff_mm2": 664.9790155420039,
+      "exhaust_eff_mm2": 316.3093414093827,
+      "system_eff_mm2": 285.641103777418,
+      "csi_share_of_intake": 0.48594254119465835,
+      "cold_path_share_of_intake": 0.5140574588053417,
       "system_flow_ratio_vs_nominal": 1.0,
       "intake_area_change_percent": 0.0
     },
@@ -526,15 +793,15 @@
       "open_fraction": {
         "cold_rear": 0.0
       },
-      "cold_path_eff_mm2": 246.88585870838287,
+      "cold_path_eff_mm2": 247.3266224360763,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 570.0274513619864,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "system_eff_mm2": 279.1232104153011,
-      "csi_share_of_intake": 0.5668877733546167,
-      "cold_path_share_of_intake": 0.4331122266453833,
-      "system_flow_ratio_vs_nominal": 0.9662503726063096,
-      "intake_area_change_percent": -14.956635981140366
+      "intake_eff_mm2": 570.4682150896799,
+      "exhaust_eff_mm2": 316.3093414093827,
+      "system_eff_mm2": 276.6311260663055,
+      "csi_share_of_intake": 0.5664497760016383,
+      "cold_path_share_of_intake": 0.4335502239983617,
+      "system_flow_ratio_vs_nominal": 0.9684569986883492,
+      "intake_area_change_percent": -14.21259893070328
     },
     {
       "category": "flow_network",
@@ -544,15 +811,15 @@
       "open_fraction": {
         "cold_bottom": 0.0
       },
-      "cold_path_eff_mm2": 250.19837072683396,
+      "cold_path_eff_mm2": 234.31773336832683,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 573.3399633804376,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "system_eff_mm2": 279.50956506440593,
-      "csi_share_of_intake": 0.563612539318464,
-      "cold_path_share_of_intake": 0.43638746068153594,
-      "system_flow_ratio_vs_nominal": 0.9675878297210377,
-      "intake_area_change_percent": -14.462436684722457
+      "intake_eff_mm2": 557.4593260219305,
+      "exhaust_eff_mm2": 316.3093414093827,
+      "system_eff_mm2": 275.1081007520819,
+      "csi_share_of_intake": 0.5796684665042113,
+      "cold_path_share_of_intake": 0.42033153349578867,
+      "system_flow_ratio_vs_nominal": 0.9631250443789638,
+      "intake_area_change_percent": -16.168884582386035
     },
     {
       "category": "flow_network",
@@ -562,15 +829,15 @@
       "open_fraction": {
         "cold_bottom": 0.7183098591549295
       },
-      "cold_path_eff_mm2": 329.34428719820687,
+      "cold_path_eff_mm2": 322.16674640062314,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 652.4858798518105,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "system_eff_mm2": 287.4008103206617,
-      "csi_share_of_intake": 0.4952468745024704,
-      "cold_path_share_of_intake": 0.5047531254975295,
-      "system_flow_ratio_vs_nominal": 0.994905223562417,
-      "intake_area_change_percent": -2.6545229272376014
+      "intake_eff_mm2": 645.3083390542267,
+      "exhaust_eff_mm2": 316.3093414093827,
+      "system_eff_mm2": 284.02389150623077,
+      "csi_share_of_intake": 0.500755333686226,
+      "cold_path_share_of_intake": 0.49924466631377395,
+      "system_flow_ratio_vs_nominal": 0.9943383068830058,
+      "intake_area_change_percent": -2.9580898085549756
     },
     {
       "category": "flow_network",
@@ -580,14 +847,14 @@
       "open_fraction": {
         "hot_bottom": 0.0
       },
-      "cold_path_eff_mm2": 347.13698573797353,
+      "cold_path_eff_mm2": 341.8374228884004,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 670.2785783915772,
-      "exhaust_eff_mm2": 179.15169109642548,
-      "system_eff_mm2": 173.07619048929314,
-      "csi_share_of_intake": 0.48210043267237473,
-      "cold_path_share_of_intake": 0.5178995673276252,
-      "system_flow_ratio_vs_nominal": 0.5991437734638227,
+      "intake_eff_mm2": 664.9790155420039,
+      "exhaust_eff_mm2": 173.93008106796813,
+      "system_eff_mm2": 168.2694523924933,
+      "csi_share_of_intake": 0.48594254119465835,
+      "cold_path_share_of_intake": 0.5140574588053417,
+      "system_flow_ratio_vs_nominal": 0.5890939720062663,
       "intake_area_change_percent": 0.0
     },
     {
@@ -598,14 +865,14 @@
       "open_fraction": {
         "hot_front": 0.0
       },
-      "cold_path_eff_mm2": 347.13698573797353,
+      "cold_path_eff_mm2": 341.8374228884004,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 670.2785783915772,
-      "exhaust_eff_mm2": 201.92194833286584,
-      "system_eff_mm2": 193.33946475098932,
-      "csi_share_of_intake": 0.48210043267237473,
-      "cold_path_share_of_intake": 0.5178995673276252,
-      "system_flow_ratio_vs_nominal": 0.6692898436399863,
+      "intake_eff_mm2": 664.9790155420039,
+      "exhaust_eff_mm2": 200.61891051948535,
+      "system_eff_mm2": 192.06838565063114,
+      "csi_share_of_intake": 0.48594254119465835,
+      "cold_path_share_of_intake": 0.5140574588053417,
+      "system_flow_ratio_vs_nominal": 0.6724115791132703,
       "intake_area_change_percent": 0.0
     },
     {
@@ -617,15 +884,15 @@
         "cold_bottom": 0.0,
         "hot_bottom": 0.0
       },
-      "cold_path_eff_mm2": 250.19837072683396,
+      "cold_path_eff_mm2": 234.31773336832683,
       "csi_eff_mm2": 323.1415926536036,
-      "intake_eff_mm2": 573.3399633804376,
-      "exhaust_eff_mm2": 179.15169109642548,
-      "system_eff_mm2": 170.99814963315038,
-      "csi_share_of_intake": 0.563612539318464,
-      "cold_path_share_of_intake": 0.43638746068153594,
-      "system_flow_ratio_vs_nominal": 0.5919501482953835,
-      "intake_area_change_percent": -14.462436684722457
+      "intake_eff_mm2": 557.4593260219305,
+      "exhaust_eff_mm2": 173.93008106796813,
+      "system_eff_mm2": 166.03616311290506,
+      "csi_share_of_intake": 0.5796684665042113,
+      "cold_path_share_of_intake": 0.42033153349578867,
+      "system_flow_ratio_vs_nominal": 0.5812754569184361,
+      "intake_area_change_percent": -16.168884582386035
     },
     {
       "category": "flow_network",
@@ -635,15 +902,15 @@
       "open_fraction": {
         "csi": 0.0
       },
-      "cold_path_eff_mm2": 347.13698573797353,
+      "cold_path_eff_mm2": 341.8374228884004,
       "csi_eff_mm2": 0.0,
-      "intake_eff_mm2": 347.13698573797353,
-      "exhaust_eff_mm2": 320.1284854969488,
-      "system_eff_mm2": 235.33476273996908,
+      "intake_eff_mm2": 341.8374228884004,
+      "exhaust_eff_mm2": 316.3093414093827,
+      "system_eff_mm2": 232.16535875535587,
       "csi_share_of_intake": 0.0,
       "cold_path_share_of_intake": 1.0,
-      "system_flow_ratio_vs_nominal": 0.8146664042964421,
-      "intake_area_change_percent": -48.21004326723748
+      "system_flow_ratio_vs_nominal": 0.8127869402726704,
+      "intake_area_change_percent": -48.59425411946583
     },
     {
       "category": "flow_network",
@@ -651,20 +918,20 @@
       "status": "info",
       "elements": {
         "cold_rear": {
-          "mouth_mm2": 420.0,
-          "series_min_mm2": 464.4000000000003
+          "mouth_mm2": 332.6399999999999,
+          "series_min_mm2": 534.0
         },
         "cold_bottom": {
-          "mouth_mm2": 425.9999999999999,
-          "series_min_mm2": 437.39999999999986
+          "mouth_mm2": 370.43999999999994,
+          "series_min_mm2": 543.0
         },
         "hot_bottom": {
-          "mouth_mm2": 324.0,
-          "series_min_mm2": 299.40000000000003
+          "mouth_mm2": 316.79999999999995,
+          "series_min_mm2": 300.99999999999994
         },
         "hot_front": {
-          "mouth_mm2": 210.0,
-          "series_min_mm2": 464.4000000000003
+          "mouth_mm2": 197.2,
+          "series_min_mm2": 534.8
         },
         "cold_ports_mm2": 420.0,
         "hot_ports_mm2": 510.0,
@@ -1055,15 +1322,12 @@
     {
       "category": "evf_restraint",
       "id": "-Z",
-      "status": "fail",
+      "status": "pass",
       "limit_mm": 0.6,
       "arresting": "tub",
       "gap_mm": 0.25,
       "first_contact_by_zone": {
-        "hdmi receptacle": {
-          "gap_mm": 0.27,
-          "on": "tub"
-        },
+        "hdmi receptacle": null,
         "ZIF (OLED flex)": null,
         "components": null,
         "pcb": {
@@ -1072,11 +1336,8 @@
         },
         "hdmi plug": null
       },
-      "connector_stop": {
-        "hdmi receptacle": 0.27
-      },
       "contact_bbox": [
-        -138.5,
+        -138.4,
         -136.8,
         1.0,
         28.0,
@@ -1084,14 +1345,11 @@
         64.05
       ],
       "bears_on": [
-        "hdmi receptacle",
         "pcb"
       ],
       "contact_share": {
-        "hdmi receptacle": 0.029,
-        "pcb": 0.971
+        "pcb": 1.0
       },
-      "error": "connector/plug zone within PCB first contact + 0.2: hdmi receptacle 0.27",
       "r7_gap_mm": 0.25,
       "r7_arresting": "tub",
       "r7_status": "pass",
@@ -1254,79 +1512,79 @@
         [
           4.0,
           5.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           5.0,
           6.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           6.0,
           7.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           7.0,
           8.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           8.0,
           9.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           9.0,
           10.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           10.0,
           11.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           11.0,
           12.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           12.0,
           13.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           13.0,
           14.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           14.0,
           15.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           15.0,
           16.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           16.0,
           17.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
@@ -1562,79 +1820,79 @@
         [
           4.0,
           5.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           5.0,
           6.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           6.0,
           7.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           7.0,
           8.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           8.0,
           9.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           9.0,
           10.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           10.0,
           11.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           11.0,
           12.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           12.0,
           13.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           13.0,
           14.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           14.0,
           15.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           15.0,
           16.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
           16.0,
           17.0,
-          0.26,
+          0.27,
           "tub"
         ],
         [
@@ -1795,7 +2053,7 @@
           "panel"
         ]
       },
-      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+      "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
       "delta": {
         "axis_y": -5.0,
         "axis_z": -0.009999999999990905,
@@ -1882,7 +2140,7 @@
           "panel"
         ]
       },
-      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
       "delta": {
         "axis_y": -5.0,
         "axis_z": -0.009999999999990905,
@@ -1969,7 +2227,7 @@
           "panel"
         ]
       },
-      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+      "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
       "delta": {
         "axis_y": -5.0,
         "axis_z": -0.009999999999990905,
@@ -2024,7 +2282,7 @@
     {
       "category": "stack_retention",
       "id": "vertical_carrier",
-      "status": "fail",
+      "status": "pass",
       "retention_points": [
         [
           -127.0,
@@ -2035,6 +2293,11 @@
           -25.0,
           9.0,
           0.0
+        ],
+        [
+          -80.0,
+          5.25,
+          0.15000000000000213
         ]
       ],
       "hull": [
@@ -2043,29 +2306,33 @@
           69.0
         ],
         [
+          -80.0,
+          5.25
+        ],
+        [
           -25.0,
           9.0
         ]
       ],
       "stack_com_xz": [
-        -79.48424149909167,
-        33.960053002128696
+        -78.83421373514076,
+        33.90175876456943
       ],
-      "com_inside_hull_margin_mm": null,
+      "com_inside_hull_margin_mm": 5.8313519646446075,
       "max_lift_mm": {
-        "(-37.5, 10.5)": null,
-        "(-37.5, 59.5)": null,
-        "(-95.5, 10.5)": null,
-        "(-95.5, 59.5)": null,
-        "(-131.8, 4.0)": null,
-        "(-131.8, 73.8)": null,
-        "(-20.2, 4.0)": null,
-        "(-20.2, 73.8)": null
+        "(-37.5, 10.5)": 0.024317718940937205,
+        "(-37.5, 59.5)": 0.0,
+        "(-95.5, 10.5)": 0.16606924643584758,
+        "(-95.5, 59.5)": 0.0,
+        "(-132.2, 3.8)": 0.2836811937918982,
+        "(-132.2, 74.2)": 0.0,
+        "(-19.8, 3.8)": 0.008921332281421088,
+        "(-19.8, 74.2)": 0.0
       },
-      "lift_bounded": false,
-      "com_distance_from_screw_line_mm": 6.110683325893842,
+      "lift_bounded": true,
+      "com_distance_from_screw_line_mm": null,
       "bearing_radius_mm": 4.8,
-      "com_within_bearing_stadium": false,
+      "com_within_bearing_stadium": null,
       "stack": [
         "carrier",
         "pi5",
@@ -2074,43 +2341,100 @@
         "cooler",
         "microsd"
       ],
-      "stack_mass_g": 117.59895220326626,
+      "stack_mass_g": 122.27283464000392,
       "stack_com_mm": [
-        -79.48424149909167,
-        5.051141373822636,
-        33.960053002128696
+        -78.83421373514076,
+        5.6669113518692,
+        33.90175876456943
       ],
-      "declared_retention": "model.CARRIER_SCREWS (two PT screws clamping the carrier ears onto the tub posts); no keeper, hood stop or locating feature",
-      "rule": "r7 check_stack_retention: CoM inside the hull of the retention points (margin > 0) and a bounded rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited.",
-      "remedy": "CAD phase: a third printed locating feature (tongue or slot) with no new screw (register VN-38)"
+      "locators": [
+        {
+          "id": "bottom_rail_tongue",
+          "at": [
+            -80.0,
+            5.25
+          ],
+          "tongue_found": true,
+          "seat_found": true,
+          "stop_found": true,
+          "stop_gap_window_mm": [
+            0.1,
+            0.3
+          ],
+          "seat_contact_tol_mm": 0.001,
+          "credited": true,
+          "tongue_bbox": [
+            -86.0,
+            -74.0,
+            17.2,
+            22.2,
+            4.0,
+            9.0
+          ],
+          "seat_bbox": [
+            -86.5,
+            -73.5,
+            10.0,
+            17.200000000000003,
+            2.0,
+            6.5
+          ],
+          "stop_bbox": [
+            -86.5,
+            -73.5,
+            22.35,
+            25.4,
+            3.1,
+            9.5
+          ],
+          "seat_distance_mm": 0.0,
+          "stop_gap_mm": 0.15000000000000213,
+          "seat_overlap_mm3": 0.0,
+          "stop_overlap_mm3": 0.0,
+          "seat_on_minus_y": true,
+          "stop_on_plus_y": true,
+          "xz_overlap": [
+            -86.0,
+            -74.0,
+            4.0,
+            6.5
+          ],
+          "at_inside_overlap": true,
+          "seat_bears": true,
+          "stop_retains": true
+        }
+      ],
+      "declared_retention": "model.CARRIER_SCREWS (two PT screws clamping the carrier ears onto the tub posts, gap 0) plus each model.CARRIER_LOCATORS point credited from the STEPs with its measured stop gap",
+      "rule": "r7 check_stack_retention: CoM inside the hull of the retention points (margin > 0) and a bounded rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited; a locator counts only with a measured seat contact and a stop gap in [0.1, 0.3] mm.",
+      "remedy": null
     },
     {
       "category": "post_root_bending",
       "id": "carrier_posts_5g",
       "status": "pass",
-      "mass_g": 129.59895220326626,
+      "mass_g": 134.2728346400039,
       "post_count": 2,
       "g_level": 5.0,
-      "force_N": 6.354657823120805,
+      "force_N": 6.583833469111972,
       "diameter_mm": 9.6,
       "length_mm": 42.75,
-      "eccentricity_mm": 12.148858626177363,
+      "eccentricity_mm": 11.5330886481308,
       "section_modulus_mm3": 86.85875368645058,
       "cases": [
         {
           "share": 0.5,
-          "post_force_N": 3.1773289115604024,
-          "root_moment_Nmm": 174.43173072462054,
-          "root_stress_MPa": 2.0082228137223526
+          "post_force_N": 3.291916734555986,
+          "root_moment_Nmm": 178.69540792416785,
+          "root_stress_MPa": 2.0573102921697024
         },
         {
           "share": 0.7,
-          "post_force_N": 4.448260476184563,
-          "root_moment_Nmm": 244.20442301446874,
-          "root_stress_MPa": 2.811511939211293
+          "post_force_N": 4.60868342837838,
+          "root_moment_Nmm": 250.17357109383497,
+          "root_stress_MPa": 2.8802344090375827
         }
       ],
-      "worst_stress_MPa": 2.811511939211293,
+      "worst_stress_MPa": 2.8802344090375827,
       "screen_MPa": 5,
       "posts": [
         {
@@ -2136,7 +2460,7 @@
           "length_spans": 1
         }
       ],
-      "mass_basis": "rigid stack 117.599 g + 12.0 g wiring sensitivity (reference-export18 unresolved wiring)",
+      "mass_basis": "rigid stack 122.273 g + 12.0 g wiring sensitivity (reference-export18 unresolved wiring)",
       "post_top_y_mm": 17.2,
       "screen_basis": "lowest normal-strength scenario of the structural supplement (5.0 MPa, across layers: the posts print along the build axis); a screen, not an allowable; coupon and creep gates open"
     }

@@ -1,15 +1,20 @@
 {
   "method": "CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification",
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "built_utc": "2026-10-09T14:58:12Z",
-  "verification_source_sha256": "c77f737c82495f548bff4b0cc360b92b5f51a5ec8b631d3d8e16afc89fb0e121",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "built_utc": "unrecorded (deterministic build, FP-03)",
+  "verification_source_sha256": "aedf0062db5758c7a245fabbf5e65ec5b25e630361c7f7a2361f72637f01069a",
   "reference_manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
   "reference_structural_binding_sha256": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
   "changed_manifest_rows": [
+    "s_c4",
+    "base_grip",
+    "eyecup",
+    "carrier",
     "tub",
-    "panel"
+    "panel",
+    "lens_collar"
   ],
-  "unchanged_manifest_rows_checked": 43,
+  "unchanged_manifest_rows_checked": 38,
   "row_comparison": {
     "numeric_abs_tol": 1e-06,
     "numeric_rel_tol": 1e-09,
@@ -23,10 +28,10 @@
     "field": "hardware_gates.gates",
     "source_sha256": "2128ccead1284e777c1d67f1b621c3c8de1a5c92137a6d10179c8cf014d47ad1"
   },
-  "geometry_scope": "All non-tub/panel manifest rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
+  "geometry_scope": "All manifest rows other than s_c4/base_grip/eyecup/carrier/tub/panel/lens_collar are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
   "ventilation_report": {
     "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-    "sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+    "sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
     "same_manifest": true,
     "summary": {
       "pass": 49,
@@ -36,13 +41,13 @@
   },
   "assembly": {
     "reference_mass_g": 831.3793077015797,
-    "current_mass_g": 864.1029214723827,
-    "delta_mass_g": 32.72361377080301,
-    "delta_mass_percent": 3.936063054211715,
+    "current_mass_g": 870.4211825643972,
+    "delta_mass_g": 39.04187486281751,
+    "delta_mass_percent": 4.696036394116202,
     "com_mm": [
-      -46.36739964117403,
-      0.9200380599568632,
-      29.90458636412033
+      -46.46040339000588,
+      1.0181348267748092,
+      29.959862170988103
     ],
     "manifest_mesh_dimensions_mm": [
       248.83393461632127,
@@ -58,58 +63,72 @@
   "printed": {
     "tub": {
       "reference_proxy_mass_g": 122.5801431089637,
-      "current_proxy_mass_g": 154.59434687952717,
-      "delta_volume_mm3": 35199.78424470971
+      "current_proxy_mass_g": 155.88124762777736,
+      "delta_volume_mm3": 36614.73833844272
     },
     "panel": {
       "reference_proxy_mass_g": 37.41200176346288,
-      "current_proxy_mass_g": 38.12141176370237,
-      "delta_volume_mm3": 780.0000002633242
+      "current_proxy_mass_g": 38.18786913822245,
+      "delta_volume_mm3": 853.0702306317471
+    },
+    "carrier": {
+      "reference_proxy_mass_g": 9.39895220326626,
+      "current_proxy_mass_g": 14.072834640003924,
+      "delta_volume_mm3": 4368.11442685763
     }
   },
   "upper_body": {
-    "mass_g": 673.1523132387147,
+    "free_body": "new free body: complete manifest minus the J4 lower rows measured from their bound STEPs (lower rows changed: base_grip)",
+    "mass_g": 679.27871810342,
     "com_mm": [
-      -44.797002345297116,
-      1.4596686715188585,
-      54.62669162336193
+      -44.73351011984788,
+      1.5809591234016365,
+      54.48462343243173
     ],
-    "force_5g_N": 33.0068456631122,
-    "floor_moment_5g_Nmm": 1803.0547794987315,
-    "moment_change_percent": 4.81993670566907,
-    "lip_stress_MPa": 8.921364794394764,
-    "head_wing_stress_MPa": 9.860455825383688,
+    "force_5g_N": 33.30724320444452,
+    "floor_moment_5g_Nmm": 1814.7326035665806,
+    "moment_change_percent": 5.498822779220425,
+    "lip_stress_MPa": 8.979145694730477,
+    "head_wing_stress_MPa": 9.924318925754738,
     "unequal_station_sharing_multiplier": [
       0.6,
       1.4
     ]
   },
   "grip": {
-    "force_5g_N": 42.369774574285714,
-    "load_point_z_mm": 54.62669162336193,
+    "force_5g_N": 42.679579449975726,
+    "load_point_z_mm": 54.48462343243173,
     "hand_plane_z_mm": -55,
-    "moment_Nmm": 4644.85821140658,
-    "moment_change_percent": 3.793117820519476,
+    "moment_Nmm": 4672.757684335144,
+    "moment_change_percent": 4.4165541341820935,
     "nominal_stress_x_y_MPa": [
-      1.5783054281524422,
-      1.6769943840396166
+      1.587785564587524,
+      1.687067298494566
     ]
   },
   "carrier": {
-    "payload_g": 122.59895220326626,
+    "payload_g": 127.27283464000394,
+    "reference_payload_g": 122.59895220326626,
+    "carrier_mass_delta_g": 4.673882436737664,
+    "payload_ratio": 1.0381233473267248,
     "reinforced_screen": {
+      "stress_MPa": 3.517507274114796,
+      "deflection_mm": 0.4138933559208409
+    },
+    "reference_reinforced_screen": {
       "stress_MPa": 3.388332690111191,
       "deflection_mm": 0.3986938132030834
     },
-    "reason": "Carried inventory and all carrier/payload manifest rows unchanged; added tub/panel material is fixed housing, not carrier payload."
+    "scaling": "linear in payload; reinforced arm section unchanged by FP-11c",
+    "reason": "FP-11c thickened the carrier frame to its 22.2 bed face (VN-54) and opened its counterbores (VN-56): the carrier mass change is carrier payload; the other carried rows are unchanged."
   },
   "coupon_load": {
     "wiring_mass_sensitivity_g": 12,
     "wiring_upper_height_mm": 100,
     "added_5g_moment_Nmm": 58.8399,
-    "equal_share_plus_wiring_Nm": 0.9309473397493657,
+    "equal_share_plus_wiring_Nm": 0.9367862517832902,
     "proposed_rounded_equal_share_screen_Nm": 0.95,
-    "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+    "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
     "old_0_90_Nm_covers_equal_share_plus_wiring": false,
     "all_variants_screen_Nm": 1.0,
     "governing_variant": "original-kowa_lm6hc",
@@ -122,56 +141,69 @@
       "compact-fujinon_hf6xa": {
         "valid": true,
         "changed_rows": [
+          "base_grip",
+          "carrier",
+          "eyecup",
           "lens",
           "lens_collar",
           "panel",
+          "s_c4",
           "tub"
         ],
         "added_rows": [],
-        "upper_mass_g": 559.733094400986,
-        "floor_moment_5g_Nmm": 1469.3760047742285,
-        "equal_share_plus_wiring_Nm": 0.7641079523871143,
-        "seventy_percent_share_plus_wiring_Nm": 1.0697511333419598,
+        "upper_mass_g": 565.8594999368922,
+        "floor_moment_5g_Nmm": 1481.0538306410776,
+        "equal_share_plus_wiring_Nm": 0.7699468653205388,
+        "seventy_percent_share_plus_wiring_Nm": 1.077925611448754,
         "proposed_rounded_equal_share_screen_Nm": 0.8,
-        "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a"
+        "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835"
       },
       "compact-kowa_lm6hc": {
         "valid": true,
         "changed_rows": [
+          "base_grip",
+          "carrier",
+          "eyecup",
+          "lens_collar",
           "panel",
+          "s_c4",
           "tub"
         ],
         "added_rows": [],
-        "upper_mass_g": 673.1523132387147,
-        "floor_moment_5g_Nmm": 1803.0547794987315,
-        "equal_share_plus_wiring_Nm": 0.9309473397493657,
-        "seventy_percent_share_plus_wiring_Nm": 1.303326275649112,
+        "upper_mass_g": 679.27871810342,
+        "floor_moment_5g_Nmm": 1814.7326035665806,
+        "equal_share_plus_wiring_Nm": 0.9367862517832902,
+        "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
         "proposed_rounded_equal_share_screen_Nm": 0.95,
-        "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77"
+        "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810"
       },
       "original-kowa_lm6hc": {
         "valid": true,
         "changed_rows": [
+          "base_grip",
+          "carrier",
           "evf_board",
           "eyecup",
           "eyepiece",
           "foam_pad",
           "hmx039",
+          "lens_collar",
           "p_panel1",
           "p_panel2",
           "panel",
+          "s_c4",
           "tub",
           "usb_stick"
         ],
         "added_rows": [
           "stick_sleeve"
         ],
-        "upper_mass_g": 715.4161353042974,
-        "floor_moment_5g_Nmm": 1893.805217302459,
-        "equal_share_plus_wiring_Nm": 0.9763225586512294,
-        "seventy_percent_share_plus_wiring_Nm": 1.3668515821117213,
+        "upper_mass_g": 721.5355623426694,
+        "floor_moment_5g_Nmm": 1905.4884510286029,
+        "equal_share_plus_wiring_Nm": 0.9821641755143014,
+        "seventy_percent_share_plus_wiring_Nm": 1.375029845720022,
         "proposed_rounded_equal_share_screen_Nm": 1.0,
-        "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849"
+        "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9"
       }
     },
     "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
@@ -196,5 +228,6 @@
     "not_allowables": true,
     "notches_creep_fatigue_impact_excluded": true
   },
-  "physical_qualified": false
+  "physical_qualified": false,
+  "j4_lower_centres_file": "structural-review/j4-lower-centres.json"
 }

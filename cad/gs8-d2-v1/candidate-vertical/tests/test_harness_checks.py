@@ -5,7 +5,8 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_harness_check
 
 - r7 port: constants and helper math equal r7 checks.py / layout.py (d38468e copies in ../).
 - Families: the stretched QT / run routes are recomputed from their own knots; the solver bounds are the literals in
-  signal_routes.py; the family minima match the review (QT 239.1, run 214.3 / 209.5 mm).
+  signal_routes.py; the family minima match the routes of record (QT 203.5 since the H2 fan-in and top-run family,
+  239.1 before; run 183.3 / 171.6 mm since the H1 re-route behind the carrier boss, 214.3 / 209.5 on 9ced753).
 - Regression fixtures: a lead shortened 10 mm fails mate_reach (QT plug row, run plug row, J2 inline halves); a
   pigtail 10 mm shorter loses face_out; a tie slot moved onto a core is 'on route'; drop rows reproduce the
   candidate's own 60 C model at the low end and fail at the hot-fuse high end, a cold short path passes; overlapping
@@ -94,9 +95,10 @@ class TestR7Port(unittest.TestCase):
 class TestFamilies(unittest.TestCase):
     def test_bounds_are_source_literals(self):
         src = read_text(CV / 'signal_routes.py')
-        self.assertIn('lo,hi=34.,50.', src)
+        self.assertIn('_solve_top(qt_curve,250-qt_longest,56.,87.5)', src)   # H2: was 'lo,hi=34.,50.' (low run)
+        self.assertNotIn('lo,hi=34.,50.', src)
         self.assertIn('_solve_top(make,250,35,80)', src)
-        self.assertEqual(HR.FAMILIES['qt']['bound'], (34.0, 50.0))
+        self.assertEqual(HR.FAMILIES['qt']['bound'], (56.0, 87.5))
         self.assertEqual(HR.FAMILIES['run_pin37']['bound'], (35.0, 80.0))
 
     def test_recompute_and_minima(self):
@@ -104,9 +106,10 @@ class TestFamilies(unittest.TestCase):
         rows = HR.family_rows(H, R.rounded_path)
         self.assertEqual({r['status'] for r in rows}, {'pass'})
         mins = {cid: HR.min_route(H, H['cables'][cid], R.rounded_path)[0] for cid in HR.FAMILIES}
-        self.assertAlmostEqual(mins['qt'], 239.14, delta=0.05)
-        self.assertAlmostEqual(mins['run_pin37'], 214.31, delta=0.05)
-        self.assertAlmostEqual(mins['run_pin39'], 209.54, delta=0.05)
+        self.assertAlmostEqual(mins['qt'], 203.54, delta=0.05)   # H2 fan-in + top-run family (239.14 before)
+        # H1 (VN-26): run-lead loop re-routed behind the carrier boss (FIX-LOG); 9ced753 values were 214.31 / 209.54
+        self.assertAlmostEqual(mins['run_pin37'], 183.27, delta=0.05)
+        self.assertAlmostEqual(mins['run_pin39'], 171.63, delta=0.05)
 
     def test_tampered_family_fails(self):
         H = data()
@@ -121,8 +124,10 @@ class TestMateReach(unittest.TestCase):
     def _plug_fixture(self, rid, cable):
         H = data()
         r = row(self._rows(H), rid)
-        need = (r['fixed_mm'] + r['tail_mm']) / (1 - HR.ROUTE_ALLOWANCE[1])   # L >= fixed + tail + 0.1 L
-        L_pass = math.ceil(max(need, r['fixed_mm'] + r['tail_mm'] + HR.MATE_MARGIN)) + 5
+        fl = r.get('free_lead')   # H2: a lead free at its mate (documented order) is judged on its free route
+        raw = fl['fixed_mm'] + fl['route_mm'] if fl else r['fixed_mm'] + r['tail_mm']
+        need = raw / (1 - HR.ROUTE_ALLOWANCE[1])   # L >= fixed + tail (or free route) + 0.1 L
+        L_pass = math.ceil(max(need, raw + HR.MATE_MARGIN)) + 5
         ok = row(self._rows(H, {cable: L_pass}), rid)
         bad = row(self._rows(H, {cable: L_pass - 10}), rid)     # the same lead shortened 10 mm
         self.assertFalse([p for p in ok['problems'] if 'lead short' in p], ok['problems'])
@@ -138,28 +143,43 @@ class TestMateReach(unittest.TestCase):
     def test_j2_halves_shortened_10mm_fail(self):
         H = data()
         r = row(self._rows(H), 'j2_btn')
-        raw_b = r['fixed_mm'] + math.dist(r['anchor_pt'], r['junction_at'])   # body side: anchor path + to junction
-        raw_f = math.dist(r['junction_at'], r['far_pose'])                   # far side: junction to the switch
+        fl = r.get('free_lead')   # H2: the documented order (J2 free at panel_prop) places the junction on the free route
+        if fl and fl.get('junction_s_mm') is not None:
+            raw_b, raw_f = fl['junction_s_mm'], fl['route_mm'] - fl['junction_s_mm']
+        else:
+            raw_b = r['fixed_mm'] + math.dist(r['anchor_pt'], r['junction_at'])   # body side: anchor path + to junction
+            raw_f = math.dist(r['junction_at'], r['far_pose'])                   # far side: junction to the switch
         L = math.ceil(max(x for raw in (raw_b, raw_f) for x in (raw + HR.MATE_MARGIN, raw / 0.9))) + 5
         ok = row(self._rows(H, {'power_button': (('a', L, 0.0), ('b', L, 0.0))}), 'j2_btn')
         bad = row(self._rows(H, {'power_button': (('a', L - 10, 0.0), ('b', L - 10, 0.0))}), 'j2_btn')
-        self.assertFalse([p for p in ok['problems'] if 'junction cannot' in p], ok['problems'])
-        self.assertTrue([p for p in bad['problems'] if 'junction cannot' in p], bad['problems'])
+        unreachable = lambda p: 'junction' in p and 'cannot' in p   # noqa: E731  (secured or free-route wording)
+        self.assertFalse([p for p in ok['problems'] if unreachable(p)], ok['problems'])
+        self.assertTrue([p for p in bad['problems'] if unreachable(p)], bad['problems'])
 
-    def test_qt_documented_order_fails_now(self):
+    def test_qt_documented_order(self):
         r = row(self._rows(data()), 'qt_enc')
-        self.assertLess(r['slack_mm'], 0)                  # secured-lane case: lanes secured, then propped 60 mm
+        # FX-H (verifier H2 minor): the free lead decides the row, so the secured-lane figures live in secured_lane_case
+        self.assertLess(r['secured_lane_case']['slack_mm'], 0)   # secured-lane case: lanes secured, then propped 60 mm
+        self.assertEqual(r['slack_mm'], r['free_lead']['slack_mm'])
         self.assertLess(r['info_free_lead_need_mm'], 240)  # free-lead lower bound only (not obstacle-checked)
         self.assertEqual(r['pose'], [0.0, 60.0, 0.0])
-        # fixup-1: steps.py now leaves QT and J2 free until panel_in, so the row fails on the missing free-lead
-        # route (HOLD), and the secured-lane shortfall is kept, labelled, not dropped.
+        # fixup-1: steps.py leaves QT and J2 free until panel_in. Without a free-lead route the rows fail on the HOLD
+        # and the secured-lane shortfall is kept, labelled (negative control, unchanged).
+        H = data()
+        H['free_leads'] = {}
         for rid in ('qt_enc', 'j2_btn'):
-            r = row(self._rows(data()), rid)
-            self.assertEqual(r['status'], 'fail', rid)
-            self.assertTrue(r['lead_state'].startswith('free at panel_prop; laid into its lanes at panel_in'), r)
-            self.assertIn('no obstacle-checked free-lead route', r['problems'][0])
+            r0 = row(self._rows(H), rid)
+            self.assertEqual(r0['status'], 'fail', rid)
+            self.assertTrue(r0['lead_state'].startswith('free at panel_prop; laid into its lanes at panel_in'), r0)
+            self.assertIn('no obstacle-checked free-lead route', r0['problems'][0])
         self.assertTrue(any(p.startswith('secured-lane case') and 'lead short' in p
-                            for p in row(self._rows(data()), 'qt_enc')['problems']))
+                            for p in row(self._rows(H), 'qt_enc')['problems']))
+        # H2: the declared free-lead routes decide (tests/test_h2_harness.py): QT passes on its free route with the
+        # secured-lane shortfall kept in secured_lane_case; J2 fails on the FPC envelope at its hypothetical pads.
+        q = row(self._rows(data()), 'qt_enc')
+        self.assertEqual(q['status'], 'pass', q['problems'])
+        self.assertTrue(any('lead short' in p for p in q['secured_lane_case']['problems']))
+        self.assertEqual(row(self._rows(data()), 'j2_btn')['status'], 'fail')
 
     def test_qt_secured_before_prop_is_the_old_shortfall(self):
         saved = ST.STEPS
@@ -191,7 +211,7 @@ class TestFamilyMemberClearance(unittest.TestCase):
         r = row(rows, 'qt', 'cable_stow')
         self.assertEqual(r['status'], 'pass')
         mc = r['member_clearance']
-        self.assertEqual((mc['variable'], mc['value'], mc['od_mm']), ('low', 34.0, 3.2))
+        self.assertEqual((mc['variable'], mc['value'], mc['od_mm']), ('top', 87.5, 3.2))   # H2 (was low 34)
         self.assertGreater(mc['pieces'], 2)
         self.assertIn('pi5', mc['exempt'])
         for rid in ('run_pin37', 'run_pin39'):
@@ -203,7 +223,7 @@ class TestFamilyMemberClearance(unittest.TestCase):
     def test_planted_part_on_the_bound_member_fails(self):
         H = data()
         c = H['cables']['qt']
-        mem = HR.family_eval(R.rounded_path, c['curve'], c['family'], 34.0)['points']
+        mem = HR.family_eval(R.rounded_path, c['curve'], c['family'], 87.5)['points']   # H2: longest member
         p = mem[len(mem) // 2]
         H['boxes']['zz_planted'] = [p[0] - 1, p[0] + 1, p[1] - 1, p[1] + 1, p[2] - 1, p[2] + 1]
         H['kinds']['zz_planted'] = 'printed'
@@ -294,7 +314,11 @@ class TestHeaderStowRoutes(unittest.TestCase):
         H['cables']['qt']['length_range'] = (240.0, st['family_max_mm'] + 1.0)
         self.assertEqual(row(HR.cable_stow_rows(H, R.rounded_path), 'qt')['status'], 'fail')
         cr = row(HR.cable_routes_rows(data(), R.rounded_path), 'qt')
-        self.assertTrue([p for p in cr['problems'] if 'shortest route' in p])
+        self.assertFalse([p for p in cr['problems'] if 'shortest route' in p])   # H2: 203.5 + 25 <= 240
+        H = data()
+        H['cables']['qt']['length_range'] = (200.0, 260.0)                     # a 200 mm minimum lead fails
+        self.assertTrue([p for p in row(HR.cable_routes_rows(H, R.rounded_path), 'qt')['problems']
+                         if 'shortest route' in p])
         H = data()
         H['cables']['qt']['length_range'] = (270.0, 280.0)
         self.assertFalse([p for p in row(HR.cable_routes_rows(H, R.rounded_path), 'qt')['problems']
@@ -316,7 +340,7 @@ class TestBoundReport(unittest.TestCase):
     def test_numbers_reproduced(self):
         H = data()
         rows = HR.run_all(H, R.rounded_path, ST, hits=NO_HITS, printed_dist=lambda i, b: 9.9, cots_dist=lambda i, b: 9.9)
-        for cat, rid, keys in [('mate_reach', 'qt_enc', ('fixed_mm', 'tail_mm', 'slack_mm')),
+        for cat, rid, keys in [('mate_reach', 'qt_enc', ('fixed_mm', 'route_mm', 'slack_mm')),   # FX-H: free-lead figures
                                ('mate_reach', 'run_pi_37', ('fixed_mm', 'tail_mm', 'slack_mm')),
                                ('cable_routes', 'qt', ('min_route_mm', 'slack_mm')),
                                ('lead_access', 'pigtail_drop', ('drop_lo_v', 'drop_hi_v')),
@@ -325,6 +349,9 @@ class TestBoundReport(unittest.TestCase):
             a, b = row(rows, rid, cat), row(self.rep['checks'], rid, cat)
             for k in keys:
                 self.assertEqual(a[k], b[k], (rid, k))
+        a, b = row(rows, 'qt_enc', 'mate_reach'), row(self.rep['checks'], 'qt_enc', 'mate_reach')
+        for k in ('fixed_mm', 'tail_mm', 'slack_mm'):   # FX-H: the secured-lane figures moved into secured_lane_case
+            self.assertEqual(a['secured_lane_case'][k], b['secured_lane_case'][k], k)
 
     def test_failing_set(self):
         got = self.rep['failing']
@@ -361,9 +388,24 @@ class TestRegistrationAndArchive(unittest.TestCase):
 # fixup-1: QT and J2 are free at panel_prop (steps.py secures them at panel_in) and no obstacle-checked free-lead route
 # exists yet (j2_btn joins qt_enc); the run-lead family members (both bounds, and the recorded route itself, probe
 # 2026-10-11) intersect the tub (floor lay at centreline z 4.9 and the riser), so their cable_routes / cable_stow rows fail.
+# H1 (VN-26 routes, FP-11f): run leads re-routed behind the carrier boss, installed usb_5v and pack_lead routes with
+# exact installed-clearance sweeps and the feed_volumes rows: those six rows pass and leave this set.
+# H2 (VN-28): QT fan-in modeled and the top-run family re-solved (shortest route 203.5 + 25 <= 240); qt_enc passes on
+# its declared free-lead route (exact sweep clear) and leaves this set. cable_routes qt still fails, now on the
+# installed-route sweep H2 added: the 250 mm solve puts the top run (Z79.2) against the HDMI ribbon's U-turn bottom
+# (Y-22.35, Z80.15..85.85); j2_btn fails on its free route (cooler fin at the hypothetical pads, FPC envelope; VN-73);
+# the pigtail service corridor is now obstacle-checked (microsd, tub, run leads, FPC envelope) and stays failing with
+# the pigtail rows (user decisions 4 and 6).
+# FX-H (phase-2 verifier findings 1-3, 5; stricter checks, each newly failing row is honest and logged in FIX-LOG):
+# cable_stow qt (the members storing 250 / 260 mm of the purchased QT lead meet the HDMI U-turn cells; 240 is clear);
+# cable_stow power_button_j2_pair (new row: the V-28 class pair does not fit routes.py power_stow, user decision 13);
+# cable_routes power_button (installed sweep added: cooler and pi5 at the J2 pad hypothesis, VN-73 / G-V-POWER), fan
+# (the estimated native-lead route runs inside the cooler model beyond its 10 mm terminal zone), fpc and oled_flex
+# (ribbon round-envelope screen: not proof of a conflict, clearance unproven); mate_reach qt_enc (end parts exempt
+# only near their terminals: the free route crosses the pi5 about 100 mm from the QT headers).
 EXPECTED_FAILING = {
-    'cable_routes': ['pack_lead', 'pigtail_negative', 'pigtail_positive', 'qt', 'run_pin37', 'run_pin39', 'usb_5v'],
-    'cable_stow': ['run_pin37', 'run_pin39'],
+    'cable_routes': ['fan', 'fpc', 'oled_flex', 'pigtail_negative', 'pigtail_positive', 'power_button', 'qt'],
+    'cable_stow': ['power_button_j2_pair', 'qt'],
     'lead_access': ['pigtail_drop', 'pigtail_ties_on_route', 'pigtail_xt30_mouth'],
     'mate_reach': ['j2_btn', 'qt_enc', 'xt30_pack'],
 }

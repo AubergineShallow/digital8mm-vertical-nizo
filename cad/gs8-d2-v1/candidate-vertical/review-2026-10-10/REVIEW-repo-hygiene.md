@@ -1,6 +1,6 @@
 # Repo-hygiene review: digital8mm-vertical-nizo @ 9ced753
 
-Scope: repository and reproducibility of the clone at `C:\Users\Pre-Installed User\Claude\Projects\digital8mm-vertical-nizo`
+Scope: repository and reproducibility of the clone at `<snapshot clone>` (a local clone of `digital8mm-vertical-nizo`)
 (main = origin/main = origin/redesign/vertical-pi-hidden-vents = 9ced753, parent d38468e = r7).
 Method: read-only git queries and probes. Nothing in the clone was written. `git status --ignored` after all probes shows only
 the pre-existing `.cad.lock`. Probes and their raw outputs are next to this report:

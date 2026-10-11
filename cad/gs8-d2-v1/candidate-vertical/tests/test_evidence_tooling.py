@@ -169,6 +169,7 @@ class TestDocsAuditFixture(unittest.TestCase):
         cp = cv / 'CHECKPOINT-STATUS.json'
         c = json.loads(cp.read_text(encoding='utf-8'))
         c['open_inherited_gates'] = 55
+        c['guide']['manifest_binding_current'] = True   # FX: plant the false claim (the live CHECKPOINT honestly says False)
         cp.write_text(json.dumps(c, indent=2), encoding='utf-8', newline='\n')
         (cv / 'out/compact-kowa_lm6hc/zz-planted.json').write_text(json.dumps({'manifest_sha256': 'f' * 64}), encoding='utf-8', newline='\n')
         rc, a = audit(cv)
@@ -252,7 +253,11 @@ class TestReconciler(unittest.TestCase):
 
     def test_print_failures_must_equal_the_accepted_set(self):
         p = json.loads((SEL / 'print-checks.json').read_text(encoding='utf-8'))
-        self.assertTrue(ER.print_failure_findings(p), 'print checks pass: review EXPECTED_PRINT_FAILURES and this test')
+        # FX: the FX refresh passes every print check (EXPECTED_PRINT_FAILURES stays empty, reviewed as this sentinel
+        # asked); the rule is now exercised with a planted failing row instead of the live report
+        planted = dict(p, failing=dict(p['failing'], bed_chamfer=['planted_part']))
+        self.assertTrue(ER.print_failure_findings(planted))
+        self.assertEqual(ER.EXPECTED_PRINT_FAILURES, {} if isinstance(ER.EXPECTED_PRINT_FAILURES, dict) else type(ER.EXPECTED_PRINT_FAILURES)())
         clean = dict(p, failing={k: [] for k in p['failing']})
         self.assertEqual(ER.print_failure_findings(clean), [])
 

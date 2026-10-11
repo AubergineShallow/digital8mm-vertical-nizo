@@ -61,6 +61,17 @@ def report(name):
 REF = rd(CV / 'structural-review/reference-export18-structural-binding.json')
 OLD = rd(CV / 'history/reviewed-export18/manifest.json')
 MANS = {p.parent.name: rd(p) for p in sorted((CV / 'out').glob('*/manifest.json')) if 'storage' in rd(p)}
+# FX refresh (new J4 free body, trial3 tub): original-Kowa equal-share + wiring and 70 percent share (N m)
+O_EQUAL, O_SEVENTY = 0.982164, 1.375030
+
+
+def lower_first(v, m):
+    """FX: J4 lower-row first moments of variant v from the committed structural-review/j4-lower-centres.json, used
+    only where its STEP hashes equal the manifest's (structural --check recomputes the centres from the STEPs)."""
+    cache = rd(CV / 'structural-review/j4-lower-centres.json')['variants'][v]
+    for i in CS.J4_LOWER_IDS:
+        assert cache[i]['step_sha256'] == m['files']['step/%s.step' % i], (v, i)
+    return CS.first_from_centres(m, {i: cache[i] for i in CS.J4_LOWER_IDS})
 
 
 class J4Screen(unittest.TestCase):          # VN-33
@@ -70,13 +81,16 @@ class J4Screen(unittest.TestCase):          # VN-33
         self.assertLess(abs(res), 1e-6)
 
     def test_per_variant_and_envelope(self):
-        per = {v: CS.j4_screen(REF, OLD, m, ER.changed_rows) for v, m in MANS.items()}
+        # FX: the C2/FX base_grip change touches a J4 lower row, so every variant now gets the new free body computed
+        # directly from its bound STEPs (check_scope.j4_direct); the transfer alone refuses (test_lower_change_refused)
+        per = {v: CS.j4_screen(REF, OLD, m, ER.changed_rows, lower_first=lower_first(v, m)) for v, m in MANS.items()}
         self.assertTrue(all(r['valid'] for r in per.values()))
+        self.assertTrue(all(r['lower_rows_touched'] == ['base_grip'] for r in per.values()), per)
         sup = rd(CV / 'structural-review/concealed-vent-structural.json')['coupon_load']
         self.assertAlmostEqual(per[VAR]['equal_share_plus_wiring_Nm'], sup['equal_share_plus_wiring_Nm'], places=12)
         o = per['original-kowa_lm6hc']
-        self.assertAlmostEqual(o['equal_share_plus_wiring_Nm'], 0.9763, places=4)       # register: 0.976
-        self.assertAlmostEqual(o['seventy_percent_share_plus_wiring_Nm'], 1.3669, places=4)  # register: 1.367
+        self.assertAlmostEqual(o['equal_share_plus_wiring_Nm'], O_EQUAL, places=4)     # FX refresh (register: 0.976 at 9ced753)
+        self.assertAlmostEqual(o['seventy_percent_share_plus_wiring_Nm'], O_SEVENTY, places=4)
         env = CS.j4_envelope(per)
         self.assertFalse(env['compact_screen_covers']['original-kowa_lm6hc'])
         self.assertTrue(env['compact_screen_covers'][VAR])
@@ -324,9 +338,28 @@ class CheckScopeReport(unittest.TestCase):
         self.assertEqual(len([c for c in ev if c['id'] != 'control_without_panel']), 8)
         self.assertEqual({c['id']: c for c in ev}['control_without_panel']['status'], 'pass')
         st = {c['id']: c for c in r['checks'] if c['category'] == 'stack_retention'}['vertical_carrier']
-        self.assertEqual(st['status'], 'fail')          # expected until the CAD phase adds a locating feature
+        # FP-11c (VN-38): was 'fail' by design until the CAD phase added the third locating feature; it now passes only
+        # with every declared locator credited from the bound STEPs (seat contact, stop gap in r7's 0.1-0.3 window)
+        self.assertEqual(st['status'], 'pass')
+        self.assertTrue(st['locators'] and all(l['credited'] for l in st['locators']))
+        self.assertGreater(st['com_inside_hull_margin_mm'], 0.0)
+        self.assertTrue(st['lift_bounded'])
         hot = {c['id']: c for c in r['checks'] if c['category'] == 'area_parity'}['hot_branch_series']
-        self.assertLess(hot['effective_sum_mm2'], hot['wall_ports_mm2'])
+        # FP-11a (VN-37): the trial1 post-grid tub fails by 0.6 mm2 (509.4 < 510); trial2 passed only because its
+        # series planes skipped the ribbed port band. FX: the hot_bottom series now also samples z 16.05..42.95, and the
+        # path-aware min cut is the gate; on trial3 both report the real hot shortfall (decision 17).
+        rev = MANS[VAR].get('ventilation', {}).get('revision', '')
+        if 'trial3' in rev:
+            self.assertEqual(hot['status'], 'fail', hot)
+            self.assertTrue(any(p > 16.0 for p in hot['sections']['hot_bottom']['positions_mm']))
+            pm = {c['id']: c for c in r['checks'] if c['category'] == 'area_parity'}
+            self.assertEqual(pm['cold_path_min_cut']['status'], 'pass')
+            self.assertEqual(pm['hot_path_min_cut']['status'], 'fail')
+        elif 'trial2' in rev:
+            self.assertEqual(hot['status'], 'pass', hot)
+            self.assertGreaterEqual(hot['effective_sum_mm2'], hot['wall_ports_mm2'])
+        else:
+            self.assertLess(hot['effective_sum_mm2'], hot['wall_ports_mm2'])
         drift = {c['id']: c for c in r['checks'] if c['category'] == 'flow_network'}['baseline_drift']
         self.assertIn(drift['status'], ('pass', 'fail'))     # a computed gate, not info (VN-36)
 

@@ -12,8 +12,8 @@ Reviewer label: repro. Date: 2026-10-10. Read-only on the snapshot clone; all ru
 
 ## Setup
 
-- Snapshot clone: `C:\Users\Pre-Installed User\Claude\Projects\digital8mm-vertical-nizo` (main at 9ced753). Left byte-identical (only the ignored `.cad.lock` appears in `git status --ignored`).
-- Rebuild worktree: `C:\Users\Pre-Installed User\Claude\Projects\digital8mm-vertical-nizo-rebuild`, made with `git worktree add ... HEAD` (detached at 9ced753).
+- Snapshot clone: `<snapshot clone>`, a local clone of `digital8mm-vertical-nizo` on the review machine (main at 9ced753). Left byte-identical (only the ignored `.cad.lock` appears in `git status --ignored`).
+- Rebuild worktree: `<rebuild worktree>`, a sibling folder `digital8mm-vertical-nizo-rebuild` next to the clone, made with `git worktree add ... HEAD` (detached at 9ced753).
 - Interpreter: `8mm\.venv-cad\Scripts\python.exe` (CPython 3.12.14, CadQuery 2.6.1). Windows 11. Every CAD job ran through the clone's `run_locked.py` (serial, shared lock with other review agents).
 - Git for Windows sets `core.autocrlf=true` in the system gitconfig. This matters (section 1).
 - Logs and probe scripts: `scratchpad\vn\repro\logs\` and `scratchpad\vn\repro\*.py`.
@@ -173,7 +173,7 @@ Inherited, not caused by the candidate: `validation/software-verification.json` 
 - **Stale reports sit next to current ones** in `out/compact-kowa_lm6hc/`: `ventilation-checks.json` (manifest `c392feab...`), `wall-probe-context.json` (`c9e1e207...`), `csi-access-checks.json` (`e8648073...`). The docs audit labels the first two as historical. `csi-access-checks.json` is only named in the export18 history checkpoint and in `delivery-core-paths.json`, with no label in the current evidence.
 - **Reconciler text is hard-coded.** `reconcile_review_evidence.py` asserts only that exactly one rigid failure exists with id `pi5/cooler`; the volume `79.902671mm3` in `prominent_holds` is a string literal, not read from `verification.json`. A rebuild with a different overlap would still print the old number.
 - **Tools absent here.** `run_shadow_renders.py` calls `blender` (not installed). `guide/software_lineart.py` compiles `raster.cpp` with `g++ -shared -fPIC` into `raster.so` and loads it with ctypes; that targets POSIX, and `raster.so` is gitignored. Neither is in the core rebuild sequence; both stay unverified here.
-- **Path length.** The longest tracked path is 132 characters (r7: 92). With the clone at `C:\Users\Pre-Installed User\Claude\Projects\digital8mm-vertical-nizo\` the full path is about 200 characters; a clone more than about 60 characters deeper fails on Windows without `core.longpaths` (seen when I tried to export the tree into the scratch directory).
+- **Path length.** The longest tracked path is 132 characters (r7: 92). With the clone at `<snapshot clone>\` (a 69-character folder prefix on the review machine) the full path is about 200 characters; a clone more than about 60 characters deeper fails on Windows without `core.longpaths` (seen when I tried to export the tree into the scratch directory).
 - **Mesh check hides its binding result.** `verify_print_meshes.py` folds the STL hash binding into `status` but does not write it to the row, so a binding failure looks like an unexplained fail with every listed property true.
 
 ## 6. Findings

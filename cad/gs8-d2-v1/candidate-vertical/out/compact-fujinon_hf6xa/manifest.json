@@ -2,7 +2,17 @@
   "runtime": {
     "python": "3.12.14",
     "cadquery": "2.6.1",
-    "cadquery_ocp": "7.8.1.1.post1"
+    "cadquery_ocp": "7.8.1.1.post1",
+    "platform": "win32-amd64"
+  },
+  "determinism": {
+    "step_file_name_time": "1970-01-01T00:00:00",
+    "recorded_times": "unrecorded (deterministic build, FP-03)",
+    "mesh_source": "saved STEP read back with STEPControl_Reader.OneShape, tessellate(0.07, 0.15)",
+    "key_order": "sorted",
+    "byte_identity_scope": "same platform and pinned runtime (python, cadquery, cadquery_ocp) as recorded",
+    "git_ignored_caches": "meshes/*.json (rebuild: export_cache.py regenerate)",
+    "tool": "export_cache.py"
   },
   "print_poses": {
     "base_grip": {
@@ -20,7 +30,7 @@
       ],
       "footprint_mm": [
         116.5,
-        50.40000000000021,
+        52.1,
         110.00000000000057
       ],
       "slicer_state": "NOT RUN",
@@ -63,7 +73,7 @@
       "footprint_mm": [
         45.5273602722001,
         45.5273603722001,
-        16.30000009999998
+        16.300000099999984
       ],
       "slicer_state": "NOT RUN",
       "physical_release": false
@@ -119,14 +129,14 @@
       ],
       "angle_deg": -90,
       "translation_mm": [
-        131.8,
-        -4.000000000000002,
-        22.199999999999996
+        132.2,
+        -3.8000000000000007,
+        22.200000100000025
       ],
       "footprint_mm": [
-        111.6,
-        69.8,
-        6.000000000000004
+        112.4,
+        70.4,
+        6.000000100000031
       ],
       "slicer_state": "NOT RUN",
       "physical_release": false
@@ -162,13 +172,13 @@
       "angle_deg": -90,
       "translation_mm": [
         155.4,
-        -3.0999999000000034,
-        28.00000010000001
+        -3.099999999999998,
+        28.000000700000005
       ],
       "footprint_mm": [
         152.3000001,
-        93.8000002,
-        24.800000100000013
+        93.8000001,
+        24.800000700000012
       ],
       "slicer_state": "NOT RUN",
       "physical_release": false
@@ -183,13 +193,13 @@
       "angle_deg": 90,
       "translation_mm": [
         -24.4,
-        30.000000000000004,
-        8.600000000000003
+        30.800000000000004,
+        8.600000000000005
       ],
       "footprint_mm": [
         71.69999999999999,
-        55.0,
-        11.300000000000015
+        55.800000000000004,
+        11.300000000000017
       ],
       "slicer_state": "NOT RUN",
       "physical_release": false
@@ -214,13 +224,34 @@
       ],
       "slicer_state": "NOT RUN",
       "physical_release": false
+    },
+    "tab_catch_insert": {
+      "face_down": "-Z",
+      "rotation_axis": [
+        0,
+        0,
+        1
+      ],
+      "angle_deg": 0,
+      "translation_mm": [
+        14.5,
+        -8.279999999999998,
+        -78.5
+      ],
+      "footprint_mm": [
+        6.300000000000002,
+        12.000000000000004,
+        8.500000000000005
+      ],
+      "slicer_state": "NOT RUN",
+      "physical_release": false
     }
   },
   "revision": "D2-V1 vertical-board shadow-plenum candidate, 2026-10-09",
   "storage": "compact",
   "lens": "fujinon_hf6xa",
-  "state": "UNQUALIFIED REVIEW CANDIDATE; all 56 inherited physical gates and M1 remain open",
-  "built_utc": "2026-10-09T15:26:39Z",
+  "state": "UNQUALIFIED REVIEW CANDIDATE; every inherited r7 physical gate (r7 out/build-receipt.json hardware_gates) and M1 remain open",
+  "built_utc": "unrecorded (deterministic build, FP-03)",
   "rows": [
     {
       "id": "pi5",
@@ -376,7 +407,7 @@
       "bbox_mm": [
         -178.3128321671329,
         -153.48986011943177,
-        -8.263461532823335,
+        -8.263461532823337,
         30.263461532823335,
         58.736538467176665,
         97.26346153282334
@@ -545,8 +576,8 @@
         -75.67708616620165,
         -37.74628167268213,
         -17.257372663904125,
-        5.7391025642341,
-        -29.45512995522208,
+        5.7391025642340985,
+        -29.455129955222077,
         9.931435342751417
       ],
       "volume_mm3": 1990.1390816987234,
@@ -567,8 +598,8 @@
         -100.59141191199515,
         -5.550000100000014,
         5.550000100000014,
-        -5.701818267550176,
-        -0.0981817324498258
+        -5.701818267550177,
+        -0.09818173244982668
       ],
       "volume_mm3": 478.60861250727646,
       "mass_est_g": 4.0,
@@ -773,10 +804,10 @@
       "kind": "hardware",
       "mesh": "s_c4.json",
       "bbox_mm": [
-        1.1975523667593924,
+        1.1975523667593926,
         8.202447633240608,
-        -29.802447633240607,
-        -22.797552366759394,
+        -30.302447633240607,
+        -23.297552366759394,
         50.09860130957679,
         68.90195812659249
       ],
@@ -794,20 +825,20 @@
       "kind": "printed",
       "mesh": "base_grip.json",
       "bbox_mm": [
-        -117.00000010000028,
-        -0.4999998999997158,
-        -25.20243750360774,
-        25.200000100000082,
+        -117.00000010000001,
+        -0.499999899999985,
+        -26.92453251653964,
+        25.200000100000125,
         -110.02251171014285,
-        0.012692370455839961
+        0.012692370455841775
       ],
-      "volume_mm3": 66883.96650611637,
-      "mass_est_g": 42.93950649692671,
+      "volume_mm3": 67182.8079816763,
+      "mass_est_g": 43.13136272423618,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 66883.96650611637,
+      "occupied_material_volume_mm3": 67182.8079816763,
       "volume_semantics": "shape volume"
     },
     {
@@ -837,19 +868,19 @@
       "mesh": "eyecup.json",
       "bbox_mm": [
         -191.61645213603123,
-        -175.28625874909204,
+        -175.28242358372654,
         -11.808259474248189,
         33.80825947424819,
         55.19174052575181,
         100.80825947424819
       ],
-      "volume_mm3": 4406.391069641452,
-      "mass_est_g": 5.331733194266157,
+      "volume_mm3": 4384.3936378810195,
+      "mass_est_g": 5.305116301836033,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 4406.391069641452,
+      "occupied_material_volume_mm3": 4384.3936378810195,
       "volume_semantics": "shape volume"
     },
     {
@@ -885,13 +916,13 @@
         68.00520419797566,
         91.99479580202431
       ],
-      "volume_mm3": 2168.466251538382,
-      "mass_est_g": 2.3202588891460687,
+      "volume_mm3": 2168.4662515383825,
+      "mass_est_g": 2.320258889146069,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 2168.466251538382,
+      "occupied_material_volume_mm3": 2168.4662515383825,
       "volume_semantics": "shape volume"
     },
     {
@@ -899,20 +930,20 @@
       "kind": "printed",
       "mesh": "carrier.json",
       "bbox_mm": [
-        -131.80014908772554,
-        -20.196682507597124,
+        -132.21256201030616,
+        -19.78998534227087,
         16.195750613046943,
-        22.204281013750116,
-        3.9999998999999273,
-        73.80319892073315
+        22.243174550399058,
+        3.788043264974192,
+        74.21185359349914
       ],
-      "volume_mm3": 8784.067479688094,
-      "mass_est_g": 9.39895220326626,
+      "volume_mm3": 13152.181906545724,
+      "mass_est_g": 14.072834640003924,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 8784.067479688094,
+      "occupied_material_volume_mm3": 13152.181906545724,
       "volume_semantics": "shape volume"
     },
     {
@@ -927,13 +958,13 @@
         -5.050000100000004,
         100.00139869042322
       ],
-      "volume_mm3": 169977.29178617612,
-      "mass_est_g": 154.59434687952717,
+      "volume_mm3": 171392.24587990914,
+      "mass_est_g": 155.88124762777736,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 169977.29178617612,
+      "occupied_material_volume_mm3": 171392.24587990914,
       "volume_semantics": "shape volume"
     },
     {
@@ -941,20 +972,20 @@
       "kind": "printed",
       "mesh": "panel.json",
       "bbox_mm": [
-        -155.4138332372186,
-        -3.0999994138364526,
+        -155.41403864908025,
+        -3.0999993329493236,
         3.199999899999972,
         28.031028157290894,
         3.0963635648996704,
         96.90363643510035
       ],
-      "volume_mm3": 41914.69132897457,
-      "mass_est_g": 38.12141176370237,
+      "volume_mm3": 41987.761559342995,
+      "mass_est_g": 38.18786913822245,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 41914.69132897457,
+      "occupied_material_volume_mm3": 41987.761559342995,
       "volume_semantics": "shape volume"
     },
     {
@@ -964,18 +995,18 @@
       "bbox_mm": [
         -2.702657421804093,
         8.61915600975469,
-        -30.000000100000058,
+        -30.80000010000006,
         25.01216841214143,
         24.387031174279212,
         96.11316352205797
       ],
-      "volume_mm3": 12614.86565912031,
-      "mass_est_g": 13.497906255258732,
+      "volume_mm3": 12732.418807557764,
+      "mass_est_g": 13.623688124086808,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 12614.86565912031,
+      "occupied_material_volume_mm3": 12732.418807557764,
       "volume_semantics": "shape volume"
     },
     {
@@ -1169,77 +1200,79 @@
     }
   ],
   "sources": {
-    "candidate-vertical/model.py": "61382452ff32d4db90ba612b4d707a68f4817f6c50a5bdb6699f177fe53b228e",
-    "candidate-vertical/vent_geometry.py": "5209e01c97823921cbc27ca16fda5f32c65ac6fa16dca0c29691ec8aae5f316b",
-    "candidate-vertical/export_candidate.py": "b92b103ee8d1404b5dccfe5568b73987df72d8b2b8614b98ac055badbe92faf5",
-    "candidate-vertical/power_geometry.py": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
-    "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
-    "candidate-vertical/structure_geometry.py": "22243dec9a95e7703703fe2986889ed71676a153856e2da6cdda27bf172b9c0a",
-    "candidate-vertical/strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
+    "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324",
+    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+    "candidate-vertical/export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
+    "candidate-vertical/export_candidate.py": "f19f2530947898bbdd475ce621d90a389d48f9fa8f896fd7c03f256cbc125556",
     "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
     "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
-    "candidate-vertical/official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
-    "candidate-vertical/official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
-    "candidate-vertical/official_pi5_assembly.py": "ffae358f5c4b882b92ab73ee6519da76eff810fd1e4ee3a1a400c018fea01055",
-    "candidate-vertical/make_corrected_pi.py": "0bb0b4e344d7834e32ac3ce59d84e8fa5369468b1ca6541ba5fd8ee17c11113d",
-    "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
-    "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
-    "candidate-vertical/out/source-components/pi5-corrected.json": "429ab9db6441ec0807f5ef7b599feed75c11238f47e6c42e095288bf2af01820",
-    "candidate-vertical/out/source-components/pi5-corrected.step": "85fae8b04a9b0171d8dc0b15a29800540c85dc748e6910d293ff5d51adbe372f",
-    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/make_corrected_pi.py": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
+    "candidate-vertical/model.py": "271e02017315dce2abecd5022adf09038e0f6e3c2fc05fc51b926a8e2cd79533",
+    "candidate-vertical/official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
+    "candidate-vertical/official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
+    "candidate-vertical/official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
+    "candidate-vertical/out/source-components/pi5-corrected.json": "fd251c7be6cde774df557971032d0ca7a29761cc1d43b0544584dd7569f59e87",
+    "candidate-vertical/out/source-components/pi5-corrected.step": "15f13dc88100375c8fd5e8d90fc4d71464cec952168e6e6238d593ba1fde2729",
+    "candidate-vertical/power_geometry.py": "583b6ddabfc8ff0fd00ba8ba2b8f0a31ead31a81222e9d3f8ac2517f8a918d6d",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
-    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
-    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
-    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
-    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
-    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
-    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
-    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
-    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
-    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
-    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
-    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
-    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
-    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "candidate-vertical/strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
+    "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
+    "candidate-vertical/structure_geometry.py": "4230b810c2e67229b6176eae7a35ddac22e2549a848c22a3cd74f3d2c7b58985",
+    "candidate-vertical/vent_geometry.py": "fcf624d9180df50e094abc607edeecae8f6498ba7ab8693fa9f2672bfafc63e6",
+    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
     "coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
-    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
-    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
     "make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
-    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
     "printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
     "test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
     "test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
-    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
-    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
     "test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
     "test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
     "test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
-    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
-    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
-    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
-    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
-    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
-    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
-    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
-    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
-    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
-    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
-    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
-    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
-    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
-    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
-    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
-    "fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
-    "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324"
+    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec"
   },
   "core_dimensions_mm": [
     158.0,
@@ -1252,7 +1285,7 @@
     0
   ],
   "ventilation": {
-    "revision": "shadow-gap plenum trial1",
+    "revision": "shadow-gap plenum trial3 (windowed flow ribs, 45 deg cold-mouth lintels, mullions, skin bed chamfer)",
     "outer_side_y_mm": -35.6,
     "inner_side_y_mm": -25.5,
     "outer_skin_mm": 1.6,
@@ -1260,21 +1293,323 @@
     "original_side_wall_mm": 2.5,
     "intake_wall_throat_mm2": 420.0,
     "exhaust_wall_throat_mm2": 510.0,
-    "cold_rear_mouth_mm2": 420.0,
-    "cold_bottom_mouth_mm2": 426.0,
-    "hot_bottom_mouth_mm2": 324.0,
-    "hot_front_mouth_mm2": 210.0,
+    "cold_rear_mouth_mm2": 332.64,
+    "cold_bottom_mouth_mm2": 370.44000000000005,
+    "hot_bottom_mouth_mm2": 316.8,
+    "hot_front_mouth_mm2": 202.8,
+    "mouth_gross_mm2": {
+      "cold_rear": 420.0,
+      "cold_bottom": 426.0,
+      "hot_bottom": 324.0,
+      "hot_front": 210.0
+    },
     "csi_access_open_area_mm2": 323.1415926535898,
     "csi_unchanged_straight_access": true,
     "panel_previous_relief": "Four blind grooves with0.2mm retained floors, not through-vents; removed for plain2.8mm panel",
-    "airflow": "Separate integral cold/hot outer bays; rear/underside intake and front/underside exhaust. Internal baffle and CSI bypass remain unsealed. Area is not flow or cooling.",
-    "print": "Outer face on bed;1.6mm integral posts nominal8mm grid. Internal roof bridges and inaccessible support removal require a representative plenum coupon and slicer inspection. No automatic trapped supports.",
+    "airflow": "Separate integral cold/hot outer bays; rear/underside intake and front/underside exhaust. 1.2 mm ribs built as hanging beams on full-depth pillars (5 mm flow windows under each beam, no rib in front of a port; path-aware min cut in check_scope); internal baffle and CSI bypass remain unsealed. Area is not flow or cooling.",
+    "print": "Outer face on bed with 0.6 mm bed chamfer. Roof bridges run between continuous 1.2 mm beam lines (one slicer direction per roof region; each beam is a straight bridge of at most 10 mm between pillars; spans computed by verify_print_checks print_bridge_direction); cold mouths have 45 deg lintels, every mouth has mullions. Slicer inspection and the all-four-mouth plenum coupon remain gates. No automatic trapped supports.",
+    "support": {
+      "revision": "trial3 windowed ribs (hanging beams on pillars) + lintels",
+      "rib_thickness_mm": 1.2,
+      "rib_y_mm": [
+        -34.05,
+        -27.9
+      ],
+      "beam_y_mm": [
+        -29.0,
+        -27.9
+      ],
+      "pillar_length_mm": 1.2,
+      "window_max_mm": 14.0,
+      "hot_boundary_x": -31.0,
+      "hot_band_row": [
+        10.0,
+        -16.5,
+        -2.6
+      ],
+      "hot_column_x": -17.1,
+      "hot_lip_x": -3.2,
+      "cold_rows": [
+        [
+          22.5,
+          [
+            [
+              -158.0,
+              -64.9
+            ]
+          ]
+        ],
+        [
+          28.5,
+          [
+            [
+              -158.0,
+              -64.9
+            ]
+          ]
+        ],
+        [
+          34.5,
+          [
+            [
+              -158.0,
+              -64.9
+            ]
+          ]
+        ],
+        [
+          43.0,
+          [
+            [
+              -158.0,
+              -90.9
+            ]
+          ]
+        ],
+        [
+          51.0,
+          [
+            [
+              -158.0,
+              -90.9
+            ]
+          ]
+        ],
+        [
+          59.0,
+          [
+            [
+              -158.0,
+              -90.9
+            ]
+          ]
+        ],
+        [
+          67.0,
+          [
+            [
+              -158.0,
+              -90.9
+            ]
+          ]
+        ],
+        [
+          55.0,
+          [
+            [
+              -75.1,
+              -64.9
+            ]
+          ]
+        ],
+        [
+          76.0,
+          [
+            [
+              -155.6,
+              -64.9
+            ]
+          ]
+        ],
+        [
+          84.0,
+          [
+            [
+              -155.6,
+              -64.9
+            ]
+          ]
+        ],
+        [
+          92.0,
+          [
+            [
+              -155.6,
+              -64.9
+            ]
+          ]
+        ]
+      ],
+      "hot_rows": [
+        [
+          21.0,
+          [
+            [
+              -30.4,
+              0.0
+            ]
+          ]
+        ],
+        [
+          28.0,
+          [
+            [
+              -30.4,
+              -17.3
+            ]
+          ]
+        ],
+        [
+          35.0,
+          [
+            [
+              -30.4,
+              -17.3
+            ]
+          ]
+        ],
+        [
+          40.6,
+          [
+            [
+              -30.4,
+              -17.3
+            ]
+          ]
+        ],
+        [
+          49.0,
+          [
+            [
+              -30.4,
+              -2.4
+            ]
+          ]
+        ],
+        [
+          77.0,
+          [
+            [
+              -30.4,
+              -2.4
+            ]
+          ]
+        ],
+        [
+          10.0,
+          [
+            [
+              -16.5,
+              -2.6
+            ]
+          ]
+        ]
+      ],
+      "hot_z_ribs": [
+        [
+          -48.0,
+          2.75,
+          16.0
+        ],
+        [
+          -48.0,
+          19.0,
+          23.0
+        ],
+        [
+          -48.0,
+          26.0,
+          30.0
+        ],
+        [
+          -48.0,
+          33.0,
+          37.0
+        ],
+        [
+          -48.0,
+          40.0,
+          97.6
+        ],
+        [
+          -31.0,
+          2.4,
+          16.0
+        ],
+        [
+          -31.0,
+          19.0,
+          23.0
+        ],
+        [
+          -31.0,
+          26.0,
+          30.0
+        ],
+        [
+          -31.0,
+          33.0,
+          37.0
+        ],
+        [
+          -31.0,
+          40.0,
+          97.6
+        ],
+        [
+          -3.2,
+          2.4,
+          10.6
+        ],
+        [
+          -60.4,
+          15.4,
+          40.6
+        ],
+        [
+          -17.1,
+          9.4,
+          16.0
+        ]
+      ],
+      "hot_diagonal": null,
+      "hot_left_separator": null,
+      "cold_bottom_mullions_x": [
+        -130.33333333333334,
+        -106.66666666666666
+      ],
+      "hot_bottom_mullion_x": -31.0,
+      "hot_front_mullion_z": 21.0,
+      "lintel_mm": 0.6,
+      "lintel_land_mm": 1.2,
+      "lintel_mouths": [
+        "cold_rear",
+        "cold_bottom"
+      ],
+      "skin_bed_chamfer_mm": 0.6,
+      "mouths": {
+        "cold_rear": {
+          "gross": 420.0,
+          "net": 332.64,
+          "mullions": 7,
+          "lintel_mm": 0.6
+        },
+        "cold_bottom": {
+          "gross": 426.0,
+          "net": 370.44000000000005,
+          "mullions": 2,
+          "lintel_mm": 0.6
+        },
+        "hot_bottom": {
+          "gross": 324.0,
+          "net": 316.8,
+          "mullions": 1,
+          "lintel_mm": 0.0
+        },
+        "hot_front": {
+          "gross": 210.0,
+          "net": 202.8,
+          "mullions": 1,
+          "lintel_mm": 0.0
+        }
+      }
+    },
     "physical_qualified": false,
     "remaining": [
       "Actual cooler profile/registration",
       "Fan operating point and plenum pressure loss",
       "Hand and strap occlusion",
-      "Plenum bridge/cleanout coupon",
+      "Plenum bridge/cleanout coupon (all four mouths)",
       "Real CSI latch/jaw access",
       "All56 inherited gates andM1"
     ]
@@ -1293,14 +1628,14 @@
     216.82102055308357
   ],
   "complete_bbox_volume_mm3": 3840083.0997562986,
-  "mass_est_g": 750.6837026346541,
+  "mass_est_g": 757.0019643978694,
   "com_est_mm": [
-    -58.19013138692064,
-    1.0597420048261184,
-    25.35753373303232
+    -58.198391980484345,
+    1.1713702589757327,
+    25.45904300538133
   ],
   "grip_axis_x": -47.0,
-  "com_offset_from_grip_mm": -11.19013138692064,
+  "com_offset_from_grip_mm": -11.198391980484345,
   "qualification": "Computed geometry only. COTS proxies, mass and centre of mass are estimates. The legacy12g XT30/fused-pigtail mass is concentrated at its rigid proxy; other harness masses are excluded. The270mm16AWG distributed mass and actual weights remain unmeasured. No physical qualification claimed.",
   "fps_geometry": {
     "part": "Lorlin CK1044",
@@ -1477,7 +1812,7 @@
         1
       ]
     ],
-    "cooler_hold": "Official RP-008187 drawing does not dimension fan-to-pin offsets or complete outline. Retain32.3614mm3 CSI/coarse-cooler conflicts until received-part geometry is registered.",
+    "cooler_hold": "Official RP-008187 drawing does not dimension fan-to-pin offsets or complete outline. Retain the CSI/coarse-cooler conflicts that the main audit reports (verification.json row interference pi5/cooler; no figure is typed here, FP-04) until received-part geometry is registered.",
     "changed_claims": [
       "Inherited RJ45 and USB2 rows were reversed",
       "Inherited second HDMI had the wrong sign of its spacing",
@@ -1493,107 +1828,111 @@
     "physical_qualified": false
   },
   "files": {
-    "step/eyepiece.step": "8bb8523830331880bb292bd9f21747488de1f126d82310427931fe6bf7822b89",
-    "step/cooler.step": "2e81ba594de931c7481d9e9205ce160a2d5ca594481e6f6c7e887a391591852e",
-    "step/p_panel3.step": "f140105f0794bc04562971fce96b87f0a8f78827f2c2b56ce8a91a1d5558774c",
-    "step/knob_exp.step": "e4c451d5ff953a166809f9d79feaced50b85db9b8d8f86f44c9f575eb695baa3",
-    "step/p_panel4.step": "99e32f2c94046513480d5c94d4f56b0763c88eac5b54aa2e7da75ecaaae2dad7",
-    "step/evf_board.step": "c80c74bf659966f7c38b5e28f09e95c4224d017376553d74f80a7a2c3994d908",
-    "step/switch_1824.step": "9de47244ab383a66813e6231dd55466675bc1c9cd4bd986d4d47d2ead2c541cc",
-    "step/p_grip.step": "34afe2ff2d9de3e4ebeeac55cadd812835327f3f170e8828b145e08288a1c352",
-    "step/p_carrier2.step": "df63eb16f5562e114260366f6f4a6c967592b9f8e258733b5b7bb7116228f71f",
-    "step/usb_storage_plug_reserve.step": "bee8d97e584998eabc929590ab4552c98b911cc102225108ef295f24b0a063bc",
-    "step/lens_collar.step": "5224fe8f8969a06b348cb26a69ec405f434569ebd924123152d9056e77df2556",
-    "step/fps_mounting_washer.step": "5156d654ba7508465d04381914c3811b77ab6d22340a072ee2c0bf6a6eb94d48",
-    "step/power_nut_reserve.step": "21e1bc82d8a4a433f0ebc1524ea654772ab8d24b4a2a1fc07031cd68f5c95f84",
-    "step/usb_stick.step": "190b1496ce0a035a7ecba786f56ae82532e6dc52c7b09fa95297bc970f8104d1",
-    "step/centring_gauge.step": "96bae6edf90b47b48e7f53bc4c68bd77c5b7f2cc5d5f7fdba49495b106fbb753",
-    "step/p_carrier1.step": "252b8cb4b50a49945f9ff6708dee97f5254368029dd31f4ff9d8191e09f918cd",
-    "step/lens.step": "1bc336912ba287e10b33427b33d02c35b53ed8e2313b5a7253922940ba8154f4",
-    "step/encoder.step": "868b40eeb877b83d3f4747cbb580c8d60b2a74924fe5614b8d6068c34a9edaf6",
-    "step/cap.step": "7fb7b4e7d106dd0845f3d13648ef874012555dadbeb78ccb8149024814fdc926",
-    "step/carrier.step": "13f7d39cd7eee043ddd223ee6d169c6eb7e9eec3dd346cb825eaf724b7aa717e",
-    "step/hmx039.step": "1c6d926f6dc8bbf6d76ca2caad94c4fb950236e5b27af10c365b4b53d0cb8d55",
-    "step/foam_pad.step": "55051879e736e16a284256e22b2a17d057dc517d1318a8a19f9077f6e5d3dd3e",
-    "step/s_c4.step": "acb5999256fafd0bafeddf78b05386160a69eb67ca25fb1071910b0406ff0472",
-    "step/tub.step": "890914cae0258e17adfcebe2815e70af36e0d44fd576aa67712ad41e6131969a",
-    "step/knob_fps.step": "e3fa332430ed17ea935a273b4123f84e2d4fbb561343afa53697f7d1ee9380f0",
-    "step/run_button.step": "4c58bdb8d3e669be9fed01278d8c1b333673ca68426bac2ff6abc4dee80fa68d",
-    "step/panel.step": "35f75019b8c045b380b63c098688dccd09f5a83e2761b806885353ed13a23971",
-    "step/p_panel2.step": "930d6399e1662819e7e91c62b7d4ad3eca6a87922a5619c374a486267bb359ce",
-    "step/tripod_nut.step": "ebec9ef4fab4f70b8eb6849224599c98812d84b5e3e14414109aaaf0ab408600",
-    "step/power_button.step": "c40793d23a4325fdc6b41181628976a81879e8ed3209c567740f8f94e98e7096",
-    "step/x1203_kit.step": "abb7627c17935f063fec9050069f93f020967dd573604402b837f6ce69ce8372",
-    "step/x1203.step": "8cb112a8326459cf1da07403b4fb6496b5ee64be9e1639f9e6df0619527b841a",
-    "step/s_c2.step": "e2dcba8c9383336e8da69018e3e445209eaaf714091634a57a9c4d87601d2dd0",
-    "step/fps_nut.step": "1bd0c4b9bacef3c5e5c435bc0133baa2805f469d3c4abbf436b716686aeacb1b",
-    "step/s_c3.step": "4a50384071e063008cc37aed4c6603cacc1b994e51874d57b40b3e11a5d5f1ff",
-    "step/pi5.step": "fee3055dffe298d3a3d5be5f3d552cd0f48b8df4566920be13915c2c126b4296",
-    "step/pack.step": "6d6aba6643e5fa670efc29b136376a0206c798e3eed7d059dcfebcbc04d8cc48",
-    "step/microsd.step": "1e32d459765953eb42ead23f00f7337bacb6e8d1ffe8ae165e24088f6f755dd8",
-    "step/base_grip.step": "386bfcf64feb985c36800963f51d1dc269aad981423e3cf97497c4784ca1e68c",
-    "step/strap.step": "84d4e12ad018d630aeaa257c2b0ecc79512bba567b0dd32bd529ee7f768dcda4",
-    "step/gs_camera.step": "5223bc3b58a776d80b7b976fcae947b148a4e39e7bdfc232e96ee38a31d686da",
-    "step/s_c1.step": "0b9c62aba23d8c41a80d2064d74687c90c760c6242dbc73e931cf087b5ad442f",
-    "step/c_cs_adapter.step": "21ce280aaf4c874b4f696171067db6cf7797df12bf630c4b77bb3aef324eb19a",
-    "step/p_panel1.step": "4f116d9df3c40d4be741e6160355f9edc3381c18f7b0b3463bb2122332121571",
-    "step/eyecup.step": "227bee380dca7aa71ee1cffdaafc91ebc77a3f998dda11e79a83328e99062691",
-    "step/xt30_pair.step": "0fca69c59a8df6be77f0794d4726f1a26f48eceaba8ec51a95926a67b19f3652",
-    "stl/carrier.stl": "abab22a32890ee0b7a522fded75ad59e42411040b613232590d80ff5651af5f2",
-    "stl/panel.stl": "e7c2c6541dcb18b3e2995af60f67986e12d09ad4251f92168b7807c9e182e32d",
-    "stl/tub.stl": "6032aed64a07e64c02fb5cb6b8874d74324f5a1e1a48a8514357dc9a3ac4a59e",
-    "stl/cap.stl": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
-    "stl/eyecup.stl": "900c1d06f9253acca9a1c03d6ec1e2f43f5c7bbd59097c04935188d2d060ec6e",
-    "stl/base_grip.stl": "1e099f67616c334278c64a1769c46d59adb8fbaab973b5370dfdd02f9f8dc685",
-    "stl/knob_exp.stl": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
-    "stl/lens_collar.stl": "58a79ddc36c7ef5b79f3201d301746198632766a610780ad4da121e1661c7468",
-    "stl/centring_gauge.stl": "432acefe0773aca1753c3156f22ef9248eef093f89904a428c57c61040ad1fcb",
-    "stl/knob_fps.stl": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
-    "meshes/tripod_nut.json": "5e0efe0ff10cd96f900c8f6fdfb7aadff470e9768ff7d7df1c01bd3d9b996c02",
-    "meshes/fps_mounting_washer.json": "0fc5cd6af5ade2148195cdc5d84d0f20fd119bf921617abc57c5d40babca2f07",
-    "meshes/p_carrier2.json": "fdf3e62a44c7b3361668093d4e2b99d614c8873c759ea565f340c3ea448c3795",
-    "meshes/switch_1824.json": "be8b8c5b474e7416b1bbebb3220deca3365528f649189ec6026377d397bcb085",
-    "meshes/eyepiece.json": "baf47255e3c10c092b4c69f314726876823e0f5161b66b59b14a8d63793dd6de",
-    "meshes/gs_camera.json": "e9212ee98b5882cf9fd415fa6fdc16d4f127e0f3086899be01402b918cde31d3",
-    "meshes/evf_board.json": "3c024bf4ee434a70b4938662747432fbd456fb434745d35f82b298f9c28bf664",
-    "meshes/lens.json": "7d310d178ca5d4be389baab8408b07d94f87c1cf86b3496d7a1d8b837bd4cfdf",
-    "meshes/run_button.json": "10e6fdd836f553c065a9850dec613801e464b065c11b4e4f50e2cdaf26fa925b",
-    "meshes/cap.json": "b380e85e4a434c8dca0a87c3669b194382069f269c7a38f3c3b4d3a989433359",
-    "meshes/x1203_kit.json": "95973d39cd08cc9a21f7730e0d9e5f3223b89468cd5dc0436f406d9f6fd0a817",
-    "meshes/p_carrier1.json": "a0697c12db66de6c971875cc2dafff976471be5caa0dc6c43ad3bf698ad0fd17",
-    "meshes/foam_pad.json": "4e00122903e31e02034c2e0f07accd8710f535fda6b576afc755441c73e874d1",
-    "meshes/cooler.json": "97c2699c4c10b95d6039135719dac25daa86ca4d1daf0e7af8699e9023ff68b7",
-    "meshes/c_cs_adapter.json": "6b0ffe2c19511c3023bc400fa60c80a7c79f3619b9b4842e6411f7ab074c34da",
-    "meshes/strap.json": "f036f027e6f166c35c128f8f40fbe0b1fde09e684e043f82a496fb276602b412",
-    "meshes/base_grip.json": "7ec1e93cbe8f696e683aaeb413463133d0005f1022a17b0e1d739282aa47eea0",
-    "meshes/power_button.json": "b44c7cf2d42eff76efd3971c6e9a4b5f6d965da40633d92b4ee2e30ed0b10d99",
-    "meshes/pi5.json": "d0f843f33bc4e455711b98645b6976fa7ee41277bd934efafedc167577bec943",
-    "meshes/p_panel2.json": "a3bbec5aaa83fd3c95ef45a3565e1ddf5e0278c0c699ae1b4cf571fcec434f34",
-    "meshes/p_grip.json": "9173853591f1eb621f6b9a243ef8c68f9463dee5e83cf893b8abadb192989f16",
-    "meshes/xt30_pair.json": "9bdbe9e230feb47f7a726ed74f3da2966e4610918ef61771854edc2b0c2d0b41",
-    "meshes/s_c2.json": "8c0b5cc9abaccbbd5e6bf95a327bd7ee2d15430db0857827455338302ad30e7d",
-    "meshes/lens_collar.json": "e0d851a6c5e78b461143d279673f67a50dee460a477d774b519ebea984902037",
-    "meshes/tub.json": "a2f3235c5ce723b95b07ce146d202130d8e67136d5a51bdb45edbef78ced6e67",
-    "meshes/panel.json": "42fca8914acde44d90a2d03f79963415282addf51f2aa9d26e57c92177f4dd7e",
-    "meshes/knob_fps.json": "98c0531f1781e4b032e756d4e71dcc921e810b59662d244a4ae377d73d7c6be2",
-    "meshes/encoder.json": "3ada1ccd552595fd765c9c8967eeb3548af99cf300ad7f2cbfd0636b8f93d399",
-    "meshes/knob_exp.json": "8882ecbf8b72682f992af8b50ed186f9e14022c856764c212f113c06101d5e11",
-    "meshes/usb_storage_plug_reserve.json": "85edde8372c050943ae742e8543d2438c095c9a270909c2844944cbacd5a8ca1",
-    "meshes/pack.json": "679dd7da50663ccbe275e99fdc309d6a9875cf38edac8ffa95d87cfad31c0ff6",
-    "meshes/carrier.json": "0e53beaf1003509a367e504ce0980e31445d08cd9ab2db95316dde9e1e795576",
-    "meshes/p_panel3.json": "ba04ef8e8e25c17bd18fc0229d102c43d3b735bb441b18bf0e6fffc6e8843fc7",
-    "meshes/fps_nut.json": "5b2daab2c4e5cebd23ec6347a02df44d15dc4f33de549bcb6d174201f08fed90",
-    "meshes/power_nut_reserve.json": "f0639d4078d9b16c69a32543764388b97c6bcfeef4d7010b408e6284aaaa29cd",
-    "meshes/usb_stick.json": "d3df903a813641602f2357f656c95ca8407841ce50c298c4c61664aff7915388",
-    "meshes/hmx039.json": "c89398ac45b1399a85a32864c3f84685ccd23740a219558a348c80ba9c785baa",
-    "meshes/s_c1.json": "b35fc3c4e1f4bfebdb4441e629982ea682e68ef3b024d3f6bf7154ab6ecc28c2",
-    "meshes/microsd.json": "e941bff35db3b7fba76f5ae5a69a3ff2f831a4583fda07b4a38173e673f17370",
-    "meshes/x1203.json": "0a01820ce6fc843e0397e8d4cba23565f5a9bb8f29d3cc8f1cf5611d4e1fb4e3",
-    "meshes/s_c4.json": "879b28d0227d30710ffe2357bc1660dc813f805ed387c44dcc657af4495b4302",
-    "meshes/p_panel4.json": "4ea43717c9060041a89fca8f358d744f1baa2bd4d768b373e25ee49cd6045d76",
-    "meshes/p_panel1.json": "91421882473f75b2f5852c74f1149a16916a3414431822eb8af7ad153dca7ddf",
-    "meshes/s_c3.json": "26ccf854e8caeead21d188f2339fca892d9cef64998ad61946ed6c9fea1a0765",
-    "meshes/eyecup.json": "57d8f0dffbd0212233cf72276b132ee43271f67b924506058006589252aa33cf",
-    "assembly.step": "041132b8f0420a37b188d08e0515983b41ea1fab8c0c6f4747da7520df9332e9"
+    "LICENSE-RaspberryPi.txt": "b8c5ff8793639891ff6a3102f0e7bfe6dd94c9df1892072e4db2d9e9884e1854",
+    "assembly.step": "9d3e19bf539cb40bff2b564ef712b40e0cd5442557eed7be6465c58a4ea5b531",
+    "meshes/base_grip.json": "194caad76472c62022ee7471feb4e014e7e70cf8b0f27aa0d2e3087f5f16a5f0",
+    "meshes/c_cs_adapter.json": "eef46988bc3626ba226fc80cccc49924fc3879066dd6890fd5c388b70ff9da1d",
+    "meshes/cap.json": "cfae2579a103fc2c004d9c0b344823fe53c075c02cf4c4dea654596ec06629fe",
+    "meshes/carrier.json": "69708f73893bfc851873de620c17de5b05f2557ee501a2c3747b8bb6d2a5d57c",
+    "meshes/cooler.json": "98e62a275d548b6151057e168d130f9e2071a2598a0729264d831d953f14c465",
+    "meshes/encoder.json": "bdf3cc0f34d7a39501a167159be573420eebf41692e5ff99ab93e6f4eefd11be",
+    "meshes/evf_board.json": "bdc9967473f11f16eb3005e98844a7f7cb9e5220fc4611b7af740114e2b3444d",
+    "meshes/eyecup.json": "56d42722d805b29a67c6b4c8f0cb82a195616e05b74f3f2f49b083a019d67186",
+    "meshes/eyepiece.json": "0e039bd61e1a68e4200bff8f16838e423f873f2083d8d7d706c4466e07dfb506",
+    "meshes/foam_pad.json": "ee644fc4b77bc95fb61a7edebed2b9e2851d3baac8150fbb18673fb62b553bbd",
+    "meshes/fps_mounting_washer.json": "6ee11ad34f880d03d0ae6459e88fab2686634685088cb9030d2f01edd3c1a402",
+    "meshes/fps_nut.json": "dc95aa1cf1f354babe964853c330bab9aa29622ef9ff0703becb198943502ab8",
+    "meshes/gs_camera.json": "cc1c23a12fabe6b765b975db0d47307b398bcbb5ec505bf593990f720ffcaf4b",
+    "meshes/hmx039.json": "e7ff122e7b991906b83bc15c00ad435fbf8c0e20b4e0d8811d59ea4e4d674500",
+    "meshes/knob_exp.json": "e130f3dfb3d5e9bc2d6a222ad2dc1306bac50dabdfe8c0b66432df352746eac1",
+    "meshes/knob_fps.json": "4e303566c73a22b15ebf746efe1aa30dbb6bec2153cad7336b75a7295a7755dd",
+    "meshes/lens.json": "e72ed34e5c46c711d4849fff3181d61cd1a59e89a969461e600317743f976756",
+    "meshes/lens_collar.json": "34aa30a26f212b54a24edfd47b52bcd97f8dbd838cd37b75e52699642af89df4",
+    "meshes/microsd.json": "941f1e6c22d93c88bd0e8d3c3c6ce249f3923a7ec3d95b52dca7009daf4cde17",
+    "meshes/p_carrier1.json": "10b9292203acb22e0107d317579b95bcb47138f72dbfb0519452647e4591a092",
+    "meshes/p_carrier2.json": "00ac47c1363ab628b8ff09cf3032c367b16f4b988543b836e91f2d152987b397",
+    "meshes/p_grip.json": "14e64719787171c717d4bd06314108518ede80e3c8389f894888c23197719171",
+    "meshes/p_panel1.json": "32f5d17e833c5ff31a5d5a758cbc89412e755062531f2c54de7e6a68d64ea397",
+    "meshes/p_panel2.json": "49b404cdb3fe7505c29e2981ef586b9425b0c0bea453b3287bbd5d088770a862",
+    "meshes/p_panel3.json": "f0118bc9539e71b757063db5355106db4bd66a62c3f0c5d2a22b06421ad6c7c6",
+    "meshes/p_panel4.json": "b6014bf62d98bc2c5540d979b2ab782fd7168e34ccad2fb8751e5136f3857f8f",
+    "meshes/pack.json": "775c235496615029885d26b378e1565556db5f7b378ae03ac9b19289b808c758",
+    "meshes/panel.json": "bc6cc0810f8b720a7b00042e2444e7d174695bd9b3439b71b5c805f829005669",
+    "meshes/pi5.json": "e18f061785fd5748e41987bc07a65012f71b3a3b4638b6ba67a5a3d913261457",
+    "meshes/power_button.json": "e475cbc2421a7ae1f7133b916cecec21ead86c600631b3f9de410d8bb54d8192",
+    "meshes/power_nut_reserve.json": "ee7622788087af868ab3876f997d8e768f8c15a84ae25b2ca5b675df5a8c34dc",
+    "meshes/run_button.json": "7cd0b7bba71c9e9762f426e6f37a77d191d3001bf8bd6383b9c548431183490e",
+    "meshes/s_c1.json": "73a2ad1f781fade6e83735ffd84a8cf53a972b70140848a97907c1e000d757d3",
+    "meshes/s_c2.json": "7d195d242eda85faf365293b2f7b9ef0aee9fd3f6fd83ea34456d5e58b902a4f",
+    "meshes/s_c3.json": "345048a079c419423e76620c92b4394b3596846098056c73203848ec59cab098",
+    "meshes/s_c4.json": "9f29a16182885fa645f027206415ef79bcfb308f1fd01385d5d3d3152f6c8744",
+    "meshes/strap.json": "6c18c9a8ee2132cf8f718604ee6b849369831e5ff388b210e3c2ded1e52e5d72",
+    "meshes/switch_1824.json": "cdf4a87ddc6d6fad4d57e35fd543f065d0608cf76a82656c05aad0d39e00fa68",
+    "meshes/tripod_nut.json": "591f0bb8ab8d3a1e982c7dba9330f4204df47b28c9888e9b07ac5173650c64ed",
+    "meshes/tub.json": "d81340ecadbc81fa60c69afcad06f3e5641c6edeece6bafcd5d450f9b295b39a",
+    "meshes/usb_stick.json": "bd6c8f74c58cdb672ec82ddf8c2b881ab57685c2d0b158cff8131206fe60ad9f",
+    "meshes/usb_storage_plug_reserve.json": "1380d387a92da743b712138e08056c532e4f7ea67e549acb27ad55cf6ce59071",
+    "meshes/x1203.json": "dd74edb225d8b67f9427901d40ec46d788e927c0a8c5f8e21dfd811b542e3327",
+    "meshes/x1203_kit.json": "0ce2e01e69a1249fe775ab0ed17cdd1effb95e055c23b82a02e5d724156ba183",
+    "meshes/xt30_pair.json": "53b7cfcd48e6039a2e18fb37b7b6a1c728078df5c4fe5cc20d3cd9f84f232e7e",
+    "step/LICENSE-RaspberryPi.txt": "b8c5ff8793639891ff6a3102f0e7bfe6dd94c9df1892072e4db2d9e9884e1854",
+    "step/base_grip.step": "79d0dd29cf2b2caef650b1432a6e0c1677f5f075d35b910981c283b3b95de958",
+    "step/c_cs_adapter.step": "3a27261a5dbd5e6615e77b99a5ac31897bc3d2f0d00e71c2a89392e668f9866d",
+    "step/cap.step": "a0b6555b7b63548432697cbb2812ce11247dab464ea709da96c9eb081d022669",
+    "step/carrier.step": "005e6946119a8d8341db8bd3bd4d40ab02fb5a44fce909d90af5c35c70600524",
+    "step/centring_gauge.step": "f5264fa91f2641fd7b81f4c4b5569ac114d67f01747f59f9b67eeb92ccdabc85",
+    "step/cooler.step": "5f8ee240d0ea5a80c4dbcdcc7667794fe895e4593590813256929b9374531390",
+    "step/encoder.step": "20e425554b6925bc24668f0f5569161fbd2c8b758c528f9f1ec10c2857c2b55d",
+    "step/evf_board.step": "5911d3b475eccb660c142114ae4b5c8b21c2686f5810ee3e586f413d81d90f50",
+    "step/eyecup.step": "f09779b5709c3053749ee1e62ca6c6d0546b2400300898f237560579931d29bc",
+    "step/eyepiece.step": "6be1080979e27088dd6dd8824ed1c74a073b1a8d6f0e2fa612457d4b83d54369",
+    "step/foam_pad.step": "956939f238b24ad7c8fd08a8ec3dda65808a6905e5e409a3c84bf3ffb3cb1f2b",
+    "step/fps_mounting_washer.step": "7cf73982d1cf4863445d948f39d3f0dd137675017b73997aff57b92c888b0ea1",
+    "step/fps_nut.step": "b39438e45c08b3357d78046a56726190501d0609f3a6e8c71b8824a724c68f0f",
+    "step/gs_camera.step": "36570e5ee42dd8dff1bd7acdaedb851fd6f4c29b7f9c5740f247ea639fc70ca0",
+    "step/hmx039.step": "75ddae1fc695324f95cc37c4f98129da7dcbb2b341a5a15039aa5f4e80c1e0f3",
+    "step/knob_exp.step": "7fb685ef289315f3bd36bfb4a867d22089336e4fc5535fdcb8ab8ec0b80a668b",
+    "step/knob_fps.step": "d68930df84f3eb3a0e535304784b43e2146d7a60187ece2323cd2fdf0f48e62e",
+    "step/lens.step": "df83fb7fae735ad51f73fc6f5cdadf7bb2fad42703429207acc18d08c4d312bb",
+    "step/lens_collar.step": "d285ffb742a38dcf297785ef3f1982d6c8da04598b10f0ee616d63798138e173",
+    "step/microsd.step": "8b5999c867b89d4651974eadf70b14f4586dd05457cc851387fadce37aa1793b",
+    "step/p_carrier1.step": "d930bb17110c1c853f7bbce39c0610f79f99137ab8a8fb9ce0fd32ad3a653ab3",
+    "step/p_carrier2.step": "b5bafcead0dc91a35dfb13a9f247a95a538140ab3d5c68dc5830781f0a432672",
+    "step/p_grip.step": "c7170de83e7360a6ab39640fcf11dff2e9b7a2d11c4cead01d0bada6de3b2e4b",
+    "step/p_panel1.step": "14ed6430fed0ada5ab34dd50d8bd11075687dc4621508d2bce25bfc0d55cd559",
+    "step/p_panel2.step": "2b935fe294a204078a989ac970b2bbc7f3ecea774d18545908c81f6eafcfd142",
+    "step/p_panel3.step": "49b5dc6f117d7efec116e38d0eee6a529b47a47416cd4572f932808f0fdb0278",
+    "step/p_panel4.step": "ded6ac61ad6cbad88ceeb2e36269c344cbca1ef552a238a43477f1d1d8b31a90",
+    "step/pack.step": "5207632700551058b8b28530ca4f46ce69fcbbee51b904dabfb58a45bcd4f8e8",
+    "step/panel.step": "db84317a69b3eda3e76edf512ae252a5fe5a1b947d8984903ced065aa34d1eec",
+    "step/pi5.step": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
+    "step/power_button.step": "36d0a1bd86582b725903227d4123ba72e0dd220cdfe94ed3298c7063ce1c00db",
+    "step/power_nut_reserve.step": "2dccef188b1b2babe3eeecc3059c0740914be0a9b19078598be598fc10b0d718",
+    "step/run_button.step": "9db1754266c6d3eb5cbdcb021127dee9f257872674c58263b87f78b048a45d64",
+    "step/s_c1.step": "ee79d5a3b1c220ddd2b271288ffdc7ff6b3a9d841c9476394e3359e869269f36",
+    "step/s_c2.step": "d5f3c5244e87ad63124d23d1ac2d56ce5755bac45ebcbbafb037da3fc5658af0",
+    "step/s_c3.step": "47425b926e2c0fd79a59e3cf311b75cf57792b5cb95758add5709c0eac8d67ad",
+    "step/s_c4.step": "550c7e67f0fff85236ee826d2d59dc6006dce0f1e05de266c7368418b9567d03",
+    "step/strap.step": "e976c8dc1ed068663a18610ed64d75e86286aac224fc2750bf6517f19c621d54",
+    "step/switch_1824.step": "475a60a054f23de460ccd0138fd3442424deed0fbdcd46474094224b9756208d",
+    "step/tab_catch_insert.step": "2ce8be7a0d0679236d4574976fa8ec49d78fd9c270a9a63347bb49178c20e434",
+    "step/tripod_nut.step": "be267d3a92d9acdc86cbf079902c7703dd673c389d571e1f27c2abc15e22ea90",
+    "step/tub.step": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+    "step/usb_stick.step": "9464d0d22243b4acb983453b82c9e0887139b9b5b8c69526014d05de7b693625",
+    "step/usb_storage_plug_reserve.step": "bdf611bd0c478020d30a551cafa71c14304377b0aa7edfbe9b7edae03df6338e",
+    "step/x1203.step": "caf0b8a0387ffb3f68cc76a471abe8596f36c0952d26ad3c56587aa81f29c974",
+    "step/x1203_kit.step": "45aa6cd394bca6c741e8621c9cf7b20d56e4ca6391fe6a46f9d27a5fa78aefe5",
+    "step/xt30_pair.step": "1d85645b9befd431a5472a2744731aea561e0c1b9bddbcf24d9d0c08e3390a22",
+    "stl/base_grip.stl": "a84e035665521ca5dd1eecc9381dab3bac0be716ff0ea050e93af4e754ac665a",
+    "stl/cap.stl": "59357036478028fa842d3251eb3f883856d9eaa192f8589b129a4ec73034bd32",
+    "stl/carrier.stl": "845a273727cee6e4871f3ebbdc6a566cb8838aab2497b817f3a6b6dce948fb54",
+    "stl/centring_gauge.stl": "c610ccb30d6cbaee980b061cd83e41156ce6e8ead0a1650e46584e3846b06367",
+    "stl/eyecup.stl": "b0786159d9afece3c5b3c8aab57051a97666a41ee74994687cf03ae6e2af5bae",
+    "stl/knob_exp.stl": "d418cacd52c6c250e051d17d986f0a5c0b56a2627b8024c61c30ac064a41a820",
+    "stl/knob_fps.stl": "3609733b170238cbfcbec4883458a4a5825711a14b2e8d6bc9541cb817202d56",
+    "stl/lens_collar.stl": "c66c06c35215ec26ce24ebf64a3d00b68227da035bb0f1070946378d1b9003ee",
+    "stl/panel.stl": "f49b1fa16ae57ec87664d12f306bce96e40e25ec7972bdf344a45ea8eb2399e5",
+    "stl/tab_catch_insert.stl": "a542e2e2aa789066c92f321a660e906d514c1b927940c41513f757c45c786812",
+    "stl/tub.stl": "9bab1b15b9c000ca28aa0193b3c097a20c56220b5b10693bf20522a817125672"
   }
 }

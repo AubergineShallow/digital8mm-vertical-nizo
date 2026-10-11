@@ -3,16 +3,18 @@
 
 Categories (all manifest-bound; failures are reported, never waived; exit 1 when any row fails):
   j4_screen          VN-33  per-variant J4 coupon screen (first-moment transfer) vs the supplement's stated screen
-  area_parity        VN-37  per branch min(mouth neck, series sections) vs the wall ports, from the saved tub STEP
+  area_parity        VN-37  per branch min(mouth neck, series sections) vs the wall ports, from the saved tub STEP;
+                            FX: plus the path-aware min cut port set -> mouth set per bay (plenum_flow.py, gate)
   flow_network       VN-36  report-only orifice network with occlusion cases (fan curve unknown; CSI plug = user)
   hdmi_face          VN-35  conductor-face normal carried along the selected HDMI route; head contact sides HOLD
   evf_restraint      VN-34  r7 checks.check_evf_restraint, unchanged, on the candidate EVF (8 rows) + control
   evf_face           VN-34  EVF axis/flange r7 vs candidate side by side and eye/face no-regression screens
-  stack_retention    VN-38  r7 check_stack_retention rules on the vertical carrier (r7 _hull2/_inside_margin/_max_lift)
+  stack_retention    VN-38  r7 check_stack_retention rules on the vertical carrier (r7 _hull2/_inside_margin/_max_lift);
+                            declared locators credited only from the bound STEPs (check_scope.locator_point, FP-11c)
   post_root_bending  VN-38  carrier-post root bending screen, post section measured from the saved tub STEP
 Writes out/<variant>/check-scope-checks.json (or --out).
 """
-from cv_io import read_text, write_text
+from cv_io import read_text, relpath_posix, write_text
 import argparse, hashlib, json, math, sys
 from pathlib import Path
 
@@ -34,6 +36,13 @@ STRUCT_OUT = CV / 'structural-review/concealed-vent-structural.json'
 R7_PARTS = R7 / 'out/parts-manifest.json'
 R7_CHECKS = R7 / 'out/checks.json'
 FLOW_BASELINE = CV / 'review-2026-10-10/fp12/flow-network-baseline.json'   # fixup-1 (VN-36) regression pin
+# FX (verifier T1 minor): one baseline per variant (a variant without its own baseline fails the drift row; it never
+# compares against another variant's numbers)
+FLOW_BASELINES = {'compact-kowa_lm6hc': FLOW_BASELINE}
+
+
+def flow_baseline(variant):
+    return FLOW_BASELINES.get(variant, CV / ('review-2026-10-10/fp12/flow-network-baseline-%s.json' % variant))
 STACK = ['carrier', 'pi5', 'x1203', 'x1203_kit', 'cooler', 'microsd']   # rigid on the carrier (switch is panel-nutted)
 
 
@@ -71,7 +80,7 @@ def add(cat, ident, ok=None, **kw):
 
 
 def bind(p):
-    inputs[Path(p).relative_to(CV.parent).as_posix() if Path(p).is_relative_to(CV.parent) else str(p)] = sha(p)
+    inputs[relpath_posix(p, CV.parent)] = sha(p)  # VN-10: relative POSIX key even outside cad/gs8-d2-v1 (was str(p), absolute)
 
 
 _step_cache = {}
@@ -93,17 +102,27 @@ if 'j4_screen' in cats:
     for p in (STRUCT_REF, REF_MANIFEST, STRUCT_OUT):
         bind(p)
     per = {}
+    import cadquery as cq
+
+    def _centre(p):
+        c = cq.importers.importStep(str(p)).val().Center()
+        return (c.x, c.y, c.z)
     for mp in sorted((CV / 'out').glob('*/manifest.json')):
         m = rd(mp)
         if 'rows' in m and 'storage' in m:
-            per[mp.parent.name] = CS.j4_screen(ref, old, m, ER.changed_rows)
+            # FX (verifier C2 major): the lower rows' first moments from the variant's bound STEPs give a new free body
+            # when a lower row changed (check_scope.j4_direct); otherwise the transfer and the direct value are compared
+            lf = CS.lower_first_moments(m, mp.parent, _centre, sha)
+            per[mp.parent.name] = CS.j4_screen(ref, old, m, ER.changed_rows, lower_first=lf)
             per[mp.parent.name]['manifest_sha256'] = sha(mp)
     env = CS.j4_envelope(per)
     sup = rd(STRUCT_OUT).get('coupon_load', {})
     stated = sup.get('all_variants_screen_Nm')
     for v, r in per.items():
         ok = r['valid'] and stated is not None and stated + 1e-12 >= r['equal_share_plus_wiring_Nm']
-        add('j4_screen', v, ok, stated_supplement_screen_Nm=stated, **r)
+        add('j4_screen', v, ok, stated_supplement_screen_Nm=stated, compact_screen_Nm=CS.J4_COMPACT_SCREEN_NM,
+            covered_by_compact_screen=bool(r.get('valid')) and CS.J4_COMPACT_SCREEN_NM + 1e-12 >= r['equal_share_plus_wiring_Nm'],
+            **r)
     add('j4_screen', 'envelope', stated is not None and abs(stated - (env['all_variants_screen_Nm'] or -1)) < 1e-12,
         computed=env, stated_supplement_screen_Nm=stated,
         note='The supplement must state the screen that covers every variant (VN-33); the 0.95 N m compact value '
@@ -146,7 +165,10 @@ if 'area_parity' in cats or 'flow_network' in cats:
     series = {   # sections across the bay between the wall ports and each mouth (flow-normal planes)
         'cold_rear': [('x', x, -34., -28., 2.5, 97.5) for x in planes(frange(-length + 3., -104., 2.), 'x', -length + 3., -104.)],
         'cold_bottom': [('z', z, -length + 2.5, -65., -34., -28.) for z in planes(frange(2.6, 17.8, .4), 'z', 2.6, 17.8)],
-        'hot_bottom': [('z', z, -62., -2.5, -34., -28.) for z in planes(frange(2.6, 15.8, .4), 'z', 2.6, 15.8)],
+        # FX (verifier T1 major): also through the hot port band and the rows above it (z 16.05..42.95, 0.5 mm pitch:
+        # every 1.2 mm row band is sampled), where the trial2 rows choked the underside branch unseen
+        'hot_bottom': [('z', z, -62., -2.5, -34., -28.) for z in planes(frange(2.6, 15.8, .4), 'z', 2.6, 15.8)]
+                      + [('z', z, -62., -2.5, -34., -28.) for z in frange(16.05, 42.95, .5)],
         'hot_front': [('x', x, -34., -28., 2.5, 97.5) for x in planes(frange(-16., -2.7, 1.), 'x', -16., -2.7)]}
     sec = {k: [(s[1], free(*s)) for s in v] for k, v in series.items()}
     csi = free('y', -31., -89., -77., 41., 68.)
@@ -161,8 +183,41 @@ if 'area_parity' in cats or 'flow_network' in cats:
                                   free_area_mm2=[f for _, f in sec[n]]) for n in names},
                 rule='sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 '
                      '(replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)')
+        # FX (verifier T1 major, VN-37): path-aware gate. Planes can only sample; the minimum cut between the wall-port
+        # faces and the mouth faces over the free gap volume of the saved STEP (plenum_flow.step_min_cut) is the
+        # smallest section on ANY path. The empty-bay bound (same ports, mouths, frame and mullions, no rib at all,
+        # nominal CAD-free) is what no internal layout can exceed.
+        import plenum_flow as PF
+        import vent_geometry as VG
+        for bay in ('cold', 'hot'):
+            mc = PF.step_min_cut(tub, length, bay)
+            empty = PF.nominal_min_cut(VG, length, bay, ribs=False)
+            nom = PF.nominal_min_cut(VG, length, bay, ribs=True)
+            need = mc['wall_ports_mm2']
+            add('area_parity', bay + '_path_min_cut', mc['min_cut_mm2'] >= need - PF.TOL_MM2,
+                min_cut_mm2=mc['min_cut_mm2'], wall_ports_mm2=need, shortfall_mm2=max(0.0, need - mc['min_cut_mm2']),
+                port_face_mm2=mc['port_face_mm2'], port_face_blocked_mm2=mc['port_face_blocked_mm2'],
+                mouth_face_mm2=mc['mouth_face_mm2'], cut_composition_mm2=mc['cut_composition_mm2'],
+                internal_cut_bbox_xz=mc['internal_cut_bbox_xz'], grid=mc['grid'], step_grid=mc['step_grid'],
+                empty_bay_bound_nominal_mm2=empty['min_cut_mm2'], nominal_with_ribs_mm2=nom['min_cut_mm2'],
+                empty_bay_bound_reaches_ports=empty['min_cut_mm2'] >= need - PF.TOL_MM2,
+                rule='minimum cut (max flow) from the wall-port faces to the mouth faces of the bay over the free gap '
+                     'volume of the saved tub STEP >= wall ports - %g mm2 (verifier rectangles; plenum_flow.py)' % PF.TOL_MM2,
+                note=None if empty['min_cut_mm2'] >= need - PF.TOL_MM2 else
+                     'No internal layout can pass: with these wall ports, mouths, mullions and frame the bay without any '
+                     'rib reaches only the empty-bay bound; closing the row needs a port or mouth change (user decision 17)')
     if 'flow_network' in cats:
-        bind(FLOW_BASELINE); fd_ok, fd = CS.flow_drift(CS.flow_network(el), rd(FLOW_BASELINE)); add('flow_network', 'baseline_drift', fd_ok, **fd)  # fixup-1 (VN-36): a row that can fail
+        fb = flow_baseline(a.variant)   # FX: the variant's own baseline (fixup-1 VN-36 row; can fail)
+        if fb.exists():
+            bind(fb)
+            fbd = rd(fb)
+            fd_ok, fd = CS.flow_drift(CS.flow_network(el), fbd)
+            fd_ok = fd_ok and fbd.get('variant', 'compact-kowa_lm6hc') == a.variant
+            add('flow_network', 'baseline_drift', fd_ok, baseline=relpath_posix(fb, CV.parent),
+                baseline_variant=fbd.get('variant', 'compact-kowa_lm6hc'), **fd)
+        else:
+            add('flow_network', 'baseline_drift', False, baseline=relpath_posix(fb, CV.parent),
+                error='no flow-network baseline for this variant (one per variant; never another variant\'s numbers)')
         for r in CS.flow_network(el):
             add('flow_network', r.pop('case'), None, **r)
         add('flow_network', 'model', None, elements=el,
@@ -286,14 +341,24 @@ if 'stack_retention' in cats or 'post_root_bending' in cats:
         holes = [model.rp((hx, hy, 6)) for hx, hy in model.L.PI['holes']]
         cb = mrows['carrier']['bbox_mm']
         targets = [(h[0], h[2]) for h in holes] + [(cb[0], cb[4]), (cb[0], cb[5]), (cb[1], cb[4]), (cb[1], cb[5])]
-        rs = CS.stack_retention([((x, z), 0.0) for x, z in model.CARRIER_SCREWS], (com[0], com[2]), targets, CK,
+        # FP-11c (VN-38): declared printed locating features (model.CARRIER_LOCATORS) are credited only from the bound
+        # STEPs (CS.locator_point: seat touching on -Y, stop gap inside r7's hood-stop window on +Y), as r7 reads its
+        # keeper and hood stop from layout and measures the stop gap. An uncredited locator fails the row.
+        locs = [CS.locator_point(d, step('carrier'), step(d['seat_part']), step(d['stop_part']))
+                for d in getattr(model, 'CARRIER_LOCATORS', [])]
+        ret = [((x, z), 0.0) for x, z in model.CARRIER_SCREWS] + [((l['at'][0], l['at'][1]), l['stop_gap_mm'])
+                                                                  for l in locs if l['credited']]
+        rs = CS.stack_retention(ret, (com[0], com[2]), targets, CK,
                                 bearing_r=min(p['equivalent_d_mm'] for p in posts) / 2)
-        add('stack_retention', 'vertical_carrier', rs.pop('passed'), **rs, stack=STACK, stack_mass_g=cm,
-            stack_com_mm=list(com), declared_retention='model.CARRIER_SCREWS (two PT screws clamping the carrier ears '
-                                                       'onto the tub posts); no keeper, hood stop or locating feature',
+        ok = rs.pop('passed') and all(l['credited'] for l in locs)
+        add('stack_retention', 'vertical_carrier', ok, **rs, stack=STACK, stack_mass_g=cm,
+            stack_com_mm=list(com), locators=locs,
+            declared_retention='model.CARRIER_SCREWS (two PT screws clamping the carrier ears onto the tub posts, gap 0) '
+                               'plus each model.CARRIER_LOCATORS point credited from the STEPs with its measured stop gap',
             rule='r7 check_stack_retention: CoM inside the hull of the retention points (margin > 0) and a bounded '
-                 'rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited.',
-            remedy='CAD phase: a third printed locating feature (tongue or slot) with no new screw (register VN-38)')
+                 'rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited; a locator counts '
+                 'only with a measured seat contact and a stop gap in %s mm.' % list(CS.STOP_GAP_WINDOW),
+            remedy=None if ok else 'CAD: every declared locator must be credited and the CoM inside the hull (VN-38)')
     if 'post_root_bending' in cats:
         sup = rd(STRUCT_OUT)
         bind(STRUCT_OUT)
@@ -314,7 +379,8 @@ if 'stack_retention' in cats or 'post_root_bending' in cats:
 summary = {k: sum(r['status'] == k for r in checks) for k in ('pass', 'fail', 'info')}
 if sha(MF) != mh:
     raise ValueError('Manifest changed during check')
-srcs = {n: sha(CV / n) for n in ('check_scope.py', 'steps.py', 'evidence_rules.py', 'cv_io.py', 'print_rules.py')}
+srcs = {n: sha(CV / n) for n in ('check_scope.py', 'steps.py', 'evidence_rules.py', 'cv_io.py', 'print_rules.py',
+                                  'plenum_flow.py', 'vent_geometry.py')}
 srcs['../checks.py'] = sha(R7 / 'checks.py')
 result = dict(manifest_sha256=mh, verification_source_sha256=sha(Path(__file__)), helper_source_sha256=srcs,
               input_sha256=inputs, variant=a.variant, scope=a.categories if cats != CATS else 'full', summary=summary,

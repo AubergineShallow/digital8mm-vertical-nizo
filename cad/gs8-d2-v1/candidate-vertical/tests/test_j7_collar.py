@@ -14,10 +14,12 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_j7_collar.py
   row with per-obstacle gaps (min_lateral 0.3 to the bump); a panel#9 bump at 0.6 passes r7's 0.5 rule but fails the
   centring row with the panel location term (0.6 - 0.30 - 0.25 = 0.05 < 0.1); the catch boxes are tub material and a
   hole cut in a tine is found; the tine root is the roof underside; a part 0.3 from the seated gauge fails the gauge
-  row; the washer rows fail on the candidate collar (VN-55: lug face -0.2, relief 0.0, 0.1564 mm3 at dy +0.2) and
-  pass on the r7 collar with r7 values.
+  row; the washer rows pass on the candidate collar with r7's margins (lug face 0.1, relief 0.5, free-seat gap 0.3
+  at the 0.2 float; since C2 / FP-11d; on the 9ced753 collar they failed: lug face -0.2, relief 0.0, 0.1564 mm3 at
+  dy +0.2) and pass on the r7 collar with the same values.
 - Record (review-2026-10-10/fp08): made by the current j7_collar_checks.py for the current manifest; every category
-  present; body / bfar rows carry per-obstacle gaps; the failing rows are exactly EXPECTED_FAILURES (CAD phase).
+  present; body / bfar rows carry per-obstacle gaps; the failing rows are exactly EXPECTED_FAILURES (empty since C2:
+  the four FP-11d washer rows were its only entries).
 """
 import ast
 import copy
@@ -40,12 +42,9 @@ VARIANT = 'compact-kowa_lm6hc'
 OUT = CV / 'out' / VARIANT
 RECORD = CV / 'review-2026-10-10' / 'fp08' / ('j7-%s.json' % VARIANT)
 # CAD-phase failures on the reviewed geometry (filled from the first full record; each names its fix step).
-EXPECTED_FAILURES = {
-    ('lens_clamp', 'washer_flat_support/kowa_lm6hc'): 'VN-55 / FP-11d',
-    ('lens_clamp', 'washer_free_seat/kowa_lm6hc'): 'VN-55 / FP-11d',
-    ('lens_clamp', 'washer_flat_support/fujinon_hf6xa'): 'VN-55 / FP-11d',
-    ('lens_clamp', 'washer_free_seat/fujinon_hf6xa'): 'VN-55 / FP-11d',
-}
+# C2 (FP-11d) removed the four VN-55 washer rows (washer_flat_support / washer_free_seat, Kowa and Fujinon): they
+# pass on the fixed collar, so the set is empty and any failing FP-08 row now fails test_record.
+EXPECTED_FAILURES = {}
 
 
 def sha(p):
@@ -76,7 +75,11 @@ class Registration(unittest.TestCase):
     def test_catch_source_pin(self):
         src = read_text(CV / 'model.py').replace(' ', '')
         self.assertIn(J.CATCH_SOURCE.replace(' ', ''), src)
-        self.assertIn("L.COLLAR['lug'].update(y_out=-30.0,screw_y=-26.3,bit_relief_y=-22.8)", src)
+        self.assertIn("L.COLLAR['lug'].update(y_out=COLLAR_LUG_Y_OUT,screw_y=COLLAR_SCREW_Y,"
+                      "bit_relief_y=COLLAR_BIT_RELIEF_Y)", src)
+        self.assertIn('COLLAR_LUG_Y_OUT=-30.8', src)       # C2 / FP-11d (was the literal y_out -30.0)
+        self.assertIn('COLLAR_SCREW_Y=-26.8', src)         # C2 / FP-11d (was the literal screw_y -26.3)
+        self.assertIn('COLLAR_BIT_RELIEF_Y=-22.8', src)    # unchanged relief (body wall 1.83 analytic)
 
 
 class _CK:
@@ -222,11 +225,12 @@ class Geometry(unittest.TestCase):
         with J.candidate_layout('kowa_lm6hc') as L:
             cand = {i: x for _, i, x in J.washer_rows(L, {'kowa_lm6hc': self.shapes['lens_collar']}, self.CK)}
         fs, fr = cand['washer_flat_support/kowa_lm6hc'], cand['washer_free_seat/kowa_lm6hc']
-        self.assertEqual((fs['status'], fr['status']), ('fail', 'fail'))
-        self.assertEqual(fs['nominal_margins'], dict(lug_face_mm=-0.2, bit_relief_mm=0.0))
-        bad = [c for c in fr['cases'] if c['overlap_mm3'] >= 0.001]
-        self.assertEqual([(c['dx'], c['dy']) for c in bad], [(0, 0.2)])
-        self.assertAlmostEqual(bad[0]['overlap_mm3'], 0.1564, places=3)
+        # C2 / FP-11d: the bound collar now has r7's margins (it failed with -0.2 / 0.0 and 0.1564 mm3 at dy +0.2)
+        self.assertEqual((fs['status'], fr['status']), ('pass', 'pass'))
+        self.assertEqual(fs['nominal_margins'], dict(lug_face_mm=0.1, bit_relief_mm=0.5))
+        self.assertEqual(fs['unsupported_mm3'], 0.0)
+        self.assertEqual([c for c in fr['cases'] if c['overlap_mm3'] >= 0.001], [])
+        self.assertAlmostEqual(fr['min_gap_mm'], 0.3, places=3)
         r7c = PC.build_part(L7, 'lens_collar', lens='kowa_lm6hc').val()
         r7 = {i: x for _, i, x in J.washer_rows(L7, {'kowa_lm6hc': r7c}, self.CK)}
         self.assertEqual(r7['washer_flat_support/kowa_lm6hc']['status'], 'pass')

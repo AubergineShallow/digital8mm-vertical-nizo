@@ -1,8 +1,8 @@
 {
   "name": "preliminary_regular_grid",
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "tub_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
-  "source_check_sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "tub_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+  "source_check_sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
   "crop_bounds_mm": [
     -152.0,
     -104.0,
@@ -11,10 +11,10 @@
     8.0,
     40.0
   ],
-  "generated_utc": "2026-10-09T15:22:23Z",
+  "generated_utc": "unrecorded (deterministic build, FP-03)",
   "valid": true,
   "solid_count": 1,
-  "volume_mm3": 6587.129178954822,
+  "volume_mm3": 6535.200000000003,
   "production_part": false,
   "physical_qualified": false,
   "purpose": "Open-edge regular-grid post-supported roof-bridge inspection crop from the exact selected tub",
@@ -45,8 +45,8 @@
     10.100000000000009
   ],
   "files": {
-    "plenum-bridge-open-edge-coupon.step": "463fc77cdb5cf24610d14d346e152ab0787e2e8bad3045233874cbb28c0e4e48",
-    "plenum-bridge-open-edge-coupon.stl": "1f02bec5f21d9e5f7f2fb5b1a725db2eb4aa802f25eb787ceb64dfded6bc1b47"
+    "plenum-bridge-open-edge-coupon.step": "bb780f82a075c226b2140b8d4e97d35ddf18779c5dea9e3da51efc1729077949",
+    "plenum-bridge-open-edge-coupon.stl": "ad44bccc534acf5deb77ccf318cab91e01716287cf268cd91830dd3982a99e6d"
   },
-  "source_sha256": "8d07be5e175cd99100be5f67f08f7736af5c5069eff9e0930d0a4693a7050a3e"
+  "source_sha256": "573f2f8f66df23c1cbb82873bb2364537d5af8d22fb1809c10fc4e27770e12f7"
 }

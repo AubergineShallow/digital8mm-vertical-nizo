@@ -2,7 +2,7 @@
   "selected_service": "Pi HDMI stays mated; EVF end disconnected; complete ribbon and heads carried with carrier. Other looms need their own complete checks.",
   "includes_rejected_diagnostics": false,
   "summary": {
-    "pass": 13,
+    "pass": 16,
     "fail": 0,
     "info": 0
   },
@@ -124,7 +124,74 @@
       "full_material": true,
       "exact_intersections": 225,
       "hits": [],
-      "hit_count": 0
+      "hit_count": 0,
+      "evf_head_drop_mm": 9.0,
+      "evf_stroke_mm": 6.0,
+      "margin_below_mouth_mm": 3.0,
+      "ribbon_source": "hdmi_routes.ribbon300(158, drop=9.0): full 300.0 mm ribbon, 2283 cells",
+      "evf_head_mated_top_z": 63.8,
+      "evf_head_carried_top_z": 54.8,
+      "note": "H2 (VN-43): head and ribbon carried stroke + 3 mm below the mated height (steps.py module_staged); the 9ced753 sweep used the bare stroke (0 mm margin)"
+    },
+    {
+      "category": "service_access",
+      "id": "evf_head_unplug_jaw_minus_x",
+      "status": "pass",
+      "box_mm": [
+        -149.79999999999998,
+        -147.6,
+        6.15,
+        14.15,
+        31.299999999999997,
+        46.699999999999996
+      ],
+      "exact_intersections": 0,
+      "hits": [],
+      "ribbon_hits": [],
+      "ribbon_hit_count": 0,
+      "tool": "smooth-jaw long-nose pliers, tips <= 2.0 thick (r7 tool 15; r7 layout.ACCESS acc_hdmi_evf_jaws / acc_hdmi_evf_pliers_svc)",
+      "stroke_mm": 6.0,
+      "note": "Head pulled straight down its stroke by its body; the panel is off (service route evf). Physical grip and finger reach stay a hold (MEASUREMENTS-TO-CLOSE EVF HDMI row)."
+    },
+    {
+      "category": "service_access",
+      "id": "evf_head_unplug_jaw_plus_x",
+      "status": "pass",
+      "box_mm": [
+        -143.6,
+        -141.4,
+        6.15,
+        14.15,
+        31.299999999999997,
+        46.699999999999996
+      ],
+      "exact_intersections": 0,
+      "hits": [],
+      "ribbon_hits": [],
+      "ribbon_hit_count": 0,
+      "tool": "smooth-jaw long-nose pliers, tips <= 2.0 thick (r7 tool 15; r7 layout.ACCESS acc_hdmi_evf_jaws / acc_hdmi_evf_pliers_svc)",
+      "stroke_mm": 6.0,
+      "note": "Head pulled straight down its stroke by its body; the panel is off (service route evf). Physical grip and finger reach stay a hold (MEASUREMENTS-TO-CLOSE EVF HDMI row)."
+    },
+    {
+      "category": "service_access",
+      "id": "evf_head_unplug_shank",
+      "status": "pass",
+      "box_mm": [
+        -149.79999999999998,
+        -141.4,
+        14.15,
+        38.001398690423215,
+        31.299999999999997,
+        46.699999999999996
+      ],
+      "exact_intersections": 0,
+      "hits": [],
+      "ribbon_hits": [],
+      "ribbon_hit_count": 0,
+      "tool": "smooth-jaw long-nose pliers, tips <= 2.0 thick (r7 tool 15; r7 layout.ACCESS acc_hdmi_evf_jaws / acc_hdmi_evf_pliers_svc)",
+      "stroke_mm": 6.0,
+      "note": "Head pulled straight down its stroke by its body; the panel is off (service route evf). Physical grip and finger reach stay a hold (MEASUREMENTS-TO-CLOSE EVF HDMI row)."
     }
   ],
   "analysis_bbox_mm": [
@@ -135,11 +202,16 @@
     7.92,
     119.00519549754252
   ],
-  "verification_source_sha256": "3974bc84a34ca405d8938899b10d9baa9a1dc5d8b03c1143f6096b072c4d77de",
+  "verification_source_sha256": "982dc28718e9d79a586ba87965725131391039f8341818848aa83516e52cb1a9",
   "snapshot_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
-  "mechanical_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "mechanical_manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
   "physical_qualified": false,
   "note": "Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation.",
+  "carried_ribbon_source_sha256": {
+    "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
+    "routes.py": "64e2a6bbd246bdefdc9d41a59c8bb9d3b534c5c4568e1fa7cf5eb7216c723321"
+  },
+  "carried_drop_mm": 9.0,
   "obstacle_sets": {
     "installed": {
       "obstacles": [
@@ -321,8 +393,43 @@
       ],
       "state_source": "body before op carrier_in, minus the moving module",
       "excluded_present_ids": []
+    },
+    "evf_unplug": {
+      "obstacles": [
+        "base_grip",
+        "c_cs_adapter",
+        "carrier",
+        "cooler",
+        "evf_board",
+        "eyecup",
+        "eyepiece",
+        "foam_pad",
+        "gs_camera",
+        "hmx039",
+        "lens",
+        "lens_collar",
+        "microsd",
+        "p_carrier1",
+        "p_carrier2",
+        "p_grip",
+        "pi5",
+        "run_button",
+        "s_c1",
+        "s_c2",
+        "s_c3",
+        "s_c4",
+        "strap",
+        "switch_1824",
+        "tripod_nut",
+        "tub",
+        "usb_stick",
+        "x1203",
+        "x1203_kit",
+        "xt30_pair"
+      ],
+      "state_source": "steps.py state before service op svc_evf_unplug (route evf)"
     }
   },
-  "state_model_sha256": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+  "state_model_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
   "obstacle_rule": "FP-12 (VN-30): every material part steps.py has in the body in that state (screws and hardware included) plus the 9ced753 sets; exclusions listed per state; rejected --include-rejected diagnostics keep their 9ced753 sets"
 }

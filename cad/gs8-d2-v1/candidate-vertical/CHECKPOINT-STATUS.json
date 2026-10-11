@@ -1,26 +1,32 @@
 {
   "state": "FROZEN SHADOW-PLENUM REVIEW CANDIDATE; PRINT AND PHYSICAL HOLDS REMAIN",
-  "updated_utc": "2026-10-09T15:49:33Z",
+  "updated_utc": "2026-10-11T16:44:34Z",
   "baseline_head": "d38468e58eb2b02d56743e2e0cfdd8f780818a65",
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
   "manifest": {
     "path": "out/compact-kowa_lm6hc/manifest.json",
-    "sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77"
+    "sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810"
   },
   "geometry_source_current": true,
-  "source_and_export_hashes_verified": true,
+  "source_and_export_hashes_verified": false,
   "selected_evidence": {
     "path": "out/compact-kowa_lm6hc/current-review-evidence.json",
     "sha256": "4f8985876ea14648411f4f6162c0302b1a762d4ab8845139a9776ae84fcfd017"
   },
-  "evidence_reconciler": {
-    "path": "reconcile_review_evidence.py",
+  "evidence_reconciler_that_wrote_current_evidence": {
+    "note": "The reconciler that wrote selected_evidence, as committed in 9ced753; selected_evidence records the same hash as reconciler_sha256. It is not the current reconcile_review_evidence.py (current_evidence_reconciler). Update this entry when a reconciler rewrites selected_evidence.",
+    "git_object": "9ced753:cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py",
     "sha256": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9"
   },
+  "current_evidence_reconciler": {
+    "path": "reconcile_review_evidence.py",
+    "sha256": "d0306ca040135cf74da99d8e2d59ae51a9a4ee362c6f194a305f3e36a0acf1ab",
+    "generator": "make_coverage_vertical.py"
+  },
   "main_summary": {
-    "pass": 292,
-    "fail": 1,
-    "info": 18
+    "pass": 620,
+    "fail": 14,
+    "info": 32
   },
   "plenum_summary": {
     "pass": 49,
@@ -31,7 +37,7 @@
   "open_inherited_gates": 56,
   "M1": "open",
   "prominent_holds": [
-    "Front-mouth frame is absent inZ5..40; first roof paths may require about35mm bridging. Slicer/expanded coupon and full-body cleanout are unqualified.",
+    "Trial3 plenum (FX): 1.2 mm roof beams on pillars with 5 mm flow windows, mullions at all four edge mouths (cold mouths with 0.6 mm 45 deg lintels); every part passes print_overhang and print_bridge_direction on the FX export. Path-aware min cut: cold 420 of 420 mm2; hot below its 510 mm2 of wall ports (the empty-bay bound is below 510: user decision 17). Slicer, the three plenum coupons and full-body cleanout are unqualified.",
     "Cooler/source overlap79.902671mm3 remains unresolved; measured cooler registration and real thermal tests are required.",
     "Exterior bay connectivity is not a sealed main-cavity cooler duct or a fan-flow/cooling result. Hand/strap/stand blockage requires separate tests.",
     "Complete camera FPC, USB-feed wire roots/stow and combined flexible service remain unresolved."
@@ -39,15 +45,15 @@
   "scope": "Compact Kowa detailed scoped review; alternative exports, mesh checks, STEP envelopes and core-void intervals have separate bindings. No alternative service transfer.",
   "variants": {
     "compact-kowa_lm6hc": {
-      "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
       "source_and_export_binding": "See out/review-docs-audit.json; no physical qualification"
     },
     "compact-fujinon_hf6xa": {
-      "manifest_sha256": "c31096eda7237d4a96ed4e0a8e48383af0bcc89f04809971779efa3eb8f5788a",
+      "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
       "source_and_export_binding": "See out/review-docs-audit.json; no physical qualification"
     },
     "original-kowa_lm6hc": {
-      "manifest_sha256": "ecb18336b96166ca553ca3e9e7308ce312f91cf51613dd73ba05ffe367f53849",
+      "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
       "source_and_export_binding": "See out/review-docs-audit.json; no physical qualification"
     }
   },
@@ -59,7 +65,7 @@
     },
     "pdf": "guide/out-concealed-vents/D2-vertical-concealed-vents-review.pdf",
     "pages": 32,
-    "manifest_binding_current": true,
+    "manifest_binding_current": false,
     "visual_review_recorded": true,
     "physical_release": false
   },
@@ -68,5 +74,121 @@
     "sha256": "13af0ab0e7d82f35b0d98b8304bb4c09971588259f1e5597a0f8d47a095927d1"
   },
   "historical_attempt": "history/shadow-first-check-run/review-check-run.json preserves the initial USB-head dependency failure. The separately executed current whole-assembly checker replaces missing standalone support extracts with mandatory integrated-tub coverage and canonical helper hashes; it does not invent a USB service path.",
-  "delivery_note": "Separate review identity. Publication state is not asserted by this status file. No fabrication, energization or complete-service release."
+  "delivery_note": "Separate review identity. Publication state is not asserted by this status file. No fabrication, energization or complete-service release.",
+  "check_coverage": {
+    "generator": "make_coverage_vertical.py",
+    "table": "COVERAGE-VERTICAL.md",
+    "by_kind": {
+      "main": {
+        "analytical/declared": {
+          "info": 9
+        },
+        "bookkeeping": {
+          "pass": 164
+        },
+        "coverage/state": {
+          "pass": 14,
+          "info": 6
+        },
+        "geometric": {
+          "fail": 14,
+          "pass": 442,
+          "info": 17
+        }
+      },
+      "print": {
+        "geometric": {
+          "pass": 161,
+          "info": 7
+        }
+      },
+      "mesh": {
+        "geometric": {
+          "pass": 11
+        }
+      },
+      "harness": {
+        "analytical/declared": {
+          "fail": 3,
+          "info": 2,
+          "pass": 1
+        },
+        "geometric": {
+          "pass": 26,
+          "info": 18,
+          "fail": 12
+        }
+      },
+      "check_scope": {
+        "analytical/declared": {
+          "pass": 6,
+          "info": 9
+        },
+        "geometric": {
+          "pass": 28,
+          "fail": 2,
+          "info": 5
+        }
+      },
+      "hdmi": {
+        "coverage/state": {
+          "pass": 4
+        },
+        "geometric": {
+          "pass": 12
+        }
+      },
+      "power_static": {
+        "geometric": {
+          "pass": 6
+        }
+      }
+    },
+    "r7_categories": {
+      "ported": [
+        "cable_routes",
+        "cable_stow",
+        "critical_features",
+        "driver",
+        "evf_restraint",
+        "header_housings",
+        "inserts",
+        "interference",
+        "j7_float",
+        "lead_access",
+        "lens_clamp",
+        "lens_support",
+        "mate_reach",
+        "print_overhang",
+        "roll_catch",
+        "service_driver",
+        "stack_retention",
+        "stl_mesh",
+        "sweeps",
+        "thin_wall",
+        "unclassified_thin_spots"
+      ],
+      "partly": [
+        "bed_fit",
+        "clearance",
+        "keepouts",
+        "mate_overlap",
+        "mate_paths"
+      ],
+      "report only": [
+        "mass_com"
+      ],
+      "not ported": [
+        "boss_geometry",
+        "contract",
+        "cots_containment",
+        "engrave_groove",
+        "handling",
+        "layout_self_check",
+        "print_modifiers",
+        "release_access",
+        "removals"
+      ]
+    }
+  }
 }

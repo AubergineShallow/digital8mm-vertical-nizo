@@ -2,19 +2,26 @@
 
 Run through run_locked.py after verify_shadow_plenum.py. This is a separate test
 artifact, not a tenth production print or a replacement for the older coupons.
+Review 2026-10-10 FP-11a (VN-52): a third crop covers the whole plenum with all
+four edge mouths (cold rear, cold underside, hot underside, hot front). --export
+and --dest exist for scratch re-exports; the defaults are the selected folders.
 No support geometry is invented and no print or thermal release is granted.
 """
 from cv_io import read_text, write_text
 import export_cache as EC  # fixup-1 (VN-17): fixed STEP header time, no wall-clock receipt time
 from pathlib import Path
+import argparse
 import hashlib
 import json
 
 import cadquery as cq
 
 P = Path(__file__).resolve().parent
-D = P / 'out/compact-kowa_lm6hc'
-O = P / 'vent-study/shadow-plenum-coupon'
+ap = argparse.ArgumentParser()
+ap.add_argument('--export', type=Path, default=P / 'out/compact-kowa_lm6hc')
+ap.add_argument('--dest', type=Path, default=P / 'vent-study/shadow-plenum-coupon')
+args = ap.parse_args()
+D, O = args.export, args.dest
 
 
 def sha(p):
@@ -91,8 +98,19 @@ receipts.append(make_coupon(
     'plenum-port-service-open-edge-coupon', 'port-service-receipt.json',
     'Open-edge crop retaining inlet/hot ports, CSI sleeve, post exclusions, front mouth, bottom support row and top/front frame spans',
     'The rear section and complete cold-rear mouth are absent; retained edge spans are not a global maximum-span proof.'))
+length = m['core_dimensions_mm'][0]
+receipts.append(make_coupon(
+    'all_four_mouths', [-length, 0., -35.6, -25.5, 0., 100.],
+    'plenum-all-mouths-coupon', 'all-mouths-receipt.json',
+    'Whole-plenum crop (skin, frame, ribs, lintels, mullions, divider, CSI sleeve and the original side wall to its inner '
+    'face) with all four edge mouths: cold rear, cold underside, hot underside and hot front (review VN-52)',
+    'The crop opens the inner wall face and the tub body is absent, so internal cleanout and the tub-side stiffness are '
+    'not represented.'))
 write_text(O / 'coupon-index.json', json.dumps(dict(
     manifest_sha256=mh, source_sha256=sha(Path(__file__)),
-    coupon_count=2, production_part_count_change=0, replaces_earlier_coupon_set=False,
+    coupon_count=len(receipts), production_part_count_change=0, replaces_earlier_coupon_set=False,
     receipts={name: sha(O / name) for name in receipts}, physical_qualified=False,
-    status='Two separate open-edge inspection tests; no closed-body cleanout, occlusion, strength or thermal qualification'), indent=2))
+    mouths_covered={'receipt.json': [], 'port-service-receipt.json': ['hot_bottom', 'hot_front', 'cold_bottom (x -110..-83 only)'],
+                    'all-mouths-receipt.json': ['cold_rear', 'cold_bottom', 'hot_bottom', 'hot_front']},
+    status='%d separate open-edge inspection tests; no closed-body cleanout, occlusion, strength or thermal qualification'
+           % len(receipts)), indent=2))

@@ -25,7 +25,7 @@ assert d['ventilation_report']['same_manifest'] and d['ventilation_report']['sha
 assert v['manifest_sha256']==d['manifest_sha256']
 assert d['verification_source_sha256']==sha(P/'update_concealed_vent_structure.py')
 ci=C/'vent-study/shadow-plenum-coupon/coupon-index.json';cr=read(ci)
-assert cr['manifest_sha256']==d['manifest_sha256'] and cr['coupon_count']==2
+assert cr['manifest_sha256']==d['manifest_sha256'] and cr['coupon_count']==3  # FX: T1 (FP-11a, VN-52) added the third crop all_four_mouths
 sources=[P/'CONCEALED-VENT-STRUCTURAL.md',P/'concealed-vent-structural.json',P/'update_concealed_vent_structure.py',P/'reference-export18-structural-binding.json',C/'out/compact-kowa_lm6hc/manifest.json',vr,ci,Path(__file__)]
 start={rel_posix(f,C):sha(f) for f in sources}
 pdfmetrics.registerFont(TTFont('ReviewSans',str(C.parent/'fonts/DejaVuSans.ttf')))
@@ -48,7 +48,7 @@ story=[]
 add('D2 shadow plenum<br/>structural supplement','title')
 add('Compact Kowa candidate | 9 October 2026 | Separate supplement to the historical structural report','sub')
 add(f"The selected housing adds <b>{A['delta_mass_g']:.2f} g</b> in the planning mass model. The same analytical assumptions raise J4 floor moment by <b>{U['moment_change_percent']:.2f}%</b> and conservative grip moment by <b>{G['moment_change_percent']:.2f}%</b>. The revised proposed equal-share J4 coupon screen is <b>{L['proposed_rounded_equal_share_screen_Nm']:.2f} N m</b>.")
-add('<b>PRINT HOLD:</b> the front mouth removes first-roof frame support over Z5..40. A nominal 10.7 mm distance there is not a two-ended supported span; raster direction may require about 35 mm bridging. The expanded coupon includes it, but slicer, bridge and cleanout evidence remain open.','small')
+add('<b>PRINT HOLD:</b> all four plenum edge mouths (rear Z5..75, cold underside, hot underside, front Z5..40) and the trial3 roof (1.2 mm beams on pillars, at most 14 mm beam bridges, roof spans computed by print_bridge_direction) need slicer, bridge and cleanout evidence from the three plenum coupons (the third covers all four mouths); none exists yet.','small')
 add('<b>Unqualified review only.</b> No FEA, drop rating, print test or physical strength result is claimed. '+GATES_TEXT+' and collar M1 remain open.','small')
 rows=[['Planning quantity','Reviewed export18','Shadow plenum'],
  ['Complete mass',f"{A['reference_mass_g']:.2f} g",f"{A['current_mass_g']:.2f} g"],
@@ -71,8 +71,8 @@ add(f"Adding the retained 12 g-at-Z100 wiring sensitivity gives {L['equal_share_
 story.append(PageBreak())
 add('Print and thermal holds','title')
 add('The selected geometry and its limitations','sub')
-add('The 1.6 mm integral skin and support posts cover a 6 mm plenum gap, while the original 2.5 mm wall forms the roof in the -Y-face-down print pose. Keep the current 0.20 mm layer starting point and original part orientations. Nominal 8 mm post spacing does not establish the largest bridge span or two-ended support for every roof extrusion.')
-add('Inspect first roof layers, post bonds, sag, slot/mouth area and debris-removal paths in the slicer and actual coupons. The front-mouth band interrupts the frame beneath the first roof layer. Automatic support trapped inside the full plenum is unacceptable. The plain 2.8 mm panel removes four former blind grooves with 0.2 mm floors; it still needs flatness and screw-seat checks.')
+add('The 1.6 mm integral skin and the trial3 windowed ribs (1.2 mm beams on pillars) cover a 6 mm plenum gap, while the original 2.5 mm wall forms the roof in the -Y-face-down print pose. Keep the current 0.20 mm layer starting point and original part orientations. The roof bridges are computed per region by print_bridge_direction; that is geometry, not a slicer result.')
+add('Inspect first roof layers, beam and pillar bonds, sag, slot/mouth area and debris-removal paths in the slicer and actual coupons. All four mouth bands interrupt the frame beneath the first roof layer. Automatic support trapped inside the full plenum is unacceptable. The plain 2.8 mm panel removes four former blind grooves with 0.2 mm floors; it still needs flatness and screw-seat checks.')
 add('Two new open-edge coupons','h')
 add('Generated STEP/STL inspection crops are 48 x 32 x 10.1 mm (regular grid) and 110 x 100 x 10.1 mm (ports, CSI sleeve, post exclusions and front/top edge regions). Both saved STEP crops are valid single solids. They are separate from the nine production pieces and the prior nine structural coupons. Neither has been sliced, printed or tested. Cut-open edges cannot prove closed-body cleanout; the larger crop omits the complete rear region and does not prove a global maximum unsupported span.')
 add('Occlusion and airflow remain unqualified','h')

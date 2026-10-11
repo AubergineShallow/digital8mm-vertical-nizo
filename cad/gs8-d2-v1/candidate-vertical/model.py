@@ -47,6 +47,29 @@ CONTROL_MOVES={'encoder':(8,-7,21),'switch_1824':(12,-7,23),
                'knob_exp':(8,-7,21),'knob_fps':(12,-5,23)}
 # Upper rear + lower front carrier ears deliberately outside the PCB outline.
 CARRIER_SCREWS=[(-127.0,69.0),(-25.0,9.0)]
+# FP-11c (VN-54, VN-56): the carrier prints +Y face down on one continuous bed face at y 22.2 (the old arm face);
+# PT counterbores 7.0 mm in 5.2 mm ear bosses (structure_geometry: r7 panel values, r7 bit 6.5).
+CARRIER_BED_Y=STACK_Y
+CARRIER_CBORE_R=SG.CARRIER_CBORE_R
+CARRIER_EAR_R=SG.CARRIER_EAR_R
+# FP-11c (VN-38): third printed locating feature, no new screw. The carrier bottom-rail tongue (x -86..-74) lands
+# on a tub floor seat rib (its -Y bearing, top z 6.5 under the X1203 at z 7.0) and sits 0.15 mm under a panel stop
+# pad (its +Y stop; r7 HOOD_STACK_STOP gap 0.15, window 0.1-0.3). verify_check_scope credits it from the STEPs only.
+LOCATOR_X=-80.0
+LOCATOR_SEAT_TOP=6.5
+LOCATOR_STOP_GAP=0.15
+LOCATOR_CRUSH_RIDGE=dict(h=0.2,z=(4.85,5.65))   # FX: crush ridge on the seat (0.8 mm wide in z, one 0.2 mm layer proud of the face)
+POWER_NUT_AXIS_XZ=(-20.0,25.5)
+# Carrier cable-tie slots (3 x 1 through the rails; harness_rules.TIE_SLOTS_XZ and critical_features_vertical.
+# CARRIER_TIE_SLOTS hold the same list, tested). FX (verifier C1 major): the right-rail slot at z 25 moved from x -34 to
+# -35: the FP-11c power-nut relief cone (r 11.8 at the bed face about (-20, 25.5)) had cut its outer bar to 0.75-0.88 mm
+# at the bed face (bar floor 1.6); at x -35 the bar keeps 1.69 mm at the bed face.
+CARRIER_TIE_SLOTS=((-92.0,25.0),(-92.0,45.0),(-35.0,25.0),(-34.0,45.0))
+POWER_NUT_RESERVE_R=11.0   # _build power_nut_reserve row (OD 22 x 3)
+CARRIER_LOCATORS=[dict(id='bottom_rail_tongue',at=(LOCATOR_X,(4.0+LOCATOR_SEAT_TOP)/2),
+                       tongue_box=(LOCATOR_X-6,LOCATOR_X+6,17.2,CARRIER_BED_Y,4.0,9.0),
+                       seat_box=(LOCATOR_X-6.5,LOCATOR_X+6.5,10.0,17.2,2.0,LOCATOR_SEAT_TOP+.5),seat_part='tub',
+                       stop_box=(LOCATOR_X-6.5,LOCATOR_X+6.5,CARRIER_BED_Y,25.4,3.0,9.5),stop_part='panel')]
 PANEL_SCREWS=[(-120.5,48.0),(-125.0,91.7),(-10.8,8.3),(-10.8,91.7)]
 
 
@@ -109,6 +132,138 @@ def evf_support(length):
     return tr(fuse(adds).cut(*cuts).clean(),(0,EY,0))
 
 
+# T2 (review 2026-10-10: VN-34, VN-53 -Y tine, VN-25 tub print minors). Every addition below is self-supporting in
+# the tub print pose (-Y face down): its underside rises at TUB_PRINT_SLOPE_DEG from the bed plane, steeper than r7's
+# 45 deg allowance (layout.PRINT_OVERHANG overhang_deg), so no paint-on support is needed.
+TUB_PRINT_SLOPE_DEG=50.0
+EVF_HDMI_RECEPTACLE_Y=(4.0,17.0)   # r7 checks._evf_board_zones 'hdmi receptacle' y in the r7 board frame (cots hdmi 'y 4..17')
+
+
+def _hull_top_y(poly,x):
+    """Largest y where the vertical line at x meets the closed polygon poly [(x, y)], or None."""
+    ys=[]
+    for (x0,y0),(x1,y1) in zip(poly,poly[1:]+poly[:1]):
+        if x0!=x1 and (x0-x)*(x1-x)<=0:ys.append(y0+(x-x0)*(y1-y0)/(x1-x0))
+    return max(ys) if ys else None
+
+
+def tub_print_fixes(length):
+    """T2 tub geometry, assembly frame. -> (adds, cuts) for make_tub.
+    (1) -Y tab-catch tine (VN-53, outer faces only): its catch face (y = -y_in, facing +Y) faces UP in print and is
+        not touched. The flange grows from the -Y wall instead of hanging at y -20.28, and the web's outer face
+        (y -11.28) gets a fill whose underside rises from the flange at TUB_PRINT_SLOPE_DEG; both run to the catch top,
+        merging with the panel-screw boss column and the roof. Nothing on the camera side of the tine changes.
+    (2) LL collar insert boss (r7 declared a paint-on 'll_insert_boss_chin' for the same boss): a coaxial cone under
+        the boss axis (lower half only) whose underside rises from the front wall at the print slope; the boss, its
+        insert bore and screw-tip relief are unchanged (cut afterwards in make_tub).
+    (3) rear panel-screw compression landing: a wedge under its -Y face from the floor (the landing face is unchanged).
+    (4) floor: the tooth where the pigtail hole meets the power floor hull is cut back so the hole roof rises from the
+        hull's highest point at the print slope to the pigtail hole edge (the hole only grows; no feature moves).
+    (5) FPS pair guide: a lofted corbel under its -Y face that narrows at the print slope onto the connector-rest arm
+        (x -136..-133, z 76.3..78.05; fps_fixed_support.connector_rest); the wire slit stays open.
+    (6) VN-34: a local relief in the EVF PCB shelf under the HDMI receptacle zone, from the board's -X face to the PCB
+        face + the PCB's groove clearance (g - 0.8 = 0.25), so the PCB edge, not the receptacle, takes the -Z stop
+        even with the board pushed +X in its groove (check_evf_restraint connector rule, unchanged)."""
+    run=1/math.tan(math.radians(TUB_PRINT_SLOPE_DEG))     # horizontal run per mm of rise
+    rise=math.tan(math.radians(TUB_PRINT_SLOPE_DEG))
+    f=-length;adds=[];cuts=[]
+    # (1) -Y tine
+    tc={b['kind']:b for b in L.tab_catch_boxes() if b['side']==-1}
+    web,fl=tc['web'],tc['flange'];z0,zt=web['z'][0],98.0
+    adds.append(box(fl['x'][0],fl['x'][1],-25.55,fl['y'][0]+.01,z0,zt))
+    wy=fl['y'][0]+(web['x'][1]-fl['x'][1])*rise
+    pts=[(fl['x'][1]-.01,fl['y'][0]),(web['x'][1],wy),(web['x'][1],web['y'][0]+.01),(fl['x'][1]-.01,web['y'][0]+.01)]
+    w=cq.Wire.makePolygon([V(x,y,z0) for x,y in pts]+[V(pts[0][0],pts[0][1],z0)])
+    adds.append(cq.Solid.extrudeLinear(w,[],V(0,0,zt-z0)))
+    # (2) LL collar insert boss cone (lower half)
+    if 'LL' in L.COLLAR['bolted']:
+        y,z=L.COLLAR['feet']['LL'];r0=4.0;r1=r0+2.5*rise
+        cone=cq.Solid.makeCone(r1,r0,2.5,V(-5.1,y,z),V(-1,0,0))
+        adds.append(cone.intersect(box(-7.6,-5.1,y-r1-.1,y,z-r1-.1,z+r1+.1)))
+    # (3) rear panel-screw landing wedge (landing box: x f+6..f+11, y 21.5..24.9, z 2.4..5.5)
+    lz0,lz1,ly=2.5,5.5,21.5
+    pts=[(ly-(lz1-lz0)*rise,lz0),(ly-(lz1-lz0)*rise,lz0-.1),(ly+.01,lz0-.1),(ly+.01,lz1),(ly,lz1)]
+    w=cq.Wire.makePolygon([V(f+6,y,z) for y,z in pts]+[V(f+6,pts[0][0],pts[0][1])])
+    adds.append(cq.Solid.extrudeLinear(w,[],V(5,0,0)))
+    # (4) floor tooth between the pigtail hole and the power floor hull
+    pig=L.FLOOR_HOLES['pigtail'];hull=list(PG.floor_hull())
+    xs=[pig['x'][1]+.05*i for i in range(1,161)]
+    top=[(x,_hull_top_y(hull,x)) for x in xs]
+    top=[(x,y) for x,y in top if y is not None and y<pig['y'][1]]
+    if top:
+        xp,yp=max(top,key=lambda t:t[1])
+        yl=yp+(xp-pig['x'][1])*rise
+        if yl<pig['y'][1] and xp>pig['x'][1]:
+            pts=[(xp,yp-.02),(pig['x'][1],yl),(pig['x'][1]-.1,yl),(pig['x'][1]-.1,yp-.6),(xp,yp-.6)]
+            w=cq.Wire.makePolygon([V(x,y,-.1) for x,y in pts]+[V(pts[0][0],pts[0][1],-.1)])
+            cuts.append(cq.Solid.extrudeLinear(w,[],V(0,0,2.7)))
+    # (5) FPS pair guide corbel (guide footprint x -137.625..-129.375, z 76.3..83.35 at y 6; fps_pair_guide.build)
+    gx0,gx1,gz0,gz1,gy=-137.625,-129.375,76.3,83.35,6.0
+    ax0,ax1,az1=-136.0,-133.0,78.05
+    depth=max(gz1-az1,gx1-ax1,ax0-gx0)*rise
+    bot=[V(ax0,gy-depth,gz0),V(ax1,gy-depth,gz0),V(ax1,gy-depth,az1),V(ax0,gy-depth,az1)]
+    tp=[V(gx0,gy+.01,gz0),V(gx1,gy+.01,gz0),V(gx1,gy+.01,gz1),V(gx0,gy+.01,gz1)]
+    corbel=cq.Solid.makeLoft([cq.Wire.makePolygon(bot+[bot[0]]),cq.Wire.makePolygon(tp+[tp[0]])],True)
+    slit=[(-134.9,81.85),(-132.1,81.85),(-131.2,83.36),(-135.8,83.36)]
+    w=cq.Wire.makePolygon([V(x,gy-depth-.1,z) for x,z in slit]+[V(slit[0][0],gy-depth-.1,slit[0][1])])
+    # FX (verifier T2 major): the corbel filled the FPS switch-bundle lane under the guide (integrated FPS check: static
+    # bundle x -134.8..-132.2, y 0.10..6.01, z 78.4..81.0 hit the tub by 23.1 mm3; carried poses only move it +Y). The
+    # lane FPS_BUNDLE_LANE (0.5 mm round the bundle in x, 0.3 under it, up to the slit) splits the corbel into two
+    # cheeks above the rest arm; the guide face over it is a 3.6 mm bridge between the cheeks. The guide is untouched.
+    lx0,lx1,lz0=FPS_BUNDLE_LANE
+    lane=box(lx0,lx1,gy-depth-.2,gy+.02,lz0,gz1+.1)
+    adds.append(corbel.cut(cq.Solid.extrudeLinear(w,[],V(0,depth+.3,0))).cut(lane))
+    # (6) VN-34 EVF receptacle relief (evf_support frame + EY; PCB plane f+15.6..17.2, groove half-width g 1.05)
+    ry0,ry1=EVF_HDMI_RECEPTACLE_Y[0]-16+EY-.5,EVF_HDMI_RECEPTACLE_Y[1]-16+EY+.5
+    cuts.append(box(f+15.45,f+15.6+(1.05-.8),ry0,ry1,62.9,63.8))
+    return adds,cuts
+
+
+# T2 (VN-53, FP-11b): the +Y tab-catch tine. Its catch face (y = +y_in, facing -Y) faces DOWN in the -Y-down tub
+# print, and both free edges of that face border camera sweeps: behind it the lock tab and heads pass x -22.97 ->
+# -11.87 at |y| <= 7.08, z <= 82.1 in camera_in, below it they roll in the slot. No tub geometry can anchor it (every
+# anchor would stand in a sweep) and paint-on support would land on the catch face (VN-53). So the tine is split at
+# TAB_CATCH_SPLIT_Z: above it the web merges into a ceiling over the slot (above every tab position) and stays
+# integral; below it a separate stub is printed upright (bed face down, catch face vertical) and bonded into the tub
+# before assembly (steps print_inserts), located on the ceiling datum by a tenon (default pending user decision 16:
+# bonded stub, see FIX-LOG T2). make_tub returns the bonded tub (adhesive fills the pocket clearance), so every
+# assembly check sees the same catch faces; tub_print_parts gives the two print files.
+FPS_BUNDLE_LANE=(-135.3,-131.7,78.1)      # FX: x0, x1, z0 of the switch-bundle lane through the pair-guide corbel
+TAB_CATCH_SPLIT_Z=83.5                     # joint plane: tab top 82.1 (CAM top_r 22.1 above the axis z 60) + 1.4
+TAB_CATCH_CEILING_TOP=90.0                 # into the panel-screw boss column (its underside z 87.5..89.2 over the tine x)
+TAB_CATCH_TENON=dict(x=(-12.9,-9.8),t=1.6,h=3.5)    # on the stub top; its -Y face lies on the catch-face plane.
+                                           # FX: was x -13.5..-9.2, which left 0.9 mm pocket side walls in the print
+                                           # stock (web x -14.5..-8.2); now pocket -13.0..-9.7, walls 1.5 (>= r7 MIN_WALL)
+TAB_CATCH_POCKET_CLEAR=dict(x=.1,y=.2,z=.1)          # adhesive clearance; the -Y face is the datum (no clearance)
+TAB_CATCH_BED_CHAMFER=.6                   # r7 layout.FDM BED_CHAMFER on the stub's bed edges (print_rules.check_bed_chamfer)
+
+
+def tab_catch_split():
+    """+Y tine split from the r7 tab_catch_boxes (unchanged). -> dict(adds: [ceiling, pad] fused into the tub,
+    envelope: the integral stub region, pocket: tenon pocket in the tub, stub: the bonded insert incl. its tenon)."""
+    tc={(b['side'],b['kind']):b for b in L.tab_catch_boxes()}
+    wp,fp,wm=tc[(1,'web')],tc[(1,'flange')],tc[(-1,'web')]
+    zs=TAB_CATCH_SPLIT_Z;x0,x1=wp['x'];yin,yout=wp['y'];z0=wp['z'][0]
+    ceiling=box(x0,x1,wm['y'][1]-.01,yin+.01,zs,TAB_CATCH_CEILING_TOP)
+    pad=box(fp['x'][1]-.01,x1,yout-.01,yout+1.2,zs,98.0)     # +Y web 1.2 thicker above the joint: pocket wall
+    env=box(x0,x1,yin,yout,z0-.1,zs).fuse(box(fp['x'][0],fp['x'][1],yin,fp['y'][1],z0-.1,zs)).clean()
+    T,C=TAB_CATCH_TENON,TAB_CATCH_POCKET_CLEAR
+    pocket=box(T['x'][0]-C['x'],T['x'][1]+C['x'],yin,yin+T['t']+C['y'],zs-.1,zs+T['h']+C['z'])
+    stub=box(x0,x1,yin,yout,z0,zs).fuse(box(fp['x'][0],fp['x'][1],yin,fp['y'][1],z0,zs)).clean()
+    stub=cq.Workplane(obj=stub).edges('<Z').chamfer(TAB_CATCH_BED_CHAMFER).val()
+    stub=stub.fuse(box(T['x'][0],T['x'][1],yin,yin+T['t'],zs-.01,zs+T['h'])).clean()
+    return dict(adds=[ceiling,pad],envelope=env,pocket=pocket,stub=stub)
+
+
+def tub_print_parts(tub):
+    """T2 print files for a bonded tub from make_tub. -> (tub print stock: without the stub, with the tenon pocket;
+    the stub insert). Both in the assembly frame; export_candidate gives each its own print pose."""
+    sp=tab_catch_split()
+    stock=tub.cut(sp['envelope']).cut(sp['pocket']).clean()
+    if not stock.isValid() or len(stock.Solids())!=1:raise ValueError('tub print stock is not one valid solid')
+    return stock,sp['stub']
+
+
 def collar_print_stock(finished):
     """Fuse sacrificial membranes without same-domain cleanup.
     The pinned kernel's cleanup can corrupt the Fujinon stock boolean. Keep the
@@ -168,47 +323,256 @@ def make_cooler_proxy():
 
 def make_carrier():
     """Open perimeter carrier; four lower kit screws replaced with M2.5x8.
-    Four 4.0 mm bosses sit against the UPS underside. A1mm head recess leaves
-    3.0mm under the screw seat:8-3-1.6=3.4mm nominal engagement, gated by real standoff depth.
+    Four kit bosses sit against the UPS underside. The kit-screw seat stays at y 19.2:3.0mm under the screw seat:
+    8-3-1.6=3.4mm nominal engagement, gated by real standoff depth.
     No cooler removal, PCB-edge clip, spring keeper or pogo interface alteration.
+    FP-11c (VN-54, VN-56): frame, ears, kit/ear bosses and arm all reach the continuous +Y bed face at y 22.2 (the
+    frame printed 2 mm above the bed); kit heads (y 19.2..21.6) sit in r2.65 pockets with the arm's r3.35 lead-in;
+    PT counterbores 7.0 mm in 5.2 mm ear bosses; r7 FDM 0.6 mm 45 deg chamfer on the exterior bed edges; a 50 deg
+    relief keeps 0.6 mm (normal to its slope) to the power-nut reserve.
     """
+    top=CARRIER_BED_Y-3.2   # the body is built 3.2 mm lower in Y, then moved
     holes=[rp((x,y,6)) for x,y in L.PI['holes']]
     # Central opening does not trap the UPS components or underside cable exits.
-    s=box(-96.5,-29,14,17,4,64.0).cut(box(-86,-39,13,18,16,54))
+    s=box(-96.5,-29,14,top,4,64.0).cut(box(-86,-39,13,top+1,16,54))
     # Extend the frame to the two mounting ears and connect to existing top/bottom rails.
     # Diagonal rear arm clears the carried upper USB2 power head and FPS body.
     ax,az,bx,bz=-127.,69.,-93.,53.
     norm=math.hypot(bx-ax,bz-az);nx=-(bz-az)/norm*2;nz=(bx-ax)/norm*2
     pts=[(ax+nx,az+nz),(bx+nx,bz+nz),(bx-nx,bz-nz),(ax-nx,az-nz)]
     wire=cq.Wire.makePolygon([V(x,14,z) for x,z in pts]+[V(pts[0][0],14,pts[0][1])])
-    arm=cq.Solid.extrudeLinear(wire,[],V(0,3,0))
-    s=s.fuse(arm,box(-34,-25,14,17,5,13))
+    arm=cq.Solid.extrudeLinear(wire,[],V(0,top-14,0))
+    s=s.fuse(arm,box(-34,-25,14,top,5,13))
     for x,_,z in holes:
-        s=s.fuse(cyl('y',4.5,13,17,x,z))
+        s=s.fuse(cyl('y',4.5,13,top,x,z))
     for x,z in CARRIER_SCREWS:
-        s=s.fuse(cyl('y',4.8,14,17,x,z))
+        s=s.fuse(cyl('y',CARRIER_EAR_R,14,top,x,z))
     for x,_,z in holes:
-        s=s.cut(cyl('y',1.4,12.9,17.1,x,z),cyl('y',2.65,16,17.1,x,z))
-    for x,z in CARRIER_SCREWS:s=s.cut(cyl('y',1.7,13.9,17.1,x,z),cyl('y',3.2,16.6,17.1,x,z))
-    for x,z in [(-92,25),(-92,45),(-34,25),(-34,45)]:
-        s=s.cut(box(x-1.5,x+1.5,13.9,17.1,z-.5,z+.5))
-    return SG.reinforce_carrier(tr(s.clean(),(0,3.2,0)))
+        # FX (verifier CF minor): the r3.35 x 0.7 lead-in at the bed face left a 0.55 mm rim (r 4.5 boss - 0.6 bed
+        # chamfer - 3.35); the r2.65 pocket alone leaves 1.25 mm and a straight driver needs no lead-in.
+        s=s.cut(cyl('y',1.4,12.9,top+.1,x,z),cyl('y',2.65,16,top+.1,x,z))
+    for x,z in CARRIER_SCREWS:s=s.cut(cyl('y',1.7,13.9,top+.1,x,z),cyl('y',CARRIER_CBORE_R,16.6,top+.1,x,z))
+    for x,z in CARRIER_TIE_SLOTS:
+        s=s.cut(box(x-1.5,x+1.5,13.9,top+.1,z-.5,z+.5))
+    s=_carrier_bed_chamfer(SG.reinforce_carrier(tr(s.clean(),(0,3.2,0)))).cut(_power_nut_relief())
+    if not s.isValid() or len(s.Solids())!=1:raise ValueError('Invalid carrier after the power-nut relief')
+    return s
+
+
+def _carrier_bed_chamfer(s):
+    """r7 FDM BED_CHAMFER (0.6 mm, 45 deg) on the exterior edges of the +Y bed face only; holes keep their sections."""
+    s=s.clean()   # merge the coplanar frame and arm faces into one bed face
+    faces=[f for f in s.Faces() if abs(f.Center().y-CARRIER_BED_Y)<1e-6 and f.normalAt().y>1-1e-9]
+    if len(faces)!=1:raise ValueError('carrier bed face is not one planar face: %d'%len(faces))
+    c=s.chamfer(dc.FDM['BED_CHAMFER'],None,faces[0].outerWire().Edges())
+    if not c.isValid() or len(c.Solids())!=1:raise ValueError('carrier bed chamfer failed')
+    return c
+
+
+def _power_nut_relief(gap=0.8,rise=1.2):
+    """FP-11c: with the bed face at y 22.2 the right rail's outer 2 mm met the power-nut reserve face (_build row
+    power_nut_reserve: OD 22, y 22.2..25.2, axis (-20, 25.5)) at 0 mm. A cone coaxial with the nut leaves `gap` at the
+    bed face (0.8 there, 0.61 normal to the slope) and rises `rise` mm per mm (50 deg), so the relief still grows from
+    the bed in print."""
+    r=POWER_NUT_RESERVE_R+gap+.1/rise
+    return cq.Solid.makeCone(r,0,r*rise,V(POWER_NUT_AXIS_XZ[0],CARRIER_BED_Y+.1,POWER_NUT_AXIS_XZ[1]),V(0,-1,0))
+
+
+def carrier_locator_seat():
+    """FP-11c (VN-38) tub floor seat rib under the carrier bottom-rail tongue: +Y face on the carrier datum y 17.2, top
+    z LOCATOR_SEAT_TOP; its -Y face falls 4 in 5 to the floor so it grows from the tub's -Y bed wall in print."""
+    x,t=LOCATOR_X,LOCATOR_SEAT_TOP
+    yf=17.2-LOCATOR_CRUSH_RIDGE['h']
+    pts=[(yf,2.0),(yf,t),(15.2,t),(15.2-1.25*(t-2.5),2.5),(15.2-1.25*(t-2.5),2.0)]
+    w=cq.Wire.makePolygon([V(x-6,y,z) for y,z in pts]+[V(x-6,*pts[0])])
+    seat=cq.Solid.extrudeLinear(w,[],V(12,0,0))
+    # FX (verifier C1 minor): the tongue sat on the full seat face at 0.000 mm while two screws clamp the ears (an
+    # over-constrained seat). The seat face now lies LOCATOR_CRUSH_RIDGE h below the datum and one crushable ridge
+    # (2 extrusion widths, along x, top in print) carries the tongue at 0: it bears (check_scope credits contact) and
+    # yields instead of fighting the two clamped ears.
+    r=LOCATOR_CRUSH_RIDGE
+    return seat.fuse(box(x-6,x+6,yf-.01,17.2,r['z'][0],r['z'][1])).clean()
+
+
+def carrier_locator_stop():
+    """FP-11c (VN-38) panel stop pad over the carrier tongue, assembly frame (make_panel builds 3 mm lower in Y)."""
+    return box(LOCATOR_X-6,LOCATOR_X+6,CARRIER_BED_Y+LOCATOR_STOP_GAP,25.4,3.1,9.0)
+
+
+# C2 (FP-11d, VN-55): the s_c4 lug back to r7's proportions. r7 (layout COLLAR lug): bit relief -27.0, screw -31.0,
+# lug face -35.0, i.e. relief to screw 4.0 and screw to face 4.0. The 9ced753 candidate had 3.5 / 3.7 (relief -22.8,
+# screw -26.3, face -30.0): the 7.0 washer ended exactly on the relief face (0.2 into it at the 0.2 float) and the r 3.9
+# flat-support footprint (7.0 / 2 + float 0.2 + edge 0.2) ran 0.2 past the lug face. The relief stays at -22.8, so the
+# body wall between the relief and the bore is unchanged (verify_candidate collar_relief_nominal_after_bed_chamfer,
+# hypot(22.8, 6) - 21.15 - 0.6 = 1.83 >= 1.6; moving the relief instead would drop it below 1.6). Screw, insert and
+# driver line move 0.5 mm to -26.8 and the lug face 0.8 mm to -30.8: washer 0.5 mm from the relief (0.3 at the float,
+# r7 0.5 / 0.3), footprint 0.1 mm inside the face (r7 0.1), dia 6.5 bit 0.75 mm from the relief (r7 0.75), lug wall
+# outside the dia 4.0 insert bore 2.0 mm (was 1.7; r7 2.0).
+COLLAR_LUG_Y_OUT=-30.8
+COLLAR_SCREW_Y=-26.8
+COLLAR_BIT_RELIEF_Y=-22.8
+# C2 (FP-11d, VN-58): the LR compression foot (dia 7.6) reaches 28.64 mm from the lens axis, 3.64 mm outside the body
+# r 25, and r7 gives ears only to the bolted feet. A cone on the foot axis under it (front face +X on the bed, so the
+# foot grows -X off the body rear face) shrinks 1 mm in radius per LR_SUPPORT_RUN mm toward the bed: about 50 deg from
+# the bed plane, steeper than the r7 45 deg rule. Only the part outside r (body_r - 0.5) is added.
+LR_SUPPORT_RUN=1.2
 
 
 def collar_setup():
     """Keep optical seating/cone datums, reduce non-optical exterior and ear span.
     Changed clamp stiffness invalidates earlier spring/thermal estimates (M1 open).
+    C2 (FP-11d): lug face, s_c4 screw and bit relief at r7's spacing (COLLAR_LUG_Y_OUT, COLLAR_SCREW_Y,
+    COLLAR_BIT_RELIEF_Y).
     """
     L.COLLAR=copy.deepcopy(L.COLLAR)
     L.COLLAR['body_r']=25.0
     L.COLLAR['feet']['LL']=(18.0,30.0)
-    L.COLLAR['lug'].update(y_out=-30.0,screw_y=-26.3,bit_relief_y=-22.8)
+    L.COLLAR['lug'].update(y_out=COLLAR_LUG_Y_OUT,screw_y=COLLAR_SCREW_Y,bit_relief_y=COLLAR_BIT_RELIEF_Y)
     L.SCREWS=copy.deepcopy(L.SCREWS)
     for s in L.SCREWS:
         if s['id']=='s_c3':
             s['head_point']=(s['head_point'][0],18,30);s['tip']=(s['tip'][0],18,30)
         if s['id']=='s_c4':
-            s['head_point']=(s['head_point'][0],-26.3,s['head_point'][2]);s['tip']=(s['tip'][0],-26.3,s['tip'][2])
+            s['head_point']=(s['head_point'][0],COLLAR_SCREW_Y,s['head_point'][2]);s['tip']=(s['tip'][0],COLLAR_SCREW_Y,s['tip'][2])
+
+
+def lr_foot_support():
+    """C2 (FP-11d, VN-58) support cone under the LR compression foot, assembly frame. Call in the collar_setup state.
+    Cone on the foot axis from the foot radius at the body rear face (collar_spec rear_x) toward +X (the bed side),
+    radius -1 mm per LR_SUPPORT_RUN mm; kept only outside r (body_r - 0.5) about the lens axis, so it cannot reach
+    the bore, the cone seat or the rear land, and it ends inside the body before the collar front."""
+    C=L.COLLAR;ly,lz=L.LENS_AXIS;y,z=C['feet']['LR'];r=C['foot_d']/2
+    x0=L.collar_spec(L.LENS)['rear_x']
+    cone=cq.Solid.makeCone(r,0.0,r*LR_SUPPORT_RUN,V(x0,y,z),V(1,0,0))
+    keep_out=cq.Solid.makeCylinder(C['body_r']-0.5,r*LR_SUPPORT_RUN+2.0,V(x0-1.0,ly,lz),V(1,0,0))
+    return cone.cut(keep_out)
+
+
+def make_collar(lens=None):
+    """The candidate lens collar: r7 printed_collar.build_part (candidate layout from collar_setup) + the LR foot
+    support (VN-58). Call in the collar_setup state; lens defaults to L.LENS. j7_collar_checks rebuilds the collars
+    with this same function (its context rows compare the rebuild with the manifest-bound STEP)."""
+    old=L.LENS
+    try:
+        if lens is not None:L.LENS=lens
+        base=printed_collar.build_part(L,'lens_collar',L.LENS).val()
+        # No same-domain cleanup (as collar_print_stock): on these collars clean() moves the volume by ~0.001 mm3.
+        sol=base.copy().fuse(lr_foot_support())
+    finally:L.LENS=old
+    if not sol.isValid() or len(sol.Solids())!=1:raise ValueError('collar LR support union is not one valid solid')
+    if base.copy().cut(sol.copy()).Volume()>1e-6:raise ValueError('collar LR support removed collar material')
+    return sol
+
+
+# C2 (feather edge, FP-09 note): the narrowed base (y +-25.2) puts the -Y face 3.2 mm from the s_j lock axis (y -22,
+# moved 2 mm for the USB jacks), inside the dia 7.0 counterbore (r 3.5, z -8..-2): the bore broke through the face over
+# x -111 +- 1.4 and left 0.1-0.4 mm feather walls beside it (thin spot 0.373 at -112.87, -24.96, -6.38). A local
+# wall closes it: r SJ_SIDE_WALL_R about the screw axis (1.4 mm round the bore, 1.7 mm proud of the face, still 1.1
+# inside the tub's -Y face at -28), z -8..-2.9, then a cone to r 3.2 at z -0.7 (52 deg from the bed plane, base prints
+# +Z down; it ends below the 0.6 mm bed chamfer). Counterbore, clearance hole and head seat are unchanged.
+SJ_SIDE_WALL_R=4.9
+GRIP_BASE_Y=25.2
+
+
+def sj_side_wall():
+    """C2 local wall outside the base -Y face round the s_j counterbore (assembly frame); only the part at
+    y < -(GRIP_BASE_Y - 0.3), less the counterbore. Uses L.J4_LOCK and the s_j cbore row."""
+    sj=next(s for s in L.SCREWS if s['id']=='s_j');x,y=L.J4_LOCK['c'];cb=sj['cbore'];rb=cb['d']/2
+    z0,z1=cb['z'];zc,zt,rt=-2.9,-0.7,GRIP_BASE_Y+y   # rt: radius that reaches the face line at z -0.7
+    if not (y<0 and 0<rt<rb<SJ_SIDE_WALL_R):raise ValueError('s_j side wall: lock not inside the -Y counterbore case')
+    body=cq.Solid.makeCylinder(SJ_SIDE_WALL_R,zc-z0,V(x,y,z0),V(0,0,1)).fuse(
+        cq.Solid.makeCone(SJ_SIDE_WALL_R,rt,zt-zc,V(x,y,zc),V(0,0,1)))
+    outside=box(x-SJ_SIDE_WALL_R-1,x+SJ_SIDE_WALL_R+1,y-SJ_SIDE_WALL_R-1,-(GRIP_BASE_Y-0.3),z0-0.1,0.0)
+    return body.intersect(outside).cut(cq.Solid.makeCylinder(rb,z1-z0+0.1,V(x,y,z0-0.1),V(0,0,1)))
+
+
+# C2 (FP-11e, VN-57): the rear J4 head pocket of the base ends at x -64.75 (tongue_r base_pocket x -83.25..-64.75).
+# The power passage box (power_geometry.grip_cuts, GRIP_PASSAGE_BOX) and the base pigtail opening (layout FLOOR_HOLES
+# pigtail x -65.8..-55, y -8..2, cut through the base by printed_grip) removed the pocket's +X end wall, so the pocket
+# floor (a roof in the +Z-down print) had no anchor at that end over y -12.4..9 (102.9 mm2 unsupported). For y >= -4.0
+# the base gets an end wall back to x -63.25 (1.5 mm past the pocket end; below the pocket floor it fills x -66..-63.25).
+# The installed XT30 pair/fuse and all 201 rigid service poses of the junction and pack stay 1.145 mm from that block
+# (probe on the ec60b42d STEPs; verify_power_service re-checks). Below y -4.0 the installed fuse, the negative core and
+# the service sweep need the passage to x -66 (installed pair overlap 50.0 mm3 with a wall there): that band of the
+# pocket floor keeps the declared support zone (grip_support_zones).
+GRIP_PASSAGE_BOX=(-66.0,-35.0,-12.4,9.0,-10.0,0.1)   # = power_geometry.grip_cuts box (tests compare)
+GRIP_PASSAGE_WALL=dict(x=(-66.0,-63.25),y=(-4.0,9.0),z=(-10.0,0.0))
+GRIP_SCAR_ALLOWANCE=0.2   # FX: pocket floor relief under the declared support zone (support scar vs J4 head slide)
+# C2 (found while fixing VN-57): the passage box ends at x -35.0 and the base run-lead drop (layout KEEPOUTS
+# ko_run_drop, x -34..-28, y 1.5..9, cut through the base by printed_grip) starts at x -34.0. Below y 6.25 the
+# run-button drop opening (RUN_BTN body y +-6 + SLIDE, from x -35.25) already joins them; over y 6.25..9 a 1.0 mm wall
+# stood between them, z -10..0 (thin spots 0.999 at x -34.0, y 6.8 / 8.0 once the base faces are re-unified). The box
+# end goes back to x -35.6 over that band only (wall 1.6 mm, the r7 loaded minimum); the junction sweep and the
+# installed pair stay >= 12.9 mm away (probe), and the run and switch passages are not touched.
+GRIP_RUN_WALL=dict(x=(-35.6,-35.0),y=(L.RUN_BTN['body']['y'][1]+L.FDM['SLIDE'],9.0),z=(-10.0,0.0))
+
+
+def grip_passage_wall(w=None):
+    """C2 material given back to the base beside the power passage (assembly frame, build layout state): block `w`
+    (default GRIP_PASSAGE_WALL) less the rear keyhole (window, neck slot, head pocket) and less every power capsule /
+    fuse pocket (power_geometry.local_cutters), so no passage the frozen route cuts is filled."""
+    w=w or GRIP_PASSAGE_WALL;blk=box(*w['x'],*w['y'],*w['z'])
+    t=next(t for t in L.TONGUES if t['id']=='tongue_r')
+    blk=blk.cut(dc.keyhole_slot(t))
+    bb=blk.BoundingBox()
+    for c in PG.local_cutters():
+        cb=c.BoundingBox()
+        if cb.xmin<bb.xmax and cb.xmax>bb.xmin and cb.ymin<bb.ymax and cb.ymax>bb.ymin and cb.zmin<bb.zmax and cb.zmax>bb.zmin:
+            blk=blk.cut(c.copy())
+    return blk
+
+
+def make_base_grip():
+    """Base grip as model._build makes it (candidate strap, base y +-GRIP_BASE_Y, no s_b1/s_b2, power passages,
+    heel doubler, J4 entry floor stock) + the C2 s_j side wall and the C2 rear-pocket end wall (VN-57). The
+    declared pocket-floor support zone is grip_support_zones(). Call in model.build's layout (JG.trial_layout)."""
+    oldstrap=copy.deepcopy(L.STRAP); oldbase=copy.deepcopy(L.BASE); oldscrews=copy.deepcopy(L.SCREWS)
+    try:
+        L.STRAP=candidate_strap_layout()
+        L.BASE=copy.deepcopy(L.BASE);L.BASE['y']=(-GRIP_BASE_Y,GRIP_BASE_Y)
+        L.SCREWS=[s for s in L.SCREWS if s['id'] not in ('s_b1','s_b2')]
+        grip=SG.reinforce_grip(PG.cut_passages(printed_grip.build_part(L,'base_grip').val(), PG.grip_cuts()))
+        grip=PG.cut_passages(grip.fuse(JG.entry_floor_stock()).clean(),PG.grip_cuts())
+        adds=[sj_side_wall(),grip_passage_wall(),grip_passage_wall(GRIP_RUN_WALL)]
+    finally:L.STRAP,L.BASE,L.SCREWS=oldstrap,oldbase,oldscrews
+    out=grip
+    for a in adds:
+        out=out.fuse(a).clean()
+        if not out.isValid() or len(out.Solids())!=1:raise ValueError('base grip C2 addition union is not one valid solid')
+    # C2 (bed_chamfer row, FP-11a check): JG.entry_floor_stock re-squared the base front top edge (x -0.5, z 0) over
+    # y -19.5..19.5 (39.0 mm without the 0.6 mm 45 deg bed chamfer). Cut r7's own slab chamfer back there.
+    bc=L.FDM['BED_CHAMFER'];x1=L.BASE['x'][1]
+    w=cq.Wire.makePolygon([V(x1+.1,-19.6,.1),V(x1+.1,-19.6,-bc-.1),V(x1-bc-.1,-19.6,.1),V(x1+.1,-19.6,.1)])
+    out=out.cut(cq.Solid.extrudeLinear(w,[],V(0,39.2,0))).clean()
+    if not out.isValid() or len(out.Solids())!=1:raise ValueError('base grip front bed chamfer cut is not one valid solid')
+    # FX (verifier C2 minor): the declared support zone sits on the pocket floor that faces the sliding J4 head (slide
+    # gap 0.25 vs 0.225 needed), so a support scar could bind the slide. The floor in the zone band is GRIP_SCAR_ALLOWANCE
+    # deeper; the zone box (z zf-0.4..zf+0.2) still holds the new floor.
+    zb=grip_support_zones(L.TONGUES)[0]['box'];zf=zb[4]+0.4
+    out=out.cut(box(zb[0],zb[1],zb[2],zb[3],zf-GRIP_SCAR_ALLOWANCE,zf+.01)).clean()
+    if not out.isValid() or len(out.Solids())!=1:raise ValueError('base grip scar allowance cut is not one valid solid')
+    return out
+
+
+def grip_support_zones(tongues):
+    """C2 (FP-11e, VN-57) declared paint-on support zone of the base grip (assembly frame), for print_rules.
+    `tongues` = the J4 trial tongue rows (JG.trial_layout). The rear head pocket floor (print +Z down: a roof at the
+    pocket bottom) keeps its +X end wall only for y >= GRIP_PASSAGE_WALL y0; below that the installed fuse, the
+    negative core and the rigid junction service sweep need the passage up to x -66, so that band of the floor has
+    no anchor at its +X end. The zone covers that band only, x from the pocket -X wall + 0.5 to the passage face
+    + 0.2. It lies inside the neck slot / window footprint (|y| < neck slot half width), so supports stand on the
+    bed and never on the keyhole lips; they touch only the pocket floor, which clears the tongue head by the slide
+    gap and carries no J4 load. Gate: clear it through the window, check the floor is flat and the head slides."""
+    t=next(t for t in tongues if t['id']=='tongue_r');p=t['base_pocket'];nk=t['base_neck_slot']
+    bx0,_,by0,_,_,_=GRIP_PASSAGE_BOX;wy0=GRIP_PASSAGE_WALL['y'][0]
+    zf=p['z'][0]
+    y0,y1=by0-0.2,wy0+0.2
+    if not (nk['y'][0]<y0 and y1<nk['y'][1]):raise ValueError('grip support zone leaves the neck slot footprint')
+    return [dict(id='grip_rear_pocket_passage_band',kind='support',
+                 box=(p['x'][0]+0.5,bx0+0.2,y0,y1,zf-0.4,zf+0.2),
+                 why='rear J4 head pocket floor beside the power passage (VN-57): paint-on support from the bed '
+                     'through the neck slot and window; touches the pocket floor only (slide clearance face, no J4 '
+                     'load), never the keyhole lips; remove through the window, then check the head slide')]
 
 
 def make_tub(length):
@@ -242,6 +606,7 @@ def make_tub(length):
     for x,z in CARRIER_SCREWS:
         adds.append(cyl('y',4.8,-25.55,17.2,x,z))
         cuts.append(cyl('y',1.25,7.2,17.3,x,z))
+    adds.append(carrier_locator_seat())   # FP-11c (VN-38) third locating feature: -Y seat of the carrier tongue
     # Four panel fasteners, all same PH1 drive and accessible from one side.
     ps=panel_screws(length)
     for x,z in ps:
@@ -274,9 +639,14 @@ def make_tub(length):
     cuts.append(box(-5.3,.1,3.8,5.8,27.8,39.8))
     # Wired J2 signal switch replaces the long mechanical linkage and its FPC conflict.
     # Ø16 panel mounting hole; body behind the lower-front bay, no battery current.
+    t2a,t2c=tub_print_fixes(length);adds+=t2a;cuts+=t2c   # T2: print-pose fixes and the VN-34 relief
+    t2s=tab_catch_split();adds+=t2s['adds']                 # T2 (VN-53): ceiling + pad over the +Y tine joint
 
     s=s.fuse(*adds).cut(*cuts).clean()
-    return PG.cut_passages(s, PG.tub_cuts())
+    s=PG.cut_passages(s, PG.tub_cuts())
+    s=s.cut(t2s['envelope']).fuse(t2s['stub']).clean()      # T2: bonded +Y stub (bed-chamfered) in place
+    if not s.isValid() or len(s.Solids())!=1:raise ValueError('bonded tub is not one valid solid')
+    return s
 
 
 def make_panel(length):
@@ -295,11 +665,17 @@ def make_panel(length):
     # EVF clamp/flex pad and positive PCB edge stop, mechanically rooted to the panel.
     f=-length
     clamp=box(f+2.6,f+5.8,8+ey,22.6,63,93).cut(cyl('x',14.4,f+2.5,f+6,ey,78))
+    # CF (VN-25 thin-spot gate): the clamp starts 0.5 behind the plate's rear edge (f+2.6; plate from -length+3.1),
+    # where its crown over the r 14.4 bore was a 0.2 mm skin (thin spot 0.312 at (-155.05, 25.6, 79.51)). That strip
+    # is cut where its skin would be under MIN_WALL; the plate-backed crown and both prongs keep their full length.
+    dz=math.sqrt(14.4**2-(22.6-L.FDM['MIN_WALL']-ey)**2)
+    clamp=clamp.cut(box(f+2.5,-length+3.1,ey,22.7,78-dz,78+dz))
     adds.extend([clamp,box(f+6,f+9.2,8.3+ey,22.6,69.5,86.5),
                  box(f+15.1,f+17.7,12.3+ey,22.6,70,86)])
     # The pad stops the OLED gently; foam remains an explicit purchased consumable.
     adds.append(box(f+8.93,f+10.53,-7.8+ey,22.6,71.2,84.8))
     cuts.append(cyl('x',14.4,f-.1,f+4.6,ey,78))
+    adds.append(tr(carrier_locator_stop(),(0,-3,0)))   # FP-11c (VN-38): +Y stop over the carrier tongue
     # Upper/lower register lands make the seam locate without extra loose parts.
     adds.extend([box(-length+12,-20,20.5,22.6,3.1,5.1),box(-length+25,-20,20.5,22.6,94.9,96.9)])
     for cid,r in [('encoder',3.75),('switch_1824',5)]:
@@ -324,7 +700,62 @@ def make_panel(length):
         items.append(dict(id='fps_'+value,kind='text',at=L.pol((FG.X,FG.Z),15.5,angle),text=value,h=2.6))
     items.append(dict(id='power_label',kind='text',at=(-20,40),text='power',h=2.8))
     cuts+=dc.engrave(items,face_y=25)
-    return tr(s.fuse(*adds).cut(*cuts).clean(),(0,3,0))
+    return tr(_outline_bed_chamfer(s.fuse(*adds).cut(*cuts).clean(),'y',25.0,+1,'panel'),(0,3,0))
+
+
+def _outline_bed_chamfer(s,axis,pos,sign,label):
+    """FX (verifier T1 minor): r7 FDM BED_CHAMFER (0.6 mm, 45 deg) on the exterior outline of a part's planar bed face
+    (axis-normal face at `pos`, outward normal sign*axis); holes and engraving in the face keep their sections (r7
+    printed_panel / printed_tub chamfer the exterior bed edges only)."""
+    s=s.clean()
+    k={'x':0,'y':1,'z':2}[axis]
+    faces=[f for f in s.Faces() if f.geomType()=='PLANE' and abs(f.Center().toTuple()[k]-pos)<1e-6
+           and f.normalAt().toTuple()[k]*sign>1-1e-9]
+    if not faces:raise ValueError('%s: no planar bed face at %s=%s'%(label,axis,pos))
+    f=max(faces,key=lambda q:q.Area())
+    cf=dc.FDM['BED_CHAMFER'];edges=f.outerWire().Edges()
+    try:
+        c=s.chamfer(cf,None,edges)
+        if c.isValid() and len(c.Solids())==1:return c
+    except Exception:  # noqa: BLE001 - OCC refuses edges where a tangent boss meets the outline (panel top edge)
+        pass
+    # Fallback for straight outline edges with a square side wall: cut a 45 deg triangular prism along each edge (the
+    # chamfer's own section), overshooting the edge ends by the chamfer so the corners are cut by both prisms.
+    if any(e.geomType()!='LINE' for e in edges):raise ValueError('%s bed chamfer failed (curved outline)'%label)
+    nb=V(*[sign if i==k else 0 for i in range(3)])          # outward bed normal
+    fc=f.Center()
+    for e in edges:
+        a,b=e.startPoint(),e.endPoint();u=(b-a).normalized()
+        n=nb.cross(u)
+        if n.dot(fc-a)<0:n=-n                               # in the face, toward the face centre
+        a0,b0=a-u*cf,b+u*cf
+        tri=[a0+nb*.01-n*.01,a0+n*cf+nb*.01,a0-nb*cf-n*.01]
+        w=cq.Wire.makePolygon(tri+[tri[0]])
+        s=s.cut(cq.Solid.extrudeLinear(w,[],b0-a0))
+    c=s.clean()
+    if not c.isValid() or len(c.Solids())!=1:raise ValueError('%s bed chamfer failed'%label)
+    return c
+
+
+def make_eyecup():
+    """r7 printed_small eyecup (TPU, prints with its sleeve end on the bed, face_down from L.PARTS) plus the r7 FDM
+    BED_CHAMFER on the exterior outline of that sleeve end (FX, verifier T1 minor: the bed_chamfer row found it sharp
+    over 122.3 of 123.4 mm). The bore and the cup are unchanged."""
+    e=printed_small.build_part(L,'eyecup').val()
+    fd=L.PARTS['eyecup']['face_down'];axis,sign=fd[1].lower(),(1 if fd[0]=='+' else -1)
+    b=e.BoundingBox();pos={'x':(b.xmin,b.xmax),'y':(b.ymin,b.ymax),'z':(b.zmin,b.zmax)}[axis][1 if sign>0 else 0]
+    return _outline_bed_chamfer(e,axis,pos,sign,'eyecup')
+
+
+def make_stick_sleeve():
+    """r7 printed_small.build_stick_sleeve with the r7 rule chamfer (0.6 mm) instead of its 0.4 mm on the bed edges
+    (FX, verifier T1 minor: original-storage bed_chamfer stick_sleeve 9.66 mm). Same outer box, fillets and cavity."""
+    S,B=L.STICK_SLEEVE,L.STICK['body'];b=S['box']
+    outer=dc.safe_fillet(cq.Workplane(obj=dc.box_solid(b)),'|X',1.2)
+    outer=dc.bed_chamfer(outer,L.PARTS['stick_sleeve']['face_down'],dc.FDM['BED_CHAMFER'])
+    cav=dict(x=(B['x'][0],b['x'][1]+0.1),y=B['y'],z=B['z'])
+    cav=dc.safe_fillet(cq.Workplane(obj=dc.box_solid(cav)),'|X',0.8).val()
+    return dc.one_solid(outer.val().cut(cav).clean())
 
 
 def make_kit():
@@ -394,24 +825,17 @@ def _build(storage='compact',lens='kowa_lm6hc'):
                        source='Lorlin CK1044 source envelope;13 hole-derived pin reserves; nut/washer dimensions and12g assembly mass remain estimates. '+FG.SOURCE)
     # Source-driven existing grip/cap/cup; corrected source-based FPS knob.
 
-    oldstrap=copy.deepcopy(L.STRAP); oldbase=copy.deepcopy(L.BASE); oldscrews=copy.deepcopy(L.SCREWS)
-    try:
-        L.STRAP=candidate_strap_layout()
-        L.BASE=copy.deepcopy(L.BASE);L.BASE['y']=(-25.2,25.2)
-        L.SCREWS=[s for s in L.SCREWS if s['id'] not in ('s_b1','s_b2')]
-        grip=SG.reinforce_grip(PG.cut_passages(printed_grip.build_part(L,'base_grip').val(), PG.grip_cuts()))
-        grip=PG.cut_passages(grip.fuse(JG.entry_floor_stock()).clean(),PG.grip_cuts())
-    finally:L.STRAP,L.BASE,L.SCREWS=oldstrap,oldbase,oldscrews
+    grip=make_base_grip()
     printed={'base_grip':grip,'cap':printed_grip.build_part(L,'cap').val(),
-             'eyecup':tr(printed_small.build_part(L,'eyecup').val(),(154-length,EY-16,0)),
+             'eyecup':tr(make_eyecup(),(154-length,EY-16,0)),
              'knob_exp':tr(printed_small.build_part(L,'knob_exp').val(),CONTROL_MOVES['knob_exp']),
              'knob_fps':FG.knob(),
              'carrier':make_carrier()}
-    if storage=='original':printed['stick_sleeve']=tr(roll(tr(printed_small.build_part(L,'stick_sleeve').val(),(0,0,7.7))),(0,OP.STORAGE_DY,OP.STORAGE_DZ))
+    if storage=='original':printed['stick_sleeve']=tr(roll(tr(make_stick_sleeve(),(0,0,7.7))),(0,OP.STORAGE_DY,OP.STORAGE_DZ))
     oldc,olds=copy.deepcopy(L.COLLAR),copy.deepcopy(L.SCREWS)
     try:
         collar_setup()
-        printed.update(tub=make_tub(length),panel=make_panel(length),lens_collar=printed_collar.build_part(L).val())
+        printed.update(tub=make_tub(length),panel=make_panel(length),lens_collar=make_collar())
         for s in L.SCREWS:
             if s['id'].startswith('s_c'):
                 rows[s['id']]=dict(shape=cots.screw(L,s),kind='hardware',mass=L.screw_mass(s),source=s['spec'])

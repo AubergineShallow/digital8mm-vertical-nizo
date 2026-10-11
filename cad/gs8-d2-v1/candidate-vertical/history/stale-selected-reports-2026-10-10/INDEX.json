@@ -1,6 +1,16 @@
 {
   "purpose": "Reports that sat in the selected output folder out/compact-kowa_lm6hc but bind another manifest (review 2026-10-10 VN-09, fix FP-04). Moved byte-identical; never current evidence.",
-  "selected_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+  "selected_manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "selected_manifest_history": [
+    {
+      "sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "when": "FP-04 move (supplied snapshot)"
+    },
+    {
+      "sha256": "d848d4132b9f2c7b15a6112072b38b67980685b011c4d37325b9744951cfb5a5",
+      "when": "RF FP-16 re-export 2026-10-11: moved files re-checked unchanged and not bound to it"
+    }
+  ],
   "moved": [
     {
       "from": "out/compact-kowa_lm6hc/csi-access-checks.json",

@@ -7,7 +7,12 @@ manifest hash must not change during the run. Categories (rows keep r7's row sha
                           candidate's declared support zones (print_rules.j4_wing_zones) mapped by the pose
   print_bridge_direction  print_rules.check_bridge_direction: one raster direction per connected bridge region
   thin_wall               r7 checks.thin_wall on the bound finished-part STEPs, candidate loaded zones
-  critical_features       r7 checks.check_critical_features on the same STEPs (r7 registries, candidate PARTS)
+  critical_features       r7 checks.check_critical_features on the same STEPs (candidate PARTS and registries from
+                          critical_features_vertical.py; the accounting is written as critical_feature_registry)
+  bed_contact             print_rules.check_bed_contact on the bound print-pose STLs of the declared flat-bed parts
+                          (print_rules.FLAT_BED_PARTS; FP-11c, VN-54): the whole silhouette starts on the bed
+  bed_chamfer             print_rules.check_bed_chamfer on every bound print-pose STL (FP-11a, VN-59): r7 FDM
+                          BED_CHAMFER 0.6 mm 45 deg on the exterior bed-face outline (hole outlines reported only)
 Failures are reported, never waived; exit 1 when any row fails. Writes out/<variant>/print-checks.json.
 """
 from cv_io import read_text, rel_posix, write_text
@@ -24,7 +29,8 @@ CV = Path(__file__).resolve().parent
 sys.path.insert(0, str(CV))
 import print_rules as PR     # noqa: E402
 CK = PR.CK
-CATEGORIES = ('print_overhang', 'print_bridge_direction', 'thin_wall', 'critical_features')
+CATEGORIES = ('print_overhang', 'print_bridge_direction', 'thin_wall', 'critical_features', 'bed_contact',
+              'bed_chamfer')
 
 
 def sha(p):
@@ -81,12 +87,70 @@ def overhang_rows(out, manifest, state, parts):
     return rows_ov, rows_bd
 
 
+def bed_contact_rows(out, manifest, state):
+    """FP-11c (VN-54): one bed_contact row per declared flat-bed part (print_rules.FLAT_BED_PARTS), on its bound STL."""
+    L = state['layout']
+    rows = []
+    for pid in sorted(PR.FLAT_BED_PARTS):
+        pose = manifest['print_poses'][pid]
+        R, t = PR.pose_transform(pose)
+        try:
+            man = PR.manifold_from_stl(bound(out, manifest, 'stl/%s.stl' % pid))
+            r = PR.check_bed_contact(L, pid, man, face_down=pose['face_down'], why=PR.FLAT_BED_PARTS[pid])
+        except Exception as e:  # noqa: BLE001 - a failed check is a FAIL row, never a skipped one
+            r = dict(kind='bed_contact', part=pid, face_down=pose['face_down'], status='fail',
+                     error='%s: %s' % (type(e).__name__, str(e)[:300]))
+        for u in r.get('lifted_regions', []):
+            bb, z0 = u['bbox'], u.get('lowest_material_z_mm') or 0.0
+            u['bbox_assembly'] = PR.unmap_box((bb[0], bb[2], bb[1], bb[3], 0.0, z0), R, t)
+        r.update(stl='stl/%s.stl' % pid, pose=dict(R=R, t=t))
+        rows.append(r)
+        print(pid, 'bed_contact', r['status'], r.get('lifted_area_mm2'), flush=True)
+    return rows
+
+
+def bed_chamfer_rows(out, manifest, parts):
+    """FP-11a (VN-59): one bed_chamfer row per printed part (every manifest print pose), on its bound STL; FX: with the
+    part's written exceptions (print_rules.BED_CHAMFER_EXCEPTIONS) mapped by its print pose."""
+    rows = []
+    for pid in parts:
+        fd = manifest['print_poses'][pid]['face_down']
+        R, t = PR.pose_transform(manifest['print_poses'][pid])
+        exc = []
+        for ex in PR.BED_CHAMFER_EXCEPTIONS.get(pid, []):
+            b = PR.map_box(ex['box'], R, t)
+            exc.append(dict(ex, box2=(b[0], b[2], b[1], b[3]), box_assembly=list(ex['box'])))
+        try:
+            r = PR.check_bed_chamfer(pid, PR.manifold_from_stl(bound(out, manifest, 'stl/%s.stl' % pid)), face_down=fd,
+                                     exceptions=exc)
+        except Exception as e:  # noqa: BLE001 - a failed check is a FAIL row, never a skipped one
+            r = dict(kind='bed_chamfer', part=pid, face_down=fd, status='fail',
+                     error='%s: %s' % (type(e).__name__, str(e)[:300]))
+        r['stl'] = 'stl/%s.stl' % pid
+        rows.append(r)
+        print(pid, 'bed_chamfer', r['status'], r.get('exterior_unchamfered_mm'), flush=True)
+    return rows
+
+
 def step_shapes(out, manifest, parts):
     import cadquery as cq
     shapes = {}
     for pid in parts:
         shapes[pid] = cq.importers.importStep(str(bound(out, manifest, 'step/%s.step' % pid))).val()
     return shapes
+
+
+def tub_stock(tub, out, manifest):
+    """FX: the tub print stock rebuilt from the bound bonded-tub STEP by model.tub_print_parts (the exporter's own
+    function); its volume is checked against the bound print-pose STL (tessellation tolerance 0.5 %)."""
+    import model
+    import j4_trial_geometry as JG
+    with JG.trial_layout(model.L, **PR.J4_TRIAL):
+        stock, _ = model.tub_print_parts(tub)
+    v_stl = PR.manifold_from_stl(bound(out, manifest, 'stl/tub.stl')).volume()
+    if abs(stock.Volume() - v_stl) > 5e-3 * v_stl:
+        raise ValueError('tub stock does not match the bound stl/tub.stl (%.1f vs %.1f mm3)' % (stock.Volume(), v_stl))
+    return stock
 
 
 def main():
@@ -113,8 +177,15 @@ def main():
             res['print_overhang'] = ov
         if 'print_bridge_direction' in cats:
             res['print_bridge_direction'] = bd
+    if 'bed_contact' in cats:
+        res['bed_contact'] = bed_contact_rows(out, manifest, state)
+    if 'bed_chamfer' in cats:
+        res['bed_chamfer'] = bed_chamfer_rows(out, manifest, print_parts)
     if 'thin_wall' in cats or 'critical_features' in cats:
         shapes = step_shapes(out, manifest, finished)
+        if 'tub' in shapes:                    # FX (verifier T2 major): the tub print stock, from the bound tub STEP
+            shapes[PR.TUB_STOCK] = tub_stock(shapes['tub'], out, manifest)
+            finished = finished + [PR.TUB_STOCK]
         if 'thin_wall' in cats:
             res['thin_wall'] = []
             for pid in finished:
@@ -137,12 +208,14 @@ def main():
     failing = {c: sorted({r.get('part') or r.get('id') for r in rows if r.get('status') == 'fail'}, key=str)
                for c, rows in res.items()}
     srcs = [Path(__file__), CV / 'print_rules.py', CV / 'cv_io.py', CV / 'model.py', PR.ROOT / 'checks.py',
-            PR.ROOT / 'layout.py', PR.ROOT / 'd2_common.py', CV / 'structural-review' / 'j4_trial_geometry.py']
+            PR.ROOT / 'layout.py', PR.ROOT / 'd2_common.py', CV / 'structural-review' / 'j4_trial_geometry.py',
+            CV / 'critical_features_vertical.py']
     report = dict(manifest_sha256=h0, variant=a.variant, categories=cats, complete=list(cats) == list(CATEGORIES),
                   verification_source_sha256=sha(Path(__file__)),
                   check_sources={rel_posix(p, PR.ROOT): sha(p) for p in srcs},
                   rule=dict(L.PRINT_OVERHANG, single_direction_per_region=True), summary=summary,
                   failing=failing, physical_print_release=False,
+                  critical_feature_registry=state.get('cf_registry'),   # CF: kept / re-nominated / retired / added
                   note='Computed geometry gates only (r7 rules plus the per-region single-direction bridge rule). '
                        'Slicer review, coupons and every physical gate remain unrun.',
                   results=res)

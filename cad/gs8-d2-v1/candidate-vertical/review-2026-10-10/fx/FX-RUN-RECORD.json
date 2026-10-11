@@ -1,0 +1,1772 @@
+{
+  "task": "FX fix-up of the phase-2 verifier findings and re-refresh, review 2026-10-10",
+  "runner": "fx_driver.py -> run_locked.py (serial)",
+  "manifests": {
+    "compact-kowa_lm6hc": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+    "compact-fujinon_hf6xa": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
+    "original-kowa_lm6hc": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9"
+  },
+  "review_check_run_sha256": "2a673ba629694f1ca7cc899d888c31b8895027719d09dc3190ce0c6eb87e10d6",
+  "stage_order": "X1 compact export + FPS/plenum/print; X2 variant exports, caches, outlet, per-variant flow baselines, coupons, structural; X3 variant main/print/check-scope/harness audits, alternatives, lane records; X4 structural, variant check scope, batch run_shadow_checks, BOM/wiring/assembly text, reconciler; X5 coverage, gates, repo index, links, reference binding, docs audit, cache status; E all candidate tests and the r7 suite; X4b re-runs after the late fixes (cavity_rules, evidence_rules lint, label exception); X6 final re-checks and re-tests (not in this record: it is written before X6)",
+  "not_run": {
+    "renders": "run_shadow_renders.py needs Blender; no blender executable on this machine",
+    "structural_pdf": "structural-review/build_shadow_structural_pdf.py needs pypdf, which is not installed in the CAD venv",
+    "guide": "guide rebuild and package_concealed_guide.py not run (the guide diagrams predate trial2/trial3; FP-16 guide step open)"
+  },
+  "stages": [
+    {
+      "stage": "X1",
+      "steps": [
+        {
+          "label": "01_export_compact_kowa",
+          "args": [
+            "export_candidate.py",
+            "--storage",
+            "compact",
+            "--lens",
+            "kowa_lm6hc"
+          ],
+          "exit": 0,
+          "seconds": 336.8,
+          "finished": "2026-10-11 21:23:18",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "0c5577618397",
+            "original-kowa_lm6hc": "dd42891e8d8e"
+          },
+          "log_sha256": "25299893e83d6273cea1afab380666d76d38b77e85f0c85de18c2de7f3cf7559"
+        },
+        {
+          "label": "02_fps_integrated",
+          "args": [
+            "verify_fps_integrated.py"
+          ],
+          "exit": 0,
+          "seconds": 131.8,
+          "finished": "2026-10-11 21:25:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "0c5577618397",
+            "original-kowa_lm6hc": "dd42891e8d8e"
+          },
+          "log_sha256": "ad149ed5b74283ec99aeacd59680e6a3b325e65e6472b63333f8136981f09745"
+        },
+        {
+          "label": "03_plenum",
+          "args": [
+            "verify_shadow_plenum.py"
+          ],
+          "exit": 0,
+          "seconds": 26.4,
+          "finished": "2026-10-11 21:25:56",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "0c5577618397",
+            "original-kowa_lm6hc": "dd42891e8d8e"
+          },
+          "log_sha256": "8c1026a8bf68edca8407283a5533122f50571f3a7cde91bf52d708c889320822"
+        },
+        {
+          "label": "04_print_compact",
+          "args": [
+            "verify_print_checks.py"
+          ],
+          "exit": 0,
+          "seconds": 68.9,
+          "finished": "2026-10-11 21:27:05",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "0c5577618397",
+            "original-kowa_lm6hc": "dd42891e8d8e"
+          },
+          "log_sha256": "cdcbf674f3b02bac917835ac3c37c56e6741780fd84bb82bdd0333ff09716315"
+        }
+      ]
+    },
+    {
+      "stage": "X2",
+      "steps": [
+        {
+          "label": "01_export_compact_fujinon",
+          "args": [
+            "export_candidate.py",
+            "--storage",
+            "compact",
+            "--lens",
+            "fujinon_hf6xa"
+          ],
+          "exit": 0,
+          "seconds": 393.1,
+          "finished": "2026-10-11 21:33:52",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "dd42891e8d8e"
+          },
+          "log_sha256": "0eaef80d64bdfd58ef22dd6a47334935cb0200cae8caf0b8b95a9c4483681aca"
+        },
+        {
+          "label": "02_export_original_kowa",
+          "args": [
+            "export_candidate.py",
+            "--storage",
+            "original",
+            "--lens",
+            "kowa_lm6hc"
+          ],
+          "exit": 0,
+          "seconds": 498.2,
+          "finished": "2026-10-11 21:42:10",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "c6c73d1d9f1813f8f7e231c265a21850b0eb6b146b9086f1ccd44f52e2c45ce9"
+        },
+        {
+          "label": "03_cache_regenerate",
+          "args": [
+            "export_cache.py",
+            "regenerate"
+          ],
+          "exit": 0,
+          "seconds": 2.3,
+          "finished": "2026-10-11 21:42:12",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ff370af2dd571bcb39fde251845f9e9c10038f1c52bb0a9728c42a4a3fa36bba"
+        },
+        {
+          "label": "04_cache_status",
+          "args": [
+            "export_cache.py",
+            "status",
+            "--no-guide"
+          ],
+          "exit": 0,
+          "seconds": 1137.0,
+          "finished": "2026-10-11 22:01:09",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "00a6c2e2e9fd4e59d668244d75957af8689c003b67425074c2e261e5cb83321a"
+        },
+        {
+          "label": "05_outlet",
+          "args": [
+            "verify_shadow_outlet_context.py"
+          ],
+          "exit": 0,
+          "seconds": 34.0,
+          "finished": "2026-10-11 22:01:43",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "cb4ddda9fe803fe2d03695bd634a870692af7ce4e6129e830926a04e3af99ff9"
+        },
+        {
+          "label": "06_cs_flow_compact",
+          "args": [
+            "verify_check_scope.py",
+            "--categories",
+            "area_parity,flow_network",
+            "--out",
+            "vnfix2/FX/cs-compact-kowa_lm6hc.json"
+          ],
+          "exit": 1,
+          "seconds": 138.5,
+          "finished": "2026-10-11 22:04:02",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "60bfe56384c29f124e0cc01e8a50336b262631f551394c1699e7f9b573750fa0"
+        },
+        {
+          "label": "07_cs_flow_fujinon",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "compact-fujinon_hf6xa",
+            "--categories",
+            "area_parity,flow_network",
+            "--out",
+            "vnfix2/FX/cs-compact-fujinon_hf6xa.json"
+          ],
+          "exit": 1,
+          "seconds": 143.6,
+          "finished": "2026-10-11 22:06:25",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "8fd53b932a660169802c5469bfb97c4e5f8d1254cc827a8adad48667dd1becab"
+        },
+        {
+          "label": "08_cs_flow_original",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "original-kowa_lm6hc",
+            "--categories",
+            "area_parity,flow_network",
+            "--out",
+            "vnfix2/FX/cs-original-kowa_lm6hc.json"
+          ],
+          "exit": 1,
+          "seconds": 198.5,
+          "finished": "2026-10-11 22:09:44",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "5ae205e5de8ab9be8436d1ba11996466b67dc18e0da505cd96e2538c4f6a13e3"
+        },
+        {
+          "label": "09_write_baselines",
+          "args": [
+            "vnfix2/FX/write_baselines.py",
+            "vnfix2/FX/cs-compact-kowa_lm6hc.json",
+            "vnfix2/FX/cs-compact-fujinon_hf6xa.json",
+            "vnfix2/FX/cs-original-kowa_lm6hc.json"
+          ],
+          "exit": 0,
+          "seconds": 0.6,
+          "finished": "2026-10-11 22:09:44",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "37eb773b5aceb7447c7e55b56a60eedcc5dedfbe7ffe4189bae9fe22bb3f3e39"
+        },
+        {
+          "label": "10_coupon",
+          "args": [
+            "make_shadow_plenum_coupon.py"
+          ],
+          "exit": 0,
+          "seconds": 11.7,
+          "finished": "2026-10-11 22:09:56",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "0815c573887d9e0c68e3fe6463908f9c54c24c7fbc116ba9f2f5fe992481e6ba"
+        },
+        {
+          "label": "11_structural_write",
+          "args": [
+            "structural-review/update_concealed_vent_structure.py"
+          ],
+          "exit": 0,
+          "seconds": 5.6,
+          "finished": "2026-10-11 22:10:02",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "699ae1b981742985f0b715a1c921a19c0ffe9139a9f9fb44335800aefa467cc9"
+        },
+        {
+          "label": "12_structural_check",
+          "args": [
+            "structural-review/update_concealed_vent_structure.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 5.1,
+          "finished": "2026-10-11 22:10:07",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "4093f15a9807267b66b16be5fe65f9d111c2e52699ccf2cf8ce9b219e7f2cabe"
+        },
+        {
+          "label": "13_structural_pdf",
+          "args": [
+            "structural-review/build_shadow_structural_pdf.py"
+          ],
+          "exit": 1,
+          "seconds": 0.8,
+          "finished": "2026-10-11 22:10:08",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "849facf06146e439158d1ab8ce0e8089e3944c303dd5a513bd82700f4478bbb7"
+        }
+      ]
+    },
+    {
+      "stage": "X3",
+      "steps": [
+        {
+          "label": "11_fujinon_main_audit",
+          "args": [
+            "verify_candidate.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 1,
+          "seconds": 1630.7,
+          "finished": "2026-10-11 22:37:52",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "f7189dd35cd70cbcd2f8ff4901bae5dda21a6085cc2e22d4a561ec5cca17b3de"
+        },
+        {
+          "label": "12_fujinon_print",
+          "args": [
+            "verify_print_checks.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 0,
+          "seconds": 132.2,
+          "finished": "2026-10-11 22:40:05",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "07f5de2f2580466adef9b4672183337273b654b241470a20e0e54b938e599163"
+        },
+        {
+          "label": "13_fujinon_check_scope",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 1,
+          "seconds": 164.1,
+          "finished": "2026-10-11 22:42:49",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "5edd646424a67d3c704d9dc9a7989217ec0f046978901b53793eef09e66d894c"
+        },
+        {
+          "label": "14_fujinon_harness",
+          "args": [
+            "verify_harness_checks.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 1,
+          "seconds": 0.3,
+          "finished": "2026-10-11 22:42:49",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "f2f1b1d6c084bd6c160d4699aff0dd6f7c27709e116d1c54d9341caf33691ffb"
+        },
+        {
+          "label": "15_original_main_audit",
+          "args": [
+            "verify_candidate.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 1,
+          "seconds": 1184.4,
+          "finished": "2026-10-11 23:02:33",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "453198de448312ce5dfde53dcaae54099cead12a44a3c7f5788cb97247d75786"
+        },
+        {
+          "label": "16_original_print",
+          "args": [
+            "verify_print_checks.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 0,
+          "seconds": 69.6,
+          "finished": "2026-10-11 23:03:43",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "c351013fe89d4ae95be4c8f3a4b96836b04eae64b932768f5aef2d54e320dec9"
+        },
+        {
+          "label": "17_original_check_scope",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 1,
+          "seconds": 226.5,
+          "finished": "2026-10-11 23:07:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "2b9732d7053f83c799acee034133ebcfe653e73ef38e499db848e3f16cd49d9e"
+        },
+        {
+          "label": "18_original_harness",
+          "args": [
+            "verify_harness_checks.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 1,
+          "seconds": 0.5,
+          "finished": "2026-10-11 23:07:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "0b74658af3f15a99e989032d2b058edc73ea6737f1b8fd4457ca857f3f1093c5"
+        },
+        {
+          "label": "19_export_shadow_alternatives",
+          "args": [
+            "export_shadow_alternatives.py"
+          ],
+          "exit": 0,
+          "seconds": 714.0,
+          "finished": "2026-10-11 23:19:24",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "f2750194806f7c5a0780a780abb75538a77bf65564c35849bbbd8682a86a3845"
+        },
+        {
+          "label": "21_rec_fp07_driver",
+          "args": [
+            "verify_candidate.py",
+            "--only",
+            "driver",
+            "--out",
+            "candidate-vertical/review-2026-10-10/fp07/driver-compact-kowa_lm6hc.json"
+          ],
+          "exit": 0,
+          "seconds": 395.8,
+          "finished": "2026-10-11 23:26:00",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "426527de3ee5fd29da018ce759a89ff6cb075f075df9c3896641cff06876ed79"
+        },
+        {
+          "label": "22_rec_fp08_j7",
+          "args": [
+            "verify_candidate.py",
+            "--only",
+            "j7",
+            "--out",
+            "candidate-vertical/review-2026-10-10/fp08/j7-compact-kowa_lm6hc.json"
+          ],
+          "exit": 1,
+          "seconds": 446.4,
+          "finished": "2026-10-11 23:33:26",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "e9fa3180d10a63e42a685924192ecb7e9b11a150442389d66e01f917e6a987ac"
+        },
+        {
+          "label": "23_rec_c2_main",
+          "args": [
+            "verify_candidate.py",
+            "--only",
+            "interference,motion,driver,clearance",
+            "--out",
+            "candidate-vertical/review-2026-10-10/c2/main-c2-compact-kowa_lm6hc.json"
+          ],
+          "exit": 1,
+          "seconds": 856.4,
+          "finished": "2026-10-11 23:47:43",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ac53a33b6e246c25d572200106b7dfcec4ff278a70a34b2052f994835d56624e"
+        }
+      ]
+    },
+    {
+      "stage": "X4",
+      "steps": [
+        {
+          "label": "30a_plenum",
+          "args": [
+            "verify_shadow_plenum.py"
+          ],
+          "exit": 0,
+          "seconds": 24.2,
+          "finished": "2026-10-11 23:48:20",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "b9300f9e0636e9eb130a42f933876f798d9f4d73a9dc07c9c7b11b451b82c3d4"
+        },
+        {
+          "label": "30b_coupon",
+          "args": [
+            "make_shadow_plenum_coupon.py"
+          ],
+          "exit": 0,
+          "seconds": 11.3,
+          "finished": "2026-10-11 23:48:31",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "c3417dbf4b37a4259c7cb8ca9f93783c5a1663eb43f42d1652ff3f52df61f7e9"
+        },
+        {
+          "label": "37a_structural_write",
+          "args": [
+            "structural-review/update_concealed_vent_structure.py"
+          ],
+          "exit": 0,
+          "seconds": 5.3,
+          "finished": "2026-10-11 23:48:37",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "143c514f71298a639a6568e444a4e52df37160b50cdea72b2f620596eda1fcae"
+        },
+        {
+          "label": "37_structural_check",
+          "args": [
+            "structural-review/update_concealed_vent_structure.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 5.4,
+          "finished": "2026-10-11 23:48:42",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "cb589becafa033370fbaa4c781781c44f0fa8e92077c124af478c4b0e25bf552"
+        },
+        {
+          "label": "38_fujinon_check_scope",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 1,
+          "seconds": 162.9,
+          "finished": "2026-10-11 23:51:25",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "3e6aff17a85f26c2417498c29664578b90583c27138ce908c61e89eafac2e6df"
+        },
+        {
+          "label": "39_original_check_scope",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 1,
+          "seconds": 209.0,
+          "finished": "2026-10-11 23:54:54",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "9e7b4767fb86a272a960d47a008edd411574abd2f590fb4b08e906a7293d1436"
+        },
+        {
+          "label": "31_run_shadow_checks",
+          "args": [
+            "run_shadow_checks.py"
+          ],
+          "exit": 0,
+          "seconds": 2914.5,
+          "finished": "2026-10-12 00:43:29",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "b707b61c585e3e8ade077569f4598fa17de1c7e67e3dae88c6b768452804e6eb"
+        },
+        {
+          "label": "32_bom_write",
+          "args": [
+            "make_bom_vertical.py"
+          ],
+          "exit": 0,
+          "seconds": 0.7,
+          "finished": "2026-10-12 00:43:29",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "6d6b61931c63300b019bf6569baa47650cd5046266e8d61f61b11bba5fcb45fa"
+        },
+        {
+          "label": "33_bom_check",
+          "args": [
+            "make_bom_vertical.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 0.6,
+          "finished": "2026-10-12 00:43:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "e959c8b7cca79aba0d05aac3daaf7c35ab1c4e385ae54c34bf642282503c7885"
+        },
+        {
+          "label": "34_wiring_write",
+          "args": [
+            "make_wiring_vertical.py"
+          ],
+          "exit": 0,
+          "seconds": 3.7,
+          "finished": "2026-10-12 00:43:34",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "31b2c70d48ba2dd0aef9d0c2ca365f4ca720d832d29a33dfd5ee4b9fe6f860eb"
+        },
+        {
+          "label": "35_wiring_check",
+          "args": [
+            "make_wiring_vertical.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 3.7,
+          "finished": "2026-10-12 00:43:37",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "7fd3ed3597b04c380797ebef92b29da6e54fcc7921cf54980e5677fd4ef280d0"
+        },
+        {
+          "label": "36_assembly_text_check",
+          "args": [
+            "make_assembly_text.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 0.3,
+          "finished": "2026-10-12 00:43:38",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "e94c1e7514f93912f1c066e338bd4cf49b86b1ee86176e88ec71f50ba51d3a54"
+        },
+        {
+          "label": "41_recon_write",
+          "args": [
+            "reconcile_review_evidence.py",
+            "--write"
+          ],
+          "exit": 1,
+          "seconds": 1.6,
+          "finished": "2026-10-12 00:43:39",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "08da1032e13929df1cd1e797c7e58ad10b6acd3611aa1f94ad4c544f4b7692ed"
+        },
+        {
+          "label": "42_recon_out",
+          "args": [
+            "reconcile_review_evidence.py",
+            "--out",
+            "vnfix2/FX/recon-final.json"
+          ],
+          "exit": 1,
+          "seconds": 1.2,
+          "finished": "2026-10-12 00:43:41",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "3b67ff71ac77db2d523ff41addc0ba2fbddb4c2609ec02e1f339efd32ace092f"
+        }
+      ]
+    },
+    {
+      "stage": "X5",
+      "steps": [
+        {
+          "label": "43_coverage_write",
+          "args": [
+            "make_coverage_vertical.py",
+            "--write"
+          ],
+          "exit": 0,
+          "seconds": 0.6,
+          "finished": "2026-10-12 00:44:52",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "5c9017f77949917fec9a68d6a3a0b345c1b4b27db6efdb2a1cdd52083e10ab97"
+        },
+        {
+          "label": "44_coverage_check",
+          "args": [
+            "make_coverage_vertical.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 0.5,
+          "finished": "2026-10-12 00:44:53",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "30f0033c596ad5519415d214121b02c7ff3063b4a1c840754cfcca83fc2f6973"
+        },
+        {
+          "label": "45_gates_write",
+          "args": [
+            "make_gates_vertical.py",
+            "--write"
+          ],
+          "exit": 0,
+          "seconds": 0.5,
+          "finished": "2026-10-12 00:44:53",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "1ed13a9b80c3212724cf0f4d7ed312163849fd7f6e653901a26e882247344869"
+        },
+        {
+          "label": "46_gates_check",
+          "args": [
+            "make_gates_vertical.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 0.5,
+          "finished": "2026-10-12 00:44:54",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "15ba862ca7811151c49cbcce0bd65b1d8f6b2ec514f4593935a008a5ac039d3f"
+        },
+        {
+          "label": "47_repo_index_write",
+          "args": [
+            "make_repo_index.py",
+            "--write"
+          ],
+          "exit": 0,
+          "seconds": 8.8,
+          "finished": "2026-10-12 00:45:03",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "07333036111aec43e1d5afd85f9ad97f3cb1d32d599cfdb5cd4b16749a7ccd25"
+        },
+        {
+          "label": "48_repo_index_check",
+          "args": [
+            "make_repo_index.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 8.0,
+          "finished": "2026-10-12 00:45:11",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "6bdf55def553248c7b0bca1c08718f5c15f4349f405d5e84ce80129489fe8387"
+        },
+        {
+          "label": "49_links",
+          "args": [
+            "check_links_vertical.py"
+          ],
+          "exit": 0,
+          "seconds": 1.2,
+          "finished": "2026-10-12 00:45:12",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "e316d855be05fef9cdf6434d904412e482dead6f015cd253fa9d40d096023d59"
+        },
+        {
+          "label": "50_reference_binding",
+          "args": [
+            "structural-review/verify_reference_binding.py"
+          ],
+          "exit": 0,
+          "seconds": 0.3,
+          "finished": "2026-10-12 00:45:12",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "9b16ddde6ffcc80dec2c6475c25a83a659ee4964ea5c2cf4a5d631bef1bc64ef"
+        },
+        {
+          "label": "51_docs_write",
+          "args": [
+            "review_docs_audit.py",
+            "--write"
+          ],
+          "exit": 1,
+          "seconds": 3.8,
+          "finished": "2026-10-12 00:45:16",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ac5b0bc02ce3a9c4b95da711963dfd7988f828d44e330f14cc3ca1b52e16fb63"
+        },
+        {
+          "label": "52_docs_check",
+          "args": [
+            "review_docs_audit.py",
+            "--check"
+          ],
+          "exit": 1,
+          "seconds": 3.9,
+          "finished": "2026-10-12 00:45:20",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "905b722341b9a23f7506fa0dc6ebc73bc6fadeca7a6907f0f92e02068df0ff07"
+        },
+        {
+          "label": "53_recon_check",
+          "args": [
+            "reconcile_review_evidence.py",
+            "--check"
+          ],
+          "exit": 1,
+          "seconds": 1.3,
+          "finished": "2026-10-12 00:45:21",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "e7d99a872d5264ccc7a65a9a96af375d6f10c1abe49f8f7a932da8a420d9c7ea"
+        },
+        {
+          "label": "54_cache_status",
+          "args": [
+            "export_cache.py",
+            "status",
+            "--no-guide"
+          ],
+          "exit": 0,
+          "seconds": 1.6,
+          "finished": "2026-10-12 00:45:23",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "de4b537361a43bd963219e897c4311d5cfc5ed100b720890c272d73d8b40808d"
+        }
+      ]
+    },
+    {
+      "stage": "E",
+      "steps": [
+        {
+          "label": "t_test_assembly_state",
+          "args": [
+            "tests/test_assembly_state.py"
+          ],
+          "exit": 0,
+          "seconds": 0.9,
+          "finished": "2026-10-12 00:45:56",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "5a2f861ec7724e5e7d325d3450ff7bf89bf235d719a4c3c7f537af9363c49e16"
+        },
+        {
+          "label": "t_test_build_order_docs",
+          "args": [
+            "tests/test_build_order_docs.py"
+          ],
+          "exit": 0,
+          "seconds": 3.1,
+          "finished": "2026-10-12 00:45:59",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "d00a7d3d54786a7ec6bf385a49ea915c854598f15ea2cca4d43f1c2a7da3389f"
+        },
+        {
+          "label": "t_test_c2_collar_grip",
+          "args": [
+            "tests/test_c2_collar_grip.py"
+          ],
+          "exit": 1,
+          "seconds": 40.5,
+          "finished": "2026-10-12 00:46:40",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "c488c05e541cf7312a19d28a362c0bbcfaffb08f56f2504935f6b05b67e7cb33"
+        },
+        {
+          "label": "t_test_carrier_fp11c",
+          "args": [
+            "tests/test_carrier_fp11c.py"
+          ],
+          "exit": 0,
+          "seconds": 9.0,
+          "finished": "2026-10-12 00:46:49",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "3900b0e0cc840471d8c1eb0544b8aafffbabdc561bcf105396412e0b94e65a6c"
+        },
+        {
+          "label": "t_test_check_scope",
+          "args": [
+            "tests/test_check_scope.py"
+          ],
+          "exit": 0,
+          "seconds": 4.5,
+          "finished": "2026-10-12 00:46:53",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "7090f7bfac64a93f188631e43aa759472e1090807bf2ea7b9d6d5deb1501b8ac"
+        },
+        {
+          "label": "t_test_collar_r7_mechanical",
+          "args": [
+            "tests/test_collar_r7_mechanical.py"
+          ],
+          "exit": 0,
+          "seconds": 9.6,
+          "finished": "2026-10-12 00:47:03",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "a820f7931614d68f463cbb7000b6e9f6c0d08a9886c15f4edadf0e20fa691130"
+        },
+        {
+          "label": "t_test_coverage_gates",
+          "args": [
+            "tests/test_coverage_gates.py"
+          ],
+          "exit": 0,
+          "seconds": 0.7,
+          "finished": "2026-10-12 00:47:04",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "cd5bac0897610af50f1e992f29b4b46410e86037592029004f861e66d8dfd2fa"
+        },
+        {
+          "label": "t_test_critical_features_cf",
+          "args": [
+            "tests/test_critical_features_cf.py"
+          ],
+          "exit": 1,
+          "seconds": 7.6,
+          "finished": "2026-10-12 00:47:11",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "aafa7fcfe7f6c4630e7db19c8e1561f8500003c37538c376cb49dea9ee256d97"
+        },
+        {
+          "label": "t_test_cross_platform_io",
+          "args": [
+            "tests/test_cross_platform_io.py"
+          ],
+          "exit": 1,
+          "seconds": 5.4,
+          "finished": "2026-10-12 00:47:17",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "cc344e7e74c87dad683b985dd02c2c635525d0a9843a0122705017f7b1ce2e62"
+        },
+        {
+          "label": "t_test_deterministic_export",
+          "args": [
+            "tests/test_deterministic_export.py"
+          ],
+          "exit": 1,
+          "seconds": 29.6,
+          "finished": "2026-10-12 00:47:46",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "cebca64f137e7aeaef257c981ec21834b408ff633b442e1693368bbacafdbc94"
+        },
+        {
+          "label": "t_test_doc_figures_checkpoint",
+          "args": [
+            "tests/test_doc_figures_checkpoint.py"
+          ],
+          "exit": 0,
+          "seconds": 0.7,
+          "finished": "2026-10-12 00:47:47",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "88cbc0fc382ced71c8991fd02d2e19aacefeb4976070c6aa535760889e3bba5a"
+        },
+        {
+          "label": "t_test_driver_checks",
+          "args": [
+            "tests/test_driver_checks.py"
+          ],
+          "exit": 0,
+          "seconds": 6.5,
+          "finished": "2026-10-12 00:47:53",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "dfb5548d2eee11b39ca3708893f3c60c6e0854d13d99b7305cc4c0b895db8c09"
+        },
+        {
+          "label": "t_test_evidence_numbers",
+          "args": [
+            "tests/test_evidence_numbers.py"
+          ],
+          "exit": 0,
+          "seconds": 16.3,
+          "finished": "2026-10-12 00:48:10",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "5470f6f0e761b7c950819bb14e93798d8370c4d0e91963a24f3bf7c0f19ab75f"
+        },
+        {
+          "label": "t_test_evidence_tooling",
+          "args": [
+            "tests/test_evidence_tooling.py"
+          ],
+          "exit": 1,
+          "seconds": 105.4,
+          "finished": "2026-10-12 00:49:55",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "b0f8f8ffbfbce0a775e9c52adb9af9e09fc0292eefdb9b0c026244c4dddca2c0"
+        },
+        {
+          "label": "t_test_export_plan",
+          "args": [
+            "tests/test_export_plan.py"
+          ],
+          "exit": 0,
+          "seconds": 0.7,
+          "finished": "2026-10-12 00:49:56",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "2b164f6715eed3ca3a9a9e7a25411460e632d8eb743ac9cd327a227dd0ff3823"
+        },
+        {
+          "label": "t_test_fx_fixup",
+          "args": [
+            "tests/test_fx_fixup.py"
+          ],
+          "exit": 1,
+          "seconds": 94.6,
+          "finished": "2026-10-12 00:51:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "2ec6b891db18f35b35dd8cf1605d18a2e0264eba0da1518d753f94b9bc1cf04c"
+        },
+        {
+          "label": "t_test_fxh_harness",
+          "args": [
+            "tests/test_fxh_harness.py"
+          ],
+          "exit": 0,
+          "seconds": 66.7,
+          "finished": "2026-10-12 00:52:37",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "01f0b0ca20ed222140c278d65c843074c96cda83908808d87c19c946447bb931"
+        },
+        {
+          "label": "t_test_guide_scenes",
+          "args": [
+            "tests/test_guide_scenes.py"
+          ],
+          "exit": 0,
+          "seconds": 0.7,
+          "finished": "2026-10-12 00:52:38",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "f087eb8199d1617531b08e901130d857a465386b191fedd4c8fd77c7471ea3ae"
+        },
+        {
+          "label": "t_test_h1_feed_routes",
+          "args": [
+            "tests/test_h1_feed_routes.py"
+          ],
+          "exit": 0,
+          "seconds": 61.3,
+          "finished": "2026-10-12 00:53:39",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "8852d9b9e157a304eb6106cc091f0f004b03c2ea784063570a2c7ec0daa15366"
+        },
+        {
+          "label": "t_test_h2_harness",
+          "args": [
+            "tests/test_h2_harness.py"
+          ],
+          "exit": 0,
+          "seconds": 56.4,
+          "finished": "2026-10-12 00:54:35",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "5e892d6385c4c6da52cdb74a30e427171be57f34c702b32b083c1642fda8765f"
+        },
+        {
+          "label": "t_test_harness_checks",
+          "args": [
+            "tests/test_harness_checks.py"
+          ],
+          "exit": 0,
+          "seconds": 112.2,
+          "finished": "2026-10-12 00:56:28",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "4d2718dbb631663dcbedd8bcc2913896ac0091863506951ffed50089bc724752"
+        },
+        {
+          "label": "t_test_j7_collar",
+          "args": [
+            "tests/test_j7_collar.py"
+          ],
+          "exit": 1,
+          "seconds": 22.7,
+          "finished": "2026-10-12 00:56:50",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "fd4c8edc2aa530705095d2a7c6c7816091fa743e7a46ef4b82bbcd1d113981f2"
+        },
+        {
+          "label": "t_test_plenum_trial2",
+          "args": [
+            "tests/test_plenum_trial2.py"
+          ],
+          "exit": 1,
+          "seconds": 26.8,
+          "finished": "2026-10-12 00:57:17",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ce3925fd88474207d2316df6407d914c60e768178888fd92ddcca3237a8cc953"
+        },
+        {
+          "label": "t_test_print_checks",
+          "args": [
+            "tests/test_print_checks.py"
+          ],
+          "exit": 1,
+          "seconds": 13.0,
+          "finished": "2026-10-12 00:57:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "b695fe002ae190f3a6bb94bbb3955ab9c820863372e841e7556353ee3f974a84"
+        },
+        {
+          "label": "t_test_raster_fallback",
+          "args": [
+            "tests/test_raster_fallback.py"
+          ],
+          "exit": 0,
+          "seconds": 3.5,
+          "finished": "2026-10-12 00:57:34",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "d808a8cf4450403a3e6dd976f9c06d88b9fb4d3510d225d8fd320bd220376378"
+        },
+        {
+          "label": "t_test_reconciler_variants",
+          "args": [
+            "tests/test_reconciler_variants.py"
+          ],
+          "exit": 0,
+          "seconds": 120.8,
+          "finished": "2026-10-12 00:59:34",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "390c61bb8c45c960e40e5f9d3e3b69c49ec7af3767609b3857ca92943ea70a5d"
+        },
+        {
+          "label": "t_test_refit_state",
+          "args": [
+            "tests/test_refit_state.py"
+          ],
+          "exit": 0,
+          "seconds": 0.8,
+          "finished": "2026-10-12 00:59:35",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "919efd0b5ea755e29fb2048baa0448a5471723c7ece42743939feabc42795a30"
+        },
+        {
+          "label": "t_test_repo_eol",
+          "args": [
+            "tests/test_repo_eol.py"
+          ],
+          "exit": 0,
+          "seconds": 188.2,
+          "finished": "2026-10-12 01:02:43",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "1d5f026734f540546ac56e055171b66be560202961e844b469fe824fc705e24b"
+        },
+        {
+          "label": "t_test_repo_hygiene",
+          "args": [
+            "tests/test_repo_hygiene.py"
+          ],
+          "exit": 0,
+          "seconds": 17.0,
+          "finished": "2026-10-12 01:03:00",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "8925ad1500aa289915106fbf50cd4b9abf61a43f8ca20e3431691613123db6e2"
+        },
+        {
+          "label": "t_test_routes_source_fix",
+          "args": [
+            "tests/test_routes_source_fix.py"
+          ],
+          "exit": 0,
+          "seconds": 6.8,
+          "finished": "2026-10-12 01:03:07",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "d487e7c8a29f2df5fccdb04632b9ec6d6271fa727becd9938bd2dd80cf310bc1"
+        },
+        {
+          "label": "t_test_third_party_notices",
+          "args": [
+            "tests/test_third_party_notices.py"
+          ],
+          "exit": 0,
+          "seconds": 10.7,
+          "finished": "2026-10-12 01:03:18",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "eeb484df2bb54ac1b9320646a8d58a42fbb53febf822b68fa576ee533fc3b3ff"
+        },
+        {
+          "label": "t_test_tub_print_t2",
+          "args": [
+            "tests/test_tub_print_t2.py"
+          ],
+          "exit": 0,
+          "seconds": 154.7,
+          "finished": "2026-10-12 01:05:53",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ddd23c5a01d3e23b6c94381c6bd3bdc41ec1cc0b579704e2d479e0bd6bfc0834"
+        },
+        {
+          "label": "t_test_windows_smoke",
+          "args": [
+            "tests/test_windows_smoke.py"
+          ],
+          "exit": 0,
+          "seconds": 21.1,
+          "finished": "2026-10-12 01:06:14",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "57ea9aca44e487bde397516339c85868cba6a84eade4dc813f53921535792613"
+        },
+        {
+          "label": "t_test_wire_terminal_rules",
+          "args": [
+            "tests/test_wire_terminal_rules.py"
+          ],
+          "exit": 0,
+          "seconds": 0.4,
+          "finished": "2026-10-12 01:06:14",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "69c3e92d4603fed0ab137110a77911d4032d05525dfd73d0278a07fd03b82dea"
+        },
+        {
+          "label": "t_test_wiring_bom",
+          "args": [
+            "tests/test_wiring_bom.py"
+          ],
+          "exit": 0,
+          "seconds": 5.1,
+          "finished": "2026-10-12 01:06:19",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "a2f8222c4533ff9a75ee368264be552c9fa51a4a5d9f7a997e7f7dff08342a84"
+        },
+        {
+          "label": "t_test_routes_source_old",
+          "args": [
+            "test_routes_source.py"
+          ],
+          "exit": 0,
+          "seconds": 10.3,
+          "finished": "2026-10-12 01:06:30",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "7990ea41f3f87fafa1f1c49968d37a96c6ff03c08f375fd51e5e34834461ee74"
+        },
+        {
+          "label": "r7_r3_regressions",
+          "args": [
+            "cad/gs8-d2-v1/test_r3_regressions.py"
+          ],
+          "exit": 0,
+          "seconds": 83.5,
+          "finished": "2026-10-12 01:07:53",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "d1c13a814a3c6ccc10a56a97f3b64cba0582bf3f8c3f3b3fb7772d6ec933c2b8"
+        },
+        {
+          "label": "r7_unittest_list",
+          "args": [
+            "vnfix2/RF/r7_unittest.py",
+            "test_mechanical_refinements",
+            "test_datum_inputs",
+            "test_panel_refinements",
+            "test_collar_rear_land",
+            "test_build_outputs",
+            "test_print_stock_exports",
+            "test_release_gates",
+            "test_audit_cloud_release",
+            "test_run_locked"
+          ],
+          "exit": 0,
+          "seconds": 18.4,
+          "finished": "2026-10-12 01:08:12",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "7d2473b145b1b190840450ae11c0f406163021e4be12b57485c690889faa80f9"
+        },
+        {
+          "label": "r7_final_release_audit",
+          "args": [
+            "cad/gs8-d2-v1/audit_cloud_release.py",
+            "--out",
+            "cad/gs8-d2-v1/out",
+            "--final-release",
+            "--alternate-out",
+            "cad/gs8-d2-v1/out/_fujinon-cloud-polish-20261007",
+            "--json",
+            "vnfix2/FX/r7-audit.json"
+          ],
+          "exit": 0,
+          "seconds": 4.4,
+          "finished": "2026-10-12 01:08:16",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ffc0e324f0e4589d4a5acf47f49aa88345e2fcd09f40ab8859c1746588d03837"
+        }
+      ]
+    },
+    {
+      "stage": "X4b",
+      "steps": [
+        {
+          "label": "81_plenum",
+          "args": [
+            "verify_shadow_plenum.py"
+          ],
+          "exit": 0,
+          "seconds": 21.6,
+          "finished": "2026-10-12 01:09:22",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "46824cf269c3f93391e35120dd7a3333c66d423f3d07902565ffa194be6fd9e6"
+        },
+        {
+          "label": "82_coupon",
+          "args": [
+            "make_shadow_plenum_coupon.py"
+          ],
+          "exit": 0,
+          "seconds": 11.1,
+          "finished": "2026-10-12 01:09:33",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "a2e7133a44542062b621d35481839f95e59b29ace3e5ed967e2dc2cba3b153f2"
+        },
+        {
+          "label": "83_structural_write",
+          "args": [
+            "structural-review/update_concealed_vent_structure.py"
+          ],
+          "exit": 0,
+          "seconds": 5.0,
+          "finished": "2026-10-12 01:09:38",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "1e06fce20f0afd4724c5117b6dea11e55888247861ce4e9b63209945354cd05a"
+        },
+        {
+          "label": "84_structural_check",
+          "args": [
+            "structural-review/update_concealed_vent_structure.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 4.9,
+          "finished": "2026-10-12 01:09:43",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "de3517604303a74ffed52c01862b5be60d079b8dda5e7a39bf732d53daaeb556"
+        },
+        {
+          "label": "85_print_compact",
+          "args": [
+            "verify_print_checks.py"
+          ],
+          "exit": 0,
+          "seconds": 57.5,
+          "finished": "2026-10-12 01:10:41",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "b212712d697b23f2e36d57b8aff8cea95ddfa39cf7c678de10eb7d46eb052db6"
+        },
+        {
+          "label": "86_print_fujinon",
+          "args": [
+            "verify_print_checks.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 0,
+          "seconds": 57.2,
+          "finished": "2026-10-12 01:11:38",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "15b59e10bc378eecef9a0d10e8b3cba442f5aa04b34a699cd7b85e5fdefd0d35"
+        },
+        {
+          "label": "87_print_original",
+          "args": [
+            "verify_print_checks.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 0,
+          "seconds": 63.1,
+          "finished": "2026-10-12 01:12:41",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "faa2554b6f4b510bebf7ab20237e761cc480fd3cc2fd7bc3807b894c2a0eb59b"
+        },
+        {
+          "label": "88_cs_compact",
+          "args": [
+            "verify_check_scope.py"
+          ],
+          "exit": 1,
+          "seconds": 157.2,
+          "finished": "2026-10-12 01:15:18",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "ae28daed8df2baad1228c4bf4502305250c0a830361de8aac0fbc8cecd22c225"
+        },
+        {
+          "label": "89_cs_fujinon",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "compact-fujinon_hf6xa"
+          ],
+          "exit": 1,
+          "seconds": 170.8,
+          "finished": "2026-10-12 01:18:09",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "a4774774a02f21ed8cc6e2515c46a51a635967fc101b3aa42c069b6dd6214daf"
+        },
+        {
+          "label": "90_cs_original",
+          "args": [
+            "verify_check_scope.py",
+            "--variant",
+            "original-kowa_lm6hc"
+          ],
+          "exit": 1,
+          "seconds": 217.8,
+          "finished": "2026-10-12 01:21:47",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "f9ee261c8335e071693eeadbc464ff079f60aeacc4de04c53192d7ea5b82286f"
+        },
+        {
+          "label": "91_bom_write",
+          "args": [
+            "make_bom_vertical.py"
+          ],
+          "exit": 0,
+          "seconds": 0.7,
+          "finished": "2026-10-12 01:21:48",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "659e5977c9324d15a3782714ebc2a43b0ac503bf203f7bc8621647e488552bf4"
+        },
+        {
+          "label": "92_bom_check",
+          "args": [
+            "make_bom_vertical.py",
+            "--check"
+          ],
+          "exit": 0,
+          "seconds": 0.6,
+          "finished": "2026-10-12 01:21:48",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "a2d46d59b55e5f5adb07ffdca1cdd17c8fbf6faf6fd15d961b8336b3ce020c0b"
+        },
+        {
+          "label": "93_recon_out",
+          "args": [
+            "reconcile_review_evidence.py",
+            "--out",
+            "vnfix2/FX/recon-final.json"
+          ],
+          "exit": 1,
+          "seconds": 1.4,
+          "finished": "2026-10-12 01:21:49",
+          "manifests": {
+            "compact-kowa_lm6hc": "dbea5ca508bf",
+            "compact-fujinon_hf6xa": "1ef16c8742ba",
+            "original-kowa_lm6hc": "13d4c85ac345"
+          },
+          "log_sha256": "854e1971e2a19011e1a7d7af7d123e2b63ea14703e58c2dc6b4253562b113267"
+        }
+      ]
+    }
+  ],
+  "physical_qualified": false
+}

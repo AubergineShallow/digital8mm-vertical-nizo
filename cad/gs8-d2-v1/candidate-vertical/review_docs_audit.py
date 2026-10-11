@@ -142,6 +142,7 @@ src=ER.number_sources(P);out['source_numbers']=src
 sel=P/'out/compact-kowa_lm6hc';vsel=json.loads(read_text(sel/'verification.json'));plen=json.loads(read_text(sel/'shadow-plenum-checks.json'))
 out['checkpoint_numbers']=[{'field':f,'recorded':a,'source':s,'source_value':b,'match':a==b} for f,a,s,b in [('open_inherited_gates',status.get('open_inherited_gates'),src['gates']['source'],src['gates']['open']),('main_summary',status.get('main_summary'),'out/compact-kowa_lm6hc/verification.json summary',vsel.get('summary')),('plenum_summary',status.get('plenum_summary'),'out/compact-kowa_lm6hc/shadow-plenum-checks.json summary',plen.get('summary'))]]
 out['document_numbers']=[list(x) for x in ER.documents_number_findings(P,src=src)]
+out['checkpoint_hashes']=ER.checkpoint_hash_pairs(status,P)  # FX-D: every path/git_object + sha256 pair in CHECKPOINT-STATUS.json vs the file or blob it names
 claim='every purchased selection/quantity are unchanged from reviewed export18';out['bom']['export18_selection_claim']={'phrase':claim,'claimed':claim in read_text(P/'BOM-VERTICAL.md')}
 verdict=ER.evaluate_docs_audit(out);out['verdict']=verdict
 text=json.dumps(out,indent=2)+'\n';committed=P/'out/review-docs-audit.json'
