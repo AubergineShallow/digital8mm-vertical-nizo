@@ -399,7 +399,7 @@ None of these was decided by the review. "Default used" means the state the file
 | 12 | VN-48 | printed transport clip or a helper for step 4 | none |
 | 13 | VN-63 | J2 connector family | Molex Micro-Fit 3.0 class, keyed 2-circuit, SKU recorded at order |
 | 14 | VN-83, VN-84 | a balance rule; press-in caps over the panel screws | none |
-| 15 | all | whether and when to push the fixes to the public repo | not pushed; only the INTERMEDIATE snapshot 4d160f7 is public |
+| 15 | all | whether to merge the fixes into `main` of the public repo | pushed on request as the review branch `review/vn-fixes-20261012` (2026-10-12); the INTERMEDIATE snapshot 4d160f7 stays; `main` unchanged, merge open |
 | 16 | VN-53 | retention of the +Y tab-catch stub: bond, press fit with a detent, or the panel-held block (valid only if the lens is fitted with the panel on) | bonded at B1 `print_inserts` with two-part epoxy (V-68); its tilt stack-up fails (4.2) |
 | 17 | VN-37 | hot plenum: (a) larger hot mouths, (b) smaller or moved hot wall ports, (c) accept and rely on G-V-THERMAL, (d) another roof support (still under the 493.2 bound) | keep ports and mouths; report the hot rows as failing |
 
