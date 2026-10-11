@@ -70,19 +70,33 @@ class StepHeader(unittest.TestCase):
             self.assertRaises(ValueError, EC.normalize_step_header, p)
 
     def test_committed_occt_header_is_recognised(self):
-        # The supplied STEP files carry OCCT 7.8 wall-clock stamps; the normaliser must find exactly that field.
-        src = CV / 'out/compact-kowa_lm6hc/step/tub.step'
+        # The STEP files supplied in 9ced753 carry OCCT 7.8 wall-clock stamps; the normaliser must find exactly
+        # that field. Since FP-03 the working-tree exports are already normalised, so the raw OCCT header is read
+        # from the 9ced753 blob (the premise of the original fixture), and the committed file is checked for
+        # idempotence instead.
+        rel = 'out/compact-kowa_lm6hc/step/tub.step'
+        raw = subprocess.run(['git', 'show', '9ced753:%s/%s' % (CV_REL.rstrip('/'), rel)], cwd=str(CV), capture_output=True,
+                             check=True).stdout
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / 'tub.step'
-            shutil.copyfile(src, p)
-            raw = src.read_bytes()
+            p.write_bytes(raw)
             old = EC.normalize_step_header(p)
             self.assertRegex(old, r'^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d$')
+            self.assertNotEqual(old, EC.STEP_STAMP)
             new = p.read_bytes()
             self.assertEqual(len(new), len(raw))
             diff = [i for i in range(2048) if new[i] != raw[i]]
             self.assertTrue(diff and len(diff) <= 19, diff)
             self.assertEqual(new[2048:], raw[2048:])
+
+    def test_committed_step_is_already_normalised(self):
+        # Idempotence on the committed (deterministic) export: normalising it changes no byte.
+        src = CV / 'out/compact-kowa_lm6hc/step/tub.step'
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / 'tub.step'
+            shutil.copyfile(src, p)
+            EC.normalize_step_header(p)
+            self.assertEqual(p.read_bytes(), src.read_bytes())
 
 
 GEOM = "#1 = CARTESIAN_POINT('',(0.,0.,0.));\n#2 = CARTESIAN_POINT('',(1.,0.,0.));\n#3 = CONTEXT_A(3);\n#4 = CONTEXT_B(3);\n"
