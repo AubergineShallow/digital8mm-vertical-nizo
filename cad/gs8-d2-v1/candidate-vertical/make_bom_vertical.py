@@ -7,6 +7,7 @@ Installed quantities, purchases and included-kit detail are distinct fields.
 """
 from cv_io import read_text, write_text
 import evidence_rules as ER  # FP-04 (VN-08): repeated figures come from their source rows; CAD-free
+import wiring_data as WD     # FP-14 (VN-61/63/64): J2 family, junctions, spares, buy split, wire SKUs; CAD-free
 from pathlib import Path
 import argparse
 import csv
@@ -43,6 +44,7 @@ SOURCES = {
  'hdmi_ribbon': 'https://www.adafruit.com/product/3561',
  'hdmi_original_ribbon': 'https://www.adafruit.com/product/3562',
  'wire': 'https://www.progressiverc.com/products/prc-silicone-wire-16-awg',
+ 'wire_variants': 'https://www.progressiverc.com/products/prc-silicone-wire-16-awg.json',
 }
 FIELDS = ['section', 'line', 'item', 'variant', 'status', 'installed_qty', 'installed_unit',
           'purchase_qty', 'purchase_unit', 'spare_or_remainder', 'included_in', 'sku_or_class',
@@ -113,6 +115,13 @@ def build_rows():
     change('D2-16', installed_qty=1, spare_or_remainder='1 spare diode', note='Baseline EVF feed provision only; G-W6 remains open. The vertical redesign does not qualify this feed or adopt the optional regulator.')
     for lid in ('D2-16R', 'D2-16D', 'D2-16C', 'D2-16P'):
         change(lid, note='Baseline EVF-feed option C retained at quantity zero; not adopted. See WIRING section 4.8 and G-W13. No geometry, power or thermal qualification is implied.')
+    # H1 (VN-60 / FP-11f): r7's ko_5v_up keep-out does not exist in the candidate; the carrier reserve sits on the route.
+    change('D2-16P', item=by['D2-16P']['item'].replace('inside ko_5v_up by box arithmetic',
+                                                       'reserved on the installed usb_5v route (routes.py FEED_VOLUMES)'),
+           note='Baseline EVF-feed option C retained at quantity zero; not adopted (default pending user decision 10, VN-80). '
+                'Its 16 x 7.5 x 4.5 mm reserve is kept free on the installed usb_5v route, centred in the diode splice zone it '
+                'would replace (harness feed_volumes usb_5v_option_c_reserve). See WIRING section 4.8 and G-W13. No power or '
+                'thermal qualification is implied.')
     change('D2-20', status='source-corrected port; operational FPC access HOLD', note='Export18 uses source-registered CAM/DISP 1 and a 12 x 27 mm R1 slot, nominal area 323.14 mm2. The inherited rotated CSI proxy and prior tool pass are superseded. Official 200 mm cable retained; full material route remains unplaced. Both declared cylindrical reservations clear the selected saved solids; the retained straight opening remains an unsealed cooling bypass; this does not qualify actual latch/jaws, cooler outline, stiffeners, contact orientation or cable withdrawal.')
     change('D2-21', installed_qty=0, purchase_qty=0, status='replaced in both vertical variants',
            note='Replaced by one V-21 straight EVF head, one V-21P right-angle Pi head and one V-22O 300 mm ribbon in either body variant. V-22 200 mm ribbon is rejected at quantity zero. One old molded cable becomes three purchased pieces, net +2 pieces.')
@@ -138,12 +147,12 @@ def build_rows():
         status='selected mated-carry route; refreshed scoped CAD pass, physical cuts/service unqualified',
         installed_qty=1, installed_unit='mated pair within one FPS harness', purchase_qty=1, purchase_unit='pair (one 225 mm male and one 150 mm female assembly)',
         spare_or_remainder='Measured wire offcuts TBD; both factory Molex housings retained',
-        note='Supersedes unsupported generic PH wire-to-wire identity and old 200+50 mm accounting. Purchased rear-housing-exit-to-blunt-end lengths: male 225 +/- 6 mm, female 150 +/- 6 mm; two black 28 AWG UL1061 cores per half. Installed main nominal axis is 200.000 mm INCLUDING D2-25 donor stubs and splice region; female-to-A axis 95.4644 mm and female-to-throw2 axis 102.4759 mm precede unresolved solder allowances. These are study axes, not copper cuts. See FPS-SERVICE-STUDY.md for staggered splice midpoints and illustrative overlap convention. Both housings and four contacts included below. Keep pair mated while the independently supported switch and whole harness move with carrier; disconnect only on bench. No sacrificial tie or in-body connector draw-out. Actual heads, individual-core fanout, terminal geometry, root allowances and complete integrated USB/CSI/service checks remain open. Mated body 9 mm is reference only; male 8 mm and female 3.95 mm are not equal halves. Polarized friction lock has no alternate keying: label FPS distinctly from J2 and continuity-test black wires. System 1.5 A maximum at 28 AWG / 125 V and 30 tin-contact mating cycles are not a physical service qualification.')
+        note='Supersedes unsupported generic PH wire-to-wire identity and old 200+50 mm accounting. Purchased rear-housing-exit-to-blunt-end lengths: male 225 +/- 6 mm, female 150 +/- 6 mm; two black 28 AWG UL1061 cores per half. Installed main nominal axis is 200.000 mm INCLUDING D2-25 donor stubs and splice region; female-to-A axis 95.4644 mm and female-to-throw2 axis 102.4759 mm precede unresolved solder allowances. These are study axes, not copper cuts. See FPS-SERVICE-STUDY.md for staggered splice midpoints and illustrative overlap convention. Both housings and four contacts included below. Keep pair mated while the independently supported switch and whole harness move with carrier; disconnect only on bench. No sacrificial tie or in-body connector draw-out. Actual heads, individual-core fanout, terminal geometry, root allowances and complete integrated USB/CSI/service checks remain open. Mated body 9 mm is reference only; male 8 mm and female 3.95 mm are not equal halves. Polarized friction lock has no alternate keying; J2 now uses a different mating family (V-28, '+WD.J2_DECISION+'), so no other in-camera half mates this pair (FP-14 junction check). Still label FPS and continuity-test both black wires. Spare pair: V-27S. System 1.5 A maximum at 28 AWG / 125 V and 30 tin-contact mating cycles are not a physical service qualification.')
     change('D2-26', item='PRC high-flex pure-copper 16 AWG silicone wire, red and black',
            installed_qty=2, installed_unit='conductor-path allocations; copper cuts TBD', purchase_qty=2, purchase_unit='36 in lengths, one per colour',
-           spare_or_remainder='Offcuts not fixed; determine after measured cuts, joint overlaps and pad allowance', sku_or_class='PRC 16 AWG; red SW-16R; black colour selection', supplier='ProgressiveRC',
+           spare_or_remainder='Offcuts not fixed; determine after measured cuts, joint overlaps and pad allowance', sku_or_class='PRC 16 AWG silicone; red '+WD.WIRE_SKUS['red']+'; black '+WD.WIRE_SKUS['black'], supplier='ProgressiveRC',
            status='provisional length; service route blocked', source=SOURCES['wire'],
-           note='Purchase one 914.4 mm stock length per colour. POSITIVE: 270 mm FINISHED-PATH allocation includes a 20 mm rigid fuse/joint-sleeve zone; actual copper cut and solder overlap must be measured/trimmed to that finished path, not 270 mm copper plus fuse. NEGATIVE: 270 mm total path budget includes unresolved pad-root allowances. BOTH budgets include those allowances; they are not extra length to add later. Neither is a proved production cut; no exact offcut claim. Electrical estimate conservatively charges BOTH as 270 mm copper: at 8.6 A cold drop 0.129789 V and copper-at-60 C drop 0.142811 V, leaving about 7.2 mV before hot fuse/contact/pad uncertainty under the unchanged 0.15 V G-W5 limit. Vendor OD 3.0 mm; reserve 3.2 mm/core, 6.4 x 3.2 mm pair. Existing pack lead stays 60 mm 18 AWG. Four carrier tie eyes are present; separate red/black cold-side slack retention is provisional. Full stored-length/bend and battery-disconnect reach checks pending; fixed ties cannot be assumed to unfold for service. Nominal resistance is not a vendor specification or hot-test pass.')
+           note='Purchase one 914.4 mm stock length per colour: red '+WD.WIRE_SKUS['red']+', black '+WD.WIRE_SKUS['black']+' (store product record '+SOURCES['wire_variants']+', read 2026-10-11; the product page shows one SKU field with a colour selector). POSITIVE: 270 mm FINISHED-PATH allocation includes a 20 mm rigid fuse/joint-sleeve zone; actual copper cut and solder overlap must be measured/trimmed to that finished path, not 270 mm copper plus fuse. NEGATIVE: 270 mm total path budget includes unresolved pad-root allowances. BOTH budgets include those allowances; they are not extra length to add later. Neither is a proved production cut; no exact offcut claim. Electrical estimate conservatively charges BOTH as 270 mm copper: at 8.6 A cold drop 0.129789 V and copper-at-60 C drop 0.142811 V, leaving about 7.2 mV before hot fuse/contact/pad uncertainty under the unchanged 0.15 V G-W5 limit. Vendor OD 3.0 mm; reserve 3.2 mm/core, 6.4 x 3.2 mm pair. Existing pack lead stays 60 mm 18 AWG. Four carrier tie eyes are present; separate red/black cold-side slack retention is provisional. Full stored-length/bend and battery-disconnect reach checks pending; fixed ties cannot be assumed to unfold for service. Nominal resistance is not a vendor specification or hot-test pass.')
     change('D2-30', installed_qty=7, purchase_qty=11, spare_or_remainder='4 spare', note='Four panel + two carrier + one independent grip-lock PT 3.0 x 12 PH1; seven installed, not eleven. Same body screw count as baseline.')
     change('D2-32', installed_qty=0, installed_unit='inserts', status='contingency stock', note='Fallback stock only; pack quantity unspecified. Do not count a pack as an installed insert. One long collar insert is separately counted at D2-36.')
     change('D2-33', installed_qty=0, status='contingency stock', note='Seven fallback screws for stripped PT bosses, not installed in the candidate. Requalify a repaired boss before use.')
@@ -184,15 +193,37 @@ def build_rows():
     add('V-22O', base.S_CB, 'HDMI ribbon cable, intact 300 x 10 mm', 1, 1, variant='both',
         status='conditional primary; selected scoped checks passed; physical HOLD', sku_or_class='Adafruit 3562', supplier='Adafruit', layout_id='hdmi', source=SOURCES['hdmi_original_ribbon'],
         note='One intact 300 mm ribbon for either compact or original-storage body, with 3557/3556 heads. Selected routing input: routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json. The refreshed selected shadow-plenum report has 6 scoped passes / 0 failures, bound to the current compact-Kowa manifest; alternatives still require their own audit. Earlier over-PCB tool failures remain rejected diagnostics; CSI operational access stays on HOLD. This does not qualify complete interacting loom service. Actual availability, full-width/slack/service tolerance, bend/thickness/clocking/EMI and retention remain gates.')
-    add('V-23S', base.S_CB, 'Optional spare EVF Generic RCY-style matched pair', 0, 0, unit='pair',
-        status='optional spare; not included in actual buy count', sku_or_class='Pololu 2180 + 2181', supplier='Pololu',
-        source=SOURCES['evf_socket'], note='Former spare-pair provision is quantity zero. A future spare would require one of each half and the same receipt/continuity/fit checks; not ordered or installed.')
-    add('V-28', base.S_CB, 'J2 removable signal pair: two single-ended factory pigtail assemblies', 1, 1, unit='pair',
-        status='conditional selected family; complete route unqualified',
-        sku_or_class='Molex 2181120201 + 2181110202 (one of each)', supplier='Molex / authorized distributor',
-        layout_id='power_button', source=SOURCES['picoblade_female'],
-        spare_or_remainder='Measured wire offcuts TBD; factory flag labels removed/bagged only after recording identity and applying small circuit labels',
-        note='One purchased pair means ONE 2181120201 female assembly with 150 +/- 6 mm exposed tails AND ONE 2181110202 male assembly with 225 +/- 6 mm exposed tails, housing excluded from those length datums. Both are two-circuit 28 AWG UL1061 black-wire assemblies, explicitly replacing the provisional 24-26 AWG class. Trim only to the separately established J2 route; 150 mm combined per-conductor finished-path target is provisional, not a copper-cut instruction. Two housings/four contacts included below. Four solder joints remain: two J2 pads and two switch terminals; no connector crimps or additional splices. Nominal mated reference body 9 x 4.25 x 3.3 mm fits the estimated 6 x 8 x 12 mm reserve with mating axis Z; actual tolerance, latch, travel, wire exits, full stow and pad/terminal access remain unplaced/unqualified. W/W system rated 1.5 A max for 28 AWG and 125 V; signal use only, never battery current. Polarized friction lock but no alternate keying: label J2 separately from FPS if that family is shared, verify both black-wire circuits by continuity, and prevent cross-connection. Tin system durability is 30 mating cycles; repeated service remains a gate. Factory 12.7 x 35.5 mm flag labels are not modeled as installed clearance.')
+    # FP-14 (VN-64): spare policy of record in wiring_data.SPARES; spare rows are separate lines so the buy view sums them.
+    sp={s['line']:s for s in WD.SPARES}
+    add('V-23S', base.S_CB, 'Spare EVF Generic RCY-style matched pair', 0, 1, unit='pair',
+        status='spare (FP-14 spare policy); in the buy count, not installed', sku_or_class='Pololu 2180 + 2181', supplier='Pololu',
+        source=SOURCES['evf_socket'], spare_or_remainder='1 spare pair (one 2180 + one 2181)',
+        note='Spare for D2-23 ('+sp['V-23S']['why']+'). Same receipt, continuity, polarity-label and fit checks as D2-23; ordered with it (buy view sums the SKUs).')
+    J2=WD.J2_DEFAULT
+    add('V-28', base.S_CB, 'J2 removable signal pair: keyed 2-circuit wire-to-wire set, '+J2['family']+' ('+WD.J2_DECISION+')', 1, 1, unit='set',
+        status='conditional; '+WD.J2_DECISION+'; family distinct from every other junction; placement and route unqualified',
+        sku_or_class=J2['sku_class'].format(lead_min=J2['lead_min_mm']), supplier='Molex / authorized distributor ('+WD.J2_DECISION+')',
+        layout_id='power_button', source='wiring_data.py',
+        spare_or_remainder='Lead offcuts after cutting to the measured J2 route; spare set V-28S',
+        note='FP-14 (VN-63): replaces the 9ced753 Molex 2181120201 + 2181110202 PicoBlade pair, which was the same unkeyed family as the FPS junction (D2-27), so a J2 half could mate an FPS half and hold PWR_BUT to GND. '
+             'Default family: '+J2['family']+', chosen because '+J2['why']+'. The family is '+WD.J2_DECISION+' (alternatives and their gates in WIRING-VERTICAL.md). '
+             'Genders: '+J2['pi_side']+'; '+J2['switch_side']+'. Each pre-crimped lead >= '+format(J2['lead_min_mm'],'g')+' mm exposed: '+J2['lead_min_src']+'. '
+             'Four solder joints remain: two J2 pads and two switch terminals; no crimps or splices. Housing dimensions, mated length, latch travel, wire exits and stow are receipt and placement gates: the J2 junction was never placed (G-V-POWER, VN-73) and the larger housing is not shown to fit the old 6 x 8 x 12 mm reserve. '
+             'Try-mate matrix on receipt: each J2 half must refuse the FPS, EVF RCY and header housings. Signal use only, never battery current. Label J2 at both housings; verify both circuits by continuity.')
+    add('V-28S', base.S_CB, 'Spare J2 keyed pair set ('+WD.J2_DECISION+')', 0, 1, unit='set',
+        status='spare (FP-14 spare policy); in the buy count, not installed',
+        sku_or_class=J2['sku_class'].format(lead_min=J2['lead_min_mm']), supplier='Molex / authorized distributor ('+WD.J2_DECISION+')',
+        layout_id='power_button', source='wiring_data.py', spare_or_remainder='1 spare set',
+        note='Spare for V-28 ('+sp['V-28S']['why']+'). Same family decision and receipt checks as V-28.')
+    add('V-27S', base.S_CB, 'Spare FPS PicoBlade pair: Molex 2181110202 male + 2181120201 female', 0, 1, unit='pair',
+        status='spare (FP-14 spare policy); in the buy count, not installed',
+        sku_or_class='Molex 2181110202 + 2181120201 (one of each)', supplier='Molex / authorized distributor',
+        source=SOURCES['picoblade_male'], spare_or_remainder='1 spare pair',
+        note='Spare for D2-27 ('+sp['V-27S']['why']+'). Ordered with D2-27; the buy view sums the two SKUs.')
+    add('V-22OS', base.S_CB, 'Spare HDMI ribbon cable, intact 300 x 10 mm', 0, 1,
+        status='spare (FP-14 spare policy); in the buy count, not installed',
+        sku_or_class='Adafruit 3562', supplier='Adafruit', source=SOURCES['hdmi_original_ribbon'], spare_or_remainder='1 spare ribbon',
+        note='Spare for V-22O ('+sp['V-22OS']['why']+'). Heads V-21/V-21P are not consumed in service; reorder only if damaged.')
     add('V-31', base.S_FA, 'M2.5 x 8 pan-head PH1 lower stack/carrier screws', 4, 5,
         spare_or_remainder='1 spare', sku_or_class='ISO 7045 PH1 class', layout_id='x1203_kit',
         note='Replace four original lower M2.5 x 5 screws. Recessed 4 mm bosses leave 3 mm below the heads; 8 - 3 - 1.6 = 3.4 mm nominal thread engagement. Actual thread depth, head profile and bottoming must be measured. Eight stack screws installed in total, never twelve.')
@@ -200,7 +231,7 @@ def build_rows():
     change('D2-61', item='1/2 in (12.7 mm) deep socket for the CK1044 switch nut, driven on the bushing axis',
         note='Straight-driver rule (review VN-46): deep socket on the nut axis, never a spanner. 12.7 mm across-flats is the inherited reservation, not a published Lorlin dimension; confirm on receipt. Socket clearance to the panel face and exposure knob belongs to the straight-driver check (FP-07).')
     add('V-62', base.S_TO, 'Deep socket for the Adafruit 1505 power-button nut, sized to the measured across-flats', 0, 0,
-        status='provisional; size gate', note='Straight-driver rule (review VN-46): the nut is run down with a deep socket on the button axis, never a spanner. Across-flats unknown until receipt: measure the nut, then reuse an existing deep socket that fits; buy the matching one only if none fits (purchase stays 0 until that measurement). Review CAD probe: a socket up to OD 28 mm clears the panel; actual reach unverified.')
+        status='provisional; purchase gated on the measured 1505 nut across-flats (FP-14 gated purchase)', note='Straight-driver rule (review VN-46): the nut is run down with a deep socket on the button axis, never a spanner. Across-flats unknown until receipt: measure the nut, then reuse an existing deep socket that fits; buy the matching one only if none fits (purchase stays 0 until that measurement). Review CAD probe: a socket up to OD 28 mm clears the panel; actual reach unverified.')
     for lid,item in [('V-63','Smooth-jaw long-nose pliers, fine tips'),('V-64','Soft-jaw vise or vise with wood jaw pads'),('V-65','Flat steel rule / bar'),('V-66','Printer-paper knob shims and panel support block'),('V-67','Small inspection mirror, optional')]:
         add(lid,base.S_TO,item,0,0 if lid=='V-67' else 1,status='baseline toolset retained',
             note='Explicit ASSEMBLY section 1.1 tool formerly lacking its own baseline BOM line; not a new installed part. Reuse existing workshop item.')
@@ -237,10 +268,10 @@ def build_rows():
       ('I-09A','Princeton SSD protective cap',0,'V-09','usb_stick','Remove before insertion and bag; official overall envelope includes this cap but it is not installed in camera.'),
       ('I-17A','Power-switch retaining nut',1,'V-17','power_nut_reserve','Receipt inclusion/geometry gate. Model OD 22 x 3 mm is an unverified reserve, not a vendor dimension. Nut bearing plane follows panel inner Y=25.2 mm.'),
       ('I-17B','Power-switch supplied washer',1,'V-17','power_button','Receipt inclusion/thickness gate; no separately qualified washer solid.'),
-      ('I-28A','Two-pin mating plug housing',1,'V-28','power_button','Included Molex 510470200 plug housing in 2181110202; not another purchase.'),
-      ('I-28B','Two-pin mating socket housing',1,'V-28','power_button','Included Molex 510210200 receptacle housing in 2181120201; not another purchase.'),
-      ('I-28C','Plug-side preterminated contacts',2,'V-28','power_button','Included Molex 501338000 contacts; no additional purchase or solder splice.'),
-      ('I-28D','Socket-side preterminated contacts',2,'V-28','power_button','Included Molex 500588000 contacts; no additional purchase or solder splice.'),
+      ('I-28A','J2 two-circuit plug housing (pin contacts, switch side)',1,'V-28','power_button','Included in the V-28 set ('+WD.J2_DECISION+'); not another purchase.'),
+      ('I-28B','J2 two-circuit receptacle housing (socket contacts, Pi side)',1,'V-28','power_button','Included in the V-28 set ('+WD.J2_DECISION+'); not another purchase.'),
+      ('I-28C','J2 male-terminal pre-crimped leads',2,'V-28','power_button','Factory-crimped, included in the V-28 set; no crimp tool or solder splice.'),
+      ('I-28D','J2 female-terminal pre-crimped leads',2,'V-28','power_button','Factory-crimped, included in the V-28 set; no crimp tool or solder splice.'),
     ]:
         add(lid,inc,item,q,0,included_in=parent,layout_id=ref,status='included; unqualified',note=note)
     for name,material in [('tub','ASA, satin silver'),('panel','ASA, satin silver'),('carrier','ASA, black'),
@@ -249,7 +280,12 @@ def build_rows():
                           ('stick_sleeve','ASA, satin silver')]:
         add('P-'+name,'D. Printed production parts',name,1,0,unit='part',variant='original only' if name=='stick_sleeve' else 'both',
             sku_or_class=material,supplier='print after qualification',layout_id=name,
-            note=('Concealed-vent revision: tub incorporates the source-defined ventilation geometry; panel is plain 2.8 mm after removal of four blind grooves. ' if name in ('tub','panel') else '')+'Slice orientation, supports, filament and measured print mass remain pending. Nine compact production parts retained; this is a production-part count, not a purchase quantity.')
+            note=('Concealed-vent revision: tub incorporates the source-defined ventilation geometry; panel is plain 2.8 mm after removal of four blind grooves. ' if name in ('tub','panel') else '')
+                 +('T2 (VN-53): printed as two pieces, the body (stl/tub.stl, -Y face down, tenon pocket open) and the +Y tab-catch stub (stl/tab_catch_insert.stl, bed face down, catch face vertical), bonded with V-68 at B1 print_inserts (default pending user decision 16); the stub is part of this production part, not another installed part. ' if name=='tub' else '')
+                 +'Slice orientation, supports, filament and measured print mass remain pending. Nine compact production parts retained; this is a production-part count, not a purchase quantity.')
+    add('V-68',base.S_CO,'Two-part epoxy adhesive, small pack (bond the +Y tab-catch stub into the tub, B1 print_inserts)',0,1,unit='pack',
+        sku_or_class='class; structural two-part epoxy, confirm on receipt',supplier='any',layout_id='tab_catch_insert',
+        note='T2 (VN-53, FP-11b): default pending user decision 16 (bonded stub; alternatives: press fit with a printed detent, or a panel-held block, which needs the panel on at lens_in). Adhesive type, cure, gap fill (0.1 to 0.2 mm pocket clearance) and the bond and tenon strength under the r7 roll_catch design torque are a G-V-PRINT tine coupon gate; amount consumed not measured.')
     add('T-gauge',base.S_TO,'Printed collar centring gauge for selected lens',0,0,unit='tool',supplier='print after qualification',
         note='Retained baseline tool; separate from the nine/ten installed printed production parts. Inspect candidate gauge export for selected lens.')
     return rows, set(by), base
@@ -283,6 +319,94 @@ def validate(rows, base):
     assert 'FINISHED-PATH' in by['D2-26']['note'] and '20 mm' in by['D2-26']['note']
     hot_drop=8.6*(2*(0.270*13.17+0.060*21)*(1+0.00393*40)+4.46+1)/1000
     assert abs(hot_drop-0.142810903056)<1e-12
+    validate_fp14(rows)
+
+
+# ------------------------------------------------------------------ FP-14 (VN-63, VN-64): junctions, spares, buy view
+EXPORT18_BOM=HERE/'history/reviewed-export18/BOM-VERTICAL.csv'
+# Same fields as review_docs_audit.py concealed_bom_preservation (editorial item/note/status changes excluded).
+SELECTION_FIELDS=['variant','installed_qty','installed_unit','purchase_qty','purchase_unit','included_in','sku_or_class','supplier']
+BUY_FIELDS=['sku','unit','supplier','compact_qty','original_qty','lines','gate']
+
+
+def _is_class(sku):
+    return 'class' in sku.lower()
+
+
+def buy_parts(r):
+    """[(orderable sku, quantity, unit)] for one purchased row (wiring_data.BUY_SPLIT, else the row's own SKU).
+    Class rows are not SKUs: each stays its own group, keyed by its line, and is never merged with another row."""
+    q=r['purchase_qty']
+    split=WD.BUY_SPLIT.get(r['line'])
+    if split:
+        return [(sku,n*(q if split['per']=='unit' else 1),'ea') for sku,n in split['parts']]
+    sku=r['sku_or_class']
+    if _is_class(sku):
+        return [(r['line']+': '+r['item']+' ('+sku+')',q,r['purchase_unit'])]
+    return [(sku,q,r['purchase_unit'])]
+
+
+def buy_view(rows, variant):
+    """Purchased rows of one storage variant grouped by orderable SKU; quantities of rows sharing a SKU are summed.
+    Gated rows (purchase 0 until a measurement) are listed with quantity 0 and their gate."""
+    groups={}
+    for r in rows:
+        if r['included_in'] or r['variant'] not in ('both',variant+' only'):continue
+        if r['line'] in WD.GATED:
+            g=groups.setdefault((r['line'],'gated'),dict(sku=r['line']+': '+r['item'],unit=r['purchase_unit'],supplier=r['supplier'],qty=0,lines=[],gate=WD.GATED[r['line']][0]))
+            g['lines'].append((r['line'],r['purchase_qty']));g['qty']+=r['purchase_qty'];continue
+        if not r['purchase_qty']:continue
+        for sku,n,unit in buy_parts(r):
+            g=groups.setdefault((sku,unit),dict(sku=sku,unit=unit,supplier=r['supplier'],qty=0,lines=[],gate=''))
+            assert g['supplier']==r['supplier'],('one SKU, two suppliers',sku,g['supplier'],r['supplier'])
+            g['qty']+=n;g['lines'].append((r['line'],n))
+    return list(groups.values())
+
+
+def export18_differences(rows):
+    """[(line, 'added'|'removed'|'changed', fields)] against the frozen reviewed-export18 BOM."""
+    old={r['line']:r for r in csv.DictReader(io.StringIO(read_text(EXPORT18_BOM)))}
+    cur={r['line']:r for r in rows}
+    out=[]
+    for key in sorted(old.keys()|cur.keys()):
+        if key not in old or key not in cur:
+            out.append((key,'added' if key in cur else 'removed',[]));continue
+        ch=[f for f in SELECTION_FIELDS if old[key][f]!=str(cur[key][f])]
+        if ch:out.append((key,'changed',ch))
+    return out
+
+
+def validate_fp14(rows):
+    by={r['line']:r for r in rows}
+    # VN-63: no two wire-to-wire junctions share a mating family (conservative: whatever the circuit count).
+    shared=WD.shared_family_pairs(rows)
+    assert not shared,('junctions share an unkeyed mateable family',shared)
+    assert WD.junction_family(by['V-28']['sku_or_class'])==WD.J2_DEFAULT['family_key']
+    assert all(j['bom'] in by for j in WD.JUNCTIONS)
+    # VN-64: spare policy rows bought, not installed, same orderable SKUs as their parent.
+    for s in WD.SPARES:
+        r,p=by[s['line']],by[s['parent']]
+        assert r['purchase_qty']>=1 and r['installed_qty']==0 and not r['included_in'],s['line']
+        assert sorted(x[0] for x in buy_parts(r))==sorted(x[0] for x in buy_parts(p)),s['line']
+    # Black and red wire SKUs are orderable lines.
+    assert WD.WIRE_SKUS['black'] in by['D2-26']['sku_or_class'] and WD.WIRE_SKUS['red'] in by['D2-26']['sku_or_class']
+    for lid,s in WD.BUY_SPLIT.items():
+        assert lid in by and by[lid]['purchase_qty']>0,lid
+        if s['per']=='row':assert sum(n for _,n in s['parts'])==by[lid]['purchase_qty'],lid
+    # Gated purchases stay 0 until their measurement closes.
+    for lid in WD.GATED:assert by[lid]['purchase_qty']==0,lid
+    # Duplicate SKUs are summed: one group per orderable SKU and unit, its quantity the sum of every contributing row.
+    for variant in ('compact','original'):
+        view=buy_view(rows,variant)
+        keys=[(g['sku'],g['unit']) for g in view]
+        assert len(keys)==len(set(keys))
+        contrib={}
+        for r in rows:
+            if r['included_in'] or r['variant'] not in ('both',variant+' only') or not r['purchase_qty'] or r['line'] in WD.GATED:continue
+            for sku,n,unit in buy_parts(r):contrib[(sku,unit)]=contrib.get((sku,unit),0)+n
+        got={(g['sku'],g['unit']):g['qty'] for g in view if not g['gate']}
+        assert got==contrib,('buy view does not sum the purchased rows',variant)
+        for g in view:assert g['qty']==sum(n for _,n in g['lines'])
 
 
 def outputs(rows, base):
@@ -327,7 +451,7 @@ def outputs(rows, base):
         'including explicit replaced/removed/optional rows. Candidate assembly and notes supersede old step numbers. '
         'The CSV carries separate installed units, purchase units, spares and included-in fields.','',
         '## Current checkpoint: assembly STOPs','',
-        '- Current compact ventilation geometry: '+ventilation_revision+'. Core '+core+' mm. Geometry identity: '+manifest_hash+'. The panel is plain 2.8 mm; four former grooves had blind 0.2 mm floors, not through-vent area. Nine printed production parts and every purchased selection/quantity are unchanged from reviewed export18.',
+        '- Current compact ventilation geometry: '+ventilation_revision+'. Core '+core+' mm. Geometry identity: '+manifest_hash+'. The panel is plain 2.8 mm; four former grooves had blind 0.2 mm floors, not through-vent area. Nine printed production parts are unchanged from reviewed export18; the purchased selections and quantities that differ from it are listed under "Purchase changes against reviewed export18" (computed from history/reviewed-export18/BOM-VERTICAL.csv).',
         current_check_note,
         '- Reviewed export18 is frozen history, manifest c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76. Its 288 pass / 2 fail / 18 info, six scoped HDMI passes, 332 clear FPS material checks plus nine separate clear keepout diagnostics and other service checks are not automatically current evidence for the shadow-plenum tub. Read the new manifest-bound ventilation report and structural supplement for this revision.',
         '- Retained unresolved failure: '+cooler_text+'. The old right-wall ray runs through the intentional CSI opening and does not measure adjacent wall thickness. The new checker records that location as expected-empty and separately probes outer skin and original wall; read its manifest-bound result for the current count. The original 288/2/18 result and old wall supplement remain historical. The former 11.669 mm3 Boolean-difference witness is not an established lost-material volume; the Pi raw component-volume sum is not occupied material. Full FPC and EVF donor wire routes remain unplaced. Storage plug keepout is non-material; actual mating stays open.',
@@ -358,14 +482,14 @@ def outputs(rows, base):
         'Use the chosen manifest and its ventilation report for passage geometry and normal throat definitions; earlier visible angled-channel figures are not transferable to a new plenum. The straight CSI slot remains an unsealed bypass, and the source-driven floor passage adds body/grip air communication. Useful flow, pressure loss, hand occlusion, print/support quality and battery/thermal performance remain unqualified. Integral passages add no purchased fan, mesh, seal or duct part. See structural-review/CONCEALED-VENT-STRUCTURAL.md for the manifest-bound mass/load sensitivity; old whole-tub binding does not apply.','',
         '## Installed pieces by category (not a grand total)','',
         '| Category | Installed count and contents |', '|---|---|',
-        '| Printed production pieces | Compact 9; original-stick 10 including sleeve. Gauge/coupons excluded. Integrated FPS rest/guide do not add loose pieces. |',
+        '| Printed production pieces | Compact 9; original-stick 10 including sleeve. Gauge/coupons excluded. Integrated FPS rest/guide do not add loose pieces. The tub is printed as two pieces (body + bonded +Y tab-catch stub, T2) and counted once. |',
         '| Body screws | 7 PT: four panel, two carrier, one independent grip lock. |',
         '| Stack hardware | 4 standoffs + 4 retained upper M2.5 x 5 + 4 replacement lower M2.5 x 8 = 12. Removed lower screws are not installed. |',
         '| Cooler mounting | 2 supplied push pins, not four illustrative proxy feet. Other cooler/fan internals stay inside the purchased assembly count. |',
         '| Lens mounting | 4 M3 screws + 4 washers + 4 inserts = 12. |',
         '| Tripod mounting | 1 captured 1/4-20 nut. |',
         '| Control mounting | Planned 5: FPS nut, mounting washer, stop/tang washer; power nut and washer. Inclusion/actual dimensions remain receipt gates. Encoder support is integral; no invented loose hardware. |',
-        '| Standalone purchased cable/connector inputs retained in six harnesses | 15 assembly/section inputs: FPC 1; HDMI heads/ribbon 3; USB donor 1; EVF RCY halves 2; QT donor sections 2; GPIO donor stubs 2; FPS Molex halves 2; J2 Molex halves 2. Two GPIO stubs come from one 20-wire pack; this is not 15 separately ordered packages. |',
+        '| Standalone purchased cable/connector inputs retained in six harnesses | 15 assembly/section inputs: FPC 1; HDMI heads/ribbon 3; USB donor 1; EVF RCY halves 2; QT donor sections 2; GPIO donor stubs 2; FPS Molex halves 2; J2 keyed halves 2 (each one housing plus two pre-crimped leads; family '+WD.J2_DECISION+'). Two GPIO stubs come from one 20-wire pack; this is not 15 separately ordered packages. |',
         '| Camera battery pigtail | Separate seventh external harness: two cut 16 AWG cores, one camera XT30 female and one inline fuse. Copper cuts/overlaps remain TBD; stock wire is not an installed cable assembly. |',
         '| Included/native leads | 4: cooler fan, OLED flex, run-button lead, pack lead. Total functional harnesses = 6 + 1 + 4 = 11. |',
         '| Explicit inline pair constituents | EVF, FPS and J2 together: 6 housings and 12 factory contacts, already inside the six half-assemblies above. GPIO donors add 2 retained housings/2 contacts, also already counted. Do not add them again. |',
@@ -399,12 +523,44 @@ def outputs(rows, base):
                 str(r['installed_qty'])+' '+r['installed_unit'],str(r['purchase_qty'])+' '+r['purchase_unit'],rem,
                 r['status']+'. '+r['note']+' [Source]('+r['source']+')']))+' |')
         md.append('')
+    # FP-14 (VN-64): consolidated buy view, spare policy, gated purchases; (VN-63) junction families.
+    views={v:{(g['sku'],g['unit']):g for g in buy_view(rows,v)} for v in ('compact','original')}
+    keys=list(dict.fromkeys(list(views['compact'])+list(views['original'])))
+    spare_lines={s['line'] for s in WD.SPARES}
+    by={r['line']:r for r in rows}
+    def lines_text(k):
+        ls=dict.fromkeys(l for v in views.values() if k in v for l,_ in v[k]['lines'])
+        return ', '.join(l+(' (spare)' if l in spare_lines else '') for l in ls)
+    buy=io.StringIO(newline='');bw=csv.DictWriter(buy,fieldnames=BUY_FIELDS,lineterminator='\n');bw.writeheader()
+    md += ['## Buy view (grouped by orderable SKU)','',
+           'Generated from the rows above (FP-14). Every purchased row is broken into the SKUs that are actually ordered (`wiring_data.BUY_SPLIT`); rows sharing a SKU are summed, spares included. Class rows are not SKUs and are never merged. Included-kit rows and printed parts are excluded. Not a price, stock or order claim. Also written as `BUY-VERTICAL.csv`.','',
+           '| SKU or class | Unit | Supplier | Compact buy | Original buy | From lines | Gate |','|---|---|---|---:|---:|---|---|']
+    for k in keys:
+        g=views['compact'].get(k) or views['original'][k]
+        cq=views['compact'][k]['qty'] if k in views['compact'] else 0
+        oq=views['original'][k]['qty'] if k in views['original'] else 0
+        rec=dict(sku=g['sku'],unit=g['unit'],supplier=g['supplier'],compact_qty=cq,original_qty=oq,lines=lines_text(k),gate=g['gate'])
+        bw.writerow(rec)
+        md.append('| '+' | '.join(str(rec[f]).replace('|','\\|') for f in BUY_FIELDS)+' |')
+    md += ['','Spare policy (`wiring_data.SPARES`): one spare for every inline pair that is cycled in build or service or has few rated mating cycles, and for the fragile HDMI ribbon.','']
+    md += ['- '+s['line']+' for '+s['parent']+': '+s['what']+'; '+s['why']+'.' for s in WD.SPARES]
+    md += ['','Gated purchases (quantity stays 0 until the measurement closes):','']
+    md += ['- '+lid+': '+by[lid]['item']+'. Gate: '+gate+'; then '+then+'.' for lid,(gate,then) in WD.GATED.items()]
+    md += ['','Junction families (VN-63): no two wire-to-wire junctions may share a mating family, whatever the circuit count (`wiring_data.shared_family_pairs`, checked in `validate`).','',
+           '| Junction | BOM line | Family | Carries |','|---|---|---|---|']
+    md += ['| `'+j['id']+'` | '+j['bom']+' | '+str(WD.junction_family(by[j['bom']]['sku_or_class']))+' | '+j['carries']+' |' for j in WD.JUNCTIONS]
+    md += ['','J2 family: '+WD.J2_DEFAULT['family']+', '+WD.J2_DECISION+'. See WIRING-VERTICAL.md for the alternatives and the try-mate gate.','',
+           '## Purchase changes against reviewed export18','',
+           'Computed against history/reviewed-export18/BOM-VERTICAL.csv on the fields '+', '.join(SELECTION_FIELDS)+' (the docs audit compares the same fields; item, note and status edits are editorial and not listed).','']
+    diffs=export18_differences(rows)
+    md += ['- '+line+': '+kind+(' ('+', '.join(f)+')' if f else '') for line,kind,f in diffs] or ['- none']
+    md += ['']
     md += ['## Primary source checks','',
            'Supplier facts were read on 2026-10-09. No current availability or pricing is asserted. CAD envelopes and bend allowances are proxies; vendor dimensions do not qualify service fit.','']
     md += ['- ['+key+']('+url+')' for key,url in SOURCES.items()]
     md += ['', 'All '+str(gates['open'])+' inherited physical gates and M1 remain open. New candidate-specific gates are documented in `REVIEW.md`. '
            'Physical HDMI bend/retention and complete-loom service, final power-slack retention, J2 full connector placement/route, power-nut access and warm storage speed remain blockers; a CSV validation pass is not a fabrication release.','']
-    return {'BOM-VERTICAL.csv':buf.getvalue(),'BOM-VERTICAL.md':'\n'.join(md)}
+    return {'BOM-VERTICAL.csv':buf.getvalue(),'BOM-VERTICAL.md':'\n'.join(md),'BUY-VERTICAL.csv':buy.getvalue()}
 
 
 def main():

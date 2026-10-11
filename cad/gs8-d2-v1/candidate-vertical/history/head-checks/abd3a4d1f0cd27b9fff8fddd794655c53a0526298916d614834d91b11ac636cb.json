@@ -1,0 +1,800 @@
+{
+  "status": "pass_for_bounded_head_reservation",
+  "geometry_input_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+  "donor_addendum_sha256": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+  "fps_context_receipt_sha256": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
+  "support_coverage": "Current complete tub STEP includes the selected shelf and guide; historical standalone support STEP copies are not required or substituted. Canonical helper hashes must match the accepted FPS receipt.",
+  "verification_dependency_sha256": {
+    "routing-snapshots/hdmi-export17-selected-20261009-0704/source-verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+    "routing-snapshots/hdmi-export17-selected-20261009-0704/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "routing-snapshots/hdmi-export17-selected-20261009-0704/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "routing-snapshots/hdmi-export17-selected-20261009-0704/context-input-receipt.json": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
+    "routing-snapshots/hdmi-export17-selected-20261009-0704/usb-donor-provenance.json": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+    "routing-snapshots/hdmi-export17-selected-20261009-0704/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88"
+  },
+  "head_bbox_mm": [
+    -152.779999264573,
+    -121.779999264573,
+    -15.12600076744,
+    -5.32600076744,
+    8.250319443808003,
+    23.750319443808003
+  ],
+  "checks": [
+    {
+      "object": "fps_header_branch",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -83.71000009999999,
+        -82.1099999,
+        -24.2000001,
+        -15.400000000000002,
+        9.699999900000003,
+        25.0
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_200_main",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -134.80000009999995,
+        -81.6099999,
+        -24.700000100000008,
+        25.00000010000001,
+        25.0,
+        84.3572923407434
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_switch_bundle",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -134.8000001,
+        -96.09859001258143,
+        -20.300000100000005,
+        6.1,
+        78.3999999,
+        86.80000010000003
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_ck1044_pin_A",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -109.87500010000001,
+        -107.7776387924318,
+        -7.5,
+        7.1,
+        76.7776387924318,
+        80.2000001
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_ck1044_pin_2",
+      "kind": "carried FPS complete analytic wire",
+      "status": "pass",
+      "object_bbox_mm": [
+        -111.1250001,
+        -102.65111462882929,
+        -7.5,
+        7.1,
+        71.65111462882938,
+        80.2000001
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_mated_pair",
+      "kind": "carried FPS junction",
+      "status": "pass",
+      "object_bbox_mm": [
+        -135.625,
+        -131.375,
+        6.1,
+        15.1,
+        78.05,
+        81.35
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "fps_protective_reservation",
+      "kind": "protective reservation",
+      "status": "pass",
+      "object_bbox_mm": [
+        -137.5,
+        -129.5,
+        3.1,
+        15.1,
+        76.7,
+        82.7
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "corrected_fps_switch",
+      "kind": "carried corrected switch",
+      "status": "pass",
+      "object_bbox_mm": [
+        -124.75,
+        -97.25,
+        7.1,
+        37.0,
+        66.25,
+        93.75
+      ],
+      "xz_disjoint": true,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "mechanical/pi5",
+      "kind": "final installed mechanical part; no own-connector exemption",
+      "status": "pass",
+      "object_bbox_mm": [
+        -122.05000000000001,
+        -33.55,
+        -13.826000092030002,
+        6.200000000000005,
+        7.0,
+        64.6303501
+      ],
+      "xz_disjoint": false,
+      "exact_intersections": 0,
+      "hit": null
+    },
+    {
+      "object": "mechanical/tub",
+      "kind": "final installed mechanical part; no own-connector exemption",
+      "status": "pass",
+      "object_bbox_mm": [
+        -158.0,
+        4.440892098501e-16,
+        -35.6,
+        28.0,
+        -5.05,
+        100.0
+      ],
+      "xz_disjoint": false,
+      "exact_intersections": 1,
+      "hit": null
+    }
+  ],
+  "full_hdmi_material_screen": [
+    {
+      "state": "installed",
+      "full_length_mm": 300.0,
+      "candidate_cells": [],
+      "status": "pass_by_complete_material_bounds"
+    },
+    {
+      "state": "premate",
+      "full_length_mm": 300.0,
+      "candidate_cells": [],
+      "status": "pass_by_complete_material_bounds"
+    },
+    {
+      "state": "both_unplugged",
+      "full_length_mm": 300.0,
+      "candidate_cells": [],
+      "status": "pass_by_complete_material_bounds"
+    }
+  ],
+  "mechanical": {
+    "manifest_path": "/workspace/scratch/8ece9a785de6/digital8mm_hidden_vents/cad/gs8-d2-v1/candidate-vertical/out/compact-kowa_lm6hc/manifest.json",
+    "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+    "all_step_sha256": {
+      "pi5": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+      "cooler": "d8667135f613b14a18dee538af6bdddba441960c06b88ab94b370e033b01ac2a",
+      "x1203": "63be4fea114078bc3227561ee2a8063de1ecec590daf5656eb8937b29531d891",
+      "x1203_kit": "ef27a3bb35a32ef853c46ede234661278bf20ffbd2f9c9d06b3782670bc47a45",
+      "gs_camera": "2aa0131ac90be90d66494049e535f608998bd701442858272d01cb83ccf4ca6f",
+      "c_cs_adapter": "5a49c23b7ce3869e1b27d70effc70127d7e83aabef764761f63778e0bb155b93",
+      "lens": "82438bad4d7d4e55dbc7b029bdaa4ad3fc21ace4cb660952ce1815608471c923",
+      "eyepiece": "c7f87f7e0e1129148f93bc7826c97255618b6d03092004dd9fe25b583a5b134a",
+      "hmx039": "605476fc56f328d30108d27def367933b825b3939bf8639c6a54d57f72fbd77d",
+      "evf_board": "820c77ffc1541810209fa81f831cf19bb645998e302f491561227590042e6575",
+      "usb_stick": "9a1808537e94cc7569160fc718993f4fe5b17e4678a95339b52ca97ed1c09b41",
+      "encoder": "ea4b72e6a065246fca6e00caaffe6a1aa890da0d493634287af3baaed82af490",
+      "switch_1824": "e0a05c1e5677e530d75ca1e73a291de95eec24531bfadd2aec448d500b3f0b69",
+      "run_button": "8e3888ca5d56170a112ddcff68a701e6fcc141386e8f67bdc5019c31bf8824ee",
+      "pack": "94914b2a9cd5e06657b3f9451dd1aafa03af1387c364c293482d0864807e292d",
+      "xt30_pair": "ec40e43880d661fb565f5c8026d2d95bafb9965dbdb94f7a5ff94f21432c172d",
+      "tripod_nut": "e85f994319b472478d8e8f0ae6549278153738cbe81f289f3a18c7bd8c35639c",
+      "strap": "2173bd56e20dc2a0974dd331b854783ce6eb7903630409020626afaee90a5c8e",
+      "microsd": "6e5db4a4e28717848dec6d9659540b53dfe8d1ffd3f14e4f8eab435ec44afc3b",
+      "foam_pad": "e91efab34a565ed28bd459dbeb4c62e7719baf2df0dbb4b5bf57f8a783a3e360",
+      "usb_storage_plug_reserve": "1c9ccdc877008fe3c6facbc2527197b73f2652a9c3be41ddf835897c529528bb",
+      "fps_nut": "fad6b377afbf9f3d3652f2c2902c435628223c750075f34d1ce1147af27ae8a0",
+      "fps_mounting_washer": "534226c2fa8a3417a037ee20c81f750dc89340b9241bc53f500acfcbf94e678d",
+      "s_c1": "719532c3c240f512e9935b48895d207838dced06f3a8de62ac1d90b96c768031",
+      "s_c2": "4dde1cfee3b96f8f9125b7cea1eba47f16e0d73c3293e947de7eacd72d4003f2",
+      "s_c3": "dd50b878e7eede7d40415d8138dcdb43dc4f53c673daa77117258b0a9cbe75d3",
+      "s_c4": "a48735f74026adf046e0a4e3145e1a6b64a2b035ffef69823f1004262d04a8ca",
+      "base_grip": "8caa9788e877040ea6dc21eedc497359d29aaf444d8f11ab12f551b2fb8f5d6f",
+      "cap": "81af5dad6260b4e03193cf6ce36e7d55c67b2b16997c702761cc3110ae91d7e0",
+      "eyecup": "5fc009b152a6fb53e4b0a8a5c5902ee361ff2e25746b6f50b34e9a1549eadeef",
+      "knob_exp": "a5008f028d70a5439c8c4039a768c4067368eeed464e36f63cb1212167aba356",
+      "knob_fps": "857bc439d9c53761796579c468de11b5d3df9bfca577cc8e12026386f3c31a3b",
+      "carrier": "ab059602b0a08346a4173f2420bf361b6876d98709f55f43fdbdb725e90739ef",
+      "tub": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+      "panel": "6bc8503c4b20c20dc053bc101094d0957753e827caf2e8d3580aac2b06366678",
+      "lens_collar": "3f24e7d2cdf80ce4c4c9cbea6bc91c959ef49daea05b703a22385ddd975578fd",
+      "power_button": "b576af2c6be7d7fd450739eec019fd5ebeba748998af3df32857b86a8966570e",
+      "power_nut_reserve": "dbaac13b44b0cb3b5c880f42432a30581837924b61ec0b0679595bc9b7b28fac",
+      "p_panel1": "2052ae5edc457436cfaac94cde4180d75e1b7505d291d2211b8a0fc87f4e245a",
+      "p_panel2": "6c93474a94ebb1d28583a1c19e1bbaa55248ae66ca18595075e78951efd09b8b",
+      "p_panel3": "a6b5a42323864096663f54734b70d936601f55ddb26dd90196c86cc4fb04f4d5",
+      "p_panel4": "dfd68f69c75978fdd0791f0e51409fe5143e968a8417cb6e516b013c1f51640c",
+      "p_carrier1": "dd30f242d08825fbe25e309168315ed031124497e61c404fb329913db1b33ff6",
+      "p_carrier2": "336f3f610fc9142d9cada6c6100e87d383663e6277bf68f1dc99554c58798c09",
+      "p_grip": "64503812dd1de14d1923753b84fcaae8ba18de465584019fa4c09ddf80e8c831"
+    },
+    "rows": [
+      {
+        "object": "pi5",
+        "status": "pass",
+        "step_sha256": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37"
+      },
+      {
+        "object": "cooler",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -100.80000010000002,
+          -36.048985921943164,
+          -14.106293756904421,
+          4.501014078056832,
+          13.749999899999985,
+          56.250000100000015
+        ]
+      },
+      {
+        "object": "x1203",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -119.00000010000002,
+          -33.99999989999997,
+          6.199999899999994,
+          16.200944148535676,
+          6.999999899999971,
+          63.00000010000003
+        ]
+      },
+      {
+        "object": "x1203_kit",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -98.38675144594815,
+          -34.61324855405186,
+          0.3484264857738769,
+          21.60174833802902,
+          7.998251661970981,
+          62.00174833802902
+        ]
+      },
+      {
+        "object": "gs_camera",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -25.090000100000005,
+          -4.387412586191163,
+          -19.75000010000001,
+          19.75000010000001,
+          40.24999989999999,
+          82.10000010000009
+        ]
+      },
+      {
+        "object": "c_cs_adapter",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -4.410751763878388,
+          0.6107517638783875,
+          -15.385751763878387,
+          15.385751763878387,
+          44.61424823612161,
+          75.38575176387839
+        ]
+      },
+      {
+        "object": "lens",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -6.108881149187349,
+          57.21748248029005,
+          -27.018881070713256,
+          27.018881070713256,
+          32.981118929286744,
+          87.01888107071325
+        ]
+      },
+      {
+        "object": "eyepiece",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -178.3128321671329,
+          -153.48986011943177,
+          -8.263461532823335,
+          30.263461532823335,
+          58.736538467176665,
+          97.26346153282334
+        ]
+      },
+      {
+        "object": "hmx039",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -152.0000001,
+          -150.0699999,
+          3.1999998999999977,
+          18.800000100000002,
+          71.1999999,
+          84.8000001
+        ]
+      },
+      {
+        "object": "evf_board",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -148.8000001,
+          -140.79999990000002,
+          -4.0000001000000145,
+          23.000000100000015,
+          63.999999899999985,
+          92.50000010000001
+        ]
+      },
+      {
+        "object": "usb_stick",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -156.0000001,
+          -121.99999989999999,
+          -13.766000095665007,
+          -6.765999895664993,
+          26.49989489999999,
+          41.49989510000001
+        ]
+      },
+      {
+        "object": "encoder",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -67.65000010000001,
+          -42.349999899999986,
+          12.599999900000002,
+          37.00209798563481,
+          65.1999999,
+          90.8000001
+        ]
+      },
+      {
+        "object": "switch_1824",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -124.75961540915954,
+          -97.24038459084046,
+          7.099405499070123,
+          37.002218268479055,
+          66.24038459084046,
+          93.75961540915954
+        ]
+      },
+      {
+        "object": "run_button",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -35.00000010000002,
+          -20.495611026996436,
+          -6.504388973003565,
+          6.504388973003565,
+          -27.504388973003564,
+          -14.495611026996434
+        ]
+      },
+      {
+        "object": "pack",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -64.30615719899822,
+          -26.69384280100177,
+          -9.306157198998232,
+          9.306157198998232,
+          -108.80615719899822,
+          -36.79999989999999
+        ]
+      },
+      {
+        "object": "xt30_pair",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -75.67708616620165,
+          -37.74628167268213,
+          -17.257372663904125,
+          5.7391025642341,
+          -29.45512995522208,
+          9.931435342751417
+        ]
+      },
+      {
+        "object": "tripod_nut",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -113.40858808800485,
+          -100.59141191199515,
+          -5.550000100000014,
+          5.550000100000014,
+          -5.701818267550176,
+          -0.0981817324498258
+        ]
+      },
+      {
+        "object": "strap",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -103.20000010000003,
+          -65.79999989999999,
+          -21.714240376366284,
+          4.693623388117555,
+          -104.70000010000001,
+          -0.1999998999999838
+        ]
+      },
+      {
+        "object": "microsd",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -40.40000010000001,
+          -31.49999989999999,
+          4.299999899999993,
+          5.300000100000008,
+          28.29999989999999,
+          39.300000100000005
+        ]
+      },
+      {
+        "object": "foam_pad",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -150.0700001,
+          -149.0699999,
+          3.1999998999999977,
+          18.800000100000002,
+          71.1999999,
+          84.8000001
+        ]
+      },
+      {
+        "object": "usb_storage_plug_reserve",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -122.00000010000001,
+          -109.99999989999999,
+          -12.516000095665008,
+          -8.015999895664992,
+          27.99989489999999,
+          39.99989510000001
+        ]
+      },
+      {
+        "object": "fps_nut",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -118.33234851870827,
+          -103.66765148129173,
+          28.596629297080067,
+          31.003370702919934,
+          73.64999989999998,
+          86.35000010000002
+        ]
+      },
+      {
+        "object": "fps_mounting_washer",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -118.50524481408702,
+          -103.49475518591298,
+          27.994755185912975,
+          28.605244814087026,
+          72.49475518591298,
+          87.50524481408702
+        ]
+      },
+      {
+        "object": "s_c1",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -6.801398690423217,
+          5.701958126592498,
+          7.497552366759386,
+          14.502447633240614,
+          86.99755236675938,
+          94.00244763324062
+        ]
+      },
+      {
+        "object": "s_c2",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -6.801398690423217,
+          5.701958126592498,
+          -14.502447633240614,
+          -7.497552366759386,
+          86.99755236675938,
+          94.00244763324062
+        ]
+      },
+      {
+        "object": "s_c3",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -6.801398690423208,
+          5.7019581265924915,
+          14.497552366759388,
+          21.50244763324061,
+          26.49755236675939,
+          33.502447633240614
+        ]
+      },
+      {
+        "object": "s_c4",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          1.1975523667593924,
+          8.202447633240608,
+          -29.802447633240607,
+          -22.797552366759394,
+          50.09860130957679,
+          68.90195812659249
+        ]
+      },
+      {
+        "object": "base_grip",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -117.00000010000028,
+          -0.4999998999997158,
+          -25.20243750360774,
+          25.200000100000082,
+          -110.02251171014285,
+          0.012692370455839961
+        ]
+      },
+      {
+        "object": "cap",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -71.01276107883538,
+          -22.98723892116462,
+          -15.012761078835373,
+          15.012761078835373,
+          -116.01276107883538,
+          -105.79999989999997
+        ]
+      },
+      {
+        "object": "eyecup",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -191.61645213603123,
+          -175.28625874909204,
+          -11.808259474248189,
+          33.80825947424819,
+          55.19174052575181,
+          100.80825947424819
+        ]
+      },
+      {
+        "object": "knob_exp",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -68.99827295474333,
+          -41.00172704525668,
+          28.17924171757376,
+          37.21448280637205,
+          64.00172704525669,
+          91.99827295474331
+        ]
+      },
+      {
+        "object": "knob_fps",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -122.99479580202433,
+          -99.00520419797567,
+          30.183181252775693,
+          37.213641233247614,
+          68.00520419797566,
+          91.99479580202431
+        ]
+      },
+      {
+        "object": "carrier",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -131.80014908772554,
+          -20.196682507597124,
+          16.195750613046943,
+          22.204281013750116,
+          3.9999998999999273,
+          73.80319892073315
+        ]
+      },
+      {
+        "object": "tub",
+        "status": "pass",
+        "step_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5"
+      },
+      {
+        "object": "panel",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -155.4138332372186,
+          -3.0999994138364526,
+          3.199999899999972,
+          28.031028157290894,
+          3.0963635648996704,
+          96.90363643510035
+        ]
+      },
+      {
+        "object": "lens_collar",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -2.702657421804093,
+          8.61915600975469,
+          -30.00000010000003,
+          25.01216841214143,
+          24.387031174279212,
+          96.11316352205797
+        ]
+      },
+      {
+        "object": "power_button",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -29.03631473576077,
+          -10.963685264239233,
+          -1.4055944616928158,
+          33.00631473576077,
+          16.46368526423923,
+          34.53631473576077
+        ]
+      },
+      {
+        "object": "power_nut_reserve",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -31.007692347327623,
+          -8.992307652672379,
+          22.192307652672376,
+          25.207692347327622,
+          14.492307652672379,
+          36.50769234732762
+        ]
+      },
+      {
+        "object": "p_panel1",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -131.50209798563483,
+          -125.49790201436517,
+          13.598950957182572,
+          28.00209798563483,
+          44.997902014365174,
+          51.002097985634826
+        ]
+      },
+      {
+        "object": "p_panel2",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -136.00209798563483,
+          -129.99790201436517,
+          13.598950957182572,
+          28.00209798563483,
+          88.69790201436517,
+          94.70209798563484
+        ]
+      },
+      {
+        "object": "p_panel3",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -13.802097985634807,
+          -7.797902014365195,
+          13.598950957182597,
+          28.002097985634805,
+          5.297902014365195,
+          11.302097985634807
+        ]
+      },
+      {
+        "object": "p_panel4",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -13.802097985634814,
+          -7.797902014365187,
+          13.59895095718259,
+          28.002097985634812,
+          88.69790201436518,
+          94.70209798563482
+        ]
+      },
+      {
+        "object": "p_carrier1",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -130.00209798563483,
+          -123.99790201436517,
+          7.798950957182571,
+          22.20209798563483,
+          65.99790201436517,
+          72.00209798563483
+        ]
+      },
+      {
+        "object": "p_carrier2",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -28.00209798563481,
+          -21.99790201436519,
+          7.798950957182595,
+          22.202097985634808,
+          5.997902014365192,
+          12.002097985634808
+        ]
+      },
+      {
+        "object": "p_grip",
+        "status": "pass_by_final_export_bounds",
+        "bbox_mm": [
+          -114.00209798563482,
+          -107.99790201436518,
+          -25.002097985634816,
+          -18.997902014365184,
+          -4.402097985634816,
+          10.001049042817415
+        ]
+      }
+    ]
+  },
+  "source_files": {
+    "mechanical/pi5": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+    "mechanical/tub": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5"
+  },
+  "verification_source_sha256": "4a1d81f80403bede7ca7a0c5126a23d86fa3e292a9a1420a1ea45ce1f726ee9f",
+  "motion_scope": "Static hard-head reservation and full carried FPS group. Co-translation preserves mutual geometry; XZ-disjoint entries stay separated for any relativeYtranslation. No USB removal/carry trajectory is selected while its complete installed lead and exit remain unknown.",
+  "overlap_volume_scope": "Per-solid positive witnesses establish contact; their sum is not reported as occupied union volume where source components may overlap.",
+  "physical_qualified": false,
+  "remaining": [
+    "Final binding applies to installed hard-head reservation only",
+    "Adafruit4448 cuttable donor final copper cuts, two Pololu tails, diode/joints and full installed lead placement remain TBD",
+    "Received overmold, actual exit and engagement are unmeasured; no wire exit is invented",
+    "Complete camera FPC and cooler/latch/tool corridor",
+    "Adafruit3557 adapter-to-socket/root transform",
+    "All baseline56 andM1 physical gates"
+  ]
+}

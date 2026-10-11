@@ -70,15 +70,24 @@ def typed_figures(src):
     return hits
 
 
+def structural_allowed():
+    """ALLOWED_CHANGED_ROWS of update_concealed_vent_structure.py (FP-11c), read from its source without running it."""
+    src = (CV / 'structural-review/update_concealed_vent_structure.py').read_text(encoding='utf-8')
+    return ast.literal_eval(re.search(r'^ALLOWED_CHANGED_ROWS=(\(.*?\))$', src, re.M).group(1))
+
+
 class TestNumericTolerance(unittest.TestCase):
     def setUp(self):
         self.old = rows(CV / 'history/reviewed-export18/manifest.json')
         self.new = rows(SEL / 'manifest.json')
 
     def test_1e13_passes_1e3_fails_strings_exact(self):
-        self.assertEqual(ER.changed_rows(self.old, self.new), ['tub', 'panel'])
+        # FP-11c: the carrier row changed by design (VN-54/56/38), so the rows that differ from export18 are no longer
+        # just tub and panel; they must stay inside the structural transfer's allowed set, and jitter must add none.
+        changed = ER.changed_rows(self.old, self.new)
+        self.assertTrue({'tub', 'panel'} <= set(changed) <= set(structural_allowed()), changed)
         jitter = {k: perturb(r, rel=1.4e-13) for k, r in self.new.items()}
-        self.assertEqual(ER.changed_rows(self.old, jitter), ['tub', 'panel'])
+        self.assertEqual(ER.changed_rows(self.old, jitter), changed)
         self.assertEqual(ER.changed_rows(self.new, jitter), [])
         exact = [k for k in self.new if self.new[k] != jitter[k]]
         self.assertGreater(len(exact), 2, 'negative control: exact equality flags the jittered rows (VN-06)')
@@ -100,12 +109,14 @@ class TestNumericTolerance(unittest.TestCase):
             mp = cv / 'out/compact-kowa_lm6hc/manifest.json'
             pristine = mp.read_text(encoding='utf-8')
             m = json.loads(pristine)
+            truth = ER.changed_rows(rows(cv / 'history/reviewed-export18/manifest.json'), {r['id']: r for r in m['rows']})
             m['rows'] = [r if r['id'] in ('tub', 'panel') else perturb(r, rel=1.4e-13) for r in m['rows']]
             mp.write_text(json.dumps(m, indent=2), encoding='utf-8', newline='\n')
             rc, so, se = FX.run(script)
             self.assertEqual(rc, 0, se[-1500:])
             out = json.loads((cv / 'structural-review/concealed-vent-structural.json').read_text(encoding='utf-8'))
-            self.assertEqual(out['changed_manifest_rows'], ['tub', 'panel'])
+            self.assertEqual(out['changed_manifest_rows'], truth)          # jitter adds no row (FP-11c: carrier, tub, panel)
+            self.assertTrue({'tub', 'panel'} <= set(truth))
             m = json.loads(pristine)
             next(r for r in m['rows'] if r['id'] == 'pi5')['volume_mm3'] += 1e-3
             mp.write_text(json.dumps(m, indent=2), encoding='utf-8', newline='\n')

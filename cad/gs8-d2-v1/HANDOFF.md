@@ -1,5 +1,7 @@
 # GS8 D2 handoff, r7 (2026-10-09): blocker review 2026-10-08 rectified in CAD (BX-1 BLOCKER and the four MAJORs)
 
+> **Not the current design of this repository (review 2026-10-10 VN-14).** This is the upstream r7 handoff of the horizontal-Pi D2 (release `d38468e`), unchanged below this notice and kept as the r7 baseline record. The current design here is the vertical candidate: [candidate overview](candidate-vertical/README.md), [review register](candidate-vertical/review-2026-10-10/ISSUE-REGISTER.md), and the [map of r7 gates and BX fixes onto the candidate](candidate-vertical/GATES-VERTICAL.md).
+
 Read this section first; the r6 entry below it and everything after are history. The user asked: "Rectify these
 blockers. Cease work by 0730H tmr." The review is `guide/BLOCKERS-2026-10-08.md` (BX-1..BX-17); its r7 status lines
 are at its end. The fix specs are `r7-blockers/SPEC-C1.md`..`SPEC-C6.md` (each has a fix-up correction note at the

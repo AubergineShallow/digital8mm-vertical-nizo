@@ -8,10 +8,12 @@ unchanged inside the candidate layout context (j7_collar_checks.candidate_layout
 JG.trial_layout, model.collar_setup), so its setUpClass builds the candidate collars for every lens and every test
 reads the candidate COLLAR / SCREWS values.
 
-Expected failures (VN-55, CAD fix FP-11d), marked expectedFailure so a fixed collar reports an unexpected success
-and the marker must then be removed:
-- test_washer_flat_support_with_float_and_margin: the r 3.9 footprint reaches y -30.2, 0.2 past the lug face y -30;
-- test_washer_has_free_seat_at_every_float_extreme: at dy +0.2 the 7.0 washer enters the bit-relief wall (y -22.8).
+Expected failure, marked expectedFailure so a fixed path reports an unexpected success and the marker must then
+be removed:
+- (removed 2026-10-11, C2 / FP-11d) test_washer_flat_support_with_float_and_margin and
+  test_washer_has_free_seat_at_every_float_extreme failed on the 9ced753 lug (footprint 0.2 past the lug face y -30,
+  washer into the bit-relief wall y -22.8 at dy +0.2). model.collar_setup now spaces the lug as r7 does (relief -22.8,
+  screw -26.8, face -30.8: 4.0 / 4.0; r7 margins 0.1 / 0.5) and both pass, so their marks are gone;
 - test_print_stock_is_exactly_three_removable_membranes: r7 printed_collar.prepare_print (fuse + clean) raises
   "print preparation removed finished material" on the candidate Fujinon collar (Kowa passes). The candidate does not
   print through it: model.collar_print_stock keeps the uncleaned union for this reason (its docstring). That path is
@@ -19,6 +21,10 @@ and the marker must then be removed:
 Every other r7 test must pass on the candidate values. Each test gets deep copies of the class collars (setUp):
 prepare_print's clean() leaves the shape it was given unusable for a later union (found 2026-10-11: after it,
 model.collar_print_stock rejects the same Fujinon shape; a fresh one gives added 5.44752 = expected, lost 0.0).
+Cause (C2, tests/test_c2_collar_grip.py test_r7_prepare_print_corrupts_its_input): the same-domain cleanup in
+prepare_print rewrites sub-shapes the fused stock shares with its input, so on the Fujinon collar the input turns
+invalid before r7's own 'removed finished material' check runs; on a copy the cleaned stock is valid and removes
+nothing. It is r7 code (read-only), so this expected failure stays.
 """
 import math
 import sys
@@ -33,9 +39,7 @@ import j7_collar_checks as J            # noqa: E402
 import test_mechanical_refinements as R7  # noqa: E402  r7 test module (read-only)
 
 LENS = 'kowa_lm6hc'
-EXPECTED_FAILURES = ('test_washer_flat_support_with_float_and_margin',
-                     'test_washer_has_free_seat_at_every_float_extreme',
-                     'test_print_stock_is_exactly_three_removable_membranes')
+EXPECTED_FAILURES = ('test_print_stock_is_exactly_three_removable_membranes',)
 
 
 class CandidateCollarR7Mechanical(R7.MechanicalRefinements):
@@ -46,7 +50,8 @@ class CandidateCollarR7Mechanical(R7.MechanicalRefinements):
     def setUpClass(cls):
         cls._ctx = J.candidate_layout(LENS)
         L = cls._ctx.__enter__()
-        assert L.COLLAR['lug']['screw_y'] == -26.3 and L.COLLAR['feet']['LL'] == (18.0, 30.0), L.COLLAR['lug']
+        # C2 (FP-11d) moved the s_c4 screw -26.3 -> -26.8 with the lug (model.COLLAR_SCREW_Y); this asserts the context
+        assert L.COLLAR['lug']['screw_y'] == -26.8 and L.COLLAR['feet']['LL'] == (18.0, 30.0), L.COLLAR['lug']
         super().setUpClass()
         cls.pristine = dict(cls.collars)
 
@@ -80,14 +85,6 @@ class CandidateCollarR7Mechanical(R7.MechanicalRefinements):
             cleared = ps.cut(*clears)
             self.assertLess(cleared.cut(sh).Volume() + sh.cut(cleared).Volume(), 0.001, name)
 
-    @unittest.expectedFailure
-    def test_washer_flat_support_with_float_and_margin(self):
-        super().test_washer_flat_support_with_float_and_margin()
-
-    @unittest.expectedFailure
-    def test_washer_has_free_seat_at_every_float_extreme(self):
-        super().test_washer_has_free_seat_at_every_float_extreme()
-
 
 class ContextIsRestored(unittest.TestCase):
     """The candidate context never leaks: r7 values are back after it (the r7 suite itself stays valid)."""
@@ -98,13 +95,13 @@ class ContextIsRestored(unittest.TestCase):
                   next(s['head_point'] for s in L.SCREWS if s['id'] == 's_c3'))
         with J.candidate_layout(LENS) as C:
             self.assertEqual((C.COLLAR['body_r'], C.COLLAR['feet']['LL'], C.COLLAR['lug']['screw_y']),
-                             (25.0, (18.0, 30.0), -26.3))
+                             (25.0, (18.0, 30.0), -26.8))   # C2: screw_y -26.3 -> -26.8
         after = (L.COLLAR['body_r'], L.COLLAR['feet']['LL'], L.COLLAR['lug']['screw_y'],
                  next(s['head_point'] for s in L.SCREWS if s['id'] == 's_c3'))
         self.assertEqual(before, after)
         self.assertEqual(after[:3], (30.0, (28.0, 36.0), -31.0))
 
-    def test_expected_failures_are_the_washer_tests_only(self):
+    def test_expected_failures_are_exactly_the_listed_ones(self):
         marked = sorted(n for n, f in vars(CandidateCollarR7Mechanical).items()
                         if getattr(f, '__unittest_expecting_failure__', False))
         self.assertEqual(marked, sorted(EXPECTED_FAILURES))

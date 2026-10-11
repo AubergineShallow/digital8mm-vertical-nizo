@@ -3,7 +3,7 @@ The recovered source package lacks a historical standalone guide STEP. This
 version requires current complete mechanical STEP coverage and canonical support
 source binding, rather than silently reconstructing or relabeling that file.
 """
-from cv_io import read_text, rel_posix, write_text
+from cv_io import read_text, rel_posix, relpath_posix, write_text  # VN-10: recorded paths are relative to candidate-vertical
 """Exact corrected USB head reservation checks, with optional final export binding.
 
 The final installed cuttable lead, overmold/exit and rigid joints are unresolved.
@@ -85,7 +85,7 @@ if args.mechanical_manifest:
  if digest(mp)!=mh:raise RuntimeError('Mechanical export changed during check')
  for name,h in all_step_hashes.items():
   if digest(mp.parent/'step'/(name+'.step'))!=h:raise RuntimeError('Mechanical STEP changed during check:'+name)
- mechanical=dict(manifest_path=str(mp),manifest_sha256=mh,all_step_sha256=all_step_hashes,rows=rows)
+ mechanical=dict(manifest_path=relpath_posix(mp,ROOT),manifest_sha256=mh,all_step_sha256=all_step_hashes,rows=rows)
 if digest(Path(__file__))!=VERIFICATION_SOURCE_SHA256:raise RuntimeError('Verifier changed during execution')
 for name,h in dependency_hashes.items():
  if digest(ROOT/name)!=h:raise RuntimeError('Verification dependency changed:'+name)

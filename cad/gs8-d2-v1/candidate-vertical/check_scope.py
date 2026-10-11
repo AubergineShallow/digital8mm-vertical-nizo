@@ -266,6 +266,60 @@ def stack_retention(ret_points, com_xz, targets, CK, bearing_r=None):
                 passed=margin is not None and margin > 0 and ok_lift)
 
 
+
+# FP-11c (VN-38): r7 check_stack_retention credits its hood stack stop only with an exact measured gap in this window.
+STOP_GAP_WINDOW = (0.1, 0.3)
+SEAT_CONTACT_TOL = 1e-3
+
+
+def locator_point(decl, carrier, seat_part, stop_part, window=STOP_GAP_WINDOW, contact_tol=SEAT_CONTACT_TOL):
+    """Credit a declared printed locating feature of the vertical carrier as a stack-retention point from measured
+    geometry only (r7 check_stack_retention measures its hood stop gap with an exact OCP distance, window 0.1-0.3).
+
+    decl: dict(id, at=(x, z), tongue_box, seat_box, stop_box) with boxes (x0, x1, y0, y1, z0, z1) in the assembly frame
+    (lift axis = Y). The carrier material inside tongue_box is the tongue, the seat part's material inside seat_box the
+    seat, the stop part's material inside stop_box the stop. Credited when (1) the seat lies on the tongue's -Y side
+    and touches it (exact distance <= contact_tol: the -Y bearing, lift >= 0), (2) the stop lies on its +Y side with an
+    exact gap inside `window` (+Y retention, lift <= gap), and (3) `at` lies inside the XZ overlap of tongue, seat and
+    stop. Nothing is assumed from the declaration beyond where to look. -> dict (credited, stop_gap_mm, ...)."""
+    import cadquery as cq
+
+    def crop(shape, b):
+        x0, x1, y0, y1, z0, z1 = b
+        c = shape.intersect(cq.Solid.makeBox(x1 - x0, y1 - y0, z1 - z0, cq.Vector(x0, y0, z0)))
+        return c if c.Volume() > 1e-6 else None
+
+    def bb(s):
+        b = s.BoundingBox()
+        return [b.xmin, b.xmax, b.ymin, b.ymax, b.zmin, b.zmax]
+
+    t, s, p = crop(carrier, decl['tongue_box']), crop(seat_part, decl['seat_box']), crop(stop_part, decl['stop_box'])
+    out = dict(id=decl['id'], at=list(decl['at']), tongue_found=t is not None, seat_found=s is not None,
+               stop_found=p is not None, stop_gap_window_mm=list(window), seat_contact_tol_mm=contact_tol,
+               credited=False)
+    if t is None or s is None or p is None:
+        out['reason'] = 'declared tongue, seat or stop has no material in its box'
+        return out
+    tb, sb, pb = bb(t), bb(s), bb(p)
+    d_seat, d_stop = float(t.distance(s)), float(t.distance(p))
+    overlap_seat = float(t.intersect(s).Volume())
+    overlap_stop = float(t.intersect(p).Volume())
+    x, z = decl['at']
+    xz = [max(tb[0], sb[0], pb[0]), min(tb[1], sb[1], pb[1]), max(tb[4], sb[4], pb[4]), min(tb[5], sb[5], pb[5])]
+    seat_side = sb[3] <= tb[2] + contact_tol            # seat material ends at or below the tongue's -Y face
+    stop_side = pb[2] >= tb[3]                         # stop material starts beyond the tongue's +Y face
+    at_ok = xz[0] <= x <= xz[1] and xz[2] <= z <= xz[3]
+    seat_ok = seat_side and d_seat <= contact_tol and overlap_seat <= 1e-6
+    stop_ok = stop_side and window[0] - 1e-3 <= d_stop <= window[1] + 1e-3 and overlap_stop <= 1e-6
+    out.update(tongue_bbox=tb, seat_bbox=sb, stop_bbox=pb, seat_distance_mm=d_seat, stop_gap_mm=d_stop,
+               seat_overlap_mm3=overlap_seat, stop_overlap_mm3=overlap_stop, seat_on_minus_y=seat_side,
+               stop_on_plus_y=stop_side, xz_overlap=xz, at_inside_overlap=at_ok, seat_bears=seat_ok,
+               stop_retains=stop_ok, credited=bool(seat_ok and stop_ok and at_ok))
+    if not out['credited']:
+        out['reason'] = ', '.join(k for k, v in (('seat does not bear', seat_ok), ('stop gap outside window', stop_ok),
+                                                 ('declared point outside the contact overlap', at_ok)) if not v)
+    return out
+
 def post_root_bending(mass_g, posts, d_mm, length_mm, ecc_mm, g_level=5.0, shares=(0.5, SHARE_70),
                       screen_mpa=5.0):
     """Solid round post, lateral load F = m g g_level at the carrier, share s per post. Root moment

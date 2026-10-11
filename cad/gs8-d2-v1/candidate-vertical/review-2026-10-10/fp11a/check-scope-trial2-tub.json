@@ -1,0 +1,742 @@
+{
+ "manifest_sha256": "e90efbcbe3c18c1cc375c2136a53aa0484ea9bf070e12ad72779f92eab15e787",
+ "verification_source_sha256": "d5c51c0b698a30d04a32db141a290fcb2f9ea6db6370e0360efd21a1c5ff27fd",
+ "helper_source_sha256": {
+  "check_scope.py": "ea7e8e40be8eb0774724a77a38082986099af223273103bbb8ac045cb7ef706c",
+  "steps.py": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+  "evidence_rules.py": "813df938c4ecfbd363f7b7446503fc6dd4a45230dad120615db35248aeb0f97e",
+  "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+  "print_rules.py": "bfe6d44651b44648f23c3487f26848d6225745326a731e0c35382f8cade730a5",
+  "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb"
+ },
+ "input_sha256": {
+  "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json": "51870330d44355aec8481b72551bcbeb2b2526982c85ae77d527c3209227c897"
+ },
+ "variant": "T1 scratch tub-only export (local path redacted); manifest copy: scratch-manifest.json",
+ "scope": "area_parity,flow_network",
+ "summary": {
+  "pass": 2,
+  "fail": 1,
+  "info": 9
+ },
+ "checks": [
+  {
+   "category": "area_parity",
+   "id": "cold_branch_series",
+   "status": "pass",
+   "branches": [
+    {
+     "name": "cold_rear",
+     "mouth_mm2": 302.0,
+     "series_min_mm2": 490.8000000000001,
+     "effective_mm2": 302.0,
+     "governed_by": "mouth"
+    },
+    {
+     "name": "cold_bottom",
+     "mouth_mm2": 343.0,
+     "series_min_mm2": 543.0,
+     "effective_mm2": 343.0,
+     "governed_by": "mouth"
+    }
+   ],
+   "effective_sum_mm2": 645.0,
+   "wall_ports_mm2": 420.0,
+   "margin_mm2": 225.0,
+   "margin_percent": 53.57142857142857,
+   "sections": {
+    "cold_rear": {
+     "axis": "x",
+     "positions_mm": [
+      -155.0,
+      -153.0,
+      -151.0,
+      -149.0,
+      -147.0,
+      -145.0,
+      -143.0,
+      -141.0,
+      -139.0,
+      -137.0,
+      -135.0,
+      -133.0,
+      -131.0,
+      -129.0,
+      -127.0,
+      -125.0,
+      -123.0,
+      -121.0,
+      -119.0,
+      -117.0,
+      -115.0,
+      -113.0,
+      -111.0,
+      -109.0,
+      -107.0,
+      -105.0
+     ],
+     "free_area_mm2": [
+      490.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      490.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      526.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      490.8000000000001,
+      490.8000000000001
+     ]
+    },
+    "cold_bottom": {
+     "axis": "z",
+     "positions_mm": [
+      2.6,
+      3.0,
+      3.4,
+      3.8,
+      4.2,
+      4.6,
+      5.0,
+      5.4,
+      5.8,
+      6.2,
+      6.6,
+      7.0,
+      7.4,
+      7.8,
+      8.2,
+      8.6,
+      9.0,
+      9.4,
+      9.8,
+      10.2,
+      10.6,
+      11.0,
+      11.4,
+      11.8,
+      12.2,
+      12.6,
+      13.0,
+      13.4,
+      13.8,
+      14.2,
+      14.6,
+      15.0,
+      15.4,
+      15.8,
+      16.2,
+      16.6,
+      17.0,
+      17.4,
+      17.8
+     ],
+     "free_area_mm2": [
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0,
+      543.0
+     ]
+    }
+   },
+   "rule": "sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 (replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)"
+  },
+  {
+   "category": "area_parity",
+   "id": "hot_branch_series",
+   "status": "pass",
+   "branches": [
+    {
+     "name": "hot_bottom",
+     "mouth_mm2": 316.79999999999995,
+     "series_min_mm2": 325.4524125537212,
+     "effective_mm2": 316.79999999999995,
+     "governed_by": "mouth"
+    },
+    {
+     "name": "hot_front",
+     "mouth_mm2": 202.79999999999995,
+     "series_min_mm2": 494.7654677137006,
+     "effective_mm2": 202.79999999999995,
+     "governed_by": "mouth"
+    }
+   ],
+   "effective_sum_mm2": 519.5999999999999,
+   "wall_ports_mm2": 510.0,
+   "margin_mm2": 9.599999999999909,
+   "margin_percent": 1.8823529411764528,
+   "sections": {
+    "hot_bottom": {
+     "axis": "z",
+     "positions_mm": [
+      2.6,
+      3.0,
+      3.4,
+      3.8,
+      4.2,
+      4.6,
+      5.0,
+      5.4,
+      5.8,
+      6.2,
+      6.6,
+      7.0,
+      7.4,
+      7.8,
+      8.2,
+      8.6,
+      9.0,
+      9.4,
+      9.8,
+      10.2,
+      10.6,
+      11.0,
+      11.4,
+      11.8,
+      12.2,
+      12.6,
+      13.0,
+      13.4,
+      13.8,
+      14.2,
+      14.6,
+      15.0,
+      15.4,
+      15.8
+     ],
+     "free_area_mm2": [
+      339.85241255372125,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537212,
+      325.4524125537212,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.45241255372133,
+      325.4524125537212,
+      325.4524125537212,
+      325.4524125537213,
+      325.4524125537212,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537212,
+      325.4524125537212,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537213,
+      325.4524125537212,
+      325.4524125537213,
+      325.4524125537213
+     ]
+    },
+    "hot_front": {
+     "axis": "x",
+     "positions_mm": [
+      -16.0,
+      -15.0,
+      -14.0,
+      -13.0,
+      -12.0,
+      -11.0,
+      -10.0,
+      -9.0,
+      -8.0,
+      -7.0,
+      -6.0,
+      -5.0,
+      -4.0,
+      -3.0
+     ],
+     "free_area_mm2": [
+      501.9654677137006,
+      501.96546771370066,
+      501.9654677137006,
+      501.96546771370066,
+      501.9654677137006,
+      501.96546771370055,
+      494.7654677137006,
+      501.96546771370055,
+      501.9654677137006,
+      501.9654677137006,
+      501.9654677137006,
+      501.9654677137006,
+      505.1477688218564,
+      511.44147511555866
+     ]
+    }
+   },
+   "rule": "sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 (replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)"
+  },
+  {
+   "category": "flow_network",
+   "id": "baseline_drift",
+   "status": "fail",
+   "drifts": [
+    {
+     "case": "cold_bottom_blocked",
+     "field": "intake_eff_mm2",
+     "recorded": 543.6355577692852,
+     "computed": 542.4866247480693,
+     "change_percent": -0.21134250782461894
+    },
+    {
+     "case": "cold_bottom_blocked",
+     "field": "system_eff_mm2",
+     "recorded": 276.878897660413,
+     "computed": 276.72675146165744,
+     "change_percent": -0.05495044947128047
+    },
+    {
+     "case": "cold_bottom_blocked",
+     "field": "cold_path_eff_mm2",
+     "recorded": 220.49396511568162,
+     "computed": 219.34503209446564,
+     "change_percent": -0.5210723207835666
+    },
+    {
+     "case": "cold_bottom_blocked",
+     "field": "csi_share_of_intake",
+     "recorded": 0.594408493034487,
+     "computed": 0.5956673914378451,
+     "change_percent": 0.21179011035514783
+    },
+    {
+     "case": "cold_bottom_strap_20_of_71",
+     "field": "intake_eff_mm2",
+     "recorded": 635.976609023476,
+     "computed": 634.9783558080915,
+     "change_percent": -0.15696382559059474
+    },
+    {
+     "case": "cold_bottom_strap_20_of_71",
+     "field": "system_eff_mm2",
+     "recorded": 287.08811630506074,
+     "computed": 286.9961184700375,
+     "change_percent": -0.03204515610303327
+    },
+    {
+     "case": "cold_bottom_strap_20_of_71",
+     "field": "cold_path_eff_mm2",
+     "recorded": 312.83501636987245,
+     "computed": 311.8367631544878,
+     "change_percent": -0.31909893814584533
+    },
+    {
+     "case": "cold_bottom_strap_20_of_71",
+     "field": "csi_share_of_intake",
+     "recorded": 0.508102952323637,
+     "computed": 0.5089017439694687,
+     "change_percent": 0.15721058934585752
+    },
+    {
+     "case": "cold_rear_blocked",
+     "field": "intake_eff_mm2",
+     "recorded": 562.9223090203975,
+     "computed": 561.7761229219993,
+     "change_percent": -0.20361355022379124
+    },
+    {
+     "case": "cold_rear_blocked",
+     "field": "system_eff_mm2",
+     "recorded": 279.32963446151615,
+     "computed": 279.1892686488693,
+     "change_percent": -0.05025095633602872
+    },
+    {
+     "case": "cold_rear_blocked",
+     "field": "cold_path_eff_mm2",
+     "recorded": 239.78071636679388,
+     "computed": 238.63453026839574,
+     "change_percent": -0.478014293962159
+    },
+    {
+     "case": "cold_rear_blocked",
+     "field": "csi_share_of_intake",
+     "recorded": 0.5740429673429315,
+     "computed": 0.5752141813589872,
+     "change_percent": 0.20402898087521493
+    },
+    {
+     "case": "csi_plugged",
+     "field": "intake_eff_mm2",
+     "recorded": 334.0523759849955,
+     "computed": 333.17305404385087,
+     "change_percent": -0.26322876421753794
+    },
+    {
+     "case": "csi_plugged",
+     "field": "system_eff_mm2",
+     "recorded": 231.73280889805088,
+     "computed": 231.4386671187249,
+     "change_percent": -0.12693143483855085
+    },
+    {
+     "case": "csi_plugged",
+     "field": "cold_path_eff_mm2",
+     "recorded": 334.0523759849955,
+     "computed": 333.17305404385087,
+     "change_percent": -0.26322876421753794
+    },
+    {
+     "case": "hot_bottom_blocked",
+     "field": "intake_eff_mm2",
+     "recorded": 657.193968638599,
+     "computed": 656.3146466974545,
+     "change_percent": -0.13379945390644687
+    },
+    {
+     "case": "hot_bottom_blocked",
+     "field": "system_eff_mm2",
+     "recorded": 170.10463174806384,
+     "computed": 170.08935505267823,
+     "change_percent": -0.00898076391490088
+    },
+    {
+     "case": "hot_bottom_blocked",
+     "field": "cold_path_eff_mm2",
+     "recorded": 334.0523759849955,
+     "computed": 333.17305404385087,
+     "change_percent": -0.26322876421753794
+    },
+    {
+     "case": "hot_bottom_blocked",
+     "field": "csi_share_of_intake",
+     "recorded": 0.49169896267155805,
+     "computed": 0.4923577346317615,
+     "change_percent": 0.13397871669773576
+    },
+    {
+     "case": "hot_front_blocked",
+     "field": "intake_eff_mm2",
+     "recorded": 657.193968638599,
+     "computed": 656.3146466974545,
+     "change_percent": -0.13379945390644687
+    },
+    {
+     "case": "hot_front_blocked",
+     "field": "system_eff_mm2",
+     "recorded": 197.77735158739844,
+     "computed": 197.75334170181287,
+     "change_percent": -0.012139855950576983
+    },
+    {
+     "case": "hot_front_blocked",
+     "field": "cold_path_eff_mm2",
+     "recorded": 334.0523759849955,
+     "computed": 333.17305404385087,
+     "change_percent": -0.26322876421753794
+    },
+    {
+     "case": "hot_front_blocked",
+     "field": "csi_share_of_intake",
+     "recorded": 0.49169896267155805,
+     "computed": 0.4923577346317615,
+     "change_percent": 0.13397871669773576
+    },
+    {
+     "case": "nominal",
+     "field": "intake_eff_mm2",
+     "recorded": 657.193968638599,
+     "computed": 656.3146466974545,
+     "change_percent": -0.13379945390644687
+    },
+    {
+     "case": "nominal",
+     "field": "system_eff_mm2",
+     "recorded": 288.9645582030997,
+     "computed": 288.88968878872026,
+     "change_percent": -0.025909549200442417
+    },
+    {
+     "case": "nominal",
+     "field": "cold_path_eff_mm2",
+     "recorded": 334.0523759849955,
+     "computed": 333.17305404385087,
+     "change_percent": -0.26322876421753794
+    },
+    {
+     "case": "nominal",
+     "field": "csi_share_of_intake",
+     "recorded": 0.49169896267155805,
+     "computed": 0.4923577346317615,
+     "change_percent": 0.13397871669773576
+    },
+    {
+     "case": "set_down_on_table",
+     "field": "intake_eff_mm2",
+     "recorded": 543.6355577692852,
+     "computed": 542.4866247480693,
+     "change_percent": -0.21134250782461894
+    },
+    {
+     "case": "set_down_on_table",
+     "field": "system_eff_mm2",
+     "recorded": 167.5349023339437,
+     "computed": 167.50117870020867,
+     "change_percent": -0.02012931828844211
+    },
+    {
+     "case": "set_down_on_table",
+     "field": "cold_path_eff_mm2",
+     "recorded": 220.49396511568162,
+     "computed": 219.34503209446564,
+     "change_percent": -0.5210723207835666
+    },
+    {
+     "case": "set_down_on_table",
+     "field": "csi_share_of_intake",
+     "recorded": 0.594408493034487,
+     "computed": 0.5956673914378451,
+     "change_percent": 0.21179011035514783
+    }
+   ],
+   "missing_cases": [],
+   "baseline_reason": "FP-11a (2026-10-11, review VN-51/52/37): plenum trial2 replaced the 1.6 mm post grid with 1.2 mm flow ribs, added mullions to all four edge mouths and 45 deg lintels to the two cold mouths. Measured on the trial2 tub (scratch manifest 7a141ad8): cold rear neck 420 -> 305.02, cold underside 426 -> 346.43, hot underside 324 -> 316.8, hot front 210 -> 202.8 mm2; hot underside series minimum 299.4 -> 325.45 mm2. Nominal cold path 347.1 -> 334.1, exhaust 320.1 -> 321.7, system 288.9 -> 289.0 mm2 eq.; CSI share of intake 48.2 -> 49.2 %. Previous values: FP-12 run on manifest 53e668d4.",
+   "rel_tol": 1e-06,
+   "compared_cases": 8
+  },
+  {
+   "category": "flow_network",
+   "id": "nominal",
+   "status": "info",
+   "note": "all mouths, ports and the CSI slot open",
+   "open_fraction": {},
+   "cold_path_eff_mm2": 333.17305404385087,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 656.3146466974545,
+   "exhaust_eff_mm2": 321.73399992905325,
+   "system_eff_mm2": 288.88968878872026,
+   "csi_share_of_intake": 0.4923577346317615,
+   "cold_path_share_of_intake": 0.5076422653682385,
+   "system_flow_ratio_vs_nominal": 1.0,
+   "intake_area_change_percent": 0.0
+  },
+  {
+   "category": "flow_network",
+   "id": "cold_rear_blocked",
+   "status": "info",
+   "note": "rear cold mouth covered (hand/strap)",
+   "open_fraction": {
+    "cold_rear": 0.0
+   },
+   "cold_path_eff_mm2": 238.63453026839574,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 561.7761229219993,
+   "exhaust_eff_mm2": 321.73399992905325,
+   "system_eff_mm2": 279.1892686488693,
+   "csi_share_of_intake": 0.5752141813589872,
+   "cold_path_share_of_intake": 0.42478581864101284,
+   "system_flow_ratio_vs_nominal": 0.9664217155671991,
+   "intake_area_change_percent": -14.404451317850164
+  },
+  {
+   "category": "flow_network",
+   "id": "cold_bottom_blocked",
+   "status": "info",
+   "note": "underside cold mouth covered",
+   "open_fraction": {
+    "cold_bottom": 0.0
+   },
+   "cold_path_eff_mm2": 219.34503209446564,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 542.4866247480693,
+   "exhaust_eff_mm2": 321.73399992905325,
+   "system_eff_mm2": 276.72675146165744,
+   "csi_share_of_intake": 0.5956673914378451,
+   "cold_path_share_of_intake": 0.40433260856215475,
+   "system_flow_ratio_vs_nominal": 0.9578976412136392,
+   "intake_area_change_percent": -17.343513895684424
+  },
+  {
+   "category": "flow_network",
+   "id": "cold_bottom_strap_20_of_71",
+   "status": "info",
+   "note": "strap envelope over 20 of 71 mm of the underside cold mouth (review PRI-12 geometry, not a measurement)",
+   "open_fraction": {
+    "cold_bottom": 0.7183098591549295
+   },
+   "cold_path_eff_mm2": 311.8367631544878,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 634.9783558080915,
+   "exhaust_eff_mm2": 321.73399992905325,
+   "system_eff_mm2": 286.9961184700375,
+   "csi_share_of_intake": 0.5089017439694687,
+   "cold_path_share_of_intake": 0.49109825603053114,
+   "system_flow_ratio_vs_nominal": 0.9934453516613131,
+   "intake_area_change_percent": -3.250924079894646
+  },
+  {
+   "category": "flow_network",
+   "id": "hot_bottom_blocked",
+   "status": "info",
+   "note": "underside hot mouth covered",
+   "open_fraction": {
+    "hot_bottom": 0.0
+   },
+   "cold_path_eff_mm2": 333.17305404385087,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 656.3146466974545,
+   "exhaust_eff_mm2": 176.10604030905867,
+   "system_eff_mm2": 170.08935505267823,
+   "csi_share_of_intake": 0.4923577346317615,
+   "cold_path_share_of_intake": 0.5076422653682385,
+   "system_flow_ratio_vs_nominal": 0.5887692141794415,
+   "intake_area_change_percent": 0.0
+  },
+  {
+   "category": "flow_network",
+   "id": "hot_front_blocked",
+   "status": "info",
+   "note": "front hot mouth covered",
+   "open_fraction": {
+    "hot_front": 0.0
+   },
+   "cold_path_eff_mm2": 333.17305404385087,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 656.3146466974545,
+   "exhaust_eff_mm2": 207.39152398935917,
+   "system_eff_mm2": 197.75334170181287,
+   "csi_share_of_intake": 0.4923577346317615,
+   "cold_path_share_of_intake": 0.5076422653682385,
+   "system_flow_ratio_vs_nominal": 0.6845289028174347,
+   "intake_area_change_percent": 0.0
+  },
+  {
+   "category": "flow_network",
+   "id": "set_down_on_table",
+   "status": "info",
+   "note": "both underside mouths on a flat surface",
+   "open_fraction": {
+    "cold_bottom": 0.0,
+    "hot_bottom": 0.0
+   },
+   "cold_path_eff_mm2": 219.34503209446564,
+   "csi_eff_mm2": 323.1415926536036,
+   "intake_eff_mm2": 542.4866247480693,
+   "exhaust_eff_mm2": 176.10604030905867,
+   "system_eff_mm2": 167.50117870020867,
+   "csi_share_of_intake": 0.5956673914378451,
+   "cold_path_share_of_intake": 0.40433260856215475,
+   "system_flow_ratio_vs_nominal": 0.5798101669966864,
+   "intake_area_change_percent": -17.343513895684424
+  },
+  {
+   "category": "flow_network",
+   "id": "csi_plugged",
+   "status": "info",
+   "note": "CSI slot sealed: information for user decision VN-36 only, not adopted",
+   "open_fraction": {
+    "csi": 0.0
+   },
+   "cold_path_eff_mm2": 333.17305404385087,
+   "csi_eff_mm2": 0.0,
+   "intake_eff_mm2": 333.17305404385087,
+   "exhaust_eff_mm2": 321.73399992905325,
+   "system_eff_mm2": 231.4386671187249,
+   "csi_share_of_intake": 0.0,
+   "cold_path_share_of_intake": 1.0,
+   "system_flow_ratio_vs_nominal": 0.801131629478087,
+   "intake_area_change_percent": -49.235773463176145
+  },
+  {
+   "category": "flow_network",
+   "id": "model",
+   "status": "info",
+   "elements": {
+    "cold_rear": {
+     "mouth_mm2": 302.0,
+     "series_min_mm2": 490.8000000000001
+    },
+    "cold_bottom": {
+     "mouth_mm2": 343.0,
+     "series_min_mm2": 543.0
+    },
+    "hot_bottom": {
+     "mouth_mm2": 316.79999999999995,
+     "series_min_mm2": 325.4524125537212
+    },
+    "hot_front": {
+     "mouth_mm2": 202.79999999999995,
+     "series_min_mm2": 494.7654677137006
+    },
+    "cold_ports_mm2": 420.0,
+    "hot_ports_mm2": 510.0,
+    "csi_mm2": 323.1415926536036
+   },
+   "fan_curve": "UNKNOWN: no Active Cooler fan P-Q curve in the repo; operating point not computed (gate: MEASUREMENTS-TO-CLOSE shadow-gap airflow row, G-W10/G-W11/G-W12 thermal tests)",
+   "excluded": [
+    "panel seams and other unmodelled leaks",
+    "laminar channel friction (review estimate < 1 Pa)",
+    "turn losses",
+    "per-element discharge coefficients (one common Cd assumed)"
+   ],
+   "decision": "A CSI plug is user decision VN-36; this report only informs it."
+  }
+ ],
+ "physical_qualified": false,
+ "note": "FP-12 check-scope rows (VN-33/34/35/36/37/38). Report-only rows are info; HOLD rows wait for a named measurement. Not a thermal, strength or optical qualification.",
+ "extract_note": "Verbatim verify_check_scope.py --categories area_parity,flow_network report of the FP-11a trial2 tub (build_tub.py: model.make_tub in model.build's layout state, saved with export_cache.export_step); only the variant path is redacted. FP-16 re-export regenerates the selected report."
+}

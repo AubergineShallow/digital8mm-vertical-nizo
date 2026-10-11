@@ -1,12 +1,12 @@
 {
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "verification_source_sha256": "ef0d56f1ac2210038cb8cf1dcc73de503242349f36e128e03e4c2b9f8d07255e",
-  "state_model_sha256": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+  "manifest_sha256": "b00c14629e8514b92b358abfced3132a8374ea05212bb1aafa719eb9601fb4d6",
+  "verification_source_sha256": "96dbf221050bfed558b0c86b6e5a9f7c9e194ffca32a3cdd3185f4ce27570ba4",
+  "state_model_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
   "scope": "j7",
   "variant": "compact-kowa_lm6hc",
   "summary": {
-    "pass": 313,
-    "fail": 11,
+    "pass": 326,
+    "fail": 0,
     "info": 16
   },
   "checks": [
@@ -16,7 +16,7 @@
       "status": "pass",
       "solids": 149,
       "volume_mm3": 24187.427381756304,
-      "step_sha256": "db591accfbb87dc1ca4bfe7e46ba4af93f03afa893bb34330570d49304cbaa37",
+      "step_sha256": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
       "manifest_file_binding": true
     },
     {
@@ -31,7 +31,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 19363.802004962905,
-      "step_sha256": "d8667135f613b14a18dee538af6bdddba441960c06b88ab94b370e033b01ac2a",
+      "step_sha256": "5f8ee240d0ea5a80c4dbcdcc7667794fe895e4593590813256929b9374531390",
       "manifest_file_binding": true
     },
     {
@@ -46,7 +46,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 12836.75646328851,
-      "step_sha256": "63be4fea114078bc3227561ee2a8063de1ecec590daf5656eb8937b29531d891",
+      "step_sha256": "caf0b8a0387ffb3f68cc76a471abe8596f36c0952d26ad3c56587aa81f29c974",
       "manifest_file_binding": true
     },
     {
@@ -61,7 +61,7 @@
       "status": "pass",
       "solids": 4,
       "volume_mm3": 1355.9859958462825,
-      "step_sha256": "ef27a3bb35a32ef853c46ede234661278bf20ffbd2f9c9d06b3782670bc47a45",
+      "step_sha256": "45aa6cd394bca6c741e8621c9cf7b20d56e4ca6391fe6a46f9d27a5fa78aefe5",
       "manifest_file_binding": true
     },
     {
@@ -76,7 +76,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 21799.127215194538,
-      "step_sha256": "2aa0131ac90be90d66494049e535f608998bd701442858272d01cb83ccf4ca6f",
+      "step_sha256": "36570e5ee42dd8dff1bd7acdaedb851fd6f4c29b7f9c5740f247ea639fc70ca0",
       "manifest_file_binding": true
     },
     {
@@ -91,7 +91,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 1159.6894756415702,
-      "step_sha256": "5a49c23b7ce3869e1b27d70effc70127d7e83aabef764761f63778e0bb155b93",
+      "step_sha256": "3a27261a5dbd5e6615e77b99a5ac31897bc3d2f0d00e71c2a89392e668f9866d",
       "manifest_file_binding": true
     },
     {
@@ -106,7 +106,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 84855.40717514655,
-      "step_sha256": "82438bad4d7d4e55dbc7b029bdaa4ad3fc21ace4cb660952ce1815608471c923",
+      "step_sha256": "210443f9af882d65c225579a06cf625ed6a64772601e3eebb4d9553e177390bf",
       "manifest_file_binding": true
     },
     {
@@ -121,7 +121,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 19098.05197344695,
-      "step_sha256": "c7f87f7e0e1129148f93bc7826c97255618b6d03092004dd9fe25b583a5b134a",
+      "step_sha256": "6be1080979e27088dd6dd8824ed1c74a073b1a8d6f0e2fa612457d4b83d54369",
       "manifest_file_binding": true
     },
     {
@@ -136,7 +136,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 364.1087999999996,
-      "step_sha256": "605476fc56f328d30108d27def367933b825b3939bf8639c6a54d57f72fbd77d",
+      "step_sha256": "75ddae1fc695324f95cc37c4f98129da7dcbb2b341a5a15039aa5f4e80c1e0f3",
       "manifest_file_binding": true
     },
     {
@@ -151,7 +151,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 3947.9999999999873,
-      "step_sha256": "820c77ffc1541810209fa81f831cf19bb645998e302f491561227590042e6575",
+      "step_sha256": "5911d3b475eccb660c142114ae4b5c8b21c2686f5810ee3e586f413d81d90f50",
       "manifest_file_binding": true
     },
     {
@@ -166,7 +166,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 3569.9999999974502,
-      "step_sha256": "9a1808537e94cc7569160fc718993f4fe5b17e4678a95339b52ca97ed1c09b41",
+      "step_sha256": "9464d0d22243b4acb983453b82c9e0887139b9b5b8c69526014d05de7b693625",
       "manifest_file_binding": true
     },
     {
@@ -181,7 +181,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 2928.4629076546717,
-      "step_sha256": "ea4b72e6a065246fca6e00caaffe6a1aa890da0d493634287af3baaed82af490",
+      "step_sha256": "20e425554b6925bc24668f0f5569161fbd2c8b758c528f9f1ec10c2857c2b55d",
       "manifest_file_binding": true
     },
     {
@@ -196,7 +196,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 9188.61174139509,
-      "step_sha256": "e0a05c1e5677e530d75ca1e73a291de95eec24531bfadd2aec448d500b3f0b69",
+      "step_sha256": "475a60a054f23de460ccd0138fd3442424deed0fbdcd46474094224b9756208d",
       "manifest_file_binding": true
     },
     {
@@ -211,7 +211,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 2122.39373768498,
-      "step_sha256": "8e3888ca5d56170a112ddcff68a701e6fcc141386e8f67bdc5019c31bf8824ee",
+      "step_sha256": "9db1754266c6d3eb5cbdcb021127dee9f257872674c58263b87f78b048a45d64",
       "manifest_file_binding": true
     },
     {
@@ -226,7 +226,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 45274.12083388741,
-      "step_sha256": "94914b2a9cd5e06657b3f9451dd1aafa03af1387c364c293482d0864807e292d",
+      "step_sha256": "5207632700551058b8b28530ca4f46ce69fcbbee51b904dabfb58a45bcd4f8e8",
       "manifest_file_binding": true
     },
     {
@@ -241,7 +241,7 @@
       "status": "pass",
       "solids": 2,
       "volume_mm3": 1990.1390816984874,
-      "step_sha256": "ec40e43880d661fb565f5c8026d2d95bafb9965dbdb94f7a5ff94f21432c172d",
+      "step_sha256": "1d85645b9befd431a5472a2744731aea561e0c1b9bddbcf24d9d0c08e3390a22",
       "manifest_file_binding": true
     },
     {
@@ -256,7 +256,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 478.6086125129732,
-      "step_sha256": "e85f994319b472478d8e8f0ae6549278153738cbe81f289f3a18c7bd8c35639c",
+      "step_sha256": "be267d3a92d9acdc86cbf079902c7703dd673c389d571e1f27c2abc15e22ea90",
       "manifest_file_binding": true
     },
     {
@@ -271,7 +271,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 2671.363883702864,
-      "step_sha256": "2173bd56e20dc2a0974dd331b854783ce6eb7903630409020626afaee90a5c8e",
+      "step_sha256": "e976c8dc1ed068663a18610ed64d75e86286aac224fc2750bf6517f19c621d54",
       "manifest_file_binding": true
     },
     {
@@ -286,7 +286,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 97.89999999999993,
-      "step_sha256": "6e5db4a4e28717848dec6d9659540b53dfe8d1ffd3f14e4f8eab435ec44afc3b",
+      "step_sha256": "8b5999c867b89d4651974eadf70b14f4586dd05457cc851387fadce37aa1793b",
       "manifest_file_binding": true
     },
     {
@@ -301,7 +301,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 212.15999999999994,
-      "step_sha256": "e91efab34a565ed28bd459dbeb4c62e7719baf2df0dbb4b5bf57f8a783a3e360",
+      "step_sha256": "956939f238b24ad7c8fd08a8ec3dda65808a6905e5e409a3c84bf3ffb3cb1f2b",
       "manifest_file_binding": true
     },
     {
@@ -316,7 +316,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 647.9999999992801,
-      "step_sha256": "1c9ccdc877008fe3c6facbc2527197b73f2652a9c3be41ddf835897c529528bb",
+      "step_sha256": "bdf611bd0c478020d30a551cafa71c14304377b0aa7edfbe9b7edae03df6338e",
       "manifest_file_binding": true
     },
     {
@@ -331,7 +331,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 160.06680050752254,
-      "step_sha256": "fad6b377afbf9f3d3652f2c2902c435628223c750075f34d1ce1147af27ae8a0",
+      "step_sha256": "b39438e45c08b3357d78046a56726190501d0609f3a6e8c71b8824a724c68f0f",
       "manifest_file_binding": true
     },
     {
@@ -346,7 +346,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 60.77096829104237,
-      "step_sha256": "534226c2fa8a3417a037ee20c81f750dc89340b9241bc53f500acfcbf94e678d",
+      "step_sha256": "7cf73982d1cf4863445d948f39d3f0dd137675017b73997aff57b92c888b0ea1",
       "manifest_file_binding": true
     },
     {
@@ -361,7 +361,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 161.59092831411834,
-      "step_sha256": "719532c3c240f512e9935b48895d207838dced06f3a8de62ac1d90b96c768031",
+      "step_sha256": "ee79d5a3b1c220ddd2b271288ffdc7ff6b3a9d841c9476394e3359e869269f36",
       "manifest_file_binding": true
     },
     {
@@ -376,7 +376,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 161.59092831411834,
-      "step_sha256": "4dde1cfee3b96f8f9125b7cea1eba47f16e0d73c3293e947de7eacd72d4003f2",
+      "step_sha256": "d5f3c5244e87ad63124d23d1ac2d56ce5755bac45ebcbbafb037da3fc5658af0",
       "manifest_file_binding": true
     },
     {
@@ -391,7 +391,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 161.5909283141184,
-      "step_sha256": "dd50b878e7eede7d40415d8138dcdb43dc4f53c673daa77117258b0a9cbe75d3",
+      "step_sha256": "47425b926e2c0fd79a59e3cf311b75cf57792b5cb95758add5709c0eac8d67ad",
       "manifest_file_binding": true
     },
     {
@@ -406,7 +406,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 213.3768473681125,
-      "step_sha256": "a48735f74026adf046e0a4e3145e1a6b64a2b035ffef69823f1004262d04a8ca",
+      "step_sha256": "550c7e67f0fff85236ee826d2d59dc6006dce0f1e05de266c7368418b9567d03",
       "manifest_file_binding": true
     },
     {
@@ -420,15 +420,15 @@
       "id": "base_grip",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 66883.96633610575,
-      "step_sha256": "8caa9788e877040ea6dc21eedc497359d29aaf444d8f11ab12f551b2fb8f5d6f",
+      "volume_mm3": 67212.29319691213,
+      "step_sha256": "09bd90511d58e9d2a634d0c2bc412e65ba3f6a2b9e53e90f69355e54b5b4dd62",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "base_grip",
       "status": "pass",
-      "volume_delta_mm3": -0.0001700106222415343
+      "volume_delta_mm3": -0.00018838363757822663
     },
     {
       "category": "integrity",
@@ -436,7 +436,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 6739.347417515049,
-      "step_sha256": "81af5dad6260b4e03193cf6ce36e7d55c67b2b16997c702761cc3110ae91d7e0",
+      "step_sha256": "a0b6555b7b63548432697cbb2812ce11247dab464ea709da96c9eb081d022669",
       "manifest_file_binding": true
     },
     {
@@ -451,7 +451,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 4406.391069639741,
-      "step_sha256": "5fc009b152a6fb53e4b0a8a5c5902ee361ff2e25746b6f50b34e9a1549eadeef",
+      "step_sha256": "12fe147202ab9a0d0321afbd61a3f4760a521da0aabff5dbf02bd2ba76a5c9d9",
       "manifest_file_binding": true
     },
     {
@@ -466,7 +466,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 4792.976837214222,
-      "step_sha256": "a5008f028d70a5439c8c4039a768c4067368eeed464e36f63cb1212167aba356",
+      "step_sha256": "7fb685ef289315f3bd36bfb4a867d22089336e4fc5535fdcb8ab8ec0b80a668b",
       "manifest_file_binding": true
     },
     {
@@ -480,75 +480,75 @@
       "id": "knob_fps",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 2168.4662515379487,
-      "step_sha256": "857bc439d9c53761796579c468de11b5d3df9bfca577cc8e12026386f3c31a3b",
+      "volume_mm3": 2168.466251537945,
+      "step_sha256": "d68930df84f3eb3a0e535304784b43e2146d7a60187ece2323cd2fdf0f48e62e",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "knob_fps",
       "status": "pass",
-      "volume_delta_mm3": -4.333742253948003e-10
+      "volume_delta_mm3": -4.374669515527785e-10
     },
     {
       "category": "integrity",
       "id": "carrier",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 8784.067479687099,
-      "step_sha256": "ab059602b0a08346a4173f2420bf361b6876d98709f55f43fdbdb725e90739ef",
+      "volume_mm3": 13115.236825668018,
+      "step_sha256": "a5f77ff80097217edb4dfc4d2b6f225839010fab4a2d05c822d1e36bfff92c3d",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "carrier",
       "status": "pass",
-      "volume_delta_mm3": -9.949872037395835e-10
+      "volume_delta_mm3": 4.869719305133913e-05
     },
     {
       "category": "integrity",
       "id": "tub",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 169977.29240452632,
-      "step_sha256": "288e3f4c2742901dbfcf45ec6fe9cc269688edbc1c245cb354b3ea828dc882c5",
+      "volume_mm3": 179009.54048474424,
+      "step_sha256": "97a34dae367758dc4e40a02bccf3155066788a03f0338ea808106c064f913f46",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "tub",
       "status": "pass",
-      "volume_delta_mm3": 0.0006183501973282546
+      "volume_delta_mm3": 0.0006391345814336091
     },
     {
       "category": "integrity",
       "id": "panel",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 41914.691362009595,
-      "step_sha256": "6bc8503c4b20c20dc053bc101094d0957753e827caf2e8d3580aac2b06366678",
+      "volume_mm3": 42075.67136218295,
+      "step_sha256": "08b23dbc9f69bba61dacf05cf0f767796e13f5406ff08d3226cf1df161ec46cd",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "panel",
       "status": "pass",
-      "volume_delta_mm3": 3.3035023079719394e-05
+      "volume_delta_mm3": 3.4066179068759084e-05
     },
     {
       "category": "integrity",
       "id": "lens_collar",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 11137.500086911754,
-      "step_sha256": "3f24e7d2cdf80ce4c4c9cbea6bc91c959ef49daea05b703a22385ddd975578fd",
+      "volume_mm3": 11255.06664803177,
+      "step_sha256": "7527c068afdcdbedfb960458cdd335615a2e78f91bc8ca72372fac6625702216",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "lens_collar",
       "status": "pass",
-      "volume_delta_mm3": 7.659764378331602e-09
+      "volume_delta_mm3": 0.014039980693269172
     },
     {
       "category": "integrity",
@@ -556,7 +556,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 7192.0621990300415,
-      "step_sha256": "b576af2c6be7d7fd450739eec019fd5ebeba748998af3df32857b86a8966570e",
+      "step_sha256": "36d0a1bd86582b725903227d4123ba72e0dd220cdfe94ed3298c7063ce1c00db",
       "manifest_file_binding": true
     },
     {
@@ -571,7 +571,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 522.0384512470274,
-      "step_sha256": "dbaac13b44b0cb3b5c880f42432a30581837924b61ec0b0679595bc9b7b28fac",
+      "step_sha256": "2dccef188b1b2babe3eeecc3059c0740914be0a9b19078598be598fc10b0d718",
       "manifest_file_binding": true
     },
     {
@@ -586,7 +586,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 149.27940296446965,
-      "step_sha256": "2052ae5edc457436cfaac94cde4180d75e1b7505d291d2211b8a0fc87f4e245a",
+      "step_sha256": "14ed6430fed0ada5ab34dd50d8bd11075687dc4621508d2bce25bfc0d55cd559",
       "manifest_file_binding": true
     },
     {
@@ -601,7 +601,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 149.2794029644696,
-      "step_sha256": "6c93474a94ebb1d28583a1c19e1bbaa55248ae66ca18595075e78951efd09b8b",
+      "step_sha256": "2b935fe294a204078a989ac970b2bbc7f3ecea774d18545908c81f6eafcfd142",
       "manifest_file_binding": true
     },
     {
@@ -616,7 +616,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 149.2794029644696,
-      "step_sha256": "a6b5a42323864096663f54734b70d936601f55ddb26dd90196c86cc4fb04f4d5",
+      "step_sha256": "49b5dc6f117d7efec116e38d0eee6a529b47a47416cd4572f932808f0fdb0278",
       "manifest_file_binding": true
     },
     {
@@ -631,7 +631,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 149.2794029644696,
-      "step_sha256": "dfd68f69c75978fdd0791f0e51409fe5143e968a8417cb6e516b013c1f51640c",
+      "step_sha256": "ded6ac61ad6cbad88ceeb2e36269c344cbca1ef552a238a43477f1d1d8b31a90",
       "manifest_file_binding": true
     },
     {
@@ -646,7 +646,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 149.27940296446963,
-      "step_sha256": "dd30f242d08825fbe25e309168315ed031124497e61c404fb329913db1b33ff6",
+      "step_sha256": "d930bb17110c1c853f7bbce39c0610f79f99137ab8a8fb9ce0fd32ad3a653ab3",
       "manifest_file_binding": true
     },
     {
@@ -661,7 +661,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 149.27940296446965,
-      "step_sha256": "336f3f610fc9142d9cada6c6100e87d383663e6277bf68f1dc99554c58798c09",
+      "step_sha256": "b5bafcead0dc91a35dfb13a9f247a95a538140ab3d5c68dc5830781f0a432672",
       "manifest_file_binding": true
     },
     {
@@ -676,7 +676,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 147.25273085906076,
-      "step_sha256": "64503812dd1de14d1923753b84fcaae8ba18de465584019fa4c09ddf80e8c831",
+      "step_sha256": "c7170de83e7360a6ab39640fcf11dff2e9b7a2d11c4cead01d0bada6de3b2e4b",
       "manifest_file_binding": true
     },
     {
@@ -687,37 +687,37 @@
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/model.py",
-      "status": "fail"
+      "id": "../gs8-pxl-v3/cad-requirements-lock.txt",
+      "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/vent_geometry.py",
+      "id": "_thin_spot_rib_l.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "audit_cloud_release.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "build_d2.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/cv_io.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/export_cache.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
       "id": "candidate-vertical/export_candidate.py",
-      "status": "fail"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/power_geometry.py",
-      "status": "fail"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/fps_geometry.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/structure_geometry.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/strap_route_proposal.py",
       "status": "pass"
     },
     {
@@ -727,37 +727,37 @@
     },
     {
       "category": "source_binding",
+      "id": "candidate-vertical/fps_geometry.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
       "id": "candidate-vertical/fps_pair_guide.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/official_pi5_geometry.py",
-      "status": "fail"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/official_pi5_csi.py",
-      "status": "fail"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/official_pi5_assembly.py",
-      "status": "fail"
-    },
-    {
-      "category": "source_binding",
       "id": "candidate-vertical/make_corrected_pi.py",
-      "status": "fail"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/structural-review/j4_trial_geometry.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json",
+      "id": "candidate-vertical/model.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/official_pi5_assembly.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/official_pi5_csi.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/official_pi5_geometry.py",
       "status": "pass"
     },
     {
@@ -772,17 +772,12 @@
     },
     {
       "category": "source_binding",
-      "id": "layout.py",
+      "id": "candidate-vertical/power_geometry.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt",
       "status": "pass"
     },
     {
@@ -797,12 +792,7 @@
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json",
       "status": "pass"
     },
     {
@@ -817,77 +807,57 @@
     },
     {
       "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
       "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt",
+      "id": "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "printed_collar.py",
+      "id": "candidate-vertical/strap_route_proposal.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "test_r7_c1.py",
+      "id": "candidate-vertical/structural-review/j4_trial_geometry.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "_thin_spot_rib_l.py",
+      "id": "candidate-vertical/structure_geometry.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "test_collar_rear_land.py",
+      "id": "candidate-vertical/vent_geometry.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "printed_tub.py",
+      "id": "checks.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "test_grip_small.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "audit_cloud_release.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_mechanical_refinements.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_r7_c4.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_tub.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_print_stock_exports.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "make_tables.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_build_outputs.py",
+      "id": "cots.py",
       "status": "pass"
     },
     {
@@ -897,12 +867,17 @@
     },
     {
       "category": "source_binding",
-      "id": "test_collar.py",
+      "id": "d2_common.py",
       "status": "pass"
     },
     {
       "category": "source_binding",
-      "id": "printed_hood.py",
+      "id": "fonts/DejaVuSans-Bold.ttf",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "layout.py",
       "status": "pass"
     },
     {
@@ -912,7 +887,32 @@
     },
     {
       "category": "source_binding",
-      "id": "test_r3_regressions.py",
+      "id": "make_tables.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_collar.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_grip.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_hood.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_keeper.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "printed_panel.py",
       "status": "pass"
     },
     {
@@ -922,7 +922,42 @@
     },
     {
       "category": "source_binding",
+      "id": "printed_tub.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "run_locked.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "sweep_tub.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
       "id": "test_audit_cloud_release.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_build_outputs.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_collar.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_collar_rear_land.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_common.py",
       "status": "pass"
     },
     {
@@ -932,7 +967,52 @@
     },
     {
       "category": "source_binding",
-      "id": "build_d2.py",
+      "id": "test_grip_small.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_hood_panel.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_keeper.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_mechanical_refinements.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_panel_refinements.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_print_stock_exports.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r3_regressions.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c1.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c2_mate_reach.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_c4.py",
       "status": "pass"
     },
     {
@@ -942,7 +1022,17 @@
     },
     {
       "category": "source_binding",
-      "id": "test_keeper.py",
+      "id": "test_r7_fixup.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_integration.py",
+      "status": "pass"
+    },
+    {
+      "category": "source_binding",
+      "id": "test_r7_lead_access.py",
       "status": "pass"
     },
     {
@@ -957,87 +1047,7 @@
     },
     {
       "category": "source_binding",
-      "id": "test_r7_lead_access.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "d2_common.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "checks.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_panel_refinements.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_r7_c2_mate_reach.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_common.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "sweep_tub.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_r7_integration.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_hood_panel.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "cots.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "printed_keeper.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "printed_grip.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "test_r7_fixup.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "run_locked.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "printed_panel.py",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "fonts/DejaVuSans-Bold.ttf",
-      "status": "pass"
-    },
-    {
-      "category": "source_binding",
-      "id": "../gs8-pxl-v3/cad-requirements-lock.txt",
+      "id": "test_tub.py",
       "status": "pass"
     },
     {
@@ -1047,7 +1057,7 @@
       "kind": "assembly tool",
       "solids": 1,
       "volume_mm3": 20540.751561488963,
-      "step_sha256": "c3067fb6e2988d62c8a2e3ad442a8c3c34ff9a2931df391e7035b8782b08dcc6",
+      "step_sha256": "38b3b10466fdb2fc40b900b9e7c4e6059a59d39ba68043208b428c5677377b57",
       "manifest_file_binding": true
     },
     {
@@ -1073,8 +1083,8 @@
       "symmetric_difference_mm3": 0.0,
       "hf_x": -6.85,
       "rule": "r7 gs_camera_parts(s_nom) body + bfar == manifest-bound STEP gs_camera (<= 0.01 mm3): the float rows move the exported camera",
-      "j7_collar_checks_sha256": "a68713b9bbb518ebb91c63c5e57b15e73273a6d1c9af75fb2007b1c003ea4d1f",
-      "steps_sha256": "8c9dce032e06066ab446c4fc79485d1f2f9b0916b01f9a8bb6c23c262603e8d9",
+      "j7_collar_checks_sha256": "e2be20868556a14ba91ced1ea48cf9a57ef0837bce99af8e0dfd850aec522b03",
+      "steps_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
       "r7_checks_sha256": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
       "variant": "compact-kowa_lm6hc"
     },
@@ -1166,7 +1176,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1280,7 +1290,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1394,7 +1404,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1508,7 +1518,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1622,7 +1632,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1736,7 +1746,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1850,7 +1860,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -1976,7 +1986,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -2102,7 +2112,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -2228,7 +2238,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -2354,7 +2364,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -2480,7 +2490,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -2606,7 +2616,7 @@
         },
         "s_c4": {
           "overlap_mm3": 0.0,
-          "overall": 9.329,
+          "overall": 9.677,
           "lateral": null,
           "axial": null
         },
@@ -2706,7 +2716,7 @@
         "s_c1": 7.923,
         "s_c2": 7.923,
         "s_c3": 10.4857,
-        "s_c4": 2.5763,
+        "s_c4": 3.0601,
         "tub": 2.571
       },
       "rule": "lens >= 0.50 to every part but lens_collar, c_cs_adapter and gs_camera",
@@ -3074,7 +3084,7 @@
         },
         "s_c4": {
           "overall": {
-            "gap": 9.329,
+            "gap": 9.677,
             "mover": "bfar",
             "s": 0.0,
             "solid": "s_c4"
@@ -3182,7 +3192,7 @@
       ],
       "not_tub_material": [],
       "tine_root_z": 97.5,
-      "slot_first_material_z": 87.23373758048201,
+      "slot_first_material_z": 83.5,
       "tine_root_basis": "tub roof underside beside the catch (ray +Z on the STEP); r7 used ZT1 (tub band underside). The panel-screw boss above the slot (first material at the slot centre) is not credited: the longer roof arm is kept (conservative)",
       "cots_boxes_kept": [
         "gs_camera",
@@ -12289,7 +12299,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12316,7 +12326,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12343,7 +12353,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12370,7 +12380,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12397,7 +12407,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12424,7 +12434,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12451,7 +12461,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12478,7 +12488,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12505,7 +12515,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12532,7 +12542,7 @@
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
         "+0.00/+0.00/-1": 0.679,
-        "+0.55/+0.00/+1": 1.1,
+        "+0.55/+0.00/+1": 1.114,
         "+0.55/+0.00/-1": 0.129,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
@@ -12619,7 +12629,7 @@
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "timing",
-      "seconds": 70.3,
+      "seconds": 57.3,
       "booleans": 33254,
       "obstacle_pieces": 8,
       "s_values": 13,
@@ -13382,7 +13392,7 @@
       "gaps": {
         "base_grip": {
           "overlap_mm3": 0.0,
-          "gap": 39.024
+          "gap": 39.1744
         },
         "p_grip": {
           "overlap_mm3": 0.0,
@@ -13538,20 +13548,20 @@
       "anchor_tension_nominal_shock_N": 5.2,
       "anchor_prying_factor": 2.0,
       "anchor_reactions_shock_N": {
-        "TL": 40.698,
-        "TR": 50.226,
-        "LL": 25.045
+        "TL": 40.704,
+        "TR": 50.238,
+        "LL": 25.052
       },
-      "anchor_axial_shock_N": 12.9942,
+      "anchor_axial_shock_N": 13.0004,
       "anchor_bending_shock_bound_Nm": 0.3613,
       "anchor_compression_foot_active": false,
       "anchor_model_provisional": true,
-      "collar_g": 11.9,
+      "collar_g": 12.0,
       "masses": {
         "lens": 215.0,
         "camera": 34.0,
         "adapter": 4.0,
-        "collar": 11.9
+        "collar": 12.0
       },
       "src": "judge 3 s6.9 + design 3 plate FE (wall coefficients); estimates until G-COL-1 / G-CAM-2",
       "warn": "M_sep 0.170 N m < the 5 g moment 0.286 N m (the lens rocks elastically in the collar at a knock; aim only, recovers)",
@@ -13584,20 +13594,20 @@
       "anchor_tension_nominal_shock_N": 2.0,
       "anchor_prying_factor": 2.0,
       "anchor_reactions_shock_N": {
-        "TL": 19.472,
-        "TR": 25.271,
-        "LL": 13.075
+        "TL": 19.478,
+        "TR": 25.283,
+        "LL": 13.083
       },
-      "anchor_axial_shock_N": 7.431,
+      "anchor_axial_shock_N": 7.4371,
       "anchor_bending_shock_bound_Nm": 0.1689,
       "anchor_compression_foot_active": false,
       "anchor_model_provisional": true,
-      "collar_g": 13.5,
+      "collar_g": 13.6,
       "masses": {
         "lens": 100.0,
         "camera": 34.0,
         "adapter": 4.0,
-        "collar": 13.5
+        "collar": 13.6
       },
       "src": "judge 3 s6.9 + design 3 plate FE (wall coefficients); estimates until G-COL-1 / G-CAM-2",
       "variant": "compact-kowa_lm6hc"
@@ -13650,32 +13660,31 @@
     {
       "category": "lens_clamp",
       "id": "washer_flat_support/fujinon_hf6xa",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "lens_clamp",
       "item": "washer_flat_support",
       "lens": "fujinon_hf6xa",
-      "unsupported_mm3": 0.0165,
-      "unsupported_mm2": 0.33,
+      "unsupported_mm3": 0.0,
+      "unsupported_mm2": 0.0,
       "footprint_r_mm": 3.9000000000000004,
       "seat": [
         4.7,
-        -26.3,
+        -26.8,
         66.0
       ],
       "nominal_margins": {
-        "lug_face_mm": -0.2,
-        "bit_relief_mm": 0.0
+        "lug_face_mm": 0.1,
+        "bit_relief_mm": 0.5
       },
       "rule": "r7 test_washer_flat_support_with_float_and_margin: unsupported < 0.002 mm3",
       "source": "../test_mechanical_refinements.py (r7, read-only)",
-      "error": "washer flat support: 0.0165 mm3 (0.330 mm2) of the r 3.90 footprint is not collar material",
       "variant": "compact-kowa_lm6hc"
     },
     {
       "category": "lens_clamp",
       "id": "washer_free_seat/fujinon_hf6xa",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "lens_clamp",
       "item": "washer_free_seat",
@@ -13685,74 +13694,72 @@
           "dx": 0,
           "dy": 0,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.0
+          "gap_mm": 0.5
         },
         {
           "dx": 0.2,
           "dy": 0,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.0
+          "gap_mm": 0.5
         },
         {
           "dx": -0.2,
           "dy": 0,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.0
+          "gap_mm": 0.5
         },
         {
           "dx": 0,
           "dy": 0.2,
-          "overlap_mm3": 0.1564,
-          "gap_mm": 0.0
+          "overlap_mm3": 0.0,
+          "gap_mm": 0.3
         },
         {
           "dx": 0,
           "dy": -0.2,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.2
+          "gap_mm": 0.7
         }
       ],
-      "worst_overlap_mm3": 0.1564,
-      "min_gap_mm": 0.0,
+      "worst_overlap_mm3": 0.0,
+      "min_gap_mm": 0.3,
       "gap_basis": "washer to the collar material above the seat plane (bit-relief wall)",
       "nominal_margins": {
-        "lug_face_mm": -0.2,
-        "bit_relief_mm": 0.0
+        "lug_face_mm": 0.1,
+        "bit_relief_mm": 0.5
       },
       "rule": "r7 test_washer_has_free_seat_at_every_float_extreme: overlap < 0.001 mm3 at 0 and +-0.2 in x, y",
       "source": "../test_mechanical_refinements.py (r7, read-only)",
-      "error": "washer seat not free: worst overlap 0.1564 mm3 at [{'dx': 0, 'dy': 0.2, 'overlap_mm3': 0.1564, 'gap_mm': 0.0}]",
       "variant": "compact-kowa_lm6hc"
     },
     {
       "category": "lens_clamp",
       "id": "washer_flat_support/kowa_lm6hc",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "lens_clamp",
       "item": "washer_flat_support",
       "lens": "kowa_lm6hc",
-      "unsupported_mm3": 0.0165,
-      "unsupported_mm2": 0.33,
+      "unsupported_mm3": 0.0,
+      "unsupported_mm2": 0.0,
       "footprint_r_mm": 3.9000000000000004,
       "seat": [
         4.7,
-        -26.3,
+        -26.8,
         66.0
       ],
       "nominal_margins": {
-        "lug_face_mm": -0.2,
-        "bit_relief_mm": 0.0
+        "lug_face_mm": 0.1,
+        "bit_relief_mm": 0.5
       },
       "rule": "r7 test_washer_flat_support_with_float_and_margin: unsupported < 0.002 mm3",
       "source": "../test_mechanical_refinements.py (r7, read-only)",
-      "error": "washer flat support: 0.0165 mm3 (0.330 mm2) of the r 3.90 footprint is not collar material",
       "variant": "compact-kowa_lm6hc"
     },
     {
       "category": "lens_clamp",
       "id": "washer_free_seat/kowa_lm6hc",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "lens_clamp",
       "item": "washer_free_seat",
@@ -13762,43 +13769,42 @@
           "dx": 0,
           "dy": 0,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.0
+          "gap_mm": 0.5
         },
         {
           "dx": 0.2,
           "dy": 0,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.0
+          "gap_mm": 0.5
         },
         {
           "dx": -0.2,
           "dy": 0,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.0
+          "gap_mm": 0.5
         },
         {
           "dx": 0,
           "dy": 0.2,
-          "overlap_mm3": 0.1564,
-          "gap_mm": 0.0
+          "overlap_mm3": 0.0,
+          "gap_mm": 0.3
         },
         {
           "dx": 0,
           "dy": -0.2,
           "overlap_mm3": 0.0,
-          "gap_mm": 0.2
+          "gap_mm": 0.7
         }
       ],
-      "worst_overlap_mm3": 0.1564,
-      "min_gap_mm": 0.0,
+      "worst_overlap_mm3": 0.0,
+      "min_gap_mm": 0.3,
       "gap_basis": "washer to the collar material above the seat plane (bit-relief wall)",
       "nominal_margins": {
-        "lug_face_mm": -0.2,
-        "bit_relief_mm": 0.0
+        "lug_face_mm": 0.1,
+        "bit_relief_mm": 0.5
       },
       "rule": "r7 test_washer_has_free_seat_at_every_float_extreme: overlap < 0.001 mm3 at 0 and +-0.2 in x, y",
       "source": "../test_mechanical_refinements.py (r7, read-only)",
-      "error": "washer seat not free: worst overlap 0.1564 mm3 at [{'dx': 0, 'dy': 0.2, 'overlap_mm3': 0.1564, 'gap_mm': 0.0}]",
       "variant": "compact-kowa_lm6hc"
     },
     {
@@ -13916,9 +13922,9 @@
           30.0
         ],
         "toward": [
-          -0.0,
-          -0.866,
-          0.5
+          0.0,
+          0.0,
+          -1.0
         ]
       },
       "engage": 3.9,
@@ -13955,7 +13961,7 @@
       "wall_min_at": {
         "point": [
           4.7,
-          -26.3,
+          -26.8,
           50.39
         ],
         "toward": [
@@ -13995,7 +14001,7 @@
       "category": "nominal_features",
       "id": "carrier_PT_head_radial_wall",
       "status": "info",
-      "value_mm": 1.6,
+      "value_mm": 1.7000000000000002,
       "minimum_mm": 1.6,
       "analytical_meets_rule": true,
       "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"
@@ -14071,7 +14077,7 @@
       "fabrication_release": false
     }
   ],
-  "geometry_computed_pass": false,
+  "geometry_computed_pass": true,
   "physical_qualified": false,
-  "generated_utc": "2026-10-10T19:43:02Z"
+  "generated_utc": "2026-10-11T02:10:30Z"
 }

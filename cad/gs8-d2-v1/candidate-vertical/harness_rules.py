@@ -174,8 +174,9 @@ def tail_box(p0, p1, d=TAIL_D):
 # A route stretched to its stock length by a solver is judged at the shortest member of its own family: the
 # solver variable at its own bound. Each entry names the knots that carry the variable and the source literal.
 FAMILIES = {
-    'qt': dict(var='low', knots=(3, 4), axis=2, bound=(34.0, 50.0),
-               src="signal_routes.py build(): QT top-loop 'lo,hi=34.,50.'"),
+    # H2 (VN-28): the QT storage variable moved from the under-tool run (knots 3, 4: 'lo,hi=34.,50.') to the top run
+    'qt': dict(var='top', knots=(1, 2), axis=2, bound=(56.0, 87.5),
+               src="signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)'"),
     'run_pin37': dict(var='top', knots=(6, 7), axis=2, bound=(35.0, 80.0),
                       src="signal_routes.py build(): run cores '_solve_top(make,250,35,80)'"),
     'run_pin39': dict(var='top', knots=(4, 5), axis=2, bound=(35.0, 80.0),
@@ -233,8 +234,13 @@ CABLES = {
                 range_src='native Active Cooler lead, r7 length estimate'),
     'oled_flex': dict(src=('routes', 'oled_flex'), length=50.0, length_range=None, ends=('hmx039', 'evf_board'),
                       range_src='kit OLED flex 50 mm (r7 CABLES)'),
-    'usb_5v': dict(src=('routes', 'usb_5v'), length=200.0, length_range=None, ends=('pi5', 'evf_board'),
-                   range_src='Adafruit 4448 donor (MTC USB-donor row)'),
+    'usb_5v': dict(src=('routes', 'usb_5v'), length=500.0, length_range=(500.0, 535.0), ends=('pi5', 'evf_board'),
+                   cut_to_length=True,
+                   range_src='H1 (FIX-LOG): cut-to-length feed assembly, BOM D2-22 Adafruit 4448 donor catalog 300 mm '
+                             '(supplier drawing 325 +/- 10) + D2-23 Pololu 2180 / 2181 100 mm tails; the old 200 mm '
+                             'allocation is superseded (routing-snapshots/hdmi-export17-selected-20261009-0704/'
+                             'usb-donor-provenance.json). Each segment is held to its own stock with the r7 allowance '
+                             'in feed_volumes (usb_5v_donor, usb_5v_tail_2180, usb_5v_tail_2181).'),
     'pack_lead': dict(src=('routes', 'pack_lead'), length=60.0, length_range=None, ends=('pack', 'xt30_pair'),
                       range_src='D2-13 existing 60 mm 18 AWG pack lead (MP-PACK)'),
     'hdmi': dict(delegated='verify_hdmi.py -> hdmi-solid-checks.json: the full developable 300 mm 3562 ribbon is laid '
@@ -258,6 +264,7 @@ def collect(out, rows, L, ST):
     routes = {r['id']: r for r in out['routes']}
     H = dict(boxes={k: bb(r['bbox_mm']) for k, r in rows.items()}, kinds={k: r['kind'] for k, r in rows.items()},
              plugs={p['id']: bb(p['box']) for p in out['plugs'] if p.get('box')},
+             plug_cable={p['id']: p.get('cable') for p in out['plugs'] if p.get('box')},   # H2: free-lead keepouts
              housings={h['id']: dict(id=h['id'], cable=h['cable'], pins=list(h['pins']), box=bb(h['box']),
                                      wire_exit=list(h['wire_exit'])) for h in out['header_housings']},
              used_pins={k: tuple(v) for k, v in L.HDR_USED_PINS.items()}, hdr=dict(L.HDR_HOUSING),
@@ -280,7 +287,8 @@ def collect(out, rows, L, ST):
         item = _dig(src, spec['src'][1:])
         curve = item['curve']
         c.update(curve=curve, points=[list(p) for p in curve.get('sampled_centerline') or []],
-                 errors=list(curve.get('errors') or []), family=FAMILIES.get(cid), branches=[], od_mm=item.get('od_mm'))
+                 errors=list(curve.get('errors') or []), family=FAMILIES.get(cid), branches=[], od_mm=item.get('od_mm'),
+                 feed=item.get('feed'), stubs=item.get('stubs'), sweep_points=item.get('sweep_points'))   # H1
         if cid == 'qt':
             c['branches'] = [dict(id=b['id'], points=[list(p) for p in b['curve']['sampled_centerline']],
                                   length=b['curve']['rounded_length_mm']) for b in sig['branches'] if b['cable'] == 'qt']
@@ -302,6 +310,8 @@ def collect(out, rows, L, ST):
                                 points=[list(p) for p in core['full_centerline_excluding_unmeasured_root_joint']],
                                 errors=errs,
                                 core=core, family=None, branches=[])
+    # H2 (VN-28): free-lead routes declared by the route source, keyed by MATE_POSES id
+    H['free_leads'] = {k: dict(v, id=k) for k, v in (sig.get('free_leads') or {}).items()}
     return H
 
 
@@ -399,11 +409,56 @@ def _solve_e(f, lo=-60.0, hi=400.0):
     return lo
 
 
-def pigtail_reach_rows(H, rounded_path, retention=None):
+CORRIDOR_OP = 'pack_in'   # H2: the corridor is the pigtail's taut path while the XT30 is drawn out at pack_in
+
+
+def corridor_clearance(H, rounded_path, ST, hits=None):
+    """H2 (VN-47 / VN-72): the declared service corridor at e = FACE_OUT_MIN, per core, swept as a capsule (core OD +
+    2 x MEMBER_TOL, strict INSTALLED_TOL) against every part present at CORRIDOR_OP (own ends x1203 / xt30_pair and
+    the pack exempt) plus the other cables' rigid heads and header housings, and kept off every other cable (both
+    pigtail cores travel together and the pack lead moves with the pack: excluded)."""
+    hits = box_hits if hits is None else hits
+    memo = H.setdefault('_memo', {})
+    if ('corridor', id(hits)) in memo:
+        return memo[('corridor', id(hits))]
+    body, _mv = pose_state(ST, CORRIDOR_OP)
+    exempt = {'x1203', 'xt30_pair', 'pack'}
+    tg = _targets(H, body, set(), (0.0, 0.0, 0.0), exempt)
+    tg += [dict(id='plug ' + pid, kind='keepout', disp=(0.0, 0.0, 0.0), box=b) for pid, b in H['plugs'].items()
+           if (H.get('plug_cable') or {}).get(pid) not in ('pigtail', 'pack_lead', None)]
+    tg += [dict(id='housing ' + hid, kind='keepout', disp=(0.0, 0.0, 0.0), box=h['box']) for hid, h in H['housings'].items()]
+    d = CORE_OD + 2 * MEMBER_TOL
+    out = {}
+    for cid in POWER_CORES:
+        c = corridor(H, cid, FACE_OUT_MIN, rounded_path)
+        pts = [list(p) for p in c['sampled_centerline']]
+        found = {}
+        for s_ in capsule_specs(simplify_polyline(pts, MEMBER_TOL), d):
+            for h in hits(s_, tg):
+                found[h['obstacle']] = round(found.get(h['obstacle'], 0.0) + h['volume_mm3'], 2)
+        over, tight = [], []
+        for n, q, dq in neighbour_cables(H, 'pigtail_' + cid):
+            if n.split(':')[0] in ('pigtail_positive', 'pigtail_negative', 'pack_lead'):
+                continue
+            dist, need = polyline_distance(pts, q, SEPARATION_TOL), (CORE_OD + dq) / 2
+            tight.append((dist - need, n, dist, need))
+            if dist < need - 1e-9:
+                over.append('%s %.2f < %.2f mm' % (n, dist, need))
+        tight.sort()
+        out[cid] = dict(op=CORRIDOR_OP, capsule_d_mm=_r(d, 2), exempt=sorted(exempt), targets=len(tg), hits=found,
+                        cable_overlaps=over, tightest=[dict(cable=n, min_centreline_mm=_r(a, 2), need_mm=_r(b, 2))
+                                                       for _m, n, a, b in tight[:4]])
+    memo[('corridor', id(hits))] = out
+    return out
+
+
+def pigtail_reach_rows(H, rounded_path, retention=None, hits=None, ST=None):
     """lead_access pigtail rows (r7 C3 _pigtail_face_out on the candidate cores): ties on route; face_out with the
     four carrier ties as fixed points (design of record); face_out RTV-only (r7 BX-3, the pad as the only fixed
-    point). The allowance reach_margin(270) is always kept; the root stub is fixed at the pad."""
+    point). The allowance reach_margin(270) is always kept; the root stub is fixed at the pad. H2: with `hits` and
+    `ST`, the corridor itself is obstacle-checked (corridor_clearance) and a hit or overlap fails both face-out rows."""
     retention = PIGTAIL_RETENTION if retention is None else retention
+    cc = corridor_clearance(H, rounded_path, ST, hits) if hits is not None and ST is not None else None
     slots, cap, allow = tie_slot_boxes(), CORE_OD / 2 + TIE_BAND_MAX, reach_margin(PIGTAIL_LENGTH)
     cores = {c['id']: c for c in H['power']['cores']}
     ties, rtv, tie_res = [], {}, {}
@@ -467,9 +522,17 @@ def pigtail_reach_rows(H, rounded_path, retention=None):
         if ret == 'carrier_ties':
             msg += ['ties as fixed points are not on the drawn %s route' % c for c in POWER_CORES
                     if not res[c]['any_slot_on_route']]
+        if cc is not None:   # H2: the corridor must itself be clear (obstacle-checked free-lead path)
+            for c in POWER_CORES:
+                if cc[c]['hits']:
+                    msg.append('%s core service corridor intersects %s at %s' % (
+                        c, ', '.join('%s %.2f mm3' % kv for kv in sorted(cc[c]['hits'].items())), CORRIDOR_OP))
+                if cc[c]['cable_overlaps']:
+                    msg.append('%s core service corridor overlaps cable(s): %s' % (c, '; '.join(cc[c]['cable_overlaps'])))
         gating = ret == retention
         rows.append(dict(category='lead_access', id=rid, retention=ret, gating=gating, cores=res, model=model,
                          corridor_src=H['pigtail_service']['src'], face_out_min=FACE_OUT_MIN, allowance_mm=allow,
+                         corridor_clearance=cc if cc is not None else 'not swept (no hit function)',
                          estimate=True, status=('fail' if msg else 'pass') if gating else 'info',
                          problems=msg if gating else [], would_fail=None if gating else msg,
                          gate='G-V-PIGTAIL flexible withdrawal (mock-up)' if gating else 'VN-47 user decision'))
@@ -521,6 +584,15 @@ def pigtail_drop_row(D=DROP):
         awg14_nominal_hi_drop_v=_r(drop_v(2.0809, lay1, D['pack_lead_hi_mm2'], f1, D=D), 5),
         awg14_note='AWG 14 nominal 2.0809 mm2 for information only; OD and lane fit unchecked (lane re-check needed)',
         cutoff_raise_needed_v=_r(max(0.0, hi_v - D['limit_v']), 5),
+        # H2 (VN-62): the four cases over finished lengths, for the user decision (information; the gate is drop_hi)
+        by_finished_length_mm={str(L): dict(
+            lo_v=_r(drop_v(D['awg16_mm2'], lay0, D['awg18_mm2'], f0, L, D), 5),
+            hi_cold_fuse_v=_r(drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], f0, L, D), 5),
+            nominal_hot_fuse_v=_r(drop_v(D['awg16_mm2'], lay0, D['awg18_mm2'], f1, L, D), 5),
+            hi_v=_r(drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], f1, L, D), 5),
+            awg14_nominal_hi_v=_r(drop_v(2.0809, lay1, D['pack_lead_hi_mm2'], f1, L, D), 5),
+            cutoff_raise_needed_v=_r(max(0.0, drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], f1, L, D) - D['limit_v']), 5))
+            for L in (220.0, 225.0, 237.0, 250.0, 260.0, 270.0, 280.0)},
         options='VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. '
                 'The 0.150 V limit is never relaxed by this check.')
     return dict(category='lead_access', id='pigtail_drop', kind='drop', model='r7 _pigtail_drop_v (G-W5) with '
@@ -633,7 +705,8 @@ def cable_stow_rows(H, rounded_path, finished=None):
                              note='cut to the 270 mm finished path; cut tolerance and stored-length fit are G-V-PIGTAIL'))
         else:
             route = c['curve'].get('rounded_length_mm') or arc_length(c['points'])
-            total = finished.get(cid, lmax)
+            # H1: a cut-to-length assembly with no mate_reach finished length is cut to its route + the r7 allowance
+            total = finished.get(cid, route + route_allowance(route) if c.get('cut_to_length') else lmax)
             rows.append(dict(row, kind='spare', status='info', closed_route_mm=_r(route, 2),
                              finished_length_mm=_r(total, 1), spare_mm=_r(total - route, 1),
                              home='no named home (r7 cable_stow info; give it a modeled home)'))
@@ -751,8 +824,9 @@ MATE_INFO = [
     ('camera_fpc:pi', 'in-situ mate at evf_mate through the CSI side slot: no displaced pose; reach = installed route '
                       '(cable_routes fpc), tool access = verify_csi_source; finger access HOLD'),
     ('evf_hdmi:evf', 'in-situ mate at evf_mate (head pushed up from below): reach = verify_hdmi carried ribbon'),
-    ('evf_5v:evf', 'in-situ mate at evf_mate: the EVF feed has no current installed route (cable_routes usb_5v, '
-                   'VN-60 / STOP)'),
+    ('evf_5v:evf', 'in-situ mate at evf_mate: the RCY pair sits on the installed usb_5v route (feed_volumes '
+                   'usb_5v_rcy_pair, Z35..42 behind the HDMI ribbon, storage stick still out); hand / tweezer access and '
+                   'the 2181 half parked during carrier_in are not modeled (HOLD: MEASUREMENTS-TO-CLOSE EVF power RCY row)'),
 ]
 
 
@@ -767,9 +841,9 @@ def pose_state(ST, op_id):
 
 def box_hits(spec, targets):
     """Fallback hit test on boxes only (a cylinder by its bounding box): conservative."""
-    b = spec['box'] if spec['type'] == 'box' else tail_box(spec['p0'], spec['p1'], spec['d'])
+    b = spec['box'] if spec['type'] in ('box', 'obox') else tail_box(spec['p0'], spec['p1'], spec['d'])   # obox: AABB
     return [dict(obstacle=t['id'], volume_mm3=_r(box_vol(b, t['box']), 2)) for t in targets
-            if box_vol(b, t['box']) > SWEEP_TOL]
+            if box_vol(b, t['box']) > spec.get('tol', SWEEP_TOL)]
 
 
 def _targets(H, body, moving, disp, exclude):
@@ -799,7 +873,7 @@ def mate_reach_rows(H, rounded_path, ST, hits=box_hits, lengths=None, retention=
         body, moving = pose_state(ST, mp['op'])
         probs = []
         if mp['kind'] == 'pigtail':
-            rows.append(_pigtail_mate_row(H, mp, row, body, moving, hits, retention, rounded_path))
+            rows.append(_pigtail_mate_row(H, mp, row, body, moving, hits, retention, rounded_path, ST))
             continue
         if mp['kind'] == 'inline':
             r, fin = _inline_row(H, mp, rounded_path, ST, hits, opening, lengths)
@@ -865,24 +939,44 @@ def mate_reach_rows(H, rounded_path, ST, hits=box_hits, lengths=None, retention=
         rows.append(dict(row, problems=probs, status='fail' if probs else 'pass'))
     for mp in MATE_POSES:
         if mp['kind'] in ('plug', 'inline'):
-            _apply_lead_state(next(r for r in rows if r['id'] == mp['id']), mp, ST)
+            r_ = next(r for r in rows if r['id'] == mp['id'])
+            _apply_lead_state(r_, mp, ST, H, rounded_path, hits, lengths)
+            if mp['kind'] == 'inline' and (r_.get('free_lead') or {}).get('min_finished_length_mm') is not None:
+                finished[mp['cable']] = r_['free_lead']['min_finished_length_mm']   # H2: the documented (free) order
     for cid, why in MATE_INFO:
         rows.append(dict(category='mate_reach', id='info_' + cid.replace(':', '_'), connection=cid, status='info',
                          note=why))
     return rows, finished
 
 
-def _apply_lead_state(row, mp, ST):
+def _apply_lead_state(row, mp, ST, H=None, rounded_path=None, hits=None, lengths=None):
     """fixup-1: the reach above assumes the lead is already secured in its lanes (anchor knot). steps.py `secures`
     decides whether that is the documented order. If the lead is still free at the mating op, the secured-lane figures
-    do not describe it: the row fails until a free-lead route from the header end is computed and obstacle-checked
-    (no such route exists yet), and the secured-lane problems are kept, labelled, never dropped."""
+    do not describe it: the row fails until a free-lead route from the header end is computed and obstacle-checked,
+    and the secured-lane problems are kept, labelled, never dropped. H2: when the route source declares a free-lead
+    route for this mate (H['free_leads']), free_lead_eval() decides the row; the secured-lane problems move to
+    'secured_lane_case' (reported, not the documented order); lane-independent problems (pose on its path, and for a
+    plug the hand envelope at the posed plug) still gate."""
     lead = mp['connection'].split(':')[0]
     at = ST.secured_at(lead)
     secured = ST.secured_before(lead, mp['op'])
     row['lead_state'] = ('secured in its lanes at %s, before %s' % (at, mp['op']) if secured else
                          'free at %s; laid into its lanes at %s (steps.py secures)' % (mp['op'], at))
     if secured:
+        return
+    fl = (H.get('free_leads') or {}).get(mp['id']) if H is not None and rounded_path is not None else None
+    if fl is not None:
+        res = free_lead_eval(H, mp, fl, rounded_path, ST, hits or box_hits, lengths)
+        row['free_lead'] = res
+        lane = list(row['problems'])
+        keep = [p for p in lane if p.startswith('mate pose') or (mp['kind'] == 'plug' and p.startswith('hand envelope'))]
+        row['secured_lane_case'] = dict(problems=[p for p in lane if p not in keep],
+                                        note='lanes secured before %s is not the documented order (steps.py secures at '
+                                             '%s); reported, not gating' % (mp['op'], at))
+        row['problems'] = keep + ['free-lead route: ' + p for p in res['problems']]
+        row['status'] = 'fail' if row['problems'] else 'pass'
+        if mp['kind'] == 'inline' and res.get('min_finished_length_mm') is not None:
+            row['min_finished_length_mm'] = res['min_finished_length_mm']
         return
     lb = row.get('info_free_lead_need_mm')
     msg = ('lead is free at %s (secured only at %s): no obstacle-checked free-lead route from the header end to the '
@@ -893,6 +987,151 @@ def _apply_lead_state(row, mp, ST):
             msg += ' - short even on the lower bound'
     row['problems'] = [msg] + ['secured-lane case (not the documented order): ' + p for p in row['problems']]
     row['status'] = 'fail'
+
+
+# ------------------------------------------------------------------ free-lead routes (H2: VN-28, the FP-10 HOLD)
+# A free-lead route is declared in the route source (signal_routes.build() 'free_leads'): knots from the body-fixed
+# end of the free lead (QT: the modeled fan-in point, after the longest branch; J2: the pad root of the installed
+# route) to the posed far end, rounded at the cable's own bend radius. Instead of r7's straight tail from a secured
+# anchor, the drawn route must: (1) be a valid rounded curve; (2) start on the body-fixed end and end on the posed
+# plug / far end within ROUTE_END_TOL, leaving and arriving along the installed route's own first / last leg
+# (FREE_LEAD_END_ANGLE_DEG); (3) fit: plug: fixed + route + reach_margin(L_min) <= L_min; inline: the junction on the
+# route, junction_out beyond the opening with the centred pinch box wholly beyond it, each half its need +
+# reach_margin(half) (both gender assignments); (4) clear every part present at the op, the moving set displaced by
+# the pose, as a capsule (OD + 2 x MEMBER_TOL) with the strict INSTALLED_TOL (own end parts exempt, r7 rule), plus the
+# HDMI ribbon cells of the state at the op and the FPS mated pair as keepouts; (5) keep its envelope off every other
+# modeled cable at the op (leads free at the op are represented by their free routes, not their installed ones).
+FREE_LEAD_END_ANGLE_DEG = 5.0
+
+
+def _leg_dir(pts, first):
+    a, b = (pts[0], pts[1]) if first else (pts[-2], pts[-1])
+    n = math.dist(a, b)
+    return [(b[i] - a[i]) / n for i in range(3)] if n > 1e-12 else None
+
+
+def _angle_deg(u, v):
+    if u is None or v is None:
+        return None
+    return math.degrees(math.acos(max(-1.0, min(1.0, sum(u[i] * v[i] for i in range(3))))))
+
+
+def free_lead_curve(fl, rounded_path):
+    return rounded_path(fl['knots'], fl['radius'], fl['first_tail'], fl['last_tail'], 0.5)
+
+
+def free_lead_eval(H, mp, fl, rounded_path, ST, hits=box_hits, lengths=None):
+    c = H['cables'][mp['cable']]
+    body, moving = pose_state(ST, mp['op'])
+    disp = tuple(mp['disp'])
+    cv = free_lead_curve(fl, rounded_path)
+    res = dict(source=fl.get('src'), op=mp['op'], pose=list(disp), knots=[[_r(v, 3) for v in k] for k in fl['knots']],
+               radius_mm=fl['radius'], od_mm=fl['od_mm'])
+    if cv['errors'] or cv.get('rounded_length_mm') is None:
+        return dict(res, problems=['invalid rounded route: %s' % '; '.join(cv['errors'] or ['no length'])])
+    pts, L = [list(p) for p in cv['sampled_centerline']], cv['rounded_length_mm']
+    probs = []
+    inst = c['curve']['knots']
+    if mp['kind'] == 'plug':
+        start_ref, fixed = list(c['points'][0]), max([b['length'] for b in c['branches']] or [0.0])
+    else:
+        start_ref, fixed = list(c['points'][0]), 0.0
+    end_ref = add(c['points'][-1], disp)
+    g0, g1 = math.dist(pts[0], start_ref), math.dist(pts[-1], end_ref)
+    a0 = _angle_deg(_leg_dir(fl['knots'], True), _leg_dir(inst, True))
+    a1 = _angle_deg(_leg_dir(fl['knots'], False), _leg_dir(inst, False))
+    for bad, msg in ((g0 > ROUTE_END_TOL + 1e-9, 'starts %.2f mm from the body-fixed end %s' % (g0, [_r(v, 2) for v in start_ref])),
+                     (g1 > ROUTE_END_TOL + 1e-9, 'ends %.2f mm from the posed end %s' % (g1, [_r(v, 2) for v in end_ref])),
+                     (a0 is None or a0 > FREE_LEAD_END_ANGLE_DEG, 'leaves the body-fixed end at %s deg to the installed first leg' % _r(a0, 1)),
+                     (a1 is None or a1 > FREE_LEAD_END_ANGLE_DEG, 'arrives at the posed end at %s deg to the installed last leg' % _r(a1, 1))):
+        if bad:
+            probs.append(msg)
+    res.update(route_mm=_r(L, 2), fixed_mm=_r(fixed, 2), start_gap_mm=_r(g0, 3), end_gap_mm=_r(g1, 3),
+               start_angle_deg=_r(a0, 2), end_angle_deg=_r(a1, 2))
+    tg = _targets(H, body, moving, disp, set(c['ends']))
+    env = HAND_ENVELOPES[mp['hand']]
+    opening = ('+y', H['opening_y'], 0.0)
+    if mp['kind'] == 'plug':
+        lmin = (lengths or {}).get(mp['cable'], (c.get('length_range') or (c['length'],))[0])
+        m = reach_margin(lmin)
+        need = fixed + L + m
+        res.update(length_min=lmin, margin=_r(m, 1), need_mm=_r(need, 2), slack_mm=_r(lmin - need, 2))
+        if need > lmin + 1e-9:
+            probs.append('lead short by %.1f mm on the free route (L %.0f, fixed %.1f, route %.1f, margin %.1f)'
+                         % (need - lmin, lmin, fixed, L, m))
+    else:
+        cum = cumulative(pts)
+        J = s_J = u = hb = None
+        for i in range(1, len(pts)):
+            uu = [(pts[i][k] - pts[i - 1][k]) / max(1e-12, math.dist(pts[i], pts[i - 1])) for k in range(3)]
+            hb_i = hand_box(add(pts[i], uu, env[0] / 2), uu, mp['row'], env)
+            if pts[i][1] >= H['opening_y'] + mp['junction_out'] - 1e-9 and out_of_mm(hb_i, opening) >= -1e-9:
+                J, s_J, u, hb = pts[i], cum[i], uu, hb_i
+                break
+        if J is None:
+            probs.append('no route point puts the junction %.1f mm beyond the opening with the pinch box beyond it'
+                         % mp['junction_out'])
+        else:
+            halves = (lengths or {}).get(mp['cable'], mp['halves'])
+            assign = []
+            for (bn, bl, bt), (fn, fl_, ft) in ((halves[0], halves[1]), (halves[1], halves[0])):
+                nb, nf = s_J + reach_margin(bl - bt), (L - s_J) + reach_margin(fl_ - ft)
+                assign.append(dict(body_side=bn, far_side=fn, body_need_mm=_r(nb, 1), body_min_mm=bl - bt,
+                                   far_need_mm=_r(nf, 1), far_min_mm=fl_ - ft,
+                                   feasible=nb <= bl - bt + 1e-9 and nf <= fl_ - ft + 1e-9))
+            if not all(a['feasible'] for a in assign):
+                probs.append('junction on the free route cannot be reached by %s (side genders unassigned: VN-63)'
+                             % [a['body_side'] for a in assign if not a['feasible']])
+            hh = hits(dict(type='box', box=hb), tg)
+            if hh:
+                probs.append('hand envelope at the junction hits %s' % ', '.join(h['obstacle'] for h in hh))
+            res.update(junction_at=[_r(v, 2) for v in J], junction_s_mm=_r(s_J, 2), assignments=assign,
+                       min_finished_length_mm=_r(min(a['body_need_mm'] + a['far_need_mm'] for a in assign), 1),
+                       hand=mp['hand'], hand_box=[_r(v, 2) for v in hb], hand_hits=hh,
+                       hand_out_of_mm=_r(out_of_mm(hb, opening), 2))
+    # (4) capsule sweep against the parts present at the op (moving set displaced) and the keepouts of that state
+    state = fl.get('hdmi_state', 'installed')
+    tg_k = tg + [dict(id='hdmi_ribbon cell %d' % i, kind='keepout', disp=(0.0, 0.0, 0.0), box=b)
+                 for i, b in enumerate((H.get('hdmi_cells_state') or {}).get(state, []))]
+    if H.get('fps_pair_box'):
+        tg_k.append(dict(id='fps_mated_pair', kind='keepout', disp=(0.0, 0.0, 0.0), box=H['fps_pair_box']))
+    # rigid connector heads and header housings of the other cables (all taken as mated: conservative)
+    own = mp['cable']
+    tg_k += [dict(id='plug ' + pid, kind='keepout', disp=(0.0, 0.0, 0.0), box=b) for pid, b in H['plugs'].items()
+             if (H.get('plug_cable') or {}).get(pid) not in (own, None)]
+    tg_k += [dict(id='housing ' + hid, kind='keepout', disp=(0.0, 0.0, 0.0), box=h['box']) for hid, h in H['housings'].items()
+             if h['cable'] != own]
+    sp = simplify_polyline(pts, MEMBER_TOL)
+    d = fl['od_mm'] + 2 * MEMBER_TOL
+    found = {}
+    specs = capsule_specs(sp, d)
+    for s_ in specs:
+        for h in hits(s_, tg_k):
+            key = 'hdmi_ribbon' if h['obstacle'].startswith('hdmi_ribbon') else h['obstacle']
+            found[key] = round(found.get(key, 0.0) + h['volume_mm3'], 2)
+    if found:
+        probs.append('free route intersects %s at %s (capsule d %.2f mm)' % (
+            ', '.join('%s %.2f mm3' % kv for kv in sorted(found.items())), mp['op'], d))
+    # (5) separation from the cables present at the op
+    free_ids = {f['cable'] for k, f in (H.get('free_leads') or {}).items() if f['op'] == mp['op']}
+    neigh = [(n, q, dq) for n, q, dq in neighbour_cables(H, mp['cable']) if n.split(':')[0] not in free_ids]
+    for k, f in (H.get('free_leads') or {}).items():
+        if f['op'] == mp['op'] and f['cable'] != mp['cable']:
+            fc = free_lead_curve(f, rounded_path)
+            if not fc['errors']:
+                neigh.append(('free_lead:' + k, fc['sampled_centerline'], f['od_mm']))
+    sep, over = {}, []
+    for n, q, dq in neigh:
+        dist, needd = polyline_distance(pts, q, SEPARATION_TOL), (fl['od_mm'] + dq) / 2
+        sep[n] = dict(min_centreline_mm=_r(dist, 2), need_mm=_r(needd, 2))
+        if dist < needd - 1e-9:
+            over.append('%s %.2f < %.2f mm' % (n, dist, needd))
+    if over:
+        probs.append('free route envelope overlaps cable(s): ' + '; '.join(over))
+    tight = sorted(sep.items(), key=lambda kv: kv[1]['min_centreline_mm'] - kv[1]['need_mm'])[:5]
+    res.update(capsule_d_mm=_r(d, 2), pieces=len(specs), targets=len(tg_k), exempt=sorted(c['ends']), hits=found,
+               hdmi_state=state, tightest_separation=dict(tight), cable_overlaps=over, problems=probs)
+    return res
 
 
 def _inline_row(H, mp, rounded_path, ST, hits, opening, lengths=None):
@@ -951,10 +1190,10 @@ def _inline_row(H, mp, rounded_path, ST, hits, opening, lengths=None):
     return row, fin
 
 
-def _pigtail_mate_row(H, mp, row, body, moving, hits, retention, rounded_path):
+def _pigtail_mate_row(H, mp, row, body, moving, hits, retention, rounded_path, ST=None):
     retention = PIGTAIL_RETENTION if retention is None else retention
     W = face_isolation(H, 'positive')
-    rr = {r['id']: r for r in pigtail_reach_rows(H, rounded_path, retention)}
+    rr = {r['id']: r for r in pigtail_reach_rows(H, rounded_path, retention, hits, ST)}
     gate_row = rr['pigtail_xt30_mouth' if retention == 'carrier_ties' else 'pigtail_xt30_mouth_rtv_only']
     probs = ['reach: ' + p for p in gate_row['problems']]
     pose_out = H['mouth_z'] - W[2]
@@ -992,11 +1231,13 @@ def run_all(H, rounded_path, ST, hits=box_hits, printed_dist=None, retention=Non
     rows += cable_routes_rows(H, rounded_path)
     mr, finished = mate_reach_rows(H, rounded_path, ST, hits, lengths, retention)
     rows += mr
-    rows += pigtail_reach_rows(H, rounded_path, retention)
+    rows += pigtail_reach_rows(H, rounded_path, retention, hits, ST)
     rows.append(pigtail_drop_row())
     rows += cable_stow_rows(H, rounded_path, finished)
     rows += header_housing_rows(H, set(ST.final_state()), printed_dist, cots_dist)
     apply_member_clearance(rows, H, rounded_path, set(ST.final_state()), hits)   # fixup-1 (FP-10)
+    apply_installed_clearance(rows, H, set(ST.final_state()), hits)              # H1 (VN-26 routes)
+    rows += feed_volume_rows(H, set(ST.final_state()), hits)                     # H1 (FP-11f, VN-60)
     return rows
 
 
@@ -1073,3 +1314,244 @@ def apply_member_clearance(rows, H, rounded_path, final_present, hits=box_hits):
                 % (use, mc['variable'], value, ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
                    mc['capsule_d_mm'], '; member errors: %s' % mc['member_errors'] if mc['member_errors'] else ''))
             r['status'] = 'fail'
+
+
+# ------------------------------------------------------------------ installed-route clearance (H1: VN-26, VN-60)
+# The member sweep above covers only the bound members behind a family pass; the installed route itself (a family's
+# recorded member or a fixed curve) was never swept, which is how the run-lead route ran through tub material
+# unseen. Cables whose installed route was (re)built in phase 2 are swept here: (1) as capsules of their full
+# envelope against the closed-camera material (own end parts exempt, r7 rule) and the installed HDMI ribbon cells
+# (keepout boxes); (2) for centreline separation from every other modeled cable (no overlap of the two envelopes).
+# A hit (above INSTALLED_TOL, stricter than the r7 SWEEP_TOL) or an overlap fails the cable_routes row. Envelope
+# diameters are data of record with their sources.
+INSTALLED_TOL = 0.01   # mm3: numerical floor for installed-route and feed-volume sweeps
+SEPARATION_TOL = 0.01  # mm: polyline simplification for centreline separation (the bound subtracts 2 x this)
+INSTALLED_CLEARANCE = {
+    'run_pin37': dict(d=1.6, src='signal_routes run core od_mm 1.6 (MP-RUN measures)'),
+    'run_pin39': dict(d=1.6, src='signal_routes run core od_mm 1.6 (MP-RUN measures)'),
+    'usb_5v': dict(d=3.6, src='BOM D2-22: Adafruit 4448 supplier drawing C14289-001 jacket OD 3.6 mm; the two Pololu '
+                              '2180 / 2181 20 AWG tails ride inside the same envelope only if each core OD <= 1.8 mm '
+                              '(MEASUREMENTS-TO-CLOSE EVF power RCY row measures)'),
+    'pack_lead': dict(d=4.8, src='BOM D2-13: two 18 AWG cores side by side, routes.py od 2.4 mm per core (MP-PACK '
+                                 'measures)'),
+    # H2 (VN-28): the re-solved QT main and its modeled fan-in branches (each branch on its own 1.6 mm capsule)
+    'qt': dict(d=3.2, branch_d=1.6, src='signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the '
+                                       'breakout and core OD)'),
+}
+
+
+RIBBON_D = {'fpc': 16.0,        # signal_routes fpc full_width_mm 16: a ribbon is taken as a round envelope of its width
+            'oled_flex': 12.4}  # routes.py oled_flex note: 12.4 mm ribbon
+
+
+def _seg_dist(p, q, r, s):
+    """Minimum distance between segments pq and rs (3D)."""
+    d1 = [q[i] - p[i] for i in range(3)]
+    d2 = [s[i] - r[i] for i in range(3)]
+    w = [p[i] - r[i] for i in range(3)]
+    a = sum(x * x for x in d1); e = sum(x * x for x in d2); f = sum(d2[i] * w[i] for i in range(3))
+    if a < 1e-18 and e < 1e-18:
+        return math.dist(p, r)
+    if a < 1e-18:
+        sc, tc = 0.0, max(0.0, min(1.0, f / e))
+    else:
+        c = sum(d1[i] * w[i] for i in range(3))
+        if e < 1e-18:
+            sc, tc = max(0.0, min(1.0, -c / a)), 0.0
+        else:
+            b = sum(d1[i] * d2[i] for i in range(3))
+            den = a * e - b * b
+            sc = max(0.0, min(1.0, (b * f - c * e) / den)) if den > 1e-18 else 0.0
+            tc = (b * sc + f) / e
+            if tc < 0.0:
+                tc, sc = 0.0, max(0.0, min(1.0, -c / a))
+            elif tc > 1.0:
+                tc, sc = 1.0, max(0.0, min(1.0, (b - c) / a))
+    return math.dist([p[i] + sc * d1[i] for i in range(3)], [r[i] + tc * d2[i] for i in range(3)])
+
+
+def polyline_distance(a_pts, b_pts, tol=MEMBER_TOL):
+    """Lower bound of the distance between two sampled centrelines: RDP-simplified (tol), minus 2 tol."""
+    a, b = simplify_polyline(a_pts, tol), simplify_polyline(b_pts, tol)
+    best = float('inf')
+    bb_b = [(q, s, [min(q[i], s[i]) for i in range(3)], [max(q[i], s[i]) for i in range(3)]) for q, s in zip(b, b[1:])]
+    for p, q in zip(a, a[1:]):
+        lo = [min(p[i], q[i]) for i in range(3)]; hi = [max(p[i], q[i]) for i in range(3)]
+        for r, s, l2, h2 in bb_b:
+            gap = math.sqrt(sum(max(0.0, l2[i] - hi[i], lo[i] - h2[i]) ** 2 for i in range(3)))
+            if gap >= best:
+                continue
+            best = min(best, _seg_dist(p, q, r, s))
+    return best - 2 * tol
+
+
+def neighbour_cables(H, cid):
+    """Every other modeled cable centreline with its envelope diameter: (name, points, d)."""
+    out = []
+    for k, c in H['cables'].items():
+        if k == cid or 'delegated' in c or not c.get('points'):
+            continue
+        d = (INSTALLED_CLEARANCE.get(k, {}).get('d') or RIBBON_D.get(k) or c.get('od_mm')
+             or (CORE_OD if c.get('core') else None))
+        if d:
+            out.append((k, c['points'], d))
+        for br in c.get('branches') or []:
+            out.append((k + ':' + br['id'], br['points'], 1.6))
+    for br in H.get('signal_branches', []):
+        out.append(('header_branch:' + br['id'], br['points'], br['od_mm']))
+    return out
+
+
+def capsule_specs(pts, d, tol=INSTALLED_TOL):
+    """Segment cylinders plus a cube of the capsule diameter at every inner joint (both enclose the capsule)."""
+    out = [dict(type='cyl', p0=p0, p1=p1, d=d, tol=tol) for p0, p1 in zip(pts, pts[1:]) if math.dist(p0, p1) > 1e-9]
+    out += [dict(type='box', box=[p[0] - d / 2, p[0] + d / 2, p[1] - d / 2, p[1] + d / 2, p[2] - d / 2, p[2] + d / 2],
+                 tol=tol) for p in pts[1:-1]]
+    return out
+
+
+def neighbour_context(H, out, fps_input=None):
+    """Add the cable context the installed sweeps need: HDMI ribbon cells of all three states (installed, premate,
+    unplugged) as keepout boxes, the source header branches that are not QT, and the selected FPS mated-carry wires
+    (out/fps-service-study/mated-carry-input.json, the FPS harness of record) with its mated pair box."""
+    H['hdmi_cells'] = [bb(s['box']) for key in ('hdmi_ribbon', 'hdmi_ribbon_premate', 'hdmi_ribbon_unplugged')
+                       for s in (out.get(key) or {}).get('segments') or []]
+    # H2: the same cells per state, for free-lead sweeps at one op (the ribbon is in one state at a time)
+    H['hdmi_cells_state'] = {st: [bb(s['box']) for s in (out.get(key) or {}).get('segments') or []]
+                             for st, key in (('installed', 'hdmi_ribbon'), ('premate', 'hdmi_ribbon_premate'),
+                                             ('unplugged', 'hdmi_ribbon_unplugged'))}
+    br = [dict(id=b['id'], points=[list(p) for p in b['curve']['sampled_centerline']], od_mm=b['od_mm'])
+          for b in out['signal_geometry']['branches'] if b['cable'] != 'qt']
+    if fps_input:
+        br += [dict(id='fps_' + q['id'], points=[list(p) for p in q['curve']['sampled_centerline']], od_mm=q['od_mm'])
+               for q in fps_input['wire_parts']]
+        H['fps_pair_box'] = bb(fps_input['junction']['box'])
+    H['signal_branches'] = br
+    return H
+
+
+def installed_clearance(H, cid, final_present, hits=box_hits, tol=MEMBER_TOL):
+    c = H['cables'][cid]
+    spec = INSTALLED_CLEARANCE[cid]
+    # the bundle up to where separate cores take over (sweep_points), then each core on its own stub
+    lines = [(c.get('sweep_points') or c['points'], spec['d'])] + [(st['points'], st['d']) for st in c.get('stubs') or []]
+    if spec.get('branch_d'):   # H2: a branched cable's own branches (QT fan-in) are swept and separated too
+        lines += [(br['points'], spec['branch_d']) for br in c.get('branches') or []]
+    pts = simplify_polyline(lines[0][0], tol)
+    d = spec['d'] + 2 * tol
+    targets = _targets(H, set(final_present), set(), (0.0, 0.0, 0.0), set(c['ends']))
+    targets += [dict(id='hdmi_ribbon cell %d' % i, kind='keepout', disp=(0.0, 0.0, 0.0), box=b)
+                for i, b in enumerate(H.get('hdmi_cells', []))]
+    if H.get('fps_pair_box'):
+        targets.append(dict(id='fps_mated_pair', kind='keepout', disp=(0.0, 0.0, 0.0), box=H['fps_pair_box']))
+    found = {}
+    specs = capsule_specs(pts, d)
+    for q, dq in lines[1:]:   # separate cores where they fan out of a connector (pack lead at the XT30 male)
+        specs += capsule_specs(simplify_polyline(q, tol), dq + 2 * tol)
+    for sp in specs:
+        for h in hits(sp, targets):
+            key = 'hdmi_ribbon' if h['obstacle'].startswith('hdmi_ribbon') else h['obstacle']
+            found[key] = round(found.get(key, 0.0) + h['volume_mm3'], 2)
+    sep, overlaps = {}, []
+    for name, q, dq in neighbour_cables(H, cid):
+        dist, need = min(((polyline_distance(ln, q, SEPARATION_TOL), (dl + dq) / 2) for ln, dl in lines),
+                         key=lambda t: t[0] - t[1])
+        sep[name] = dict(min_centreline_mm=_r(dist, 2), need_mm=_r(need, 2))
+        if dist < need - 1e-9:
+            overlaps.append('%s %.2f < %.2f mm' % (name, dist, need))
+    return dict(envelope_d_mm=spec['d'], envelope_src=spec['src'], capsule_d_mm=_r(d, 2), polyline_points=len(pts),
+                pieces=len(specs), stubs=len(c.get('stubs') or []), exempt=sorted(c['ends']), targets=len(targets), hits=found,
+                cable_separation=sep, cable_overlaps=overlaps)
+
+
+def apply_installed_clearance(rows, H, final_present, hits=box_hits):
+    for r in rows:
+        if r.get('category') != 'cable_routes' or r.get('id') not in INSTALLED_CLEARANCE or r.get('status') != 'pass':
+            continue
+        ic = installed_clearance(H, r['id'], final_present, hits)
+        r['installed_clearance'] = ic
+        probs = []
+        if ic['hits']:
+            probs.append('installed route intersects %s in the closed camera (capsule d %.2f mm)' % (
+                ', '.join('%s %.2f mm3' % kv for kv in sorted(ic['hits'].items())), ic['capsule_d_mm']))
+        if ic['cable_overlaps']:
+            probs.append('installed route envelope overlaps cable(s): ' + '; '.join(ic['cable_overlaps']))
+        if probs:
+            r.setdefault('problems', []).extend(probs)
+            r['status'] = 'fail'
+
+
+# ------------------------------------------------------------------ EVF feed volumes (H1: FP-11f, VN-60)
+# The rigid parts of the usb_5v feed are placed on straight legs of its installed route by routes.usb_5v_feed():
+# the diode splice sleeve (with the parallel ground splice), the option-C regulator reserve (kept free by default
+# pending user decision 10) and the mated RCY pair. Each is an oriented box tested by exact Boolean against every
+# part of the closed camera (no exemption) and the installed HDMI ribbon cells, strictly (INSTALLED_TOL); its centreline
+# must lie on the installed route; its envelope must not overlap another modeled cable; and each Pololu tail must
+# span its route segment with the r7 service allowance.
+POLOLU_TAIL_MM = 100.0                 # BOM D2-23: Pololu 2180 / 2181 nominal 100 mm 20 AWG tails (cut to fit)
+DONOR_MIN_MM = 300.0                   # BOM D2-22: Adafruit 4448 catalog 300 mm (supplier drawing 325 +/- 10)
+
+
+def feed_volume_rows(H, final_present, hits=box_hits):
+    c = H['cables'].get('usb_5v') or {}
+    feed = c.get('feed') or {}
+    vols = feed.get('volumes') or []
+    if c.get('errors') or not c.get('points') or not vols:
+        return [dict(category='feed_volumes', id='usb_5v_volumes', status='fail',
+                     problems=['no installed usb_5v route with placed feed volumes (VN-60 / FP-11f)'])]
+    rows = []
+    targets = _targets(H, set(final_present), set(), (0.0, 0.0, 0.0), set())
+    targets += [dict(id='hdmi_ribbon cell %d' % i, kind='keepout', disp=(0.0, 0.0, 0.0), box=b)
+                for i, b in enumerate(H.get('hdmi_cells', []))]
+    if H.get('fps_pair_box'):
+        targets.append(dict(id='fps_mated_pair', kind='keepout', disp=(0.0, 0.0, 0.0), box=H['fps_pair_box']))
+    nbrs = [n for n in neighbour_cables(H, 'usb_5v')]
+    for v in vols:
+        spec = dict(type='obox', center=v['center'], axis=v['axis'], width=v['width_vector'], dims=v['dims_mm'],
+                    box=v['aabb'], tol=INSTALLED_TOL)
+        found = {}
+        for h in hits(spec, targets):
+            key = 'hdmi_ribbon' if h['obstacle'].startswith('hdmi_ribbon') else h['obstacle']
+            found[key] = round(found.get(key, 0.0) + h['volume_mm3'], 3)
+        L = v['dims_mm'][0]
+        ends = [add(v['center'], v['axis'], -L / 2), add(v['center'], v['axis'], L / 2)]
+        off = max(nearest_on_polyline(c['points'], q)[2] for q in [v['center']] + ends)
+        half_diag = math.hypot(v['dims_mm'][1], v['dims_mm'][2]) / 2
+        sep, overl = {}, []
+        for name, q, dq in nbrs:
+            dist = polyline_distance(ends, q, SEPARATION_TOL)
+            need = half_diag + dq / 2
+            sep[name] = dict(min_axis_distance_mm=_r(dist, 2), need_mm=_r(need, 2))
+            if dist < need - 1e-9:
+                overl.append('%s %.2f < %.2f mm' % (name, dist, need))
+        probs = []
+        if found:
+            probs.append('volume intersects %s' % ', '.join('%s %.3f mm3' % kv for kv in sorted(found.items())))
+        if off > 0.05:
+            probs.append('volume axis is %.3f mm off the installed usb_5v centreline' % off)
+        if overl:
+            probs.append('volume envelope overlaps cable(s): ' + '; '.join(overl))
+        rows.append(dict(category='feed_volumes', id='usb_5v_' + v['id'], dims_mm=v['dims_mm'], leg=v['leg'],
+                         station_mm=v['station_mm'], center=[_r(x, 3) for x in v['center']], axis=v['axis'],
+                         aabb=[_r(x, 3) for x in v['aabb']], targets=len(targets), hits=found,
+                         axis_off_route_mm=_r(off, 4), cable_separation=sep, source=v['source'], gate=v['gate'],
+                         default=v.get('default'), method='exact' if hits is not box_hits else 'aabb',
+                         problems=probs, status='fail' if probs else 'pass'))
+    # Pololu tails and donor: each spans its route segment with the r7 allowance; the volumes keep their order.
+    st = feed['stations_mm']
+    order = [st[k] for k in ('head_exit', 'splice_start', 'splice_end', 'rcy_start', 'rcy_end', 'board')]
+    segs = [('donor', st['head_exit'], st['splice_start'], DONOR_MIN_MM, 'BOM D2-22 catalog 300 mm'),
+            ('tail_2180', st['splice_end'], st['rcy_start'], POLOLU_TAIL_MM, 'BOM D2-23 Pololu 2180 100 mm'),
+            ('tail_2181', st['rcy_end'], st['board'], POLOLU_TAIL_MM, 'BOM D2-23 Pololu 2181 100 mm')]
+    for sid, a, b, stock, src in segs:
+        span = b - a
+        allow = route_allowance(stock)
+        probs = []
+        if any(y < x - 1e-9 for x, y in zip(order, order[1:])):
+            probs.append('feed stations out of order: %s' % order)
+        if span + allow > stock + 1e-6:
+            probs.append('segment %.1f + allowance %.1f > stock %.1f mm' % (span, allow, stock))
+        rows.append(dict(category='feed_volumes', id='usb_5v_' + sid, span_mm=_r(span, 2), allowance_mm=_r(allow, 1),
+                         stock_mm=stock, stock_src=src, slack_mm=_r(stock - span - allow, 2), problems=probs,
+                         status='fail' if probs else 'pass', estimate=True))
+    return rows

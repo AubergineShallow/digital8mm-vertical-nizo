@@ -24,7 +24,7 @@ _spec = importlib.util.spec_from_file_location('_vertical_routes_baseline', ROOT
 L = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(L)
 AXES = 'xyz'
-REVISION = 'vertical-harness-source-study-2026-10-09'
+REVISION = 'vertical-harness-source-study-2026-10-11-h1-feed-routes'
 
 
 def B(x0,x1,y0,y1,z0,z1):
@@ -591,6 +591,145 @@ def ribbon_study(length,stack_y=22.2,evf_shift_y=11,obstacles=(),right_inner=-25
                 geometric_check='Full10mm material-coordinate strip; each developable-fold cell is extruded along its own surface normal. Sampled prism AABBs are conservative; parent CAD must check exact printed geometry and retention.',
                 wall_overrun_axes=walls,obstacle_overlaps=list(hits.values()),frames=frames,segments=segments)
 
+# ---------------------------------------------------------------------------------------------------------------
+# Review 2026-10-10 (H1: VN-26 routes, VN-60 / FP-11f): installed EVF feed and pack-lead routes.
+# The EVF feed is a cut-to-length assembly (BOM D2-22 Adafruit 4448 donor; D2-16 1N5817 in the + conductor with the
+# ground spliced beside it; D2-23 Pololu 2180 / 2181 RCY pair, 100 mm tails). The route starts on the GPIO-side USB2
+# port face (connectors() p_usb_pi) and runs straight through the 31 x 15.5 x 9.8 mm head/bend allowance: the
+# received rigid head (metal, overmold and strain relief) must end within feed['head_max_mm'] (24.7) of the port face
+# (MEASUREMENTS-TO-CLOSE Adafruit 4448 row; re-route if longer). It then drops into the -Y channel behind the USB
+# heads, runs forward under the panel-screw boss carrying the splice zone, turns up short of the stored power loops
+# (negative return at X-104), comes back along Z38.5 carrying the mated RCY pair (the storage stick, fitted later at
+# storage_in, is still out at evf_mate; finger access is the mate_reach HOLD), climbs the rear corner, crosses over
+# the board rail and lands on the
+# EVF 5 V pad point of record from above (r7 MATE_POSES usb_5v_evf far point, moved with the EVF shift; the pad
+# position itself is MP-EVF). The rigid parts are oriented boxes on straight legs, checked by verify_harness_checks.py
+# (feed_volumes rows: exact Boolean against the closed camera and the HDMI ribbon cells, cable separation, tails).
+USB5V_KNOTS = [None,                                   # port face centre, from connectors() p_usb_pi
+               (-152.5, None, 16.0),                   # head axis end: the bend starts head_max_mm from the face
+               (-152.5, -21.5, 20.5),                  # -Y exit below the storage stick, clear of the rear wall
+               (-108.0, -21.5, 20.5),                  # splice leg (Z20.5, above the J4 lock boss top Z12.6)
+               (-108.0, -19.5, 38.5),                  # turn up 4 mm short of the negative power loop at X-104
+               (-152.5, -19.5, 38.5),                  # RCY leg (Z35..42: under the panel boss, over the stick lane)
+               (-152.5, -19.5, 52.0),                  # rear-corner climb (eyepiece and EVF plate are further -X / +Y)
+               (-146.5, -19.5, 64.0),                  # step forward past the EVF rear plate and the OLED seat bars
+               (-146.5, -19.5, 76.0),                  # up beside the board rail (X-143.95), clear of the seat (X-149)
+               (-140.8, -4.0, 77.7),                   # over the rail to the pad column
+               None]                                   # EVF 5 V pad point of record (approached from above)
+USB5V_RADIUS, USB5V_TAILS, USB5V_OD = 6.0, (6.0, 4.0), 3.6
+FEED_VOLUMES = [   # id, leg, station after the leg's entry fillet, length along the route, (width, height), width axis
+    dict(id='diode_sleeve', leg=2, station=1.0, length=30.0, section=(4.8, 4.8), width_hint=(0, 0, 1),
+         source='BOM D2-16 MCC 1N5817-TP (DO-41 body <= 5.2 mm x dia 2.7 mm) spliced into the + core by the r7 splice '
+                'method (1.5 mm stub + 5 mm lap per lead, ASSEMBLY r4 fuse splice) under the BOM D2-46 adhesive 3:1 '
+                'sleeve (about 4.8 mm recovered; 30 mm class as the r4 fuse splice); square section circumscribing it. '
+                'The ground lap splice is staggered along the same leg inside the lead envelope.',
+         gate='G-W6 and MEASUREMENTS-TO-CLOSE Adafruit 4448 row (cut plan, splice and sleeve lengths)', default=None),
+    dict(id='option_c_reserve', leg=2, station=8.0, length=16.0, section=(7.5, 4.5), width_hint=(0, 0, 1),
+         source='BOM D2-16P option-C regulator carrier, est. 16 x 7.5 x 4.5 mm sleeved envelope (carrier not measured). '
+                'Option C replaces the diode at the same splice (r7 WIRING s4.8), so its reserve is centred in the '
+                'splice zone, as r7 placed the carrier inside the feed keep-out.',
+         gate='G-W13 on receipt of the carrier (only if option C is adopted)',
+         default='default pending user decision 10 (VN-80): the reserve is kept free on the route so option C can '
+                 'replace the diode without a re-route; its BOM quantity stays 0'),
+    dict(id='rcy_pair', leg=4, station=0.25, length=32.0, section=(7.0, 7.0), width_hint=(0, 0, 1),
+         source='BOM D2-23 Pololu 2180 + 2181 mated pair, provisional 32 x 7 x 7 mm junction reserve (ASSEMBLY-VERTICAL)',
+         gate='MEASUREMENTS-TO-CLOSE EVF power RCY pair row (housings, mated length, exits); finger access at evf_mate '
+              'is the mate_reach evf_5v:evf HOLD', default=None),
+]
+
+
+def place_on_leg(curve, leg, station, length, section, width_hint):
+    """Oriented box of length x section on the straight part of leg `leg` (knot leg -> leg+1), starting `station` mm
+    after the leg's entry fillet. Raises if it does not fit on the straight part."""
+    k, tr = curve['knots'], curve['corner_trim_mm']
+    a, b = k[leg], k[leg + 1]
+    u = unit(vsub(b, a))
+    straight = math.dist(a, b) - tr[leg] - tr[leg + 1]
+    if station < -1e-9 or station + length > straight + 1e-9:
+        raise ValueError('feed volume does not fit on leg %d: %.2f + %.2f > %.2f mm' % (leg, station, length, straight))
+    start = vadd(a, vmul(u, tr[leg] + station))
+    c = vadd(start, vmul(u, length / 2))
+    w = unit(vsub(list(width_hint), vmul(u, dot(list(width_hint), u))))
+    h = cross(u, w)
+    cs = [vadd(c, vadd(vmul(u, su * length / 2), vadd(vmul(w, sw * section[0] / 2), vmul(h, sh * section[1] / 2))))
+          for su in (-1, 1) for sw in (-1, 1) for sh in (-1, 1)]
+    return dict(leg=leg, station_mm=station, straight_mm=straight, center=c, axis=u, width_vector=w, height_vector=h,
+                dims_mm=[length, section[0], section[1]], aabb=[f(q[i] for q in cs) for i in range(3) for f in (min, max)],
+                ends=[vadd(c, vmul(u, -length / 2)), vadd(c, vmul(u, length / 2))])
+
+
+def _station(points, q):
+    """Arc position along a sampled centreline of its point nearest q."""
+    best, s, acc = (float('inf'), 0.0), 0.0, 0.0
+    for a, b in zip(points, points[1:]):
+        ab = vsub(b, a); n2 = dot(ab, ab)
+        t = 0.0 if n2 == 0 else max(0.0, min(1.0, dot(vsub(q, a), ab) / n2))
+        d = math.dist(vadd(a, vmul(ab, t)), q)
+        if d < best[0]:
+            best = (d, acc + t * math.sqrt(n2))
+        acc += math.sqrt(n2)
+    return best[1]
+
+
+def usb_5v_feed(port_centre, pad):
+    knots = []
+    for k in USB5V_KNOTS:
+        knots.append(list(port_centre) if k is None and not knots else list(pad) if k is None
+                     else [k[0], port_centre[1] if k[1] is None else k[1], k[2]])
+    curve = rounded_path(knots, USB5V_RADIUS, USB5V_TAILS[0], USB5V_TAILS[1], .2)
+    if curve['errors']:
+        return curve, None
+    vols = []
+    for v in FEED_VOLUMES:
+        pv = place_on_leg(curve, v['leg'], v['station'], v['length'], v['section'], v['width_hint'])
+        pv.update(id=v['id'], source=v['source'], gate=v['gate'], default=v['default'])
+        vols.append(pv)
+    pts = curve['sampled_centerline']
+    head = math.dist(knots[0], knots[1]) - curve['corner_trim_mm'][1]
+    by = {v['id']: v for v in vols}
+    st = dict(head_exit=head, splice_start=_station(pts, by['diode_sleeve']['ends'][0]),
+              splice_end=_station(pts, by['diode_sleeve']['ends'][1]), rcy_start=_station(pts, by['rcy_pair']['ends'][0]),
+              rcy_end=_station(pts, by['rcy_pair']['ends'][1]), board=curve['rounded_length_mm'])
+    feed = dict(volumes=vols, stations_mm=st, head_max_mm=head, pad_point=list(pad),
+                head_gate='The received rigid head (metal, overmold, strain relief) must end within %.1f mm of the port '
+                          'face for this route (MEASUREMENTS-TO-CLOSE Adafruit 4448 row); a longer head needs a '
+                          're-route.' % head,
+                pad_gate='EVF 5 V pad point is the r7 usb_5v_evf far point moved with the EVF shift (MP-EVF measures '
+                         'the traced EXT+/GND pads)',
+                carried='The donor half (head to the 2180 housing) is plugged on the bench and carried with the module '
+                        'at carrier_in; the 2181 half travels with the EVF board at evf_in and is mated in situ at '
+                        'evf_mate (mate_reach evf_5v:evf HOLD).')
+    return curve, feed
+
+
+def pack_lead_route(power):
+    """Pack lead from the pack top (+X end; hypothesis of record, MP-PACK measures the BMS lead exit) to the posed XT30
+    male face. The two 18 AWG cores leave the male contacts at the 5 mm pitch (power_routes core_exit_spacing) and
+    join the bundle PACK_MERGE_MM out along the housing axis: the bundle is swept at the two-core envelope up to the
+    merge point (sweep_points) and each core on its own stub from its contact (harness_rules installed clearance)."""
+    C, M = power['junction_center'], power['junction_transform_matrix']
+    u, v = [M[i][0] for i in range(3)], [M[i][1] for i in range(3)]
+    p = lambda a, b: [C[i] + u[i] * a + v[i] * b for i in range(3)]
+    face = p(13.0, -2.6)                                # male wire face centre between the contacts (v -5.1 / -0.1)
+    knee = vadd(face, vmul(u, 10.0))                    # straight out of the housing along its axis
+    root = [-29.0, 0.5, -36.8]                          # pack top face near its +X end (old knots' +X-end hypothesis)
+    curve = rounded_path([root, knee, face], 6.0, 4.0, 4.0, .2)
+    merge = vadd(face, vmul(u, PACK_MERGE_MM))
+    stubs = []
+    for b in (-5.1, -0.1):
+        a0 = p(13.0, b)
+        stubs.append(dict(id='core_v%+.1f' % b, d=2.4, points=rounded_path(
+            [a0, vadd(a0, vmul(u, 1.5)), merge], 1.0, 0, 0, .2)['sampled_centerline']))
+    sweep = None
+    if not curve['errors']:
+        # the axial distance from the face falls monotonically along root -> knee -> face
+        sweep = [q for q in curve['sampled_centerline'] if dot(vsub(q, face), u) > PACK_MERGE_MM + 1e-9] + [merge]
+    return curve, stubs, sweep
+
+
+PACK_MERGE_MM = 8.0   # cores fan from the 5 mm contact pitch into the bundle within this distance of the male face
+
+
 def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inner=25.2, panel_shift_y=3, power_button=True, hdmi_assembly="adafruit3557_3556", pigtail_awg=16, upper_storage=True, hdmi_stock_mm=300):
     if length<145:raise ValueError('length too short for the specified stack')
     roll=lambda p:rp(p,stack_y)
@@ -608,8 +747,10 @@ def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inne
          '22-to-15 ribbon, width16mm. Provisional4mm final straight replaces a rejected5mm allowance: geometry offers4.41mm. Actual tail/bend requirement and full-width developable folds MUST be measured; this is not a passed FPC route.'),
         ('hdmi',200,3.0,6,6,6,[hd0,[-59.8,hd0[1]-12,67.3],[-59.8,hd0[1]-12,82],[-115,hd0[1]-12,82],[-115,-16,82],[-115,-16,40],[hd1[0],-16,40],[hd1[0],hd1[1],40],hd1],
          'Pi rigid envelope retained. Its outward tail cannot be hidden in the remaining side gap. EVF plug mates upward after the board is installed.'),
-        ('usb_5v',200,3.0,6,6,4,([usb0,[-147,usb0[1],81],[-118.8,-19,81],[-118.8,-19,20.5],[-130.8,-19,20.5],[-130.8,-3.5,20.5],[-130.8,-3.5,67],usb1] if length<180 else [usb0,[-147,usb0[1],81],[-134,usb0[1],81],[-134,usb1[1],67],usb1]),
-         'Correct upper USB2 port; full plug+bend envelope retained. Proposed +Z cable exit from its top face requires actual harness inspection; no source-proven wire exit exists. Compact nominal centerline passes below the new rear post with0.350mm cylindrical clearance and0.300mm to the FPS junction. Connector-root directions remain hypotheses. Diode + PH pair and all unmodeled stock need a separate full straight/loop model; a volume reservation is not service proof.'),
+        ('usb_5v',200,USB5V_OD,USB5V_RADIUS,USB5V_TAILS[0],USB5V_TAILS[1],([usb0,[-147,usb0[1],81],[-118.8,-19,81],[-118.8,-19,20.5],[-130.8,-19,20.5],[-130.8,-3.5,20.5],[-130.8,-3.5,67],usb1] if length<180 else [usb0,[-147,usb0[1],81],[-134,usb0[1],81],[-134,usb1[1],67],usb1]),
+         'Superseded upper-port study knots (kept only as the definition placeholder); the installed EVF feed is '
+         'usb_5v_feed() for the selected compact scope, with the diode sleeve, option-C reserve and RCY pair placed as '
+         'feed volumes (review VN-60 / FP-11f).'),
         ('oled_flex',50,.20,1,2,2,[[-146.07+e,evf_shift_y,84.8],[-146.07+e,evf_shift_y,88],[-146.07+e,9+evf_shift_y,88],[-140.4+e,9+evf_shift_y,88],[-140.4+e,-2.5+evf_shift_y,88]],
          'Native OLED/driver assembly only translated as a rigid optical module; 12.4 mm ribbon cannot be treated as round wire.'),
         ('qt',250,3.2,6.4,3,4,[[qt[0],-23.4,25],[qt[0],-23.4,78],[-84,-23.4,78],[-84,11.8+panel_shift_y,77],[-72,11.8+panel_shift_y,77]],
@@ -646,10 +787,25 @@ def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inne
     routes=[]
     for cid,length_mm,od,r,tail0,tail1,pts,note in definitions:
         curve=rounded_path(pts,r,tail0,tail1)
-        if cid in ('fpc','usb_5v'):
-            note=('Official intact200mm camera cable, full16mm conservative width. Old centerline/root and remainder are superseded; both real inserted/free-flex frames and full material placement remain open.' if cid=='fpc' else 'Adafruit4448 cuttable300mm catalog/325+/-10 supplier donor plus Pololu2180/2181 100mm tails and diode. The old200mm value is an obsolete allocation, not a required intact stock length. Installed cuts, full32x7x7 provisional junction placement and actual overmold/exit remain TBD.')
+        feed=None
+        if cid=='usb_5v':
+            # H1 (VN-26 routes, VN-60 / FP-11f): installed full-core route for the selected compact scope only.
+            if (length,stack_y,evf_shift_y,panel_shift_y)==(158,22.2,11,3):
+                try:
+                    curve,feed=usb_5v_feed(byid['p_usb_pi']['port_center'],usb1)
+                except ValueError as exc:
+                    curve=dict(curve,sampled_centerline=[],rounded_length_mm=None,errors=['feed volume placement: %s' % exc],status='blocked')
+                note=('Adafruit4448 cuttable donor (catalog300mm / supplier325+/-10) plus Pololu2180/2181 100mm tails and '
+                      'the 1N5817 splice, cut to the installed route: GPIO-side USB2 port face -> -Y channel (splice zone) -> '
+                      'RCY leg -> rear climb -> EVF 5 V pad point of record from above. Feed volumes, head length and pad '
+                      'gates are in feed; the old 200mm value is an allocation, not a required intact stock length.')
+            else:
+                curve=dict(knots=None,sampled_centerline=[],rounded_length_mm=None,raw_length_mm=None,centerline_radius_mm=r,first_straight_min_mm=tail0,last_straight_min_mm=tail1,
+                    errors=['Installed EVF feed route solved for the selected compact scope (length158, stackY22.2, EVFshift11, panelshift3) only; other scopes need their own route solve'],status='blocked')
+        if cid=='fpc':
+            note=('Official intact200mm camera cable, full16mm conservative width. Old centerline/root and remainder are superseded; both real inserted/free-flex frames and full material placement remain open.')
             curve=dict(knots=None,sampled_centerline=[],rounded_length_mm=None,raw_length_mm=None,centerline_radius_mm=r,first_straight_min_mm=tail0,last_straight_min_mm=tail1,
-                errors=['Superseded root/path: source-registered CSI departs -Y and needs the camera inserted/free-flex datum; EVF USB uses corrected lower USB2 and a cuttable Adafruit4448/Pololu feed with unmeasured overmold exit. No current full installed route.'],status='blocked')
+                errors=['Superseded root/path: source-registered CSI departs -Y and needs the camera inserted/free-flex datum. No current full installed route (the camera FPC of record is the signal_routes fpc centreline).'],status='blocked')
         if cid in ('pigtail','pack_lead'):
             curve=dict(knots=None,sampled_centerline=[],rounded_length_mm=None,raw_length_mm=None,centerline_radius_mm=r,first_straight_min_mm=tail0,last_straight_min_mm=tail1,errors=['Installed full-core route incomplete; use source-bounded local arcs in xt30_local_exits and pigtail_inline_fuse, not the retired horizontal-junction knots'],status='blocked')
         if cid=='hdmi' and hdmi_assembly.startswith('adafruit'):
@@ -665,6 +821,8 @@ def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inne
                            ends=list(L.CABLE_ENDS.get(cid,('pi5','power_switch'))),length_mm=length_mm,od_mm=od,
                            curve=curve,branched_installed_length_mm=route_len,slack_mm=slack,note=note,status='blocked' if curve['errors'] or (slack is not None and slack<0) else 'unqualified-path',
                            endpoint_gate='Verify wire-root position, connector strain relief, minimum static and repeated-service bend radii on actual purchased harness.'))
+        if feed:
+            routes[-1].update(feed=feed,selected_source='routes.py:usb_5v_feed')
     for pp in plugs:
         if pp.get('rigid') and pp.get('box'):obs.append(dict(id='connector_'+pp['id'],box=pp['box']))
     ribbon=None;ribbon_premate=None;ribbon_unplugged=None
@@ -730,12 +888,21 @@ def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inne
                          errors=['Actual solder-root transition is length-only; no geometric pad-joint or flexible-service qualification'],status='blocked-root-and-service-gates')
         rr['branched_installed_length_mm']=270;rr['slack_mm']=0;rr['status']='blocked-root-thermal-and-flexible-service-gates';rr['selected_source']='power_routes.py:cores'
         rr['stock_accounting_warning']='270 mm finished path per polarity is fully allocated, including the positive20mm fuse/joint zone. This does not prove270mm flexible copper plus a fuse fits. The unmeasured root allowance is not a geometric transition, deployable slack, or a free tolerance allowance.'
+        # H1 (VN-26 routes): installed pack lead to the posed XT30 male face, selected compact scope only.
+        if (length,stack_y,evf_shift_y,panel_shift_y)==(158,22.2,11,3):
+            rr=route_by_id['pack_lead'];pc,stubs,sweep=pack_lead_route(selected_power)
+            rr.update(curve=pc,stubs=stubs,sweep_points=sweep,branched_installed_length_mm=pc['rounded_length_mm'],
+                      slack_mm=None if pc['rounded_length_mm'] is None else rr['length_mm']-pc['rounded_length_mm'],
+                      status='blocked' if pc['errors'] else 'unqualified-path',selected_source='routes.py:pack_lead_route',
+                      note='Existing 60 mm 18 AWG pack lead (D2-13): pack top +X end (MP-PACK) to the posed XT30 male face; the '
+                           'two cores fan to the 5 mm contact pitch within PACK_MERGE_MM of the face (stubs). Rigid solder-tail '
+                           'length and the BMS exit are MP-PACK.')
     # Separate stow reservations; spaces are proposed, not a fill-fraction waiver.
     # Signal lanes are above the Pi in negative Y, Z=72..76. Stow is above them.
     reservations=[
         dict(id='fpc_fold',cables=['fpc'],box=B(-118.5,-101.9,-23.2,-6.7,78.2,88.5),fill_max=.20,method='flat accordion, 1 mm inner-radius minimum only if cable maker permits'),
         dict(id='hdmi_stow',cables=['hdmi'],box=B(-128,-90,3,14,90.8,97),fill_max=.20,method='single-layer elongated loop; 6 mm centerline bend radius'),
-        dict(id='usb_stow',cables=['usb_5v'],box=B(-128,-86,-24,0,88.5,96.5),fill_max=.20,method='one or two separated XY loop layers; diode/PH pair remains straight; rear panel boss atX-133 excludes the earlier rear portion'),
+        dict(id='usb_stow',cables=['usb_5v'],box=B(-128,-86,-24,0,88.5,96.5),fill_max=.20,method='proposed spare stow only: the cut-to-length EVF feed has its diode sleeve, option-C reserve and RCY pair placed on the installed usb_5v route (feed volumes); rear panel boss atX-133 excludes the earlier rear portion'),
         dict(id='controls_stow',cables=['qt','fps_lead'],box=B(-97.5,-73,11,24.7,64.7,94.3),fill_max=.20,method='separate tied loops; do not span the panel closure or encoder snap land'),
         dict(id='run_stow',cables=['run_lead'],box=B(-42,-30,-20,5,90,96),fill_max=.20,method='two-wire loop; outside camera/camera-catch'),
         dict(id='grip_stow',cables=['pigtail','pack_lead'],box=copy.deepcopy(L.KEEPOUTS['ko_xt30']),fill_max=.20,method='fold above XT30 pair and pack; fuse sleeve remains straight'),

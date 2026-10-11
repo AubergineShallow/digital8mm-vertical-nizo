@@ -324,9 +324,20 @@ class CheckScopeReport(unittest.TestCase):
         self.assertEqual(len([c for c in ev if c['id'] != 'control_without_panel']), 8)
         self.assertEqual({c['id']: c for c in ev}['control_without_panel']['status'], 'pass')
         st = {c['id']: c for c in r['checks'] if c['category'] == 'stack_retention'}['vertical_carrier']
-        self.assertEqual(st['status'], 'fail')          # expected until the CAD phase adds a locating feature
+        # FP-11c (VN-38): was 'fail' by design until the CAD phase added the third locating feature; it now passes only
+        # with every declared locator credited from the bound STEPs (seat contact, stop gap in r7's 0.1-0.3 window)
+        self.assertEqual(st['status'], 'pass')
+        self.assertTrue(st['locators'] and all(l['credited'] for l in st['locators']))
+        self.assertGreater(st['com_inside_hull_margin_mm'], 0.0)
+        self.assertTrue(st['lift_bounded'])
         hot = {c['id']: c for c in r['checks'] if c['category'] == 'area_parity'}['hot_branch_series']
-        self.assertLess(hot['effective_sum_mm2'], hot['wall_ports_mm2'])
+        # FP-11a (VN-37): the trial1 post-grid tub fails by 0.6 mm2 (509.4 < 510); the trial2 ribbed tub must pass.
+        # The expectation follows the plenum revision the bound export was built from (manifest ventilation.revision).
+        if 'trial2' in MANS[VAR].get('ventilation', {}).get('revision', ''):
+            self.assertEqual(hot['status'], 'pass', hot)
+            self.assertGreaterEqual(hot['effective_sum_mm2'], hot['wall_ports_mm2'])
+        else:
+            self.assertLess(hot['effective_sum_mm2'], hot['wall_ports_mm2'])
         drift = {c['id']: c for c in r['checks'] if c['category'] == 'flow_network'}['baseline_drift']
         self.assertIn(drift['status'], ('pass', 'fail'))     # a computed gate, not info (VN-36)
 

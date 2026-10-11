@@ -52,6 +52,11 @@ STATUS_GATES = [  # (report, json path, required value)
  ('out/compact-kowa_lm6hc/shadow-plenum-checks.json', 'summary.fail', 0),
  ('out/compact-kowa_lm6hc/shadow-outlet-context-checks.json', 'summary.fail', 0),
  ('out/compact-kowa_lm6hc/csi-source-tool-checks.json', 'declared_rigid_reservation_clear', True)]
+# FP-13 (review VN-27): every other variant carries its own full main audit and print checks, bound to its own
+# manifest and the current verifier, with the same failure rules as the selected variant (rigid: only the shared
+# pi5/cooler witness; print: exactly the accepted, empty, set). A missing report is a failure, never a skip.
+VARIANT_AUDITS = ('compact-fujinon_hf6xa', 'original-kowa_lm6hc')
+VARIANT_REPORTS = (('verification.json', 'verify_candidate.py'), ('print-checks.json', 'verify_print_checks.py'))
 
 
 def sha(p):
@@ -127,6 +132,21 @@ def reconcile(root=P):
         F += [list(x) for x in ER.print_failure_findings(read(D / 'print-checks.json'))]
     with gate('harness'):  # FP-10: harness failures are findings unless accepted in ER.EXPECTED_HARNESS_FAILURES (kept empty)
         F += [list(x) for x in ER.harness_failure_findings(read(D / 'harness-checks.json'))]
+    variant_rows = []
+    for v in VARIANT_AUDITS:  # FP-13 (VN-27)
+        vd = root / 'out' / v
+        with gate('variant_audit:' + v):
+            vmh = sha(vd / 'manifest.json')
+            for name, verifier in VARIANT_REPORTS:
+                rel = 'out/%s/%s' % (v, name)
+                j = read(vd / name)
+                assert j.get('manifest_sha256') == vmh, ('Different mechanical snapshot', rel, str(j.get('manifest_sha256'))[:8])
+                assert j.get('verification_source_sha256') == sha(root / verifier), ('Different verifier', rel, verifier)
+                variant_rows.append(dict(variant=v, report=rel, report_sha256=sha(vd / name), verification_source=verifier,
+                                         summary=j.get('summary'), physical_qualified=False))
+            vfails = sorted(q['category'] + '/' + q['id'] for q in read(vd / 'verification.json')['checks'] if q['status'] == 'fail')
+            assert vfails == ['interference/pi5/cooler'], ('New active rigid fault', v, vfails)
+            F += [[x[0], v] + list(x[1:]) for x in ER.print_failure_findings(read(vd / 'print-checks.json'))]
     for report, path, want in STATUS_GATES:
         with gate('status'):
             got = dig(read(root / report), path)
@@ -143,7 +163,7 @@ def reconcile(root=P):
              'Complete camera FPC, USB-feed wire roots/stow and combined flexible service remain unresolved.']
     result = dict(mechanical_manifest_sha256=mh, reconciler_sha256=sha(Path(__file__)),
                   rules_sha256=sha(Path(ER.__file__)), generated_utc=ER.UNRECORDED,
-                  source_and_export_hashes_verified=not F, reports=rows, active_rigid_failures=fails,
+                  source_and_export_hashes_verified=not F, reports=rows, variant_audits=variant_rows, active_rigid_failures=fails,
                   accepted_info_rows=[list(x) for x in accepted_info],
                   accepted_print_failures=ER.EXPECTED_PRINT_FAILURES,
                   declared_historical_in_selected_folder=sorted(k for k in ER.DECLARED_HISTORICAL if k.startswith('out/compact-kowa_lm6hc/')),

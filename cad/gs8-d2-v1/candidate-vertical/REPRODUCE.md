@@ -4,16 +4,42 @@ This is a frozen shadow-plenum review candidate, not a fabrication, energization
 
 Work from the repository root. Use the pinned Python 3.12.14 / CadQuery 2.6.1 environment. `python3 tools/bootstrap_cad.py` recreates `.venv-cad` from the pinned dependency lock. Do not substitute an arbitrary CadQuery version. Run CAD and render jobs serially through `run_locked.py`; do not nest the lock wrapper inside the batch runners.
 
+## Windows and POSIX (review VN-12, VN-18)
+
+- **Clone.** The longest repository path is 132 characters ([REPO-INDEX.md](REPO-INDEX.md)). On Windows either clone into a folder whose own path is at most 120 characters or run `git config --global core.longpaths true` before cloning. `.gitattributes` (`* -text`) keeps every file byte-exact, whatever `core.autocrlf` says.
+- **Interpreter.** POSIX: `.venv-cad/bin/python`. Windows (PowerShell): `.venv-cad\Scripts\python.exe`. Below, `python3 X` means `.venv-cad\Scripts\python.exe X` on Windows, and `.venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- X` means `.venv-cad\Scripts\python.exe cad\gs8-d2-v1\run_locked.py -- X`. Paths with `/` work in both shells.
+- **Packages.** The pinned base lock plus the candidate notes in [requirements-candidate-lock.txt](requirements-candidate-lock.txt): `pypdf` (structural PDF page check) and `scipy` (historical `screen_fps_*.py` studies) are optional and not in the reference environment.
+- **Text encoding.** The candidate scripts read and write UTF-8 with LF through `cv_io.py` on every platform; the batch runners also pass `PYTHONUTF8=1` to their children. The three restored coupon reproducers in `structural-review/` are byte-frozen: run them with `python -X utf8` on Windows.
+- **POSIX-only steps and their Windows form.** The guide builder compiles `guide/raster.cpp` with a 64-bit `g++` at import; on Windows run it through [guide/run_with_numpy_raster.py](guide/run_with_numpy_raster.py) (pure numpy, tested bit-identical to `raster.cpp`). Blender renders need `blender` on the PATH on any platform; render receipts now record the Blender version (the 9ced753 renders do not).
+
+Windows inspect commands (PowerShell, repository root):
+
+```powershell
+.venv-cad\Scripts\python.exe cad/gs8-d2-v1/candidate-vertical/make_bom_vertical.py --check
+.venv-cad\Scripts\python.exe cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py --check
+.venv-cad\Scripts\python.exe cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py --check
+.venv-cad\Scripts\python.exe cad/gs8-d2-v1/candidate-vertical/check_links_vertical.py
+.venv-cad\Scripts\python.exe cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_repo_hygiene.py
+```
+
 ## Inspect the supplied snapshot
 
 These commands do not rebuild geometry and write nothing. The BOM and structural `--check` options verify their generated outputs. The documentation audit and the reconciler are read-only by default (review FP-04): they list every failed binding, missing link, stale selected report, foreign-manifest report in the selected folder and repeated figure that differs from its source row, and exit 0 (clean), 3 (docs audit only: nothing but rebuildable git-ignored caches missing) or 1 (any failure). `--check` also fails when the committed `out/review-docs-audit.json` or `current-review-evidence.json` differs from a fresh run; `--out PATH` writes the result elsewhere; `--write` rewrites the committed file. They do not establish physical qualification.
 
 ```sh
 python3 cad/gs8-d2-v1/candidate-vertical/make_bom_vertical.py --check
+python3 cad/gs8-d2-v1/candidate-vertical/make_wiring_vertical.py --check
 python3 cad/gs8-d2-v1/candidate-vertical/structural-review/update_concealed_vent_structure.py --check
 python3 cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py --check
 python3 cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py --check
+python3 cad/gs8-d2-v1/candidate-vertical/make_coverage_vertical.py --check
+python3 cad/gs8-d2-v1/candidate-vertical/make_gates_vertical.py --check
+python3 cad/gs8-d2-v1/candidate-vertical/make_repo_index.py --check
+python3 cad/gs8-d2-v1/candidate-vertical/check_links_vertical.py
+python3 cad/gs8-d2-v1/candidate-vertical/structural-review/verify_reference_binding.py
 ```
+
+The last five (review FP-15) check the generated coverage table, the r7 gate and BX map, the repository index, every relative Markdown link in the repository (frozen copies are allowed only with their banner) and the re-derivable fields of the structural base JSON.
 
 ## Bound caches that git does not carry
 
@@ -40,6 +66,9 @@ Use a separate checkout or copy to retain the supplied review snapshot, or pass 
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/run_shadow_checks.py
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/export_shadow_alternatives.py
 python3 cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py --write
+python3 cad/gs8-d2-v1/candidate-vertical/make_coverage_vertical.py --write
+python3 cad/gs8-d2-v1/candidate-vertical/make_gates_vertical.py --write
+python3 cad/gs8-d2-v1/candidate-vertical/make_repo_index.py --write
 python3 cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py --write
 ```
 
@@ -74,6 +103,12 @@ For the supplied unchanged snapshot only:
 .venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/guide/package_concealed_guide.py
 ```
 
+On Windows (no 64-bit `g++`), the same build with the numpy rasterizer; it also writes `guide/out-concealed-vents/raster-backend.json`:
+
+```powershell
+.venv-cad\Scripts\python.exe cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/guide/run_with_numpy_raster.py -- --manifest-sha256 <nominated manifest SHA-256>
+```
+
 After a rebuild, nominate the exact new manifest SHA-256 instead, freeze all guide inputs, and visually inspect every rendered page before packaging. The guide receipt guards sources, reports, PDF and page images; it is not a physical release. The new structural PDF and source remain separate from the unchanged historical structural report.
 
-Files named `probe*` and rejected routing/ventilation studies are development history. Some require recorded temporary inputs. Their presence does not make them selected evidence. All 56 inherited physical gates, M1, actual cooler registration, complete FPC/EVF feed, whole flexible service, bridge/cleanout and thermal/occlusion holds remain open. Install the OS microSD on the bench before carrier insertion, or use the documented panel-off service; closed-panel withdrawal remains rejected.
+Files named `probe*` and rejected routing/ventilation studies are development history ([REPO-INDEX.md](REPO-INDEX.md) lists the selected pipeline apart from them). Some require recorded temporary inputs. Their presence does not make them selected evidence. Every r7 physical gate that still applies ([GATES-VERTICAL.md](GATES-VERTICAL.md)), M1, actual cooler registration, complete FPC/EVF feed, whole flexible service, bridge/cleanout and thermal/occlusion holds remain open. Install the OS microSD on the bench before carrier insertion, or use the documented panel-off service; closed-panel withdrawal remains rejected.

@@ -8,11 +8,12 @@ Categories (all manifest-bound; failures are reported, never waived; exit 1 when
   hdmi_face          VN-35  conductor-face normal carried along the selected HDMI route; head contact sides HOLD
   evf_restraint      VN-34  r7 checks.check_evf_restraint, unchanged, on the candidate EVF (8 rows) + control
   evf_face           VN-34  EVF axis/flange r7 vs candidate side by side and eye/face no-regression screens
-  stack_retention    VN-38  r7 check_stack_retention rules on the vertical carrier (r7 _hull2/_inside_margin/_max_lift)
+  stack_retention    VN-38  r7 check_stack_retention rules on the vertical carrier (r7 _hull2/_inside_margin/_max_lift);
+                            declared locators credited only from the bound STEPs (check_scope.locator_point, FP-11c)
   post_root_bending  VN-38  carrier-post root bending screen, post section measured from the saved tub STEP
 Writes out/<variant>/check-scope-checks.json (or --out).
 """
-from cv_io import read_text, write_text
+from cv_io import read_text, relpath_posix, write_text
 import argparse, hashlib, json, math, sys
 from pathlib import Path
 
@@ -71,7 +72,7 @@ def add(cat, ident, ok=None, **kw):
 
 
 def bind(p):
-    inputs[Path(p).relative_to(CV.parent).as_posix() if Path(p).is_relative_to(CV.parent) else str(p)] = sha(p)
+    inputs[relpath_posix(p, CV.parent)] = sha(p)  # VN-10: relative POSIX key even outside cad/gs8-d2-v1 (was str(p), absolute)
 
 
 _step_cache = {}
@@ -286,14 +287,24 @@ if 'stack_retention' in cats or 'post_root_bending' in cats:
         holes = [model.rp((hx, hy, 6)) for hx, hy in model.L.PI['holes']]
         cb = mrows['carrier']['bbox_mm']
         targets = [(h[0], h[2]) for h in holes] + [(cb[0], cb[4]), (cb[0], cb[5]), (cb[1], cb[4]), (cb[1], cb[5])]
-        rs = CS.stack_retention([((x, z), 0.0) for x, z in model.CARRIER_SCREWS], (com[0], com[2]), targets, CK,
+        # FP-11c (VN-38): declared printed locating features (model.CARRIER_LOCATORS) are credited only from the bound
+        # STEPs (CS.locator_point: seat touching on -Y, stop gap inside r7's hood-stop window on +Y), as r7 reads its
+        # keeper and hood stop from layout and measures the stop gap. An uncredited locator fails the row.
+        locs = [CS.locator_point(d, step('carrier'), step(d['seat_part']), step(d['stop_part']))
+                for d in getattr(model, 'CARRIER_LOCATORS', [])]
+        ret = [((x, z), 0.0) for x, z in model.CARRIER_SCREWS] + [((l['at'][0], l['at'][1]), l['stop_gap_mm'])
+                                                                  for l in locs if l['credited']]
+        rs = CS.stack_retention(ret, (com[0], com[2]), targets, CK,
                                 bearing_r=min(p['equivalent_d_mm'] for p in posts) / 2)
-        add('stack_retention', 'vertical_carrier', rs.pop('passed'), **rs, stack=STACK, stack_mass_g=cm,
-            stack_com_mm=list(com), declared_retention='model.CARRIER_SCREWS (two PT screws clamping the carrier ears '
-                                                       'onto the tub posts); no keeper, hood stop or locating feature',
+        ok = rs.pop('passed') and all(l['credited'] for l in locs)
+        add('stack_retention', 'vertical_carrier', ok, **rs, stack=STACK, stack_mass_g=cm,
+            stack_com_mm=list(com), locators=locs,
+            declared_retention='model.CARRIER_SCREWS (two PT screws clamping the carrier ears onto the tub posts, gap 0) '
+                               'plus each model.CARRIER_LOCATORS point credited from the STEPs with its measured stop gap',
             rule='r7 check_stack_retention: CoM inside the hull of the retention points (margin > 0) and a bounded '
-                 'rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited.',
-            remedy='CAD phase: a third printed locating feature (tongue or slot) with no new screw (register VN-38)')
+                 'rigid lift at every target (r7 LP, unchanged). Incidental contacts are not credited; a locator counts '
+                 'only with a measured seat contact and a stop gap in %s mm.' % list(CS.STOP_GAP_WINDOW),
+            remedy=None if ok else 'CAD: every declared locator must be credited and the CoM inside the hull (VN-38)')
     if 'post_root_bending' in cats:
         sup = rd(STRUCT_OUT)
         bind(STRUCT_OUT)

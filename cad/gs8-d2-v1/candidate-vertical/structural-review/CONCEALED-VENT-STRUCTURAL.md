@@ -6,36 +6,36 @@ This supplement updates mass and quasi-static load sensitivity for the selected 
 
 ## Exact scope
 
-Current manifest: `53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77`, built 2026-10-09T14:58:12Z. Frozen export18 reference: `c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76`. The reproducible calculation is `update_concealed_vent_structure.py`; exact inputs and unrounded results are in `concealed-vent-structural.json` and the copied reference `reference-export18-structural-binding.json`.
+Current manifest: `ec60b42dee2487c17f67aab9561451d146ab137fdd88cc3dcf20a39a96917715`, built unrecorded (deterministic build, FP-03). Frozen export18 reference: `c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76`. The reproducible calculation is `update_concealed_vent_structure.py`; exact inputs and unrounded results are in `concealed-vent-structural.json` and the copied reference `reference-export18-structural-binding.json`.
 
-Only tub and panel manifest rows change; all 43 other rows are identical. This checks metadata, not occupied-solid equivalence. The retained carrier, grip and J4 sections are conditional inputs to the calculation and must stay tied to the independent source/STEP preservation checks. The former whole-tub and whole-panel zero-difference bindings are historical and do not apply to this revision. The new integral skin, cold/hot plenums, divider, support posts, CSI sleeve and panel surface are outside those old whole-part claims.
+Only the carrier, tub, panel manifest rows change; all 42 other rows are identical. This checks metadata, not occupied-solid equivalence. The retained carrier, grip and J4 sections are conditional inputs to the calculation and must stay tied to the independent source/STEP preservation checks. The former whole-tub and whole-panel zero-difference bindings are historical and do not apply to this revision. The new integral skin, cold/hot plenums, divider, support posts, CSI sleeve and panel surface are outside those old whole-part claims.
 
 ## Mass and applied loads
 
 | Quantity | Reviewed export18 | Concealed candidate |
 |---|---:|---:|
-| Estimated complete Kowa mass | 831.38 g | 864.10 g |
-| Tub proxy mass | 122.58 g | 154.59 g |
-| Panel proxy mass | 37.41 g | 38.12 g |
-| Upper-body free-body mass | 640.43 g | 673.15 g |
-| Upper-body 5g floor moment | 1.7201 N·m | 1.8031 N·m |
-| Conservative grip 5g moment | 4.4751 N·m | 4.6449 N·m |
+| Estimated complete Kowa mass | 831.38 g | 876.14 g |
+| Tub proxy mass | 122.58 g | 161.85 g |
+| Panel proxy mass | 37.41 g | 38.27 g |
+| Upper-body free-body mass | 640.43 g | 685.19 g |
+| Upper-body 5g floor moment | 1.7201 N·m | 1.8287 N·m |
+| Conservative grip 5g moment | 4.4751 N·m | 4.7011 N·m |
 
-The net modeled mass increase is 32.72 g (3.94%). Current complete CoM is (-46.37, 0.92, 29.90) mm. Core is 158.0 × 63.6 × 100.0 mm. Manifest mesh-derived complete bounds are 248.83 × 72.82 × 216.82 mm; these are not fresh untessellated STEP measurements or a measured camera envelope.
+The net modeled mass increase is 44.76 g (5.38%). Current complete CoM is (-46.72, 0.78, 30.09) mm. Core is 158.0 × 63.6 × 100.0 mm. Manifest mesh-derived complete bounds are 248.83 × 72.82 × 216.82 mm; these are not fresh untessellated STEP measurements or a measured camera envelope.
 
 Tub/panel mass uses the inherited ASA density 1.07 g/cm³ and empirical 0.85 mass factor. These are not slicer measurements or stiffness multipliers. The legacy 12 g connector/fuse/pigtail lump has an unresolved real distribution; other harness masses remain omitted. Weigh the printed parts, loaded body and actual harness before setting final qualification loads.
 
-The changed first moment is transferred from the complete manifests into the old upper free body: new upper first moment = old upper first moment + (new complete mass × new complete CoM − old complete mass × old complete CoM). This is valid only while the lower excluded parts remain unchanged. The 5g floor moment uses upper mass only, avoiding false credit from the low battery as a counterbalance across J4. Grip screening conservatively places the whole new assembly mass at upper-body Z54.63 with hand reaction Z−55. The 1g/3g/5g cases are quasi-static handling sensitivities, not drop or life ratings.
+The changed first moment is transferred from the complete manifests into the old upper free body: new upper first moment = old upper first moment + (new complete mass × new complete CoM − old complete mass × old complete CoM). This is valid only while the lower excluded parts remain unchanged. The 5g floor moment uses upper mass only, avoiding false credit from the low battery as a counterbalance across J4. Grip screening conservatively places the whole new assembly mass at upper-body Z54.43 with hand reaction Z−55. The 1g/3g/5g cases are quasi-static handling sensitivities, not drop or life ratings.
 
 ## Retained sections under changed load
 
-With the same equal tongue sharing and local strip assumptions, J4 nominal lip/head stresses become 8.92/9.86 MPa, a 4.82% increase. The 30–70% station-sharing sensitivity multiplies these by 0.6–1.4. Joint contact, local notches, anisotropy, wear and creep are not solved. Grip gross nominal stresses become 1.58/1.68 MPa, a 3.79% increase; tub/floor compliance and joint slip remain excluded.
+With the same equal tongue sharing and local strip assumptions, J4 nominal lip/head stresses become 9.05/10.00 MPa, a 6.31% increase. The 30–70% station-sharing sensitivity multiplies these by 0.6–1.4. Joint contact, local notches, anisotropy, wear and creep are not solved. Grip gross nominal stresses become 1.60/1.70 MPa, a 5.05% increase; tub/floor compliance and joint slip remain excluded.
 
-The carrier payload remains 122.60 g because the added material belongs to the fixed tub/panel. Its retained reinforced-arm 5g, half-reaction screen remains 3.39 MPa and 0.399 mm at assumed E=1600 MPa. This does not qualify the arm, boss roots, screws or service pulls. Lens/collar mass, preload cautions, FPS-rest load cases and 100 N strap comparison inputs are unchanged; thermal and physical tests remain necessary.
+FP-11c thickened the carrier frame to its continuous 22.2 bed face and opened its counterbores, so the carrier payload rises by 4.63 g to 127.23 g. The reinforced arm section is unchanged, so its retained 5g, half-reaction screen scales with payload to 3.52 MPa and 0.414 mm (export18: 3.39 MPa, 0.399 mm) at assumed E=1600 MPa. This does not qualify the arm, boss roots, screws or service pulls. Lens/collar mass, preload cautions, FPS-rest load cases and 100 N strap comparison inputs are unchanged; thermal and physical tests remain necessary.
 
-The old 0.90 N·m per-front-joint coupon target does not cover the new equal-share floor moment plus the retained 12 g-at-Z100 wiring-location sensitivity. The calculated minimum is 0.9309 N·m; use 0.95 N·m as the rounded proposed equal-share screening target after fixture review. A 70% station reaction with that same wiring sensitivity would be 1.3033 N·m and is a separate unqualified case. Existing C08/C09 geometry can screen the retained local mating surfaces; it omits the rear joint, independent lock and full tub. Do not turn a local coupon result into a whole-camera rating.
+The old 0.90 N·m per-front-joint coupon target does not cover the new equal-share floor moment plus the retained 12 g-at-Z100 wiring-location sensitivity. The calculated minimum is 0.9437 N·m; use 0.95 N·m as the rounded proposed equal-share screening target after fixture review. A 70% station reaction with that same wiring sensitivity would be 1.3212 N·m and is a separate unqualified case. Existing C08/C09 geometry can screen the retained local mating surfaces; it omits the rear joint, independent lock and full tub. Do not turn a local coupon result into a whole-camera rating.
 
-Variant coverage (FP-12, VN-33). The same first-moment transfer applies to every exported variant whose lower grip/battery rows are unchanged; 3 of 3 qualify. Equal-share plus wiring targets: compact-fujinon_hf6xa 0.7641 N·m (70% share 1.0698 N·m); compact-kowa_lm6hc 0.9309 N·m (70% share 1.3033 N·m); original-kowa_lm6hc 0.9763 N·m (70% share 1.3669 N·m). The 0.95 N·m compact value covers compact-fujinon_hf6xa, compact-kowa_lm6hc and does not cover original-kowa_lm6hc. Use 1.00 N·m (governed by original-kowa_lm6hc) as the rounded equal-share screen that covers every variant. The 70% cases remain separate unqualified cases.
+Variant coverage (FP-12, VN-33). The same first-moment transfer applies to every exported variant whose lower grip/battery rows are unchanged; 3 of 3 qualify. Equal-share plus wiring targets: compact-fujinon_hf6xa 0.7641 N·m (70% share 1.0698 N·m); compact-kowa_lm6hc 0.9437 N·m (70% share 1.3212 N·m); original-kowa_lm6hc 0.9763 N·m (70% share 1.3669 N·m). The 0.95 N·m compact value covers compact-fujinon_hf6xa, compact-kowa_lm6hc and does not cover original-kowa_lm6hc. Use 1.00 N·m (governed by original-kowa_lm6hc) as the rounded equal-share screen that covers every variant. The 70% cases remain separate unqualified cases.
 
 ## Print material and thermal implications
 

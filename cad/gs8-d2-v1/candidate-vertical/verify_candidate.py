@@ -162,8 +162,9 @@ for pid,moving,fixed,knots in (paths if want('motion') else []):
  add('motion',pid,not hits,movers=moving,obstacles=fixed,exempt=motion_meta[pid]['exempt'],state_op=motion_meta[pid]['op'],phase=motion_meta[pid]['phase'],route=motion_meta[pid]['route'],step_mm=a.motion_step,samples=len(points),printed_obstacle_region_method='Exact Boolean crop to full translated-knot bounding envelope expanded0.01mm; all sample poses unchanged',worst_overlap_mm3=worst,first_hits=hits[:12],total_hits=len(hits))
 for r in (__import__('driver_checks').driver_rows(shapes,rows,avail) if want('driver') else []):add(**r)  # FP-07 (VN-23): r7 check_driver/service driver port on steps.driver_contexts(); driver_checks.py
 for r in (__import__('j7_collar_checks').j7_rows(shapes,rows,meta,a.variant) if want('j7') else []):add(**r)  # FP-08 (VN-24): r7 j7_float (full BFAR range), roll_catch, lens_support, collar gauge, lens_clamp (+ washer seat), inserts on the candidate; j7_collar_checks.py
+for r in (__import__('j4_slide_checks').rows(shapes) if want('clearance') else []):add(**r)  # C2 (FP-11e, VN-57): r7 check_clearances J4 zones + the J4 keyhole slide path on the bound tub/base_grip; j4_slide_checks.py
 # Basic load-bearing nominal dimensions; all tolerance/coupon checks remain physical gates.
-for ident,value,minv in [('panel_screw_bearing_land',2.1,1.6),('panel_head_radial_wall',1.7,1.6),('carrier_PT_head_radial_wall',1.6,1.6),('carrier_M25_head_radial_wall',1.85,1.6),('carrier_M25_thread_engagement',3.4,2.5),('collar_hoop_nominal',25-21.15,1.6),('collar_relief_nominal_after_bed_chamfer',math.hypot(22.8,6)-21.15-.6,1.6)]:
+for ident,value,minv in [('panel_screw_bearing_land',2.1,1.6),('panel_head_radial_wall',1.7,1.6),('carrier_PT_head_radial_wall',5.2-3.5,1.6),('carrier_M25_head_radial_wall',1.85,1.6),('carrier_M25_thread_engagement',3.4,2.5),('collar_hoop_nominal',25-21.15,1.6),('collar_relief_nominal_after_bed_chamfer',math.hypot(22.8,6)-21.15-.6,1.6)]:
  add('nominal_features',ident,None,value_mm=value,minimum_mm=minv,analytical_meets_rule=value+1e-8>=minv,note='Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result')
 # Actual saved-STEP material spans on named local load paths. These are sampled rays,
 # not a global minimum-wall or FEA qualification.
@@ -171,6 +172,7 @@ probes=[('panel_skin','panel',(-90,20,50),(-90,32,50)),
  ('panel_screw_bearing_land','panel',(-8.3,20,91.7),(-8.3,32,91.7)),
  ('carrier_M25_seat_stock','carrier',(-35.5,10,10.5),(-35.5,23,10.5)),
  ('carrier_PT_radial_wall','carrier',(-134,20,69),(-130.2,20,69)),
+ ('carrier_PT2_radial_wall','carrier',(-18,20,9),(-21.8,20,9)),  # FP-11c: second ear boss, +X side
  ('collar_equatorial_hoop','lens_collar',(5,20,60),(5,27,60)),
  ('tub_outer_skin','tub',(-110,-37,50),(-110,-33,50)),
  ('tub_original_inner_wall','tub',(-110,-29,50),(-110,-24,50)),

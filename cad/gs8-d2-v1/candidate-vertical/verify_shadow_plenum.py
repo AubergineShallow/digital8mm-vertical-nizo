@@ -193,12 +193,14 @@ added_in_cavity = s.intersect(cavity).cut(old.intersect(cavity)).Volume()
 record('no_added_material_in_original_cavity', added_in_cavity < 1e-5,
        overlap_mm3=added_in_cavity, boundary_exclusion_mm=.1)
 
+# Info row only (no pass/fail): describes the roof support of the checked source. FP-11a (trial2) replaced the
+# trial1 1.6 mm post grid with continuous ribs; the bridge rule itself is computed by verify_print_checks.py.
 record('print_and_thermal_limits', None,
-       post_count=len(VG.post_centres(length)), post_diameter_mm=1.6, nominal_grid_pitch_mm=8.,
-       diagonal_between_post_surface_extent_mm=8*math.sqrt(2)-1.6,
+       post_count=len(VG.post_centres(length)), roof_support=VG.support_summary(length),
        support_free_claim=False, cleanout_qualified=False, thermal_qualified=False,
-       limitations=['Discrete post tops do not prove continuous support for every first-roof bridge line.',
-                    'Port-avoidance exclusions make some local support spacing larger than the nominal grid.',
+       limitations=['Roof bridges run between continuous 1.2 mm ribs; the per-region single-direction bridge rule is '
+                    'computed by verify_print_checks.py (print_bridge_direction), not here, and no slicer result exists.',
+                    'Ribs, row breaks, mullions and lintels add flow resistance beyond the sampled planar sections.',
                     'No trapped support is permitted; slicer/bridge coupon and debris removal remain gates.',
                     'Cold/hot mouths may be occluded by hands and may recirculate externally.',
                     'CSI remains an unsealed direct bypass to the main enclosure.',

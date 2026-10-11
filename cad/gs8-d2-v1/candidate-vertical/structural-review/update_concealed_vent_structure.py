@@ -11,6 +11,24 @@ import argparse, hashlib, json, math
 P=Path(__file__).resolve().parent; C=P.parent
 
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+# FP-11c (VN-54/56/38): the carrier row may change too. It is upper-body (not a J4 lower row), so the first-moment
+# transfer below still holds; its mass change is carrier payload, so the retained reinforced-arm screen scales with it.
+ALLOWED_CHANGED_ROWS=('tub','panel','carrier')
+def check_changed(changed):
+    bad=sorted(set(changed)-set(ALLOWED_CHANGED_ROWS))
+    if bad: raise AssertionError(f'Unexpected changed components: {bad}')
+def carrier_section(oldloads,a,b,changed):
+    """Reinforced-arm 5g half-reaction screen at the current payload. Beam stress and deflection are linear in the
+    load and FP-11c leaves the reinforced arm section as it was (same arm polygon and 5 mm depth; the root pad r 4.8 ->
+    5.2 and the thicker frame rails only add material), so the export18 screen scales with payload."""
+    ref=oldloads['carrier_reinforced_at_integrated_payload']
+    if 'carrier' not in changed:
+        return {'payload_g':oldloads['carrier_payload_g'],'reinforced_screen':ref,'reason':'Carried inventory and all carrier/payload manifest rows unchanged; added tub/panel material is fixed housing, not carrier payload.'}
+    d=b['carrier']['mass_est_g']-a['carrier']['mass_est_g'];pay=oldloads['carrier_payload_g']+d;k=pay/oldloads['carrier_payload_g']
+    return {'payload_g':pay,'reference_payload_g':oldloads['carrier_payload_g'],'carrier_mass_delta_g':d,'payload_ratio':k,
+            'reinforced_screen':{'stress_MPa':ref['stress_MPa']*k,'deflection_mm':ref['deflection_mm']*k},
+            'reference_reinforced_screen':ref,'scaling':'linear in payload; reinforced arm section unchanged by FP-11c',
+            'reason':'FP-11c thickened the carrier frame to its 22.2 bed face (VN-54) and opened its counterbores (VN-56): the carrier mass change is carrier payload; the other carried rows are unchanged.'}
 def read(p): return json.loads(read_text(p))
 def make():
     oldpath=C/'history/reviewed-export18/manifest.json'; newpath=C/'out/compact-kowa_lm6hc/manifest.json'
@@ -20,7 +38,7 @@ def make():
     a={r['id']:r for r in old['rows']}; b={r['id']:r for r in new['rows']}
     assert a.keys()==b.keys(), 'Changed component inventory needs a new free body'
     changed=ER.changed_rows(a,b)  # numbers within max(ER.ABS_TOL, ER.REL_TOL*|x|); ids, kinds, sources and other strings exact
-    assert set(changed)<= {'tub','panel'}, f'Unexpected changed components: {changed}'
+    check_changed(changed)
     oldup=ref['integrated_upper_body_screen']; oldloads=ref['integrated_comparison_loads']
     delta_mass=new['mass_est_g']-old['mass_est_g']; um=oldup['estimated_mass_g']+delta_mass
     assert abs(sum(b[k]['mass_est_g']-a[k]['mass_est_g'] for k in changed)-delta_mass)<1e-7, 'Assembly mass delta does not match changed rows'
@@ -46,13 +64,13 @@ def make():
       'changed_manifest_rows':changed,'unchanged_manifest_rows_checked':len(a)-len(changed),
       'row_comparison':{'numeric_abs_tol':ER.ABS_TOL,'numeric_rel_tol':ER.REL_TOL,'rule':'numbers equal within max(abs_tol, rel_tol*max(|a|,|b|)); ids, kinds, sources, other strings and bools exact'},
       'inherited_gates':gates,
-      'geometry_scope':'All non-tub/panel manifest rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.',
+      'geometry_scope':('All non-tub/panel manifest rows are identical.' if 'carrier' not in changed else 'All manifest rows other than %s are identical.' % '/'.join(changed))+' This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.',
       'ventilation_report':{'path':rel_posix(vp,C), 'sha256':sha(vp) if vp.exists() else None,'same_manifest':vr.get('manifest_sha256')==h,'summary':vr.get('summary')},
       'assembly':{'reference_mass_g':old['mass_est_g'],'current_mass_g':new['mass_est_g'],'delta_mass_g':delta_mass,'delta_mass_percent':delta_mass/old['mass_est_g']*100,'com_mm':new['com_est_mm'],'manifest_mesh_dimensions_mm':new['complete_dimensions_mm'],'core_dimensions_mm':new['core_dimensions_mm']},
-      'printed':{k:{'reference_proxy_mass_g':a[k]['mass_est_g'],'current_proxy_mass_g':b[k]['mass_est_g'],'delta_volume_mm3':b[k]['volume_mm3']-a[k]['volume_mm3']} for k in ['tub','panel']},
+      'printed':{k:{'reference_proxy_mass_g':a[k]['mass_est_g'],'current_proxy_mass_g':b[k]['mass_est_g'],'delta_volume_mm3':b[k]['volume_mm3']-a[k]['volume_mm3']} for k in ['tub','panel']+(['carrier'] if 'carrier' in changed else [])},
       'upper_body':{'mass_g':um,'com_mm':uc,'force_5g_N':um/1000*g*5,'floor_moment_5g_Nmm':floor,'moment_change_percent':(floor_ratio-1)*100,'lip_stress_MPa':oldup['lip_stress_MPa']*floor_ratio,'head_wing_stress_MPa':oldup['head_wing_stress_MPa']*floor_ratio,'unequal_station_sharing_multiplier':[0.6,1.4]},
       'grip':{'force_5g_N':gf,'load_point_z_mm':uc[2],'hand_plane_z_mm':-55,'moment_Nmm':gm,'moment_change_percent':(grip_ratio-1)*100,'nominal_stress_x_y_MPa':[v*grip_ratio for v in oldloads['grip_nominal_stress_x_y_MPa']]},
-      'carrier':{'payload_g':oldloads['carrier_payload_g'],'reinforced_screen':oldloads['carrier_reinforced_at_integrated_payload'],'reason':'Carried inventory and all carrier/payload manifest rows unchanged; added tub/panel material is fixed housing, not carrier payload.'},
+      'carrier':carrier_section(oldloads,a,b,changed),
       'coupon_load':{'wiring_mass_sensitivity_g':12,'wiring_upper_height_mm':100,'added_5g_moment_Nmm':wire,'equal_share_plus_wiring_Nm':coupon,'proposed_rounded_equal_share_screen_Nm':proposed,'seventy_percent_share_plus_wiring_Nm':(floor+wire)*.7/1000,'old_0_90_Nm_covers_equal_share_plus_wiring':.9>=coupon,'all_variants_screen_Nm':env['all_variants_screen_Nm'],'governing_variant':env['governing_variant'],'compact_screen_covers':env['compact_screen_covers'],'per_variant':{v:{k:r[k] for k in ('valid','changed_rows','added_rows','upper_mass_g','floor_moment_5g_Nmm','equal_share_plus_wiring_Nm','seventy_percent_share_plus_wiring_Nm','proposed_rounded_equal_share_screen_Nm','manifest_sha256') if k in r} for v,r in per.items()},'warning':'Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified.'},
       'material_sensitivity':{'E_MPa':[800,1600,2400],'deflection_multiplier_relative_to_1600':[2,1,2/3],'normal_strength_scenarios_MPa':[5,10,20,30],'not_allowables':True,'notches_creep_fatigue_impact_excluded':True},
       'physical_qualified':False}
@@ -67,7 +85,7 @@ This supplement updates mass and quasi-static load sensitivity for the selected 
 
 Current manifest: `{h}`, built {new['built_utc']}. Frozen export18 reference: `{sha(oldpath)}`. The reproducible calculation is `update_concealed_vent_structure.py`; exact inputs and unrounded results are in `concealed-vent-structural.json` and the copied reference `reference-export18-structural-binding.json`.
 
-Only tub and panel manifest rows change; all {len(a)-len(changed)} other rows are identical. This checks metadata, not occupied-solid equivalence. The retained carrier, grip and J4 sections are conditional inputs to the calculation and must stay tied to the independent source/STEP preservation checks. The former whole-tub and whole-panel zero-difference bindings are historical and do not apply to this revision. The new integral skin, cold/hot plenums, divider, support posts, CSI sleeve and panel surface are outside those old whole-part claims.
+{'Only tub and panel manifest rows change' if 'carrier' not in changed else 'Only the ' + ', '.join(changed) + ' manifest rows change'}; all {len(a)-len(changed)} other rows are identical. This checks metadata, not occupied-solid equivalence. The retained carrier, grip and J4 sections are conditional inputs to the calculation and must stay tied to the independent source/STEP preservation checks. The former whole-tub and whole-panel zero-difference bindings are historical and do not apply to this revision. The new integral skin, cold/hot plenums, divider, support posts, CSI sleeve and panel surface are outside those old whole-part claims.
 
 ## Mass and applied loads
 
@@ -90,7 +108,7 @@ The changed first moment is transferred from the complete manifests into the old
 
 With the same equal tongue sharing and local strip assumptions, J4 nominal lip/head stresses become {up['lip_stress_MPa']:.2f}/{up['head_wing_stress_MPa']:.2f} MPa, a {up['moment_change_percent']:.2f}% increase. The 30–70% station-sharing sensitivity multiplies these by 0.6–1.4. Joint contact, local notches, anisotropy, wear and creep are not solved. Grip gross nominal stresses become {gr['nominal_stress_x_y_MPa'][0]:.2f}/{gr['nominal_stress_x_y_MPa'][1]:.2f} MPa, a {gr['moment_change_percent']:.2f}% increase; tub/floor compliance and joint slip remain excluded.
 
-The carrier payload remains {car['payload_g']:.2f} g because the added material belongs to the fixed tub/panel. Its retained reinforced-arm 5g, half-reaction screen remains {car['reinforced_screen']['stress_MPa']:.2f} MPa and {car['reinforced_screen']['deflection_mm']:.3f} mm at assumed E=1600 MPa. This does not qualify the arm, boss roots, screws or service pulls. Lens/collar mass, preload cautions, FPS-rest load cases and 100 N strap comparison inputs are unchanged; thermal and physical tests remain necessary.
+{('The carrier payload remains ' + format(car['payload_g'], '.2f') + ' g because the added material belongs to the fixed tub/panel. Its retained reinforced-arm 5g, half-reaction screen remains ' + format(car['reinforced_screen']['stress_MPa'], '.2f') + ' MPa and ' + format(car['reinforced_screen']['deflection_mm'], '.3f') + ' mm at assumed E=1600 MPa.') if 'carrier' not in changed else ('FP-11c thickened the carrier frame to its continuous 22.2 bed face and opened its counterbores, so the carrier payload rises by ' + format(car['carrier_mass_delta_g'], '.2f') + ' g to ' + format(car['payload_g'], '.2f') + ' g. The reinforced arm section is unchanged, so its retained 5g, half-reaction screen scales with payload to ' + format(car['reinforced_screen']['stress_MPa'], '.2f') + ' MPa and ' + format(car['reinforced_screen']['deflection_mm'], '.3f') + ' mm (export18: ' + format(car['reference_reinforced_screen']['stress_MPa'], '.2f') + ' MPa, ' + format(car['reference_reinforced_screen']['deflection_mm'], '.3f') + ' mm) at assumed E=1600 MPa.')} This does not qualify the arm, boss roots, screws or service pulls. Lens/collar mass, preload cautions, FPS-rest load cases and 100 N strap comparison inputs are unchanged; thermal and physical tests remain necessary.
 
 The old 0.90 N·m per-front-joint coupon target {'still covers' if cl['old_0_90_Nm_covers_equal_share_plus_wiring'] else 'does not cover'} the new equal-share floor moment plus the retained 12 g-at-Z100 wiring-location sensitivity. The calculated minimum is {cl['equal_share_plus_wiring_Nm']:.4f} N·m; use {cl['proposed_rounded_equal_share_screen_Nm']:.2f} N·m as the rounded proposed equal-share screening target after fixture review. A 70% station reaction with that same wiring sensitivity would be {cl['seventy_percent_share_plus_wiring_Nm']:.4f} N·m and is a separate unqualified case. Existing C08/C09 geometry can screen the retained local mating surfaces; it omits the rear joint, independent lock and full tub. Do not turn a local coupon result into a whole-camera rating.
 

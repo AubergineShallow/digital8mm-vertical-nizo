@@ -90,7 +90,9 @@ STEPS = [
        doc='After the print holds are closed: inspect the nominated parts and the selected lens\'s collar and '
            'centring gauge. Heat-set the 3 short tub inserts and the 1 long collar (pinch-lug) insert under the '
            'coupon-validated process, before any electronics are near. No insert may enter an optical, board or '
-           'wiring clearance.'),
+           'wiring clearance. Bond the printed +Y tab-catch stub into the tub (two-part epoxy V-68, default pending '
+           'user decision 16): tenon into the pocket under the roof, stub pressed toward the camera axis (-Y) onto '
+           'the pocket datum while it cures, no adhesive on the catch face (T2, VN-53).'),
     op('module_bench', 'B2', where='bench', group='module', adds=MODULE,
        connects=['fps_1824:pi', 'fps_1824:sw', 'evf_hdmi:pi', 'evf_5v:pi', 'qt:pi', 'j2:pi', 'fan:pi', 'fan:cooler',
                  'xt30:pigtail'],

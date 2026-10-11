@@ -18,20 +18,20 @@
     "sha256": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9"
   },
   "main_summary": {
-    "pass": 292,
-    "fail": 1,
-    "info": 18
+    "pass": 481,
+    "fail": 16,
+    "info": 32
   },
   "plenum_summary": {
-    "pass": 49,
-    "fail": 0,
+    "pass": 48,
+    "fail": 1,
     "info": 21
   },
   "physical_qualified": false,
   "open_inherited_gates": 56,
   "M1": "open",
   "prominent_holds": [
-    "Front-mouth frame is absent inZ5..40; first roof paths may require about35mm bridging. Slicer/expanded coupon and full-body cleanout are unqualified.",
+    "Trial2 plenum (FP-11a): roof ribs and mullions at all four edge mouths (cold mouths with 45 deg lintels) pass the computed single-direction bridge rule on the trial2 tub; the selected export predates trial2. Slicer, the all-four-mouth coupon and full-body cleanout are unqualified.",
     "Cooler/source overlap79.902671mm3 remains unresolved; measured cooler registration and real thermal tests are required.",
     "Exterior bay connectivity is not a sealed main-cavity cooler duct or a fan-flow/cooling result. Hand/strap/stand blockage requires separate tests.",
     "Complete camera FPC, USB-feed wire roots/stow and combined flexible service remain unresolved."
@@ -68,5 +68,123 @@
     "sha256": "13af0ab0e7d82f35b0d98b8304bb4c09971588259f1e5597a0f8d47a095927d1"
   },
   "historical_attempt": "history/shadow-first-check-run/review-check-run.json preserves the initial USB-head dependency failure. The separately executed current whole-assembly checker replaces missing standalone support extracts with mandatory integrated-tub coverage and canonical helper hashes; it does not invent a USB service path.",
-  "delivery_note": "Separate review identity. Publication state is not asserted by this status file. No fabrication, energization or complete-service release."
+  "delivery_note": "Separate review identity. Publication state is not asserted by this status file. No fabrication, energization or complete-service release.",
+  "check_coverage": {
+    "generator": "make_coverage_vertical.py",
+    "table": "COVERAGE-VERTICAL.md",
+    "by_kind": {
+      "main": {
+        "analytical/declared": {
+          "info": 9
+        },
+        "bookkeeping": {
+          "pass": 155,
+          "fail": 7
+        },
+        "coverage/state": {
+          "pass": 14,
+          "info": 6
+        },
+        "geometric": {
+          "fail": 9,
+          "pass": 312,
+          "info": 17
+        }
+      },
+      "print": {
+        "geometric": {
+          "pass": 80,
+          "fail": 65,
+          "info": 41
+        }
+      },
+      "mesh": {
+        "geometric": {
+          "pass": 10
+        }
+      },
+      "harness": {
+        "analytical/declared": {
+          "fail": 3,
+          "info": 2,
+          "pass": 1
+        },
+        "geometric": {
+          "pass": 32,
+          "info": 18,
+          "fail": 5
+        }
+      },
+      "check_scope": {
+        "analytical/declared": {
+          "pass": 6,
+          "info": 9
+        },
+        "geometric": {
+          "pass": 27,
+          "info": 5,
+          "fail": 1
+        }
+      },
+      "hdmi": {
+        "coverage/state": {
+          "pass": 4
+        },
+        "geometric": {
+          "pass": 12
+        }
+      },
+      "power_static": {
+        "geometric": {
+          "pass": 6
+        }
+      }
+    },
+    "r7_categories": {
+      "ported": [
+        "cable_routes",
+        "cable_stow",
+        "critical_features",
+        "driver",
+        "evf_restraint",
+        "header_housings",
+        "inserts",
+        "interference",
+        "j7_float",
+        "lead_access",
+        "lens_clamp",
+        "lens_support",
+        "mate_reach",
+        "print_overhang",
+        "roll_catch",
+        "service_driver",
+        "stack_retention",
+        "stl_mesh",
+        "sweeps",
+        "thin_wall",
+        "unclassified_thin_spots"
+      ],
+      "partly": [
+        "bed_fit",
+        "keepouts",
+        "mate_overlap",
+        "mate_paths"
+      ],
+      "report only": [
+        "mass_com"
+      ],
+      "not ported": [
+        "boss_geometry",
+        "clearance",
+        "contract",
+        "cots_containment",
+        "engrave_groove",
+        "handling",
+        "layout_self_check",
+        "print_modifiers",
+        "release_access",
+        "removals"
+      ]
+    }
+  }
 }

@@ -40,11 +40,16 @@ import cadquery as cq
 from OCP.BRepClass3d import BRepClass3d_SolidClassifier
 from OCP.gp import gp_Pnt
 from OCP.TopAbs import TopAbs_IN
+from OCP.gp import gp_Trsf
+from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform
 
 DEPENDENCIES = ['harness_rules.py', 'routes.py', 'signal_routes.py', 'power_routes.py', 'hdmi_routes.py', 'steps.py',
-                '../layout.py', 'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json']
+                '../layout.py', 'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json',
+                'out/fps-service-study/mated-carry-input.json']
 out = R.build()
 H = HR.collect(out, rows, R.L, ST)
+# H1: cable context for the installed-route sweeps (HDMI ribbon cells, header branches, FPS mated-carry harness)
+HR.neighbour_context(H, out, json.loads(read_text(P / 'out/fps-service-study/mated-carry-input.json')))
 shapes = {}
 
 
@@ -61,9 +66,22 @@ def box_solid(b):
     return cq.Solid.makeBox(b[1] - b[0], b[3] - b[2], b[5] - b[4], cq.Vector(b[0], b[2], b[4]))
 
 
+def obox_solid(spec):
+    """Oriented box (H1 feed volumes): dims along (axis, width, axis x width), centred on spec['center']."""
+    ax, wv = spec['axis'], spec['width']
+    hv = [ax[1] * wv[2] - ax[2] * wv[1], ax[2] * wv[0] - ax[0] * wv[2], ax[0] * wv[1] - ax[1] * wv[0]]
+    L_, W_, H_ = spec['dims']
+    o = [spec['center'][i] - ax[i] * L_ / 2 - wv[i] * W_ / 2 - hv[i] * H_ / 2 for i in range(3)]
+    t = gp_Trsf()
+    t.SetValues(ax[0], wv[0], hv[0], o[0], ax[1], wv[1], hv[1], o[1], ax[2], wv[2], hv[2], o[2])
+    return cq.Shape.cast(BRepBuilderAPI_Transform(cq.Solid.makeBox(L_, W_, H_).wrapped, t, True).Shape())
+
+
 def _pieces(spec, step=5.0):
     if spec['type'] == 'box':
         return [(spec['box'], box_solid(spec['box']))]
+    if spec['type'] == 'obox':
+        return [(spec['box'], obox_solid(spec))]
     p0, p1, d = spec['p0'], spec['p1'], spec['d']
     n = max(1, math.ceil(math.dist(p0, p1) / step))
     out_ = []
@@ -94,7 +112,7 @@ def exact_hits(spec, targets):
             if any(t['disp']):
                 s = s.translate(cq.Vector(*t['disp']))
             vol += solid.intersect(s).Volume()
-        if vol > HR.SWEEP_TOL:
+        if vol > spec.get('tol', HR.SWEEP_TOL):   # H1 installed / feed sweeps pass a strict tol
             hits.append(dict(obstacle=t['id'], volume_mm3=round(vol, 2), method='exact'))
     return hits
 

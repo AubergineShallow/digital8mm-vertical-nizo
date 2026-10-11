@@ -35,13 +35,16 @@ def print_pose(name,shape):
  sh=sh.translate(cq.Vector(*move));bb=sh.BoundingBox()
  print_poses[name]=dict(face_down=face,rotation_axis=ax,angle_deg=angle,translation_mm=move,footprint_mm=[bb.xlen,bb.ylen,bb.zlen],slicer_state='NOT RUN',physical_release=False)
  return sh
+# T2 (VN-53, FP-11b): the tub prints without its bonded +Y tab-catch stub (tenon pocket open); the stub prints on its own.
+tub_stock,tab_insert=model.tub_print_parts(m['rows']['tub']['shape'])
+print_stock={'lens_collar':m['collar_print_stock']['shape'],'tub':tub_stock}
 for name,row in m['rows'].items():
  s=row['shape'];kind=row['kind'];mat=EC.base_material(name,kind)
  color=(.6,.6,.58) if mat=='silver' else (.03,.03,.03)
  if kind!='keepout':asm.add(s,name=name,color=cq.Color(*color))
  EC.export_step(s,out/'step'/f'{name}.step');written.add(f'step/{name}.step')
  if kind=='printed':
-  stock=m['collar_print_stock']['shape'] if name=='lens_collar' else s
+  stock=print_stock.get(name,s)
   cq.exporters.export(print_pose(name,stock),str(out/'stl'/f'{name}.stl'),tolerance=.06,angularTolerance=.15);written.add(f'stl/{name}.stl')
  # Mesh JSON from the saved STEP (not the in-memory shape), so export_cache.py can rebuild it from tracked files.
  EC.write_mesh(out/'meshes'/f'{name}.json',name,kind,out/'step'/f'{name}.step');written.add(f'meshes/{name}.json')
@@ -52,6 +55,7 @@ for name,row in m['rows'].items():
  print(name,'exported',flush=True)
 EC.save_assembly(asm,out/'assembly.step')
 EC.export_step(m['gauge'],out/'step'/'centring_gauge.step');cq.exporters.export(print_pose('centring_gauge',m['gauge']),str(out/'stl'/'centring_gauge.stl'),tolerance=.06);written|={'step/centring_gauge.step','stl/centring_gauge.stl'}
+EC.export_step(tab_insert,out/'step'/f'{EC.TAB_CATCH_INSERT}.step');cq.exporters.export(print_pose(EC.TAB_CATCH_INSERT,tab_insert),str(out/'stl'/f'{EC.TAB_CATCH_INSERT}.stl'),tolerance=.06,angularTolerance=.15);written|=set(EC.INSERT_FILES)
 # Post-check: the plan the pre-flight used must be exactly what was written, and nothing else appeared meanwhile.
 if written!=planned:raise RuntimeError('Export plan and written files differ: '+', '.join(sorted(written^planned)))
 leftover=EC.leftover_files(out,written)

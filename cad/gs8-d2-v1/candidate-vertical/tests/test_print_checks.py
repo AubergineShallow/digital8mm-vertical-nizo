@@ -191,6 +191,9 @@ class Candidate(unittest.TestCase):
         import j4_trial_geometry as JG
         with JG.trial_layout(model.L, **PR.J4_TRIAL):
             state['zones']['tub'] = PR.j4_wing_zones(model.L.TONGUES)
+            # C2 (VN-57): the verifier's candidate_state also declares the base grip pocket-floor zone; reproduce the
+            # report rows under the same declarations (tests/test_c2_collar_grip.py shows the grip fails without it)
+            state['zones']['base_grip'] = model.grip_support_zones(model.L.TONGUES)
         rows = {x['part']: x for x in self.report['results']['print_bridge_direction']}
         r7rows = {x['part']: x for x in self.report['results']['print_overhang']}
         for pid in KNOWN_FAIL:

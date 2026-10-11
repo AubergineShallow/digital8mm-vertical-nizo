@@ -14,9 +14,11 @@ check_critical_features. This module adds what the candidate needs around them:
 - declared support zones for the candidate (the J4 T-tongue -Y wings), derived from the same layout rows the
   model builds the tongues from, in the assembly frame, mapped to the print frame with the manifest pose.
 - candidate loaded zones for thin_wall (screw bosses, insert bosses, catches), from the model's own numbers.
-- a layout view for check_critical_features: the candidate's printed parts as PARTS, the carrier added to
-  LOAD_BEARING_PARTS. The r7 CRITICAL_FEATURES / CRITICAL_JOINTS registries are used as they are; probes on
-  geometry the candidate changed report stale origins (FAIL) until they are re-nominated.
+- a layout view for check_critical_features: the candidate's printed parts as PARTS, the carrier and the bonded
+  tab-catch insert added to LOAD_BEARING_PARTS, and the candidate's CRITICAL_FEATURES / CRITICAL_JOINTS /
+  NONSTRUCTURAL_EXCEPTIONS from critical_features_vertical.py (phase 2, lane CF: every r7 entry kept, re-nominated
+  with the same limit, or retired with a reason; carrier and other candidate entries added; fork joints by r7's
+  own supersede rule).
 
 Nothing here weakens an r7 rule: same layer, 45 deg allowance, cantilever 1.0, bridge 30, edge_tol 0.3,
 px 0.1, 8 directions, min_area 0.05, nozzle sliver filter.
@@ -126,6 +128,7 @@ def candidate_state(manifest):
     try:
         model.collar_setup()
         collar = copy.deepcopy(L.COLLAR)
+        lens_spec = L.collar_spec(manifest.get('lens') or L.LENS)   # CF: the variant's collar (critical features)
         collar_boxes = [tuple(float(v) for v in b) for b in CK.loaded_boxes(L, 'lens_collar')]
     finally:
         L.COLLAR, L.SCREWS = oldc, olds
@@ -143,11 +146,12 @@ def candidate_state(manifest):
     for x, z in model.panel_screws(length):    # make_panel: cyl y r 5.2, y 20.5..25, then +3 y
         loaded['panel'].append((x - 5.2, x + 5.2, 23.5, 28.0, z - 5.2, z + 5.2))
     loaded['panel'].append((-30.67, -27.34, 4.0, 25.6, 66.0, 76.0))   # make_panel camera cover catch (+3 y)
-    for hx, hy in L.PI['holes']:               # make_carrier: kit bosses cyl y r 4.5, y 13..17, then +3.2 y
+    for hx, hy in L.PI['holes']:               # make_carrier: kit bosses cyl y r 4.5, y 16.2..bed face (FP-11c)
         x, _, z = model.rp((hx, hy, 6))
-        loaded['carrier'].append((x - 4.5, x + 4.5, 16.2, 20.2, z - 4.5, z + 4.5))
-    for x, z in model.CARRIER_SCREWS:          # make_carrier: ear bosses cyl y r 4.8, y 14..17, then +3.2 y
-        loaded['carrier'].append((x - 4.8, x + 4.8, 17.2, 20.2, z - 4.8, z + 4.8))
+        loaded['carrier'].append((x - 4.5, x + 4.5, 16.2, model.CARRIER_BED_Y, z - 4.5, z + 4.5))
+    for x, z in model.CARRIER_SCREWS:          # make_carrier: ear bosses cyl y r CARRIER_EAR_R, y 17.2..bed face
+        r = model.CARRIER_EAR_R
+        loaded['carrier'].append((x - r, x + r, 17.2, model.CARRIER_BED_Y, z - r, z + r))
     parts = {}
     for pid, pose in manifest['print_poses'].items():
         if pid == GAUGE:
@@ -156,10 +160,17 @@ def candidate_state(manifest):
                                              infill='shell', supports='none declared'))
         base['face_down'] = pose['face_down']
         parts[pid] = base
-    lb = [p for p in CK.registry(L, 'LOAD_BEARING_PARTS')] + ['carrier']   # the carrier holds the Pi/UPS stack
-    view = LayoutView(L, PARTS=parts, LOAD_BEARING_PARTS=lb)
+    # CF (VN-21 / VN-25, phase 2): the candidate's critical-feature, joint and exception registries replace r7's in
+    # the view (critical_features_vertical.py accounts for every r7 entry); r7 checks.py and layout.py are unchanged.
+    import critical_features_vertical as CFV
+    reg = CFV.build(CK, L, model, length, collar, lens_spec)
+    lb = [p for p in CK.registry(L, 'LOAD_BEARING_PARTS')] + list(CFV.ADDED_LOAD_BEARING)   # carrier, tab-catch insert
+    view = LayoutView(L, PARTS=parts, LOAD_BEARING_PARTS=lb, **reg['layout'])
+    # C2 (FP-11e, VN-57): the base grip's declared pocket-floor support zone is design data in model.py
+    # (grip_support_zones, derived from the same trial tongue rows); a zone no region needs still fails as stale.
     return dict(layout=view, tongues=tongues, collar=collar, loaded=loaded, length=length,
-                zones={'tub': j4_wing_zones(tongues)})
+                zones={'tub': j4_wing_zones(tongues), 'base_grip': model.grip_support_zones(tongues)},
+                cf_registry=reg['record'])
 
 
 # ------------------------------------------------------------------------------------------- single direction
@@ -368,3 +379,158 @@ def thin_spot_gate(spots):
                 error=None if ok else ('unclassified thin spots require geometry-backed classification'
                                        if valid else 'unclassified thin-spot report must be a list'),
                 method='classification coverage of the sampled secondary thin-wall screen; no threshold waiver')
+
+
+# ------------------------------------------------------------------------------------------- bed contact (VN-54, FP-11c)
+# Parts whose print orientation claims a flat bed face: the whole part starts on that face. Only declared parts get the
+# gated row (a part that prints on a smaller face with 45 deg growth outside it is judged by print_overhang alone).
+FLAT_BED_PARTS = {
+    'carrier': 'prints +Y face down on its continuous bed face at assembly y 22.2: frame rails, ears, kit and ear '
+               'bosses and the diagonal arm all start on the bed (review VN-54, fix FP-11c)',
+}
+
+
+def _hole_filled(cs):
+    """CrossSection -> the same region with every hole filled (union of its positive, counter-clockwise rings)."""
+    import manifold3d as m3
+    rings = []
+    for q in cs.to_polygons():
+        q = np.asarray(q, float)
+        if len(q) < 3:
+            continue
+        x, y = q[:, 0], q[:, 1]
+        if 0.5 * float(np.sum(x * np.roll(y, -1) - np.roll(x, -1) * y)) > 0:
+            rings.append(q)
+    return m3.CrossSection(rings) if rings else m3.CrossSection()
+
+
+def check_bed_contact(L, pid, man, opts=None, face_down=None, why=None):
+    """A part declared to print flat on one face must start on that face: every column of its silhouette must begin on
+    the bed or grow to its first layer from the bed face within r7's printable reach.
+
+    In print pose (Z0 = bed): B = first-layer section (slice at layer / 2). Layer by layer, the material that appears
+    over a column with no material below it (slice_k minus the union of the slices below) must lie within
+    cantilever_max + k * layer * tan(overhang_deg) of B (r7 PRINT_OVERHANG: 1.0 mm cantilever, 45 deg growth per
+    layer): a bed-edge chamfer, a 45 deg relief or the roof of a small recess in the bed face (a counterbore or head
+    pocket, reached from its own walls) starts on the bed face; a region that starts higher with no bed face reaching it
+    is lifted, also over a through-opening of the bed face (holes of B are not filled). FAIL when any lifted region of at
+    least min_area remains (the VN-54 defect: the frame starting 2 mm above the bed, 1963 mm2 unsupported). Same r7
+    constants; nothing relaxed. Reports the silhouette, bed and bed-outline areas. -> row dict (kind bed_contact)."""
+    import manifold3d as m3
+    o = dict(getattr(L, 'PRINT_OVERHANG', {}) or {}, **(opts or {}))
+    h, cant, amin = float(o['layer']), float(o['cantilever_max']), float(o['min_area'])
+    grow = h * math.tan(math.radians(float(o['overhang_deg'])))
+    row = dict(kind='bed_contact', part=pid, face_down=face_down, declared=why,
+               rule=dict(first_layer_z_mm=0.5 * h, layer_mm=h, cantilever_max_mm=cant, growth_per_layer_mm=grow,
+                         overhang_deg=o['overhang_deg'], min_area_mm2=amin,
+                         pass_rule='material first appearing over a column at layer k lies within cantilever_max + '
+                                   'k * growth_per_layer of the first-layer section'))
+    if man is None or man.is_empty():
+        row.update(status='fail', error='no print-pose mesh')
+        return row
+    S = man.project()
+    B = man.slice(0.5 * h)
+    if B.is_empty():
+        row.update(status='fail', error='no bed face at z %.2f' % (0.5 * h))
+        return row
+    zmax = man.bounding_box()[5]
+    below = m3.CrossSection()
+    lifted = []
+    for k in range(int(math.floor(zmax / h + 1e-9)) + 1):
+        Sk = man.slice((k + 0.5) * h)
+        new = Sk - below if k else m3.CrossSection()
+        if new.area() >= amin:
+            bad = new - B.offset(cant + k * grow, m3.JoinType.Round)
+            lifted += [(k * h, c) for c in bad.decompose() if c.area() >= amin]
+        below = below + Sk
+    lifted.sort(key=lambda zc: -zc[1].area())
+    total = sum(c.area() for _, c in lifted)
+    recess = (_hole_filled(B) - B) ^ S          # holes of the bed face with material above them (info)
+    s_area, b_area, r_area = S.area(), B.area(), recess.area()
+    ok = not lifted
+    row.update(status='pass' if ok else 'fail', silhouette_area_mm2=CK._r(s_area, 2), bed_area_mm2=CK._r(b_area, 2),
+               covered_recess_area_mm2=CK._r(r_area, 2),
+               bed_contact_share=CK._r(b_area / s_area if s_area else 0.0, 4),
+               bed_or_recess_share=CK._r((b_area + r_area) / s_area if s_area else 0.0, 4),
+               lifted_area_mm2=CK._r(total, 2), lifted_region_count=len(lifted),
+               lifted_regions=[dict(area_mm2=CK._r(c.area(), 2), lowest_material_z_mm=CK._r(z, 2),
+                                    bbox=[CK._r(v, 1) for v in c.bounds()]) for z, c in lifted[:12]])
+    if not ok:
+        row['error'] = '%d region(s), %.2f mm2 of the silhouette start above the bed out of reach of the bed face' % (
+            len(lifted), total)
+    return row
+
+
+# ------------------------------------------------------------------------------------------- bed-edge chamfer (VN-59)
+def _signed_rings(cs):
+    """CrossSection -> [(signed area, Nx2 ring)]; exterior rings are positive (CCW), hole rings negative."""
+    out = []
+    for q in cs.to_polygons():
+        q = np.asarray(q, float)
+        if len(q) < 3:
+            continue
+        x, y = q[:, 0], q[:, 1]
+        out.append((0.5 * float(np.sum(x * np.roll(y, -1) - np.roll(x, -1) * y)), q))
+    return out
+
+
+def _exterior(cs):
+    """Holes filled: the union of the exterior rings of a CrossSection."""
+    import manifold3d as m3
+    rings = [q for a, q in _signed_rings(cs) if a > 0]
+    return m3.CrossSection(rings) if rings else m3.CrossSection()
+
+
+def check_bed_chamfer(pid, man, chamfer=None, layer=None, tol=0.15, max_unchamfered_mm=2.0, face_down=None):
+    """r7 FDM rule BED_CHAMFER (layout.FDM: a 45 deg chamfer of 0.6 mm on the bed-face edges, no fillets on the bed face; r7
+    builds it into each printed part but has no computed row for it) as a per-part gate (review VN-59).
+
+    In print pose (Z0 = bed) the exterior outline of the first layer (slice at z_lo = layer / 2) must lie inside the outline
+    at z_hi = chamfer + layer / 2, shrunk by (chamfer - z_lo - tol): a 45 deg chamfer of `chamfer` sets the bed outline in by
+    chamfer - z_lo at z_lo; a sharp bed edge sets it in by nothing. What is left outside is the unchamfered band; its length
+    is reported as band area / (chamfer - z_lo - tol), i.e. as the equivalent length of fully sharp edge. FAIL when the
+    exterior outline carries more than max_unchamfered_mm of it. Outlines of holes in the bed face are measured the same
+    way (a chamfered hole is wider at z_lo) and reported, not gated: r7 chamfers the exterior bed edges (printed_tub '|X'),
+    and a chamfer on a functional through-hole (the tub CSI slot) would change that hole's checked section.
+    -> row dict (kind bed_chamfer)."""
+    import manifold3d as m3
+    c = float(dc.FDM['BED_CHAMFER'] if chamfer is None else chamfer)
+    h = float(dc.FDM['LAYER'] if layer is None else layer)
+    z_lo, z_hi = 0.5 * h, c + 0.5 * h
+    band_w = c - z_lo - tol
+    row = dict(kind='bed_chamfer', part=pid, face_down=face_down,
+               rule=dict(chamfer_mm=c, angle_deg=45.0, z_lo_mm=z_lo, z_hi_mm=z_hi, tol_mm=tol,
+                         band_width_mm=band_w, max_unchamfered_mm=max_unchamfered_mm,
+                         source='r7 layout.FDM BED_CHAMFER (45 deg, exterior bed-face edges)'))
+    if man is None or man.is_empty():
+        row.update(status='fail', error='no print-pose mesh')
+        return row
+    s_lo, s_hi = man.slice(z_lo), man.slice(z_hi)
+    e_lo, e_hi = _exterior(s_lo), _exterior(s_hi)
+    if e_lo.is_empty():
+        row.update(status='fail', error='no bed footprint at z %.2f' % z_lo)
+        return row
+    inner = e_hi.offset(-band_w, m3.JoinType.Miter, 20.0)
+    band = e_lo - inner
+    ext_len = band.area() / band_w
+    perim = sum(float(np.linalg.norm(np.roll(q, -1, axis=0) - q, axis=1).sum())
+                for a, q in _signed_rings(e_lo) if a > 0)
+    holes_lo, holes_hi = e_lo - s_lo, e_hi - s_hi
+    hole_band = (holes_hi.offset(band_w, m3.JoinType.Miter, 20.0) - holes_lo) ^ e_lo
+    hole_len = hole_band.area() / band_w
+    hole_perim = sum(float(np.linalg.norm(np.roll(q, -1, axis=0) - q, axis=1).sum())
+                     for a, q in _signed_rings(s_lo) if a < 0)
+    bad = band.decompose()
+    worst = sorted(bad, key=lambda b: -b.area())[:8]
+    ok = ext_len <= max_unchamfered_mm
+    row.update(status='pass' if ok else 'fail',
+               bed_area_mm2=CK._r(s_lo.area(), 2), exterior_perimeter_mm=CK._r(perim, 2),
+               exterior_unchamfered_mm=CK._r(ext_len, 2),
+               exterior_unchamfered_share=CK._r(ext_len / perim if perim else 0.0, 4),
+               hole_perimeter_mm=CK._r(hole_perim, 2), hole_unchamfered_mm_info=CK._r(hole_len, 2),
+               unchamfered_bands=[dict(area_mm2=CK._r(b.area(), 3), bbox=[CK._r(v, 1) for v in b.bounds()])
+                                  for b in worst if b.area() > 1e-4])
+    if not ok:
+        row['error'] = ('%.1f mm of the exterior bed outline (of %.1f mm) has no %.1f mm 45 deg chamfer'
+                        % (ext_len, perim, c))
+    return row

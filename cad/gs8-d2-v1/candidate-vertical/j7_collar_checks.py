@@ -5,8 +5,9 @@ VN-24; fix FP-08). Rows for the main audit (verify_candidate.py, behind want('j7
 The r7 implementations in ../checks.py (read-only, byte-identical to upstream d38468e) are called unchanged wherever
 they are geometry-agnostic, through one adapter:
 - layout: the candidate's own values. model.py's import-time layout edits, JG.trial_layout(lip 2.4, head 2.4),
-  L.LENS = the variant lens and model.collar_setup() (collar body_r 25, LL foot (18, 30), lug y_out -30 / screw_y
-  -26.3 / bit_relief_y -22.8, s_c3 and s_c4 moved) are applied exactly as model._build applies them, and restored.
+  L.LENS = the variant lens and model.collar_setup() (collar body_r 25, LL foot (18, 30), lug y_out -30.8 / screw_y
+  -26.8 / bit_relief_y -22.8 since C2 (r7 spacing), s_c3 and s_c4 moved) are applied exactly as model._build applies them, and
+  restored. Collars are rebuilt with model.make_collar (r7 build_part + the C2 LR foot support), as model._build.
   The r7 functions that read module globals (collar_spec, tab_catch_boxes, ...) therefore see the candidate values.
   A context row proves it: the collar rebuilt in this context equals the manifest-bound STEP collar, and
   cots.gs_camera_parts at s_nom equals the STEP camera.
@@ -30,7 +31,7 @@ Candidate differences, each stated in the rows, none looser than r7:
 - collar gauge: r7's 'hood >= 0.5' row becomes '>= 0.5 to every other part present at gauge_in' (steps.py), and the
   insertion sweep covers those parts too.
 - washer seat: the two r7 test_mechanical_refinements washer tests are also computed rows (lens_clamp/washer_*),
-  with the r7 thresholds; they fail on the current collar (VN-55) until FP-11d.
+  with the r7 thresholds; they failed on the 9ced753 collar (VN-55) and pass since C2 (FP-11d).
 Nothing here is a measurement; every physical gate (G-COL-1, G-CAM-1/2, G-LENS, M1) stays open.
 This module is CAD-free at import (evidence_rules imports INFO_ROWS); CadQuery loads inside the functions.
 """
@@ -174,9 +175,11 @@ def _row(kind, status, error=None, **kw):
 def context_rows(L, rr, lens, CK):
     """The r7 functions see the exported geometry: rebuilt collar == STEP collar; gs_camera_parts(s_nom) == STEP."""
     import cots
-    import printed_collar as PC
+    import model as M
     out = []
-    col = _as_shape(PC.build_part(L, 'lens_collar', lens=lens))
+    # C2 (FP-11d): the candidate collar is model.make_collar (r7 build_part + the LR foot support, VN-58); the
+    # rebuild must use the builder model._build uses, or this row compares a different part with the STEP.
+    col = _as_shape(M.make_collar(lens))
     d = _symdiff(col, rr['lens_collar']['shape'])
     out.append(('lens_support', lens + '/collar_context_match', _row(
         'lens_support', 'pass' if d <= 0.01 else 'fail', 'candidate-context collar differs from the STEP collar',
@@ -454,13 +457,13 @@ def lens_collars(L, rr, lens, CK, variant=None):
     (as r7 build_d2.lens_collars) and each compared with the manifest-bound collar STEP of its own variant."""
     import json
     import cadquery as cq
-    import printed_collar as PC
+    import model as M
     out, rows = {lens: rr['lens_collar']['shape']}, []
     storage = (variant or 'compact-').split('-', 1)[0]
     for n in L.LENSES:
         if n == lens or L.collar_spec(n) is None:
             continue
-        out[n] = _as_shape(PC.build_part(L, 'lens_collar', lens=n))
+        out[n] = _as_shape(M.make_collar(n))      # C2: model._build's collar builder (see context_rows)
         folder = next((CV / 'out' / v for v in ('%s-%s' % (storage, n), 'compact-%s' % n)
                        if (CV / 'out' / v / 'step' / 'lens_collar.step').exists()), None)
         d, bound, ref = None, False, None
