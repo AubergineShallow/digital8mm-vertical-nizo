@@ -1,0 +1,16 @@
+{
+  "purpose": "Source/negative regression checks only; full production CAD acceptance remains pending",
+  "tests": 22,
+  "result": "pass",
+  "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_catch_extended.py HistoricalCatchFailure PosePolicyUnits ReceiptFreshness",
+  "sources": {
+    "j7_collar_checks.py": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+    "review-2026-10-12-corrective/catch-extended/catch_extended_cases.py": "2c558c90ca9f833c9ab3d11bc54565f7a80491d9fa9c474b902062a88476082d",
+    "tests/test_catch_extended.py": "72997d5f5d5e797c9fc1122aedd31d78b763d7bb1d2665c383b493bdfd180e33",
+    "tests/test_j7_collar.py": "a9b8a06822fdb01e5aecb294266fa36cf891e71ceb4209faed14334b9a453bcd"
+  },
+  "log": "source-tests.txt",
+  "log_sha256": "8e0b82a354d8230df32074074937db6d0c9405d0ef63b39418e400cd6ed52e71",
+  "generated_utc": "2026-10-12T11:59:04.126508+00:00",
+  "seconds": 0.131
+}

@@ -1,0 +1,64 @@
+test_main_audit_c2_record (__main__.BoundEvidence.test_main_audit_c2_record) ... ok
+test_print_rows (__main__.BoundEvidence.test_print_rows) ... ok
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:609: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  simple_dir = oneOf(["X", "Y", "Z", "XY", "XZ", "YZ"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:613: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  cqtype = oneOf(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:616: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  cqtype = cqtype.setParseAction(pyparsing_common.upcaseTokens)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:622: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  direction_op = oneOf([">", "<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:625: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  center_nth_op = oneOf([">>", "<<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:635: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  other_op = oneOf(["|", "#", "+", "-"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:638: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  named_view = oneOf(["front", "back", "left", "right", "top", "bottom"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:763: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  delta_op = oneOf(["exc", "except"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:770: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  atom.setParseAction(atom_callback)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:793: PyparsingDeprecationWarning: 'infixNotation' deprecated - use 'infix_notation'
+  expr = infixNotation(
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:65: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+  Name = delimitedList(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:67: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("name")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:68: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Tag = Word(alphas, alphanums + "_").setResultsName("tag")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:69: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Selector = _selector_grammar.setResultsName("selector")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:73: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("selector_kind")
+test_candidate_print_stock_contract_on_model_collars (__main__.Collar.test_candidate_print_stock_contract_on_model_collars) ... ok
+test_lr_overhang_r7_rule (__main__.Collar.test_lr_overhang_r7_rule)
+The r7 overhang rule passes the model collar stock and finds the LR foot region without the support. ... ok
+test_lr_support_adds_only_outside_the_body (__main__.Collar.test_lr_support_adds_only_outside_the_body) ... ok
+test_lug_values_restore_r7_margins (__main__.Collar.test_lug_values_restore_r7_margins) ... ok
+test_r7_prepare_print_corrupts_its_input (__main__.Collar.test_r7_prepare_print_corrupts_its_input)
+PHASE1-STATUS s9, cause pinned (C2): r7 prepare_print runs sh.fuse(*disks).clean() on the shape it is ... ok
+test_washer_rows_fail_on_9ced753_lug (__main__.Collar.test_washer_rows_fail_on_9ced753_lug)
+Negative control: the same rows on a collar built with the 9ced753 lug values fail as phase 1 measured. ... ok
+test_washer_rows_pass_on_model_collars (__main__.Collar.test_washer_rows_pass_on_model_collars) ... ok
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:865: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse_result = _expression_grammar.parseString(selectorString, parseAll=True)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/pyparsing/util.py:466: PyparsingDeprecationWarning: 'parseAll' argument is deprecated, use 'parse_all'
+  return fn(self, *args, **kwargs)
+test_blocks_clear_every_service_pose (__main__.Grip.test_blocks_clear_every_service_pose)
+verify_power_service's own pose construction, junction and pack, every rigid service pose. ... ok
+test_blocks_clear_installed_pair (__main__.Grip.test_blocks_clear_installed_pair) ... ok
+test_box_constant_is_power_geometry_box (__main__.Grip.test_box_constant_is_power_geometry_box) ... ok
+test_end_wall_present_and_pocket_open (__main__.Grip.test_end_wall_present_and_pocket_open) ... ok
+test_front_bed_chamfer_restored (__main__.Grip.test_front_bed_chamfer_restored) ... ok
+test_sj_counterbore_closed (__main__.Grip.test_sj_counterbore_closed) ... ok
+test_sj_wall_thickness (__main__.Grip.test_sj_wall_thickness) ... ok
+test_support_zone_inside_neck_slot_and_off_lips (__main__.Grip.test_support_zone_inside_neck_slot_and_off_lips) ... ok
+test_zone_needed_and_sufficient (__main__.Grip.test_zone_needed_and_sufficient)
+r7 overhang rule on the in-memory grip: fails without the declared zone (the y < -4 band of the pocket floor ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 33.368s
+
+OK

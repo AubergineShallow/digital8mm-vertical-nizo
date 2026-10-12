@@ -237,6 +237,8 @@ TAB_CATCH_TENON=dict(x=(-12.9,-9.8),t=1.6,h=10.0)   # Oct12: deeper datum engage
                                            # FX: was x -13.5..-9.2, which left 0.9 mm pocket side walls in the print
                                            # stock (web x -14.5..-8.2); now pocket -13.0..-9.7, walls 1.5 (>= r7 MIN_WALL)
 TAB_CATCH_POCKET_CLEAR=dict(x=.1,y=.2,z=.1)          # adhesive clearance; the -Y face is the datum (no clearance)
+TAB_CATCH_FACE_RECESS_MM=.15              # internal trial: retain 2.85 mm web, restore tolerance-window margin
+TAB_CATCH_VENT=dict(width=1.0,depth=.4)    # groove in HOST, never thins the 1.6 mm locating tenon
 TAB_CATCH_BED_CHAMFER=.6                   # r7 layout.FDM BED_CHAMFER on the stub's bed edges (print_rules.check_bed_chamfer)
 
 
@@ -252,16 +254,24 @@ def tab_catch_split():
     T,C=TAB_CATCH_TENON,TAB_CATCH_POCKET_CLEAR
     pocket=box(T['x'][0]-C['x'],T['x'][1]+C['x'],yin,yin+T['t']+C['y'],zs-.1,zs+T['h']+C['z'])
     stub=box(x0,x1,yin,yout,z0,zs).fuse(box(fp['x'][0],fp['x'][1],yin,fp['y'][1],z0,zs)).clean()
+    # Recess before the bed-edge chamfer so its full 0.6 mm relief is retained.
+    stub=stub.cut(box(x0-.1,x1+.1,yin-.1,yin+TAB_CATCH_FACE_RECESS_MM,z0-.1,zs+.01)).clean()
     stub=cq.Workplane(obj=stub).edges('<Z').chamfer(TAB_CATCH_BED_CHAMFER).val()
     stub=stub.fuse(box(T['x'][0],T['x'][1],yin,yin+T['t'],zs-.01,zs+T['h'])).clean()
-    return dict(adds=[ceiling,pad],envelope=env,pocket=pocket,stub=stub)
+    # Air/adhesive escapes down the +Y pocket wall, then out across the host's
+    # joint face to its accessible +Y edge. No groove crosses the dry -Y datum.
+    vx=sum(T['x'])/2;vw=TAB_CATCH_VENT['width'];vd=TAB_CATCH_VENT['depth']
+    py=yin+T['t']+C['y']
+    vent=box(vx-vw/2,vx+vw/2,py-.01,py+vd,zs,zs+T['h']+C['z']).fuse(
+        box(vx-vw/2,vx+vw/2,py-.01,yout+1.3,zs,zs+vd)).clean()
+    return dict(adds=[ceiling,pad],envelope=env,pocket=pocket,stub=stub,vent=vent)
 
 
 def tub_print_parts(tub):
     """T2 print files for a bonded tub from make_tub. -> (tub print stock: without the stub, with the tenon pocket;
     the stub insert). Both in the assembly frame; export_candidate gives each its own print pose."""
     sp=tab_catch_split()
-    stock=tub.cut(sp['envelope']).cut(sp['pocket']).clean()
+    stock=tub.cut(sp['envelope']).cut(sp['pocket']).cut(sp['vent']).clean()
     if not stock.isValid() or len(stock.Solids())!=1:raise ValueError('tub print stock is not one valid solid')
     return stock,sp['stub']
 
@@ -646,7 +656,7 @@ def make_tub(length):
 
     s=s.fuse(*adds).cut(*cuts).clean()
     s=PG.cut_passages(s, PG.tub_cuts())
-    s=s.cut(t2s['envelope']).fuse(t2s['stub']).clean()      # T2: bonded +Y stub (bed-chamfered) in place
+    s=s.cut(t2s['envelope']).fuse(t2s['stub']).cut(t2s['vent']).clean()
     if not s.isValid() or len(s.Solids())!=1:raise ValueError('bonded tub is not one valid solid')
     return s
 

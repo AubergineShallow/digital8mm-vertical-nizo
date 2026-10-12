@@ -161,10 +161,10 @@ def main():
                 count+=1
             shapes[name]=new
             directory=HERE/'variant-step';directory.mkdir(exist_ok=True)
-            f=directory/(name+'.step');cq.exporters.export(new,str(f))
-            # Review PUB-8: the repo's deterministic STEP header (export_cache.STEP_STAMP), not the wall clock.
-            from export_cache import normalize_step_header
-            normalize_step_header(f)
+            f=directory/(name+'.step')
+            # Same export + header-normalization operations through the audited wrapper.
+            from export_cache import export_step
+            export_step(new, f)
             result['artifacts'].append(dict(path=f.relative_to(ROOT).as_posix(),sha256=sha(f)))
             result['printed_remedy'].append(dict(id=name,valid_single_solid=True,cuts=count,
                 removed_mm3=old.Volume()-new.Volume(),old_bbox_mm=bbox(old),new_bbox_mm=bbox(new),

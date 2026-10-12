@@ -15,7 +15,8 @@ Rules checked:
   rows and the computed dependency chain; option A and option B of user decision 5 (VN-42) are both documented;
 - both guide builders: GUIDE_OPS covers every body op in steps.py order, page() order matches, labels ascend,
   steps.py is bound, superseded 9ced753 wording is gone; FPS-SERVICE-STUDY.md refit order;
-- the guide READMEs carry the STALE banner while the guide receipt binds older sources (removed after a rebuild).
+- the selected guide README carries the STALE banner while its receipt binds older sources (removed after a rebuild);
+  the superseded guide README independently retains its warning and points to the selected guide instructions.
 """
 from pathlib import Path
 from types import SimpleNamespace
@@ -355,6 +356,12 @@ class FPSStudy(unittest.TestCase):
 
 
 class StaleGuideBanner(unittest.TestCase):
+    def test_superseded_guide_readme_keeps_warning_and_selected_pointer(self):
+        # CHE-7: an updated concealed-vent receipt cannot make the separate old guide current.
+        head = '\n'.join(rd(CV / 'guide/README.md').splitlines()[:15])
+        self.assertIn('SUPERSEDED / STALE', head)
+        self.assertIn('[README-CONCEALED-VENTS.md](README-CONCEALED-VENTS.md)', head)
+
     def test_banner_tracks_receipt(self):
         rec = json.loads(rd(CV / 'guide/out-concealed-vents/guide-receipt.json'))['sources']
         keys = ['candidate-vertical/ASSEMBLY-VERTICAL.md', 'candidate-vertical/guide/build_guide_concealed_vents.py']

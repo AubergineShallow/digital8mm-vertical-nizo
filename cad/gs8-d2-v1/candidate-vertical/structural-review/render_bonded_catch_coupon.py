@@ -10,9 +10,15 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 P = Path(__file__).resolve().parent/'bonded-catch-coupon'
+C = P.parent.parent
 rp = P/'receipt.json'
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 r = json.loads(rp.read_text(encoding='utf-8'))
+renderer_hash = sha(Path(__file__))
+production_bindings = {**r['input_sha256'], **r['source_sha256']}
+assert sha(C/'out'/r['variant']/'manifest.json') == r['manifest_sha256'], 'Stale coupon manifest'
+for name, expected in production_bindings.items():
+    assert sha(C/name) == expected, 'Stale coupon production input or source: ' + name
 start = {'receipt.json': sha(rp), **r['files']}
 for name, expected in start.items():
     assert sha(P/name) == expected, 'Unbound input: ' + name
@@ -65,14 +71,17 @@ for i, (title, h, ins, camera) in enumerate(views, 1):
     ax.set_axis_off()
 dims = lambda part: ' x '.join(f'{v:.1f}' for v in part['mesh']['print_dimensions_mm'])
 fig.text(.055, .045, f'Blue-gray: cropped host, {dims(host_r)} mm as printed. Orange: exact production insert, {dims(insert_r)} mm.', fontsize=10)
-fig.text(.055, .021, 'Cropped boundaries and the fixture change stiffness. Exploded placement is illustrative; no deformation is shown.', fontsize=9, color='#444444')
+fig.text(.055, .021, 'Cropped boundaries and any test fixture change stiffness. Exploded placement is illustrative; no deformation is shown.', fontsize=9, color='#444444')
 fig.subplots_adjust(left=.025, right=.985, bottom=.075, top=.90, wspace=.02, hspace=.11)
 output = P/'coupon-review.png'
 fig.savefig(output, dpi=160, facecolor='white')
 plt.close(fig)
 assert all(sha(P/name) == expected for name, expected in start.items()), 'Input changed during rendering'
+assert all(sha(C/name) == expected for name, expected in production_bindings.items()), 'Production source changed during rendering'
+assert sha(Path(__file__)) == renderer_hash, 'Renderer changed during rendering'
 receipt = {'manifest_sha256': r['manifest_sha256'], 'geometry_receipt_sha256': start['receipt.json'],
-           'input_sha256': start, 'renderer_sha256': sha(Path(__file__)), 'output': output.name,
+           'input_sha256': start, 'production_input_sha256': r['input_sha256'],
+           'source_sha256': r['source_sha256'], 'renderer_sha256': renderer_hash, 'output': output.name,
            'output_sha256': sha(output), 'visual_review': 'pending image inspection', 'physical_qualified': False}
 (P/'review-render-receipt.json').write_text(json.dumps(receipt, indent=2)+'\n', encoding='utf-8', newline='\n')
 print(output)

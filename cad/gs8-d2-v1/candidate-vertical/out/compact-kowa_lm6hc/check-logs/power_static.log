@@ -1,0 +1,26 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+positive_board_to_fuse capsule piece 0 / 273
+positive_board_to_fuse capsule piece 25 / 273
+positive_board_to_fuse capsule piece 50 / 273
+positive_board_to_fuse capsule piece 75 / 273
+positive_board_to_fuse capsule piece 100 / 273
+positive_board_to_fuse capsule piece 125 / 273
+positive_board_to_fuse capsule piece 150 / 273
+positive_board_to_fuse capsule piece 175 / 273
+positive_board_to_fuse capsule piece 200 / 273
+positive_board_to_fuse capsule piece 225 / 273
+positive_board_to_fuse capsule piece 250 / 273
+positive_fuse_to_housing capsule piece 0 / 3
+negative_complete capsule piece 0 / 265
+negative_complete capsule piece 25 / 265
+negative_complete capsule piece 50 / 265
+negative_complete capsule piece 75 / 265
+negative_complete capsule piece 100 / 265
+negative_complete capsule piece 125 / 265
+negative_complete capsule piece 150 / 265
+negative_complete capsule piece 175 / 265
+negative_complete capsule piece 200 / 265
+negative_complete capsule piece 225 / 265
+negative_complete capsule piece 250 / 265
+{"status": "pass", "obstacle_count": 44, "rows": [["positive_board_to_fuse", "pass", []], ["positive_fuse_to_housing", "pass", []], ["negative_complete", "pass", []], ["fixture_buried_xt30_wire", "pass", null], ["fixture_hardware", "pass", null], ["fixture_cots", "pass", null]]}

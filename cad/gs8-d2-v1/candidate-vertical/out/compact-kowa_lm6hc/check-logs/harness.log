@@ -1,0 +1,3 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+{"summary": {"pass": 29, "fail": 13, "info": 20}, "failing": {"cable_routes": ["fan", "fpc", "oled_flex", "pigtail_negative", "pigtail_positive", "power_button", "qt"], "cable_stow": ["power_button_j2_pair"], "lead_access": ["pigtail_drop", "pigtail_ties_on_route", "pigtail_xt30_mouth"], "mate_reach": ["j2_btn", "xt30_pack"]}}

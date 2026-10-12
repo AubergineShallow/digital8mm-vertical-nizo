@@ -1,13 +1,13 @@
 {
-  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "verification_source_sha256": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
   "verification_dependency_sha256": {
-    "harness_rules.py": "2f15cf9156c12767fbe296759858d0cf23dde5cefc7e3c4c7cb0f676f4ad3909",
+    "harness_rules.py": "1c45189ddefa87070a3d8490166c36fa907a701f1044a550a9100428cd7fb00c",
     "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
     "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
     "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
     "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-    "steps.py": "e50e72a2832fef47620d951ce581d9c6f89ef27a5cf88b79bec215feacbd48f2",
+    "steps.py": "0931688b9450a4f806a71d778dd23471ab55a870ebae4c8c77cab446bdbb978f",
     "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
     "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
     "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"
@@ -227,13 +227,268 @@
           "allowance_mm": 25.0,
           "length_min_mm": 240.0,
           "slack_mm": 11.46,
-          "would_pass_length_gate": true
+          "length_only_passes": true,
+          "would_pass_length_gate": true,
+          "clearance_status": "pass",
+          "member_clearance": {
+            "envelope_d_mm": 3.2,
+            "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+            "capsule_d_mm": 3.4,
+            "polyline_points": 50,
+            "pieces": 186,
+            "stubs": 0,
+            "exempt": [
+              "encoder",
+              "pi5"
+            ],
+            "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+            "targets": 6934,
+            "hits": {},
+            "cable_separation": {
+              "run_pin37": {
+                "min_centreline_mm": 4.31,
+                "need_mm": 1.6
+              },
+              "run_pin39": {
+                "min_centreline_mm": 2.89,
+                "need_mm": 1.6
+              },
+              "power_button": {
+                "min_centreline_mm": 16.28,
+                "need_mm": 3.2
+              },
+              "fpc": {
+                "min_centreline_mm": 10.18,
+                "need_mm": 9.6
+              },
+              "fan": {
+                "min_centreline_mm": 18.6,
+                "need_mm": 2.6
+              },
+              "oled_flex": {
+                "min_centreline_mm": 56.11,
+                "need_mm": 7.8
+              },
+              "usb_5v": {
+                "min_centreline_mm": 17.61,
+                "need_mm": 3.4
+              },
+              "pack_lead": {
+                "min_centreline_mm": 39.99,
+                "need_mm": 3.2
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 6.78,
+                "need_mm": 3.2
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.68,
+                "need_mm": 3.2
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 12.98,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 12.98,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 4.54,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 16.4,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 19.42,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 12.23,
+                "need_mm": 2.1
+              }
+            },
+            "cable_overlaps": [],
+            "use": "separate released pose (PROPOSED rule change, not gating; guides released; no deformation proof)"
+          }
         }
       },
       "problems": [
         "shortest route 239.0 + allowance 25.0 > minimum stock 240.0 mm"
       ],
-      "status": "fail"
+      "status": "fail",
+      "member_clearance": {
+        "variable": "low",
+        "value": 55.2,
+        "od_mm": 3.2,
+        "capsule_d_mm": 3.4,
+        "polyline_points": 49,
+        "pieces": 96,
+        "member_length_mm": 195.92,
+        "exempt": [
+          "encoder",
+          "pi5"
+        ],
+        "exempt_rule": "own end parts only within 10 mm of the terminal",
+        "targets": 6934,
+        "hits": {},
+        "member_errors": [],
+        "installed_targets": true,
+        "hit_tolerance_mm3": 0.01,
+        "cable_overlaps": [],
+        "cable_separation": {
+          "run_pin37": {
+            "min_centreline_mm": 11.57,
+            "need_mm": 2.4
+          },
+          "run_pin39": {
+            "min_centreline_mm": 5.99,
+            "need_mm": 2.4
+          },
+          "power_button": {
+            "min_centreline_mm": 16.28,
+            "need_mm": 3.2
+          },
+          "fpc": {
+            "min_centreline_mm": 10.18,
+            "need_mm": 9.6
+          },
+          "fan": {
+            "min_centreline_mm": 24.96,
+            "need_mm": 2.6
+          },
+          "oled_flex": {
+            "min_centreline_mm": 54.95,
+            "need_mm": 7.8
+          },
+          "usb_5v": {
+            "min_centreline_mm": 27.66,
+            "need_mm": 3.4
+          },
+          "pack_lead": {
+            "min_centreline_mm": 68.46,
+            "need_mm": 4.0
+          },
+          "pigtail_positive": {
+            "min_centreline_mm": 6.78,
+            "need_mm": 3.2
+          },
+          "pigtail_negative": {
+            "min_centreline_mm": 3.68,
+            "need_mm": 3.2
+          },
+          "header_branch:hdr_fps_lead_33_34": {
+            "min_centreline_mm": 30.18,
+            "need_mm": 2.4
+          },
+          "header_branch:fps_fps_header_branch": {
+            "min_centreline_mm": 30.18,
+            "need_mm": 2.4
+          },
+          "header_branch:fps_fps_200_main": {
+            "min_centreline_mm": 10.28,
+            "need_mm": 2.9
+          },
+          "header_branch:fps_fps_switch_bundle": {
+            "min_centreline_mm": 13.64,
+            "need_mm": 2.9
+          },
+          "header_branch:fps_fps_ck1044_pin_A": {
+            "min_centreline_mm": 17.68,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_ck1044_pin_2": {
+            "min_centreline_mm": 10.76,
+            "need_mm": 2.1
+          }
+        },
+        "cable_separation_status": "checked",
+        "use": "shortest member (the minimum route)"
+      },
+      "installed_clearance": {
+        "envelope_d_mm": 3.2,
+        "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+        "capsule_d_mm": 3.4,
+        "polyline_points": 45,
+        "pieces": 186,
+        "stubs": 0,
+        "exempt": [
+          "encoder",
+          "pi5"
+        ],
+        "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+        "targets": 6934,
+        "hits": {},
+        "cable_separation": {
+          "run_pin37": {
+            "min_centreline_mm": 4.31,
+            "need_mm": 1.6
+          },
+          "run_pin39": {
+            "min_centreline_mm": 2.89,
+            "need_mm": 1.6
+          },
+          "power_button": {
+            "min_centreline_mm": 16.28,
+            "need_mm": 3.2
+          },
+          "fpc": {
+            "min_centreline_mm": 10.18,
+            "need_mm": 9.6
+          },
+          "fan": {
+            "min_centreline_mm": 22.35,
+            "need_mm": 2.6
+          },
+          "oled_flex": {
+            "min_centreline_mm": 54.95,
+            "need_mm": 7.8
+          },
+          "usb_5v": {
+            "min_centreline_mm": 23.86,
+            "need_mm": 3.4
+          },
+          "pack_lead": {
+            "min_centreline_mm": 39.99,
+            "need_mm": 3.2
+          },
+          "pigtail_positive": {
+            "min_centreline_mm": 6.78,
+            "need_mm": 3.2
+          },
+          "pigtail_negative": {
+            "min_centreline_mm": 3.68,
+            "need_mm": 3.2
+          },
+          "header_branch:hdr_fps_lead_33_34": {
+            "min_centreline_mm": 24.68,
+            "need_mm": 2.4
+          },
+          "header_branch:fps_fps_header_branch": {
+            "min_centreline_mm": 24.68,
+            "need_mm": 2.4
+          },
+          "header_branch:fps_fps_200_main": {
+            "min_centreline_mm": 10.28,
+            "need_mm": 2.9
+          },
+          "header_branch:fps_fps_switch_bundle": {
+            "min_centreline_mm": 13.64,
+            "need_mm": 2.9
+          },
+          "header_branch:fps_fps_ck1044_pin_A": {
+            "min_centreline_mm": 17.68,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_ck1044_pin_2": {
+            "min_centreline_mm": 10.76,
+            "need_mm": 2.1
+          }
+        },
+        "cable_overlaps": []
+      }
     },
     {
       "category": "cable_routes",
@@ -289,10 +544,95 @@
           "run_button"
         ],
         "exempt_rule": "own end parts only within 10 mm of the terminal",
-        "targets": 45,
+        "targets": 6934,
         "hits": {},
         "member_errors": [],
-        "installed_targets": false,
+        "installed_targets": true,
+        "hit_tolerance_mm3": 0.01,
+        "cable_overlaps": [],
+        "cable_separation": {
+          "qt": {
+            "min_centreline_mm": 12.46,
+            "need_mm": 2.4
+          },
+          "qt:hdr_qt_1": {
+            "min_centreline_mm": 6.95,
+            "need_mm": 1.6
+          },
+          "qt:hdr_qt_3": {
+            "min_centreline_mm": 6.95,
+            "need_mm": 1.6
+          },
+          "qt:hdr_qt_5": {
+            "min_centreline_mm": 6.95,
+            "need_mm": 1.6
+          },
+          "qt:hdr_qt_6": {
+            "min_centreline_mm": 4.31,
+            "need_mm": 1.6
+          },
+          "run_pin39": {
+            "min_centreline_mm": 1.87,
+            "need_mm": 1.6
+          },
+          "power_button": {
+            "min_centreline_mm": 9.58,
+            "need_mm": 2.4
+          },
+          "fpc": {
+            "min_centreline_mm": 23.28,
+            "need_mm": 8.8
+          },
+          "fan": {
+            "min_centreline_mm": 19.95,
+            "need_mm": 1.8
+          },
+          "oled_flex": {
+            "min_centreline_mm": 95.65,
+            "need_mm": 7.0
+          },
+          "usb_5v": {
+            "min_centreline_mm": 22.07,
+            "need_mm": 2.6
+          },
+          "pack_lead": {
+            "min_centreline_mm": 18.18,
+            "need_mm": 3.2
+          },
+          "pigtail_positive": {
+            "min_centreline_mm": 3.31,
+            "need_mm": 2.4
+          },
+          "pigtail_negative": {
+            "min_centreline_mm": 4.51,
+            "need_mm": 2.4
+          },
+          "header_branch:hdr_fps_lead_33_34": {
+            "min_centreline_mm": 1.78,
+            "need_mm": 1.6
+          },
+          "header_branch:fps_fps_header_branch": {
+            "min_centreline_mm": 1.78,
+            "need_mm": 1.6
+          },
+          "header_branch:fps_fps_200_main": {
+            "min_centreline_mm": 6.72,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_switch_bundle": {
+            "min_centreline_mm": 63.34,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_ck1044_pin_A": {
+            "min_centreline_mm": 67.22,
+            "need_mm": 1.3
+          },
+          "header_branch:fps_fps_ck1044_pin_2": {
+            "min_centreline_mm": 60.53,
+            "need_mm": 1.3
+          }
+        },
+        "cable_separation_status": "checked",
         "use": "shortest member (the minimum route)"
       },
       "installed_clearance": {
@@ -448,10 +788,95 @@
           "run_button"
         ],
         "exempt_rule": "own end parts only within 10 mm of the terminal",
-        "targets": 45,
+        "targets": 6934,
         "hits": {},
         "member_errors": [],
-        "installed_targets": false,
+        "installed_targets": true,
+        "hit_tolerance_mm3": 0.01,
+        "cable_overlaps": [],
+        "cable_separation": {
+          "qt": {
+            "min_centreline_mm": 7.36,
+            "need_mm": 2.4
+          },
+          "qt:hdr_qt_1": {
+            "min_centreline_mm": 2.89,
+            "need_mm": 1.6
+          },
+          "qt:hdr_qt_3": {
+            "min_centreline_mm": 5.37,
+            "need_mm": 1.6
+          },
+          "qt:hdr_qt_5": {
+            "min_centreline_mm": 6.09,
+            "need_mm": 1.6
+          },
+          "qt:hdr_qt_6": {
+            "min_centreline_mm": 4.4,
+            "need_mm": 1.6
+          },
+          "run_pin37": {
+            "min_centreline_mm": 1.87,
+            "need_mm": 1.6
+          },
+          "power_button": {
+            "min_centreline_mm": 12.28,
+            "need_mm": 2.4
+          },
+          "fpc": {
+            "min_centreline_mm": 25.91,
+            "need_mm": 8.8
+          },
+          "fan": {
+            "min_centreline_mm": 22.17,
+            "need_mm": 1.8
+          },
+          "oled_flex": {
+            "min_centreline_mm": 96.33,
+            "need_mm": 7.0
+          },
+          "usb_5v": {
+            "min_centreline_mm": 21.68,
+            "need_mm": 2.6
+          },
+          "pack_lead": {
+            "min_centreline_mm": 16.96,
+            "need_mm": 3.2
+          },
+          "pigtail_positive": {
+            "min_centreline_mm": 9.65,
+            "need_mm": 2.4
+          },
+          "pigtail_negative": {
+            "min_centreline_mm": 3.04,
+            "need_mm": 2.4
+          },
+          "header_branch:hdr_fps_lead_33_34": {
+            "min_centreline_mm": 6.49,
+            "need_mm": 1.6
+          },
+          "header_branch:fps_fps_header_branch": {
+            "min_centreline_mm": 6.49,
+            "need_mm": 1.6
+          },
+          "header_branch:fps_fps_200_main": {
+            "min_centreline_mm": 15.39,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_switch_bundle": {
+            "min_centreline_mm": 68.82,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_ck1044_pin_A": {
+            "min_centreline_mm": 70.43,
+            "need_mm": 1.3
+          },
+          "header_branch:fps_fps_ck1044_pin_2": {
+            "min_centreline_mm": 63.62,
+            "need_mm": 1.3
+          }
+        },
+        "cable_separation_status": "checked",
         "use": "shortest member (the minimum route)"
       },
       "installed_clearance": {
@@ -2652,7 +3077,75 @@
             "hits": {},
             "member_errors": [],
             "installed_targets": true,
+            "hit_tolerance_mm3": 0.01,
             "cable_overlaps": [],
+            "cable_separation": {
+              "run_pin37": {
+                "min_centreline_mm": 11.57,
+                "need_mm": 2.4
+              },
+              "run_pin39": {
+                "min_centreline_mm": 5.99,
+                "need_mm": 2.4
+              },
+              "power_button": {
+                "min_centreline_mm": 16.28,
+                "need_mm": 3.2
+              },
+              "fpc": {
+                "min_centreline_mm": 10.18,
+                "need_mm": 9.6
+              },
+              "fan": {
+                "min_centreline_mm": 24.83,
+                "need_mm": 2.6
+              },
+              "oled_flex": {
+                "min_centreline_mm": 54.95,
+                "need_mm": 7.8
+              },
+              "usb_5v": {
+                "min_centreline_mm": 27.3,
+                "need_mm": 3.4
+              },
+              "pack_lead": {
+                "min_centreline_mm": 68.46,
+                "need_mm": 4.0
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 6.78,
+                "need_mm": 3.2
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.68,
+                "need_mm": 3.2
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 29.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 29.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 10.28,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 13.64,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 17.68,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 10.76,
+                "need_mm": 2.1
+              }
+            },
+            "cable_separation_status": "checked",
             "stores_lead_mm": 240.0
           },
           {
@@ -2672,7 +3165,75 @@
             "hits": {},
             "member_errors": [],
             "installed_targets": true,
+            "hit_tolerance_mm3": 0.01,
             "cable_overlaps": [],
+            "cable_separation": {
+              "run_pin37": {
+                "min_centreline_mm": 11.57,
+                "need_mm": 2.4
+              },
+              "run_pin39": {
+                "min_centreline_mm": 5.99,
+                "need_mm": 2.4
+              },
+              "power_button": {
+                "min_centreline_mm": 16.28,
+                "need_mm": 3.2
+              },
+              "fpc": {
+                "min_centreline_mm": 10.18,
+                "need_mm": 9.6
+              },
+              "fan": {
+                "min_centreline_mm": 22.35,
+                "need_mm": 2.6
+              },
+              "oled_flex": {
+                "min_centreline_mm": 54.95,
+                "need_mm": 7.8
+              },
+              "usb_5v": {
+                "min_centreline_mm": 23.87,
+                "need_mm": 3.4
+              },
+              "pack_lead": {
+                "min_centreline_mm": 68.46,
+                "need_mm": 4.0
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 6.78,
+                "need_mm": 3.2
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.68,
+                "need_mm": 3.2
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 24.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 24.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 10.28,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 13.64,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 17.68,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 10.76,
+                "need_mm": 2.1
+              }
+            },
+            "cable_separation_status": "checked",
             "stores_lead_mm": 250.0
           },
           {
@@ -2692,7 +3253,75 @@
             "hits": {},
             "member_errors": [],
             "installed_targets": true,
+            "hit_tolerance_mm3": 0.01,
             "cable_overlaps": [],
+            "cable_separation": {
+              "run_pin37": {
+                "min_centreline_mm": 11.57,
+                "need_mm": 2.4
+              },
+              "run_pin39": {
+                "min_centreline_mm": 5.99,
+                "need_mm": 2.4
+              },
+              "power_button": {
+                "min_centreline_mm": 16.28,
+                "need_mm": 3.2
+              },
+              "fpc": {
+                "min_centreline_mm": 10.18,
+                "need_mm": 9.6
+              },
+              "fan": {
+                "min_centreline_mm": 20.01,
+                "need_mm": 2.6
+              },
+              "oled_flex": {
+                "min_centreline_mm": 54.95,
+                "need_mm": 7.8
+              },
+              "usb_5v": {
+                "min_centreline_mm": 20.84,
+                "need_mm": 3.4
+              },
+              "pack_lead": {
+                "min_centreline_mm": 68.46,
+                "need_mm": 4.0
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 6.78,
+                "need_mm": 3.2
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.68,
+                "need_mm": 3.2
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 19.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 19.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 10.28,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 13.64,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 17.68,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 10.76,
+                "need_mm": 2.1
+              }
+            },
+            "cable_separation_status": "checked",
             "stores_lead_mm": 260.0
           }
         ]
@@ -2714,6 +3343,7 @@
         "hits": {},
         "member_errors": [],
         "installed_targets": false,
+        "hit_tolerance_mm3": 0.5,
         "use": "longest member (the spare home)"
       }
     },
@@ -2748,7 +3378,91 @@
             "hits": {},
             "member_errors": [],
             "installed_targets": true,
+            "hit_tolerance_mm3": 0.01,
             "cable_overlaps": [],
+            "cable_separation": {
+              "qt": {
+                "min_centreline_mm": 11.57,
+                "need_mm": 2.4
+              },
+              "qt:hdr_qt_1": {
+                "min_centreline_mm": 6.95,
+                "need_mm": 1.6
+              },
+              "qt:hdr_qt_3": {
+                "min_centreline_mm": 6.95,
+                "need_mm": 1.6
+              },
+              "qt:hdr_qt_5": {
+                "min_centreline_mm": 6.95,
+                "need_mm": 1.6
+              },
+              "qt:hdr_qt_6": {
+                "min_centreline_mm": 4.31,
+                "need_mm": 1.6
+              },
+              "run_pin39": {
+                "min_centreline_mm": 1.87,
+                "need_mm": 1.6
+              },
+              "power_button": {
+                "min_centreline_mm": 9.58,
+                "need_mm": 2.4
+              },
+              "fpc": {
+                "min_centreline_mm": 21.08,
+                "need_mm": 8.8
+              },
+              "fan": {
+                "min_centreline_mm": 19.95,
+                "need_mm": 1.8
+              },
+              "oled_flex": {
+                "min_centreline_mm": 95.65,
+                "need_mm": 7.0
+              },
+              "usb_5v": {
+                "min_centreline_mm": 22.07,
+                "need_mm": 2.6
+              },
+              "pack_lead": {
+                "min_centreline_mm": 18.18,
+                "need_mm": 3.2
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 3.31,
+                "need_mm": 2.4
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 2.66,
+                "need_mm": 2.4
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 1.78,
+                "need_mm": 1.6
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 1.78,
+                "need_mm": 1.6
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 6.72,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 63.34,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 67.22,
+                "need_mm": 1.3
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 60.53,
+                "need_mm": 1.3
+              }
+            },
+            "cable_separation_status": "checked",
             "stores_lead_mm": 250.0
           }
         ]
@@ -2770,6 +3484,7 @@
         "hits": {},
         "member_errors": [],
         "installed_targets": false,
+        "hit_tolerance_mm3": 0.5,
         "use": "longest member (the spare home)"
       }
     },
@@ -2804,7 +3519,91 @@
             "hits": {},
             "member_errors": [],
             "installed_targets": true,
+            "hit_tolerance_mm3": 0.01,
             "cable_overlaps": [],
+            "cable_separation": {
+              "qt": {
+                "min_centreline_mm": 5.99,
+                "need_mm": 2.4
+              },
+              "qt:hdr_qt_1": {
+                "min_centreline_mm": 2.89,
+                "need_mm": 1.6
+              },
+              "qt:hdr_qt_3": {
+                "min_centreline_mm": 5.37,
+                "need_mm": 1.6
+              },
+              "qt:hdr_qt_5": {
+                "min_centreline_mm": 5.99,
+                "need_mm": 1.6
+              },
+              "qt:hdr_qt_6": {
+                "min_centreline_mm": 4.4,
+                "need_mm": 1.6
+              },
+              "run_pin37": {
+                "min_centreline_mm": 1.87,
+                "need_mm": 1.6
+              },
+              "power_button": {
+                "min_centreline_mm": 12.28,
+                "need_mm": 2.4
+              },
+              "fpc": {
+                "min_centreline_mm": 23.65,
+                "need_mm": 8.8
+              },
+              "fan": {
+                "min_centreline_mm": 22.17,
+                "need_mm": 1.8
+              },
+              "oled_flex": {
+                "min_centreline_mm": 96.33,
+                "need_mm": 7.0
+              },
+              "usb_5v": {
+                "min_centreline_mm": 21.68,
+                "need_mm": 2.6
+              },
+              "pack_lead": {
+                "min_centreline_mm": 16.96,
+                "need_mm": 3.2
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 9.61,
+                "need_mm": 2.4
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.04,
+                "need_mm": 2.4
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 6.49,
+                "need_mm": 1.6
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 6.49,
+                "need_mm": 1.6
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 15.39,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 59.58,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 70.43,
+                "need_mm": 1.3
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 63.62,
+                "need_mm": 1.3
+              }
+            },
+            "cable_separation_status": "checked",
             "stores_lead_mm": 250.0
           }
         ]
@@ -2826,6 +3625,7 @@
         "hits": {},
         "member_errors": [],
         "installed_targets": false,
+        "hit_tolerance_mm3": 0.5,
         "use": "longest member (the spare home)"
       }
     },
@@ -3654,16 +4454,16 @@
     {
       "category": "signal_routes",
       "id": "binding",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "route_revision": "vertical-harness-source-study-2026-10-11-h1-feed-routes",
       "signal_revision": "signal-reconciliation-2026-10-12-v6-qt-stored-and-released",
       "dependency_sha256": {
-        "harness_rules.py": "2f15cf9156c12767fbe296759858d0cf23dde5cefc7e3c4c7cb0f676f4ad3909",
+        "harness_rules.py": "1c45189ddefa87070a3d8490166c36fa907a701f1044a550a9100428cd7fb00c",
         "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
         "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
         "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
         "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-        "steps.py": "e50e72a2832fef47620d951ce581d9c6f89ef27a5cf88b79bec215feacbd48f2",
+        "steps.py": "0931688b9450a4f806a71d778dd23471ab55a870ebae4c8c77cab446bdbb978f",
         "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
         "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
         "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"

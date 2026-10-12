@@ -1,0 +1,27 @@
+[run_locked] waiting for another D2 CAD process ...
+[run_locked] running (free RAM 8244 MB): cad/gs8-d2-v1/candidate-vertical/tests/test_fxh_harness.py TestReleasedQTMinimum TestStowMembers
+test_earlier_endpoint_failure_is_never_overwritten (__main__.TestReleasedQTMinimum.test_earlier_endpoint_failure_is_never_overwritten) ... ok
+test_informational_collision_does_not_fail_the_installed_length_row (__main__.TestReleasedQTMinimum.test_informational_collision_does_not_fail_the_installed_length_row) ... ok
+test_installed_family_gates_with_or_without_the_released_pose (__main__.TestReleasedQTMinimum.test_installed_family_gates_with_or_without_the_released_pose) ... ok
+test_invalid_family_member_keeps_original_failure (__main__.TestReleasedQTMinimum.test_invalid_family_member_keeps_original_failure) ... ok
+test_invalid_released_geometry_is_info_and_cannot_claim_a_pass (__main__.TestReleasedQTMinimum.test_invalid_released_geometry_is_info_and_cannot_claim_a_pass) ... ok
+test_length_failure_and_clear_sweeps_are_independent (__main__.TestReleasedQTMinimum.test_length_failure_and_clear_sweeps_are_independent) ... ok
+test_length_failure_keeps_shortest_member_collision (__main__.TestReleasedQTMinimum.test_length_failure_keeps_shortest_member_collision) ... ok
+test_missing_installed_geometry_stays_failed_without_false_sweep (__main__.TestReleasedQTMinimum.test_missing_installed_geometry_stays_failed_without_false_sweep) ... ok
+test_released_geometry_removed_before_sweep_fails_closed (__main__.TestReleasedQTMinimum.test_released_geometry_removed_before_sweep_fails_closed) ... ok
+test_released_minimum_must_keep_root_and_radius (__main__.TestReleasedQTMinimum.test_released_minimum_must_keep_root_and_radius) ... ok
+test_released_minimum_receives_strict_part_sweep (__main__.TestReleasedQTMinimum.test_released_minimum_receives_strict_part_sweep) ... ok
+test_released_sweep_rebuilds_samples_from_the_checked_knots (__main__.TestReleasedQTMinimum.test_released_sweep_rebuilds_samples_from_the_checked_knots) ... ok
+test_shortest_member_cable_overlap_fails_without_solid_hits (__main__.TestReleasedQTMinimum.test_shortest_member_cable_overlap_fails_without_solid_hits) ... ok
+test_shortest_member_sweeps_hdmi_and_fps_keepouts (__main__.TestReleasedQTMinimum.test_shortest_member_sweeps_hdmi_and_fps_keepouts) ... ok
+test_corrected_full_stock_members_clear_hdmi (__main__.TestStowMembers.test_corrected_full_stock_members_clear_hdmi) ... ok
+test_fixup1_bound_member_still_swept (__main__.TestStowMembers.test_fixup1_bound_member_still_swept) ... ok
+test_lead_stored_below_the_band_passes (__main__.TestStowMembers.test_lead_stored_below_the_band_passes)
+Negative control: a lead whose longest length stays below the band (H2: <= 248.34 mm) is not failed. ... ok
+test_member_storing_a_length (__main__.TestStowMembers.test_member_storing_a_length) ... ok
+test_qt_260_lead_fails_on_the_hdmi_band (__main__.TestStowMembers.test_qt_260_lead_fails_on_the_hdmi_band) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 109.801s
+
+OK

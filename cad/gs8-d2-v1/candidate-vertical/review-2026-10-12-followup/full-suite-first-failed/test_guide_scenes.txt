@@ -1,0 +1,8 @@
+test_scenes_match_present_at (__main__.GuideScenes.test_scenes_match_present_at) ... ok
+test_step_review_names_the_page_set (__main__.GuideScenes.test_step_review_names_the_page_set) ... ok
+test_strap_page_and_eyepiece_arrow (__main__.GuideScenes.test_strap_page_and_eyepiece_arrow) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.122s
+
+OK

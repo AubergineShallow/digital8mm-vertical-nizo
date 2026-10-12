@@ -14,8 +14,8 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_c2_collar_gri
   service pose; the declared zone lies inside the neck-slot footprint, off the keyhole lips; the s_j side wall closes
   the counterbore window that the grip without it has; the wall around the bore is >= 1.2 mm.
 - Bound evidence (compact-kowa_lm6hc, current manifest): print rows pass for lens_collar and base_grip (the grip
-  uses its declared zone only), no unclassified thin spot on base_grip, and the C2 main-audit record has every
-  clearance / lens_clamp washer row passing.
+  uses its declared zone only), no unclassified thin spot on base_grip, and the canonical full audit has every
+  clearance / lens_clamp washer row passing, with current manifest, verifier, steps and helper bindings.
 """
 import json
 import math
@@ -29,11 +29,11 @@ for _p in (str(CV.parent), str(CV), str(CV / 'structural-review')):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 from cv_io import read_text              # noqa: E402
+from _full_audit_evidence import load_full_audit  # noqa: E402
+import j7_collar_checks as J             # noqa: E402
 
 VARIANT = 'compact-kowa_lm6hc'
 OUT = CV / 'out' / VARIANT
-RECORD = CV / 'review-2026-10-10' / 'c2' / ('main-c2-%s.json' % VARIANT)          # --only interference,motion,driver,clearance
-RECORD_J7 = CV / 'review-2026-10-10' / 'fp08' / ('j7-%s.json' % VARIANT)        # --only j7 (FP-08 record)
 LENSES = ('kowa_lm6hc', 'fujinon_hf6xa')
 
 
@@ -344,7 +344,7 @@ class BoundEvidence(unittest.TestCase):
         self.assertEqual(bc['base_grip']['status'], 'pass', bc['base_grip'].get('error'))
 
     def test_main_audit_c2_record(self):
-        rec = json.loads(read_text(RECORD))
+        rec = load_full_audit(self, CV, VARIANT)
         self.assertEqual(rec['manifest_sha256'], self.msha)
         rows = rec['checks']
         cl = [r for r in rows if r['category'] == 'clearance']
@@ -354,13 +354,17 @@ class BoundEvidence(unittest.TestCase):
         for r in cl:
             self.assertEqual(r['status'], 'pass', r)
             self.assertGreaterEqual(r['min_gap'], r['need'])
+        # The original C2 failure contract now covers every category in the full audit.
         self.assertEqual([r['id'] for r in rows if r['status'] == 'fail'], ['pi5/cooler'])   # VN-69 hardware only
-        j7 = json.loads(read_text(RECORD_J7))
-        self.assertEqual(j7['manifest_sha256'], self.msha)
-        washer = [r for r in j7['checks'] if r['category'] == 'lens_clamp' and r['id'].startswith('washer_')]
+        # Preserve all categories previously emitted by --only j7, including its unconditional checks.
+        j7_categories = set(J.CATEGORIES) | {'integrity', 'roundtrip', 'source_binding',
+                                           'nominal_features', 'step_aperture_probes', 'physical'}
+        j7_rows = [r for r in rows if r['category'] in j7_categories]
+        self.assertEqual({r['category'] for r in j7_rows}, j7_categories)
+        washer = [r for r in j7_rows if r['category'] == 'lens_clamp' and r['id'].startswith('washer_')]
         self.assertEqual(len(washer), 4)
         self.assertTrue(all(r['status'] == 'pass' for r in washer), washer)
-        self.assertFalse([r for r in j7['checks'] if r['status'] == 'fail'])
+        self.assertFalse([r for r in j7_rows if r['status'] == 'fail'])
 
 
 if __name__ == '__main__':

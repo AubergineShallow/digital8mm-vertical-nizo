@@ -1,6 +1,7 @@
 # Vertical assembly and wiring review guide
 
-> **STALE (review 2026-10-10, FP-06; VN-12).** Any existing `out/` PDF or page set from this superseded builder shows
+> **SUPERSEDED / STALE (review 2026-10-10, FP-06; VN-12).** For the selected guide and its receipt checks, use
+> [README-CONCEALED-VENTS.md](README-CONCEALED-VENTS.md). Any existing `out/` PDF or page set from this superseded builder shows
 > the old build order. The builder text now follows `../steps.py` and `../ASSEMBLY-VERTICAL.md`; rebuild before use
 > (Linux rasterizer, VN-12).
 

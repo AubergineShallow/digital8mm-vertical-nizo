@@ -1,5 +1,5 @@
 {
- "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+ "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
  "variant": "compact-fujinon_hf6xa",
  "categories": [
   "print_overhang",
@@ -10,17 +10,17 @@
   "bed_chamfer"
  ],
  "complete": true,
- "verification_source_sha256": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e",
+ "verification_source_sha256": "9a3087c803a75e510dab24a178417da1450d6b931dd17922355c00bd64c335a9",
  "check_sources": {
-  "candidate-vertical/verify_print_checks.py": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e",
+  "candidate-vertical/verify_print_checks.py": "9a3087c803a75e510dab24a178417da1450d6b931dd17922355c00bd64c335a9",
   "candidate-vertical/print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb",
   "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
-  "candidate-vertical/model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+  "candidate-vertical/model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
   "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
   "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
   "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
   "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
-  "candidate-vertical/critical_features_vertical.py": "756900708a415c8be618d28bc031bd3cbda279bca0fc164e2123cba244be9be4"
+  "candidate-vertical/critical_features_vertical.py": "1ed25599f3409261f176ad5161fedd25b930efa6d1c07b4be19de2bd4ce9790f"
  },
  "rule": {
   "layer": 0.2,
@@ -65,7 +65,7 @@
    "stub": 0
   },
   "critical_features": {
-   "pass": 116,
+   "pass": 123,
    "fail": 0,
    "info": 7,
    "stub": 0
@@ -1584,6 +1584,18 @@
     "min_mm": 1.2,
     "analog": "hood_band"
    },
+   "tub_stock_vent_wall_y": {
+    "part": "tub_print_stock",
+    "cls": "wall",
+    "min_mm": 1.2,
+    "analog": "hood_band"
+   },
+   "tub_stock_tenon_end_floor": {
+    "part": "tub_print_stock",
+    "cls": "wall",
+    "min_mm": 1.2,
+    "analog": "hood_band"
+   },
    "tub_evf_floor_relief": {
     "part": "tub",
     "cls": "wall",
@@ -1899,7 +1911,7 @@
       5.704881012036367e-13
      ]
     },
-    "seconds": 1.4,
+    "seconds": 1.3,
     "zones_assembly": [
      {
       "id": "grip_rear_pocket_passage_band",
@@ -1986,7 +1998,7 @@
       116.0
      ]
     },
-    "seconds": 0.0,
+    "seconds": 0.1,
     "zones_assembly": []
    },
    {
@@ -2081,7 +2093,7 @@
       22.200000100000025
      ]
     },
-    "seconds": 0.4,
+    "seconds": 0.7,
     "zones_assembly": []
    },
    {
@@ -2135,7 +2147,7 @@
       3.3999999999999955
      ]
     },
-    "seconds": 0.2,
+    "seconds": 0.7,
     "zones_assembly": []
    },
    {
@@ -2189,7 +2201,7 @@
       -175.3
      ]
     },
-    "seconds": 0.1,
+    "seconds": 0.2,
     "zones_assembly": []
    },
    {
@@ -2243,7 +2255,7 @@
       37.199999999999996
      ]
     },
-    "seconds": 0.1,
+    "seconds": 0.2,
     "zones_assembly": []
    },
    {
@@ -2412,7 +2424,7 @@
       8.600000000000001
      ]
     },
-    "seconds": 0.3,
+    "seconds": 0.4,
     "zones_assembly": []
    },
    {
@@ -2547,7 +2559,7 @@
       28.000000700000005
      ]
     },
-    "seconds": 0.7,
+    "seconds": 1.2,
     "zones_assembly": []
    },
    {
@@ -2597,7 +2609,7 @@
      ],
      "t": [
       14.5,
-      -8.279999999999998,
+      -8.28,
       -78.5
      ]
     },
@@ -2618,9 +2630,9 @@
      "px": 0.1
     },
     "layers": 317,
-    "regions": 426,
-    "short_overhangs": 275,
-    "bridge_regions": 137,
+    "regions": 428,
+    "short_overhangs": 278,
+    "bridge_regions": 136,
     "longest_bridge_mm": 29.9,
     "apex_line_mm2": 0.58,
     "hole_edge_bridges": 2,
@@ -2908,7 +2920,7 @@
       35.6
      ]
     },
-    "seconds": 7.3,
+    "seconds": 10.2,
     "zones_assembly": [
      {
       "id": "tongue_f_minus_y_wing",
@@ -3201,7 +3213,7 @@
       5.704881012036367e-13
      ]
     },
-    "seconds": 1.4,
+    "seconds": 1.3,
     "zones_assembly": [
      {
       "id": "grip_rear_pocket_passage_band",
@@ -3290,7 +3302,7 @@
       116.0
      ]
     },
-    "seconds": 0.0,
+    "seconds": 0.1,
     "zones_assembly": []
    },
    {
@@ -3482,7 +3494,7 @@
       22.200000100000025
      ]
     },
-    "seconds": 0.4,
+    "seconds": 0.7,
     "zones_assembly": []
    },
    {
@@ -3535,7 +3547,7 @@
       3.3999999999999955
      ]
     },
-    "seconds": 0.2,
+    "seconds": 0.7,
     "zones_assembly": []
    },
    {
@@ -3588,7 +3600,7 @@
       -175.3
      ]
     },
-    "seconds": 0.1,
+    "seconds": 0.2,
     "zones_assembly": []
    },
    {
@@ -3641,7 +3653,7 @@
       37.199999999999996
      ]
     },
-    "seconds": 0.1,
+    "seconds": 0.2,
     "zones_assembly": []
    },
    {
@@ -3817,7 +3829,7 @@
       8.600000000000001
      ]
     },
-    "seconds": 0.3,
+    "seconds": 0.4,
     "zones_assembly": []
    },
    {
@@ -3963,7 +3975,7 @@
       28.000000700000005
      ]
     },
-    "seconds": 0.7,
+    "seconds": 1.2,
     "zones_assembly": []
    },
    {
@@ -4012,7 +4024,7 @@
      ],
      "t": [
       14.5,
-      -8.279999999999998,
+      -8.28,
       -78.5
      ]
     },
@@ -4034,9 +4046,9 @@
      "single_direction_per_region": true
     },
     "layers": 317,
-    "regions": 426,
-    "short_overhangs": 275,
-    "bridge_regions": 151,
+    "regions": 428,
+    "short_overhangs": 278,
+    "bridge_regions": 150,
     "longest_bridge_mm": 27.7,
     "failing_region_count": 0,
     "failing_regions": [],
@@ -4358,7 +4370,7 @@
       35.6
      ]
     },
-    "seconds": 7.3,
+    "seconds": 10.2,
     "zones_assembly": [
      {
       "id": "tongue_f_minus_y_wing",
@@ -4693,8 +4705,8 @@
      "source": "r7 layout.FDM BED_CHAMFER (45 deg, exterior bed-face edges)"
     },
     "status": "pass",
-    "bed_area_mm2": 19.6,
-    "exterior_perimeter_mm": 32.6,
+    "bed_area_mm2": 18.8,
+    "exterior_perimeter_mm": 32.3,
     "exterior_unchamfered_mm": 0.0,
     "exterior_unchamfered_share": 0.0,
     "hole_perimeter_mm": 0.0,
@@ -5344,49 +5356,49 @@
      {
       "t": 1.599,
       "at": [
-       -12.3,
-       8.3,
-       86.9
-      ]
-     },
-     {
-      "t": 1.599,
-      "at": [
-       -10.5,
-       8.3,
-       90.0
-      ]
-     },
-     {
-      "t": 1.599,
-      "at": [
        -11.0,
        9.9,
-       86.2
+       86.3
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -11.5,
+       -10.0,
        9.9,
-       86.6
+       88.2
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -11.1,
-       8.3,
-       86.8
+       -12.0,
+       9.9,
+       85.3
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -10.3,
-       8.3,
-       84.4
+       -11.9,
+       9.9,
+       88.8
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -9.8,
+       9.9,
+       93.3
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -9.9,
+       9.9,
+       91.9
       ]
      }
     ],
@@ -5405,62 +5417,62 @@
     },
     "part": "tub",
     "samples": 1500,
-    "min": 1.151,
+    "min": 1.199,
     "p1": 1.199,
     "p5": 1.599,
     "share_below_min_wall": 0.0,
     "share_below_min_feature": 0.0,
-    "loaded_samples": 102,
+    "loaded_samples": 107,
     "share_loaded_below_1_6": 0.0,
     "loaded_zones": 10,
     "role": "secondary screen (share-based); local thickness is gated by critical_features",
     "thinnest": [
      {
-      "t": 1.151,
+      "t": 1.199,
       "at": [
-       -131.0,
-       3.2,
-       79.0
+       -65.7,
+       -29.8,
+       83.4
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -12.4,
-       -29.0,
-       76.4
+       -144.2,
+       -30.4,
+       59.1
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -124.5,
-       -32.5,
-       42.7
+       -47.6,
+       -31.8,
+       21.8
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -75.1,
-       -28.9,
-       76.6
+       -95.1,
+       -32.6,
+       22.0
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -96.3,
-       -28.8,
-       75.4
+       -80.0,
+       -31.9,
+       22.5
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -17.7,
-       -30.9,
-       15.1
+       -119.5,
+       -31.6,
+       50.7
       ]
      }
     ],
@@ -5475,7 +5487,7 @@
     "wall_threshold": 1.2,
     "normal_ray": {
      "p1": 1.199,
-     "share_below_min_wall": 0.0007
+     "share_below_min_wall": 0.002
     },
     "part": "tub_print_stock",
     "samples": 1500,
@@ -5484,11 +5496,19 @@
     "p5": 1.599,
     "share_below_min_wall": 0.0,
     "share_below_min_feature": 0.0,
-    "loaded_samples": 98,
+    "loaded_samples": 102,
     "share_loaded_below_1_6": 0.0,
     "loaded_zones": 10,
     "role": "secondary screen (share-based); local thickness is gated by critical_features",
     "thinnest": [
+     {
+      "t": 1.199,
+      "at": [
+       -148.0,
+       -30.0,
+       83.4
+      ]
+     },
      {
       "t": 1.199,
       "at": [
@@ -5500,7 +5520,7 @@
      {
       "t": 1.199,
       "at": [
-       -128.6,
+       -115.3,
        -28.9,
        75.4
       ]
@@ -5508,33 +5528,25 @@
      {
       "t": 1.199,
       "at": [
-       -72.6,
-       -32.3,
-       84.6
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -30.5,
-       -31.3,
-       91.4
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -73.3,
-       -32.4,
-       83.4
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -127.1,
+       -137.5,
        -28.8,
        67.6
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -48.4,
+       -32.5,
+       23.0
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -95.1,
+       -31.9,
+       34.5
       ]
      }
     ],
@@ -9724,12 +9736,12 @@
     "rays_outside": 0,
     "expected_outside": [],
     "values": [
-     3.0
+     2.85
     ],
-    "measured_mm": 3.0,
+    "measured_mm": 2.85,
     "entry": [
      -11.35,
-     8.28,
+     8.43,
      81.0
     ],
     "exit": [
@@ -9798,17 +9810,37 @@
      0,
      0
     ],
-    "note": "tub print stock: -X side wall of the bonded-stub tenon pocket (web x -14.50..-8.20, pocket from -13.00)",
+    "note": "tub print stock: -X side wall of the bonded-stub tenon pocket (web x -14.50..-8.20, pocket from -13.00); minimum over the pocket height",
     "cls": "wall",
     "entry_min_mm": 1.2,
-    "rays": 1,
+    "rays": 11,
     "offsets": [
-     0.0
+     0.0,
+     -4.8,
+     -3.84,
+     -2.88,
+     -1.92,
+     -0.96,
+     0.96,
+     1.92,
+     2.88,
+     3.84,
+     4.8
     ],
     "rays_outside": 0,
     "expected_outside": [],
     "values": [
-     1.5
+     1.5,
+     1.5,
+     1.5,
+     1.5,
+     1.5,
+     1.5,
+     1.731,
+     2.129,
+     2.292,
+     2.247,
+     1.987
     ],
     "measured_mm": 1.5,
     "entry": [
@@ -9840,7 +9872,131 @@
      0,
      0
     ],
-    "note": "tub print stock: +X side wall of the bonded-stub tenon pocket (pocket to -9.70, web to -8.20)",
+    "note": "tub print stock: +X side wall of the bonded-stub tenon pocket (pocket to -9.70, web to -8.20); minimum over the pocket height (the boss column above the thin wall is wider)",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 11,
+    "offsets": [
+     0.0,
+     -4.8,
+     -3.84,
+     -2.88,
+     -1.92,
+     -0.96,
+     0.96,
+     1.92,
+     2.88,
+     3.84,
+     4.8
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     7.0,
+     1.5,
+     1.5,
+     1.5,
+     1.5,
+     1.5,
+     7.0,
+     2.7,
+     7.0,
+     7.0,
+     7.0
+    ],
+    "measured_mm": 1.5,
+    "entry": [
+     -9.7,
+     9.18,
+     83.75
+    ],
+    "exit": [
+     -8.2,
+     9.18,
+     83.75
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_stock_vent_wall_y",
+    "part": "tub_print_stock",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -11.35,
+     11.48,
+     88.8
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "note": "remaining +Y host wall behind the adhesive escape groove; eleven height probes above intentional outlet",
+    "cls": "wall",
+    "entry_min_mm": 1.2,
+    "rays": 11,
+    "offsets": [
+     0.0,
+     -4.6,
+     -3.68,
+     -2.76,
+     -1.84,
+     -0.92,
+     0.92,
+     1.84,
+     2.76,
+     3.68,
+     4.6
+    ],
+    "rays_outside": 0,
+    "expected_outside": [],
+    "values": [
+     13.02,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     13.02,
+     13.02,
+     2.62,
+     2.62,
+     2.62,
+     13.02
+    ],
+    "measured_mm": 2.0,
+    "entry": [
+     -11.35,
+     10.48,
+     84.2
+    ],
+    "exit": [
+     -11.35,
+     12.48,
+     84.2
+    ],
+    "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
+    "status": "pass"
+   },
+   {
+    "kind": "feature",
+    "id": "tub_stock_tenon_end_floor",
+    "part": "tub_print_stock",
+    "min_mm": 1.2,
+    "structural": true,
+    "origin": [
+     -11.35,
+     9.08,
+     94.4
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "note": "blind pocket end floor; escape groove must not perforate the ceiling",
     "cls": "wall",
     "entry_min_mm": 1.2,
     "rays": 1,
@@ -9850,18 +10006,18 @@
     "rays_outside": 0,
     "expected_outside": [],
     "values": [
-     7.0
+     6.4
     ],
-    "measured_mm": 7.0,
+    "measured_mm": 6.4,
     "entry": [
-     -9.7,
-     9.18,
-     88.55
+     -11.35,
+     9.08,
+     93.6
     ],
     "exit": [
-     -2.7,
-     9.18,
-     88.55
+     -11.35,
+     9.08,
+     100.0
     ],
     "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
     "status": "pass"
@@ -10338,6 +10494,45 @@
     "why": "face material between engraved strokes of the \"exposure\" label (0.4 deep, paint-filled), as r7; decoration, no load. Fresh chord along z 0.159 at (-57.53, 27.81, 57.45) on the dbea5ca5 panel (FX; the thin-wall sampler found 0.233 there on d848d413 and no sample on dbea5ca5, whose bed-face chamfer changed the mesh); the label is centred at (-55, 57.5) on the panel face y 28 (r7 item exp_lbl moved by make_panel +8 x, +21 z), points every 2.5 mm along it.",
     "kind": "exception",
     "status": "info"
+   },
+   {
+    "id": "bonded_joint_vent_empty",
+    "part": "tub_print_stock",
+    "status": "pass",
+    "scope": "Production geometry only; physical adhesive flow, seating and cure remain HOLD",
+    "overlap_mm3": 0.0,
+    "maximum_mm3": 1e-06
+   },
+   {
+    "id": "bonded_joint_insert_uncut_by_vent",
+    "part": "tub_print_stock",
+    "status": "pass",
+    "scope": "Production geometry only; physical adhesive flow, seating and cure remain HOLD",
+    "overlap_mm3": 0.0,
+    "maximum_mm3": 1e-06
+   },
+   {
+    "id": "bonded_joint_vent_connected",
+    "part": "tub_print_stock",
+    "status": "pass",
+    "scope": "Production geometry only; physical adhesive flow, seating and cure remain HOLD",
+    "solids": 1
+   },
+   {
+    "id": "bonded_joint_vent_meets_pocket",
+    "part": "tub_print_stock",
+    "status": "pass",
+    "scope": "Production geometry only; physical adhesive flow, seating and cure remain HOLD",
+    "common_mm3": 0.1009999999999978,
+    "minimum_mm3": 1e-05
+   },
+   {
+    "id": "bonded_joint_outlet_access_before_electronics",
+    "part": "tub_print_stock",
+    "status": "pass",
+    "scope": "Production geometry only; physical adhesive flow, seating and cure remain HOLD",
+    "overlap_mm3": 0.0,
+    "maximum_mm3": 1e-06
    },
    {
     "id": "thin_spot_classification",

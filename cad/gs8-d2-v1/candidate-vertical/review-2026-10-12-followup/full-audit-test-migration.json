@@ -1,0 +1,57 @@
+{
+  "kind": "test-source migration; no CAD execution or derived audit",
+  "generated_utc": "2026-10-12T10:54:05.957461+00:00",
+  "canonical_record": "out/compact-kowa_lm6hc/verification.json",
+  "canonical_acceptance_status": "pending full audit; pre-existing report correctly rejected for stale manifest",
+  "sources": {
+    "tests/test_j7_collar.py": "a9b8a06822fdb01e5aecb294266fa36cf891e71ceb4209faed14334b9a453bcd",
+    "tests/test_c2_collar_grip.py": "384f6479c8cc8f3ca669dfed26b9b40752ad1ab5883d71c01894f033b42a76d2",
+    "tests/test_driver_checks.py": "cf07742cf12e9bc6985c42597fe9a58d05939f9c0a8fc95a739fde005783a6a5",
+    "tests/_full_audit_evidence.py": "d872aae663dfce5169462c17af2045fb755d869624dca119e9d0c6dd41d89dc0",
+    "tests/test_full_audit_evidence.py": "d0af0e00fa9785d3db003d31d4e9e9a0a5ea90686c185761127ffca00312a58d"
+  },
+  "historical_reports_unchanged": {
+    "review-2026-10-10/fp08/j7-compact-kowa_lm6hc.json": "b946b9cd2f0a85f5204ad9b0bc1a1b2308faea79b981b04517c4ae9ac2c2c3b3",
+    "review-2026-10-10/c2/main-c2-compact-kowa_lm6hc.json": "9eaee1919c8c16a33962a9a217ee547de48e507109eb0fbe1d266ff353b1e804",
+    "review-2026-10-10/fp07/driver-compact-kowa_lm6hc.json": "0e3a80adc536ef6b26da8e15d3d8e30321d26cfbfb3c2d7691a1b66fc1da50c4"
+  },
+  "frozen_sources": {
+    "j7_collar_checks.py": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+    "review-2026-10-12-corrective/catch-extended/catch_extended_cases.py": "2c558c90ca9f833c9ab3d11bc54565f7a80491d9fa9c474b902062a88476082d"
+  },
+  "validation": {
+    "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_full_audit_evidence.py",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 0.025,
+    "syntax": "all five test sources pass ast.parse",
+    "whitespace": "git diff --check clean",
+    "unchanged_functional_classes": [
+      "test_c2_collar_grip.py: all except BoundEvidence",
+      "test_driver_checks.py: all except CandidateRecord"
+    ]
+  },
+  "preserved_assertions": [
+    "J7 exact categories, unique rows, all 13 body/BFAR poses, info rows, context numeric values and no unexpected failures",
+    "C2 unchanged print/support/thin-spot/bed-chamfer and four clearance value assertions; four washer rows; no J7 or unconditional-row failures",
+    "C2 only pi5/cooler fails across full audit, expanding the old partial failure contract",
+    "Driver 23 rows, complete coverage, STEP-declared poses and current-manifest zero failure/error contract; historical failure controls retained"
+  ],
+  "freshness": [
+    "scope full; exact variant; exact manifest, verifier and steps hashes",
+    "current export-source bytes and complete unique passing source_binding rows",
+    "exact J7, steps and r7 context; driver helper; J4 and r7 helper hashes",
+    "missing, partial, stale or duplicated binding evidence fails; no historical fallback"
+  ],
+  "io_regression_rerun": {
+    "generated_utc": "2026-10-12T11:59:04.126508+00:00",
+    "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_full_audit_evidence.py",
+    "exit_code": 0,
+    "tests": 7,
+    "seconds": 0.025,
+    "wall_seconds": 0.115,
+    "log": "review-2026-10-12-followup/full-audit-test-migration-tests.txt",
+    "log_sha256": "7091ff8cccb9516ee1d12378ebffc2cea3dce5bacb26197f036cdfee05c7d1f2"
+  }
+}

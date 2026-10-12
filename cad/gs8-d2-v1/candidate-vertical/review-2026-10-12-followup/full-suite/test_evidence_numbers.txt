@@ -1,0 +1,45 @@
+test_documents_match_their_source_rows (__main__.TestGeneratedNumbers.test_documents_match_their_source_rows) ... ok
+test_generator_outputs_match_their_source_rows (__main__.TestGeneratedNumbers.test_generator_outputs_match_their_source_rows) ... /workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:609: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  simple_dir = oneOf(["X", "Y", "Z", "XY", "XZ", "YZ"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:613: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  cqtype = oneOf(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:616: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  cqtype = cqtype.setParseAction(pyparsing_common.upcaseTokens)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:622: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  direction_op = oneOf([">", "<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:625: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  center_nth_op = oneOf([">>", "<<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:635: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  other_op = oneOf(["|", "#", "+", "-"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:638: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  named_view = oneOf(["front", "back", "left", "right", "top", "bottom"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:763: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  delta_op = oneOf(["exc", "except"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:770: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  atom.setParseAction(atom_callback)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:793: PyparsingDeprecationWarning: 'infixNotation' deprecated - use 'infix_notation'
+  expr = infixNotation(
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:65: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+  Name = delimitedList(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:67: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("name")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:68: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Tag = Word(alphas, alphanums + "_").setResultsName("tag")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:69: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Selector = _selector_grammar.setResultsName("selector")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:73: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("selector_kind")
+ok
+test_generators_hold_no_typed_figures (__main__.TestGeneratedNumbers.test_generators_hold_no_typed_figures) ... ok
+test_wrong_figures_are_caught (__main__.TestGeneratedNumbers.test_wrong_figures_are_caught) ... ok
+test_rows_carry_binding_and_a_flipped_stl_fails_on_binding_alone (__main__.TestMeshBindingFields.test_rows_carry_binding_and_a_flipped_stl_fails_on_binding_alone) ... ok
+test_1e13_passes_1e3_fails_strings_exact (__main__.TestNumericTolerance.test_1e13_passes_1e3_fails_strings_exact) ... ok
+test_structural_refresh_end_to_end (__main__.TestNumericTolerance.test_structural_refresh_end_to_end) ... ok
+test_structural_script_uses_the_rule (__main__.TestNumericTolerance.test_structural_script_uses_the_rule) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 10.282s
+
+OK

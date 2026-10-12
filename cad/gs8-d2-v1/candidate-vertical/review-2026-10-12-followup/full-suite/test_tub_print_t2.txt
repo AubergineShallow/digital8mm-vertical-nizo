@@ -1,0 +1,55 @@
+test_negative_control_integral_stub_fails (__main__.BuiltTub.test_negative_control_integral_stub_fails) ... /workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:609: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  simple_dir = oneOf(["X", "Y", "Z", "XY", "XZ", "YZ"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:613: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  cqtype = oneOf(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:616: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  cqtype = cqtype.setParseAction(pyparsing_common.upcaseTokens)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:622: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  direction_op = oneOf([">", "<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:625: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  center_nth_op = oneOf([">>", "<<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:635: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  other_op = oneOf(["|", "#", "+", "-"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:638: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  named_view = oneOf(["front", "back", "left", "right", "top", "bottom"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:763: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  delta_op = oneOf(["exc", "except"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:770: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  atom.setParseAction(atom_callback)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:793: PyparsingDeprecationWarning: 'infixNotation' deprecated - use 'infix_notation'
+  expr = infixNotation(
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:65: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+  Name = delimitedList(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:67: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("name")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:68: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Tag = Word(alphas, alphanums + "_").setResultsName("tag")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:69: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Selector = _selector_grammar.setResultsName("selector")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:73: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("selector_kind")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:865: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse_result = _expression_grammar.parseString(selectorString, parseAll=True)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/pyparsing/util.py:466: PyparsingDeprecationWarning: 'parseAll' argument is deprecated, use 'parse_all'
+  return fn(self, *args, **kwargs)
+integral stub control: [(23.5, [-14.6, -8.2, 8.2, 8.4, 78.4, 82.0])]
+ok
+test_tub_stock_and_stub_print_without_support (__main__.BuiltTub.test_tub_stock_and_stub_print_without_support) ... L 158 tub stock: overhang pass (0 unsupported), bridge pass (0 failing), longest 27.7 mm
+L 185 tub stock: overhang pass (0 unsupported), bridge pass (0 failing), longest 27.7 mm
+ok
+test_evf_relief_covers_the_receptacle_zone (__main__.Data.test_evf_relief_covers_the_receptacle_zone) ... ok
+test_joint_and_ceiling_clear_every_tab_position (__main__.Data.test_joint_and_ceiling_clear_every_tab_position)
+The ceiling (bottom = joint plane) is never reached by the lock tab or a screw head at ANY roll angle with ... ok
+test_slope_steeper_than_r7_allowance (__main__.Data.test_slope_steeper_than_r7_allowance) ... ok
+test_minus_z_on_the_pcb_and_control (__main__.EvfRestraint.test_minus_z_on_the_pcb_and_control) ... -Z pass 0.25 {'hdmi receptacle': None, 'ZIF (OLED flex)': None, 'components': None, 'pcb': {'gap_mm': 0.25, 'on': 'tub'}, 'hdmi plug': None}
+-Z control fail {'hdmi receptacle': 0.27}
+ok
+test_stub_is_the_tine_below_the_joint (__main__.Split.test_stub_is_the_tine_below_the_joint) ... ok
+test_tenon_datum_and_pocket_clearances (__main__.Split.test_tenon_datum_and_pocket_clearances) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 150.840s
+
+OK

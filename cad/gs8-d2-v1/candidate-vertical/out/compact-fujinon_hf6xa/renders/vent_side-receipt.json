@@ -1,0 +1,9 @@
+{
+  "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+  "renderer_sha256": "11a6f7f6e782ff81eacb37116d41b1cf01fdabc40a2038d7e328712352623d14",
+  "view": "vent_side",
+  "blender_version": "4.3.2",
+  "image_sha256": "fd4d721a7ef7a02194af7c914912d7c8ce98989a87a5d852bd77ca0fa50331ec",
+  "physical_qualified": false,
+  "scope": "Source tessellation product illustration; service view omits flexible harnesses"
+}

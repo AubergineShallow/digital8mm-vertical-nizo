@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-12T17:03:30.758741+00:00",
+  "attempts": [
+    {
+      "job": "render_variants",
+      "session": 50814,
+      "exit": 75,
+      "status": "not executed; 300minute lock wait expired"
+    },
+    {
+      "job": "wall_probe_context",
+      "session": 75047,
+      "exit": 75,
+      "status": "not executed; 300minute lock wait expired"
+    }
+  ],
+  "retry": "same sources and commands with720minute wait"
+}

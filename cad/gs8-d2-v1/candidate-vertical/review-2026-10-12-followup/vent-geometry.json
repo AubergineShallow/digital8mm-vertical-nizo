@@ -1,0 +1,64 @@
+{
+  "status": "pass",
+  "physical_qualified": false,
+  "inputs": {
+    "stock-trial.step": "cd0fd0569ca5d1a72deb1bc578217ebf030be37f72326b2ab0f65ef9de17e8e9",
+    "insert-trial.step": "0d8d1b01b078e255bfccb4aa2e6dce068d7601a4cbb0b30df489c2df5621a14e",
+    "tub-trial.step": "d44aa936f520137743f997b4998655032ebcb2e549249efc9d17c0b88dd3990b"
+  },
+  "source_sha256": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
+  "checks": [
+    {
+      "id": "host_groove_clear",
+      "pass_": true
+    },
+    {
+      "id": "tenon_not_cut",
+      "pass_": true
+    },
+    {
+      "id": "groove_connected",
+      "pass_": true
+    },
+    {
+      "id": "groove_meets_pocket",
+      "pass_": true
+    },
+    {
+      "id": "groove_reaches_accessible_edge",
+      "pass_": true
+    },
+    {
+      "id": "remaining_host_wall",
+      "pass_": true,
+      "nominal_mm": 2.0,
+      "minimum_mm": 1.2
+    },
+    {
+      "id": "end_floor_retained",
+      "pass_": true,
+      "nominal_mm": 1.6,
+      "minimum_mm": 1.2
+    },
+    {
+      "id": "tub_bbox_unchanged",
+      "pass_": true,
+      "before": [
+        -158.0,
+        9.983125437429408e-13,
+        -35.6,
+        28.0,
+        -5.05,
+        100.00000000000867
+      ],
+      "after": [
+        -158.0,
+        9.983125437429408e-13,
+        -35.6,
+        28.0,
+        -5.05,
+        100.00000000000867
+      ]
+    }
+  ]
+}

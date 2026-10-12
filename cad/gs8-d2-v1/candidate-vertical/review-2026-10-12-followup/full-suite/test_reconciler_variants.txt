@@ -1,0 +1,11 @@
+test_declared_for_every_other_variant (__main__.TestVariantAuditGate.test_declared_for_every_other_variant) ... ok
+test_foreign_manifest_and_stale_verifier_fail (__main__.TestVariantAuditGate.test_foreign_manifest_and_stale_verifier_fail) ... ok
+test_missing_report_fails (__main__.TestVariantAuditGate.test_missing_report_fails) ... ok
+test_new_rigid_fault_or_missing_witness_fails (__main__.TestVariantAuditGate.test_new_rigid_fault_or_missing_witness_fails) ... ok
+test_print_failure_is_a_finding (__main__.TestVariantAuditGate.test_print_failure_is_a_finding) ... ok
+test_valid_pair_passes_the_variant_gate (__main__.TestVariantAuditGate.test_valid_pair_passes_the_variant_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 8.977s
+
+OK

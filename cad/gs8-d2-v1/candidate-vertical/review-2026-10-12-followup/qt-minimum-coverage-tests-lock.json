@@ -1,0 +1,11 @@
+{
+  "pid": 2,
+  "t": 1791827079.2185194,
+  "cmd": [
+    "cad/gs8-d2-v1/candidate-vertical/tests/test_fxh_harness.py",
+    "TestReleasedQTMinimum",
+    "TestStowMembers"
+  ],
+  "locking": "posix-flock",
+  "state": "running"
+}

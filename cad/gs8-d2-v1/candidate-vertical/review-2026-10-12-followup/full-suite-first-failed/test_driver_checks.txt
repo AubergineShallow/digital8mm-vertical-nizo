@@ -1,0 +1,29 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+test_record (__main__.CandidateRecord.test_record) ... ok
+test_coverage (__main__.Contexts.test_coverage) ... ok
+test_missing_context_id_fails (__main__.Contexts.test_missing_context_id_fails) ... ok
+test_named_contexts (__main__.Contexts.test_named_contexts) ... ok
+test_rows_are_the_state_model (__main__.Contexts.test_rows_are_the_state_model) ... ok
+test_6_0_counterbore_fails (__main__.Counterbore.test_6_0_counterbore_fails) ... ok
+test_6_4_candidate_counterbore_fails (__main__.Counterbore.test_6_4_candidate_counterbore_fails) ... ok
+test_7_0_counterbore_passes (__main__.Counterbore.test_7_0_counterbore_passes) ... ok
+test_boolean_failure_is_not_a_pass (__main__.Parity.test_boolean_failure_is_not_a_pass) ... ok
+test_counterbores (__main__.Parity.test_counterbores) ... ok
+test_handle_only_obstacle (__main__.Parity.test_handle_only_obstacle) ... ok
+test_nearest_among_several_parts (__main__.Parity.test_nearest_among_several_parts)
+The port's exact branch and bound picks r7's nearest part and gap (nearest part last in context order). ... ok
+test_two_solid_compound (__main__.Parity.test_two_solid_compound) ... ok
+test_candidate_pt_screw (__main__.Pose.test_candidate_pt_screw) ... ok
+test_r7_collar_and_grip_entries (__main__.Pose.test_r7_collar_and_grip_entries) ... ok
+test_r7_screws_all_axes (__main__.Pose.test_r7_screws_all_axes) ... ok
+test_rejects (__main__.Pose.test_rejects) ... ok
+test_historical_failure_set_remains_exact (__main__.RecordFailureContract.test_historical_failure_set_remains_exact) ... ok
+test_new_manifest_rejects_errors_even_on_a_pass_row (__main__.RecordFailureContract.test_new_manifest_rejects_errors_even_on_a_pass_row) ... ok
+test_new_manifest_requires_no_failures (__main__.RecordFailureContract.test_new_manifest_requires_no_failures) ... ok
+test_verify_candidate_runs_driver_rows (__main__.Registration.test_verify_candidate_runs_driver_rows) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 3.759s
+
+OK

@@ -658,6 +658,37 @@ RELEASED_MINIMUM_PROPOSAL = (
     'Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.')
 
 
+def _released_curve(c, rounded_path):
+    """Rebuild the informational pose from its knots; missing/invalid geometry cannot claim clearance."""
+    rel = c.get('released_minimum_curve')
+    if not isinstance(rel, dict):
+        return None, ['released minimum geometry is missing']
+    knots = rel.get('knots')
+    def finite(v):
+        return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
+    if (not isinstance(knots, (list, tuple)) or len(knots) < 2
+            or any(not isinstance(p, (list, tuple)) or len(p) != 3 or not all(finite(v) for v in p) for p in knots)
+            or any(math.dist(a, b) <= 1e-9 for a, b in zip(knots, knots[1:]))):
+        return None, ['released minimum has missing or invalid knots']
+    fields = ('centerline_radius_mm', 'first_straight_min_mm', 'last_straight_min_mm', 'rounded_length_mm')
+    if any(not finite(rel.get(k)) or rel[k] < 0 for k in fields) or rel['centerline_radius_mm'] == 0:
+        return None, ['released minimum has missing or invalid radius, straight tails or recorded length']
+    rc = rounded_path(knots, rel['centerline_radius_mm'], rel['first_straight_min_mm'],
+                      rel['last_straight_min_mm'], 0.5)
+    problems = list(rel.get('errors') or []) + list(rc['errors'])
+    if rc['rounded_length_mm'] is None or abs(rc['rounded_length_mm'] - rel['rounded_length_mm']) > 1e-6:
+        problems.append('released minimum recorded length differs from its knots')
+    if rel['centerline_radius_mm'] < c['curve']['centerline_radius_mm'] - 1e-9:
+        problems.append('released minimum reduces the installed bend-radius allowance')
+    if len(rc['sampled_centerline']) < 2:
+        problems.append('released minimum has no valid sampled curve')
+    else:
+        for end in (0, -1):
+            if math.dist(rc['sampled_centerline'][end], c['points'][end]) > ROUTE_END_TOL:
+                problems.append('released minimum endpoint differs from installed endpoint')
+    return rc, problems
+
+
 def min_route(H, c, rounded_path):
     """(shortest route length, how): family minimum (+ longest branch), hump drawn out, or the fixed curve.
 
@@ -670,21 +701,10 @@ def min_route(H, c, rounded_path):
         how = dict(family=fr, longest_branch_mm=br)
         rel = c.get('released_minimum_curve')
         if rel is not None:
-            rc = rounded_path(rel['knots'], rel['centerline_radius_mm'], rel['first_straight_min_mm'],
-                              rel['last_straight_min_mm'], 0.5)
-            problems = list(rc['errors'])
-            if rc['rounded_length_mm'] is None or abs(rc['rounded_length_mm'] - rel['rounded_length_mm']) > 1e-6:
-                problems.append('released minimum recorded length differs from its knots')
-            if rel['centerline_radius_mm'] < c['curve']['centerline_radius_mm'] - 1e-9:
-                problems.append('released minimum reduces the installed bend-radius allowance')
-            if not rc['sampled_centerline']:
-                problems.append('released minimum has no valid sampled curve')
-            else:
-                for end in (0, -1):
-                    if math.dist(rc['sampled_centerline'][end], c['points'][end]) > ROUTE_END_TOL:
-                        problems.append('released minimum endpoint differs from installed endpoint')
+            rc, problems = _released_curve(c, rounded_path)
             how['released_minimum'] = dict(
-                status='info', gating=False, rule_change=RELEASED_MINIMUM_PROPOSAL, length_mm=rc['rounded_length_mm'],
+                status='info', gating=False, rule_change=RELEASED_MINIMUM_PROPOSAL,
+                length_mm=rc['rounded_length_mm'] if rc else None,
                 min_route_mm=None if problems else rc['rounded_length_mm'] + br, problems=problems,
                 scope=c.get('released_minimum_scope'))
         return (None if fr['min_mm'] is None else fr['min_mm'] + br), how
@@ -736,8 +756,9 @@ def cable_routes_rows(H, rounded_path):
             rmr = rel['min_route_mm']
             rel.update(allowance_mm=_r(allow, 1), length_min_mm=lmin,
                        slack_mm=None if rmr is None else _r(lmin - rmr - allow, 2),
-                       would_pass_length_gate=bool(rmr is not None and not rel['problems']
-                                                   and rmr + allow <= lmin + 1e-6))
+                       length_only_passes=bool(rmr is not None and not rel['problems']
+                                               and rmr + allow <= lmin + 1e-6),
+                       would_pass_length_gate=False, clearance_status='not_checked')
             rel['min_route_mm'] = _r(rmr, 2)
             row['proposed_rule_change'] = dict(status='info', gating=False, id='released_minimum_length_basis',
                                                text=RELEASED_MINIMUM_PROPOSAL, detail='basis.released_minimum')
@@ -1376,6 +1397,7 @@ def run_all(H, rounded_path, ST, hits=box_hits, printed_dist=None, retention=Non
 # ------------------------------------------------------------------ family member clearance (fixup-1, FP-10)
 # A cable_stow 'loop' pass (the longest family member is the spare's home) and a cable_routes family-minimum pass
 # (the shortest member is a valid route) rely on members at the solver bounds that routes never clearance-checked.
+# Route rows receive this independent sweep even when their length or endpoint checks already failed (CHE-1).
 # r7 covered a stow home or route as a KEEPOUT box in its interference audit. Here each member used is swept as a
 # cable-OD capsule (segment cylinders plus a cube of the capsule diameter at every joint, both enclosing the capsule)
 # against the material present in the closed camera; the cable's own end parts are exempt (r7 own-end rule).
@@ -1411,6 +1433,9 @@ def member_clearance(H, rounded_path, cid, value, final_present, hits=box_hits, 
     strict INSTALLED_TOL, separation from every other modeled cable)."""
     c = H['cables'][cid]
     mem = family_eval(rounded_path, c['curve'], c['family'], value)
+    errors = list(mem['errors'])
+    if len(mem['points']) < 2:
+        errors.append('family member has no valid sampled curve')
     pts = simplify_polyline(mem['points'], tol)
     spec_i = INSTALLED_CLEARANCE.get(cid, {}) if installed else {}
     d = (spec_i.get('d') or c.get('od_mm') or 0.0) + 2 * tol
@@ -1432,16 +1457,20 @@ def member_clearance(H, rounded_path, cid, value, final_present, hits=box_hits, 
     out = dict(variable=c['family']['var'], value=value, od_mm=c.get('od_mm'), capsule_d_mm=_r(d, 2),
                polyline_points=len(pts), pieces=n, member_length_mm=_r(mem['length'], 2),
                exempt=sorted(c['ends']), exempt_rule='own end parts only within %.0f mm of the terminal' % END_ZONE_MM,
-               targets=len(targets), hits=found, member_errors=mem['errors'], installed_targets=installed)
+               targets=len(targets), hits=found, member_errors=errors, installed_targets=installed,
+               hit_tolerance_mm3=INSTALLED_TOL if installed else SWEEP_TOL)
     if installed:
-        over = []
-        for name, q, dq in neighbour_cables(H, cid):
-            if name.split(':')[0] == cid:
-                continue
-            dist, need = polyline_distance(mem['points'], q, SEPARATION_TOL), (d - 2 * tol + dq) / 2
-            if dist < need - 1e-9:
-                over.append('%s %.2f < %.2f mm' % (name, dist, need))
-        out['cable_overlaps'] = over
+        sep, over = {}, []
+        if not errors:
+            for name, q, dq in neighbour_cables(H, cid):
+                if name.split(':')[0] == cid:
+                    continue
+                dist, need = polyline_distance(mem['points'], q, SEPARATION_TOL), (d - 2 * tol + dq) / 2
+                sep[name] = dict(min_centreline_mm=_r(dist, 2), need_mm=_r(need, 2))
+                if dist < need - 1e-9:
+                    over.append('%s %.2f < %.2f mm' % (name, dist, need))
+        out.update(cable_overlaps=over, cable_separation=sep,
+                   cable_separation_status='not_checked_invalid_member' if errors else 'checked')
     return out
 
 
@@ -1468,9 +1497,11 @@ def _value_for_length(H, rounded_path, cid, target):
 def apply_member_clearance(rows, H, rounded_path, final_present, hits=box_hits):
     for r in rows:
         c = H['cables'].get(r.get('id'))
-        if not c or not c.get('family') or r.get('status') != 'pass':
+        if not c or not c.get('family'):
             continue
         if r['category'] == 'cable_stow' and r.get('kind') == 'loop':
+            if r.get('status') != 'pass':
+                continue
             # FX (verifier H2 major): the loop must store every purchased length: sweep the members that hold L_min,
             # the mid length and L_max (member length + longest branch) with the installed targets (stricter than the
             # bound member against parts only). FX-H: the fixup-1 bound-member sweep below is kept as well.
@@ -1498,39 +1529,57 @@ def apply_member_clearance(rows, H, rounded_path, final_present, hits=box_hits):
             value = max(c['family']['bound'], key=lambda b: fr['length_at_bound_mm'][str(b)] if fr['valid_at_bound'][str(b)]
                         else float('-inf'))
             use = 'longest member (the spare home)'
-        elif r['category'] == 'cable_routes' and isinstance(r.get('basis'), dict) and 'family' in r['basis']:
+        elif (r['category'] == 'cable_routes' and r.get('status') in ('pass', 'fail')
+              and isinstance(r.get('basis'), dict) and 'family' in r['basis']):
+            # CHE-1: length/end failures do not suppress the independent minimum-member or released-pose sweeps.
+            # Never reset an earlier failure. Rows with no installed geometry have no family basis to sweep.
             rel = r['basis'].get('released_minimum')
-            if rel is not None and c.get('released_minimum_curve'):
+            if rel is not None:
                 # PROPOSED rule change (info, not gating): the separate released pose still receives the STRICT
                 # installed target/tolerance and neighbour checks, including both own end-part zones; its result is
                 # reported with the proposal. The gating minimum (shortest installed member) is swept below.
-                rh = copy.deepcopy(H)
-                rc = rh['cables'][r['id']]
-                rc['curve'] = copy.deepcopy(c['released_minimum_curve'])
-                rc['points'] = copy.deepcopy(rc['curve']['sampled_centerline'])
-                mc = installed_clearance(rh, r['id'], final_present, hits)
-                rel['member_clearance'] = dict(mc, use='separate released pose (PROPOSED rule change, not gating; '
-                                                       'guides released; no deformation proof)')
-                if mc['hits'] or mc['cable_overlaps']:
-                    rel['problems'].append('released pose intersects %s%s' % (
-                        ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
-                        '; overlaps ' + '; '.join(mc['cable_overlaps']) if mc['cable_overlaps'] else ''))
-                    rel['would_pass_length_gate'] = False
+                curve, problems = _released_curve(c, rounded_path)
+                rel['would_pass_length_gate'] = False
+                if problems:
+                    rel['problems'].extend(p for p in problems if p not in rel['problems'])
+                    rel['clearance_status'] = 'invalid_geometry'
+                else:
+                    rh = copy.deepcopy(H)
+                    rc = rh['cables'][r['id']]
+                    rc['curve'] = curve
+                    rc['points'] = curve['sampled_centerline']
+                    rc['sweep_points'] = rc['points']   # never reuse a cached installed-pose sweep
+                    mc = installed_clearance(rh, r['id'], final_present, hits)
+                    rel['member_clearance'] = dict(mc, use='separate released pose (PROPOSED rule change, not gating; '
+                                                           'guides released; no deformation proof)')
+                    bad = bool(mc['hits'] or mc['cable_overlaps'] or not mc['pieces'])
+                    rel['clearance_status'] = 'fail' if bad else 'pass'
+                    if mc['hits'] or mc['cable_overlaps']:
+                        rel['problems'].append('released pose intersects %s%s' % (
+                            ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
+                            '; overlaps ' + '; '.join(mc['cable_overlaps']) if mc['cable_overlaps'] else ''))
+                    if not mc['pieces']:
+                        rel['problems'].append('released pose produced no sweep pieces')
+                    rel['would_pass_length_gate'] = bool(rel['length_only_passes'] and not rel['problems'] and not bad)
             value, use = r['basis']['family']['min_at'], 'shortest member (the minimum route)'
         else:
             continue
-        mc = member_clearance(H, rounded_path, r['id'], value, final_present, hits)
+        # The minimum that gates route validity needs the same installed targets, strict hit tolerance and
+        # neighbor separation as the stock-storage members. A parts-only sweep leaves this exact bound unproved.
+        mc = member_clearance(H, rounded_path, r['id'], value, final_present, hits,
+                              installed=r['category'] == 'cable_routes')
         r['member_clearance'] = dict(mc, use=use)
-        if mc['hits'] or mc['member_errors']:
+        if mc['hits'] or mc['member_errors'] or mc.get('cable_overlaps'):
             r.setdefault('problems', []).append(
-                '%s at %s=%s intersects %s in the closed camera (capsule d %.2f mm)%s'
+                '%s at %s=%s intersects %s in the closed camera (capsule d %.2f mm)%s%s'
                 % (use, mc['variable'], value, ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
-                   mc['capsule_d_mm'], '; member errors: %s' % mc['member_errors'] if mc['member_errors'] else ''))
+                   mc['capsule_d_mm'], '; member errors: %s' % mc['member_errors'] if mc['member_errors'] else '',
+                   '; overlaps ' + '; '.join(mc['cable_overlaps']) if mc.get('cable_overlaps') else ''))
             r['status'] = 'fail'
 
 
 # ------------------------------------------------------------------ installed-route clearance (H1: VN-26, VN-60)
-# The member sweep above covers only the bound members behind a family pass; the installed route itself (a family's
+# The member sweep above covers the bound family members; the installed route itself (a family's
 # recorded member or a fixed curve) was never swept, which is how the run-lead route ran through tub material
 # unseen. Cables whose installed route was (re)built in phase 2 are swept here: (1) as capsules of their full
 # envelope against the closed-camera material (own end parts exempt, r7 rule) and the installed HDMI ribbon cells
@@ -1768,8 +1817,13 @@ def installed_clearance(H, cid, final_present, hits=box_hits, tol=MEMBER_TOL):
 
 def apply_installed_clearance(rows, H, final_present, hits=box_hits):
     for r in rows:
-        if r.get('category') != 'cable_routes' or r.get('id') not in INSTALLED_CLEARANCE or r.get('status') != 'pass':
+        if (r.get('category') != 'cable_routes' or r.get('id') not in INSTALLED_CLEARANCE
+                or r.get('status') not in ('pass', 'fail')):
             continue
+        c = H['cables'].get(r['id'])
+        if not c or c.get('errors') or not c.get('points'):
+            continue
+        # Report the recorded installed pose independently too; an earlier length/member failure still fails.
         ic = installed_clearance(H, r['id'], final_present, hits)
         r['installed_clearance'] = ic
         probs = []

@@ -1,0 +1,59 @@
+{
+  "purpose": "Explicit UTF-8/LF I/O correction only; no CAD rerun or historical probe rebinding",
+  "generated_utc": "2026-10-12T11:59:04.126508+00:00",
+  "sources": {
+    "review-2026-10-12-followup/catch-pose-study/probe_extra_physical.py": "5649f4bbb2dcf6ff4d932a8ca1f769725f65e2d26640a1913d053d7047c5a35f",
+    "review-2026-10-12-followup/catch-pose-study/probe_window.py": "dccd288fb678f5b6c2ae2fa4e14b3b1a0b1caddb4ed82624c8ea205130dd9752",
+    "tests/test_catch_extended.py": "72997d5f5d5e797c9fc1122aedd31d78b763d7bb1d2665c383b493bdfd180e33",
+    "tests/test_full_audit_evidence.py": "d0af0e00fa9785d3db003d31d4e9e9a0a5ea90686c185761127ffca00312a58d"
+  },
+  "logic_unchanged": "ASTs equal after removing only read_text/write_text encoding and newline keyword arguments",
+  "scoped_io_lint": "all four changed Python files pass",
+  "protected_bytes_unchanged": {
+    "review-2026-10-12-followup/catch-pose-study/executed-window-probe.py.txt": "2386df05a0511c2d7a3024911e6c36c4a34b87dbca71b94f98e09caa5e186c67",
+    "review-2026-10-12-followup/catch-pose-study/extra-physical.json": "31c13aafe8561823b0625a28fd013b6a5554781dac0a7c1552dc4f3d81433fed",
+    "review-2026-10-12-followup/catch-pose-study/study.json": "4babd3638347856077a23008fa3154dd8cf80331e6161e0a4c79314d7df4d79e",
+    "review-2026-10-12-followup/catch-pose-study/executed-extra-probe.py.txt": "8aeab2e52197c7246fe2ab02b458016378de2bb7c518089d71020141cc927c15",
+    "review-2026-10-12-followup/catch-pose-study/window-summary.json": "0a337ae045055dc7593b35d6a839f97634e5f9c79b9340e5772cea32fcbf9795",
+    "review-2026-10-12-corrective/catch-extended/catch-extended-compact-kowa_lm6hc.json": "d6c53a0a255120692c1db158d1869a2d34772178191bd3a96edc8d3216fded44",
+    "j7_collar_checks.py": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+    "model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
+    "review-2026-10-12-corrective/catch-extended/catch_extended_cases.py": "2c558c90ca9f833c9ab3d11bc54565f7a80491d9fa9c474b902062a88476082d"
+  },
+  "regression_runs": {
+    "catch-source": {
+      "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_catch_extended.py HistoricalCatchFailure PosePolicyUnits ReceiptFreshness",
+      "exit_code": 0,
+      "tests": 22,
+      "seconds": 0.131,
+      "wall_seconds": 0.457,
+      "log": "review-2026-10-12-followup/catch-pose-study/source-tests.txt",
+      "log_sha256": "8e0b82a354d8230df32074074937db6d0c9405d0ef63b39418e400cd6ed52e71"
+    },
+    "full-evidence": {
+      "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_full_audit_evidence.py",
+      "exit_code": 0,
+      "tests": 7,
+      "seconds": 0.025,
+      "wall_seconds": 0.115,
+      "log": "review-2026-10-12-followup/full-audit-test-migration-tests.txt",
+      "log_sha256": "7091ff8cccb9516ee1d12378ebffc2cea3dce5bacb26197f036cdfee05c7d1f2"
+    },
+    "cross-platform-io": {
+      "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_cross_platform_io.py",
+      "exit_code": 1,
+      "tests": 12,
+      "seconds": 5.706,
+      "wall_seconds": 5.843,
+      "log": "review-2026-10-12-followup/cross-platform-io-tests.txt",
+      "log_sha256": "fbe6cd13fe5f51407561e65c3730cfd6a7ed01e1a7df8920a39630beb15a887a"
+    }
+  },
+  "remaining_global_io_findings": [
+    "corrective-2026-10-12/j2-parts-proposal/inspect_vendor_models.py:24 write_text",
+    "corrective-2026-10-12/j2-parts-proposal/inspect_vendor_models.py:62 write_text",
+    "corrective-2026-10-12/run_isolated_rigid.py:57 os.sep and os.path.relpath",
+    "tests/test_corrective_aggregate.py:30 write_text"
+  ],
+  "source_binding_impact": "Only portable probe and test source hashes changed. Archived executed probes and geometry receipts retain original bytes; current J7 checker and catch helper hashes unchanged."
+}

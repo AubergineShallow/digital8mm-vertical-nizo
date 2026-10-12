@@ -1,7 +1,7 @@
 {
   "status": "geometric_pass_only",
   "physical_qualified": false,
-  "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "mechanical_manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "mechanical_sources": {
     "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324",
     "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
@@ -9,12 +9,12 @@
     "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
     "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
     "candidate-vertical/export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
-    "candidate-vertical/export_candidate.py": "188550509bee00f04722e31aebe02417ec940f47b5edd86166085217bafcb3d6",
+    "candidate-vertical/export_candidate.py": "a7f4e4691f806c2acffb5542607b5f6bd5d3769ee8a3b4b186c22dcc89e00bf8",
     "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
     "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
     "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
     "candidate-vertical/make_corrected_pi.py": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
-    "candidate-vertical/model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "candidate-vertical/model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
     "candidate-vertical/official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
     "candidate-vertical/official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
     "candidate-vertical/official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
@@ -121,7 +121,7 @@
     "knob_exp": "28d672851b29b8add239c6ef2bd278414a83ef47f558eef210373fcbd60d3dd4",
     "knob_fps": "5b004799fa7f8abf0ce84caf4bda91d61975a8addb5ae1d39b6c4ff32883f71a",
     "carrier": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
-    "tub": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+    "tub": "f0442c204c4f29e9ac451dec86db6879a84d55807651a5bb68a5165a0af87878",
     "panel": "db84317a69b3eda3e76edf512ae252a5fe5a1b947d8984903ced065aa34d1eec",
     "lens_collar": "6ad36bd056aec8b204f06fa181dd7e71a5c299e927f29c461dd5feefe858b04f",
     "power_button": "36d0a1bd86582b725903227d4123ba72e0dd220cdfe94ed3298c7063ce1c00db",
@@ -1782,5 +1782,5 @@
     "Rest/guide print strength, fit, creep, bushing grip and coordinated hand support require physical trial",
     "Bench-only PicoBlade separation, continuity and30-cycle tin-contact durability remain gates"
   ],
-  "completed_utc": "2026-10-12T02:24:28Z"
+  "completed_utc": "2026-10-12T10:48:44Z"
 }

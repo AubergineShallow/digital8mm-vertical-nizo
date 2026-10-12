@@ -235,12 +235,12 @@
       "angle_deg": 0,
       "translation_mm": [
         14.5,
-        -8.279999999999998,
+        -8.28,
         -78.5
       ],
       "footprint_mm": [
-        6.300000000000002,
-        12.000000000000004,
+        6.3000000000000025,
+        12.000000000000002,
         15.000000000000005
       ],
       "slicer_state": "NOT RUN",
@@ -958,13 +958,13 @@
         -5.050000100000004,
         100.00139869042322
       ],
-      "volume_mm3": 171213.87191176615,
-      "mass_est_g": 155.7190165037513,
+      "volume_mm3": 171204.26446057492,
+      "mass_est_g": 155.7102785268929,
       "source": "candidate-vertical/model.py + baseline sources",
       "valid": true,
       "solid_count": 1,
       "geometry_role": "material/source proxy",
-      "occupied_material_volume_mm3": 171213.87191176615,
+      "occupied_material_volume_mm3": 171204.26446057492,
       "volume_semantics": "shape volume"
     },
     {
@@ -1206,12 +1206,12 @@
     "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
     "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
     "candidate-vertical/export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
-    "candidate-vertical/export_candidate.py": "188550509bee00f04722e31aebe02417ec940f47b5edd86166085217bafcb3d6",
+    "candidate-vertical/export_candidate.py": "a7f4e4691f806c2acffb5542607b5f6bd5d3769ee8a3b4b186c22dcc89e00bf8",
     "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
     "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
     "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
     "candidate-vertical/make_corrected_pi.py": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
-    "candidate-vertical/model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "candidate-vertical/model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
     "candidate-vertical/official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
     "candidate-vertical/official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
     "candidate-vertical/official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
@@ -1660,14 +1660,14 @@
     216.82102055308357
   ],
   "complete_bbox_volume_mm3": 3928555.8496799404,
-  "mass_est_g": 870.2589514403712,
+  "mass_est_g": 870.2502134635128,
   "com_est_mm": [
-    -46.468895314001784,
-    1.0244011769533663,
-    29.956975351895313
+    -46.469247930143034,
+    1.0243164971171161,
+    29.95642779292751
   ],
   "grip_axis_x": -47.0,
-  "com_offset_from_grip_mm": 0.5311046859982156,
+  "com_offset_from_grip_mm": 0.5307520698569661,
   "qualification": "Computed geometry only. COTS proxies, mass and centre of mass are estimates. The legacy12g XT30/fused-pigtail mass is concentrated at its rigid proxy; other harness masses are excluded. The270mm16AWG distributed mass and actual weights remain unmeasured. No physical qualification claimed.",
   "fps_geometry": {
     "part": "Lorlin CK1044",
@@ -1812,6 +1812,12 @@
     "split_z_mm": 83.5,
     "ceiling_top_z_mm": 95.2,
     "ceiling_floor_mm": 1.6000000000000028,
+    "working_face_recess_mm": 0.15,
+    "adhesive_escape_groove_mm": {
+      "width": 1.0,
+      "depth": 0.4
+    },
+    "groove_location": "Host +Y pocket wall to accessible +Y joint-face edge; dry -Y locating datum and 1.6 mm tenon remain uncut.",
     "physical_qualified": false,
     "hold": "Actual seating, datum tilt, adhesive preparation/cure and warm torque/creep require the as-printed joint coupon."
   },
@@ -1898,7 +1904,7 @@
   },
   "files": {
     "LICENSE-RaspberryPi.txt": "b8c5ff8793639891ff6a3102f0e7bfe6dd94c9df1892072e4db2d9e9884e1854",
-    "assembly.step": "674473f14209124311120a82b1a14605e0fde753dbb0a0050d8143a2f09575df",
+    "assembly.step": "2748f9712323e36b03c5f9174b334a725dbba785f54288271591e5f2224b911e",
     "meshes/base_grip.json": "5e59ea54d7ab6ece7417532c8cbf2bc1a13a89a2fb546af485c6f6444aff791f",
     "meshes/c_cs_adapter.json": "a98457dc67a0eb811ed37cd45cc31091cac9c12c0dae8471bff0cf6d56ff3834",
     "meshes/cap.json": "6c30bf0845b816f7b8e9e415b30abbc4004a16340d7a23988ce0a52890a2a9b6",
@@ -1938,7 +1944,7 @@
     "meshes/strap.json": "6c18c9a8ee2132cf8f718604ee6b849369831e5ff388b210e3c2ded1e52e5d72",
     "meshes/switch_1824.json": "2850ad93ce56ac2aebfabb6df5b90fc1d506d33fd9c075bf10a6613d5675736d",
     "meshes/tripod_nut.json": "98cee6f41c7402ee3e3793464cb5a377020dcb041a1ea240cb6013f8dbb030ad",
-    "meshes/tub.json": "c790c8d134987e2383edb2600e2b3e0394ef1a2d01bb6ea2943bb2ba87ba8a27",
+    "meshes/tub.json": "b84407e6fe204df8360f43117f402b01894ad761b3b81d1ba0c17814d5597133",
     "meshes/usb_stick.json": "bd6c8f74c58cdb672ec82ddf8c2b881ab57685c2d0b158cff8131206fe60ad9f",
     "meshes/usb_storage_plug_reserve.json": "1380d387a92da743b712138e08056c532e4f7ea67e549acb27ad55cf6ce59071",
     "meshes/x1203.json": "f8e33ba6495e42dd78e45b2b6d308adbe5c1db6c6e0883e2050645310ca6554a",
@@ -1984,9 +1990,9 @@
     "step/s_c4.step": "550c7e67f0fff85236ee826d2d59dc6006dce0f1e05de266c7368418b9567d03",
     "step/strap.step": "e976c8dc1ed068663a18610ed64d75e86286aac224fc2750bf6517f19c621d54",
     "step/switch_1824.step": "475a60a054f23de460ccd0138fd3442424deed0fbdcd46474094224b9756208d",
-    "step/tab_catch_insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
+    "step/tab_catch_insert.step": "0d8d1b01b078e255bfccb4aa2e6dce068d7601a4cbb0b30df489c2df5621a14e",
     "step/tripod_nut.step": "0c2884c70fc43aa46be80cb126daf87e298be185276927586df0b945ab2010b7",
-    "step/tub.step": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+    "step/tub.step": "f0442c204c4f29e9ac451dec86db6879a84d55807651a5bb68a5165a0af87878",
     "step/usb_stick.step": "9464d0d22243b4acb983453b82c9e0887139b9b5b8c69526014d05de7b693625",
     "step/usb_storage_plug_reserve.step": "bdf611bd0c478020d30a551cafa71c14304377b0aa7edfbe9b7edae03df6338e",
     "step/x1203.step": "caf0b8a0387ffb3f68cc76a471abe8596f36c0952d26ad3c56587aa81f29c974",
@@ -2001,7 +2007,7 @@
     "stl/knob_fps.stl": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
     "stl/lens_collar.stl": "c6573eedc1fa7436df9f3f4160dace795fc8f282afa06b3ac474d8b8b0597a95",
     "stl/panel.stl": "b2d9c26d34fd7b7a00b588c234d520c21df070be128108f6180b12679a07dec0",
-    "stl/tab_catch_insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
-    "stl/tub.stl": "c259ee067bd4efbab7a612008dcec1a70316d2d6f46ae5df76d6d128b31f0bd5"
+    "stl/tab_catch_insert.stl": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7",
+    "stl/tub.stl": "8ecea01bd3ed09a1ce878a1d0b616bf5c8ec34afaf92d601dcf1efac2038028c"
   }
 }

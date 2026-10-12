@@ -1,0 +1,37 @@
+{
+  "scope": "Post-terminal narrow packaging and UTF-8 fixes; four affected modules rerun",
+  "rows": [
+    {
+      "test": "review-2026-10-12-followup/test_package_review.py",
+      "exit_code": 0,
+      "source_sha256": "c2f33a750ac58aa39ebbd561c9933f16ba64ba56e4f29b3a1ccea133721e479d",
+      "seconds": 2.05,
+      "log": "review-2026-10-12-followup/final-targeted/test_package_review.txt",
+      "log_sha256": "525c3f92cdc7b9c8ae75e68fa5a7ecea53325ad3d524c03b9a4cb6768a6cc015"
+    },
+    {
+      "test": "tests/test_repo_hygiene.py",
+      "exit_code": 0,
+      "source_sha256": "6b6af41b4afd9864512cd8d60636384f4736c44097c85f0f18ec34389757d896",
+      "seconds": 16.41,
+      "log": "review-2026-10-12-followup/final-targeted/test_repo_hygiene.txt",
+      "log_sha256": "92890eb69525aadd6fdf1204955fba841ea8c14d87859731f1164e5b16a38694"
+    },
+    {
+      "test": "tests/test_cross_platform_io.py",
+      "exit_code": 0,
+      "source_sha256": "343b9c951eab9abf59420e4e999823fb18b347facec724c4a59fc909e5d47218",
+      "seconds": 4.39,
+      "log": "review-2026-10-12-followup/final-targeted/test_cross_platform_io.txt",
+      "log_sha256": "33d1fa10aeb0850dbebfc0a4ce4a8fd2289f0d6b1ae24b9edacae3c0d8ba4007"
+    },
+    {
+      "test": "tests/test_deterministic_export.py",
+      "exit_code": 0,
+      "source_sha256": "6b1dab26b4b19d368a2e73814b62ff3408dc150c31f9c2c4dc2e9a9cb99ca34a",
+      "seconds": 17.75,
+      "log": "review-2026-10-12-followup/final-targeted/test_deterministic_export.txt",
+      "log_sha256": "195fdd085548c41526ce7ca5cde41c8346977de46b27d432f1b88efb59517248"
+    }
+  ]
+}

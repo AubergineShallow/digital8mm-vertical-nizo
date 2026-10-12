@@ -1,0 +1,16 @@
+{
+  "command": ".venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_fxh_harness.py TestReleasedQTMinimum TestStowMembers",
+  "exit_code": 75,
+  "interpretation": "Wrapper returned before launching the tests. This is not a test failure or pass. Same frozen tests requeued with max-wait-min 300; no CAD probe or source change.",
+  "log": "qt-minimum-tests-attempt1.txt",
+  "log_sha256": "f0ad62a716536b797c0934fcf4e0e25c6781e60bf7fe2f6653427cc746b89cce",
+  "observed_utc": "2026-10-12T12:14:52.698915+00:00",
+  "source_sha256": {
+    "harness_rules.py": "1c45189ddefa87070a3d8490166c36fa907a701f1044a550a9100428cd7fb00c",
+    "tests/test_fxh_harness.py": "c65d5c3149cc20ba8d9ec411a0412fc288f6df6e4f32ede35b8a9495a0e7f5c4",
+    "tests/test_h2_harness.py": "8b1e54acc1db8370048734faef1119247be4a7be86630f72e54b2cd523c9bb1e"
+  },
+  "status": "not_executed_lock_wait_timeout",
+  "test_executed": false,
+  "wrapper_max_wait_min": 60
+}

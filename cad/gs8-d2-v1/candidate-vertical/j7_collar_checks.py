@@ -38,6 +38,7 @@ This module is CAD-free at import (evidence_rules imports INFO_ROWS); CadQuery l
 from contextlib import contextmanager
 import copy
 import hashlib
+import itertools
 import math
 import re
 import sys
@@ -290,9 +291,23 @@ def j7_float_rows(L, rr, CK, s_values=None, parts_of=None):
 
 # ------------------------------------------------------------------------------------------------ roll catch
 def candidate_catch_boxes(L):
-    """The candidate tab catch: r7 tab_catch_boxes with the top grown to CATCH_TOP_Z (model.make_tub)."""
+    """Actual catch sections, including the local recess below the bonded joint."""
+    import model
     view = LayoutView(L, HOOD=dict(copy.deepcopy(L.HOOD), tab_catch=dict(L.HOOD['tab_catch'], top=CATCH_TOP_Z)))
-    return L.tab_catch_boxes(view), view.HOOD
+    boxes = []
+    recess = getattr(model, 'TAB_CATCH_FACE_RECESS_MM', 0.0)
+    for b in L.tab_catch_boxes(view):
+        if b['side'] == 1 and recess:
+            lower = dict(b, y=(b['y'][0] + recess, b['y'][1]), z=(b['z'][0], model.TAB_CATCH_SPLIT_Z))
+            boxes += [lower, dict(b, z=(model.TAB_CATCH_SPLIT_Z, b['z'][1]))]
+        else:
+            boxes.append(b)
+    # r7's section-strength estimate uses the declared web/flange depths. Use the
+    # smallest (recessed) section for both tines, retaining its original limits.
+    hood = copy.deepcopy(view.HOOD)
+    hood['tab_catch']['t'] -= recess
+    hood['tab_catch']['flange']['dy'] -= recess
+    return boxes, hood
 
 
 def catch_material(L, tub, boxes):
@@ -402,7 +417,7 @@ def roll_catch_rows(L, rr, shapes, CK, ST, s_values=None, parts_of=None):
     cots, kept, dropped = cots_box_view(L, shapes, CK)
     view = LayoutView(L, HOOD=hood, ZT1=root if root is not None else float('nan'), STEPS=steps,
                       INSERTIONS=ins, REMOVALS=rem, LATCH_FREE={}, COTS=cots,
-                      present_at=lambda n: _alias(ST.present_at(last[n])))
+                      present_at=lambda n: _alias(ST.present_at(last[n])), tab_catch_boxes=lambda _L: boxes)
     rows = {('hood' if k == 'tub' else k): v for k, v in rr.items()}
     out = CK.check_roll_catch(view, rows, s_values=s_values, parts_of=parts_of, assembly_path=str(CV / ASSEMBLY))
     out = [r for r in out if r.get('item') != 'lens_hold_lint']
@@ -451,34 +466,334 @@ STUB_FILM_MM = 0.05
 STUB_CASES = (('x+0.1', (0.1, 0.0, 0.0), 0.0, 0.0), ('x-0.1', (-0.1, 0.0, 0.0), 0.0, 0.0),
               ('film+y0.05', (0.0, STUB_FILM_MM, 0.0), 0.0, 0.0),
               ('tilt_on_joint_edge', (0.0, 0.0, 0.0), -1.0, 0.0), ('tilt_on_tenon_top_edge', (0.0, 0.0, 0.0), 1.0, 1.0))
+STUB_FEASIBLE_OVERLAP_MM3 = 0.001
+STUB_FILM_VARIATION_MM = 0.1
+STUB_UNDERSEAT_SCREEN_MM = 0.1  # chosen numerical screen; the open pocket has no withdrawal stop
+STUB_WINDOW_CENTRED_MM = 0.30
+STUB_WINDOW_WORST_MM = 0.10
+STUB_CONTACT_RULES = dict(window_deg=1.4, window_gap=.30, scan_deg=14.0, step_deg=.5, tol=.01, margin_deg=1.0)
+STUB_REQUIRED_FEASIBLE = frozenset(('T02_tilt_on_joint_edge', 'Y2_yaw_pivot_xplus'))
+STUB_TRANSLATION_CASES = frozenset(['P_full_y_clearance', 'P_underseat_zminus'] + [
+    'P_corner_%s_%s_%s' % (x, y, z) for x in ('xminus', 'xplus')
+    for y in ('ynear', 'yfar') for z in ('zseated', 'zunder') if (y, z) != ('ynear', 'zseated')])
+STUB_POCKET_YAW_CASES = frozenset('YP_yaw_%s_%s_%s' % (sign, x, y)
+    for sign in ('m', 'p') for x in ('xminus', 'xplus') for y in ('near', 'far'))
 
 
-def roll_catch_stub_rows(L, rr, shapes, CK, ST, s_values=None, parts_of=None):
-    import math
+def _rotate_point(point, axis, pivot, deg):
+    """Same right-hand, fixed-world-axis transform as OCCT Shape.rotate, without importing CAD."""
+    q = [point[i] - pivot[i] for i in range(3)]
+    c, s = math.cos(math.radians(deg)), math.sin(math.radians(deg))
+    i, j = {'x': (1, 2), 'y': (2, 0), 'z': (0, 1)}[axis]
+    q[i], q[j] = c * q[i] - s * q[j], s * q[i] + c * q[j]
+    return tuple(q[k] + pivot[k] for k in range(3))
+
+
+def stub_pose_table(model, web, pocket_bounds):
+    """Finite physical-pose sampling, not a continuous clearance proof or a cure-fixture allowance.
+
+    Keep the five original transforms, add both signs at both bearing edges for
+    all three axes, then half- and quarter-allowance coupled poses. X/Y limits
+    come from the production pocket; Z underseat is an explicitly chosen screen,
+    NOT its cutter-overlap epsilon or a mechanical withdrawal stop. Whole-insert/
+    host intersection is still required. No rated production tolerance is claimed.
+    """
+    tn, zs = model.TAB_CATCH_TENON, model.TAB_CATCH_SPLIT_Z
+    yin, xm = web['y'][0], sum(web['x']) / 2
+    h, w, wj = tn['h'], tn['x'][1] - tn['x'][0], web['x'][1] - web['x'][0]
+    xmin, xmax, ymin, ymax, zmin, zmax = pocket_bounds
+    cx = min(tn['x'][0] - xmin, xmax - tn['x'][1])
+    cy = ymax - (yin + tn['t'])
+    if min(cx, cy, zmax - (zs + h)) < -1e-7 or abs(ymin - yin) > 1e-6:
+        raise ValueError('production pocket does not enclose the declared tenon and dry -Y datum')
+    t01, t02 = (math.degrees(math.atan(v / h)) for v in (STUB_FILM_VARIATION_MM, cy))
+    yaw = math.degrees(math.atan(STUB_FILM_VARIATION_MM / w))
+    full_yaw = math.degrees(math.atan(cy / w))
+    roll = math.degrees(math.atan(cx / h))
+    rfilm = math.degrees(math.atan(STUB_FILM_VARIATION_MM / wj))
+    poses = []
+
+    def add(name, rotations=(), shift=(0., 0., 0.), **kw):
+        poses.append(dict(case=name, rotations=[dict(axis=a, pivot=list(p), deg=d) for a, p, d in rotations],
+                          shift_mm=list(shift), **kw))
+    for name, d, tilt, top in STUB_CASES:
+        piv = (xm, yin, zs + top * h)
+        add(name, [('x', piv, tilt * t01)] if tilt else [], d, family='legacy', legacy=True,
+            basis='unchanged original five-case displacement')
+    under = STUB_UNDERSEAT_SCREEN_MM
+    translation_basis = ('actual X/Y pocket bounds; chosen axial-underseat screen %.9g mm, '
+                         'not a mechanical stop or qualified production tolerance') % under
+    add('P_full_y_clearance', shift=(0., cy, 0.), family='translation', basis=translation_basis)
+    add('P_underseat_zminus', shift=(0., 0., -under), family='translation', basis=translation_basis)
+    for plus, far, low in itertools.product((False, True), repeat=3):
+        if not far and not low:
+            continue  # exactly the original x +/-0.1 cases, checked against actual X limits below
+        add('P_corner_%s_%s_%s' % ('xplus' if plus else 'xminus', 'yfar' if far else 'ynear',
+                                   'zunder' if low else 'zseated'),
+            shift=(xmax - tn['x'][1] if plus else xmin - tn['x'][0], cy if far else 0., -under if low else 0.),
+            family='translation', basis=translation_basis)
+    if abs(cx - .1) > 1e-7:
+        raise ValueError('reviewed X corner bounds changed; retain explicit endpoint coverage')
+    for top in (False, True):
+        edge = 'tenon_top_edge' if top else 'joint_edge'
+        for sign in (-1, 1):
+            canonical = sign == (1 if top else -1)
+            name = 'T02_tilt_on_' + edge + ('' if canonical else '_reverse')
+            add(name, [('x', (xm, yin, zs + top * h), sign * t02)], family='tilt_x',
+                basis='full measured +Y pocket clearance %.9g / tenon height %.9g' % (cy, h))
+    for plus in (False, True):
+        edge, x = ('xplus', tn['x'][1]) if plus else ('xminus', tn['x'][0])
+        for sign in (-1, 1):
+            canonical = sign == (-1 if plus else 1)
+            name = ('Y2' if plus else 'Y1') + '_yaw_pivot_' + edge + ('' if canonical else '_reverse')
+            add(name, [('z', (x, yin, zs), sign * yaw)], family='yaw_z',
+                basis='0.1 mm film variation across actual tenon width %.9g' % w)
+    corners = list(itertools.product(tn['x'], (yin, yin + tn['t']), (zs, zs + h)))
+    yaw_center = ((tn['x'][0] + tn['x'][1]) / 2, yin + tn['t'] / 2, zs)
+    for sign in (-1, 1):
+        rotations = [('z', yaw_center, sign * full_yaw)]
+        points = [_rotate_point(p, 'z', yaw_center, sign * full_yaw) for p in corners]
+        intervals = [(pocket_bounds[2 * i] - min(p[i] for p in points),
+                      pocket_bounds[2 * i + 1] - max(p[i] for p in points)) for i in (0, 1)]
+        fits = all(lo <= hi + 1e-9 for lo, hi in intervals)
+        for plus, far in itertools.product((False, True), repeat=2):
+            add('YP_yaw_%s_%s_%s' % ('p' if sign > 0 else 'm', 'xplus' if plus else 'xminus',
+                                      'far' if far else 'near'), rotations,
+                shift=(intervals[0][plus], intervals[1][far], 0.), family='pocket_yaw_z',
+                fits_pocket_bounds=fits, translation_intervals_mm=intervals,
+                basis='full actual Y clearance %.9g / tenon width %.9g; fitted to actual X/Y pocket bounds' % (cy, w))
+    for film, angle in ((True, rfilm), (False, roll)):
+        for plus in (False, True):
+            edge, x = ('xplus', web['x'][1]) if plus else ('xminus', web['x'][0])
+            for sign in (-1, 1):
+                canonical = sign == (-1 if plus else 1)
+                n = (2 if plus else 1) + (0 if film else 2)
+                name = 'R%d_roll_%s_pivot_%s%s' % (n, 'film' if film else 'clear', edge,
+                                                  '' if canonical else '_reverse')
+                add(name, [('y', (x, yin, zs), sign * angle)], family='roll_y',
+                    basis=('0.1 mm film variation / joint-face width' if film else
+                           'measured pocket X side clearance %.9g / tenon height' % cx))
+    fit_bounds = list(pocket_bounds)
+    fit_bounds[4] = zs - STUB_UNDERSEAT_SCREEN_MM
+    center = ((tn['x'][0] + tn['x'][1]) / 2, yin + tn['t'] / 2, zs + h / 2)
+    for fraction, prefix in ((.5, 'C'), (.25, 'CI')):
+        for signs in itertools.product((-1, 1), repeat=3):
+            rots = [(axis, center, sign * angle * fraction) for axis, sign, angle in zip('xyz', signs, (t02, roll, full_yaw))]
+            points = corners
+            for axis, pivot, angle in rots:
+                points = [_rotate_point(p, axis, pivot, angle) for p in points]
+            intervals = [(fit_bounds[2 * i] - min(p[i] for p in points),
+                          fit_bounds[2 * i + 1] - max(p[i] for p in points)) for i in range(3)]
+            fits = all(lo <= hi + 1e-9 for lo, hi in intervals)
+            for far in (False, True):
+                # Both film/datum Y extremes and sign-selected X extremes. This
+                # bounded sample uses the explicit underseat-screen lower Z;
+                # the open mouth does NOT mechanically limit withdrawal or prove
+                # seating/retention. Actual ceiling collisions are never waived.
+                shift = (intervals[0][signs[2] > 0], intervals[1][far], intervals[2][0])
+                add(prefix + '_xyz_%s_%s' % (''.join('p' if s > 0 else 'm' for s in signs), 'far' if far else 'near'),
+                    rots, shift, family='coupled_xyz', rotation_fraction=fraction, fits_pocket_bounds=fits,
+                    translation_intervals_mm=intervals, rotation_order='fixed world X, then Y, then Z',
+                    underseat_screen_mm=STUB_UNDERSEAT_SCREEN_MM,
+                    basis='%.2f axis allowances; actual X/Y pocket bounds and explicit Z underseat screen; '
+                          'no fixture credit or production tolerance qualification' % fraction)
+    for pose in poses:
+        ends = []
+        for z in (zs, zs + h):
+            pts = [_pose_point(p, pose) for p in itertools.product(tn['x'], (yin, yin + tn['t']), (z,))]
+            ends.append(pts)
+        pts = ends[0] + ends[1]
+        pose['tenon_core_bounds_mm'] = [f(p[i] for p in pts) for i in range(3) for f in (min, max)]
+        pose['minimum_axial_engagement_mm'] = (min(zmax, min(p[2] for p in ends[1])) -
+                                                max(zs, max(p[2] for p in ends[0])))
+        pose['engagement_scope'] = 'bounded joint pose with retained tenon; further withdrawal and bond retention unqualified'
+    return poses
+
+
+def _pose_point(point, pose):
+    for r in pose['rotations']:
+        point = _rotate_point(point, r['axis'], r['pivot'], r['deg'])
+    return tuple(p + d for p, d in zip(point, pose['shift_mm']))
+
+
+def transform_stub(stub, pose):
+    import cadquery as cq
+    axes = dict(x=(1, 0, 0), y=(0, 1, 0), z=(0, 0, 1))
+    for r in pose['rotations']:
+        pv = cq.Vector(*r['pivot'])
+        stub = stub.rotate(pv, pv + cq.Vector(*axes[r['axis']]), r['deg'])
+    return stub.translate(cq.Vector(*pose['shift_mm']))
+
+
+def stub_pose_feasibility(stock, displaced, pose):
+    """Never infer feasibility from a nominal angle or from contact to adhesive-filled assembly stock."""
+    overlap = float(stock.intersect(displaced).Volume())
+    valid = math.isfinite(overlap) and overlap >= -1e-9 and displaced.isValid() and len(displaced.Solids()) == 1
+    engagement = pose.get('minimum_axial_engagement_mm', float('nan'))
+    retained = math.isfinite(engagement) and engagement > 0
+    # A whole-core rectangular fit is only a proposal screen. The open mouth
+    # and real relief can admit corners outside that proxy without a collision;
+    # never discard such a physical pose before its functional checks.
+    feasible = valid and retained and overlap <= STUB_FEASIBLE_OVERLAP_MM3
+    return dict(feasible=bool(feasible), geometry_valid=bool(valid), stub_stock_overlap_mm3=overlap,
+                feasible_overlap_mm3=STUB_FEASIBLE_OVERLAP_MM3,
+                rectangular_core_fit_role='diagnostic proposal bound; actual production host decides physical fit',
+                exclusion_reason=None if feasible else ('tenon engagement not retained' if not retained else
+                    'whole displaced production insert intersects production host'))
+
+
+def cached_camera_parts(parts_of=None):
+    """One immutable camera build per BFAR/head configuration, scoped to one fixed-layout catch run."""
+    if parts_of is None:
+        import cots
+        parts_of = cots.gs_camera_parts
+    cache = {}
+
+    def get(L, s=None, head_side='both'):
+        key = (id(getattr(L, '_base', L)), s, head_side)
+        if key not in cache:
+            cache[key] = parts_of(L, s) if head_side == 'both' else parts_of(L, s, head_side=head_side)
+        return cache[key]
+    return get
+
+
+def stub_acceptance_errors(poses, records, s_values, L, CK):
+    """Fail closed on removed cases, missing feasible rows, hidden failures, or relaxed rules."""
+    errors = []
+    names = [p['case'] for p in poses]
+    if len(names) != len(set(names)) or set(names) != set(records):
+        errors.append('pose/feasibility records are missing or duplicated')
+    if not STUB_REQUIRED_FEASIBLE <= set(names):
+        errors.append('required T02 or Y2 case missing')
+    if {p['case'] for p in poses if p['family'] == 'translation'} != STUB_TRANSLATION_CASES:
+        errors.append('full-Y, axial-underseat or translation pocket-corner coverage missing')
+    if {p['case'] for p in poses if p['family'] == 'pocket_yaw_z'} != STUB_POCKET_YAW_CASES:
+        errors.append('full-pocket yaw boundary coverage missing')
+    if {p['case'] for p in poses if p.get('legacy')} != {p[0] for p in STUB_CASES}:
+        errors.append('original five cases missing')
+    for family, axis in (('tilt_x', 'x'), ('roll_y', 'y'), ('yaw_z', 'z')):
+        candidates = [p for p in poses if p['family'] == family]
+        pivots = {}
+        for p in candidates:
+            r = p['rotations'][0]
+            if r['axis'] == axis:
+                pivots.setdefault(tuple(r['pivot']), set()).add(math.copysign(1, r['deg']))
+        if len(pivots) < 2 or any(signs != {-1, 1} for signs in pivots.values()):
+            errors.append('missing both-sign/both-edge %s coverage' % family)
+    for fraction in (.5, .25):
+        coupled = [p for p in poses if p['family'] == 'coupled_xyz' and p.get('rotation_fraction') == fraction]
+        signatures = {tuple(math.copysign(1, r['deg']) for r in p['rotations']) for p in coupled
+                      if ''.join(r['axis'] for r in p['rotations']) == 'xyz'}
+        if len(coupled) != 16 or signatures != set(itertools.product((-1, 1), repeat=3)):
+            errors.append('bounded %.2f-allowance coupled XYZ coverage missing' % fraction)
+    if (L.ROLL_CATCH['window_gap'] != STUB_WINDOW_CENTRED_MM or CK.J7_RUNNING != STUB_WINDOW_WORST_MM
+            or CK.J7_TOL != 1e-3 or STUB_FEASIBLE_OVERLAP_MM3 != 1e-3 or STUB_UNDERSEAT_SCREEN_MM != .1
+            or STUB_FILM_VARIATION_MM != .1 or STUB_FILM_MM != .05):
+        errors.append('window/feasibility/tolerance rules changed')
+    if any(L.ROLL_CATCH.get(k) != v for k, v in STUB_CONTACT_RULES.items()):
+        errors.append('first-contact/window scan rules changed')
+    expected = {(item, float(s)) for item in ('window', 'first_contact') for s in s_values}
+    for name, rec in records.items():
+        overlap = rec.get('stub_stock_overlap_mm3', float('nan'))
+        physical = (rec.get('geometry_valid', False) and math.isfinite(overlap) and -1e-9 <= overlap <= .001
+                    and rec.get('minimum_axial_engagement_mm', 0) > 0)
+        if not rec.get('geometry_valid') or rec['feasible'] != physical or rec.get('feasible_overlap_mm3') != .001:
+            errors.append('%s: invalid or inconsistent physical feasibility' % name)
+        rows = rec.get('rows', [])
+        got = [(r['item'], float(r['s'])) for r in rows]
+        if rec['feasible'] or rec.get('legacy'):
+            if set(got) != expected or len(got) != len(expected):
+                errors.append('%s: missing or duplicate full-BFAR functional rows' % name)
+        elif rows:
+            errors.append('%s: infeasible new pose was graded' % name)
+        if name in STUB_REQUIRED_FEASIBLE and not rec['feasible']:
+            errors.append('%s: required reviewed physical pose unexpectedly excluded' % name)
+        for r in rows:
+            if r['item'] == 'window' and r.get('status') == 'pass' and (r.get('centred_gap') is None or
+                    r.get('worst_gap') is None or r['centred_gap'] < .30 - .001 or r['worst_gap'] < .10 - .001):
+                errors.append('%s: failing window was relabelled pass' % name)
+            if r['item'] == 'first_contact' and r.get('rule_margin_deg') != L.ROLL_CATCH['margin_deg']:
+                errors.append('%s: first-contact margin changed' % name)
+    if not any(r.get('feasible') for r in records.values() if r.get('family') == 'coupled_xyz'):
+        errors.append('no coupled physical pose was tested')
+    return errors
+
+
+def roll_catch_stub_rows(L, rr, shapes, CK, ST, s_values=None, parts_of=None, production_insert=None):
     import cadquery as cq
     import model
     tub = rr['tub']['shape']
     with __import__('j4_trial_geometry').trial_layout(model.L, lip=2.4, head=2.4):
         stock, stub = model.tub_print_parts(tub)
         tc = {(b['side'], b['kind']): b for b in model.L.tab_catch_boxes()}
+        pb = model.tab_catch_split()['pocket'].BoundingBox()
     web = tc[(1, 'web')]
-    tn = model.TAB_CATCH_TENON
-    ang = math.degrees(math.atan(0.1 / tn['h']))
+    pocket_bounds = [getattr(pb, a + end) for a in 'xyz' for end in ('min', 'max')]
+    if production_insert is not None:
+        delta = _symdiff(stub, production_insert)
+        if delta > 0.001:
+            raise ValueError('production insert differs from model by %.9g mm3' % delta)
+        stub = production_insert
+    poses = stub_pose_table(model, web, pocket_bounds)
+    joint_points = [v.toTuple() for v in stub.Vertices() if abs(v.Z - model.TAB_CATCH_SPLIT_Z) < 1e-6]
+    if not joint_points:
+        raise ValueError('production insert has no joint-face vertices for the seating-gap measurement')
+    for pose in poses:
+        gaps = [model.TAB_CATCH_SPLIT_Z - _pose_point(p, pose)[2] for p in joint_points]
+        pose['joint_face_gap_range_mm'] = [min(gaps), max(gaps)]
+        pose['joint_face_reference_points'] = len(joint_points)
+    sv = tuple(s_values if s_values is not None else CK.j7_s_values(L))
+    parts_of = cached_camera_parts(parts_of)
     out = []
-    for case, d, tilt, top in STUB_CASES:
-        pivot = cq.Vector(sum(web['x']) / 2, web['y'][0], model.TAB_CATCH_SPLIT_Z + top * tn['h'])
-        sb = stub.rotate(pivot, pivot + cq.Vector(1, 0, 0), tilt * ang) if tilt else stub
-        sb = sb.translate(cq.Vector(*d))
+    records = {}
+    for pose in poses:
+        case = pose['case']
+        sb = transform_stub(stub, pose)
+        feasibility = stub_pose_feasibility(stock, sb, pose)
+        rec = records[case] = dict(pose, **feasibility, rows=[])
+        out.append(('roll_catch', 'stub_%s:feasibility' % case, _row(
+            'roll_catch', 'pass' if feasibility['geometry_valid'] else 'fail', 'invalid feasibility geometry',
+            item='stub_feasibility', stub_case=case, **pose, **feasibility,
+            pocket_bounds_mm=pocket_bounds, graded=feasibility['feasible'] or pose.get('legacy', False),
+            status_scope='assessment computed; feasible flag determines physical-pose inclusion, not manufacturability',
+            legacy_blocked_diagnostic=bool(pose.get('legacy') and not feasibility['feasible']))))
+        if not feasibility['feasible'] and not pose.get('legacy'):
+            continue
         t_case = stock.fuse(sb).clean()
         rr_case = dict(rr, tub=dict(rr['tub'], shape=t_case))
-        rows = roll_catch_rows(L, rr_case, shapes, CK, ST, s_values=s_values, parts_of=parts_of)
+        rows = roll_catch_rows(L, rr_case, shapes, CK, ST, s_values=sv, parts_of=parts_of)
         for cat, ident, r in rows:
             if r.get('item') in ('window', 'first_contact') and r.get('status') in ('pass', 'fail'):
-                r = dict(r, stub_case=case, stub_shift_mm=list(d), stub_tilt_deg=tilt * ang,
-                         stub_pivot=[pivot.x, pivot.y, pivot.z], note='bonded +Y stub displaced inside its pocket '
-                         'clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film %.2f mm)' % STUB_FILM_MM)
+                r = dict(r, stub_case=case, stub_shift_mm=pose['shift_mm'], stub_rotations=pose['rotations'],
+                         stub_feasible=feasibility['feasible'],
+                         legacy_blocked_diagnostic=bool(pose.get('legacy') and not feasibility['feasible']),
+                         note='Actual production host and transformed insert; unchanged r7 window and first-contact '
+                              'rules. Finite pocket-derived hypotheses, no cure-fixture credit.')
+                rec['rows'].append(r)
                 out.append((cat, 'stub_%s:%s' % (case, ident), r))
+    errors = stub_acceptance_errors(poses, records, sv, L, CK)
+    out.append(('roll_catch', 'stub_pose_coverage', _row('roll_catch', 'fail' if errors else 'pass', '; '.join(errors),
+        item='stub_pose_coverage', cases=[p['case'] for p in poses], pose_count=len(poses),
+        feasible_count=sum(r['feasible'] for r in records.values()), pocket_bounds_mm=pocket_bounds,
+        production_insert_supplied=production_insert is not None, errors=errors,
+        s_values=list(sv), rule='original five, full-Y/axial-underseat and pocket translation corners, '
+                              'both-sign edge rotations XYZ, thirty-two bounded coupled poses; '
+                              'every feasible case retains full-BFAR window and first-contact rows')))
     return out
+
+
+def production_insert(variant, meta):
+    """The separately printed insert STEP is outside manifest rows, but inside the file hash binding."""
+    import cadquery as cq
+    rel = 'step/tab_catch_insert.step'
+    path = CV / 'out' / variant / rel
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    if digest != meta['files'].get(rel):
+        raise ValueError('production tab_catch_insert STEP is not manifest-bound')
+    shape = cq.importers.importStep(str(path)).val()
+    if not shape.isValid() or len(shape.Solids()) != 1:
+        raise ValueError('production tab_catch_insert STEP is not one valid solid')
+    return shape, dict(step_sha256=digest, manifest_file_binding=True, step=rel)
 
 
 def roll_ident(r):
@@ -652,11 +967,17 @@ def j7_rows(shapes, manifest_rows, meta, variant, s_values=None, only=SECTIONS):
         built, rows = lens_collars(L, rr, lens, CK, variant)
         collars.update(built)
         return rows
+
+    def catch_rows():
+        insert, binding = production_insert(variant, meta)
+        return ([('roll_catch', 'stub_production_context', _row('roll_catch', 'pass',
+                    item='stub_production_context', **binding))]
+                + roll_catch_rows(L, rr, shapes, CK, ST, s_values=s_values)
+                + roll_catch_stub_rows(L, rr, shapes, CK, ST, s_values=s_values, production_insert=insert))
     with candidate_layout(lens) as L:
         jobs = [('context', lambda: context_rows(L, rr, lens, CK)[0]),
                 ('j7_float', lambda: j7_float_rows(L, rr, CK, s_values=s_values)),
-                ('roll_catch', lambda: roll_catch_rows(L, rr, shapes, CK, ST, s_values=s_values)
-                 + roll_catch_stub_rows(L, rr, shapes, CK, ST, s_values=s_values)),
+                ('roll_catch', catch_rows),
                 ('collars', other_collars),
                 ('lens_support', lambda: lens_support_rows(L, rr, collars, CK)),
                 ('centring_gauge', lambda: gauge_rows(L, rr, shapes.get('centring_gauge'), CK, ST)),

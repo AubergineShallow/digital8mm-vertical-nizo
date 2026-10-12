@@ -1,0 +1,11 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:865: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse_result = _expression_grammar.parseString(selectorString, parseAll=True)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/pyparsing/util.py:466: PyparsingDeprecationWarning: 'parseAll' argument is deprecated, use 'parse_all'
+  return fn(self, *args, **kwargs)
+...
+----------------------------------------------------------------------
+Ran 3 tests in 4.713s
+
+OK

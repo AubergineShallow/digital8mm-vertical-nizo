@@ -1,0 +1,42 @@
+test_allowlist_entries_are_justified (__main__.RepoEol.test_allowlist_entries_are_justified) ... ok
+test_check_attr_text_unset_everywhere (__main__.RepoEol.test_check_attr_text_unset_everywhere) ... ok
+test_emulated_autocrlf_clone_is_byte_exact (__main__.RepoEol.test_emulated_autocrlf_clone_is_byte_exact) ... ok
+test_gitattributes_first_rule (__main__.RepoEol.test_gitattributes_first_rule) ... ok
+test_new_untracked_text_has_no_cr (__main__.RepoEol.test_new_untracked_text_has_no_cr) ... ok
+test_no_cr_in_tracked_text (__main__.RepoEol.test_no_cr_in_tracked_text) ... ok
+test_r7_final_release_audit_on_emulated_clone (__main__.RepoEol.test_r7_final_release_audit_on_emulated_clone) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 21.254s
+
+OK
+
+[emulation] new attributes: 1827 files checked, 0 changed
+[emulation] 9ced753 attributes (negative control): 1067 changed, e.g. ['.gitignore', 'CLOUD-START-HERE.md', 'README.md']
+
+[r7 audit on emulated clone] exit 0
+{
+  "status": "pass",
+  "hash_links": {
+    "sources": {
+      "total": 20,
+      "verified": 20
+    },
+    "outputs": {
+      "total": 86,
+      "verified": 86
+    },
+    "gate_docs": {
+      "total": 4,
+      "verified": 4
+    }
+  },
+  "categories": 35,
+  "physical_gates": {
+    "total": 58,
+    "open": 56,
+    "withdrawn": 2
+  },
+  "failures": []
+}
+

@@ -1,0 +1,8 @@
+{
+  "scope": "Preserve declared historical wall-probe report in selected folder. Current independently rerun four local probes are retained separately; neither is global minimum-wall or physical qualification.",
+  "current_report": "review-2026-10-12-followup/current-wall-probe-context.json",
+  "current_sha256": "386129cb9d989dc9b0a129d29f34d6bc41209f6796002ff64cc3c8d7fd7b673c",
+  "historical_report": "out/compact-kowa_lm6hc/wall-probe-context.json",
+  "historical_sha256": "cc4b53494d71dbb4f50bed41cfbea810c466d7f90c8bcfad65d66a84834b8345",
+  "reason": "evidence_rules declares selected-folder wall-probe-context.json as historical export18 evidence; do not relabel it as current."
+}

@@ -1,0 +1,20 @@
+test_lens_stays_on_while_the_module_moves (__main__.CameraRetention.test_lens_stays_on_while_the_module_moves) ... ok
+test_old_camera_order_fails (__main__.CameraRetention.test_old_camera_order_fails) ... ok
+test_documented_refit_lines_are_the_replayed_sequences (__main__.Docs.test_documented_refit_lines_are_the_replayed_sequences) ... ok
+test_refit_rule_text (__main__.Docs.test_refit_rule_text) ... ok
+test_qt_and_j2_free_until_the_panel_goes_in (__main__.LeadSecuring.test_qt_and_j2_free_until_the_panel_goes_in) ... ok
+test_securing_before_the_prop_mate_fails (__main__.LeadSecuring.test_securing_before_the_prop_mate_fails) ... ok
+test_carrier_before_lens_in_a_refit_fails (__main__.Refits.test_carrier_before_lens_in_a_refit_fails) ... ok
+test_collar_route_without_camera_seats_the_gauge_on_it (__main__.Refits.test_collar_route_without_camera_seats_the_gauge_on_it) ... ok
+test_every_documented_refit_restores_the_build (__main__.Refits.test_every_documented_refit_restores_the_build) ... ok
+test_lint_clean_and_refit_states_seen (__main__.Refits.test_lint_clean_and_refit_states_seen) ... ok
+test_refit_obstacles_reach_the_swept_motions (__main__.Refits.test_refit_obstacles_reach_the_swept_motions) ... ok
+test_superseded_literal_rule_fails (__main__.Refits.test_superseded_literal_rule_fails) ... ok
+test_strap_after_tub_fails (__main__.Strap.test_strap_after_tub_fails) ... ok
+test_strap_on_the_open_base (__main__.Strap.test_strap_on_the_open_base) ... ok
+test_strap_returns_threaded_in_the_base (__main__.Strap.test_strap_returns_threaded_in_the_base) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.159s
+
+OK

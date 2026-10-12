@@ -1,0 +1,17 @@
+test_changed_inputs_or_sources_during_derivation_fail (__main__.SavedCatchBindings.test_changed_inputs_or_sources_during_derivation_fail) ... ok
+test_changed_production_insert_part_or_assembly_step_fails (__main__.SavedCatchBindings.test_changed_production_insert_part_or_assembly_step_fails) ... ok
+test_derived_receipt_preserves_catch_failure (__main__.SavedCatchBindings.test_derived_receipt_preserves_catch_failure) ... ok
+test_receipt_explicitly_derives_and_preserves_main_failure (__main__.SavedCatchBindings.test_receipt_explicitly_derives_and_preserves_main_failure) ... ok
+test_stale_manifest_main_and_context_sources_fail (__main__.SavedCatchBindings.test_stale_manifest_main_and_context_sources_fail) ... ok
+test_duplicate_row_or_removed_offset_sample_fails (__main__.SavedCatchRows.test_duplicate_row_or_removed_offset_sample_fails) ... ok
+test_exact_main_rows_and_all_cases_preserved_without_cad (__main__.SavedCatchRows.test_exact_main_rows_and_all_cases_preserved_without_cad) ... ok
+test_failure_is_preserved_verbatim (__main__.SavedCatchRows.test_failure_is_preserved_verbatim) ... ok
+test_missing_yaw_coupled_translation_legacy_and_bfar_rows_fail (__main__.SavedCatchRows.test_missing_yaw_coupled_translation_legacy_and_bfar_rows_fail) ... ok
+test_partial_scope_summary_or_physical_claim_fails (__main__.SavedCatchRows.test_partial_scope_summary_or_physical_claim_fails) ... ok
+test_subthreshold_sample_cannot_be_relabelled_pass (__main__.SavedCatchRows.test_subthreshold_sample_cannot_be_relabelled_pass) ... ok
+test_threshold_pose_and_feasibility_weakening_fail (__main__.SavedCatchRows.test_threshold_pose_and_feasibility_weakening_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 7.154s
+
+OK

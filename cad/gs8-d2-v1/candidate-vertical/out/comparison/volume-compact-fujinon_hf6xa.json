@@ -11,20 +11,20 @@
   "model_void_fraction": null,
   "definition": "Core box minus exported material/proxy union. Current detailed Pi assembly contributes a conservative interval, not a completed exact occupied union. Cooling air, cable/service clearance and omitted flexible material are within this empty-model volume; it is not removable waste.",
   "qualification": "Conservative CAD proxy-volume interval, rounded outward to whole cm3; source/kernel and baseline representation caveats remain. The slow/unreliable complete CSI Boolean was stopped and preserved as a diagnostic. No physical measurement or precise unused-volume claim.",
-  "generated_utc": "2026-10-12T03:35:04Z",
+  "generated_utc": "2026-10-12T15:27:18Z",
   "verification_source_sha256": "7423c23f56f12fb61affb468deb9d7a39690274e601b2a374e5b764b8173e0c6",
-  "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+  "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
   "model_void_interval_mm3": [
-    667803.1899032702,
-    684435.412516883
+    667812.7972805541,
+    684445.0198941668
   ],
   "model_void_interval_cm3_outward_rounded": [
     667,
     685
   ],
   "model_solid_union_interval_mm3": [
-    320444.587483117,
-    337076.8100967298
+    320434.98010583315,
+    337067.2027194459
   ],
   "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
   "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."

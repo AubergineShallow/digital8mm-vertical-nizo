@@ -1,0 +1,12 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+Pose 0
+Pose 25
+Pose 50
+Pose 75
+Pose 100
+Pose 125
+Pose 150
+Pose 175
+Pose 200
+{"status": "pass", "poses": 201, "exact_intersections": 659, "hits": [], "body": "closed; cap removed before withdrawal", "source_sha256": "49c18b6676145eaff89e7d99ef76b8a2ba87c86b01985b635dd77c9ae894fddd", "snapshot_sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3", "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754", "physical_qualified": false, "remaining_stop": ["Full270mm flexible-core deployment and retention", "Unmeasured pad and pin exits", "Finger grip and unplug force", "Hot voltage drop and fuse/contact heating", "Printed attachment strength and wear"]}

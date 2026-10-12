@@ -1,0 +1,9 @@
+{
+  "observed_utc": "2026-10-12T12:25:42.354411+00:00",
+  "session_id": 17946,
+  "exit_code": 75,
+  "status": "not executed: default60minute lock wait expired",
+  "command": "run_locked.py -- review-2026-10-12-followup/refresh_harness.py",
+  "source_sha256": "0a4472d25491c8edf9949147e46372ebc30dd9281bafa505cf1e2a11ccaf3b52",
+  "next_attempt": "same frozen script with --max-wait-min300"
+}

@@ -1,0 +1,32 @@
+test_child_env_sets_utf8_mode (__main__.TestCvIo.test_child_env_sets_utf8_mode) ... ok
+test_relative_paths_are_posix (__main__.TestCvIo.test_relative_paths_are_posix) ... ok
+test_write_is_utf8_lf_and_read_round_trips (__main__.TestCvIo.test_write_is_utf8_lf_and_read_round_trips) ... ok
+test_detector_catches_windows_style_keys (__main__.TestKeys.test_detector_catches_windows_style_keys) ... ok
+test_literal_manifest_lookups_resolve (__main__.TestKeys.test_literal_manifest_lookups_resolve) ... ok
+test_manifest_writers_use_posix_helpers (__main__.TestKeys.test_manifest_writers_use_posix_helpers) ... ok
+test_no_backslash_in_any_json_key_or_string (__main__.TestKeys.test_no_backslash_in_any_json_key_or_string) ... ok
+test_no_backslash_in_generated_bom_csv (__main__.TestKeys.test_no_backslash_in_generated_bom_csv) ... ok
+test_frozen_reproducer_matches_recovery_receipt (__main__.TestLint.test_frozen_reproducer_matches_recovery_receipt) ... ok
+test_lint_accepts_compliant_forms (__main__.TestLint.test_lint_accepts_compliant_forms) ... ok
+test_lint_catches_each_violation (__main__.TestLint.test_lint_catches_each_violation) ... ok
+test_live_scripts_are_clean (__main__.TestLint.test_live_scripts_are_clean) ... FAIL
+
+======================================================================
+FAIL: test_live_scripts_are_clean (__main__.TestLint.test_live_scripts_are_clean)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_cross_platform_io.py", line 200, in test_live_scripts_are_clean
+    self.assertEqual(bad, [], '\n'.join(bad))
+AssertionError: Lists differ: ['tests/test_repo_hygiene.py:124 read_text without utf-8'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tests/test_repo_hygiene.py:124 read_text without utf-8'
+
+- ['tests/test_repo_hygiene.py:124 read_text without utf-8']
++ [] : tests/test_repo_hygiene.py:124 read_text without utf-8
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.620s
+
+FAILED (failures=1)

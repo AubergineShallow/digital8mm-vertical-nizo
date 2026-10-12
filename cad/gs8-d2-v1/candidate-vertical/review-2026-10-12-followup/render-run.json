@@ -1,0 +1,89 @@
+{
+  "checks": [
+    {
+      "variant": "compact-kowa_lm6hc",
+      "view": "hero",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "seconds": 96.45,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-kowa_lm6hc",
+      "view": "rear",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "seconds": 106.32,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-kowa_lm6hc",
+      "view": "vent_side",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "seconds": 55.2,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-kowa_lm6hc",
+      "view": "vent_front",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "seconds": 42.05,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "view": "hero",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+      "seconds": 116.63,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "view": "rear",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+      "seconds": 100.99,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "view": "vent_side",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+      "seconds": 66.23,
+      "physical_qualified": false
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "view": "vent_front",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+      "seconds": 47.21,
+      "physical_qualified": false
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "view": "hero",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+      "seconds": 95.31,
+      "physical_qualified": false
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "view": "rear",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+      "seconds": 92.3,
+      "physical_qualified": false
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "view": "vent_side",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+      "seconds": 71.59,
+      "physical_qualified": false
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "view": "vent_front",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+      "seconds": 47.59,
+      "physical_qualified": false
+    }
+  ],
+  "source_sha256": "96652b3a359db25457331c39bcaba09c49291cbd6d1603701d9c0a52d57d88c9"
+}

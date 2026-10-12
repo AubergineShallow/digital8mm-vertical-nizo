@@ -2,7 +2,7 @@
 """Light, CAD-free copy of the review tree for the FP-04 evidence-tooling tests.
 
 The copy holds every text file of candidate-vertical (<= 4 MB; STEP/STL/mesh caches, renders and PDFs are left out),
-every manifest source file, the r7 build receipt and electronics/gs8-d2-v1. The scripts are run from inside the copy, so
+the three complete required main-audit JSONs regardless of size, every manifest source file, the r7 build receipt and electronics/gs8-d2-v1. The scripts are run from inside the copy, so
 they import the copy's own helpers and never touch the live tree. Missing binaries make the same bindings fail in every
 run of a fixture, so tests compare failure sets between an untouched and a tampered copy.
 """
@@ -42,6 +42,10 @@ def build(dest):
             if p.suffix in TEXT and p.stat().st_size <= 4_000_000:
                 _copy(p, dest / p.relative_to(REPO))
     for v in VARIANTS:
+        required = CV / 'out' / v / 'verification.json'
+        copied = dest / required.relative_to(REPO)
+        _copy(required, copied)
+        assert sha(copied) == sha(required), 'Required audit fixture copy differs'
         for rel in json.loads((CV / 'out' / v / 'manifest.json').read_text(encoding='utf-8'))['sources']:
             src = (CAD / rel).resolve()
             if src.is_file():

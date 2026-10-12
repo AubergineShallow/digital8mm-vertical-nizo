@@ -1,0 +1,29 @@
+{
+  "generated_utc": "2026-10-12T12:02:42.800848+00:00",
+  "scope": "Portable source I/O corrections only; prior executed .py.txt sources and historical reports preserved. No geometry or check acceptance changed.",
+  "sources": {
+    "tests/test_cross_platform_io.py": "343b9c951eab9abf59420e4e999823fb18b347facec724c4a59fc909e5d47218",
+    "tests/test_corrective_aggregate.py": "e82267307603337b18353b320520a93ef5ca6d423d26c9a91b5fd2231bf1e1b6",
+    "tests/test_isolated_rigid_receipt.py": "4f212034fd5de9feea030e20d91e43c8ce4ea5f425f21ee607b8662c5aeab365",
+    "corrective-2026-10-12/run_isolated_rigid.py": "e0dd430882e68429708db08bdcf1104ca0c7a8e7b036c52775b458487f07e30a",
+    "corrective-2026-10-12/j2-parts-proposal/inspect_vendor_models.py": "903e46604f96437450c08199c5370b86e1b1aec779589d5e6892f4c9a8b8dd43"
+  },
+  "actual_results": [
+    {
+      "test": "tests/test_cross_platform_io.py",
+      "tests": 12,
+      "exit_code": 0
+    },
+    {
+      "test": "tests/test_corrective_aggregate.py",
+      "tests": 6,
+      "exit_code": 0
+    },
+    {
+      "test": "tests/test_isolated_rigid_receipt.py",
+      "tests": 5,
+      "exit_code": 0
+    }
+  ],
+  "physical_qualified": false
+}

@@ -1,0 +1,34 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+test_bed_chamfer_passes (__main__.BedContactFixtures.test_bed_chamfer_passes) ... ok
+test_bridge_over_a_through_window_fails (__main__.BedContactFixtures.test_bridge_over_a_through_window_fails) ... ok
+test_flat_plate_with_counterbore_passes (__main__.BedContactFixtures.test_flat_plate_with_counterbore_passes) ... ok
+test_floating_frame_fails (__main__.BedContactFixtures.test_floating_frame_fails) ... ok
+test_raised_lip_fails (__main__.BedContactFixtures.test_raised_lip_fails) ... ok
+test_steep_edge_relief_passes (__main__.BedContactFixtures.test_steep_edge_relief_passes) ... ok
+test_carrier_starts_on_the_bed (__main__.CandidateGeometry.test_carrier_starts_on_the_bed) ... carrier bed contact: silhouette 2670.5 mm2, bed 2352.4 mm2 (share 0.8809), covered recesses 122.3 mm2, lifted 0.00 mm2
+ok
+test_counterbore_and_boss_wall_from_step (__main__.CandidateGeometry.test_counterbore_and_boss_wall_from_step) ... carrier screw (-127.0, 69.0) y 20.0: bore r 3.500, min radial wall 1.700 mm
+carrier screw (-127.0, 69.0) y 21.5: bore r 3.500, min radial wall 1.700 mm
+carrier screw (-25.0, 9.0) y 20.0: bore r 3.500, min radial wall 1.700 mm
+carrier screw (-25.0, 9.0) y 21.5: bore r 3.500, min radial wall 1.700 mm
+ok
+test_locator_credited_from_steps (__main__.CandidateGeometry.test_locator_credited_from_steps) ... locator bottom_rail_tongue: seat 0.0000 mm, stop gap 0.1500 mm, credited True
+ok
+test_counterbore_and_boss (__main__.Declarations.test_counterbore_and_boss) ... ok
+test_flat_bed_declared (__main__.Declarations.test_flat_bed_declared) ... ok
+test_credited (__main__.LocatorFixtures.test_credited) ... ok
+test_not_credited (__main__.LocatorFixtures.test_not_credited) ... ok
+test_stack_retention_with_and_without_the_third_point (__main__.LocatorFixtures.test_stack_retention_with_and_without_the_third_point) ... ok
+test_driver_rows (__main__.Reports.test_driver_rows) ... skipped 'no driver record bound to the current manifest and verifier'
+test_print_rows (__main__.Reports.test_print_rows) ... ok
+test_stack_retention_row (__main__.Reports.test_stack_retention_row) ... ok
+test_carrier_payload_scaling (__main__.StructuralTransfer.test_carrier_payload_scaling) ... ok
+test_changed_rows_guard (__main__.StructuralTransfer.test_changed_rows_guard) ... ok
+test_supplement_carrier_section_current (__main__.StructuralTransfer.test_supplement_carrier_section_current) ... structural carrier screen: payload 127.27 g, 3.518 MPa, 0.414 mm
+ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 6.626s
+
+OK (skipped=1)

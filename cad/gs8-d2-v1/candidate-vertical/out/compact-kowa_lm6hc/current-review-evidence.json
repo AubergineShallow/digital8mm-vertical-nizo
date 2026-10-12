@@ -1,5 +1,5 @@
 {
-  "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "mechanical_manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "reconciler_sha256": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
   "rules_sha256": "07d0c0512a25fe04bc604330692b66ea729740ec41ff1c45eec69fa4d685d4ef",
   "generated_utc": "unrecorded (deterministic output, FP-04)",
@@ -14,7 +14,7 @@
   "gate_failures": [
     [
       "harness_failures_differ",
-      "{\"cable_routes\": [\"fan\", \"fpc\", \"oled_flex\", \"pigtail_negative\", \"pigtail_positive\", \"power_button\"], \"cable_stow\": [\"power_button_j2_pair\"], \"lead_access\": [\"pigtail_drop\", \"pigtail_ties_on_route\", \"pigtail_xt30_mouth\"], \"mate_reach\": [\"j2_btn\", \"xt30_pack\"]}",
+      "{\"cable_routes\": [\"fan\", \"fpc\", \"oled_flex\", \"pigtail_negative\", \"pigtail_positive\", \"power_button\", \"qt\"], \"cable_stow\": [\"power_button_j2_pair\"], \"lead_access\": [\"pigtail_drop\", \"pigtail_ties_on_route\", \"pigtail_xt30_mouth\"], \"mate_reach\": [\"j2_btn\", \"xt30_pack\"]}",
       "{}"
     ]
   ],
@@ -23,15 +23,15 @@
     {
       "check": "rigid",
       "report": "out/compact-kowa_lm6hc/verification.json",
-      "report_sha256": "0e6981840abf5e4e8c0f4d3e2a82705bd15ae90bf2db603b11a3798f21822497",
+      "report_sha256": "cb1dbe5b367de9582a1a2a1094237310f4a9911490d624064f60eeb9898a56ce",
       "verification_source": "verify_candidate.py",
       "verification_source_sha256": "b008c54d35391c4664ad94e01598d77de2662165d79a167f35df9552e5735851",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
       "summary": {
-        "pass": 633,
+        "pass": 1874,
         "fail": 1,
         "info": 32
       },
@@ -58,10 +58,10 @@
     {
       "check": "mesh",
       "report": "out/compact-kowa_lm6hc/print-mesh-checks.json",
-      "report_sha256": "946109931ffa694e2a84c86abe11ab51896a0eccafae99e8929c1dcde678996b",
+      "report_sha256": "62549364ced358b4aa53826070d3210c5f3e2310059926d1877d985b4120d0b0",
       "verification_source": "verify_print_meshes.py",
       "verification_source_sha256": "d74b06c7f1ae25f11135cd1a068ab6d13933c2d19266304728ac478dd0eab12d",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -73,10 +73,10 @@
     {
       "check": "print",
       "report": "out/compact-kowa_lm6hc/print-checks.json",
-      "report_sha256": "fdf74f89ae03e44d177ac97edb577ac7abd9ec4a39a41627df15e4acbf50a658",
+      "report_sha256": "3b0b552197e3ecd8c436a12c4376175575c8d13a71955db867576953f4b041c0",
       "verification_source": "verify_print_checks.py",
-      "verification_source_sha256": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "verification_source_sha256": "9a3087c803a75e510dab24a178417da1450d6b931dd17922355c00bd64c335a9",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -112,7 +112,7 @@
           "stub": 0
         },
         "critical_features": {
-          "pass": 116,
+          "pass": 123,
           "fail": 0,
           "info": 7,
           "stub": 0
@@ -139,10 +139,10 @@
     {
       "check": "csi",
       "report": "out/compact-kowa_lm6hc/csi-source-tool-checks.json",
-      "report_sha256": "1df78d57cbffe6b8163dfae9ff7cb39236be68a5ea52776edcf60183df8979ea",
+      "report_sha256": "ff9db53a561c0acd1114242b4a8d6a9c48f6d8642c7ec5474d2cbfc08a5c72de",
       "verification_source": "verify_csi_source.py",
       "verification_source_sha256": "339f6f2e22bdac2df5b2ce9fa9b45882266ef07c093bce04d91ec4a912b5dcf1",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "HOLD",
@@ -154,10 +154,10 @@
     {
       "check": "power_rigid",
       "report": "out/compact-kowa_lm6hc/power-service-checks.json",
-      "report_sha256": "ae5f1aafccc709c24c8ac97d5eea47d69ec95cfbef05542d7d506613439931bc",
+      "report_sha256": "41c2423292594f5b8f72d169cd7b7118118da2df994a77c612f5eb8e5d7cff00",
       "verification_source": "verify_power_service.py",
       "verification_source_sha256": "49c18b6676145eaff89e7d99ef76b8a2ba87c86b01985b635dd77c9ae894fddd",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "pass",
@@ -169,10 +169,10 @@
     {
       "check": "power_static",
       "report": "out/compact-kowa_lm6hc/wire-solid-checks.json",
-      "report_sha256": "f980cf75fcd23f3ad61d9e5c063e37d8be761513235ab32f49ab2d5788d90688",
+      "report_sha256": "a25e643b6648a9aaf816675b22525aee3f73bb18bcefaf1256c2d89365262aea",
       "verification_source": "verify_wire_solids.py",
       "verification_source_sha256": "dbe500f5ebf6cc9ac28cb05c3cb65ba71318f96599dd640d8b77eaa50773afcf",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "pass",
@@ -184,10 +184,10 @@
     {
       "check": "hdmi",
       "report": "out/compact-kowa_lm6hc/hdmi-solid-checks.json",
-      "report_sha256": "fc3c0750fd3015680e3488e1a3ca1bfb9b1a4754ba30ea5afe263f676b79fa99",
+      "report_sha256": "8e2c7f922a5349300d77ba982f98f93f7bab0bcde9bc34aedc7392e39f265421",
       "verification_source": "verify_hdmi.py",
       "verification_source_sha256": "982dc28718e9d79a586ba87965725131391039f8341818848aa83516e52cb1a9",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -203,10 +203,10 @@
     {
       "check": "fps",
       "report": "out/fps-service-study/integrated-fps-checks.json",
-      "report_sha256": "850edce58713c30e5ce7f3ea2efb0ff7925d4766f4f37af3b178f9a8873e4f1f",
+      "report_sha256": "27eb8938f0c3b71340a0196cc130e84e7b3856840ec896ecbcb58b8faf6ec531",
       "verification_source": "verify_fps_integrated.py",
       "verification_source_sha256": "81cbbadc6fea142de8aac73bf9b90d6093e4e58b885970c119eb69c732f24b4f",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "geometric_pass_only",
@@ -218,10 +218,10 @@
     {
       "check": "usb_head",
       "report": "routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json",
-      "report_sha256": "36a9907f7b3a69ea59fd827f282265ce8fee0ff744873fb088373d6a9963cb84",
+      "report_sha256": "49f4877c10d662e15273027abdb4017c7d79e82d57e2d4491171e5317f56b4ff",
       "verification_source": "verify_shadow_usb_head.py",
       "verification_source_sha256": "34e29a267cc0ea072cb156b83fa51be7313dc2f03e94d274ab9c0c85494a8f47",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "pass_for_bounded_head_reservation",
@@ -233,10 +233,10 @@
     {
       "check": "plenum",
       "report": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-      "report_sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
+      "report_sha256": "78fe122f605c701f0bf5eef984d63488ca64556ad8751c25f8d6cc2f9e160254",
       "verification_source": "verify_shadow_plenum.py",
       "verification_source_sha256": "ce776a21cf6e6bd899f74cb0f56852577da0d7eb23b43adb4a1712d38ecb3485",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -252,10 +252,10 @@
     {
       "check": "exterior_mouths",
       "report": "out/compact-kowa_lm6hc/shadow-outlet-context-checks.json",
-      "report_sha256": "72794ad354d1e4d0834ee59f5c9a1929f5b75be297a4643aec7cc8defd6ee4aa",
+      "report_sha256": "55e5b38de47ec57d77c6298662e97e36ae4772a4ad49a906c20765f9f9970533",
       "verification_source": "verify_shadow_outlet_context.py",
       "verification_source_sha256": "590a8f76b66aeb5d06074dbed88b4cf332763ee79e2f1c7984437bbe1cf720c6",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -270,10 +270,10 @@
     {
       "check": "microSD_rejected_closed_path",
       "report": "out/compact-kowa_lm6hc/microsd-service-dependency.json",
-      "report_sha256": "53d4e54aa35d4661f510a8b64d7c95ca2e007ed88cfdfb280fe5a56924138568",
+      "report_sha256": "000cdc1edc935e38012a296b35ad54b4b94f47ef9e7365bdf51258b6fe6b23ef",
       "verification_source": "verify_microsd_service.py",
       "verification_source_sha256": "e32df7b2cd064edd8cd5c2c0437e1a04c93ed0fadc3004a9d0cdf18c9359249b",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "REJECTED",
@@ -285,10 +285,10 @@
     {
       "check": "check_scope",
       "report": "out/compact-kowa_lm6hc/check-scope-checks.json",
-      "report_sha256": "eb7c39f135a40c27fb05f9c161536dc5c57ccf508b6571fcdaab672912696de8",
+      "report_sha256": "1a7985e429da3766808295e94ea2c6d7a219ae11788876de008336f8891fd9be",
       "verification_source": "verify_check_scope.py",
       "verification_source_sha256": "e9479e6d589baea68a16ef47d773357560fa15a4b796d67277efd1574ee98566",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -304,16 +304,16 @@
     {
       "check": "harness",
       "report": "out/compact-kowa_lm6hc/harness-checks.json",
-      "report_sha256": "6823886ab27c3885c1e81b66a424f759c300a7a952e71d322196cd17b7f49143",
+      "report_sha256": "38ae8d78c1f4eda3d24610fc03cfb8f0f2472f019e8bd892a3c567926d3e9885",
       "verification_source": "verify_harness_checks.py",
       "verification_source_sha256": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": "fail",
       "summary": {
-        "pass": 30,
-        "fail": 12,
+        "pass": 29,
+        "fail": 13,
         "info": 20
       },
       "failing": {
@@ -323,7 +323,8 @@
           "oled_flex",
           "pigtail_negative",
           "pigtail_positive",
-          "power_button"
+          "power_button",
+          "qt"
         ],
         "cable_stow": [
           "power_button_j2_pair"
@@ -339,6 +340,329 @@
         ]
       },
       "failed_checks": [
+        {
+          "category": "cable_routes",
+          "id": "qt",
+          "length_mm": 250.0,
+          "length_range": [
+            240.0,
+            260.0
+          ],
+          "range_src": "BOM D2-24 / D2-24B: finished QT lead 250 +/- 10 mm (MP-QT measures)",
+          "estimate": true,
+          "fan_in_gap_mm": 0.0,
+          "proposed_rule_change": {
+            "status": "info",
+            "gating": false,
+            "id": "released_minimum_length_basis",
+            "text": "PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a separately authored guides-released pose instead of the shortest member of the installed storage family. Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.",
+            "detail": "basis.released_minimum"
+          },
+          "installed_mm": 206.93,
+          "min_route_mm": 238.99,
+          "allowance_mm": 25.0,
+          "length_min_mm": 240.0,
+          "slack_mm": -23.99,
+          "end_gap_mm": 0.0,
+          "basis": {
+            "family": {
+              "variable": "low",
+              "recorded": 49.6954765814385,
+              "knots_share_variable": true,
+              "bound": [
+                44.0,
+                55.2
+              ],
+              "src": "signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68",
+              "recomputed_mm": 206.92813818178354,
+              "recorded_mm": 206.92813818178354,
+              "length_at_bound_mm": {
+                "44.0": 218.31909134466054,
+                "55.2": 195.91909134466056
+              },
+              "valid_at_bound": {
+                "44.0": true,
+                "55.2": true
+              },
+              "min_mm": 195.91909134466056,
+              "max_mm": 218.31909134466054,
+              "min_at": 55.2
+            },
+            "longest_branch_mm": 43.071861818216426,
+            "released_minimum": {
+              "status": "info",
+              "gating": false,
+              "rule_change": "PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a separately authored guides-released pose instead of the shortest member of the installed storage family. Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.",
+              "length_mm": 160.46790634814298,
+              "min_route_mm": 203.54,
+              "problems": [],
+              "scope": "Separate guides-released static minimum for the unchanged allowance; complete-stock service deformation remains unqualified.",
+              "allowance_mm": 25.0,
+              "length_min_mm": 240.0,
+              "slack_mm": 11.46,
+              "length_only_passes": true,
+              "would_pass_length_gate": true,
+              "clearance_status": "pass",
+              "member_clearance": {
+                "envelope_d_mm": 3.2,
+                "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+                "capsule_d_mm": 3.4,
+                "polyline_points": 50,
+                "pieces": 186,
+                "stubs": 0,
+                "exempt": [
+                  "encoder",
+                  "pi5"
+                ],
+                "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+                "targets": 6934,
+                "hits": {},
+                "cable_separation": {
+                  "run_pin37": {
+                    "min_centreline_mm": 4.31,
+                    "need_mm": 1.6
+                  },
+                  "run_pin39": {
+                    "min_centreline_mm": 2.89,
+                    "need_mm": 1.6
+                  },
+                  "power_button": {
+                    "min_centreline_mm": 16.28,
+                    "need_mm": 3.2
+                  },
+                  "fpc": {
+                    "min_centreline_mm": 10.18,
+                    "need_mm": 9.6
+                  },
+                  "fan": {
+                    "min_centreline_mm": 18.6,
+                    "need_mm": 2.6
+                  },
+                  "oled_flex": {
+                    "min_centreline_mm": 56.11,
+                    "need_mm": 7.8
+                  },
+                  "usb_5v": {
+                    "min_centreline_mm": 17.61,
+                    "need_mm": 3.4
+                  },
+                  "pack_lead": {
+                    "min_centreline_mm": 39.99,
+                    "need_mm": 3.2
+                  },
+                  "pigtail_positive": {
+                    "min_centreline_mm": 6.78,
+                    "need_mm": 3.2
+                  },
+                  "pigtail_negative": {
+                    "min_centreline_mm": 3.68,
+                    "need_mm": 3.2
+                  },
+                  "header_branch:hdr_fps_lead_33_34": {
+                    "min_centreline_mm": 12.98,
+                    "need_mm": 2.4
+                  },
+                  "header_branch:fps_fps_header_branch": {
+                    "min_centreline_mm": 12.98,
+                    "need_mm": 2.4
+                  },
+                  "header_branch:fps_fps_200_main": {
+                    "min_centreline_mm": 4.54,
+                    "need_mm": 2.9
+                  },
+                  "header_branch:fps_fps_switch_bundle": {
+                    "min_centreline_mm": 16.4,
+                    "need_mm": 2.9
+                  },
+                  "header_branch:fps_fps_ck1044_pin_A": {
+                    "min_centreline_mm": 19.42,
+                    "need_mm": 2.1
+                  },
+                  "header_branch:fps_fps_ck1044_pin_2": {
+                    "min_centreline_mm": 12.23,
+                    "need_mm": 2.1
+                  }
+                },
+                "cable_overlaps": [],
+                "use": "separate released pose (PROPOSED rule change, not gating; guides released; no deformation proof)"
+              }
+            }
+          },
+          "problems": [
+            "shortest route 239.0 + allowance 25.0 > minimum stock 240.0 mm"
+          ],
+          "status": "fail",
+          "member_clearance": {
+            "variable": "low",
+            "value": 55.2,
+            "od_mm": 3.2,
+            "capsule_d_mm": 3.4,
+            "polyline_points": 49,
+            "pieces": 96,
+            "member_length_mm": 195.92,
+            "exempt": [
+              "encoder",
+              "pi5"
+            ],
+            "exempt_rule": "own end parts only within 10 mm of the terminal",
+            "targets": 6934,
+            "hits": {},
+            "member_errors": [],
+            "installed_targets": true,
+            "hit_tolerance_mm3": 0.01,
+            "cable_overlaps": [],
+            "cable_separation": {
+              "run_pin37": {
+                "min_centreline_mm": 11.57,
+                "need_mm": 2.4
+              },
+              "run_pin39": {
+                "min_centreline_mm": 5.99,
+                "need_mm": 2.4
+              },
+              "power_button": {
+                "min_centreline_mm": 16.28,
+                "need_mm": 3.2
+              },
+              "fpc": {
+                "min_centreline_mm": 10.18,
+                "need_mm": 9.6
+              },
+              "fan": {
+                "min_centreline_mm": 24.96,
+                "need_mm": 2.6
+              },
+              "oled_flex": {
+                "min_centreline_mm": 54.95,
+                "need_mm": 7.8
+              },
+              "usb_5v": {
+                "min_centreline_mm": 27.66,
+                "need_mm": 3.4
+              },
+              "pack_lead": {
+                "min_centreline_mm": 68.46,
+                "need_mm": 4.0
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 6.78,
+                "need_mm": 3.2
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.68,
+                "need_mm": 3.2
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 30.18,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 30.18,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 10.28,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 13.64,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 17.68,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 10.76,
+                "need_mm": 2.1
+              }
+            },
+            "cable_separation_status": "checked",
+            "use": "shortest member (the minimum route)"
+          },
+          "installed_clearance": {
+            "envelope_d_mm": 3.2,
+            "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+            "capsule_d_mm": 3.4,
+            "polyline_points": 45,
+            "pieces": 186,
+            "stubs": 0,
+            "exempt": [
+              "encoder",
+              "pi5"
+            ],
+            "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+            "targets": 6934,
+            "hits": {},
+            "cable_separation": {
+              "run_pin37": {
+                "min_centreline_mm": 4.31,
+                "need_mm": 1.6
+              },
+              "run_pin39": {
+                "min_centreline_mm": 2.89,
+                "need_mm": 1.6
+              },
+              "power_button": {
+                "min_centreline_mm": 16.28,
+                "need_mm": 3.2
+              },
+              "fpc": {
+                "min_centreline_mm": 10.18,
+                "need_mm": 9.6
+              },
+              "fan": {
+                "min_centreline_mm": 22.35,
+                "need_mm": 2.6
+              },
+              "oled_flex": {
+                "min_centreline_mm": 54.95,
+                "need_mm": 7.8
+              },
+              "usb_5v": {
+                "min_centreline_mm": 23.86,
+                "need_mm": 3.4
+              },
+              "pack_lead": {
+                "min_centreline_mm": 39.99,
+                "need_mm": 3.2
+              },
+              "pigtail_positive": {
+                "min_centreline_mm": 6.78,
+                "need_mm": 3.2
+              },
+              "pigtail_negative": {
+                "min_centreline_mm": 3.68,
+                "need_mm": 3.2
+              },
+              "header_branch:hdr_fps_lead_33_34": {
+                "min_centreline_mm": 24.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_header_branch": {
+                "min_centreline_mm": 24.68,
+                "need_mm": 2.4
+              },
+              "header_branch:fps_fps_200_main": {
+                "min_centreline_mm": 10.28,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_switch_bundle": {
+                "min_centreline_mm": 13.64,
+                "need_mm": 2.9
+              },
+              "header_branch:fps_fps_ck1044_pin_A": {
+                "min_centreline_mm": 17.68,
+                "need_mm": 2.1
+              },
+              "header_branch:fps_fps_ck1044_pin_2": {
+                "min_centreline_mm": 10.76,
+                "need_mm": 2.1
+              }
+            },
+            "cable_overlaps": []
+          }
+        },
         {
           "category": "cable_routes",
           "id": "power_button",
@@ -1552,7 +1876,7 @@
           "category": "lead_access",
           "id": "pigtail_drop",
           "kind": "drop",
-          "model": "r7 _pigtail_drop_v (G-W5) with vendor strand data",
+          "model": "r7 _pigtail_drop_v (G-W5) with vendor strand data, XT30 loop at the 2.4 mohm gate and named series joints (ELE-1)",
           "i_peak_a": 8.6,
           "limit_v": 0.15,
           "cases": {
@@ -1561,9 +1885,9 @@
               "lay": 1.0,
               "area18": 0.8231,
               "fuse": 1.0,
-              "basis": "AWG nominal areas, no lay increment, cold fuse (= make_bom_vertical hot_drop model)",
-              "drop_v": 0.14277,
-              "margin_mv": 7.23
+              "basis": "AWG nominal areas, no lay increment, cold fuse (make_bom_vertical hot_drop copper; XT30 at the gate loop value)",
+              "drop_v": 0.15481,
+              "margin_mv": -4.81
             },
             "hi_cold_fuse": {
               "area16": 1.2566,
@@ -1571,8 +1895,8 @@
               "area18": 0.754,
               "fuse": 1.0,
               "basis": "vendor minimum 250 x 0.08 mm, lay 1.03, 150 x 0.08 pack lead, cold fuse",
-              "drop_v": 0.15103,
-              "margin_mv": -1.03
+              "drop_v": 0.16307,
+              "margin_mv": -13.07
             },
             "nominal_hot_fuse": {
               "area16": 1.3088,
@@ -1580,8 +1904,8 @@
               "area18": 0.8231,
               "fuse": 1.3,
               "basis": "AWG nominal copper with the hot fuse case",
-              "drop_v": 0.15427,
-              "margin_mv": -4.27
+              "drop_v": 0.16631,
+              "margin_mv": -16.31
             },
             "hi": {
               "area16": 1.2566,
@@ -1589,12 +1913,12 @@
               "area18": 0.754,
               "fuse": 1.3,
               "basis": "vendor minimum strands, lay 1.03, 150 x 0.08 pack lead, hot fuse x 1.3",
-              "drop_v": 0.16254,
-              "margin_mv": -12.54
+              "drop_v": 0.17458,
+              "margin_mv": -24.58
             }
           },
-          "drop_lo_v": 0.14277,
-          "drop_hi_v": 0.16254,
+          "drop_lo_v": 0.15481,
+          "drop_hi_v": 0.17458,
           "vendor": "https://www.progressiverc.com/products/prc-silicone-wire-16-awg (over 250 strands of pure copper, each .08 mm; OD 3.0 mm; read 2026-10-11)",
           "assumptions": {
             "lay_range": [
@@ -1608,68 +1932,108 @@
             "pack_lead": "150 x 0.08 mm 18 AWG silicone (strand count unknown; MP-PACK)",
             "copper": "IACS annealed copper 1/58 ohm mm2/m at 20 C, alpha 0.00393/K, 60 C"
           },
+          "xt30_loop_gate_mohm": 2.4,
+          "xt30_r7_historical_mohm": 1.0,
+          "xt30_src": "Amass XT30U female 2025V0 A.06.1 / male 2025V0 A.01.1: contact resistance <= 1.2 mohm, per-contact vs loop scope unresolved (corrective-2026-10-12/power-options/README.md, termination-options.json)",
+          "xt30_loop_cases": {
+            "1.0": {
+              "gating": false,
+              "lo_v": 0.14277,
+              "hi_v": 0.16254,
+              "shorter_path_max_mm_hot_fuse": 225.4,
+              "shorter_path_max_mm_cold_fuse": 266.3,
+              "cutoff_raise_needed_v": 0.01254
+            },
+            "1.2": {
+              "gating": false,
+              "lo_v": 0.14449,
+              "hi_v": 0.16426,
+              "shorter_path_max_mm_hot_fuse": 219.3,
+              "shorter_path_max_mm_cold_fuse": 260.2,
+              "cutoff_raise_needed_v": 0.01426
+            },
+            "2.4": {
+              "gating": true,
+              "lo_v": 0.15481,
+              "hi_v": 0.17458,
+              "shorter_path_max_mm_hot_fuse": 182.6,
+              "shorter_path_max_mm_cold_fuse": 223.5,
+              "cutoff_raise_needed_v": 0.02458
+            }
+          },
+          "joints": {
+            "terms_mohm": {
+              "fuse_splice_line": 0.0,
+              "fuse_splice_load": 0.0,
+              "x1203_pad_positive": 0.0,
+              "x1203_pad_negative": 0.0
+            },
+            "status": "unbudgeted, pending G-W5 (no repo source gives a joint resistance)",
+            "sensitivity_mv_per_0p1_mohm_each": 0.86,
+            "sensitivity_note": "each named joint is in series and carries the full peak current: every 0.1 mohm of any one joint adds 0.86 mV to every case"
+          },
           "decision_data": {
-            "shorter_path_max_mm_hot_fuse": 225.4,
-            "shorter_path_max_mm_cold_fuse": 266.3,
-            "awg14_nominal_hi_drop_v": 0.13245,
+            "shorter_path_max_mm_hot_fuse": 182.6,
+            "shorter_path_max_mm_cold_fuse": 223.5,
+            "awg14_nominal_hi_drop_v": 0.14449,
             "awg14_note": "AWG 14 nominal 2.0809 mm2 for information only; OD and lane fit unchecked (lane re-check needed)",
-            "cutoff_raise_needed_v": 0.01254,
+            "cutoff_raise_needed_v": 0.02458,
             "by_finished_length_mm": {
               "220.0": {
-                "lo_v": 0.12966,
-                "hi_cold_fuse_v": 0.13697,
-                "nominal_hot_fuse_v": 0.14116,
-                "hi_v": 0.14847,
-                "awg14_nominal_hi_v": 0.12396,
-                "cutoff_raise_needed_v": 0.0
+                "lo_v": 0.1417,
+                "hi_cold_fuse_v": 0.14901,
+                "nominal_hot_fuse_v": 0.1532,
+                "hi_v": 0.16051,
+                "awg14_nominal_hi_v": 0.136,
+                "cutoff_raise_needed_v": 0.01051
               },
               "225.0": {
-                "lo_v": 0.13097,
-                "hi_cold_fuse_v": 0.13837,
-                "nominal_hot_fuse_v": 0.14247,
-                "hi_v": 0.14988,
-                "awg14_nominal_hi_v": 0.12481,
-                "cutoff_raise_needed_v": 0.0
+                "lo_v": 0.14301,
+                "hi_cold_fuse_v": 0.15041,
+                "nominal_hot_fuse_v": 0.15451,
+                "hi_v": 0.16192,
+                "awg14_nominal_hi_v": 0.13685,
+                "cutoff_raise_needed_v": 0.01192
               },
               "237.0": {
-                "lo_v": 0.13411,
-                "hi_cold_fuse_v": 0.14175,
-                "nominal_hot_fuse_v": 0.14562,
-                "hi_v": 0.15325,
-                "awg14_nominal_hi_v": 0.12685,
-                "cutoff_raise_needed_v": 0.00325
+                "lo_v": 0.14615,
+                "hi_cold_fuse_v": 0.15379,
+                "nominal_hot_fuse_v": 0.15766,
+                "hi_v": 0.16529,
+                "awg14_nominal_hi_v": 0.13889,
+                "cutoff_raise_needed_v": 0.01529
               },
               "250.0": {
-                "lo_v": 0.13752,
-                "hi_cold_fuse_v": 0.1454,
-                "nominal_hot_fuse_v": 0.14903,
-                "hi_v": 0.15691,
-                "awg14_nominal_hi_v": 0.12906,
-                "cutoff_raise_needed_v": 0.00691
+                "lo_v": 0.14956,
+                "hi_cold_fuse_v": 0.15744,
+                "nominal_hot_fuse_v": 0.16107,
+                "hi_v": 0.16895,
+                "awg14_nominal_hi_v": 0.1411,
+                "cutoff_raise_needed_v": 0.01895
               },
               "260.0": {
-                "lo_v": 0.14014,
-                "hi_cold_fuse_v": 0.14822,
-                "nominal_hot_fuse_v": 0.15165,
-                "hi_v": 0.15972,
-                "awg14_nominal_hi_v": 0.13075,
-                "cutoff_raise_needed_v": 0.00972
+                "lo_v": 0.15218,
+                "hi_cold_fuse_v": 0.16026,
+                "nominal_hot_fuse_v": 0.16369,
+                "hi_v": 0.17176,
+                "awg14_nominal_hi_v": 0.14279,
+                "cutoff_raise_needed_v": 0.02176
               },
               "270.0": {
-                "lo_v": 0.14277,
-                "hi_cold_fuse_v": 0.15103,
-                "nominal_hot_fuse_v": 0.15427,
-                "hi_v": 0.16254,
-                "awg14_nominal_hi_v": 0.13245,
-                "cutoff_raise_needed_v": 0.01254
+                "lo_v": 0.15481,
+                "hi_cold_fuse_v": 0.16307,
+                "nominal_hot_fuse_v": 0.16631,
+                "hi_v": 0.17458,
+                "awg14_nominal_hi_v": 0.14449,
+                "cutoff_raise_needed_v": 0.02458
               },
               "280.0": {
-                "lo_v": 0.14539,
-                "hi_cold_fuse_v": 0.15384,
-                "nominal_hot_fuse_v": 0.15689,
-                "hi_v": 0.16535,
-                "awg14_nominal_hi_v": 0.13415,
-                "cutoff_raise_needed_v": 0.01535
+                "lo_v": 0.15743,
+                "hi_cold_fuse_v": 0.16588,
+                "nominal_hot_fuse_v": 0.16893,
+                "hi_v": 0.17739,
+                "awg14_nominal_hi_v": 0.14619,
+                "cutoff_raise_needed_v": 0.02739
               }
             },
             "options": "VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check."
@@ -1677,7 +2041,7 @@
           "gate": "G-W5 hot 8.6 A drop test on the built pigtail (measured fuse, contacts, copper); MP-PACK pack lead",
           "estimate": true,
           "problems": [
-            "drop_hi 0.1625 V > 0.150 V at 8.6 A (hot fuse x 1.30, vendor minimum strands, lay 1.03)"
+            "drop_hi 0.1746 V > 0.150 V at 8.6 A (hot fuse x 1.30, vendor minimum strands, lay 1.03, XT30 loop 2.4 mohm, named joints 0.00 mohm)"
           ],
           "status": "fail"
         },
@@ -1771,10 +2135,10 @@
     {
       "check": "void",
       "report": "out/comparison/volume-compact-kowa_lm6hc.json",
-      "report_sha256": "f30aaed77024b00677c800f4d6325766ecd8c391e15f32773fc87c99408f3309",
+      "report_sha256": "e187f7d3b9985c7b31bd0bf5841725f602ffbc3b6e9c93244cd67f77727f45cb",
       "verification_source": "measure_volume.py",
       "verification_source_sha256": "7423c23f56f12fb61affb468deb9d7a39690274e601b2a374e5b764b8173e0c6",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "status": null,
@@ -1788,13 +2152,13 @@
     {
       "variant": "compact-fujinon_hf6xa",
       "report": "out/compact-fujinon_hf6xa/verification.json",
-      "report_sha256": "f4458efe61404918aa437cd9548f080b7012d08ed2470e9d7b7ecc5de0619fdf",
+      "report_sha256": "f335a8599df6b15cd33e94796581320d4ca866ad8dda6592b050786417d71e6b",
       "verification_source": "verify_candidate.py",
-      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "summary": {
-        "pass": 628,
+        "pass": 1869,
         "fail": 1,
         "info": 32
       },
@@ -1821,9 +2185,9 @@
     {
       "variant": "compact-fujinon_hf6xa",
       "report": "out/compact-fujinon_hf6xa/print-checks.json",
-      "report_sha256": "4754d3afd746051961aed7309bbd7cfe6c4937a8f7e800242e4c252c7ddf944c",
+      "report_sha256": "ffca2aba1df38f49fd07cadadf7fe15c63328d753ee1fc1a19c442085e556802",
       "verification_source": "verify_print_checks.py",
-      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "summary": {
@@ -1858,7 +2222,7 @@
           "stub": 0
         },
         "critical_features": {
-          "pass": 116,
+          "pass": 123,
           "fail": 0,
           "info": 7,
           "stub": 0
@@ -1885,13 +2249,13 @@
     {
       "variant": "original-kowa_lm6hc",
       "report": "out/original-kowa_lm6hc/verification.json",
-      "report_sha256": "4c28b5baa7fa1d02a2d95883f4cdd91cd50aae0e620bc202056145d51b1e0db3",
+      "report_sha256": "49b3f3aaea3c5c0bdd80766ca26bba37687b34cae544d49aa4c8145a3bffafe3",
       "verification_source": "verify_candidate.py",
-      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "summary": {
-        "pass": 636,
+        "pass": 1877,
         "fail": 1,
         "info": 32
       },
@@ -1918,9 +2282,9 @@
     {
       "variant": "original-kowa_lm6hc",
       "report": "out/original-kowa_lm6hc/print-checks.json",
-      "report_sha256": "65efc7203b54f99f61d4cbdc4e8c5d91af9d360dd8fd98cfd9b61d32addc8136",
+      "report_sha256": "c8efae7c0220350ed3c8ede3ae730b793d41752ccbe73dbee274bc15e2b6d597",
       "verification_source": "verify_print_checks.py",
-      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
       "manifest_binding_current": true,
       "verifier_hash_current": true,
       "summary": {
@@ -1955,7 +2319,7 @@
           "stub": 0
         },
         "critical_features": {
-          "pass": 116,
+          "pass": 123,
           "fail": 0,
           "info": 7,
           "stub": 0

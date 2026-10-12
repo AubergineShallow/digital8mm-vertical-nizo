@@ -1,0 +1,80 @@
+{
+  "reviewed_utc": "2026-10-12T18:27:10.921457+00:00",
+  "scope": "Saved current-byte confirmation of earlier independent Kowa source/pose/process review",
+  "result": "source-bound evidence verified; release remains blocked",
+  "errors": [],
+  "variant": {
+    "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+    "main_counts": {
+      "pass": 1874,
+      "fail": 1,
+      "info": 32
+    },
+    "catch_rows": 1370,
+    "hypotheses": 69,
+    "feasible": 49,
+    "BFAR_samples": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      1.75,
+      2.0,
+      2.25,
+      2.5,
+      2.75,
+      3.0
+    ],
+    "window_rows": 637,
+    "first_contact_rows": 637,
+    "minimum_worst_gap_mm": 0.129,
+    "minimum_centred_gap_mm": 0.4,
+    "feasible_families": {
+      "legacy": 4,
+      "translation": 8,
+      "tilt_x": 1,
+      "yaw_z": 2,
+      "pocket_yaw_z": 8,
+      "roll_y": 2,
+      "coupled_xyz": 24
+    },
+    "maximum_sampled_joint_face_gap_mm": 0.2399520143952003
+  },
+  "limitations": [
+    "Static source/JSON/hash audit only; no CAD, repository tests or acceptance scripts executed by this reviewer.",
+    "69 finite pose hypotheses and 13 sampled BFAR positions are not an exhaustive continuous tolerance proof. Coupled samples use quarter/half angles and selected translation extrema.",
+    "The 0.1 mm axial-underseat screening parameter is not a mechanical stop or maximum joint-face opening; feasible sampled face opening reaches about 0.240 mm.",
+    "Off-nominal checks cover window and declared-hardware first-contact; no complete off-nominal strength, adhesive retention, one-head hardware or manufacturing qualification is implied.",
+    "Vent checks establish nominal CAD connectivity/access only. Printed channel openness, viscous adhesive escape, dry datums, axial seating, cure fixture/support, metrology and warm strength require physical qualification.",
+    "QT shortest installed-family length remains failed. Informational released-pose success does not change acceptance or prove continuous full-stock service motion.",
+    "All-variant catch evidence does not establish all-variant flexible harness/service qualification.",
+    "Guide/PDF rendering, complete test suite and final package validation are pending and outside this receipt. Existing cooler source/proxy conflict, harness failures and physical release holds remain."
+  ],
+  "reviewed_sha256": {
+    "out/compact-kowa_lm6hc/manifest.json": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+    "out/compact-kowa_lm6hc/verification.json": "cb1dbe5b367de9582a1a2a1094237310f4a9911490d624064f60eeb9898a56ce",
+    "review-2026-10-12-corrective/catch-extended/catch-acceptance-compact-kowa_lm6hc.json": "af28e9dd73b5708a5d1f5d6cd8d3c6dd5f8a65b51bec906346b40211fb59445d",
+    "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "j7_collar_checks.py": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+    "model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
+    "review-2026-10-12-corrective/catch-extended/catch_extended_cases.py": "2c558c90ca9f833c9ab3d11bc54565f7a80491d9fa9c474b902062a88476082d",
+    "steps.py": "0931688b9450a4f806a71d778dd23471ab55a870ebae4c8c77cab446bdbb978f",
+    "out/compact-kowa_lm6hc/harness-checks.json": "38ae8d78c1f4eda3d24610fc03cfb8f0f2472f019e8bd892a3c567926d3e9885",
+    "verify_harness_checks.py": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
+    "harness_rules.py": "1c45189ddefa87070a3d8490166c36fa907a701f1044a550a9100428cd7fb00c",
+    "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
+    "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
+    "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+    "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
+    "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "out/compact-kowa_lm6hc/current-review-evidence.json": "8fffa4f56f196d33e3ca84b835cfb88929b32a1ce523f24a00f9f3d4550dee7f",
+    "reconcile_review_evidence.py": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
+    "evidence_rules.py": "07d0c0512a25fe04bc604330692b66ea729740ec41ff1c45eec69fa4d685d4ef",
+    "review-2026-10-12-followup/BOND-PROCESS.md": "0596be4cd7dffaef5a1154845225ade0fa6c1120bb6f8333cee5280ab7dc7cfb"
+  }
+}

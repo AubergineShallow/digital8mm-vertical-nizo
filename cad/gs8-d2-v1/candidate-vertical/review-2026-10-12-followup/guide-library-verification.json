@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "verified_utc": "2026-10-12T18:39:20.891141+00:00",
+  "method": "Current Library versions resolved by Library ID and copied through supported Library materialization; exact whole-file byte comparison with canonical local deliverables. Identity metadata applied to the separate materialized files.",
+  "items": [
+    {
+      "library_file_id": "libfile_cce561f27d0c81919875e9b4b4ba4cb3",
+      "file_id": "file_00000000928c81fdb96fcbe9e4cb49a2",
+      "current_version_number": 0,
+      "file_name": "D2-vertical-catch-QT-followup-f9704ac.pdf",
+      "canonical_path": "guide/out-concealed-vents/D2-vertical-catch-QT-followup-f9704ac.pdf",
+      "canonical_bytes": 7677690,
+      "canonical_sha256": "e3ddbee5bddcda0fa74fcca74715ab9865d79af5b4dce633f7b95f21792b355a",
+      "library_materialized_bytes": 7677690,
+      "library_materialized_sha256": "e3ddbee5bddcda0fa74fcca74715ab9865d79af5b4dce633f7b95f21792b355a",
+      "exact_bytes_match": true
+    },
+    {
+      "library_file_id": "libfile_cd41024af8f881918dc05b99a4e2c045",
+      "file_id": "file_00000000f2048230bea3114d447dc407",
+      "current_version_number": 0,
+      "file_name": "D2-vertical-catch-QT-followup-f9704ac-source-and-pages.zip",
+      "canonical_path": "guide/out-concealed-vents/D2-vertical-catch-QT-followup-f9704ac-source-and-pages.zip",
+      "canonical_bytes": 92427315,
+      "canonical_sha256": "2a2861a59d1f956a3609d389ae8b138e44d175ecf6cab4708db579fd45d36f97",
+      "library_materialized_bytes": 92427315,
+      "library_materialized_sha256": "2a2861a59d1f956a3609d389ae8b138e44d175ecf6cab4708db579fd45d36f97",
+      "exact_bytes_match": true
+    }
+  ],
+  "historical_library_items_modified": false,
+  "physical_qualified": false
+}

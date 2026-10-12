@@ -13,7 +13,7 @@ Writes REPO-INDEX.md (--write) or checks it (--check, exit 1 when stale or a rul
 - Path length: the longest repository-relative path and the Windows clone guidance.
 """
 from cv_io import read_text, write_text
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import argparse, ast, json, re, subprocess, sys
 
 HERE = Path(__file__).resolve().parent
@@ -163,7 +163,39 @@ def absolute_paths(root=HERE):
     return hits
 
 
+EXECUTION_RECEIPT = 'guide/out-concealed-vents/post-guide-build-order-check.json'
+
+
+def execution_metadata_problems(data):
+    """Recorded execution provenance only; never interpreted as portable commands."""
+    bad = []
+    command, cwd = data.get('command'), data.get('working_directory')
+    if not (isinstance(command, list) and len(command) == 2
+            and all(isinstance(x, str) for x in command) and isinstance(cwd, str)):
+        bad.append('command/cwd schema')
+    elif command[1] != cwd.rstrip('/') + '/tests/test_build_order_docs.py':
+        bad.append('test path/cwd mismatch')
+    allowed = {('command', 0), ('command', 1), ('working_directory',)}
+    def absolute(value):
+        return bool(ABS_RE.search(value) or PurePosixPath(value).is_absolute() or PureWindowsPath(value).is_absolute())
+    def visit(value, path=()):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if absolute(key):
+                    bad.append('absolute key: ' + repr(path + (key,)))
+                visit(child, path + (key,))
+        elif isinstance(value, list):
+            for i, child in enumerate(value):
+                visit(child, path + (i,))
+        elif isinstance(value, str) and absolute(value) and path not in allowed:
+            bad.append('absolute value: ' + repr(path))
+    visit(data)
+    return bad
+
+
 def classify_abs(rel):
+    if rel == EXECUTION_RECEIPT:
+        return 'field-validated execution metadata (recorded data only)'
     if rel in PENDING:
         return 'pending FP-16'
     if rel in PROVENANCE:
@@ -191,6 +223,9 @@ def problems(root=HERE):
         elif ' ' not in k and not (root / k).is_file():
             bad.append(('provenance_missing', k))
     bad += [('absolute_path_undeclared', r) for r in absolute_paths(root) if classify_abs(r) == 'UNDECLARED']
+    receipt = root / EXECUTION_RECEIPT
+    if receipt.exists():
+        bad += [('execution_metadata_invalid', x) for x in execution_metadata_problems(json.loads(read_text(receipt)))]
     longest = max(tracked_paths(), key=len)
     if len(longest) > MAX_PATH_CHARS:
         bad.append(('path_too_long', longest))

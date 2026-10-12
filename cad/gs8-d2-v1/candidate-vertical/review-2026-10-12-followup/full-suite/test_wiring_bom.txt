@@ -1,0 +1,25 @@
+test_csv_equals_view_and_every_purchase_is_bought (__main__.BuyView.test_csv_equals_view_and_every_purchase_is_bought) ... ok
+test_duplicate_skus_summed (__main__.BuyView.test_duplicate_skus_summed) ... ok
+test_fixture_rows (__main__.BuyView.test_fixture_rows) ... ok
+test_spares_wire_and_gate (__main__.BuyView.test_spares_wire_and_gate) ... ok
+test_export18_claim_and_changes (__main__.Docs.test_export18_claim_and_changes) ... ok
+test_supersession_links_and_text (__main__.Docs.test_supersession_links_and_text) ... ok
+test_bom_outputs_current (__main__.Generated.test_bom_outputs_current) ... ok
+test_cad_free (__main__.Generated.test_cad_free) ... ok
+test_wiring_current (__main__.Generated.test_wiring_current) ... ok
+test_negative_control_9ced753 (__main__.Junctions.test_negative_control_9ced753) ... ok
+test_no_shared_family_now (__main__.Junctions.test_no_shared_family_now) ... ok
+test_old_j2_sku_fails (__main__.Junctions.test_old_j2_sku_fails) ... ok
+test_j2_purchase_covers_the_harness_assumption (__main__.WiringVsBOM.test_j2_purchase_covers_the_harness_assumption) ... ok
+test_lead_bom_lines_and_skus (__main__.WiringVsBOM.test_lead_bom_lines_and_skus) ... ok
+test_every_cable_in_one_lead_with_lengths (__main__.WiringVsRoutes.test_every_cable_in_one_lead_with_lengths) ... ok
+test_header_pins (__main__.WiringVsRoutes.test_header_pins) ... ok
+test_route_lengths_follow_the_route_source (__main__.WiringVsRoutes.test_route_lengths_follow_the_route_source) ... ok
+test_every_cable_end_and_plug_op (__main__.WiringVsSteps.test_every_cable_end_and_plug_op) ... ok
+test_every_service_parting_listed (__main__.WiringVsSteps.test_every_service_parting_listed) ... ok
+test_plug_order_is_steps_order (__main__.WiringVsSteps.test_plug_order_is_steps_order) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 2.818s
+
+OK

@@ -1,0 +1,15 @@
+{
+  "purpose": "Composite diagnostic window screen; not final all-variant acceptance or first-contact qualification",
+  "pose_count": 69,
+  "physical_pose_count": 49,
+  "full_bfar_samples_per_pose": 13,
+  "worst_gap_mm": 0.129,
+  "centred_gap_mm": 0.4,
+  "first_contact": "not run in these window receipts",
+  "receipts": {
+    "study.json": "4babd3638347856077a23008fa3154dd8cf80331e6161e0a4c79314d7df4d79e",
+    "extra-physical.json": "31c13aafe8561823b0625a28fd013b6a5554781dac0a7c1552dc4f3d81433fed"
+  },
+  "checker_sha256": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+  "model_sha256": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c"
+}

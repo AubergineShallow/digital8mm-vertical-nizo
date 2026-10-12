@@ -304,7 +304,8 @@ def added(L, model, length, collar):
       'hood_tooth_hk1', 'tenon that locates the bonded +Y stub on the ceiling datum (shear while the tab bears)')
     # FX (verifier T2 major): the tenon pocket's side walls exist only in the tub PRINT STOCK (the bonded tub STEP fills
     # the pocket as adhesive), so they are probed on print_rules.TUB_STOCK. They locate the tenon in x; the catch load
-    # passes the -Y datum face and the joint-plane bond, so the class is the wall floor (r7 MIN_WALL 1.2, analog the
+    # uses the dry -Y datum/axial-stop bearing and unqualified clearanced-face bonding; no joint-plane adhesive
+    # strength is credited. The class is the wall floor (r7 MIN_WALL 1.2, analog the
     # tub walls of JV1). The 9ced753..d848d413 tenon (x -13.5..-9.2) left 0.9 here.
     wp, C = tc[(1, 'web')], model.TAB_CATCH_POCKET_CLEAR
     px0, px1 = tn['x'][0] - C['x'], tn['x'][1] + C['x']
@@ -320,6 +321,16 @@ def added(L, model, length, collar):
     A('tub_stock_tenon_pocket_wall_xp', 'tub_print_stock', ((px1 + wp['x'][1]) / 2, py, pz), X, 1.2, 'wall', 'hood_band',
       'tub print stock: +X side wall of the bonded-stub tenon pocket (pocket to %.2f, web to %.2f); minimum over the '
       'pocket height (the boss column above the thin wall is wider)' % (px1, wp['x'][1]), span=wspan)
+    vent_y=yin+tn['t']+C['y']+model.TAB_CATCH_VENT['depth']
+    wall_y=wp['y'][1]+1.2
+    A('tub_stock_vent_wall_y', 'tub_print_stock', (sum(tn['x'])/2,(vent_y+wall_y)/2,
+      model.TAB_CATCH_SPLIT_Z+(tn['h']+C['z']+.5)/2), Y, 1.2, 'wall', 'hood_band',
+      'remaining +Y host wall behind the adhesive escape groove; eleven height probes above intentional outlet',
+      span=(11,(tn['h']+C['z']-.9)/10,Z))
+    end_z=model.TAB_CATCH_SPLIT_Z+tn['h']+C['z']
+    A('tub_stock_tenon_end_floor', 'tub_print_stock', (sum(tn['x'])/2,yin+tn['t']/2,
+      (end_z+model.TAB_CATCH_CEILING_TOP)/2), Z, 1.2, 'wall', 'hood_band',
+      'blind pocket end floor; escape groove must not perforate the ceiling')
     # J8 additions
     r0, r1 = model.EVF_HDMI_RECEPTACLE_Y
     A('tub_evf_floor_relief', 'tub', (f + 15.65, ((r0 - 16 + ey - 0.5) + (r1 - 16 + ey + 0.5)) / 2, (61.5 + 62.9) / 2),

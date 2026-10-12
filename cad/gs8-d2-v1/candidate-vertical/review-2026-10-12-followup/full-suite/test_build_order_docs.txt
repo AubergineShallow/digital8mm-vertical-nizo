@@ -1,0 +1,30 @@
+test_refit_and_removal_order (__main__.FPSStudy.test_refit_and_removal_order) ... ok
+test_blocks_current (__main__.GeneratedBlocks.test_blocks_current) ... ok
+test_doc_order_equals_steps (__main__.GeneratedBlocks.test_doc_order_equals_steps) ... ok
+test_mutated_steps_make_block_stale (__main__.GeneratedBlocks.test_mutated_steps_make_block_stale) ... ok
+test_guide_ops_follow_steps (__main__.Guides.test_guide_ops_follow_steps) ... ok
+test_page_semantics (__main__.Guides.test_page_semantics) ... ok
+test_scene_ids_exist (__main__.Guides.test_scene_ids_exist)
+Every part id a scene() call names is a bound mesh of the compact manifest, a DATA key the builder makes, ... ok
+test_superseded_wording_gone (__main__.Guides.test_superseded_wording_gone) ... ok
+test_assembly_step2 (__main__.LensTurnBack.test_assembly_step2) ... ok
+test_closed_body_lens_service (__main__.LensTurnBack.test_closed_body_lens_service) ... ok
+test_guide_lens_pages (__main__.LensTurnBack.test_guide_lens_pages) ... ok
+test_negative_control_9ced753 (__main__.LensTurnBack.test_negative_control_9ced753) ... ok
+test_no_forbidden_hold_wording (__main__.LensTurnBack.test_no_forbidden_hold_wording) ... ok
+test_r7_source_unchanged (__main__.LensTurnBack.test_r7_source_unchanged) ... ok
+test_steps_model_step2 (__main__.LensTurnBack.test_steps_model_step2) ... ok
+test_dropped_refit_is_caught (__main__.Service.test_dropped_refit_is_caught) ... ok
+test_every_removal_has_its_refit_in_the_doc (__main__.Service.test_every_removal_has_its_refit_in_the_doc) ... ok
+test_matrix (__main__.Service.test_matrix) ... ok
+test_vn42_vn45_text (__main__.Service.test_vn42_vn45_text) ... ok
+test_fixtures (__main__.Spanner.test_fixtures) ... ok
+test_negative_control_9ced753 (__main__.Spanner.test_negative_control_9ced753) ... ok
+test_no_spanner_tool (__main__.Spanner.test_no_spanner_tool) ... ok
+test_banner_tracks_receipt (__main__.StaleGuideBanner.test_banner_tracks_receipt) ... ok
+test_superseded_guide_readme_keeps_warning_and_selected_pointer (__main__.StaleGuideBanner.test_superseded_guide_readme_keeps_warning_and_selected_pointer) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 1.166s
+
+OK

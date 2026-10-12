@@ -1,0 +1,29 @@
+test_harness_report_rows (__main__.BoundReports.test_harness_report_rows) ... ok
+test_hdmi_report (__main__.BoundReports.test_hdmi_report) ... ok
+test_table_follows_the_model_and_never_relaxes (__main__.DropDecisionTable.test_table_follows_the_model_and_never_relaxes) ... ok
+test_end_and_tangent_rules (__main__.FreeLeads.test_end_and_tangent_rules) ... ok
+test_j2_fails_only_on_the_fpc_envelope_at_the_hypothetical_pads (__main__.FreeLeads.test_j2_fails_only_on_the_fpc_envelope_at_the_hypothetical_pads) ... ok
+test_lead_shortened_10mm_fails (__main__.FreeLeads.test_lead_shortened_10mm_fails) ... ok
+test_moving_set_is_displaced (__main__.FreeLeads.test_moving_set_is_displaced)
+A planted part riding with the panel is hit where the propped panel puts it, not where it sits closed. ... ok
+test_planted_part_on_the_free_route_fails (__main__.FreeLeads.test_planted_part_on_the_free_route_fails) ... ok
+test_qt_documented_order_passes_on_its_free_route (__main__.FreeLeads.test_qt_documented_order_passes_on_its_free_route) ... ok
+test_without_a_free_route_the_hold_returns (__main__.FreeLeads.test_without_a_free_route_the_hold_returns) ... ok
+test_carried_drop_is_stroke_plus_three (__main__.HDMICarried.test_carried_drop_is_stroke_plus_three) ... ok
+test_generator_reproduces_the_snapshot (__main__.HDMICarried.test_generator_reproduces_the_snapshot) ... ok
+test_unplug_corridor_uses_r7_tool_numbers (__main__.HDMICarried.test_unplug_corridor_uses_r7_tool_numbers) ... ok
+test_corridor_is_obstacle_checked (__main__.PigtailCorridor.test_corridor_is_obstacle_checked) ... ok
+test_without_hits_nothing_is_claimed (__main__.PigtailCorridor.test_without_hits_nothing_is_claimed) ... ok
+test_bound_members_clear_the_fps_harness (__main__.QTFanIn.test_bound_members_clear_the_fps_harness)
+QT_LOW 38: the under-tool run keeps its envelope off the FPS mated-carry 200 main (Z33.5, same lane); ... ok
+test_csi_tool_clearance_kept (__main__.QTFanIn.test_csi_tool_clearance_kept)
+The QT legs beside the angled CSI tool are unchanged: >= 0.6 mm (signal_routes literal) for the installed ... ok
+test_every_branch_ends_on_the_main_start_tangent (__main__.QTFanIn.test_every_branch_ends_on_the_main_start_tangent) ... ok
+test_family_minimum_and_stow (__main__.QTFanIn.test_family_minimum_and_stow) ... ok
+test_fan_in_gap_rule_still_bites (__main__.QTFanIn.test_fan_in_gap_rule_still_bites) ... ok
+test_installed_sweep_covers_the_branches (__main__.QTFanIn.test_installed_sweep_covers_the_branches) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 44.306s
+
+OK

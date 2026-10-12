@@ -257,7 +257,22 @@ class CheckWiring(unittest.TestCase):
 
     def test_series_planes_cover_the_port_band(self):
         src = (CV / 'verify_check_scope.py').read_text(encoding='utf-8')
-        self.assertIn("frange(16.05, 42.95, .5)", src)
+        import ast
+        tree = ast.parse(src)
+        series = [n.value for n in ast.walk(tree) if isinstance(n, ast.Assign)
+                  and any(isinstance(t, ast.Name) and t.id == 'series' for t in n.targets)]
+        self.assertEqual(len(series), 1)
+        hot = [v for k, v in zip(series[0].keys, series[0].values)
+               if isinstance(k, ast.Constant) and k.value == 'hot_bottom']
+        self.assertEqual(len(hot), 1)
+        calls = []
+        for n in ast.walk(hot[0]):
+            if (isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == 'planes'
+                    and len(n.args) == 4 and isinstance(n.args[0], ast.Call)
+                    and isinstance(n.args[0].func, ast.Name) and n.args[0].func.id == 'frange'):
+                calls.append((tuple(ast.literal_eval(a) for a in n.args[0].args),
+                              *(ast.literal_eval(a) for a in n.args[1:])))
+        self.assertIn(((16.05, 42.95, 0.5), 'z', 16.05, 42.95), calls)
         self.assertIn("_path_min_cut", src)
 
     def test_bed_chamfer_exceptions(self):

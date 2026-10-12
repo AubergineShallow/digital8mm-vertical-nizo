@@ -1,0 +1,15 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+.......F...
+======================================================================
+FAIL: test_design_values (__main__.BoundReport.test_design_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_critical_features_cf.py", line 168, in test_design_values
+    self.assertAlmostEqual(self.rows[fid]['measured_mm'], mm, delta=0.011, msg=fid)
+AssertionError: 2.85 != 3.0 within 0.011 delta (0.1499999999999999 difference) : insert_tab_catch_p
+
+----------------------------------------------------------------------
+Ran 11 tests in 5.698s
+
+FAILED (failures=1)

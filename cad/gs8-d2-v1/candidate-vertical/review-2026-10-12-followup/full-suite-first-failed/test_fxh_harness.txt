@@ -1,0 +1,55 @@
+test_corrected_qt_stow_passes_exact_sweeps (__main__.TestBoundReport.test_corrected_qt_stow_passes_exact_sweeps) ... ok
+test_every_route_row_carries_the_exact_sweep (__main__.TestBoundReport.test_every_route_row_carries_the_exact_sweep) ... ok
+test_failed_qt_length_row_contains_both_independent_sweeps (__main__.TestBoundReport.test_failed_qt_length_row_contains_both_independent_sweeps) ... ok
+test_power_button_fails_with_hold (__main__.TestBoundReport.test_power_button_fails_with_hold) ... ok
+test_branched_main_start_is_not_a_terminal (__main__.TestEndZones.test_branched_main_start_is_not_a_terminal)
+QT: the main run starts at the fan-in point; the terminals are the branch headers. pi5 planted at the main ... ok
+test_end_part_planted_mid_route_is_a_hit (__main__.TestEndZones.test_end_part_planted_mid_route_is_a_hit) ... ok
+test_fan_terminals_follow_the_declared_order (__main__.TestEndZones.test_fan_terminals_follow_the_declared_order)
+The fan route starts and ends inside both the cooler and the pi5 boxes; the declared order decides. ... ok
+test_free_route_end_part_mid_route_is_a_hit (__main__.TestEndZones.test_free_route_end_part_mid_route_is_a_hit) ... ok
+test_split (__main__.TestEndZones.test_split) ... ok
+test_clear_routes_keep_their_status (__main__.TestInstalledSweepEveryRoute.test_clear_routes_keep_their_status) ... ok
+test_every_routed_cable_is_swept (__main__.TestInstalledSweepEveryRoute.test_every_routed_cable_is_swept) ... ok
+test_failed_qt_length_row_still_receives_installed_sweep (__main__.TestInstalledSweepEveryRoute.test_failed_qt_length_row_still_receives_installed_sweep) ... ok
+test_fan_planted_fails (__main__.TestInstalledSweepEveryRoute.test_fan_planted_fails) ... ok
+test_missing_qt_geometry_cannot_claim_installed_clearance (__main__.TestInstalledSweepEveryRoute.test_missing_qt_geometry_cannot_claim_installed_clearance) ... ok
+test_power_button_planted_fails_with_hold (__main__.TestInstalledSweepEveryRoute.test_power_button_planted_fails_with_hold) ... ok
+test_ribbon_result_carries_its_caveat (__main__.TestInstalledSweepEveryRoute.test_ribbon_result_carries_its_caveat) ... ok
+test_gate_moves_with_the_class_envelope (__main__.TestJ2.test_gate_moves_with_the_class_envelope)
+Negative control: a hypothetical tiny pair is gated on its own size (the loop alone still counts). ... ok
+test_generous_capacity_cannot_clear_known_connector_source_conflict (__main__.TestJ2.test_generous_capacity_cannot_clear_known_connector_source_conflict)
+A large empty reservation cannot qualify an undersized connector proxy. ... ok
+test_hand_and_names (__main__.TestJ2.test_hand_and_names) ... ok
+test_power_stow_charges_the_larger_legacy_estimate (__main__.TestJ2.test_power_stow_charges_the_larger_legacy_estimate) ... ok
+test_two_cores_and_selected_stock_are_not_credited_as_one (__main__.TestJ2.test_two_cores_and_selected_stock_are_not_credited_as_one) ... ok
+test_earlier_endpoint_failure_is_never_overwritten (__main__.TestReleasedQTMinimum.test_earlier_endpoint_failure_is_never_overwritten) ... ok
+test_informational_collision_does_not_fail_the_installed_length_row (__main__.TestReleasedQTMinimum.test_informational_collision_does_not_fail_the_installed_length_row) ... ok
+test_installed_family_gates_with_or_without_the_released_pose (__main__.TestReleasedQTMinimum.test_installed_family_gates_with_or_without_the_released_pose) ... ok
+test_invalid_family_member_keeps_original_failure (__main__.TestReleasedQTMinimum.test_invalid_family_member_keeps_original_failure) ... ok
+test_invalid_released_geometry_is_info_and_cannot_claim_a_pass (__main__.TestReleasedQTMinimum.test_invalid_released_geometry_is_info_and_cannot_claim_a_pass) ... ok
+test_length_failure_and_clear_sweeps_are_independent (__main__.TestReleasedQTMinimum.test_length_failure_and_clear_sweeps_are_independent) ... ok
+test_length_failure_keeps_shortest_member_collision (__main__.TestReleasedQTMinimum.test_length_failure_keeps_shortest_member_collision) ... ok
+test_missing_installed_geometry_stays_failed_without_false_sweep (__main__.TestReleasedQTMinimum.test_missing_installed_geometry_stays_failed_without_false_sweep) ... ok
+test_released_geometry_removed_before_sweep_fails_closed (__main__.TestReleasedQTMinimum.test_released_geometry_removed_before_sweep_fails_closed) ... ok
+test_released_minimum_must_keep_root_and_radius (__main__.TestReleasedQTMinimum.test_released_minimum_must_keep_root_and_radius) ... ok
+test_released_minimum_receives_strict_part_sweep (__main__.TestReleasedQTMinimum.test_released_minimum_receives_strict_part_sweep) ... ok
+test_released_sweep_rebuilds_samples_from_the_checked_knots (__main__.TestReleasedQTMinimum.test_released_sweep_rebuilds_samples_from_the_checked_knots) ... ok
+test_shortest_member_cable_overlap_fails_without_solid_hits (__main__.TestReleasedQTMinimum.test_shortest_member_cable_overlap_fails_without_solid_hits) ... ok
+test_shortest_member_sweeps_hdmi_and_fps_keepouts (__main__.TestReleasedQTMinimum.test_shortest_member_sweeps_hdmi_and_fps_keepouts) ... ok
+test_free_lead_supplies_the_row_numbers (__main__.TestRowFigures.test_free_lead_supplies_the_row_numbers) ... ok
+test_usb_route_row_reports_its_binding_segment (__main__.TestRowFigures.test_usb_route_row_reports_its_binding_segment) ... ok
+test_corrected_full_stock_members_clear_hdmi (__main__.TestStowMembers.test_corrected_full_stock_members_clear_hdmi) ... ok
+test_fixup1_bound_member_still_swept (__main__.TestStowMembers.test_fixup1_bound_member_still_swept) ... ok
+test_lead_stored_below_the_band_passes (__main__.TestStowMembers.test_lead_stored_below_the_band_passes)
+Negative control: a lead whose longest length stays below the band (H2: <= 248.34 mm) is not failed. ... ok
+test_member_storing_a_length (__main__.TestStowMembers.test_member_storing_a_length) ... ok
+test_qt_260_lead_fails_on_the_hdmi_band (__main__.TestStowMembers.test_qt_260_lead_fails_on_the_hdmi_band) ... ok
+test_every_lead_sku_is_on_its_cited_bom_line (__main__.TestWiringSkus.test_every_lead_sku_is_on_its_cited_bom_line) ... ok
+test_j2_stow_criterion_in_the_text (__main__.TestWiringSkus.test_j2_stow_criterion_in_the_text) ... ok
+test_planted_superseded_sku_is_caught (__main__.TestWiringSkus.test_planted_superseded_sku_is_caught) ... ok
+
+----------------------------------------------------------------------
+Ran 45 tests in 107.136s
+
+OK

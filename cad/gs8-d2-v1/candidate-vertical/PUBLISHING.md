@@ -2,6 +2,10 @@
 
 The independent, history-preserving repository is [AubergineShallow/digital8mm-vertical-nizo](https://github.com/AubergineShallow/digital8mm-vertical-nizo). The published starting checkpoint for the 12 October corrective review is branch `review/vn-fixes-20261012`, commit `bdfd44fc549bd8ea9ebf9a93ea4262ad5054b13f`.
 
+## Local followup
+
+The subsequent branch `review/vn-catch-qt-cloud-20261012` starts from reviewed commit `f9704ac03de8938dfafdb52e22e63d098287c3c6`. It is local and unpublished; no push or merge is authorized for this followup. Its [separate record](review-2026-10-12-followup/FOLLOWUP-REVIEW.md) supplements the original review without rewriting the independent findings. The publication history below does not assert that these later local changes are on the remote.
+
 ## 12 October corrective branch
 
 The corrective work is published on the review branch `review/vn-corrective-20261012`:

@@ -119,6 +119,19 @@ class TestAbsolutePaths(unittest.TestCase):
             self.assertEqual(planted, {'out/planted.json': 2})
             self.assertEqual(RI.classify_abs('out/planted.json'), 'UNDECLARED')
 
+    def test_execution_receipt_paths_are_field_limited(self):
+        import copy
+        data = json.loads((CV / RI.EXECUTION_RECEIPT).read_text(encoding='utf-8'))
+        self.assertEqual(RI.execution_metadata_problems(data), [])
+        variants = []
+        d = copy.deepcopy(data); d['input_sha256']['/workspace/planted'] = '0' * 64; variants.append(d)
+        d = copy.deepcopy(data); d['extra'] = {'nested': '/opt/planted'}; variants.append(d)
+        d = copy.deepcopy(data); d['command'].append('--extra'); variants.append(d)
+        d = copy.deepcopy(data); d['command'][1] = d['working_directory'] + '/wrong.py'; variants.append(d)
+        for d in variants:
+            self.assertTrue(RI.execution_metadata_problems(d))
+        self.assertEqual(RI.classify_abs('guide/out-concealed-vents/other.json'), 'UNDECLARED')
+
     def test_selected_evidence_holds_no_absolute_path(self):
         # Was an expected failure until FP-16 regenerated the selected usb_head report with the fixed writer (VN-10);
         # the mark was removed in RF (2026-10-11) when the test passed on the regenerated report.

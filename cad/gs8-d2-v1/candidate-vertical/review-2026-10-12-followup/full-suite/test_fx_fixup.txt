@@ -1,0 +1,48 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+test_check_scope_path_rows (__main__.BoundReports.test_check_scope_path_rows) ... ok
+test_fps_integrated_passes (__main__.BoundReports.test_fps_integrated_passes) ... ok
+test_plenum_cavity_row (__main__.BoundReports.test_plenum_cavity_row) ... ok
+test_print_checks (__main__.BoundReports.test_print_checks) ... ok
+test_roll_catch_stub_stackup_rows (__main__.BoundReports.test_roll_catch_stub_stackup_rows) ... ok
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:865: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse_result = _expression_grammar.parseString(selectorString, parseAll=True)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/pyparsing/util.py:466: PyparsingDeprecationWarning: 'parseAll' argument is deprecated, use 'parse_all'
+  return fn(self, *args, **kwargs)
+test_missing_declared_addition_is_stale (__main__.CavityRule.test_missing_declared_addition_is_stale) ... ok
+test_saved_tub_passes (__main__.CavityRule.test_saved_tub_passes) ... ok
+test_undeclared_block_fails (__main__.CavityRule.test_undeclared_block_fails) ... ok
+test_bed_chamfer_exceptions (__main__.CheckWiring.test_bed_chamfer_exceptions) ... ok
+test_cavity_inventory_pinned (__main__.CheckWiring.test_cavity_inventory_pinned) ... ok
+test_flow_baseline_per_variant (__main__.CheckWiring.test_flow_baseline_per_variant) ... ok
+test_fps_integrated_exits_nonzero_on_fail (__main__.CheckWiring.test_fps_integrated_exits_nonzero_on_fail) ... ok
+test_series_planes_cover_the_port_band (__main__.CheckWiring.test_series_planes_cover_the_port_band) ... ok
+test_direct_equals_transfer_on_phase1 (__main__.J4DirectFreeBody.test_direct_equals_transfer_on_phase1) ... ok
+test_full_depth_row_blocks (__main__.MinCutFixtures.test_full_depth_row_blocks) ... ok
+test_gap_in_row_is_the_cut (__main__.MinCutFixtures.test_gap_in_row_is_the_cut) ... ok
+test_hanging_beam_passes_air_under_it (__main__.MinCutFixtures.test_hanging_beam_passes_air_under_it) ... ok
+test_levels_follow_breaks (__main__.MinCutFixtures.test_levels_follow_breaks) ... ok
+test_open_bay_is_port_limited (__main__.MinCutFixtures.test_open_bay_is_port_limited) ... ok
+test_port_behind_material_is_blocked (__main__.MinCutFixtures.test_port_behind_material_is_blocked) ... ok
+test_quantization_allowance_rejects_a_larger_excess (__main__.MinCutFixtures.test_quantization_allowance_rejects_a_larger_excess) ... ok
+test_fps_bundle_lane (__main__.ModelData.test_fps_bundle_lane) ... ok
+test_grip_scar_allowance_inside_zone (__main__.ModelData.test_grip_scar_allowance_inside_zone) ... ok
+test_kit_boss_rim_and_exception_retired (__main__.ModelData.test_kit_boss_rim_and_exception_retired) ... ok
+test_locator_crush_ridge (__main__.ModelData.test_locator_crush_ridge) ... ok
+test_tenon_pocket_walls (__main__.ModelData.test_tenon_pocket_walls) ... ok
+test_tie_slots_agree (__main__.ModelData.test_tie_slots_agree) ... ok
+test_beams_and_pillars (__main__.Trial3Layout.test_beams_and_pillars) ... ok
+test_cold_window_keeps_pillars_out (__main__.Trial3Layout.test_cold_window_keeps_pillars_out)
+FX note: the keep-out is applied only to cold rows that end left of the CSI block (x <= -65: rows 43-67); ... ok
+test_metadata_names_trial4 (__main__.Trial3Layout.test_metadata_names_trial4) ... ok
+test_no_rib_in_front_of_a_wall_port (__main__.Trial3Layout.test_no_rib_in_front_of_a_wall_port) ... ok
+test_cold_reaches_the_ports (__main__.Trial3Nominal.test_cold_reaches_the_ports) ... ok
+test_hot_value_and_empty_bay_bound (__main__.Trial3Nominal.test_hot_value_and_empty_bay_bound) ... ok
+test_rejected_trial3_bound_is_retained (__main__.Trial3Nominal.test_rejected_trial3_bound_is_retained) ... ok
+test_trial2_like_rows_choke_the_hot_bay (__main__.Trial3Nominal.test_trial2_like_rows_choke_the_hot_bay)
+Negative control: full-depth rows across the port band and the upper bay, as trial2 had, cut the path. ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 130.614s
+
+OK

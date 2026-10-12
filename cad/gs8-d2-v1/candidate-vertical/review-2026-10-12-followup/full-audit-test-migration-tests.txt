@@ -1,0 +1,12 @@
+test_export_source_bytes_and_binding_rows_must_match (__main__.FullAuditEvidence.test_export_source_bytes_and_binding_rows_must_match) ... ok
+test_full_record_is_returned_unchanged_including_failures (__main__.FullAuditEvidence.test_full_record_is_returned_unchanged_including_failures) ... ok
+test_missing_and_duplicate_helper_contexts_are_rejected (__main__.FullAuditEvidence.test_missing_and_duplicate_helper_contexts_are_rejected) ... ok
+test_missing_canonical_report_fails_instead_of_skipping (__main__.FullAuditEvidence.test_missing_canonical_report_fails_instead_of_skipping) ... ok
+test_partial_missing_scope_and_other_variant_are_rejected (__main__.FullAuditEvidence.test_partial_missing_scope_and_other_variant_are_rejected) ... ok
+test_stale_manifest_checker_and_steps_are_rejected (__main__.FullAuditEvidence.test_stale_manifest_checker_and_steps_are_rejected) ... ok
+test_stale_or_missing_helper_binding_is_rejected (__main__.FullAuditEvidence.test_stale_or_missing_helper_binding_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.025s
+
+OK

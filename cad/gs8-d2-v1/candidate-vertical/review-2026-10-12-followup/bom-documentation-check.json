@@ -1,0 +1,21 @@
+{
+  "baseline": "f9704ac03de8938dfafdb52e22e63d098287c3c6",
+  "starting_rows": 135,
+  "current_rows": 136,
+  "selection_fields_unchanged": [
+    "variant",
+    "installed_qty",
+    "installed_unit",
+    "purchase_qty",
+    "purchase_unit",
+    "included_in",
+    "sku_or_class",
+    "supplier"
+  ],
+  "new_included_rows": [
+    "I-tub-stub"
+  ],
+  "buy_view_byte_identical": true,
+  "buy_view_sha256": "1827971204cc4d9f2e4e05c97a9bc7d5e16be5a07f7de04380bba7a5906c04b9",
+  "original_reviewer_records_unchanged": true
+}

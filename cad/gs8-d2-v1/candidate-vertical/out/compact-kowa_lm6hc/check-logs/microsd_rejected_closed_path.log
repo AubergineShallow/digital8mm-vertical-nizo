@@ -1,0 +1,15 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+sweep panel_off_straight_x45 [[0, 0, 0], [45, 0, 0]]
+{"id": "panel_off_straight_x45", "status": "pass", "worst_overlap_mm3": 72.79360267328826, "total_hits": 7, "hit_parts": ["lens_collar"]}
+sweep dogleg_selected [[0.0, 0.0, 0.0], [18.0, 0.0, 0.0], [18.0, 40.0, 0.0]]
+{"id": "dogleg_selected", "status": "pass", "worst_overlap_mm3": 0.0, "total_hits": 0, "hit_parts": []}
+sweep dogleg_window_x10 [[0, 0, 0], [10, 0, 0], [10, 40.0, 0]]
+{"id": "dogleg_window_x10", "status": "pass", "worst_overlap_mm3": 15.399999999999979, "total_hits": 3, "hit_parts": ["carrier"]}
+sweep dogleg_window_x12 [[0, 0, 0], [12, 0, 0], [12, 40.0, 0]]
+{"id": "dogleg_window_x12", "status": "info", "worst_overlap_mm3": 0.0, "total_hits": 0, "hit_parts": []}
+sweep dogleg_window_x24 [[0, 0, 0], [24, 0, 0], [24, 40.0, 0]]
+{"id": "dogleg_window_x24", "status": "info", "worst_overlap_mm3": 0.4527154738793375, "total_hits": 4, "hit_parts": ["tub"]}
+sweep dogleg_window_x26 [[0, 0, 0], [26, 0, 0], [26, 40.0, 0]]
+{"id": "dogleg_window_x26", "status": "pass", "worst_overlap_mm3": 12.185764666716457, "total_hits": 7, "hit_parts": ["s_c3", "tub"]}
+{"closed_case": "REJECTED", "hit_samples": 23, "max_overlap_mm3": 42.413909987063576, "panel_off": {"pass": 4, "fail": 0, "info": 2}, "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754"}

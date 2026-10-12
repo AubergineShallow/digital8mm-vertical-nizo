@@ -204,7 +204,7 @@
   ],
   "verification_source_sha256": "982dc28718e9d79a586ba87965725131391039f8341818848aa83516e52cb1a9",
   "snapshot_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
-  "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "mechanical_manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "physical_qualified": false,
   "note": "Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation.",
   "carried_ribbon_source_sha256": {
@@ -430,6 +430,6 @@
       "state_source": "steps.py state before service op svc_evf_unplug (route evf)"
     }
   },
-  "state_model_sha256": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
+  "state_model_sha256": "0931688b9450a4f806a71d778dd23471ab55a870ebae4c8c77cab446bdbb978f",
   "obstacle_rule": "FP-12 (VN-30): every material part steps.py has in the body in that state (screws and hardware included) plus the 9ced753 sets; exclusions listed per state; rejected --include-rejected diagnostics keep their 9ced753 sets"
 }

@@ -95,6 +95,7 @@ def build_rows():
                  supplier='unselected', layout_id='', note='', source='model.py')
         r.update(kw); rows.append(r); by[lid] = r
     change('D2-01', item='Raspberry Pi 5, 8 GB', note='Same board, physically rolled into a vertical XZ PCB plane; no replacement compute platform.')
+    change('D2-02', note='The official Raspberry Pi Active Cooler remains selected, confirmed for this followup; no cooler substitution. Its present perimeter, underside and push-pin geometry/registration are approximate proxies. The retained interference with the detailed official Pi STEP is an unresolved model/registration conflict, not proof that the official cooler is incompatible. Actual enclosure fit, fan-lead/service clearance, airflow and thermal qualification remain HOLD.')
     change('D2-03', note='One UPS purchase includes four standoffs and eight original M2.5 x 5 screws. Install four original upper screws and four replacement M2.5 x 8 lower screws (V-31); bag the four removed lower screws. Included detail below is not another purchase.')
     change('D2-04', note='Fit the OS card on the bench before carrier insertion; it stays with the carried stack. The closed-panel +X extraction path intersects the panel-mounted power-switch body. Remove the panel and verify actual reach before withdrawing the card, or service it on the bench with the complete module. The panel-off sweep is not a closed-body access pass.')
     change('D2-05', note='C-CS adapter included. Remove tripod block and its two supplied screws at supported optical bench setup; bag them. Never react lens torque through PCB or cover.')
@@ -210,6 +211,7 @@ def build_rows():
         spare_or_remainder='Lead offcuts after cutting to the measured J2 route; spare set V-28S',
         note='FP-14 (VN-63): replaces the 9ced753 Molex 2181120201 + 2181110202 PicoBlade pair, which was the same unkeyed family as the FPS junction (D2-27), so a J2 half could mate an FPS half and hold PWR_BUT to GND. '
              'Default family: '+J2['family']+', chosen because '+J2['why']+'. The family is '+WD.J2_DECISION+' (alternatives and their gates in WIRING-VERTICAL.md). '
+             'The retained 28-24 AWG / two-colour description is a conditional class requirement, not a verified exact-parts selection. See corrective-2026-10-12/j2-parts-proposal/README.md: its proposed 043030/043031 contacts accept 20-24 AWG with maximum insulation OD 1.85 mm, so they do not cover the class at 26/28 AWG. Path A uses 24 AWG with one colour per half; path B uses 22 AWG, all black. Neither satisfies two-colour circuit identification as written. Exact parts, gauge, measured OD, circuit marking and placement remain pending user decision 13; neither proposal is adopted in V-28 or V-28S. '
              'Genders: '+J2['pi_side']+'; '+J2['switch_side']+'. Each pre-crimped lead >= '+format(J2['lead_min_mm'],'g')+' mm exposed: '+J2['lead_min_src']+'. '
              'Four solder joints remain: two J2 pads and two switch terminals; no crimps or splices. Housing dimensions, mated length, latch travel, wire exits and stow are receipt and placement gates: the J2 junction was never placed (G-V-POWER, VN-73) and the larger housing is not shown to fit the old 6 x 8 x 12 mm reserve. '
              'Try-mate matrix on receipt: each J2 half must refuse the FPS, EVF RCY and header housings. Signal use only, never battery current. Label J2 at both housings; verify both circuits by continuity.')
@@ -286,6 +288,12 @@ def build_rows():
             note=('Concealed-vent revision: tub incorporates the source-defined ventilation geometry; panel is plain 2.8 mm after removal of four blind grooves. ' if name in ('tub','panel') else '')
                  +('T2 (VN-53): TWO physical printed pieces: body (stl/tub.stl, -Y face down, tenon pocket open) and +Y tab-catch stub (stl/tab_catch_insert.stl, bed face down, catch face vertical), bonded with V-68 at B1 print_inserts (default pending user decision 16). The assembled CAD row contains both; count the stub as a separate print. ' if name=='tub' else 'One physical printed piece. ')
                  +'Slice orientation, supports, filament and measured print mass remain pending. Compact: 9 CAD assembly rows / 10 physical printed pieces. Original storage: 10 rows / 11 pieces. Gauge and coupons excluded; no purchase quantity is implied.')
+    add('I-tub-stub',inc,'Separately printed bonded tab-catch insert',1,0,unit='physical printed piece',
+        included_in='P-tub',layout_id='tab_catch_insert',supplier='print after qualification',
+        sku_or_class='printed constituent; separate material specification unresolved',
+        status='included in tub CAD assembly; print and bond qualification HOLD',
+        source='out/compact-kowa_lm6hc/manifest.json',
+        note='The production_prints manifest lists stl/tab_catch_insert.stl separately from stl/tub.stl. This row exposes the second physical print already counted in P-tub, not an additional CAD assembly row or purchase. The manifest does not specify a separate insert material; do not infer one from the tub class. Bed face down and catch face vertical per the bound print pose. Bond with V-68 at B1 print_inserts only after qualification; exact adhesive, seating, cure and whole-tub torque remain HOLD. Do not add this included row to the parent assembly to claim an extra production piece.')
     add('V-68',base.S_CO,'Two-part epoxy adhesive, small pack (bond the +Y tab-catch stub into the tub, B1 print_inserts)',0,1,unit='pack',
         sku_or_class='class; structural two-part epoxy, confirm on receipt',supplier='any',layout_id='tab_catch_insert',
         note='T2 (VN-53, FP-11b): default pending user decision 16 (bonded stub; alternatives: press fit with a printed detent, or a panel-held block, which needs the panel on at lens_in). Adhesive type, cure, gap fill (0.1 to 0.2 mm pocket clearance) and the bond and tenon strength under the r7 roll_catch design torque are a G-V-PRINT tine coupon gate; amount consumed not measured.')
@@ -412,6 +420,24 @@ def validate_fp14(rows):
         for g in view:assert g['qty']==sum(n for _,n in g['lines'])
 
 
+def ventilation_print_hold(manifest):
+    """Describe the selected mouth support from its manifest, without a printability claim."""
+    support=manifest.get('ventilation',{}).get('support',{})
+    apertures=support.get('hot_front_apertures_yz',[])
+    if not apertures:
+        return ('- PRINT HOLD: selected manifest does not declare hot-front aperture/support geometry. '
+                'Reconcile its support definition before stating bridge spans; slicer/bridge/cleanout qualification remains open.')
+    openings='; '.join(f"Y{y0:g}..{y1:g} / Z{z0:g}..{z1:g} (height {z1-z0:g} mm)"
+                       for y0,y1,z0,z1 in apertures)
+    beam=(f" Hanging beams are {support['rib_thickness_mm']:g} mm thick with declared pillar-window maximum "
+          f"{support['window_max_mm']:g} mm." if all(k in support for k in ('rib_thickness_mm','window_max_mm')) else '')
+    return (f"- PRINT HOLD: manifest support revision {support.get('revision','unspecified')}. "
+            f"Hot-front open rectangles: {openings}.{beam} "
+            'Opening heights are not a qualified slicer bridge direction or unsupported span. '
+            'Inspect the bound print_bridge_direction rows, actual toolpaths and representative coupons; '
+            'bridge quality, beam/pillar bonds and closed-body cleanout remain unqualified.')
+
+
 def outputs(rows, base):
     manifest_path=HERE/'out/compact-kowa_lm6hc/manifest.json'
     manifest=json.loads(read_text(manifest_path))
@@ -466,7 +492,7 @@ def outputs(rows, base):
         '- Retained unresolved failure: '+cooler_text+'. The old right-wall ray runs through the intentional CSI opening and does not measure adjacent wall thickness. The new checker records that location as expected-empty and separately probes outer skin and original wall; read its manifest-bound result for the current count. The original 288/2/18 result and old wall supplement remain historical. The former 11.669 mm3 Boolean-difference witness is not an established lost-material volume; the Pi raw component-volume sum is not occupied material. Full FPC and EVF donor wire routes remain unplaced. Storage plug keepout is non-material; actual mating stays open.',
         '- Pigtail convention: positive 270 mm is the FINISHED PATH including a 20 mm rigid fuse/joint-sleeve zone; both 270 mm total path budgets include unresolved pad-root allowances; they are not extra length to add later. Actual copper cuts/overlaps and offcuts are not established. Buy one 914.4 mm stock length per colour; full flexible deployment remains unqualified.',
         f"- Pigtail remains BLOCKED: current {drop['i_peak_a']:g} A drop model gives {drop['drop_lo_v']:.5f} to {drop['drop_hi_v']:.5f} V against the unchanged {drop['limit_v']:.3f} V limit ({drop['status']}); the nominal-only 0.142811 V estimate does not cover hot fuse/vendor-minimum copper. Both full service reach and hot-drop need a compatible solution. No proposed alternative is adopted.",
-        '- PRINT HOLD: the front mouth removes first-roof frame support over Z5..40. The nominal 10.7 mm distance is not a two-ended supported span; raster direction may require about 35 mm bridging. The expanded coupon contains the region, but slicer/bridge/cleanout qualification remains open.',
+        ventilation_print_hold(manifest),
         '- Intact 300 mm HDMI selected; fragile 200 mm study rejected. Complete HDMI, official 200 mm camera FPC and native OLED flex retain unknown manufacturer bend/cycle limits. Limited geometry checks do not qualify full interacting loom or service. See corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt for baseline evidence and applicability limits.',
         '- CSI slot remains straight 12 x 27 mm R1 (323.14 mm2) and unsealed. Seat the Pi cable end before installing the cooler per the official camera manual; mate the camera end while supported before camera insertion. Complete 200 mm linked camera/module motion, latch/jaw/FPC/cooler service and all bend/cycle limits remain HOLD. Cylinder clearance does not close those holds.', '',
         'The detailed service evidence applies to selected compact Kowa. Fresh shadow-plenum compact Fujinon and original-storage Kowa exports have their own source/file, mesh, assembly-envelope, mass/CoM and core-void comparisons in out/comparison/assembled-comparison.json and the three volume reports. Their full service/harness audits were not rerun; compact-Kowa service results do not transfer. Export18 alternative main audits remain historical.','',
@@ -474,7 +500,7 @@ def outputs(rows, base):
         '- Filter to one storage variant; compact and original drives are mutually exclusive.',
         '- Installed is the planned in-camera quantity after qualification. It is not evidence anything was built.',
         '- Buy is a planning provision, not an order. Zero for printed items and included-kit constituents.',
-        '- Included rows decompose a parent kit or harness. Never add both a parent assembly and its constituents to claim a physical total.',
+        '- Included rows decompose a parent printed assembly, kit or harness. Never add both a parent assembly and its constituents to claim a physical total.',
         '- Workshop tools and spools are outside the camera; consumption and slice masses remain unmeasured.',
         '- Qualification aids are separate: retain the nine prior structural coupon pieces. A preliminary regular-grid open-edge plenum coupon STEP/STL is generated; its open edges do not prove closed-body cleanout or represent all ports/CSI/post exclusions. The expanded feature-region crop and the all-four-mouths crop are also generated, giving three separate plenum coupons total. None has been sliced, printed or tested; none establishes every unsupported span or closed-body cleanout. The separate [bonded-catch local study](structural-review/bonded-catch-coupon/README.md) adds two test pieces, host plus exact production insert copy, bound by [its receipt](structural-review/bonded-catch-coupon/receipt.json). That local seating/tilt/adhesion/creep screen does not qualify the whole-tub 0.5 N m case. Coupons are neither additional production parts nor purchased items.','',
         '| Count | Baseline | Compact candidate | Original-storage candidate |',
@@ -561,9 +587,11 @@ def outputs(rows, base):
     md += ['| `'+j['id']+'` | '+j['bom']+' | '+str(WD.junction_family(by[j['bom']]['sku_or_class']))+' | '+j['carries']+' |' for j in WD.JUNCTIONS]
     md += ['','J2 family: '+WD.J2_DEFAULT['family']+', '+WD.J2_DECISION+'. See WIRING-VERTICAL.md for the alternatives and the try-mate gate.','',
            '## Purchase changes against reviewed export18','',
-           'Computed against history/reviewed-export18/BOM-VERTICAL.csv on the fields '+', '.join(SELECTION_FIELDS)+' (the docs audit compares the same fields; item, note and status edits are editorial and not listed).','']
+           'Computed against history/reviewed-export18/BOM-VERTICAL.csv on the fields '+', '.join(SELECTION_FIELDS)+' (the docs audit compares the same fields; item, note and status edits are editorial and not listed). Inventory-detail additions are listed too: an included row with zero purchase quantity is not an additional purchase.','']
     diffs=export18_differences(rows)
-    md += ['- '+line+': '+kind+(' ('+', '.join(f)+')' if f else '') for line,kind,f in diffs] or ['- none']
+    md += ['- '+line+': '+kind+(' ('+', '.join(f)+')' if f else '')
+           +(' (included in '+by[line]['included_in']+'; zero purchase quantity)' if line in by and by[line]['included_in'] and not by[line]['purchase_qty'] else '')
+           for line,kind,f in diffs] or ['- none']
     md += ['']
     md += ['## Primary source checks','',
            'Supplier facts were read on 2026-10-09. No current availability or pricing is asserted. CAD envelopes and bend allowances are proxies; vendor dimensions do not qualify service fit.','']

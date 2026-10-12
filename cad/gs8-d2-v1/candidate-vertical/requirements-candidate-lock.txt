@@ -3,7 +3,9 @@
 # Base: the shared pinned CAD environment, unchanged (r7 and the 8mm project use the same file):
 -r ../../gs8-pxl-v3/cad-requirements-lock.txt
 #
-# Reference interpreter: CPython 3.12.14, Windows x86-64 (8mm/.venv-cad); the same lock serves Linux.
+# Selected evidence reference: CPython 3.12.14, Linux x86_64; exact CAD/OCP runtime is recorded in each manifest.
+# The same package lock serves Windows comparison runs. Cross-platform STEP formatting and STL/mesh
+# triangulation/order can differ; this lock does not imply full cross-platform byte identity.
 # Every third-party module the live candidate scripts import is listed on exactly one line below.
 # pinned-in-base: cadquery OCP numpy PIL reportlab vtk manifold3d
 #   (import names; distributions cadquery, cadquery-ocp, numpy, pillow, reportlab, vtk, manifold3d, pinned in the base lock)
@@ -12,7 +14,7 @@ pypdf==6.1.1
 matplotlib==3.11.2
 # matplotlib and mpl_toolkits are import namespaces from the same matplotlib distribution.
 # optional: scipy | screen_fps_carrier_service.py, screen_fps_core_removal.py, screen_fps_fixed_wires.py, screen_fps_mated_carry.py, screen_fps_mated_carry_v2.py, screen_fps_separate_cores.py, screen_fps_service_low.py, screen_fps_service_wires.py (historical FPS screening studies, scipy.spatial.cKDTree)
-#   Remaining optional modules are NOT installed in the reference venv and have no tested version, so no version is pinned.
+#   Optional modules are not required by the selected pipeline and have no selected tested version, so none is pinned.
 #   Gate: install them in a copy of the venv, run the scripts that need them and tests/test_repo_hygiene.py, then pin
 #   the installed versions here (the test fails while an optional module is installed but unpinned).
 # external: bpy mathutils | render_review.py runs inside Blender's bundled Python (not pip).

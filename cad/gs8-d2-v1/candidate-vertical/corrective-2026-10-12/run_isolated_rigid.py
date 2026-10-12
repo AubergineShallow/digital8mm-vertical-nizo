@@ -7,7 +7,6 @@ Stop this secondary lane if available physical RAM falls below 2 GiB.
 import argparse
 import hashlib
 import json
-import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -16,7 +15,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from cv_io import child_env, open_text, read_text, write_text, rel_posix
+from cv_io import child_env, open_text, read_text, write_text, rel_posix, relpath_posix
 
 
 def validate_result(data, code, started):
@@ -54,7 +53,7 @@ def inputs(variant):
     paths.update(ROOT / name for name in ('verify_candidate.py', 'steps.py', 'cv_io.py',
                  'evidence_rules.py', 'driver_checks.py', 'j7_collar_checks.py', 'j4_slide_checks.py'))
     paths.update(ROOT.parent.glob('*.py'))
-    return {os.path.relpath(p, ROOT).replace(os.sep, '/'): sha(p) for p in sorted(paths)}
+    return {relpath_posix(p, ROOT): sha(p) for p in sorted(paths)}
 
 
 def main():

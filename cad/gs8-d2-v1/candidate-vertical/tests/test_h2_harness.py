@@ -94,7 +94,8 @@ class QTFanIn(unittest.TestCase):
         self.assertEqual(r['status'], 'fail')
         self.assertTrue(any('allowance' in p for p in r['problems']))
         rel = r['basis']['released_minimum']
-        self.assertEqual((rel['status'], rel['gating'], rel['would_pass_length_gate']), ('info', False, True))
+        self.assertEqual((rel['status'], rel['gating'], rel['length_only_passes']), ('info', False, True))
+        self.assertEqual((rel['clearance_status'], rel['would_pass_length_gate']), ('not_checked', False))
         self.assertAlmostEqual(rel['min_route_mm'], 203.54, delta=0.05)
         self.assertAlmostEqual(rel['slack_mm'], 11.46, delta=0.05)
         self.assertEqual(r['proposed_rule_change']['status'], 'info')

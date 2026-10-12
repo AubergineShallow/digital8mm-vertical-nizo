@@ -1,0 +1,11 @@
+test_bom_check_same_verdict_in_both_modes (__main__.TestLocaleIndependence.test_bom_check_same_verdict_in_both_modes) ... ok
+test_docs_audit_is_locale_independent_posix_and_read_only (__main__.TestLocaleIndependence.test_docs_audit_is_locale_independent_posix_and_read_only) ... ok
+test_structural_check_passes_in_both_modes (__main__.TestLocaleIndependence.test_structural_check_passes_in_both_modes) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 15.366s
+
+OK
+
+[bom --check] exit 0: BOM schema/count checks passed: 136 explicit rows; all 70 baseline source lines covered; CAD not imported.
+No physical qualification, procurement or price/stock assertion.

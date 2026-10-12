@@ -1,0 +1,46 @@
+{
+  "observed_at_utc": "2026-10-12T17:07:11.173476+00:00",
+  "reason": "Serial all-variant CAD validation still holds the shared lock. Both 300-minute waiters exited 75 without executing their artifact scripts.",
+  "attempts": [
+    {
+      "script": "structural-review/build_shadow_structural_pdf.py",
+      "max_wait_min": 300,
+      "process_exit": 75,
+      "script_executed": false,
+      "log": "structural-pdf-build.log"
+    },
+    {
+      "script": "structural-review/render_bonded_catch_coupon.py",
+      "max_wait_min": 300,
+      "process_exit": 75,
+      "script_executed": false,
+      "log": "bonded-catch-render.log"
+    },
+    {
+      "script": "structural-review/render_bonded_catch_coupon.py",
+      "max_wait_min": 720,
+      "process_exit": 0,
+      "script_executed": true,
+      "log": "bonded-catch-render-retry.log",
+      "visual_review": "passed"
+    },
+    {
+      "script": "structural-review/build_shadow_structural_pdf.py",
+      "max_wait_min": 720,
+      "process_exit": 0,
+      "script_executed": true,
+      "log": "structural-pdf-build-retry.log",
+      "visual_review": "superseded by final layout correction"
+    },
+    {
+      "script": "structural-review/build_shadow_structural_pdf.py",
+      "max_wait_min": 720,
+      "process_exit": 0,
+      "script_executed": true,
+      "log": "structural-pdf-final-layout.log",
+      "visual_review": "passed on all four pages"
+    }
+  ],
+  "retry_max_wait_min": 720,
+  "physical_qualified": false
+}

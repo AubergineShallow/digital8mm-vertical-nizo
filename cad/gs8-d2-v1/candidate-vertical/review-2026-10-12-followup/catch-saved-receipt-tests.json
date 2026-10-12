@@ -1,0 +1,38 @@
+{
+  "purpose": "Actual CAD-free regression and saved-mode read-only smoke checks; no additional geometry execution",
+  "generated_utc": "2026-10-12T12:48:54.994166+00:00",
+  "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_catch_saved_receipt.py",
+  "sources": {
+    "review-2026-10-12-corrective/catch-extended/catch_saved_receipt.py": "653b58a36abeb8f49933e4d92c5b47ce6e6216886654905b4fdb9b0427d674b4",
+    "tests/test_catch_saved_receipt.py": "50239988adfe9c7cc22811d4cfbc9ca4ef10b5477d517350c93b29a4008c8f6c",
+    "j7_collar_checks.py": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+    "review-2026-10-12-corrective/catch-extended/catch_extended_cases.py": "2c558c90ca9f833c9ab3d11bc54565f7a80491d9fa9c474b902062a88476082d"
+  },
+  "tests": 12,
+  "seconds": 8.459,
+  "result": "pass",
+  "log": "review-2026-10-12-followup/catch-saved-receipt-tests.txt",
+  "log_sha256": "56e9f85f1f62fa5fb4ea3a44b0e23212a4871657e3af11ba11bc41291e7ff6e0",
+  "io_lint": "both new Python files pass",
+  "smoke_check": {
+    "variant": "compact-kowa_lm6hc",
+    "evidence_mode": "saved_full_audit",
+    "status": "pass",
+    "seconds": 1.248,
+    "cad_modules_imported": false,
+    "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+    "verification_sha256": "cb1dbe5b367de9582a1a2a1094237310f4a9911490d624064f60eeb9898a56ce",
+    "source_bound_steps": 48,
+    "pose_count": 69,
+    "feasible_count": 49,
+    "exact_saved_stub_rows": 1370,
+    "main_summary": {
+      "pass": 1874,
+      "fail": 1,
+      "info": 32
+    },
+    "main_geometry_computed_pass": false,
+    "output_written": false
+  },
+  "physical_qualified": false
+}

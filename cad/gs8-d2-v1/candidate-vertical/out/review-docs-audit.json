@@ -4,7 +4,7 @@
   "variants": [
     {
       "variant": "compact-kowa_lm6hc",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "sources": {
         "checked": 73,
         "missing": [],
@@ -31,14 +31,14 @@
       "reports": [
         {
           "path": "out/compact-kowa_lm6hc/verification.json",
-          "sha256": "0e6981840abf5e4e8c0f4d3e2a82705bd15ae90bf2db603b11a3798f21822497",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "cb1dbe5b367de9582a1a2a1094237310f4a9911490d624064f60eeb9898a56ce",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_candidate.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 633,
+            "pass": 1874,
             "fail": 1,
             "info": 32
           },
@@ -63,8 +63,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/print-mesh-checks.json",
-          "sha256": "946109931ffa694e2a84c86abe11ab51896a0eccafae99e8929c1dcde678996b",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "62549364ced358b4aa53826070d3210c5f3e2310059926d1877d985b4120d0b0",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_meshes.py",
@@ -74,8 +74,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/print-checks.json",
-          "sha256": "fdf74f89ae03e44d177ac97edb577ac7abd9ec4a39a41627df15e4acbf50a658",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "3b0b552197e3ecd8c436a12c4376175575c8d13a71955db867576953f4b041c0",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_checks.py",
@@ -112,7 +112,7 @@
               "stub": 0
             },
             "critical_features": {
-              "pass": 116,
+              "pass": 123,
               "fail": 0,
               "info": 7,
               "stub": 0
@@ -136,8 +136,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/csi-source-tool-checks.json",
-          "sha256": "1df78d57cbffe6b8163dfae9ff7cb39236be68a5ea52776edcf60183df8979ea",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "ff9db53a561c0acd1114242b4a8d6a9c48f6d8642c7ec5474d2cbfc08a5c72de",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_csi_source.py",
@@ -149,8 +149,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/power-service-checks.json",
-          "sha256": "ae5f1aafccc709c24c8ac97d5eea47d69ec95cfbef05542d7d506613439931bc",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "41c2423292594f5b8f72d169cd7b7118118da2df994a77c612f5eb8e5d7cff00",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_power_service.py",
@@ -163,8 +163,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/hdmi-solid-checks.json",
-          "sha256": "fc3c0750fd3015680e3488e1a3ca1bfb9b1a4754ba30ea5afe263f676b79fa99",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "8e2c7f922a5349300d77ba982f98f93f7bab0bcde9bc34aedc7392e39f265421",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_hdmi.py",
@@ -179,8 +179,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/wire-solid-checks.json",
-          "sha256": "f980cf75fcd23f3ad61d9e5c063e37d8be761513235ab32f49ab2d5788d90688",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "a25e643b6648a9aaf816675b22525aee3f73bb18bcefaf1256c2d89365262aea",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_wire_solids.py",
@@ -190,8 +190,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/check-scope-checks.json",
-          "sha256": "eb7c39f135a40c27fb05f9c161536dc5c57ccf508b6571fcdaab672912696de8",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "1a7985e429da3766808295e94ea2c6d7a219ae11788876de008336f8891fd9be",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_check_scope.py",
@@ -206,15 +206,15 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/harness-checks.json",
-          "sha256": "6823886ab27c3885c1e81b66a424f759c300a7a952e71d322196cd17b7f49143",
-          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+          "sha256": "38ae8d78c1f4eda3d24610fc03cfb8f0f2472f019e8bd892a3c567926d3e9885",
+          "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_harness_checks.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 30,
-            "fail": 12,
+            "pass": 29,
+            "fail": 13,
             "info": 20
           },
           "status": "fail",
@@ -226,7 +226,8 @@
               "oled_flex",
               "pigtail_negative",
               "pigtail_positive",
-              "power_button"
+              "power_button",
+              "qt"
             ],
             "cable_stow": [
               "power_button_j2_pair"
@@ -242,6 +243,329 @@
             ]
           },
           "failed_checks": [
+            {
+              "category": "cable_routes",
+              "id": "qt",
+              "length_mm": 250.0,
+              "length_range": [
+                240.0,
+                260.0
+              ],
+              "range_src": "BOM D2-24 / D2-24B: finished QT lead 250 +/- 10 mm (MP-QT measures)",
+              "estimate": true,
+              "fan_in_gap_mm": 0.0,
+              "proposed_rule_change": {
+                "status": "info",
+                "gating": false,
+                "id": "released_minimum_length_basis",
+                "text": "PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a separately authored guides-released pose instead of the shortest member of the installed storage family. Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.",
+                "detail": "basis.released_minimum"
+              },
+              "installed_mm": 206.93,
+              "min_route_mm": 238.99,
+              "allowance_mm": 25.0,
+              "length_min_mm": 240.0,
+              "slack_mm": -23.99,
+              "end_gap_mm": 0.0,
+              "basis": {
+                "family": {
+                  "variable": "low",
+                  "recorded": 49.6954765814385,
+                  "knots_share_variable": true,
+                  "bound": [
+                    44.0,
+                    55.2
+                  ],
+                  "src": "signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68",
+                  "recomputed_mm": 206.92813818178354,
+                  "recorded_mm": 206.92813818178354,
+                  "length_at_bound_mm": {
+                    "44.0": 218.31909134466054,
+                    "55.2": 195.91909134466056
+                  },
+                  "valid_at_bound": {
+                    "44.0": true,
+                    "55.2": true
+                  },
+                  "min_mm": 195.91909134466056,
+                  "max_mm": 218.31909134466054,
+                  "min_at": 55.2
+                },
+                "longest_branch_mm": 43.071861818216426,
+                "released_minimum": {
+                  "status": "info",
+                  "gating": false,
+                  "rule_change": "PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a separately authored guides-released pose instead of the shortest member of the installed storage family. Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.",
+                  "length_mm": 160.46790634814298,
+                  "min_route_mm": 203.54,
+                  "problems": [],
+                  "scope": "Separate guides-released static minimum for the unchanged allowance; complete-stock service deformation remains unqualified.",
+                  "allowance_mm": 25.0,
+                  "length_min_mm": 240.0,
+                  "slack_mm": 11.46,
+                  "length_only_passes": true,
+                  "would_pass_length_gate": true,
+                  "clearance_status": "pass",
+                  "member_clearance": {
+                    "envelope_d_mm": 3.2,
+                    "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+                    "capsule_d_mm": 3.4,
+                    "polyline_points": 50,
+                    "pieces": 186,
+                    "stubs": 0,
+                    "exempt": [
+                      "encoder",
+                      "pi5"
+                    ],
+                    "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+                    "targets": 6934,
+                    "hits": {},
+                    "cable_separation": {
+                      "run_pin37": {
+                        "min_centreline_mm": 4.31,
+                        "need_mm": 1.6
+                      },
+                      "run_pin39": {
+                        "min_centreline_mm": 2.89,
+                        "need_mm": 1.6
+                      },
+                      "power_button": {
+                        "min_centreline_mm": 16.28,
+                        "need_mm": 3.2
+                      },
+                      "fpc": {
+                        "min_centreline_mm": 10.18,
+                        "need_mm": 9.6
+                      },
+                      "fan": {
+                        "min_centreline_mm": 18.6,
+                        "need_mm": 2.6
+                      },
+                      "oled_flex": {
+                        "min_centreline_mm": 56.11,
+                        "need_mm": 7.8
+                      },
+                      "usb_5v": {
+                        "min_centreline_mm": 17.61,
+                        "need_mm": 3.4
+                      },
+                      "pack_lead": {
+                        "min_centreline_mm": 39.99,
+                        "need_mm": 3.2
+                      },
+                      "pigtail_positive": {
+                        "min_centreline_mm": 6.78,
+                        "need_mm": 3.2
+                      },
+                      "pigtail_negative": {
+                        "min_centreline_mm": 3.68,
+                        "need_mm": 3.2
+                      },
+                      "header_branch:hdr_fps_lead_33_34": {
+                        "min_centreline_mm": 12.98,
+                        "need_mm": 2.4
+                      },
+                      "header_branch:fps_fps_header_branch": {
+                        "min_centreline_mm": 12.98,
+                        "need_mm": 2.4
+                      },
+                      "header_branch:fps_fps_200_main": {
+                        "min_centreline_mm": 4.54,
+                        "need_mm": 2.9
+                      },
+                      "header_branch:fps_fps_switch_bundle": {
+                        "min_centreline_mm": 16.4,
+                        "need_mm": 2.9
+                      },
+                      "header_branch:fps_fps_ck1044_pin_A": {
+                        "min_centreline_mm": 19.42,
+                        "need_mm": 2.1
+                      },
+                      "header_branch:fps_fps_ck1044_pin_2": {
+                        "min_centreline_mm": 12.23,
+                        "need_mm": 2.1
+                      }
+                    },
+                    "cable_overlaps": [],
+                    "use": "separate released pose (PROPOSED rule change, not gating; guides released; no deformation proof)"
+                  }
+                }
+              },
+              "problems": [
+                "shortest route 239.0 + allowance 25.0 > minimum stock 240.0 mm"
+              ],
+              "status": "fail",
+              "member_clearance": {
+                "variable": "low",
+                "value": 55.2,
+                "od_mm": 3.2,
+                "capsule_d_mm": 3.4,
+                "polyline_points": 49,
+                "pieces": 96,
+                "member_length_mm": 195.92,
+                "exempt": [
+                  "encoder",
+                  "pi5"
+                ],
+                "exempt_rule": "own end parts only within 10 mm of the terminal",
+                "targets": 6934,
+                "hits": {},
+                "member_errors": [],
+                "installed_targets": true,
+                "hit_tolerance_mm3": 0.01,
+                "cable_overlaps": [],
+                "cable_separation": {
+                  "run_pin37": {
+                    "min_centreline_mm": 11.57,
+                    "need_mm": 2.4
+                  },
+                  "run_pin39": {
+                    "min_centreline_mm": 5.99,
+                    "need_mm": 2.4
+                  },
+                  "power_button": {
+                    "min_centreline_mm": 16.28,
+                    "need_mm": 3.2
+                  },
+                  "fpc": {
+                    "min_centreline_mm": 10.18,
+                    "need_mm": 9.6
+                  },
+                  "fan": {
+                    "min_centreline_mm": 24.96,
+                    "need_mm": 2.6
+                  },
+                  "oled_flex": {
+                    "min_centreline_mm": 54.95,
+                    "need_mm": 7.8
+                  },
+                  "usb_5v": {
+                    "min_centreline_mm": 27.66,
+                    "need_mm": 3.4
+                  },
+                  "pack_lead": {
+                    "min_centreline_mm": 68.46,
+                    "need_mm": 4.0
+                  },
+                  "pigtail_positive": {
+                    "min_centreline_mm": 6.78,
+                    "need_mm": 3.2
+                  },
+                  "pigtail_negative": {
+                    "min_centreline_mm": 3.68,
+                    "need_mm": 3.2
+                  },
+                  "header_branch:hdr_fps_lead_33_34": {
+                    "min_centreline_mm": 30.18,
+                    "need_mm": 2.4
+                  },
+                  "header_branch:fps_fps_header_branch": {
+                    "min_centreline_mm": 30.18,
+                    "need_mm": 2.4
+                  },
+                  "header_branch:fps_fps_200_main": {
+                    "min_centreline_mm": 10.28,
+                    "need_mm": 2.9
+                  },
+                  "header_branch:fps_fps_switch_bundle": {
+                    "min_centreline_mm": 13.64,
+                    "need_mm": 2.9
+                  },
+                  "header_branch:fps_fps_ck1044_pin_A": {
+                    "min_centreline_mm": 17.68,
+                    "need_mm": 2.1
+                  },
+                  "header_branch:fps_fps_ck1044_pin_2": {
+                    "min_centreline_mm": 10.76,
+                    "need_mm": 2.1
+                  }
+                },
+                "cable_separation_status": "checked",
+                "use": "shortest member (the minimum route)"
+              },
+              "installed_clearance": {
+                "envelope_d_mm": 3.2,
+                "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+                "capsule_d_mm": 3.4,
+                "polyline_points": 45,
+                "pieces": 186,
+                "stubs": 0,
+                "exempt": [
+                  "encoder",
+                  "pi5"
+                ],
+                "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+                "targets": 6934,
+                "hits": {},
+                "cable_separation": {
+                  "run_pin37": {
+                    "min_centreline_mm": 4.31,
+                    "need_mm": 1.6
+                  },
+                  "run_pin39": {
+                    "min_centreline_mm": 2.89,
+                    "need_mm": 1.6
+                  },
+                  "power_button": {
+                    "min_centreline_mm": 16.28,
+                    "need_mm": 3.2
+                  },
+                  "fpc": {
+                    "min_centreline_mm": 10.18,
+                    "need_mm": 9.6
+                  },
+                  "fan": {
+                    "min_centreline_mm": 22.35,
+                    "need_mm": 2.6
+                  },
+                  "oled_flex": {
+                    "min_centreline_mm": 54.95,
+                    "need_mm": 7.8
+                  },
+                  "usb_5v": {
+                    "min_centreline_mm": 23.86,
+                    "need_mm": 3.4
+                  },
+                  "pack_lead": {
+                    "min_centreline_mm": 39.99,
+                    "need_mm": 3.2
+                  },
+                  "pigtail_positive": {
+                    "min_centreline_mm": 6.78,
+                    "need_mm": 3.2
+                  },
+                  "pigtail_negative": {
+                    "min_centreline_mm": 3.68,
+                    "need_mm": 3.2
+                  },
+                  "header_branch:hdr_fps_lead_33_34": {
+                    "min_centreline_mm": 24.68,
+                    "need_mm": 2.4
+                  },
+                  "header_branch:fps_fps_header_branch": {
+                    "min_centreline_mm": 24.68,
+                    "need_mm": 2.4
+                  },
+                  "header_branch:fps_fps_200_main": {
+                    "min_centreline_mm": 10.28,
+                    "need_mm": 2.9
+                  },
+                  "header_branch:fps_fps_switch_bundle": {
+                    "min_centreline_mm": 13.64,
+                    "need_mm": 2.9
+                  },
+                  "header_branch:fps_fps_ck1044_pin_A": {
+                    "min_centreline_mm": 17.68,
+                    "need_mm": 2.1
+                  },
+                  "header_branch:fps_fps_ck1044_pin_2": {
+                    "min_centreline_mm": 10.76,
+                    "need_mm": 2.1
+                  }
+                },
+                "cable_overlaps": []
+              }
+            },
             {
               "category": "cable_routes",
               "id": "power_button",
@@ -1455,7 +1779,7 @@
               "category": "lead_access",
               "id": "pigtail_drop",
               "kind": "drop",
-              "model": "r7 _pigtail_drop_v (G-W5) with vendor strand data",
+              "model": "r7 _pigtail_drop_v (G-W5) with vendor strand data, XT30 loop at the 2.4 mohm gate and named series joints (ELE-1)",
               "i_peak_a": 8.6,
               "limit_v": 0.15,
               "cases": {
@@ -1464,9 +1788,9 @@
                   "lay": 1.0,
                   "area18": 0.8231,
                   "fuse": 1.0,
-                  "basis": "AWG nominal areas, no lay increment, cold fuse (= make_bom_vertical hot_drop model)",
-                  "drop_v": 0.14277,
-                  "margin_mv": 7.23
+                  "basis": "AWG nominal areas, no lay increment, cold fuse (make_bom_vertical hot_drop copper; XT30 at the gate loop value)",
+                  "drop_v": 0.15481,
+                  "margin_mv": -4.81
                 },
                 "hi_cold_fuse": {
                   "area16": 1.2566,
@@ -1474,8 +1798,8 @@
                   "area18": 0.754,
                   "fuse": 1.0,
                   "basis": "vendor minimum 250 x 0.08 mm, lay 1.03, 150 x 0.08 pack lead, cold fuse",
-                  "drop_v": 0.15103,
-                  "margin_mv": -1.03
+                  "drop_v": 0.16307,
+                  "margin_mv": -13.07
                 },
                 "nominal_hot_fuse": {
                   "area16": 1.3088,
@@ -1483,8 +1807,8 @@
                   "area18": 0.8231,
                   "fuse": 1.3,
                   "basis": "AWG nominal copper with the hot fuse case",
-                  "drop_v": 0.15427,
-                  "margin_mv": -4.27
+                  "drop_v": 0.16631,
+                  "margin_mv": -16.31
                 },
                 "hi": {
                   "area16": 1.2566,
@@ -1492,12 +1816,12 @@
                   "area18": 0.754,
                   "fuse": 1.3,
                   "basis": "vendor minimum strands, lay 1.03, 150 x 0.08 pack lead, hot fuse x 1.3",
-                  "drop_v": 0.16254,
-                  "margin_mv": -12.54
+                  "drop_v": 0.17458,
+                  "margin_mv": -24.58
                 }
               },
-              "drop_lo_v": 0.14277,
-              "drop_hi_v": 0.16254,
+              "drop_lo_v": 0.15481,
+              "drop_hi_v": 0.17458,
               "vendor": "https://www.progressiverc.com/products/prc-silicone-wire-16-awg (over 250 strands of pure copper, each .08 mm; OD 3.0 mm; read 2026-10-11)",
               "assumptions": {
                 "lay_range": [
@@ -1511,68 +1835,108 @@
                 "pack_lead": "150 x 0.08 mm 18 AWG silicone (strand count unknown; MP-PACK)",
                 "copper": "IACS annealed copper 1/58 ohm mm2/m at 20 C, alpha 0.00393/K, 60 C"
               },
+              "xt30_loop_gate_mohm": 2.4,
+              "xt30_r7_historical_mohm": 1.0,
+              "xt30_src": "Amass XT30U female 2025V0 A.06.1 / male 2025V0 A.01.1: contact resistance <= 1.2 mohm, per-contact vs loop scope unresolved (corrective-2026-10-12/power-options/README.md, termination-options.json)",
+              "xt30_loop_cases": {
+                "1.0": {
+                  "gating": false,
+                  "lo_v": 0.14277,
+                  "hi_v": 0.16254,
+                  "shorter_path_max_mm_hot_fuse": 225.4,
+                  "shorter_path_max_mm_cold_fuse": 266.3,
+                  "cutoff_raise_needed_v": 0.01254
+                },
+                "1.2": {
+                  "gating": false,
+                  "lo_v": 0.14449,
+                  "hi_v": 0.16426,
+                  "shorter_path_max_mm_hot_fuse": 219.3,
+                  "shorter_path_max_mm_cold_fuse": 260.2,
+                  "cutoff_raise_needed_v": 0.01426
+                },
+                "2.4": {
+                  "gating": true,
+                  "lo_v": 0.15481,
+                  "hi_v": 0.17458,
+                  "shorter_path_max_mm_hot_fuse": 182.6,
+                  "shorter_path_max_mm_cold_fuse": 223.5,
+                  "cutoff_raise_needed_v": 0.02458
+                }
+              },
+              "joints": {
+                "terms_mohm": {
+                  "fuse_splice_line": 0.0,
+                  "fuse_splice_load": 0.0,
+                  "x1203_pad_positive": 0.0,
+                  "x1203_pad_negative": 0.0
+                },
+                "status": "unbudgeted, pending G-W5 (no repo source gives a joint resistance)",
+                "sensitivity_mv_per_0p1_mohm_each": 0.86,
+                "sensitivity_note": "each named joint is in series and carries the full peak current: every 0.1 mohm of any one joint adds 0.86 mV to every case"
+              },
               "decision_data": {
-                "shorter_path_max_mm_hot_fuse": 225.4,
-                "shorter_path_max_mm_cold_fuse": 266.3,
-                "awg14_nominal_hi_drop_v": 0.13245,
+                "shorter_path_max_mm_hot_fuse": 182.6,
+                "shorter_path_max_mm_cold_fuse": 223.5,
+                "awg14_nominal_hi_drop_v": 0.14449,
                 "awg14_note": "AWG 14 nominal 2.0809 mm2 for information only; OD and lane fit unchecked (lane re-check needed)",
-                "cutoff_raise_needed_v": 0.01254,
+                "cutoff_raise_needed_v": 0.02458,
                 "by_finished_length_mm": {
                   "220.0": {
-                    "lo_v": 0.12966,
-                    "hi_cold_fuse_v": 0.13697,
-                    "nominal_hot_fuse_v": 0.14116,
-                    "hi_v": 0.14847,
-                    "awg14_nominal_hi_v": 0.12396,
-                    "cutoff_raise_needed_v": 0.0
+                    "lo_v": 0.1417,
+                    "hi_cold_fuse_v": 0.14901,
+                    "nominal_hot_fuse_v": 0.1532,
+                    "hi_v": 0.16051,
+                    "awg14_nominal_hi_v": 0.136,
+                    "cutoff_raise_needed_v": 0.01051
                   },
                   "225.0": {
-                    "lo_v": 0.13097,
-                    "hi_cold_fuse_v": 0.13837,
-                    "nominal_hot_fuse_v": 0.14247,
-                    "hi_v": 0.14988,
-                    "awg14_nominal_hi_v": 0.12481,
-                    "cutoff_raise_needed_v": 0.0
+                    "lo_v": 0.14301,
+                    "hi_cold_fuse_v": 0.15041,
+                    "nominal_hot_fuse_v": 0.15451,
+                    "hi_v": 0.16192,
+                    "awg14_nominal_hi_v": 0.13685,
+                    "cutoff_raise_needed_v": 0.01192
                   },
                   "237.0": {
-                    "lo_v": 0.13411,
-                    "hi_cold_fuse_v": 0.14175,
-                    "nominal_hot_fuse_v": 0.14562,
-                    "hi_v": 0.15325,
-                    "awg14_nominal_hi_v": 0.12685,
-                    "cutoff_raise_needed_v": 0.00325
+                    "lo_v": 0.14615,
+                    "hi_cold_fuse_v": 0.15379,
+                    "nominal_hot_fuse_v": 0.15766,
+                    "hi_v": 0.16529,
+                    "awg14_nominal_hi_v": 0.13889,
+                    "cutoff_raise_needed_v": 0.01529
                   },
                   "250.0": {
-                    "lo_v": 0.13752,
-                    "hi_cold_fuse_v": 0.1454,
-                    "nominal_hot_fuse_v": 0.14903,
-                    "hi_v": 0.15691,
-                    "awg14_nominal_hi_v": 0.12906,
-                    "cutoff_raise_needed_v": 0.00691
+                    "lo_v": 0.14956,
+                    "hi_cold_fuse_v": 0.15744,
+                    "nominal_hot_fuse_v": 0.16107,
+                    "hi_v": 0.16895,
+                    "awg14_nominal_hi_v": 0.1411,
+                    "cutoff_raise_needed_v": 0.01895
                   },
                   "260.0": {
-                    "lo_v": 0.14014,
-                    "hi_cold_fuse_v": 0.14822,
-                    "nominal_hot_fuse_v": 0.15165,
-                    "hi_v": 0.15972,
-                    "awg14_nominal_hi_v": 0.13075,
-                    "cutoff_raise_needed_v": 0.00972
+                    "lo_v": 0.15218,
+                    "hi_cold_fuse_v": 0.16026,
+                    "nominal_hot_fuse_v": 0.16369,
+                    "hi_v": 0.17176,
+                    "awg14_nominal_hi_v": 0.14279,
+                    "cutoff_raise_needed_v": 0.02176
                   },
                   "270.0": {
-                    "lo_v": 0.14277,
-                    "hi_cold_fuse_v": 0.15103,
-                    "nominal_hot_fuse_v": 0.15427,
-                    "hi_v": 0.16254,
-                    "awg14_nominal_hi_v": 0.13245,
-                    "cutoff_raise_needed_v": 0.01254
+                    "lo_v": 0.15481,
+                    "hi_cold_fuse_v": 0.16307,
+                    "nominal_hot_fuse_v": 0.16631,
+                    "hi_v": 0.17458,
+                    "awg14_nominal_hi_v": 0.14449,
+                    "cutoff_raise_needed_v": 0.02458
                   },
                   "280.0": {
-                    "lo_v": 0.14539,
-                    "hi_cold_fuse_v": 0.15384,
-                    "nominal_hot_fuse_v": 0.15689,
-                    "hi_v": 0.16535,
-                    "awg14_nominal_hi_v": 0.13415,
-                    "cutoff_raise_needed_v": 0.01535
+                    "lo_v": 0.15743,
+                    "hi_cold_fuse_v": 0.16588,
+                    "nominal_hot_fuse_v": 0.16893,
+                    "hi_v": 0.17739,
+                    "awg14_nominal_hi_v": 0.14619,
+                    "cutoff_raise_needed_v": 0.02739
                   }
                 },
                 "options": "VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check."
@@ -1580,7 +1944,7 @@
               "gate": "G-W5 hot 8.6 A drop test on the built pigtail (measured fuse, contacts, copper); MP-PACK pack lead",
               "estimate": true,
               "problems": [
-                "drop_hi 0.1625 V > 0.150 V at 8.6 A (hot fuse x 1.30, vendor minimum strands, lay 1.03)"
+                "drop_hi 0.1746 V > 0.150 V at 8.6 A (hot fuse x 1.30, vendor minimum strands, lay 1.03, XT30 loop 2.4 mohm, named joints 0.00 mohm)"
               ],
               "status": "fail"
             },
@@ -1741,7 +2105,7 @@
     },
     {
       "variant": "compact-fujinon_hf6xa",
-      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
       "sources": {
         "checked": 73,
         "missing": [],
@@ -1768,14 +2132,14 @@
       "reports": [
         {
           "path": "out/compact-fujinon_hf6xa/verification.json",
-          "sha256": "f4458efe61404918aa437cd9548f080b7012d08ed2470e9d7b7ecc5de0619fdf",
-          "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+          "sha256": "f335a8599df6b15cd33e94796581320d4ca866ad8dda6592b050786417d71e6b",
+          "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
           "same_manifest": true,
           "evidence_role": "historical only; full alternative audit not rerun",
           "verifier_file": "verify_candidate.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 628,
+            "pass": 1869,
             "fail": 1,
             "info": 32
           },
@@ -1800,8 +2164,8 @@
         },
         {
           "path": "out/compact-fujinon_hf6xa/print-mesh-checks.json",
-          "sha256": "3f73cf0d0acf5ccaa5ffe26599be2b59de6709bfb127a637ad50c1e035d588bd",
-          "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+          "sha256": "e26e9bc36027879e58da9eaeafa1df7763c9068e9007d6afe625a2e26f9108e7",
+          "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_meshes.py",
@@ -1880,7 +2244,7 @@
     },
     {
       "variant": "original-kowa_lm6hc",
-      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
       "sources": {
         "checked": 73,
         "missing": [],
@@ -1907,14 +2271,14 @@
       "reports": [
         {
           "path": "out/original-kowa_lm6hc/verification.json",
-          "sha256": "4c28b5baa7fa1d02a2d95883f4cdd91cd50aae0e620bc202056145d51b1e0db3",
-          "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+          "sha256": "49b3f3aaea3c5c0bdd80766ca26bba37687b34cae544d49aa4c8145a3bffafe3",
+          "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
           "same_manifest": true,
           "evidence_role": "historical only; full alternative audit not rerun",
           "verifier_file": "verify_candidate.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 636,
+            "pass": 1877,
             "fail": 1,
             "info": 32
           },
@@ -1939,8 +2303,8 @@
         },
         {
           "path": "out/original-kowa_lm6hc/print-mesh-checks.json",
-          "sha256": "54be948a2382c040c37dd02d02c7ad64fd38441d8829c4b9bfc42550a91e9215",
-          "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+          "sha256": "13514c866de8215cb63dfc6c1b0b2db7a993512badb7d2abb87983bf03bd8eb9",
+          "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_meshes.py",
@@ -2022,9 +2386,9 @@
   ],
   "physical_qualified": false,
   "bom": {
-    "rows": 135,
+    "rows": 136,
     "baseline_rows_preserved": 70,
-    "included_decomposition_rows": 34,
+    "included_decomposition_rows": 35,
     "generator_outputs_current": true,
     "invalid_parent_references": [],
     "missing_local_sources": [],
@@ -2055,23 +2419,23 @@
   "documents": [
     {
       "path": "README.md",
-      "sha256": "6c871d86b61d1ff3c68d13f3f5a8a87864b4b699d84bd3f30465d3a4f8b69a17"
+      "sha256": "24ed89deb6e8a3e2411c80cff8272fd62eeeaa8807cecc491b7251fc344463be"
     },
     {
       "path": "REPRODUCE.md",
-      "sha256": "ec25c35360c07710c73c98066d6b87446bcde8a9c4765a5fe5b5ac66580be2bc"
+      "sha256": "99aa2af9bde87b1a520bb628029da74bd7ac2e9b041831e030f636a90b0436c9"
     },
     {
       "path": "CHECKPOINT-STATUS.json",
-      "sha256": "c9c9285a420961134bb1d665f86af4e5b230f4ef091074e6607cfcbe8b671b05"
+      "sha256": "6194cf99389abb162561cc8c975d39bfe55b7a28bc620239a4dc24c0848d992b"
     },
     {
       "path": "REVIEW.md",
-      "sha256": "aeab7be0d3e39209df9dee103ce172f8165db9937dac6ba19bb47d51ba33060d"
+      "sha256": "eddebb5dace3f8a51d86839d0b2c069f80d50e46d0253e7863142f74ea475581"
     },
     {
       "path": "ASSEMBLY-VERTICAL.md",
-      "sha256": "f8e7db9793cbc330aa81b461081c347a84a15665b38b480a54ce142c8af6db66"
+      "sha256": "573ca9b535e55134e1f47e2752398c83ec41a100dddbfc494fc88d96ced17b83"
     },
     {
       "path": "MEASUREMENTS-TO-CLOSE.md",
@@ -2079,27 +2443,27 @@
     },
     {
       "path": "make_bom_vertical.py",
-      "sha256": "a907a8f46d87a4b5326498cd17484dd1e76101912296ca30c81d76d31a1e047b"
+      "sha256": "6277a470136510d82f235899da9cb092087b6181ff0eab44a7ba4f590d4ed7bc"
     },
     {
       "path": "BOM-VERTICAL.md",
-      "sha256": "73e76bb7ec3e6d3554e5c2fc4f628997cb9e2e20925edf7328d616ec4b4fdaf1"
+      "sha256": "cfcad95e34197134b17b56866f7fff89825b4942ebbc0e339823321317ad0d4b"
     },
     {
       "path": "BOM-VERTICAL.csv",
-      "sha256": "61343e13479fe007eff69a83bba7f08d98f330987266cbb63dbefe67daceebe0"
+      "sha256": "ec862770907a1c8d6813d197fd21d27dd156f5835fb65ddb51a02f3e754f2a3f"
     },
     {
       "path": "structural-review/CONCEALED-VENT-STRUCTURAL.md",
-      "sha256": "6d121c452794c8dbf93a509d7e013bf8fd1622cec0e3954617966eaabff2e273"
+      "sha256": "4f7dc841987ccd0b6fb0126e3c36fed086803982b727eb6d4ff6c646577ba83d"
     },
     {
       "path": "structural-review/concealed-vent-structural.json",
-      "sha256": "ecd5797716a7421c25079e87c464964d751c00499c32bbfaf5beaa3345446b7e"
+      "sha256": "df8943263188f901d42fceff5c9db831cb05198f1acfcb8aeb17567d38471633"
     },
     {
       "path": "structural-review/update_concealed_vent_structure.py",
-      "sha256": "d5d6f9ea5dc1f6801852b4d8b948acb9bbd2c5eaaa68367b291f2a0f8005cd85"
+      "sha256": "f67d10ac4d55f9e450769ed7cb2025c6e279831a0811910feb0a3f21230d1b52"
     },
     {
       "path": "structural-review/reference-export18-structural-binding.json",
@@ -2122,7 +2486,7 @@
   "selected_supplemental_reports": [
     {
       "path": "out/compact-kowa_lm6hc/microsd-service-dependency.json",
-      "sha256": "53d4e54aa35d4661f510a8b64d7c95ca2e007ed88cfdfb280fe5a56924138568",
+      "sha256": "000cdc1edc935e38012a296b35ad54b4b94f47ef9e7365bdf51258b6fe6b23ef",
       "same_primary_manifest": true,
       "evidence_role": "current manifest-bound scoped evidence",
       "verifier_file": "verify_microsd_service.py",
@@ -2220,7 +2584,7 @@
     },
     {
       "path": "out/fps-service-study/integrated-fps-checks.json",
-      "sha256": "850edce58713c30e5ce7f3ea2efb0ff7925d4766f4f37af3b178f9a8873e4f1f",
+      "sha256": "27eb8938f0c3b71340a0196cc130e84e7b3856840ec896ecbcb58b8faf6ec531",
       "same_primary_manifest": true,
       "evidence_role": "current manifest-bound scoped evidence",
       "verifier_file": "verify_fps_integrated.py",
@@ -2366,7 +2730,7 @@
   "assembly_comparison": {
     "file": {
       "path": "out/comparison/assembled-comparison.json",
-      "sha256": "7dd51b06eea1c109227d940fd4a69ddbfd6b702909601c235f534ff2bb4c41a3"
+      "sha256": "51af871c499c8b0cc193e651fb3be7daf630007e7e37c3ea38b3ba1243dc4049"
     },
     "current_producer_file": {
       "path": "measure_comparison.py",
@@ -2387,7 +2751,7 @@
   "core_void_reports": [
     {
       "path": "out/comparison/volume-compact-kowa_lm6hc.json",
-      "sha256": "f30aaed77024b00677c800f4d6325766ecd8c391e15f32773fc87c99408f3309",
+      "sha256": "e187f7d3b9985c7b31bd0bf5841725f602ffbc3b6e9c93244cd67f77727f45cb",
       "same_variant_manifest": true,
       "verifier_hash_current": true,
       "model_void_mm3": null,
@@ -2401,7 +2765,7 @@
     },
     {
       "path": "out/comparison/volume-compact-fujinon_hf6xa.json",
-      "sha256": "be700580d5c33a838be6788309aba4238151286c61b02a8b777e34007cf153f3",
+      "sha256": "2fdbc44cb385633a3e8359c5ae05ac66906d0f6d35a9dc2701c8c6e0a37b6eac",
       "same_variant_manifest": true,
       "verifier_hash_current": true,
       "model_void_mm3": null,
@@ -2415,7 +2779,7 @@
     },
     {
       "path": "out/comparison/volume-original-kowa_lm6hc.json",
-      "sha256": "0fe42ad43b7d24505b822036090b926490740e6a5b228241313d5285fd27e6ec",
+      "sha256": "b12622139663390353cb98ffb166b8fb5a730f7f49b59b0316cf9164a61eb123",
       "same_variant_manifest": true,
       "verifier_hash_current": true,
       "model_void_mm3": null,
@@ -2431,7 +2795,7 @@
   "concealed_vent_reports": [
     {
       "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-      "sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
+      "sha256": "78fe122f605c701f0bf5eef984d63488ca64556ad8751c25f8d6cc2f9e160254",
       "same_primary_manifest": true,
       "verifier_file": "verify_shadow_plenum.py",
       "verifier_hash_current": true,
@@ -2451,7 +2815,7 @@
     },
     {
       "path": "out/compact-kowa_lm6hc/shadow-outlet-context-checks.json",
-      "sha256": "72794ad354d1e4d0834ee59f5c9a1929f5b75be297a4643aec7cc8defd6ee4aa",
+      "sha256": "55e5b38de47ec57d77c6298662e97e36ae4772a4ad49a906c20765f9f9970533",
       "same_primary_manifest": true,
       "verifier_file": "verify_shadow_outlet_context.py",
       "verifier_hash_current": true,
@@ -2501,7 +2865,7 @@
     },
     {
       "path": "structural-review/concealed-vent-structural.json",
-      "sha256": "ecd5797716a7421c25079e87c464964d751c00499c32bbfaf5beaa3345446b7e",
+      "sha256": "df8943263188f901d42fceff5c9db831cb05198f1acfcb8aeb17567d38471633",
       "same_primary_manifest": true,
       "verifier_file": "structural-review/update_concealed_vent_structure.py",
       "verifier_hash_current": true,
@@ -2520,13 +2884,13 @@
       ],
       "assembly": {
         "reference_mass_g": 831.3793077015797,
-        "current_mass_g": 870.2589514403712,
-        "delta_mass_g": 38.879643738791515,
-        "delta_mass_percent": 4.676522903399853,
+        "current_mass_g": 870.2502134635128,
+        "delta_mass_g": 38.870905761933045,
+        "delta_mass_percent": 4.675471881708848,
         "com_mm": [
-          -46.468895314001784,
-          1.0244011769533663,
-          29.956975351895313
+          -46.469247930143034,
+          1.0243164971171161,
+          29.95642779292751
         ],
         "manifest_mesh_dimensions_mm": [
           248.83393461632127,
@@ -2543,9 +2907,9 @@
         "wiring_mass_sensitivity_g": 12,
         "wiring_upper_height_mm": 100,
         "added_5g_moment_Nmm": 58.8399,
-        "equal_share_plus_wiring_Nm": 0.9366054980064421,
+        "equal_share_plus_wiring_Nm": 0.9365873979542758,
         "proposed_rounded_equal_share_screen_Nm": 0.95,
-        "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
+        "seventy_percent_share_plus_wiring_Nm": 1.3112223571359862,
         "old_0_90_Nm_covers_equal_share_plus_wiring": false,
         "all_variants_screen_Nm": 1.0,
         "governing_variant": "original-kowa_lm6hc",
@@ -2568,12 +2932,12 @@
               "tub"
             ],
             "added_rows": [],
-            "upper_mass_g": 565.6972688128662,
-            "floor_moment_5g_Nmm": 1480.6923230873817,
-            "equal_share_plus_wiring_Nm": 0.7697661115436908,
-            "seventy_percent_share_plus_wiring_Nm": 1.077672556161167,
+            "upper_mass_g": 565.6885308360079,
+            "floor_moment_5g_Nmm": 1480.6561229830493,
+            "equal_share_plus_wiring_Nm": 0.7697480114915246,
+            "seventy_percent_share_plus_wiring_Nm": 1.0776472160881345,
             "proposed_rounded_equal_share_screen_Nm": 0.8,
-            "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f"
+            "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c"
           },
           "compact-kowa_lm6hc": {
             "valid": true,
@@ -2587,12 +2951,12 @@
               "tub"
             ],
             "added_rows": [],
-            "upper_mass_g": 679.116486979394,
-            "floor_moment_5g_Nmm": 1814.3710960128842,
-            "equal_share_plus_wiring_Nm": 0.9366054980064421,
-            "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
+            "upper_mass_g": 679.1077490025357,
+            "floor_moment_5g_Nmm": 1814.3348959085517,
+            "equal_share_plus_wiring_Nm": 0.9365873979542758,
+            "seventy_percent_share_plus_wiring_Nm": 1.3112223571359862,
             "proposed_rounded_equal_share_screen_Nm": 0.95,
-            "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4"
+            "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754"
           },
           "original-kowa_lm6hc": {
             "valid": true,
@@ -2615,12 +2979,12 @@
             "added_rows": [
               "stick_sleeve"
             ],
-            "upper_mass_g": 721.373331219444,
-            "floor_moment_5g_Nmm": 1905.1269434770163,
-            "equal_share_plus_wiring_Nm": 0.9819834217385082,
-            "seventy_percent_share_plus_wiring_Nm": 1.3747767904339114,
+            "upper_mass_g": 721.3645932445831,
+            "floor_moment_5g_Nmm": 1905.09074338018,
+            "equal_share_plus_wiring_Nm": 0.9819653216900899,
+            "seventy_percent_share_plus_wiring_Nm": 1.3747514503661258,
             "proposed_rounded_equal_share_screen_Nm": 1.0,
-            "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
+            "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c"
           }
         },
         "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
@@ -2653,6 +3017,10 @@
             "PRC 16 AWG silicone; red SW-16R; black SW-16B"
           ]
         }
+      },
+      {
+        "line": "I-tub-stub",
+        "inventory_changed": true
       },
       {
         "line": "P-base_grip",
@@ -2836,7 +3204,7 @@
   },
   "selected_usb_head_report": {
     "path": "routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json",
-    "sha256": "36a9907f7b3a69ea59fd827f282265ce8fee0ff744873fb088373d6a9963cb84",
+    "sha256": "49f4877c10d662e15273027abdb4017c7d79e82d57e2d4491171e5317f56b4ff",
     "status": "pass_for_bounded_head_reservation",
     "same_primary_manifest": true,
     "verifier_file": "verify_shadow_usb_head.py",
@@ -2861,7 +3229,7 @@
   },
   "plenum_coupon_identity": {
     "path": "vent-study/shadow-plenum-coupon/coupon-index.json",
-    "sha256": "0e4fc3ccc3e3094347244bd041822d81d5c8986d45320871b711fa793d5b8b4b",
+    "sha256": "7bf769bdf7e84429be6b9dde942c2b90b19adfa7fb81d1e2765b4abf1394aa0f",
     "coupon_count": 3,
     "same_primary_manifest": true,
     "source_current": true,
@@ -2876,7 +3244,7 @@
     "receipts": [
       {
         "path": "vent-study/shadow-plenum-coupon/receipt.json",
-        "sha256": "a6f5e45798a23847ddf735204337ea48789aecedb7bc6cab345a8026531d94c5",
+        "sha256": "6b32bab77046e37622f99b47ef845d1ca7b0b209ea13850bf27920f086727c27",
         "same_primary_manifest": true,
         "files": {
           "checked": 2,
@@ -2895,7 +3263,7 @@
       },
       {
         "path": "vent-study/shadow-plenum-coupon/port-service-receipt.json",
-        "sha256": "59b5b8c8435da1bd38c9edca0b26636464af5000a468975b2dd3d036a678e836",
+        "sha256": "cb5ac61276d6fbf81dc6c939c69a16b309292de7247937f057d955a0859ae3f4",
         "same_primary_manifest": true,
         "files": {
           "checked": 2,
@@ -2914,7 +3282,7 @@
       },
       {
         "path": "vent-study/shadow-plenum-coupon/all-mouths-receipt.json",
-        "sha256": "96266e878fef8d7618e5f93b35db152b332d863a497a5a088b4518472e3ce752",
+        "sha256": "c171462931afc76c1387855b899cdac9323b0572503d6f4633b0cada8d419d5a",
         "same_primary_manifest": true,
         "files": {
           "checked": 2,
@@ -2955,32 +3323,34 @@
   "structural_pdf": {
     "receipt": {
       "path": "structural-review/output/pdf/structural-supplement-pdf-receipt.json",
-      "sha256": "8e10568afb88fa84125bfe7f9794c408cf37e88eb8f83084cb412003767da121"
+      "sha256": "3bf870eedab043c094e91fb2710f5ca2449456663a7c7b1fcf57822115ba9503"
     },
     "artifact": {
       "path": "structural-review/output/pdf/D2-shadow-plenum-structural-supplement.pdf",
-      "sha256": "59a8771f2036ec0aa6d78c0890023576530f5ea3e802600402ed793812e8d79d"
+      "sha256": "dcc4e24f9adfa90670d4be00be187bb4b976b3dc1e989d7bb48ea99dd836503e"
     },
     "same_primary_manifest": true,
     "pdf_hash_matches": true,
     "source_bindings": {
-      "checked": 23,
+      "checked": 26,
       "missing": [],
       "changed": [],
       "pass": true
     },
-    "pages": 3,
+    "pages": 4,
     "text_checks_pass": true,
     "visual_review": {
       "status": "passed",
-      "pages_inspected": 3,
+      "inspected_at_utc": "2026-10-12T18:30:21.517242+00:00",
+      "pages_inspected": 4,
       "render_tool": "pdftoppm",
-      "render_dpi": 110,
+      "render_dpi": 120,
       "render_version": "pdftoppm version 26.05.0",
       "rendered_page_sha256": {
-        "qa/page-1.png": "11ea63372133e8c3303ecc33890ec8ce043507f3c5364cc015a2b4acbd0760a8",
-        "qa/page-2.png": "4bdab83b9380b02b98558e77d635e6430ccd8dc8b9cb88892868d5ca40084dd5",
-        "qa/page-3.png": "606cfc465c623cd74ca12dd505467d6540479f02ac9dae53750f37759fae93e4"
+        "qa/page-1.png": "74ef120aa8838d2d0af05186fe8c02683689dc599fdef4212982f0d0dd96a056",
+        "qa/page-2.png": "d4bc0755835c9a4ebaf995b169ec2845e4558e5c661154f91270ce2193052f6c",
+        "qa/page-3.png": "fcd56f0c3b876e80ed0e09b5a37dd0c348806c0984691e8a4747cefa4600caae",
+        "qa/page-4.png": "989c0aa8c803ad9b7f3564034e0e486c03c2e8a7bed1c901eb8e9da3d8e94cd8"
       },
       "text_bounds_checks": [
         {
@@ -3005,7 +3375,17 @@
         },
         {
           "page": 3,
-          "characters": 3565,
+          "characters": 2574,
+          "text_bounds_pt": [
+            44.0,
+            48.88281280000001,
+            568.000044,
+            768.9218752
+          ]
+        },
+        {
+          "page": 4,
+          "characters": 2292,
           "text_bounds_pt": [
             44.0,
             48.88281280000001,
@@ -3014,7 +3394,7 @@
           ]
         }
       ],
-      "findings": "All three pages inspected: readable text and tables, intact grid/headers, clear physical HOLDs, no clipping, overlap, missing glyphs or near-empty spill page. Numerical/source text checks passed.",
+      "findings": "All four final pages inspected after the section-break correction: readable text and tables, intact headers and grid, clear physical HOLDs, no clipping, overlap or missing glyphs. Page 3 groups sampled catch evidence and local coupon limits; page 4 groups material qualification and source identity. All text checks and final source hashes passed. No exhaustive tolerance proof, physical strength, adhesive, fixture or cure qualification is claimed.",
       "physical_qualified": false
     },
     "physical_qualified": false
@@ -3022,7 +3402,7 @@
   "checkpoint_status": {
     "file": {
       "path": "CHECKPOINT-STATUS.json",
-      "sha256": "c9c9285a420961134bb1d665f86af4e5b230f4ef091074e6607cfcbe8b671b05"
+      "sha256": "6194cf99389abb162561cc8c975d39bfe55b7a28bc620239a4dc24c0848d992b"
     },
     "same_primary_manifest": true,
     "selected_evidence_binding": true,
@@ -3034,7 +3414,7 @@
   },
   "guide_bound_cache": {
     "receipt": "guide/out-concealed-vents/guide-receipt.json",
-    "nominated_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "nominated_manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
     "nominated_manifest_current": true,
     "pdf_match": true,
     "mesh_files": {
@@ -3044,15 +3424,15 @@
       "changed": []
     },
     "page_images": {
-      "checked": 38,
-      "present_match": 38,
+      "checked": 40,
+      "present_match": 40,
       "missing": [],
       "changed": []
     },
     "unexpected_tracked": 0,
     "deterministic_build": true,
     "sources": {
-      "checked": 287,
+      "checked": 613,
       "missing": [],
       "changed": [],
       "pass": true
@@ -3071,7 +3451,7 @@
     },
     {
       "path": "out/compact-kowa_lm6hc/review-check-run.json",
-      "sha256": "44fa5800ab0e161a31cf2aa48fd34d951d2ec58e5b9da80310b09cb0fbcbf29e"
+      "sha256": "c7fa9eda8a86ab70a1d93b935eb45d4df16e243d0b5c9998110998118fd0a7b3"
     }
   ],
   "source_numbers": {
@@ -3165,13 +3545,13 @@
     {
       "field": "main_summary",
       "recorded": {
-        "pass": 633,
+        "pass": 1874,
         "fail": 1,
         "info": 32
       },
       "source": "out/compact-kowa_lm6hc/verification.json summary",
       "source_value": {
-        "pass": 633,
+        "pass": 1874,
         "fail": 1,
         "info": 32
       },
@@ -3199,16 +3579,16 @@
       "field": "manifest",
       "kind": "path",
       "target": "out/compact-kowa_lm6hc/manifest.json",
-      "recorded": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
-      "actual": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "recorded": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "actual": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "match": true
     },
     {
       "field": "selected_evidence",
       "kind": "path",
       "target": "out/compact-kowa_lm6hc/current-review-evidence.json",
-      "recorded": "8f3a46860619c02ad209b68f75e978550f30b507adddb95a3d21c42490839ce3",
-      "actual": "8f3a46860619c02ad209b68f75e978550f30b507adddb95a3d21c42490839ce3",
+      "recorded": "8fffa4f56f196d33e3ca84b835cfb88929b32a1ce523f24a00f9f3d4550dee7f",
+      "actual": "8fffa4f56f196d33e3ca84b835cfb88929b32a1ce523f24a00f9f3d4550dee7f",
       "match": true
     },
     {
@@ -3228,11 +3608,147 @@
       "match": true
     },
     {
+      "field": "variants.compact-kowa_lm6hc.manifest",
+      "kind": "path",
+      "target": "out/compact-kowa_lm6hc/manifest.json",
+      "recorded": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "actual": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "match": true
+    },
+    {
+      "field": "variants.compact-kowa_lm6hc.reports.verification.json",
+      "kind": "path",
+      "target": "out/compact-kowa_lm6hc/verification.json",
+      "recorded": "cb1dbe5b367de9582a1a2a1094237310f4a9911490d624064f60eeb9898a56ce",
+      "actual": "cb1dbe5b367de9582a1a2a1094237310f4a9911490d624064f60eeb9898a56ce",
+      "match": true
+    },
+    {
+      "field": "variants.compact-kowa_lm6hc.reports.check-scope-checks.json",
+      "kind": "path",
+      "target": "out/compact-kowa_lm6hc/check-scope-checks.json",
+      "recorded": "1a7985e429da3766808295e94ea2c6d7a219ae11788876de008336f8891fd9be",
+      "actual": "1a7985e429da3766808295e94ea2c6d7a219ae11788876de008336f8891fd9be",
+      "match": true
+    },
+    {
+      "field": "variants.compact-kowa_lm6hc.reports.print-checks.json",
+      "kind": "path",
+      "target": "out/compact-kowa_lm6hc/print-checks.json",
+      "recorded": "3b0b552197e3ecd8c436a12c4376175575c8d13a71955db867576953f4b041c0",
+      "actual": "3b0b552197e3ecd8c436a12c4376175575c8d13a71955db867576953f4b041c0",
+      "match": true
+    },
+    {
+      "field": "variants.compact-kowa_lm6hc.reports.shadow-plenum-checks.json",
+      "kind": "path",
+      "target": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
+      "recorded": "78fe122f605c701f0bf5eef984d63488ca64556ad8751c25f8d6cc2f9e160254",
+      "actual": "78fe122f605c701f0bf5eef984d63488ca64556ad8751c25f8d6cc2f9e160254",
+      "match": true
+    },
+    {
+      "field": "variants.compact-fujinon_hf6xa.manifest",
+      "kind": "path",
+      "target": "out/compact-fujinon_hf6xa/manifest.json",
+      "recorded": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+      "actual": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+      "match": true
+    },
+    {
+      "field": "variants.compact-fujinon_hf6xa.reports.verification.json",
+      "kind": "path",
+      "target": "out/compact-fujinon_hf6xa/verification.json",
+      "recorded": "f335a8599df6b15cd33e94796581320d4ca866ad8dda6592b050786417d71e6b",
+      "actual": "f335a8599df6b15cd33e94796581320d4ca866ad8dda6592b050786417d71e6b",
+      "match": true
+    },
+    {
+      "field": "variants.compact-fujinon_hf6xa.reports.check-scope-checks.json",
+      "kind": "path",
+      "target": "out/compact-fujinon_hf6xa/check-scope-checks.json",
+      "recorded": "12632263841f93c2b9b027faba849293f1d85091985f7b1f899c2c140462d12c",
+      "actual": "12632263841f93c2b9b027faba849293f1d85091985f7b1f899c2c140462d12c",
+      "match": true
+    },
+    {
+      "field": "variants.compact-fujinon_hf6xa.reports.print-checks.json",
+      "kind": "path",
+      "target": "out/compact-fujinon_hf6xa/print-checks.json",
+      "recorded": "ffca2aba1df38f49fd07cadadf7fe15c63328d753ee1fc1a19c442085e556802",
+      "actual": "ffca2aba1df38f49fd07cadadf7fe15c63328d753ee1fc1a19c442085e556802",
+      "match": true
+    },
+    {
+      "field": "variants.compact-fujinon_hf6xa.reports.shadow-plenum-checks.json",
+      "kind": "path",
+      "target": "out/compact-fujinon_hf6xa/shadow-plenum-checks.json",
+      "recorded": "f208f3c2b0bef814061735f064428543d45b7997839bd5efe814b021266d4fb2",
+      "actual": "f208f3c2b0bef814061735f064428543d45b7997839bd5efe814b021266d4fb2",
+      "match": true
+    },
+    {
+      "field": "variants.original-kowa_lm6hc.manifest",
+      "kind": "path",
+      "target": "out/original-kowa_lm6hc/manifest.json",
+      "recorded": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+      "actual": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+      "match": true
+    },
+    {
+      "field": "variants.original-kowa_lm6hc.reports.verification.json",
+      "kind": "path",
+      "target": "out/original-kowa_lm6hc/verification.json",
+      "recorded": "49b3f3aaea3c5c0bdd80766ca26bba37687b34cae544d49aa4c8145a3bffafe3",
+      "actual": "49b3f3aaea3c5c0bdd80766ca26bba37687b34cae544d49aa4c8145a3bffafe3",
+      "match": true
+    },
+    {
+      "field": "variants.original-kowa_lm6hc.reports.check-scope-checks.json",
+      "kind": "path",
+      "target": "out/original-kowa_lm6hc/check-scope-checks.json",
+      "recorded": "432a7fb9623de8bee13b5771331251e46b77f79bb7afe3faba48e4e13b350322",
+      "actual": "432a7fb9623de8bee13b5771331251e46b77f79bb7afe3faba48e4e13b350322",
+      "match": true
+    },
+    {
+      "field": "variants.original-kowa_lm6hc.reports.print-checks.json",
+      "kind": "path",
+      "target": "out/original-kowa_lm6hc/print-checks.json",
+      "recorded": "c8efae7c0220350ed3c8ede3ae730b793d41752ccbe73dbee274bc15e2b6d597",
+      "actual": "c8efae7c0220350ed3c8ede3ae730b793d41752ccbe73dbee274bc15e2b6d597",
+      "match": true
+    },
+    {
+      "field": "variants.original-kowa_lm6hc.reports.shadow-plenum-checks.json",
+      "kind": "path",
+      "target": "out/original-kowa_lm6hc/shadow-plenum-checks.json",
+      "recorded": "9f7a4cfadfaa3b7328abda380e145684a5627409ac6fbdaeef0201896340a081",
+      "actual": "9f7a4cfadfaa3b7328abda380e145684a5627409ac6fbdaeef0201896340a081",
+      "match": true
+    },
+    {
       "field": "guide.receipt",
       "kind": "path",
       "target": "guide/out-concealed-vents/guide-receipt.json",
-      "recorded": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce",
-      "actual": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce",
+      "recorded": "3320c47d680343f8e4acf2abb5938a7aca5a28622ea14aaba31d6f1e896610a0",
+      "actual": "3320c47d680343f8e4acf2abb5938a7aca5a28622ea14aaba31d6f1e896610a0",
+      "match": true
+    },
+    {
+      "field": "guide.visual_review",
+      "kind": "path",
+      "target": "guide/out-concealed-vents/visual-review-followup.json",
+      "recorded": "15451ffaf6593dd0e07605d42ba699c4b12aea43aebdf1c28d97bd27b1e57672",
+      "actual": "15451ffaf6593dd0e07605d42ba699c4b12aea43aebdf1c28d97bd27b1e57672",
+      "match": true
+    },
+    {
+      "field": "guide.post_guide_check",
+      "kind": "path",
+      "target": "guide/out-concealed-vents/post-guide-build-order-check.json",
+      "recorded": "f84d0298b28c15e6cc8d97a864aa407110d88135c92d2adfffea8d27da3c1b84",
+      "actual": "f84d0298b28c15e6cc8d97a864aa407110d88135c92d2adfffea8d27da3c1b84",
       "match": true
     },
     {

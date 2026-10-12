@@ -1,4 +1,4 @@
-"""Structural supplement from bound reports; natural pagination, no CAD or FEA.
+"""Structural supplement from bound reports; reviewed section breaks, no CAD or FEA.
 
 Build after plenum, coupons, structural calculation and check-scope, in that order.
 The receipt remains visually pending until every rendered page is inspected.
@@ -11,7 +11,7 @@ import hashlib
 import html
 import json
 from importlib.metadata import version
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
@@ -54,12 +54,47 @@ assert v['manifest_sha256'] == scope['manifest_sha256'] == d['manifest_sha256']
 assert audit['manifest_sha256'] == d['manifest_sha256'] and audit['scope'] == 'full'
 assert audit['verification_source_sha256'] == sha(C/'verify_candidate.py')
 assert audit['state_model_sha256'] == sha(C/'steps.py')
+require_hashes(m['sources'], C.parent)
+j7_context = [r for r in audit['checks'] if (r['category'], r['id']) == ('j7_float', 'camera_model_match')]
+assert len(j7_context) == 1 and j7_context[0]['status'] == 'pass', 'Missing current J7 source context'
+for field, path in (('j7_collar_checks_sha256', C/'j7_collar_checks.py'),
+                    ('steps_sha256', C/'steps.py'), ('r7_checks_sha256', C.parent/'checks.py')):
+    assert j7_context[0][field] == sha(path), 'Stale J7 helper: ' + field
 stub_rows = [r for r in audit['checks'] if r['category'] == 'roll_catch' and 'stub_case' in r]
-stub_windows = [r for r in stub_rows if r.get('item') == 'window']
-assert stub_windows, 'No current bonded-stub window rows'
-assert all(r['rule'] == 'centred >= 0.30, worst offset >= 0.10' for r in stub_windows), 'Reassess changed catch criterion'
+coverage_rows = [r for r in audit['checks'] if r['category'] == 'roll_catch' and r['id'] == 'stub_pose_coverage']
+assert len(coverage_rows) == 1, 'Missing current bonded-stub sampled-pose coverage'
+coverage = coverage_rows[0]
+assert coverage['status'] == 'pass' and not coverage['errors'], 'Incomplete bonded-stub pose coverage'
+feasibility = {r['stub_case']: r for r in stub_rows if r['item'] == 'stub_feasibility'}
+assert len(feasibility) == coverage['pose_count'] == len(coverage['cases'])
+assert set(feasibility) == set(coverage['cases']), 'Incomplete bonded-stub feasibility accounting'
+feasible_names = {name for name, row in feasibility.items() if row['feasible']}
+assert len(feasible_names) == coverage['feasible_count'], 'Inconsistent feasible-pose count'
+functional = [r for r in stub_rows if r['item'] in ('window', 'first_contact')]
+expected = {(item, float(s)) for item in ('window', 'first_contact') for s in coverage['s_values']}
+for name, row in feasibility.items():
+    actual = [(r['item'], float(r['s'])) for r in functional if r['stub_case'] == name]
+    if row['feasible'] or row.get('legacy'):
+        assert set(actual) == expected and len(actual) == len(expected), 'Incomplete functional rows: ' + name
+    else:
+        assert not actual, 'Infeasible new pose must remain a feasibility diagnostic: ' + name
+assert all(r['rule'] == 'centred >= 0.30, worst offset >= 0.10' for r in functional if r['item'] == 'window'), 'Reassess changed catch criterion'
+assert all(r['rule_margin_deg'] == 1.0 for r in functional if r['item'] == 'first_contact'), 'Reassess changed first-contact criterion'
+feasible_functional = [r for r in functional if r['stub_case'] in feasible_names]
+legacy_diagnostics = [r for r in functional if r['stub_case'] not in feasible_names]
+assert all(r.get('legacy_blocked_diagnostic') for r in legacy_diagnostics), 'Unclassified infeasible functional rows'
+legacy_blocked_count = sum(bool(row.get('legacy_blocked_diagnostic')) for row in feasibility.values())
+stub_windows = [r for r in feasible_functional if r['item'] == 'window']
+stub_contacts = [r for r in feasible_functional if r['item'] == 'first_contact']
+assert stub_windows and stub_contacts, 'No physically feasible sampled bonded-stub functional rows'
 stub_minimum = min(r['worst_gap'] for r in stub_windows)
-stub_passes = sum(r['status'] == 'pass' for r in stub_rows)
+stub_centred_minimum = min(r['centred_gap'] for r in stub_windows)
+stub_max_joint_face_gap = max(feasibility[name]['joint_face_gap_range_mm'][1] for name in feasible_names)
+stub_axial_reference = abs(feasibility['P_underseat_zminus']['shift_mm'][2])
+stub_window_passes = sum(r['status'] == 'pass' for r in stub_windows)
+stub_contact_passes = sum(r['status'] == 'pass' for r in stub_contacts)
+catch_failures = [r['id'] for r in audit['checks'] if r['category'] == 'roll_catch' and r['status'] == 'fail']
+audit_failures = sum(r['status'] == 'fail' for r in audit['checks'])
 assert d['verification_source_sha256'] == sha(P/'update_concealed_vent_structure.py')
 assert d['inherited_gates'] == structural.ER.inherited_gates(C), 'Inherited gate context is stale'
 assert v['verification_source_sha256'] == sha(C/'verify_shadow_plenum.py')
@@ -86,6 +121,8 @@ for name in ('cold_path_min_cut', 'hot_path_min_cut', 'hot_branch_series'):
 sources = [P/'CONCEALED-VENT-STRUCTURAL.md', P/'concealed-vent-structural.json',
            P/'update_concealed_vent_structure.py', P/'reference-export18-structural-binding.json',
            manifest_path, vr, scope_path, audit_path, C/'verify_candidate.py', C/'steps.py', Path(__file__),
+           C/'j7_collar_checks.py', C.parent/'checks.py',
+           C/'review-2026-10-12-corrective/catch-extended/catch_extended_cases.py',
            C/'corrective-2026-10-12/RESEARCH-INTEGRATION.md',
            C/'corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt',
            C/'corrective-2026-10-12/cooler-baseline-evidence.docx',
@@ -209,13 +246,29 @@ add(structural.blocked_hot_mouth_description(context))
 add('Test unobstructed operation, normal hand positions, fitted straps and stand/support contacts separately. External bay '
     'separation excludes the main cavity and does not seal the baffle, CSI bypass or grip communication. Actual cooler '
     'registration, lead sweep, complete wiring, useful flow, SSD temperature and closed-body battery temperature remain open.')
-add('Materials bonds and ribbon evidence', 'h')
+add('Bonded catch geometry and sampled checks', 'h')
 add(structural.selected_catch_description(context))
-add(f"The current full main audit records {stub_passes}/{len(stub_rows)} passing bonded-stub checks. "
-    f"Its minimum reported tilted-window clearance is {stub_minimum:.3f} mm against the unchanged 0.100 mm criterion, "
-    f"giving {stub_minimum - 0.100:.3f} mm nominal headroom. This small modeled margin does not establish tolerance-robust "
-    'manufacture. Print variation, seating, adhesive film/cure, datum movement and warm creep remain physical HOLDs.')
+add(f"The current full compact Kowa audit assesses {coverage['pose_count']} sampled insert poses: "
+    f"{len(feasible_names)} are physically feasible in the model and {len(feasibility) - len(feasible_names)} are blocked "
+    f"feasibility diagnostics. Across {len(coverage['s_values'])} BFAR positions per feasible pose, "
+    f"{stub_window_passes}/{len(stub_windows)} window checks and {stub_contact_passes}/{len(stub_contacts)} first-contact "
+    f"checks pass. The catch category retains {len(catch_failures)} failing rows; the full audit retains {audit_failures} "
+    'failing check rows overall. These counts do not qualify physical manufacture.')
+if legacy_diagnostics:
+    add(f"The audit also retains {len(legacy_diagnostics)} diagnostic functional rows for {legacy_blocked_count} "
+        + ('infeasible legacy pose' if legacy_blocked_count == 1 else 'infeasible legacy poses')
+        + '. Those rows are outside the feasible-pose counts above.', 'small')
+add(f"The minimum sampled worst-offset window clearance is {stub_minimum:.3f} mm against the unchanged 0.100 mm criterion, "
+    f"giving {stub_minimum - 0.100:.3f} mm sampled headroom. Minimum centred clearance is {stub_centred_minimum:.3f} mm "
+    'against 0.300 mm; the first-contact angular margin rule remains 1.0 degree. Finite sampled tilts, yaw, translations '
+    'and coupled poses do not prove exhaustive tolerance or withdrawal coverage. Print variation, seating, adhesive '
+    'film/cure, datum movement and warm creep remain physical HOLDs.')
 add(structural.bonded_coupon_description(bonded_coupon))
+add(f"The {stub_axial_reference:g} mm axial underseating reference is not a bound on rotated joint-face opening: "
+    f"feasible sampled poses reach {stub_max_joint_face_gap:.3f} mm local separation. This modeled opening does not "
+    'specify or qualify an adhesive bondline, cure fixture or metrology process.', 'small')
+story.append(PageBreak())
+add('Material inputs and physical qualification', 'h')
 add(f"The mass model retains ASA {mat['inherited_g_cm3']:.2f} g/cm3 and the empirical 0.85 factor. Polymaker's reference density "
     f"is {mat['manufacturer_reference_g_cm3']:.2f} g/cm3: <b>+{mat['contribution_change_percent']:.1f}% to the ASA contribution</b> "
     'at fixed volume and factor. This is not the same percentage increase in complete-camera mass, and no new grade or density '
@@ -223,8 +276,9 @@ add(f"The mass model retains ASA {mat['inherited_g_cm3']:.2f} g/cm3 and the empi
 add('Retain E=0.8/1.6/2.4 GPa and 5/10/20/30 MPa strength scenarios as sensitivities only. Published tensile results and HDT '
     'do not establish D2 allowables, warm creep, loaded-service temperature or a safety factor. Exact filament grade/process, '
     'epoxy SKU/preparation/bondline/cure and the actual camera, HDMI and OLED ribbon minimum bend radii remain unknown.')
-add('A deeper bonded engagement may improve the geometric tolerance screen while retaining its datum-tilt test; it still needs '
-    'production-pose coupons with the selected epoxy, hot dwell and measured permanent shift. No supplier ribbon bend limit '
+add('This followup retains the 10 mm tenon and pocket, recesses the lower working face by 0.15 mm within the same envelope, '
+    'and adds a host-only 1 x 0.4 mm adhesive escape groove. It still needs production-pose coupons with the selected '
+    'epoxy, reviewed fixture, actual cure, hot dwell and measured permanent shift. No supplier ribbon bend limit '
     'is inferred from a different cable family. Confirm seating, latch access, strain relief, continuity and full-mode operation '
     'on the actual routed parts.')
 add('Source identity and research applicability', 'h')
@@ -264,13 +318,27 @@ required = [f"{A['current_mass_g']:.2f} g", f"{L['proposed_rounded_equal_share_s
             f"{L['all_variants_screen_Nm']:.2f} N m", f"{context['coupons']['count']} source-bound",
             f"{context['physical_print_pieces']} physical production prints", f"{mat['manufacturer_reference_g_cm3']:.2f} g/cm3",
             f"+{mat['contribution_change_percent']:.1f}%",
-            d['manifest_sha256'], gates_text, 'PRINT AND POWER HOLD', f'{stub_minimum:.3f} mm', f'{stub_minimum - 0.100:.3f} mm nominal headroom']
+            d['manifest_sha256'], gates_text, 'PRINT AND POWER HOLD', f'{stub_minimum:.3f} mm',
+            f'{stub_minimum - 0.100:.3f} mm sampled headroom',
+            f"{coverage['pose_count']} sampled insert poses", f"{len(feasible_names)} are physically feasible",
+            f'{stub_window_passes}/{len(stub_windows)} window checks',
+            f'{stub_contact_passes}/{len(stub_contacts)} first-contact checks',
+            'do not prove exhaustive tolerance or withdrawal coverage']
 required += [f"{flow[name]['min_cut_mm2']:.2f} / {flow[name]['wall_ports_mm2']:.2f} mm2"
              for name in ('cold_path_min_cut', 'hot_path_min_cut')]
 for token in required:
     assert token in text, 'Missing PDF text: ' + token
 receipt = {'artifact': PDF.name, 'pdf_sha256': sha(PDF), 'pages': len(reader.pages),
            'manifest_sha256': d['manifest_sha256'], 'source_sha256': start,
+           'catch_summary': {'sampled_poses': coverage['pose_count'], 'feasible_poses': len(feasible_names),
+               'blocked_poses': len(feasibility) - len(feasible_names), 'bfar_positions': len(coverage['s_values']),
+               'window_passes': stub_window_passes, 'window_checks': len(stub_windows),
+               'first_contact_passes': stub_contact_passes, 'first_contact_checks': len(stub_contacts),
+               'legacy_blocked_poses': legacy_blocked_count, 'legacy_diagnostic_functional_rows': len(legacy_diagnostics),
+               'minimum_worst_gap_mm': stub_minimum, 'minimum_centred_gap_mm': stub_centred_minimum,
+               'maximum_joint_face_gap_mm': stub_max_joint_face_gap, 'axial_underseating_reference_mm': stub_axial_reference,
+               'catch_failing_rows': catch_failures, 'full_audit_failure_count': audit_failures,
+               'exhaustive_tolerance_proof': False, 'physical_qualified': False},
            'document_toolchain': {'pypdf': version('pypdf'), 'reportlab': version('reportlab')},
            'text_checks_pass': True, 'text_checks': required,
            'visual_review': 'pending PNG inspection', 'physical_qualified': False}

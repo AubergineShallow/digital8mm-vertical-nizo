@@ -1,0 +1,361 @@
+{
+  "constraints": {
+    "allowed_family_min_plus_longest_branch_mm": 215.0,
+    "branch_geometry": "Unchanged source roots and curves from signal_routes.py.",
+    "centerline_radius_mm": 6.4,
+    "destination_root": [
+      -72.0,
+      14.8,
+      77.0
+    ],
+    "destination_tangent": "+X",
+    "first_straight_min_mm": 3.0,
+    "installed_capsule_d_mm": 3.4,
+    "installed_capsule_simplification_mm": 0.1,
+    "installed_hit_tolerance_mm3": 0.01,
+    "last_straight_min_mm": 4.0,
+    "longest_branch_mm": 43.071861818216426,
+    "main_od_mm": 3.2,
+    "nominal_stock_mm": 250.0,
+    "purchased_stock_range_mm": [
+      240.0,
+      260.0
+    ],
+    "rounded_path_sample_step_mm": 0.5,
+    "route_allowance_mm": 25.0,
+    "separation_simplification_mm": 0.01,
+    "source_root": [
+      -45.445,
+      -23.4,
+      37.0
+    ],
+    "source_tangent": "+Z"
+  },
+  "decision": "Retain the selected installed-family QT length failure. No route, branch, purchased lead or allowance was changed.",
+  "inputs_sha256": {
+    "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "../run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+    "harness_rules.py": "f163f65c24960995539f9489005f5995de1e8a42f97a2ba8afcd00cd84683b00",
+    "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
+    "out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+    "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
+    "steps.py": "e50e72a2832fef47620d951ce581d9c6f89ef27a5cf88b79bec215feacbd48f2",
+    "tests/test_fxh_harness.py": "53a41800a0e54a5387874c954b57681316e5e606f8aa6beac1cc50a4c420a504"
+  },
+  "limitations": [
+    "Only the two listed knot families were studied. This is not proof that all alternative routes are infeasible.",
+    "Actual generated installed, premate and unplugged HDMI cells and FPS pair keepout were retained.",
+    "Modeled neighbor cable centerlines, including the current power pigtails and FPC round reserve, were retained.",
+    "Printed and purchased-part exact solid intersections were not run. No Pi or cooler clearance pass is claimed.",
+    "Only the stated bounds and 240/250/260 mm members were screened; continuous motion, self-clearance, guides and actual hardware are not qualified.",
+    "The first candidate has an invalid bound, so its 240/250/260 mm members were not solved or screened.",
+    "Reported cable distances are the checker output rounded to 0.01 mm, not unrounded metrology."
+  ],
+  "measurements": {
+    "candidates": [
+      {
+        "bounds": [
+          {
+            "cable_overlaps": [
+              "pigtail_negative 2.20 < 3.20 mm"
+            ],
+            "errors": [],
+            "keepout_hits": {},
+            "knots": [
+              [
+                -45.445,
+                -23.4,
+                37.0
+              ],
+              [
+                -45.445,
+                -23.4,
+                75.0
+              ],
+              [
+                -72.5,
+                -23.4,
+                75.0
+              ],
+              [
+                -72.5,
+                -19.7,
+                27.5
+              ],
+              [
+                -93.2,
+                -19.7,
+                27.5
+              ],
+              [
+                -93.2,
+                -23.4,
+                68.0
+              ],
+              [
+                -93.2,
+                14.8,
+                68.0
+              ],
+              [
+                -85.0,
+                14.8,
+                77.0
+              ],
+              [
+                -72.0,
+                14.8,
+                77.0
+              ]
+            ],
+            "low": 27.5,
+            "total_mm": 263.0638864657649
+          },
+          {
+            "errors": [
+              "leg 4: 13.324 mm available, 14.912 mm required by bends and straight tails"
+            ],
+            "knots": [
+              [
+                -45.445,
+                -23.4,
+                37.0
+              ],
+              [
+                -45.445,
+                -23.4,
+                75.0
+              ],
+              [
+                -72.5,
+                -23.4,
+                75.0
+              ],
+              [
+                -72.5,
+                -19.7,
+                55.2
+              ],
+              [
+                -93.2,
+                -19.7,
+                55.2
+              ],
+              [
+                -93.2,
+                -23.4,
+                68.0
+              ],
+              [
+                -93.2,
+                14.8,
+                68.0
+              ],
+              [
+                -85.0,
+                14.8,
+                77.0
+              ],
+              [
+                -72.0,
+                14.8,
+                77.0
+              ]
+            ],
+            "low": 55.2,
+            "total_mm": null
+          }
+        ],
+        "cross": 68.0,
+        "low_bounds": [
+          27.5,
+          55.2
+        ],
+        "name": "fixed_top_75_lateral_lower_return",
+        "return_y": -19.7,
+        "stock": [],
+        "top": 75.0
+      },
+      {
+        "bounds": [
+          {
+            "cable_overlaps": [
+              "pigtail_positive 1.06 < 3.20 mm"
+            ],
+            "errors": [],
+            "keepout_hits": {},
+            "knots": [
+              [
+                -45.445,
+                -23.4,
+                37.0
+              ],
+              [
+                -45.445,
+                -23.4,
+                90.5
+              ],
+              [
+                -72.5,
+                -23.4,
+                90.5
+              ],
+              [
+                -72.5,
+                -23.4,
+                44.0
+              ],
+              [
+                -93.2,
+                -23.4,
+                44.0
+              ],
+              [
+                -93.2,
+                -23.4,
+                80.0
+              ],
+              [
+                -93.2,
+                14.8,
+                80.0
+              ],
+              [
+                -85.0,
+                14.8,
+                77.0
+              ],
+              [
+                -72.0,
+                14.8,
+                77.0
+              ]
+            ],
+            "low": 44.0,
+            "total_mm": 270.2536964974167
+          },
+          {
+            "cable_overlaps": [
+              "pigtail_positive 1.06 < 3.20 mm"
+            ],
+            "errors": [],
+            "keepout_hits": {},
+            "knots": [
+              [
+                -45.445,
+                -23.4,
+                37.0
+              ],
+              [
+                -45.445,
+                -23.4,
+                90.5
+              ],
+              [
+                -72.5,
+                -23.4,
+                90.5
+              ],
+              [
+                -72.5,
+                -23.4,
+                67.2
+              ],
+              [
+                -93.2,
+                -23.4,
+                67.2
+              ],
+              [
+                -93.2,
+                -23.4,
+                80.0
+              ],
+              [
+                -93.2,
+                14.8,
+                80.0
+              ],
+              [
+                -85.0,
+                14.8,
+                77.0
+              ],
+              [
+                -72.0,
+                14.8,
+                77.0
+              ]
+            ],
+            "low": 67.2,
+            "total_mm": 223.8536964974167
+          }
+        ],
+        "cross": 80.0,
+        "low_bounds": [
+          44.0,
+          67.2
+        ],
+        "name": "raise_cross_80",
+        "return_y": -23.4,
+        "stock": [
+          {
+            "cable_overlaps": [
+              "pigtail_positive 1.06 < 3.20 mm"
+            ],
+            "errors": [],
+            "keepout_hits": {},
+            "low": 59.12684824870632,
+            "stock_mm": 240,
+            "total_mm": 240.00000000000404
+          },
+          {
+            "cable_overlaps": [
+              "pigtail_positive 1.06 < 3.20 mm"
+            ],
+            "errors": [],
+            "keepout_hits": {},
+            "low": 54.126848248701215,
+            "stock_mm": 250,
+            "total_mm": 250.00000000001427
+          },
+          {
+            "cable_overlaps": [
+              "pigtail_positive 1.06 < 3.20 mm"
+            ],
+            "errors": [],
+            "keepout_hits": {},
+            "low": 49.12684824871722,
+            "stock_mm": 260,
+            "total_mm": 259.99999999998226
+          }
+        ],
+        "top": 90.5
+      }
+    ],
+    "longest_branch_mm": 43.071861818216426,
+    "root": [
+      -45.445,
+      -23.4,
+      37.0
+    ],
+    "scope": "Two read-only knot-family screens, no routing or stock changes; keepouts plus modeled cable separation, not exact printed/COTS clearance."
+  },
+  "provenance": {
+    "durable_save": "No new solve, sweep or optimization was performed when saving this record.",
+    "durable_source_sha256": "6a9faeb81b81a9e9d2c9d750a75156b56f25fae9f6b0ce0428b6f13fb1600b0a",
+    "executed_source_sha256": "e0a07937b5391a4c9c71af29b469d5a5d570b06282f2f2205f82e095c788afc7",
+    "execution": "One completed probe through run_locked.py; measurements transcribed unchanged from captured JSON stdout.",
+    "input_binding": "Hashes captured at durable save after the completed run, before production evidence refresh; the selected manifest remains 294220bc.",
+    "source_difference": "The durable source adds only the SPDX/header docstring to the executed script; numerical code is unchanged."
+  },
+  "schema_version": 1,
+  "status": "both candidates rejected; selected route unchanged"
+}

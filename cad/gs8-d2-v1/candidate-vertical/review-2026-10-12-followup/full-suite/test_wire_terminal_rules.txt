@@ -1,0 +1,10 @@
+test_entries_at_both_ends_pass (__main__.TerminalRule.test_entries_at_both_ends_pass) ... ok
+test_entry_longer_than_its_limit_fails (__main__.TerminalRule.test_entry_longer_than_its_limit_fails) ... ok
+test_limits_come_from_the_snapshot (__main__.TerminalRule.test_limits_come_from_the_snapshot) ... ok
+test_verifier_uses_the_rule (__main__.TerminalRule.test_verifier_uses_the_rule) ... ok
+test_wire_inside_the_part_end_to_end_fails (__main__.TerminalRule.test_wire_inside_the_part_end_to_end_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

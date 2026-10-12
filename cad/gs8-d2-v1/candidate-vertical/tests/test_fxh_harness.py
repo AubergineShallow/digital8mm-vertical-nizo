@@ -149,6 +149,12 @@ class TestStowMembers(unittest.TestCase):
 class TestReleasedQTMinimum(unittest.TestCase):
     """Review CHE-1 / GEO-5: the QT length gate is judged at the shortest member of the installed storage family (r7
     rule); the separately authored released pose is a PROPOSED rule change reported as info, never the gate."""
+    def _sweep(self, H, hits=NO_HITS, extra=()):
+        q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+        before = copy.deepcopy(q)
+        HR.apply_member_clearance([q], H, R.rounded_path, set(ST.final_state()) | set(extra), hits)
+        return q, before
+
     def test_installed_family_gates_with_or_without_the_released_pose(self):
         for keep in (True, False):
             H = data()
@@ -160,6 +166,181 @@ class TestReleasedQTMinimum(unittest.TestCase):
             self.assertAlmostEqual(q['min_route_mm'], 238.99, delta=0.05)
             self.assertEqual('released_minimum' in q['basis'], keep)
             self.assertEqual('proposed_rule_change' in q, keep)
+            swept, before = self._sweep(H)
+            self.assertGreater(swept['member_clearance']['pieces'], 0)
+            self.assertEqual(swept['problems'], before['problems'])
+            self.assertEqual(swept['status'], 'fail')
+
+    def test_length_failure_and_clear_sweeps_are_independent(self):
+        q, before = self._sweep(data())
+        self.assertEqual(q['problems'], before['problems'])
+        self.assertEqual(q['status'], 'fail')
+        self.assertEqual((q['allowance_mm'], q['length_min_mm']), (25.0, 240.0))
+        self.assertAlmostEqual(q['min_route_mm'], 238.99, delta=0.05)
+        self.assertAlmostEqual(q['basis']['longest_branch_mm'], 43.072, delta=0.005)
+        mc = q['member_clearance']
+        self.assertEqual((mc['value'], mc['use']), (55.2, 'shortest member (the minimum route)'))
+        self.assertEqual((mc['hits'], mc['member_errors']), ({}, []))
+        self.assertTrue(mc['installed_targets'])
+        self.assertEqual(mc['hit_tolerance_mm3'], HR.INSTALLED_TOL)
+        self.assertEqual(mc['cable_separation_status'], 'checked')
+        self.assertIn('pigtail_positive', mc['cable_separation'])
+        self.assertEqual(mc['cable_overlaps'], [])
+        self.assertGreater(mc['pieces'], 0)
+        pending = before['basis']['released_minimum']
+        self.assertTrue(pending['length_only_passes'])
+        self.assertFalse(pending['would_pass_length_gate'])
+        self.assertEqual(pending['clearance_status'], 'not_checked')
+        rel = q['basis']['released_minimum']
+        self.assertTrue(rel['would_pass_length_gate'], rel['problems'])
+        self.assertEqual((rel['status'], rel['gating'], rel['clearance_status']), ('info', False, 'pass'))
+        self.assertGreater(rel['member_clearance']['pieces'], 0)
+
+    def test_length_failure_keeps_shortest_member_collision(self):
+        H = data()
+        c = H['cables']['qt']
+        shortest = HR.family_range(R.rounded_path, c['curve'], c['family'])['min_at']
+        pts = HR.family_eval(R.rounded_path, c['curve'], c['family'], shortest)['points']
+        H['boxes']['zz_minimum'] = cube(max(pts, key=lambda p: p[2]))
+        H['kinds']['zz_minimum'] = 'printed'
+        q, before = self._sweep(H, only('zz_minimum'), ('zz_minimum',))
+        self.assertEqual(q['status'], 'fail')
+        self.assertEqual(q['problems'][:len(before['problems'])], before['problems'])
+        self.assertIn('zz_minimum', q['member_clearance']['hits'])
+        self.assertTrue(any('shortest member' in p for p in q['problems']))
+        self.assertEqual(q['basis']['released_minimum']['clearance_status'], 'pass')
+
+    def test_shortest_member_sweeps_hdmi_and_fps_keepouts(self):
+        for kind in ('hdmi', 'fps'):
+            with self.subTest(kind=kind):
+                H = data()
+                c = H['cables']['qt']
+                shortest = HR.family_range(R.rounded_path, c['curve'], c['family'])['min_at']
+                pts = HR.family_eval(R.rounded_path, c['curve'], c['family'], shortest)['points']
+                p = pts[len(pts) // 2]
+                if kind == 'hdmi':
+                    H['hdmi_cells'].append(cube(p))
+                else:
+                    H['fps_pair_box'] = cube(p)
+                q, before = self._sweep(H, KEEPOUTS)
+                mc = q['member_clearance']
+                self.assertEqual(mc['value'], 55.2)
+                self.assertTrue(mc['installed_targets'])
+                self.assertIn('hdmi_ribbon' if kind == 'hdmi' else 'fps_mated_pair', mc['hits'])
+                self.assertEqual(q['problems'][:len(before['problems'])], before['problems'])
+                self.assertEqual(q['status'], 'fail')
+
+    def test_shortest_member_cable_overlap_fails_without_solid_hits(self):
+        H = data()
+        c = H['cables']['qt']
+        shortest = HR.family_range(R.rounded_path, c['curve'], c['family'])['min_at']
+        pts = HR.family_eval(R.rounded_path, c['curve'], c['family'], shortest)['points']
+        p = pts[len(pts) // 2]
+        H['signal_branches'].append(dict(id='zz_minimum', od_mm=1.6,
+                                         points=[[p[0] - 1., p[1], p[2]], [p[0] + 1., p[1], p[2]]]))
+        q, before = self._sweep(H)
+        mc = q['member_clearance']
+        self.assertEqual(mc['hits'], {})
+        self.assertTrue(any('header_branch:zz_minimum' in v for v in mc['cable_overlaps']))
+        self.assertLess(mc['cable_separation']['header_branch:zz_minimum']['min_centreline_mm'], 2.4)
+        self.assertTrue(any('overlaps header_branch:zz_minimum' in p for p in q['problems']))
+        self.assertEqual(q['problems'][:len(before['problems'])], before['problems'])
+        self.assertEqual(q['status'], 'fail')
+
+    def test_earlier_endpoint_failure_is_never_overwritten(self):
+        H = data()
+        H['housings'][H['cables']['qt']['branches'][0]['id']]['box'] = [1000., 1001.] * 3
+        q, before = self._sweep(H)
+        self.assertTrue(any('route ends' in p for p in before['problems']))
+        self.assertTrue(any('allowance' in p for p in before['problems']))
+        self.assertEqual(q['problems'], before['problems'])
+        self.assertEqual(q['status'], 'fail')
+
+    def test_missing_installed_geometry_stays_failed_without_false_sweep(self):
+        for kind in ('errors', 'points'):
+            with self.subTest(kind=kind):
+                H = data()
+                H['cables']['qt'][kind] = ['invalid installed curve'] if kind == 'errors' else []
+                q, before = self._sweep(H, lambda spec, targets: self.fail('no valid member to sweep'))
+                self.assertEqual(q, before)
+                self.assertEqual(q['status'], 'fail')
+                self.assertNotIn('member_clearance', q)
+
+    def test_invalid_family_member_keeps_original_failure(self):
+        H = data()
+        H['cables']['qt']['curve']['centerline_radius_mm'] = 100.0
+        q, before = self._sweep(H)
+        self.assertIn('no valid family member at the solver bounds', q['problems'])
+        self.assertEqual(q['problems'][:len(before['problems'])], before['problems'])
+        self.assertTrue(q['member_clearance']['member_errors'])
+        self.assertEqual(q['member_clearance']['pieces'], 0)
+        self.assertEqual(q['member_clearance']['cable_separation_status'], 'not_checked_invalid_member')
+        self.assertEqual(q['member_clearance']['cable_separation'], {})
+        self.assertEqual(q['status'], 'fail')
+
+    def test_invalid_released_geometry_is_info_and_cannot_claim_a_pass(self):
+        for kind in ('missing_knots', 'empty_knots', 'duplicate_knots', 'nan', 'missing_radius', 'bad_bends'):
+            with self.subTest(kind=kind):
+                H = data()
+                c = H['cables']['qt']['released_minimum_curve']
+                if kind == 'missing_knots': c.pop('knots')
+                elif kind == 'empty_knots': c['knots'] = []
+                elif kind == 'duplicate_knots': c['knots'][1] = c['knots'][0][:]
+                elif kind == 'nan': c['knots'][1][0] = float('nan')
+                elif kind == 'missing_radius': c.pop('centerline_radius_mm')
+                else: c['centerline_radius_mm'] = 100.0
+                q, before = self._sweep(H)
+                self.assertEqual(q['problems'], before['problems'])
+                self.assertEqual(q['status'], 'fail')
+                self.assertGreater(q['member_clearance']['pieces'], 0)
+                rel = q['basis']['released_minimum']
+                self.assertEqual((rel['status'], rel['gating'], rel['clearance_status']),
+                                 ('info', False, 'invalid_geometry'))
+                self.assertTrue(rel['problems'])
+                self.assertFalse(rel['would_pass_length_gate'])
+                self.assertNotIn('member_clearance', rel)
+
+    def test_released_geometry_removed_before_sweep_fails_closed(self):
+        H = data()
+        q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+        H['cables']['qt']['released_minimum_curve'] = None
+        HR.apply_member_clearance([q], H, R.rounded_path, set(ST.final_state()), NO_HITS)
+        rel = q['basis']['released_minimum']
+        self.assertEqual(rel['clearance_status'], 'invalid_geometry')
+        self.assertFalse(rel['would_pass_length_gate'])
+        self.assertGreater(q['member_clearance']['pieces'], 0)
+
+    def test_released_sweep_rebuilds_samples_from_the_checked_knots(self):
+        H = data()
+        c = H['cables']['qt']
+        p = c['released_minimum_curve']['sampled_centerline'][100]
+        H['boxes']['zz_released'] = cube(p)
+        H['kinds']['zz_released'] = 'printed'
+        c['released_minimum_curve']['sampled_centerline'] = []
+        c['sweep_points'] = [[1000., 0., 0.], [1001., 0., 0.]]
+        q, _ = self._sweep(H, only('zz_released'), ('zz_released',))
+        rel = q['basis']['released_minimum']
+        self.assertIn('zz_released', rel['member_clearance']['hits'])
+        self.assertFalse(rel['would_pass_length_gate'])
+
+    def test_informational_collision_does_not_fail_the_installed_length_row(self):
+        H = data()
+        c = H['cables']['qt']
+        c['length_range'] = (300.0, 300.0)   # synthetic positive length control; purchased spec is unchanged
+        shortest = HR.family_range(R.rounded_path, c['curve'], c['family'])['min_at']
+        installed = HR.family_eval(R.rounded_path, c['curve'], c['family'], shortest)['points']
+        p = max(c['released_minimum_curve']['sampled_centerline'],
+                key=lambda p: HR.nearest_on_polyline(installed, p)[2])
+        self.assertGreater(HR.nearest_on_polyline(installed, p)[2], 4.0)
+        H['boxes']['zz_released'] = cube(p)
+        H['kinds']['zz_released'] = 'printed'
+        q, before = self._sweep(H, only('zz_released'), ('zz_released',))
+        self.assertEqual(before['status'], 'pass')
+        self.assertEqual(q['status'], 'pass', q['problems'])
+        rel = q['basis']['released_minimum']
+        self.assertIn('zz_released', rel['member_clearance']['hits'])
+        self.assertEqual((rel['status'], rel['gating'], rel['clearance_status']), ('info', False, 'fail'))
+        self.assertFalse(rel['would_pass_length_gate'])
 
     def test_released_minimum_must_keep_root_and_radius(self):
         for kind in ('root', 'radius'):
@@ -188,11 +369,46 @@ class TestReleasedQTMinimum(unittest.TestCase):
         self.assertIn('zz_released', rel['member_clearance']['hits'])
         self.assertFalse(rel['would_pass_length_gate'])
         self.assertEqual(rel['status'], 'info')
+        self.assertFalse(rel['gating'])
+        self.assertEqual(rel['clearance_status'], 'fail')
         self.assertEqual(q['member_clearance']['use'], 'shortest member (the minimum route)')   # gating member swept
         self.assertEqual(q['status'], 'fail')
 
 
 class TestInstalledSweepEveryRoute(unittest.TestCase):
+    def test_failed_qt_length_row_still_receives_installed_sweep(self):
+        for collision in (False, True):
+            with self.subTest(collision=collision):
+                H = data()
+                pts = H['cables']['qt']['points']
+                H['boxes']['zz_installed'] = cube(at_s(pts, HR.arc_length(pts) / 2))
+                H['kinds']['zz_installed'] = 'printed'
+                q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+                before = copy.deepcopy(q['problems'])
+                HR.apply_installed_clearance([q], H, set(ST.final_state()) | {'zz_installed'},
+                                             only('zz_installed') if collision else NO_HITS)
+                self.assertEqual(q['status'], 'fail')
+                self.assertEqual(q['problems'][:len(before)], before)
+                self.assertGreater(q['installed_clearance']['pieces'], 0)
+                self.assertEqual('zz_installed' in q['installed_clearance']['hits'], collision)
+                if collision:
+                    self.assertTrue(any('installed route intersects' in p for p in q['problems']))
+                else:
+                    self.assertEqual(q['problems'], before)
+
+    def test_missing_qt_geometry_cannot_claim_installed_clearance(self):
+        for kind in ('errors', 'points'):
+            with self.subTest(kind=kind):
+                H = data()
+                H['cables']['qt'][kind] = ['invalid installed curve'] if kind == 'errors' else []
+                q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+                before = copy.deepcopy(q)
+                HR.apply_installed_clearance([q], H, set(ST.final_state()),
+                                             lambda spec, targets: self.fail('no valid installed route to sweep'))
+                self.assertEqual(q, before)
+                self.assertEqual(q['status'], 'fail')
+                self.assertNotIn('installed_clearance', q)
+
     def test_every_routed_cable_is_swept(self):
         for cid, c in HR.CABLES.items():
             if 'delegated' not in c:
@@ -410,6 +626,26 @@ class TestBoundReport(unittest.TestCase):
         self.rep = json.loads(read_text(REPORT))
         if 'stow_members' not in row(self.rep['checks'], 'qt', 'cable_stow'):
             self.skipTest('harness-checks.json predates FX-H')
+
+    def test_failed_qt_length_row_contains_both_independent_sweeps(self):
+        r = row(self.rep['checks'], 'qt', 'cable_routes')
+        self.assertEqual(r['status'], 'fail')
+        self.assertAlmostEqual(r['min_route_mm'], 238.99, delta=0.05)
+        self.assertEqual((r['allowance_mm'], r['length_min_mm']), (25.0, 240.0))
+        self.assertTrue(any('allowance' in p for p in r['problems']))
+        self.assertEqual(r['member_clearance']['value'], 55.2)
+        self.assertGreater(r['member_clearance']['pieces'], 0)
+        self.assertTrue(r['member_clearance']['installed_targets'])
+        self.assertEqual(r['member_clearance']['hit_tolerance_mm3'], HR.INSTALLED_TOL)
+        self.assertEqual(r['member_clearance']['cable_separation_status'], 'checked')
+        self.assertEqual(r['member_clearance']['targets'], r['installed_clearance']['targets'])
+        self.assertIn('pigtail_positive', r['member_clearance']['cable_separation'])
+        rel = r['basis']['released_minimum']
+        self.assertEqual((rel['status'], rel['gating']), ('info', False))
+        self.assertIn(rel['clearance_status'], ('pass', 'fail'))
+        self.assertGreater(rel['member_clearance']['pieces'], 0)
+        self.assertEqual(rel['would_pass_length_gate'],
+                         rel['length_only_passes'] and not rel['problems'] and rel['clearance_status'] == 'pass')
 
     def test_corrected_qt_stow_passes_exact_sweeps(self):
         r = row(self.rep['checks'], 'qt', 'cable_stow')

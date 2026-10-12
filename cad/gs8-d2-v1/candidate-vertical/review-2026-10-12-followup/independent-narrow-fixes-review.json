@@ -1,0 +1,48 @@
+{
+  "reviewed_utc": "2026-10-12T19:17:16.337935+00:00",
+  "scope": "Independent static actual-diff review of narrow regression/tooling fixes and proposed scalar-FPS package binding patch",
+  "decision": "Approved within stated scope, subject to pending correction and validation; not a final full-suite pass",
+  "reviewed_file_sha256": {
+    "make_repo_index.py": "5b20c9bbae89cbcfd4561806f01f3a381ccc456f058a20d89c7c37fd3d83c7f6",
+    "tests/test_repo_hygiene.py": "b523469e98ece4d30859b521be56b177adf097e4ed02e806b14db520122fb0a3",
+    "tests/_evidence_fixture.py": "32c89bd1c048531fb5038c613dd430a8fdd0252aaa368ce8bbbb9513ce192c37",
+    "tests/test_critical_features_cf.py": "d67722b44c146572243108140dd4322a0231847f2bfad450b08c4d1577ed555c",
+    "tests/test_fx_fixup.py": "799293efb32f94a4e4cb9dc74afe298dcca92b23c2f3531138fbbdf6f103cba7",
+    "history/stale-selected-reports-2026-10-10/INDEX.json": "8f52b9e3318b1a1e280b13f56a931be06f2a864601d3f0f3e70456dd6fe34b66",
+    "corrective-2026-10-12/power-options/probe_remedy.py": "7e2897591905cf4e886fd8e5d93aa05a05066b26bc0290f9d26b039b9192639d",
+    "export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
+    "REPO-INDEX.md": "5ac6c4b27f5709e558519194fc15a058dce490a4a3507148f2c7d10458e6f526",
+    "guide/out-concealed-vents/post-guide-build-order-check.json": "f84d0298b28c15e6cc8d97a864aa407110d88135c92d2adfffea8d27da3c1b84",
+    "review-2026-10-12-followup/package_review.py": "bcd248290c0b48873019f8a13f0361d4109159d8ef02356c7676a289ed4d04fb",
+    "review-2026-10-12-followup/test_package_review.py": "bcbce72bae71889538e0639491d616911ad2e41d873455887bfe2c80d3b1617a",
+    "verify_fps_integrated.py": "81cbbadc6fea142de8aac73bf9b90d6093e4e58b885970c119eb69c732f24b4f",
+    "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"
+  },
+  "proposed_patch": {
+    "filename": "package_scalar_input_fix.patch",
+    "sha256": "5fcf76f9ffdc5075928eb6cc613df7b880b333da46dbfa7984ee79e5aa68931d",
+    "evidence_filename": "package_scalar_input_fix_evidence.json",
+    "evidence_sha256": "5db068d68b7d0e3ddf0decb0dbf7535b731b2d2f5b1e46e176586ff2dec7608d"
+  },
+  "findings": [
+    "Nominal catch web expectation changes from 3.0 to 2.85 mm after the approved recess; minimum requirement remains 2.4 mm.",
+    "Fixture explicitly copies all three oversized required verification reports and compares copied/source hashes.",
+    "AST assertion verifies the unchanged hot-bottom Z-plane numeric range, eliminating formatting dependence.",
+    "Study STEP export uses the existing equivalent export-plus-normalization wrapper; historical execution records are preserved.",
+    "Historical exclusion index preserves old entries and identifies its current manifest field as latest revalidation, not original move provenance.",
+    "Only the named post-guide execution receipt receives field-level absolute-path classification; command/cwd consistency and recursive key/value checks retain four negative controls.",
+    "Proposed scalar FPS input binding requires the current verifier source hash and exact fixed-input content hash; stale input and unknown producer tests remain."
+  ],
+  "pending": [
+    "Wait for running full suite to reach terminal before modifying checked sources. Preserve the complete run and its source snapshot.",
+    "Add explicit encoding=utf-8 to the new test_repo_hygiene receipt fixture read; current snapshot contains this known cross-platform test failure.",
+    "Apply the separately reviewed scalar-FPS packager patch after terminal.",
+    "Run hygiene and cross-platform tests against corrected final sources, and packager tests against patched final sources.",
+    "Bind unchanged modules to exact source hashes and distinguish prior full-suite execution from final targeted reruns; do not claim a blanket full final-tree suite pass."
+  ],
+  "limitations": [
+    "No repository tests or CAD were executed by this reviewer.",
+    "No geometry or acceptance-threshold changes approved by this receipt.",
+    "This receipt does not replace package, guide, physical qualification or final test evidence."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "renderer_sha256": "11a6f7f6e782ff81eacb37116d41b1cf01fdabc40a2038d7e328712352623d14",
+  "files": {
+    "hero.png": "ca1881567d960fc8ddd4b120a86fcb88d5629e32043970b8f410bdf2fa5f2e22",
+    "rear.png": "37d37a4ac4abf27ddb4157242abf32a9aba8e547b57e02c70df154d235048005",
+    "vent_side.png": "de96257191adcda523837997d6db17490d270be31f4ab4c909f8518d53b7fd84",
+    "vent_front.png": "1e480e8838c8fff4696ccc9468fa802c4cb1e01c999aa7c2a17838cfac9b2e9b"
+  },
+  "per_view_receipt_sha256": {
+    "hero-receipt.json": "af0838982de75e3911840adf0a06426dd4e19983fb488eefb4c6148157709b77",
+    "rear-receipt.json": "3d996e2ca7a28420f2c706c87df552feb296fd7bccfa8d0c7d22edcb08d24546",
+    "vent_side-receipt.json": "20b3da3f6bf6dd7f11fc925302af267ac59dda4ff3178313f67581cc2a958556",
+    "vent_front-receipt.json": "2c408294de37b245d5f49c3f54e41d5a7d03ec3d433310704beb66d6b630448f"
+  },
+  "visual_review_receipt": "corrective-2026-10-12/render-qa.json",
+  "visual_review_receipt_sha256": "80676de2e734a66cc9c2a26ad9ef5294bae5b60239a8bf5404c97c6cc483e55f",
+  "visual_review": [
+    "Broad cooler side remains planar with separate CSI service aperture.",
+    "Stepped front outlet and rear channel mouths are visible from edge-facing views.",
+    "Labels, lens/grip placement and restrained finish remain consistent."
+  ],
+  "physical_qualified": false,
+  "scope": "Aggregation of the four existing, source-bound and visually inspected Oct12 renders; no new rendering or physical qualification claimed."
+}

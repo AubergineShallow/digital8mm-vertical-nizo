@@ -1,0 +1,63 @@
+test_bindings (__main__.TestBoundReport.test_bindings) ... ok
+test_failing_set (__main__.TestBoundReport.test_failing_set) ... ok
+test_numbers_reproduced (__main__.TestBoundReport.test_numbers_reproduced) ... ok
+test_limit_never_relaxed_and_short_cold_path_passes (__main__.TestDrop.test_limit_never_relaxed_and_short_cold_path_passes) ... ok
+test_low_end_is_the_candidate_model_and_hot_fuse_fails (__main__.TestDrop.test_low_end_is_the_candidate_model_and_hot_fuse_fails) ... ok
+test_named_joints_are_explicit_and_in_series (__main__.TestDrop.test_named_joints_are_explicit_and_in_series) ... ok
+test_xt30_gate_is_the_largest_reported_loop (__main__.TestDrop.test_xt30_gate_is_the_largest_reported_loop) ... ok
+test_bounds_are_source_literals (__main__.TestFamilies.test_bounds_are_source_literals) ... ok
+test_recompute_and_minima (__main__.TestFamilies.test_recompute_and_minima) ... ok
+test_tampered_family_fails (__main__.TestFamilies.test_tampered_family_fails) ... ok
+test_clear_member_keeps_its_status_and_records_the_sweep (__main__.TestFamilyMemberClearance.test_clear_member_keeps_its_status_and_records_the_sweep) ... ok
+test_planted_part_on_the_bound_member_fails (__main__.TestFamilyMemberClearance.test_planted_part_on_the_bound_member_fails) ... ok
+test_header_fixtures (__main__.TestHeaderStowRoutes.test_header_fixtures) ... ok
+test_stow_and_route_fixtures (__main__.TestHeaderStowRoutes.test_stow_and_route_fixtures) ... ok
+test_retention_switch_moves_the_gate (__main__.TestLeadAccess.test_retention_switch_moves_the_gate) ... ok
+test_rtv_matches_candidate_study_and_shorter_pigtail_loses (__main__.TestLeadAccess.test_rtv_matches_candidate_study_and_shorter_pigtail_loses) ... ok
+test_ties_off_route_and_slot_fixture (__main__.TestLeadAccess.test_ties_off_route_and_slot_fixture) ... ok
+test_j2_halves_shortened_10mm_fail (__main__.TestMateReach.test_j2_halves_shortened_10mm_fail) ... ok
+test_qt_documented_order (__main__.TestMateReach.test_qt_documented_order) ... ok
+test_qt_secured_before_prop_is_the_old_shortfall (__main__.TestMateReach.test_qt_secured_before_prop_is_the_old_shortfall) ... ok
+test_qt_shortened_10mm_fails (__main__.TestMateReach.test_qt_shortened_10mm_fails) ... ok
+test_run_lead_shortened_10mm_fails (__main__.TestMateReach.test_run_lead_shortened_10mm_fails) ... ok
+test_constants (__main__.TestR7Port.test_constants) ... /workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:609: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  simple_dir = oneOf(["X", "Y", "Z", "XY", "XZ", "YZ"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:613: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  cqtype = oneOf(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:616: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  cqtype = cqtype.setParseAction(pyparsing_common.upcaseTokens)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:622: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  direction_op = oneOf([">", "<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:625: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  center_nth_op = oneOf([">>", "<<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:635: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  other_op = oneOf(["|", "#", "+", "-"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:638: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  named_view = oneOf(["front", "back", "left", "right", "top", "bottom"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:763: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  delta_op = oneOf(["exc", "except"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:770: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  atom.setParseAction(atom_callback)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:793: PyparsingDeprecationWarning: 'infixNotation' deprecated - use 'infix_notation'
+  expr = infixNotation(
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:65: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+  Name = delimitedList(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:67: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("name")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:68: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Tag = Word(alphas, alphanums + "_").setResultsName("tag")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:69: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Selector = _selector_grammar.setResultsName("selector")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:73: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("selector_kind")
+ok
+test_helpers_equal_r7 (__main__.TestR7Port.test_helpers_equal_r7) ... ok
+test_orphan_archived (__main__.TestRegistrationAndArchive.test_orphan_archived) ... ok
+test_registration (__main__.TestRegistrationAndArchive.test_registration) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 101.412s
+
+OK

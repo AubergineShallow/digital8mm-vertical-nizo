@@ -1,25 +1,24 @@
 {
-  "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "mechanical_manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "renderer_sha256": "11a6f7f6e782ff81eacb37116d41b1cf01fdabc40a2038d7e328712352623d14",
   "files": {
-    "hero.png": "ca1881567d960fc8ddd4b120a86fcb88d5629e32043970b8f410bdf2fa5f2e22",
-    "rear.png": "37d37a4ac4abf27ddb4157242abf32a9aba8e547b57e02c70df154d235048005",
-    "vent_side.png": "de96257191adcda523837997d6db17490d270be31f4ab4c909f8518d53b7fd84",
-    "vent_front.png": "1e480e8838c8fff4696ccc9468fa802c4cb1e01c999aa7c2a17838cfac9b2e9b"
+    "hero.png": "9341e25b70e3f12c1769ef2edeb0eb1f8bcce55bfcee57c12548d85c50b0816c",
+    "rear.png": "df9f5da7c7f2fe2940c189c124fa0367fa3f4db5878c7a0a4be566b424382c50",
+    "vent_side.png": "5dd9ffe1d3fb70ff4603df40c974edfc573e5b48f52f977238a2cb1ceb691601",
+    "vent_front.png": "8ca0db7ed03e805098e89519deaafdf0fff7f94ff9fbca2ae021d8ee8273f7a5"
   },
   "per_view_receipt_sha256": {
-    "hero-receipt.json": "af0838982de75e3911840adf0a06426dd4e19983fb488eefb4c6148157709b77",
-    "rear-receipt.json": "3d996e2ca7a28420f2c706c87df552feb296fd7bccfa8d0c7d22edcb08d24546",
-    "vent_side-receipt.json": "20b3da3f6bf6dd7f11fc925302af267ac59dda4ff3178313f67581cc2a958556",
-    "vent_front-receipt.json": "2c408294de37b245d5f49c3f54e41d5a7d03ec3d433310704beb66d6b630448f"
+    "hero-receipt.json": "3953894335238ff6d1bf2572217f15ccb233c24daad63f6a130eb9a64386ea5d",
+    "rear-receipt.json": "5cf0a785599485c05a5d700b410f1ac6b9238c4f59e8206c7458c68e908fe10b",
+    "vent_side-receipt.json": "eb69ebd5fa0a8ffe5fe6e764528512b2308711962fa8fc289c66901186f80be5",
+    "vent_front-receipt.json": "904ba7c30522476c7fa6f4759a063283a9020d1ff5822d6fa9e93046dfab3c07"
   },
-  "visual_review_receipt": "corrective-2026-10-12/render-qa.json",
-  "visual_review_receipt_sha256": "80676de2e734a66cc9c2a26ad9ef5294bae5b60239a8bf5404c97c6cc483e55f",
+  "visual_review_receipt": "review-2026-10-12-followup/render-visual-review.json",
+  "visual_review_receipt_sha256": "d428742ee714f3df8bc33a4df9be0fdd6e1071fb6d6739145557e86a81b9e2a0",
   "visual_review": [
-    "Broad cooler side remains planar with separate CSI service aperture.",
-    "Stepped front outlet and rear channel mouths are visible from edge-facing views.",
-    "Labels, lens/grip placement and restrained finish remain consistent."
+    "All twelve rendered images were visually inspected in three four-view contact sheets. Hero/rear views show complete camera silhouettes and distinguish the two lenses and longer original-storage body.",
+    "Side/front views intentionally crop peripheral lens/grip context to show the concealed channels and separate CSI service opening. Front/rear edge mouths remain visible; broad cooler sides remain planar.",
+    "Captions and physical-hold/proxy disclaimers are present and unclipped. Intended finish is illustrative, not a manufacturing or thermal qualification. No new visual geometry defect identified."
   ],
-  "physical_qualified": false,
-  "scope": "Aggregation of the four existing, source-bound and visually inspected Oct12 renders; no new rendering or physical qualification claimed."
+  "physical_qualified": false
 }

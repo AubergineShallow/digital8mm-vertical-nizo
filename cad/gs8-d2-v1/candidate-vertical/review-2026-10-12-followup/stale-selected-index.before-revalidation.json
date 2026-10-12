@@ -1,0 +1,41 @@
+{
+  "purpose": "Reports that sat in the selected output folder out/compact-kowa_lm6hc but bind another manifest (review 2026-10-10 VN-09, fix FP-04). Moved byte-identical; never current evidence.",
+  "selected_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "selected_manifest_history": [
+    {
+      "sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
+      "when": "FP-04 move (supplied snapshot)"
+    },
+    {
+      "sha256": "d848d4132b9f2c7b15a6112072b38b67980685b011c4d37325b9744951cfb5a5",
+      "when": "RF FP-16 re-export 2026-10-11: moved files re-checked unchanged and not bound to it"
+    },
+    {
+      "sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+      "when": "review 2026-10-12 corrective: 1b59395 re-export (selected 294220bc); moved files re-checked unchanged and not bound to it"
+    }
+  ],
+  "moved": [
+    {
+      "from": "out/compact-kowa_lm6hc/csi-access-checks.json",
+      "to": "history/stale-selected-reports-2026-10-10/csi-access-checks.json",
+      "sha256": "a971e20cfd3f3df940c3ceb91393255f85c9a5c7743b28c1588505e22ab42d4f",
+      "bound_manifest_sha256": "e86480734edd35d097720f761012b05b208d73a982217fee0daaec67d44ab495",
+      "bound_manifest_file": null,
+      "status_recorded": "pass",
+      "reason": "Rejected old CSI access proxy (verify_csi_access.py) bound to an earlier export whose manifest is not in the repo. Superseded by csi-source-tool-checks.json for the selected manifest."
+    },
+    {
+      "from": "out/compact-kowa_lm6hc/ventilation-checks.json",
+      "to": "history/stale-selected-reports-2026-10-10/ventilation-checks.json",
+      "sha256": "db248524f791c29abb2638aba9a3e6b676e408643fe21c028204fed9f3b0944a",
+      "bound_manifest_sha256": "c392feab4d13642093ae343b2fb50fc66ffdec068e60e01aa80b4fdcc77d992a",
+      "bound_manifest_file": "vent-study/angled-channel-trial/manifest.json",
+      "status_recorded": {
+        "pass": 75,
+        "fail": 0
+      },
+      "reason": "Rejected angled-channel ventilation trial (verify_ventilation.py), bound to vent-study/angled-channel-trial/manifest.json. Superseded by shadow-plenum-checks.json for the selected manifest."
+    }
+  ]
+}

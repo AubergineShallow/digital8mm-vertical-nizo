@@ -1,9 +1,9 @@
 {
-  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "verification_source_sha256": "e9479e6d589baea68a16ef47d773357560fa15a4b796d67277efd1574ee98566",
   "helper_source_sha256": {
     "check_scope.py": "bd7aad3d6baf5af417df1fa574754d26ab61ec6885d805b82c167a4d5cbedbb6",
-    "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
+    "steps.py": "0931688b9450a4f806a71d778dd23471ab55a870ebae4c8c77cab446bdbb978f",
     "evidence_rules.py": "07d0c0512a25fe04bc604330692b66ea729740ec41ff1c45eec69fa4d685d4ef",
     "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
     "print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb",
@@ -14,7 +14,7 @@
   "input_sha256": {
     "candidate-vertical/structural-review/reference-export18-structural-binding.json": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
     "candidate-vertical/history/reviewed-export18/manifest.json": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
-    "candidate-vertical/structural-review/concealed-vent-structural.json": "ecd5797716a7421c25079e87c464964d751c00499c32bbfaf5beaa3345446b7e",
+    "candidate-vertical/structural-review/concealed-vent-structural.json": "df8943263188f901d42fceff5c9db831cb05198f1acfcb8aeb17567d38471633",
     "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json": "6a099d6f56dfa1be92bf7863def7abe6b0aaf7ac070e9dce15dadae82edffb26",
     "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
     "out/checks.json": "2d6f68b24619f4e4db39e22a4c72f4a15f322188e7dbefe643c2c9657e7b7c8b",
@@ -62,19 +62,19 @@
       ],
       "valid": true,
       "method": "direct (total minus lower rows from the bound STEPs)",
-      "upper_mass_g": 565.6972688128662,
+      "upper_mass_g": 565.6885308360079,
       "upper_com_mm": [
-        -60.10732935677029,
-        1.908659609251674,
-        53.38141269278884
+        -60.108082486045525,
+        1.9085429973490828,
+        53.3809321613614
       ],
-      "floor_moment_5g_Nmm": 1480.6923230873817,
+      "floor_moment_5g_Nmm": 1480.6561229830493,
       "wiring_5g_moment_Nmm": 58.8399,
-      "equal_share_plus_wiring_Nm": 0.7697661115436908,
-      "seventy_percent_share_plus_wiring_Nm": 1.077672556161167,
+      "equal_share_plus_wiring_Nm": 0.7697480114915246,
+      "seventy_percent_share_plus_wiring_Nm": 1.0776472160881345,
       "proposed_rounded_equal_share_screen_Nm": 0.8,
       "free_body": "new (lower rows changed: ['base_grip'])",
-      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f"
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c"
     },
     {
       "category": "j4_screen",
@@ -109,19 +109,19 @@
       ],
       "valid": true,
       "method": "direct (total minus lower rows from the bound STEPs)",
-      "upper_mass_g": 679.116486979394,
+      "upper_mass_g": 679.1077490025357,
       "upper_com_mm": [
-        -44.743979630119554,
-        1.5891236357648704,
-        54.486782707692065
+        -44.74440929978432,
+        1.589022388041078,
+        54.48639665346137
       ],
-      "floor_moment_5g_Nmm": 1814.3710960128842,
+      "floor_moment_5g_Nmm": 1814.3348959085517,
       "wiring_5g_moment_Nmm": 58.8399,
-      "equal_share_plus_wiring_Nm": 0.9366054980064421,
-      "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
+      "equal_share_plus_wiring_Nm": 0.9365873979542758,
+      "seventy_percent_share_plus_wiring_Nm": 1.3112223571359862,
       "proposed_rounded_equal_share_screen_Nm": 0.95,
       "free_body": "new (lower rows changed: ['base_grip'])",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4"
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754"
     },
     {
       "category": "j4_screen",
@@ -165,19 +165,19 @@
       ],
       "valid": true,
       "method": "direct (total minus lower rows from the bound STEPs)",
-      "upper_mass_g": 721.373331219444,
+      "upper_mass_g": 721.3645932445831,
       "upper_com_mm": [
-        -54.43171611526679,
-        1.0397638915354543,
-        53.860844252741764
+        -54.432237963365665,
+        1.0396619203562694,
+        53.860473231191015
       ],
-      "floor_moment_5g_Nmm": 1905.1269434770163,
+      "floor_moment_5g_Nmm": 1905.09074338018,
       "wiring_5g_moment_Nmm": 58.8399,
-      "equal_share_plus_wiring_Nm": 0.9819834217385082,
-      "seventy_percent_share_plus_wiring_Nm": 1.3747767904339114,
+      "equal_share_plus_wiring_Nm": 0.9819653216900899,
+      "seventy_percent_share_plus_wiring_Nm": 1.3747514503661258,
       "proposed_rounded_equal_share_screen_Nm": 1.0,
       "free_body": "new (lower rows changed: ['base_grip'])",
-      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c"
     },
     {
       "category": "j4_screen",
@@ -2273,7 +2273,7 @@
           "panel"
         ]
       },
-      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
       "delta": {
         "axis_y": -5.0,
         "axis_z": -0.009999999999990905,
@@ -2360,7 +2360,7 @@
           "panel"
         ]
       },
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "delta": {
         "axis_y": -5.0,
         "axis_z": -0.009999999999990905,
@@ -2447,7 +2447,7 @@
           "panel"
         ]
       },
-      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
       "delta": {
         "axis_y": -5.0,
         "axis_z": -0.009999999999990905,

@@ -1,0 +1,20 @@
+test_default_and_check_are_read_only_and_check_detects_staleness (__main__.TestDocsAuditFixture.test_default_and_check_are_read_only_and_check_detects_staleness) ... ok
+test_edited_guide_source_is_listed (__main__.TestDocsAuditFixture.test_edited_guide_source_is_listed) ... ok
+test_guide_nomination_link_figures_and_foreign_report_fail (__main__.TestDocsAuditFixture.test_guide_nomination_link_figures_and_foreign_report_fail) ... ok
+test_tampered_source_is_a_failure (__main__.TestDocsAuditFixture.test_tampered_source_is_a_failure) ... ok
+test_untouched_copy_reports_the_known_failures_with_exit_one (__main__.TestDocsAuditFixture.test_untouched_copy_reports_the_known_failures_with_exit_one) ... ok
+test_clean_structure_exits_zero_and_each_defect_exits_one (__main__.TestDocsAuditVerdict.test_clean_structure_exits_zero_and_each_defect_exits_one) ... ok
+test_guide_receipt_source_drift_is_a_binding_failure (__main__.TestDocsAuditVerdict.test_guide_receipt_source_drift_is_a_binding_failure) ... ok
+test_rebuildable_cache_only_exits_three_and_pending_is_listed (__main__.TestDocsAuditVerdict.test_rebuildable_cache_only_exits_three_and_pending_is_listed) ... ok
+test_exact_info_set (__main__.TestReconciler.test_exact_info_set) ... ok
+test_keepout_rule_accepts_only_the_mating_partner (__main__.TestReconciler.test_keepout_rule_accepts_only_the_mating_partner) ... ok
+test_live_selected_folders_are_clean (__main__.TestReconciler.test_live_selected_folders_are_clean) ... ok
+test_planted_foreign_unbound_and_historical_reports_fail (__main__.TestReconciler.test_planted_foreign_unbound_and_historical_reports_fail) ... ok
+test_print_failures_must_equal_the_accepted_set (__main__.TestReconciler.test_print_failures_must_equal_the_accepted_set) ... ok
+test_index_and_paths (__main__.TestStaleReportsMoved.test_index_and_paths) ... ok
+test_inspection_modes_are_declared (__main__.TestStaleReportsMoved.test_inspection_modes_are_declared) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 17.448s
+
+OK

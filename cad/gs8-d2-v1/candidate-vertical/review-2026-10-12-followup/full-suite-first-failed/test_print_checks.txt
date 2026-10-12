@@ -1,0 +1,19 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+test_bridge_rows_reproduce_and_known_defects (__main__.Candidate.test_bridge_rows_reproduce_and_known_defects) ... ok
+test_report_bound_and_complete (__main__.Candidate.test_report_bound_and_complete) ... ok
+test_j4_trial_matches_model_build (__main__.Declarations.test_j4_trial_matches_model_build) ... ok
+test_pose_transform (__main__.Declarations.test_pose_transform) ... ok
+test_runner_registers_verifier (__main__.Declarations.test_runner_registers_verifier) ... ok
+test_wing_zone_formula_reproduces_r7 (__main__.Declarations.test_wing_zone_formula_reproduces_r7) ... ok
+test_crossing_directions_pass_r7_but_fail_single_direction (__main__.Fixtures.test_crossing_directions_pass_r7_but_fail_single_direction) ... ok
+test_declared_zone_and_stale_zone (__main__.Fixtures.test_declared_zone_and_stale_zone) ... ok
+test_long_bridge_fails_both_rules (__main__.Fixtures.test_long_bridge_fails_both_rules) ... ok
+test_short_bridge_passes_both_rules (__main__.Fixtures.test_short_bridge_passes_both_rules) ... ok
+test_r7_tub_passes_both_rules (__main__.R7Tub.test_r7_tub_passes_both_rules) ... r7 tub: r7 rule pass 19.7 {'ll_insert_boss_chin': 3.42, 's_k2_boss_chin': 10.82, 'tongue_f_minus_y_wing': 15.35, 'tongue_r_minus_y_wing': 15.35} | single direction pass 19.7 {'ll_insert_boss_chin': 3.42, 's_k2_boss_chin': 10.87, 'tongue_f_minus_y_wing': 15.35, 'tongue_r_minus_y_wing': 15.35} [{'z': 13.6, 'area_mm2': 232.98, 'direction_deg': 90.0, 'span_mm': 19.7, 'longest_two_ended_run_mm': 19.7, 'open_ended_run': False, 'bad_area_mm2': 0.0, 'bbox': [4.2, 63.1, 16.0, 82.7]}, {'z': 41.4, 'area_mm2': 39.44, 'direction_deg': 90.0, 'span_mm': 13.6, 'longest_two_ended_run_mm': 13.6, 'open_ended_run': False, 'bad_area_mm2': 0.0, 'bbox': [6.2, 12.6, 9.0, 26.0]}, {'z': 41.4, 'area_mm2': 77.88, 'direction_deg': 90.0, 'span_mm': 13.2, 'longest_two_ended_run_mm': 13.2, 'open_ended_run': False, 'bad_area_mm2': 0.0, 'bbox': [10.0, 66.4, 15.8, 79.5]}]
+ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 7.845s
+
+OK

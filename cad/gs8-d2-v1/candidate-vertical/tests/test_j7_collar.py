@@ -17,7 +17,8 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_j7_collar.py
   row; the washer rows pass on the candidate collar with r7's margins (lug face 0.1, relief 0.5, free-seat gap 0.3
   at the 0.2 float; since C2 / FP-11d; on the 9ced753 collar they failed: lug face -0.2, relief 0.0, 0.1564 mm3 at
   dy +0.2) and pass on the r7 collar with the same values.
-- Record (review-2026-10-10/fp08): made by the current j7_collar_checks.py for the current manifest; every category
+- Record (out/compact-kowa_lm6hc/verification.json): canonical full audit with current manifest, verifier, steps
+  and helper bindings; every J7 category
   present; body / bfar rows carry per-obstacle gaps; the failing rows are exactly EXPECTED_FAILURES (empty since C2:
   the four FP-11d washer rows were its only entries).
 """
@@ -37,10 +38,10 @@ for _p in (str(CV.parent), str(CV)):
 from cv_io import read_text              # noqa: E402
 import j7_collar_checks as J             # noqa: E402
 import steps as ST                       # noqa: E402
+from _full_audit_evidence import load_full_audit  # noqa: E402
 
 VARIANT = 'compact-kowa_lm6hc'
 OUT = CV / 'out' / VARIANT
-RECORD = CV / 'review-2026-10-10' / 'fp08' / ('j7-%s.json' % VARIANT)
 # CAD-phase failures on the reviewed geometry (filled from the first full record; each names its fix step).
 # C2 (FP-11d) removed the four VN-55 washer rows (washer_flat_support / washer_free_seat, Kowa and Fujinon): they
 # pass on the fixed collar, so the set is empty and any failing FP-08 row now fails test_record.
@@ -196,7 +197,13 @@ class Geometry(unittest.TestCase):
         tub = self.shapes['tub']
         with J.candidate_layout('kowa_lm6hc') as L:
             boxes, hood = J.candidate_catch_boxes(L)
-            self.assertEqual({b['z'][1] for b in boxes}, {J.CATCH_TOP_Z})
+            import model
+            self.assertEqual({b['z'][1] for b in boxes}, {model.TAB_CATCH_SPLIT_Z, J.CATCH_TOP_Z})
+            web = next(b for b in boxes if b['side'] == 1 and b['kind'] == 'web' and
+                       b['z'][1] == model.TAB_CATCH_SPLIT_Z)
+            original = next(b for b in L.tab_catch_boxes() if b['side'] == 1 and b['kind'] == 'web')
+            self.assertAlmostEqual(web['y'][0] - original['y'][0], model.TAB_CATCH_FACE_RECESS_MM)
+            self.assertAlmostEqual(hood['tab_catch']['t'], L.HOOD['tab_catch']['t'] - model.TAB_CATCH_FACE_RECESS_MM)
             self.assertEqual(J.catch_material(L, tub, boxes), [])
             w = next(b for b in boxes if b['kind'] == 'web')
             c = [sum(w[a]) / 2 for a in 'xyz']
@@ -240,9 +247,9 @@ class Geometry(unittest.TestCase):
 
 class Record(unittest.TestCase):
     def test_record(self):
-        rec = json.loads(read_text(RECORD))
+        rec = load_full_audit(self, CV, VARIANT)
         self.assertEqual(rec['manifest_sha256'], sha(OUT / 'manifest.json'))
-        self.assertEqual(rec['scope'], 'j7')
+        self.assertEqual(rec['scope'], 'full')
         rows = [c for c in rec['checks'] if c.get('port') == 'FP-08']
         ctx = next(c for c in rows if c['id'] == 'camera_model_match')
         self.assertEqual(ctx['j7_collar_checks_sha256'], J.source_sha256())

@@ -1,0 +1,3025 @@
+{
+  "purpose": "Experimental full-BFAR exact window tuning on production host and transformed insert. First-contact not run; not final acceptance.",
+  "inputs": {
+    "model.py": "7942da89686b7441afd8baefd5c34daa6bd95d0b15a6fb1c661ba585cc0432a8",
+    "j7_collar_checks.py": "79e814c47a6b695acf53b1077541213ca70af328c075306e7f02a1aac5c4bf5b",
+    "tub-trial.step": "559f1d0f2c0ee0e9a4980fe737657fc7ee8b8a5fc34387ffff255624f1519076",
+    "stock-trial.step": "8e1ff30e40bb1beef77695aeda5187b331ab125c957c6692ceded6e22a82ee6e",
+    "insert-trial.step": "0d8d1b01b078e255bfccb4aa2e6dce068d7601a4cbb0b30df489c2df5621a14e"
+  },
+  "cases": [
+    {
+      "case": "x+0.1",
+      "rotations": [],
+      "shift_mm": [
+        0.1,
+        0.0,
+        0.0
+      ],
+      "family": "legacy",
+      "legacy": true,
+      "basis": "unchanged original five-case displacement",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 5.53
+    },
+    {
+      "case": "x-0.1",
+      "rotations": [],
+      "shift_mm": [
+        -0.1,
+        0.0,
+        0.0
+      ],
+      "family": "legacy",
+      "legacy": true,
+      "basis": "unchanged original five-case displacement",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.95
+    },
+    {
+      "case": "film+y0.05",
+      "rotations": [],
+      "shift_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "family": "legacy",
+      "legacy": true,
+      "basis": "unchanged original five-case displacement",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.84
+    },
+    {
+      "case": "tilt_on_joint_edge",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.35,
+            8.28,
+            83.5
+          ],
+          "deg": -0.5729386976834859
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "legacy",
+      "legacy": true,
+      "basis": "unchanged original five-case displacement",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 4.08
+    },
+    {
+      "case": "tilt_on_tenon_top_edge",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.35,
+            8.28,
+            93.5
+          ],
+          "deg": 0.5729386976834859
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "legacy",
+      "legacy": true,
+      "basis": "unchanged original five-case displacement",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 1.5456976301182603,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 4.5
+    },
+    {
+      "case": "T02_tilt_on_joint_edge",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.35,
+            8.28,
+            83.5
+          ],
+          "deg": -1.1457628381750993
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "tilt_x",
+      "basis": "full measured +Y pocket clearance 0.2 / tenon height 10",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 4.55
+    },
+    {
+      "case": "T02_tilt_on_joint_edge_reverse",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.35,
+            8.28,
+            83.5
+          ],
+          "deg": 1.1457628381750993
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "tilt_x",
+      "basis": "full measured +Y pocket clearance 0.2 / tenon height 10",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 6.2015170575855265,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.43
+    },
+    {
+      "case": "T02_tilt_on_tenon_top_edge_reverse",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.35,
+            8.28,
+            93.5
+          ],
+          "deg": -1.1457628381750993
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "tilt_x",
+      "basis": "full measured +Y pocket clearance 0.2 / tenon height 10",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 3.099999999999992,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.26
+    },
+    {
+      "case": "T02_tilt_on_tenon_top_edge",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.35,
+            8.28,
+            93.5
+          ],
+          "deg": 1.1457628381750993
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "tilt_x",
+      "basis": "full measured +Y pocket clearance 0.2 / tenon height 10",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 3.080987081583823,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.25
+    },
+    {
+      "case": "Y1_yaw_pivot_xminus_reverse",
+      "rotations": [
+        {
+          "axis": "z",
+          "pivot": [
+            -12.9,
+            8.28,
+            83.5
+          ],
+          "deg": -1.847610265994596
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "yaw_z",
+      "basis": "0.1 mm film variation across actual tenon width 3.1",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 1.5499999999999978,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.27
+    },
+    {
+      "case": "Y1_yaw_pivot_xminus",
+      "rotations": [
+        {
+          "axis": "z",
+          "pivot": [
+            -12.9,
+            8.28,
+            83.5
+          ],
+          "deg": 1.847610265994596
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "yaw_z",
+      "basis": "0.1 mm film variation across actual tenon width 3.1",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 5.55
+    },
+    {
+      "case": "Y2_yaw_pivot_xplus",
+      "rotations": [
+        {
+          "axis": "z",
+          "pivot": [
+            -9.8,
+            8.28,
+            83.5
+          ],
+          "deg": -1.847610265994596
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "yaw_z",
+      "basis": "0.1 mm film variation across actual tenon width 3.1",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 4.09
+    },
+    {
+      "case": "Y2_yaw_pivot_xplus_reverse",
+      "rotations": [
+        {
+          "axis": "z",
+          "pivot": [
+            -9.8,
+            8.28,
+            83.5
+          ],
+          "deg": 1.847610265994596
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "yaw_z",
+      "basis": "0.1 mm film variation across actual tenon width 3.1",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 1.5499999999999963,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.25
+    },
+    {
+      "case": "R1_roll_film_pivot_xminus_reverse",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -14.5,
+            8.28,
+            83.5
+          ],
+          "deg": -0.9093804491991414
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "0.1 mm film variation / joint-face width",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 1.026103818627183,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.26
+    },
+    {
+      "case": "R1_roll_film_pivot_xminus",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -14.5,
+            8.28,
+            83.5
+          ],
+          "deg": 0.9093804491991414
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "0.1 mm film variation / joint-face width",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.17028017850013755,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.36
+    },
+    {
+      "case": "R2_roll_film_pivot_xplus",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -8.2,
+            8.28,
+            83.5
+          ],
+          "deg": -0.9093804491991414
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "0.1 mm film variation / joint-face width",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.17028017850014848,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.26
+    },
+    {
+      "case": "R2_roll_film_pivot_xplus_reverse",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -8.2,
+            8.28,
+            83.5
+          ],
+          "deg": 0.9093804491991414
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "0.1 mm film variation / joint-face width",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 2.2544402050011167,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.4
+    },
+    {
+      "case": "R3_roll_clear_pivot_xminus_reverse",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -14.5,
+            8.28,
+            83.5
+          ],
+          "deg": -0.5729386976834838
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "measured pocket X side clearance 0.1 / tenon height",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.5362474113175539,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.24
+    },
+    {
+      "case": "R3_roll_clear_pivot_xminus",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -14.5,
+            8.28,
+            83.5
+          ],
+          "deg": 0.5729386976834838
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "measured pocket X side clearance 0.1 / tenon height",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.42
+    },
+    {
+      "case": "R4_roll_clear_pivot_xplus",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -8.2,
+            8.28,
+            83.5
+          ],
+          "deg": -0.5729386976834838
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "measured pocket X side clearance 0.1 / tenon height",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.4
+    },
+    {
+      "case": "R4_roll_clear_pivot_xplus_reverse",
+      "rotations": [
+        {
+          "axis": "y",
+          "pivot": [
+            -8.2,
+            8.28,
+            83.5
+          ],
+          "deg": 0.5729386976834838
+        }
+      ],
+      "shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "family": "roll_y",
+      "basis": "measured pocket X side clearance 0.1 / tenon height",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 1.3101886352566248,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.24
+    },
+    {
+      "case": "C_xyz_mmm_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.0630947557593462,
+        0.07523436346985868,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.59
+    },
+    {
+      "case": "C_xyz_mmm_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.0630947557593462,
+        0.12476563653013883,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.55
+    },
+    {
+      "case": "C_xyz_mmp_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.06156269788159641,
+        0.07442958643807707,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.13
+    },
+    {
+      "case": "C_xyz_mmp_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.06156269788159641,
+        0.12557041356192222,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.24
+    },
+    {
+      "case": "C_xyz_mpm_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.06156269788159641,
+        0.07442958643807707,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.71
+    },
+    {
+      "case": "C_xyz_mpm_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.06156269788159641,
+        0.12557041356192222,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.91
+    },
+    {
+      "case": "C_xyz_mpp_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.0630947557593462,
+        0.07523436346985868,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.18
+    },
+    {
+      "case": "C_xyz_mpp_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.0630947557593462,
+        0.12476563653013883,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": true,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": null,
+      "windows": [
+        {
+          "s": 0.0,
+          "centred_gap": 0.4,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.25,
+          "centred_gap": 0.65,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 0.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 1.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.25,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.5,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 2.75,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        },
+        {
+          "s": 3.0,
+          "centred_gap": 0.679,
+          "worst_gap": 0.129,
+          "status": "pass"
+        }
+      ],
+      "min_worst_gap": 0.129,
+      "min_centred_gap": 0.4,
+      "fails": [],
+      "seconds": 3.74
+    },
+    {
+      "case": "C_xyz_pmm_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.06156269788159641,
+        0.07442958643807707,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.0219573632247801,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.24
+    },
+    {
+      "case": "C_xyz_pmm_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.06156269788159641,
+        0.12557041356192222,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.02055142663883224,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.26
+    },
+    {
+      "case": "C_xyz_pmp_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.0630947557593462,
+        0.07523436346985868,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.02611220817267316,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.26
+    },
+    {
+      "case": "C_xyz_pmp_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.0630947557593462,
+        0.12476563653013883,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.024593522836132174,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.25
+    },
+    {
+      "case": "C_xyz_ppm_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.0630947557593462,
+        0.07523436346985868,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.13308053891176763,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.22
+    },
+    {
+      "case": "C_xyz_ppm_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": -0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        -0.0630947557593462,
+        0.12476563653013883,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.0630947557593462,
+          0.0630947557593462
+        ],
+        [
+          0.07523436346985868,
+          0.12476563653013883
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.1295941696930196,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.23
+    },
+    {
+      "case": "C_xyz_ppp_near",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.06156269788159641,
+        0.07442958643807707,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.13150686315871646,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.21
+    },
+    {
+      "case": "C_xyz_ppp_far",
+      "rotations": [
+        {
+          "axis": "x",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.5728814190875496
+        },
+        {
+          "axis": "y",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.2864693488417419
+        },
+        {
+          "axis": "z",
+          "pivot": [
+            -11.350000000000001,
+            9.08,
+            88.5
+          ],
+          "deg": 0.923805132997298
+        }
+      ],
+      "shift_mm": [
+        0.06156269788159641,
+        0.12557041356192222,
+        -0.08456401412553305
+      ],
+      "family": "coupled_xyz",
+      "fits_pocket_bounds": true,
+      "translation_intervals_mm": [
+        [
+          -0.06156269788159641,
+          0.06156269788159641
+        ],
+        [
+          0.07442958643807707,
+          0.12557041356192222
+        ],
+        [
+          -0.08456401412553305,
+          0.08456401412553305
+        ]
+      ],
+      "rotation_order": "fixed world X, then Y, then Z",
+      "basis": "half axis allowances; transformed tenon fitted to actual pocket bounds; no fixture credit",
+      "feasible": false,
+      "geometry_valid": true,
+      "stub_stock_overlap_mm3": 0.12799283400760925,
+      "feasible_overlap_mm3": 0.001,
+      "exclusion_reason": "whole displaced production insert intersects production host",
+      "seconds": 0.22
+    }
+  ],
+  "seconds": 151.75
+}

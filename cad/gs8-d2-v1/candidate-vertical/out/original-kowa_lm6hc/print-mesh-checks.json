@@ -1,5 +1,5 @@
 {
-  "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+  "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
   "verification_source_sha256": "d74b06c7f1ae25f11135cd1a068ab6d13933c2d19266304728ac478dd0eab12d",
   "variant": "original-kowa_lm6hc",
   "pass_count": 12,
@@ -240,12 +240,12 @@
       "id": "tub",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "04a4653bb3aa50578e7d89027f56d03bde0054422cb1b5a40a7840cfb25ccd63",
+      "expected_sha256": "9b7e30cbafa95d18105a66d1e7c3f817009732a4bef2be63801c9b28c5ce1451",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 190180.57415825978,
-      "expected_print_stock_mm3": 190427.7921402234,
-      "volume_error_mm3": 247.21798196362215,
+      "volume_mm3": 190175.73414364937,
+      "expected_print_stock_mm3": 190418.1846912286,
+      "volume_error_mm3": 242.45054757923936,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
@@ -266,7 +266,7 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "04a4653bb3aa50578e7d89027f56d03bde0054422cb1b5a40a7840cfb25ccd63",
+      "sha256": "9b7e30cbafa95d18105a66d1e7c3f817009732a4bef2be63801c9b28c5ce1451",
       "physical_print_release": false
     },
     {
@@ -372,17 +372,17 @@
       "id": "tab_catch_insert",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
+      "expected_sha256": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 227.79999939799276,
+      "volume_mm3": 223.13364924518442,
       "expected_print_stock_mm3": null,
       "volume_error_mm3": null,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
           0.0,
-          1.7763568394002505e-15,
+          0.0,
           0.0
         ],
         [
@@ -393,12 +393,12 @@
       ],
       "dimensions_mm": [
         6.300000190734863,
-        11.999999999999998,
+        12.0,
         15.0
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
+      "sha256": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7",
       "physical_print_release": false
     }
   ],

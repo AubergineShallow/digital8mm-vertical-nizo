@@ -9,22 +9,27 @@
     100.0
   ],
   "files": {
-    "catch-host-coupon.step": "eb2717504976c80c9cfa20454df70068040023d0f40c98ef2314d57cc9d88e95",
-    "catch-host-coupon.stl": "a29172ac339586249bbbca01bc40fa49af5ee261775fcd0f58efcad62e894a4f",
-    "catch-insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
-    "catch-insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8"
+    "catch-host-coupon.step": "02833d21ab071743f926c73ba9c39fc5862f26096173b2e6de45b01ea04372a9",
+    "catch-host-coupon.stl": "db9f25a3e13794dd53fd8bd74201a93b385bed8f7a3d19a4b621a6caa59d2b5c",
+    "catch-insert.step": "0d8d1b01b078e255bfccb4aa2e6dce068d7601a4cbb0b30df489c2df5621a14e",
+    "catch-insert.stl": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7"
   },
   "geometry_overlap_tolerance_mm3": 1e-06,
   "input_sha256": {
-    "out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
-    "out/compact-kowa_lm6hc/step/tab_catch_insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
-    "out/compact-kowa_lm6hc/step/tub.step": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
-    "out/compact-kowa_lm6hc/stl/tab_catch_insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
-    "out/compact-kowa_lm6hc/stl/tub.stl": "c259ee067bd4efbab7a612008dcec1a70316d2d6f46ae5df76d6d128b31f0bd5"
+    "out/compact-kowa_lm6hc/manifest.json": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+    "out/compact-kowa_lm6hc/step/tab_catch_insert.step": "0d8d1b01b078e255bfccb4aa2e6dce068d7601a4cbb0b30df489c2df5621a14e",
+    "out/compact-kowa_lm6hc/step/tub.step": "f0442c204c4f29e9ac451dec86db6879a84d55807651a5bb68a5165a0af87878",
+    "out/compact-kowa_lm6hc/stl/tab_catch_insert.stl": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7",
+    "out/compact-kowa_lm6hc/stl/tub.stl": "8ecea01bd3ed09a1ce878a1d0b616bf5c8ec34afaf92d601dcf1efac2038028c"
   },
   "joint": {
+    "adhesive_escape_groove_mm": {
+      "depth": 0.4,
+      "width": 1.0
+    },
     "ceiling_floor_mm": 1.6000000000000028,
     "ceiling_top_z_mm": 95.2,
+    "groove_location": "Host +Y pocket wall to accessible +Y joint-face edge; dry -Y locating datum and 1.6 mm tenon remain uncut.",
     "hold": "Actual seating, datum tilt, adhesive preparation/cure and warm torque/creep require the as-printed joint coupon.",
     "physical_qualified": false,
     "pocket_clearance_mm": {
@@ -40,7 +45,8 @@
         -12.9,
         -9.8
       ]
-    }
+    },
+    "working_face_recess_mm": 0.15
   },
   "limitations": [
     "Cropped host and fixture omit whole-tub compliance, complete lens/camera constraints and service loads.",
@@ -49,7 +55,7 @@
     "Exact epoxy SKU, surface preparation, bondline, full cure, conditioning and specimen/test protocol remain unqualified.",
     "No slicer, print, bond, load, deflection, creep, impact, fatigue or failure test has been performed."
   ],
-  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "nominal_host_insert_overlap_mm3": 0,
   "parts": [
     {
@@ -80,10 +86,10 @@
           63.599998474121094
         ],
         "rules": "Unmodified verify_print_meshes numerical rules: vertex weld 1e-6 mm; positive closed winding; volume difference <= max(1 mm3, 0.5%); bed Z < 0.002 mm; 250x210x220 envelope. No slicer test.",
-        "signed_volume_mm3": 15260.35875777466,
-        "source_volume_mm3": 15260.704189003187,
-        "triangles": 5078,
-        "volume_error_mm3": 0.34543122852664965
+        "signed_volume_mm3": 15255.518743164366,
+        "source_volume_mm3": 15255.86415928375,
+        "triangles": 5102,
+        "volume_error_mm3": 0.3454161193840264
       },
       "rotation_axis": [
         1,
@@ -106,7 +112,7 @@
         35.599999999999994
       ],
       "valid": true,
-      "volume_mm3": 15260.704189003187
+      "volume_mm3": 15255.86415928375
     },
     {
       "exact_production_step_and_stl_copy": true,
@@ -121,7 +127,7 @@
         "print_bounds_mm": [
           [
             0.0,
-            1.7763568394002505e-15,
+            0.0,
             0.0
           ],
           [
@@ -132,21 +138,21 @@
         ],
         "print_dimensions_mm": [
           6.300000190734863,
-          11.999999999999998,
+          12.0,
           15.0
         ],
         "rules": "Unmodified verify_print_meshes numerical rules: vertex weld 1e-6 mm; positive closed winding; volume difference <= max(1 mm3, 0.5%); bed Z < 0.002 mm; 250x210x220 envelope. No slicer test.",
-        "signed_volume_mm3": 227.7999993979927,
-        "source_volume_mm3": 227.80000000000427,
-        "triangles": 48,
-        "volume_error_mm3": 6.0201156770745e-07
+        "signed_volume_mm3": 223.13364924518442,
+        "source_volume_mm3": 223.13365000000442,
+        "triangles": 56,
+        "volume_error_mm3": 7.548200073870248e-07
       },
       "production_print_pose": {
         "angle_deg": 0,
         "face_down": "-Z",
         "footprint_mm": [
-          6.300000000000002,
-          12.000000000000004,
+          6.3000000000000025,
+          12.000000000000002,
           15.000000000000005
         ],
         "physical_release": false,
@@ -158,7 +164,7 @@
         "slicer_state": "NOT RUN",
         "translation_mm": [
           14.5,
-          -8.279999999999998,
+          -8.28,
           -78.5
         ]
       },
@@ -172,7 +178,7 @@
         93.5
       ],
       "valid": true,
-      "volume_mm3": 227.80000000000427
+      "volume_mm3": 223.13365000000442
     }
   ],
   "physical_qualified": false,
@@ -246,12 +252,12 @@
     "../test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
     "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
     "export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
-    "export_candidate.py": "188550509bee00f04722e31aebe02417ec940f47b5edd86166085217bafcb3d6",
+    "export_candidate.py": "a7f4e4691f806c2acffb5542607b5f6bd5d3769ee8a3b4b186c22dcc89e00bf8",
     "fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
     "fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
     "fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
     "make_corrected_pi.py": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
-    "model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
     "official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
     "official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
     "official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
@@ -275,14 +281,14 @@
     "structural-review/make_bonded_catch_coupon.py": "3b0a28c2dfee64c66f2259add30a7fcccc37148508492b60b2232c8cae7f4287",
     "structure_geometry.py": "4230b810c2e67229b6176eae7a35ddac22e2549a848c22a3cd74f3d2c7b58985",
     "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84",
-    "verify_print_checks.py": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e"
+    "verify_print_checks.py": "9a3087c803a75e510dab24a178417da1450d6b931dd17922355c00bd64c335a9"
   },
   "status": "GEOMETRY ONLY: separate local bonded-catch study; not print released",
   "tub_stock_check": {
-    "bound_stl_volume_mm3": 170966.6480780677,
-    "relative_difference": 5.282043312801362e-05,
+    "bound_stl_volume_mm3": 170961.8080634574,
+    "relative_difference": 5.2821716316462005e-05,
     "rule": "Existing verify_print_checks.tub_stock bound-STL 0.5% tessellation rule",
-    "step_volume_mm3": 170975.67861046962
+    "step_volume_mm3": 170970.83855958388
   },
   "variant": "compact-kowa_lm6hc"
 }

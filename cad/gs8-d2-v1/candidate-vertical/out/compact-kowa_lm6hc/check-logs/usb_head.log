@@ -1,0 +1,13 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+{"object": "fps_header_branch", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "fps_200_main", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "fps_switch_bundle", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "fps_ck1044_pin_A", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "fps_ck1044_pin_2", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "fps_mated_pair", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "fps_protective_reservation", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "corrected_fps_switch", "status": "pass", "xz_disjoint": true, "exact": 0}
+{"object": "mechanical/pi5", "status": "pass", "xz_disjoint": false, "exact": 0}
+{"object": "mechanical/tub", "status": "pass", "xz_disjoint": false, "exact": 1}
+{"report": "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json", "status": "pass_for_bounded_head_reservation", "mechanical_bound": true}

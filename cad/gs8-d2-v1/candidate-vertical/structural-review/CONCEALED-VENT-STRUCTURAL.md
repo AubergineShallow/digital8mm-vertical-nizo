@@ -6,7 +6,7 @@ This supplement updates mass and quasi-static load sensitivity for the selected 
 
 ## Exact scope
 
-Current manifest: `294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4`, built unrecorded (deterministic build, FP-03). Frozen export18 reference: `c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76`. The reproducible calculation is `update_concealed_vent_structure.py`; exact inputs and unrounded results are in `concealed-vent-structural.json` and the copied reference `reference-export18-structural-binding.json`.
+Current manifest: `d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754`, built unrecorded (deterministic build, FP-03). Frozen export18 reference: `c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76`. The reproducible calculation is `update_concealed_vent_structure.py`; exact inputs and unrounded results are in `concealed-vent-structural.json` and the copied reference `reference-export18-structural-binding.json`.
 
 Changed manifest rows: s_c4, base_grip, eyecup, carrier, tub, panel, lens_collar; all 38 other rows are identical. This checks metadata, not occupied-solid equivalence. The retained carrier, grip and J4 sections are conditional inputs to the calculation and must stay tied to the independent source/STEP preservation checks. The former whole-tub and whole-panel zero-difference bindings are historical and do not apply to this revision. The new integral skin, cold/hot plenums, divider, support beams and pillars, CSI sleeve and panel surface are outside those old whole-part claims.
 
@@ -14,14 +14,14 @@ Changed manifest rows: s_c4, base_grip, eyecup, carrier, tub, panel, lens_collar
 
 | Quantity | Reviewed export18 | Concealed candidate |
 |---|---:|---:|
-| Estimated complete Kowa mass | 831.38 g | 870.26 g |
-| Tub proxy mass | 122.58 g | 155.72 g |
+| Estimated complete Kowa mass | 831.38 g | 870.25 g |
+| Tub proxy mass | 122.58 g | 155.71 g |
 | Panel proxy mass | 37.41 g | 38.19 g |
-| Upper-body free-body mass | 640.43 g | 679.12 g |
-| Upper-body 5g floor moment | 1.7201 N·m | 1.8144 N·m |
-| Conservative grip 5g moment | 4.4751 N·m | 4.6720 N·m |
+| Upper-body free-body mass | 640.43 g | 679.11 g |
+| Upper-body 5g floor moment | 1.7201 N·m | 1.8143 N·m |
+| Conservative grip 5g moment | 4.4751 N·m | 4.6719 N·m |
 
-The net modeled mass change is 38.88 g (4.68%). Current complete CoM is (-46.47, 1.02, 29.96) mm. Core is 158.0 × 63.6 × 100.0 mm. Manifest mesh-derived complete bounds are 248.83 × 72.82 × 216.82 mm; these are not fresh untessellated STEP measurements or a measured camera envelope.
+The net modeled mass change is 38.87 g (4.68%). Current complete CoM is (-46.47, 1.02, 29.96) mm. Core is 158.0 × 63.6 × 100.0 mm. Manifest mesh-derived complete bounds are 248.83 × 72.82 × 216.82 mm; these are not fresh untessellated STEP measurements or a measured camera envelope.
 
 Tub/panel mass uses the inherited ASA density 1.07 g/cm³ and empirical 0.85 mass factor. Polymaker's current reference density is 1.13 g/cm³: at equal volume this gives 5.6% more ASA contribution. This is not the same percentage increase in complete-camera mass and is not silently applied to the mass model. The exact ASA grade, lot and print process are unconfirmed. Neither density nor the empirical factor is a slicer measurement or stiffness multiplier. See [the source and applicability note](../corrective-2026-10-12/RESEARCH-INTEGRATION.md). The legacy 12 g connector/fuse/pigtail lump has an unresolved real distribution; other harness masses remain omitted. Weigh the printed parts, loaded body and actual harness before setting final qualification loads.
 
@@ -35,11 +35,11 @@ FP-11c thickened the carrier frame to its continuous 22.2 bed face and opened it
 
 The old 0.90 N·m per-front-joint coupon target does not cover the new equal-share floor moment plus the retained 12 g-at-Z100 wiring-location sensitivity. The calculated minimum is 0.9366 N·m; use 0.95 N·m as the rounded proposed equal-share screening target after fixture review. A 70% station reaction with that same wiring sensitivity would be 1.3112 N·m and is a separate unqualified case. Existing C08/C09 geometry can screen the retained local mating surfaces; it omits the rear joint, independent lock and full tub. Do not turn a local coupon result into a whole-camera rating.
 
-Variant coverage (FP-12, VN-33; FX). The same first-moment transfer applies to every exported variant whose lower grip/battery rows are unchanged, and a variant whose lower rows changed gets the new free body from its bound STEPs (check_scope.j4_direct); 3 of 3 have a valid analytical free body. Equal-share plus wiring targets: compact-fujinon_hf6xa 0.7698 N·m (70% share 1.0777 N·m); compact-kowa_lm6hc 0.9366 N·m (70% share 1.3112 N·m); original-kowa_lm6hc 0.9820 N·m (70% share 1.3748 N·m). The 0.95 N·m compact value covers compact-fujinon_hf6xa, compact-kowa_lm6hc and does not cover original-kowa_lm6hc. Use 1.00 N·m (governed by original-kowa_lm6hc) as the rounded equal-share screen that covers every variant. The 70% cases remain separate unqualified cases.
+Variant coverage (FP-12, VN-33; FX). The same first-moment transfer applies to every exported variant whose lower grip/battery rows are unchanged, and a variant whose lower rows changed gets the new free body from its bound STEPs (check_scope.j4_direct); 3 of 3 have a valid analytical free body. Equal-share plus wiring targets: compact-fujinon_hf6xa 0.7697 N·m (70% share 1.0776 N·m); compact-kowa_lm6hc 0.9366 N·m (70% share 1.3112 N·m); original-kowa_lm6hc 0.9820 N·m (70% share 1.3748 N·m). The 0.95 N·m compact value covers compact-fujinon_hf6xa, compact-kowa_lm6hc and does not cover original-kowa_lm6hc. Use 1.00 N·m (governed by original-kowa_lm6hc) as the rounded equal-share screen that covers every variant. The 70% cases remain separate unqualified cases.
 
 ## Print material and thermal implications
 
-The selected manifest records 10 mm bonded engagement with a 3.1 x 1.6 mm tenon section, X/Y/Z pocket clearances 0.1/0.2/0.1 mm, ceiling top Z95.2 mm and 1.6 mm ceiling floor. These are modeled dimensions. The existing datum-tilt case and catch-window criterion are retained; current geometric audit results must be read separately from bond, torque and creep qualification.
+The selected manifest records a 10 mm nominal tenon height with a 3.1 x 1.6 mm tenon section, X/Y/Z pocket clearances 0.1/0.2/0.1 mm, ceiling top Z95.2 mm and 1.6 mm ceiling floor. These are modeled dimensions. The lower working face recess is 0.15 mm; the host escape groove is 1 mm wide and 0.4 mm deep. The unchanged catch-window and first-contact rules now cover separately reported feasible sampled tilts, yaw, translations and coupled poses; this is not exhaustive tolerance or withdrawal proof. Actual engaged height, dry seating, adhesive flow, bond, torque and creep require separate qualification.
 
 A separate 2-piece bonded-catch study is generated from the selected tub print stock and the exact production insert: catch-host-coupon: 20.0 x 24.0 x 63.6 mm, -Y down; catch-insert: 6.3 x 12.0 x 15.0 mm, -Z down. It retains production layer orientations. It screens local seating, datum tilt, adhesion and warm creep only. Cropped host and fixture omit whole-tub compliance and complete lens/camera constraints, so no whole-tub 0.5 N m torque qualification follows. The study is additional to the retained structural and plenum coupons, with no production-part count change. It has not been sliced, printed, bonded or mechanically tested. See [the local coupon instructions](bonded-catch-coupon/README.md) for source identity and test limits.
 

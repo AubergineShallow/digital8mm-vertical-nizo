@@ -1,0 +1,43 @@
+{
+  "command": ".venv-cad/bin/python cad/gs8-d2-v1/run_locked.py --max-wait-min 720 -- cad/gs8-d2-v1/candidate-vertical/tests/test_fxh_harness.py TestReleasedQTMinimum TestStowMembers",
+  "completion_observed_utc": "2026-10-12T17:46:39+00:00",
+  "coverage": [
+    "Failed length rows retain their failure while receiving independent shortest-family and released-pose sweeps.",
+    "Shortest-family sweep includes installed HDMI/FPS targets, strict installed overlap tolerance, and neighboring cable separation.",
+    "Synthetic collision and cable-only overlap failures propagate without overwriting earlier failures.",
+    "Missing or invalid geometry cannot claim a checked clearance pass.",
+    "Released minimum remains informational and cannot replace installed-family gating.",
+    "Longest-stock bound and full stock storage members retain separate assessments."
+  ],
+  "exit_code": 0,
+  "interpretation": "Scoped checker regression tests passed. This receipt does not assert that the selected production QT route clears the exact minimum sweep; the full harness refresh records that result separately. Installed-family length plus longest branch plus 25 mm allowance against minimum stock 240 mm remains unchanged. No geometry or purchased-lead changes were made for this coverage fix.",
+  "lock_acquired_utc": "2026-10-12T17:44:39.218519+00:00",
+  "lock_metadata": {
+    "path": "qt-minimum-coverage-tests-lock.json",
+    "sha256": "6e4b423a3e5ec8bebd5bd758ee10194087adef9d88788d773938ec7d88b247de"
+  },
+  "log": "qt-minimum-coverage-tests.txt",
+  "log_sha256": "8b84aee9dad29bb1db0a7b1739325bbc10df985efd340254808ee6effb308d86",
+  "prior_non_execution_attempts": [
+    {
+      "path": "qt-minimum-tests-attempt1.json",
+      "sha256": "fe7389cac4a0e70de0fe55fa4fda86b7151945775d223d4d8574cf848d288459"
+    },
+    {
+      "path": "qt-minimum-tests-attempt2.json",
+      "sha256": "7703f44c103325419b35656d778bbdde1a0c071074b02e8199bf6784dc04537f"
+    }
+  ],
+  "record_created_utc": "2026-10-12T17:47:09.074086+00:00",
+  "source_sha256": {
+    "harness_rules.py": "1c45189ddefa87070a3d8490166c36fa907a701f1044a550a9100428cd7fb00c",
+    "tests/test_fxh_harness.py": "c65d5c3149cc20ba8d9ec411a0412fc288f6df6e4f32ede35b8a9495a0e7f5c4",
+    "tests/test_h2_harness.py": "8b1e54acc1db8370048734faef1119247be4a7be86630f72e54b2cd523c9bb1e"
+  },
+  "status": "passed",
+  "test_count": 19,
+  "test_executed": true,
+  "timing_note": "Lock-acquisition timestamp is copied from live wrapper metadata. Completion time is when the terminal tool result was observed, not an invented exact process-exit timestamp. Unittest reports its own 109.801-second runtime.",
+  "unittest_runtime_seconds": 109.801,
+  "wrapper_max_wait_min": 720
+}

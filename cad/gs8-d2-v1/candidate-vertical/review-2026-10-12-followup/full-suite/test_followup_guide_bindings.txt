@@ -1,0 +1,18 @@
+test_authentic_alternate_variant_rerun_is_supported (__main__.FollowupGuideBindings.test_authentic_alternate_variant_rerun_is_supported) ... ok
+test_blocked_legacy_diagnostics_do_not_inflate_feasible_counts (__main__.FollowupGuideBindings.test_blocked_legacy_diagnostics_do_not_inflate_feasible_counts) ... ok
+test_changed_sources_during_rerun_are_rejected (__main__.FollowupGuideBindings.test_changed_sources_during_rerun_are_rejected) ... ok
+test_claimed_match_does_not_hide_changed_geometry_result (__main__.FollowupGuideBindings.test_claimed_match_does_not_hide_changed_geometry_result) ... ok
+test_current_failure_is_preserved_in_the_caption (__main__.FollowupGuideBindings.test_current_failure_is_preserved_in_the_caption) ... ok
+test_functional_row_must_belong_to_a_classified_pose (__main__.FollowupGuideBindings.test_functional_row_must_belong_to_a_classified_pose) ... ok
+test_missing_and_stale_files_are_rejected (__main__.FollowupGuideBindings.test_missing_and_stale_files_are_rejected) ... ok
+test_relabelled_failure_is_rejected (__main__.FollowupGuideBindings.test_relabelled_failure_is_rejected) ... ok
+test_removed_case_is_rejected (__main__.FollowupGuideBindings.test_removed_case_is_rejected) ... ok
+test_saved_full_audit_is_distinguished_from_recomputation (__main__.FollowupGuideBindings.test_saved_full_audit_is_distinguished_from_recomputation) ... ok
+test_saved_mode_cannot_claim_recomputation (__main__.FollowupGuideBindings.test_saved_mode_cannot_claim_recomputation) ... ok
+test_stale_or_changed_inputs_are_rejected (__main__.FollowupGuideBindings.test_stale_or_changed_inputs_are_rejected) ... ok
+test_unknown_mode_and_unrecognized_legacy_format_are_rejected (__main__.FollowupGuideBindings.test_unknown_mode_and_unrecognized_legacy_format_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.002s
+
+OK

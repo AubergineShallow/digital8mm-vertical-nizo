@@ -204,7 +204,7 @@
   ],
   "mechanical": {
     "manifest_path": "out/compact-kowa_lm6hc/manifest.json",
-    "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
     "all_step_sha256": {
       "pi5": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
       "cooler": "5f8ee240d0ea5a80c4dbcdcc7667794fe895e4593590813256929b9374531390",
@@ -239,7 +239,7 @@
       "knob_exp": "28d672851b29b8add239c6ef2bd278414a83ef47f558eef210373fcbd60d3dd4",
       "knob_fps": "5b004799fa7f8abf0ce84caf4bda91d61975a8addb5ae1d39b6c4ff32883f71a",
       "carrier": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
-      "tub": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+      "tub": "f0442c204c4f29e9ac451dec86db6879a84d55807651a5bb68a5165a0af87878",
       "panel": "db84317a69b3eda3e76edf512ae252a5fe5a1b947d8984903ced065aa34d1eec",
       "lens_collar": "6ad36bd056aec8b204f06fa181dd7e71a5c299e927f29c461dd5feefe858b04f",
       "power_button": "36d0a1bd86582b725903227d4123ba72e0dd220cdfe94ed3298c7063ce1c00db",
@@ -645,7 +645,7 @@
       {
         "object": "tub",
         "status": "pass",
-        "step_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335"
+        "step_sha256": "f0442c204c4f29e9ac451dec86db6879a84d55807651a5bb68a5165a0af87878"
       },
       {
         "object": "panel",
@@ -783,7 +783,7 @@
   },
   "source_files": {
     "mechanical/pi5": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
-    "mechanical/tub": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335"
+    "mechanical/tub": "f0442c204c4f29e9ac451dec86db6879a84d55807651a5bb68a5165a0af87878"
   },
   "verification_source_sha256": "34e29a267cc0ea072cb156b83fa51be7313dc2f03e94d274ab9c0c85494a8f47",
   "motion_scope": "Static hard-head reservation and full carried FPS group. Co-translation preserves mutual geometry; XZ-disjoint entries stay separated for any relativeYtranslation. No USB removal/carry trajectory is selected while its complete installed lead and exit remain unknown.",

@@ -53,7 +53,7 @@ DESIGN = {
     'carrier_tie_bar_3': 1.877, 'carrier_tie_bar_4': 3.1, 'carrier_locator_tongue': 5.0, 'tub_locator_seat': 2.425,
     'tub_stock_tenon_pocket_wall_xm': 1.5, 'tub_stock_tenon_pocket_wall_xp': 1.5,
     'panel_locator_stop': 5.65, 'tub_foot_recess_tl': 5.2, 'tub_foot_recess_tr': 5.2, 'tub_foot_recess_ll': 5.591,
-    'tub_foot_recess_lr': 2.289, 'tub_tab_catch_n': 10.621, 'insert_tab_catch_p': 3.0, 'insert_tab_catch_tenon': 1.6,
+    'tub_foot_recess_lr': 2.289, 'tub_tab_catch_n': 10.621, 'insert_tab_catch_p': 2.85, 'insert_tab_catch_tenon': 1.6,
     'tub_evf_floor_relief': 1.4, 'tub_evf_collar_ring_end': 2.359,
 }
 REAL_DEFECTS = set()     # FX: carrier_tie_bar_3 fixed (slot moved to x -35); none left

@@ -18,12 +18,14 @@ sys.path[:0]=[str(CAD/'guide'),str(ROOT)]
 import lineart
 import software_lineart
 lineart._render=software_lineart.render
-GUIDE_ID='D2-vertical-concealed-vents-review'
+GUIDE_ID='D2-vertical-catch-QT-followup-f9704ac'
 PARSER=argparse.ArgumentParser(description='Render the separate concealed-channel review guide after manifest nomination.')
 PARSER.add_argument('--manifest-sha256',required=True,help='Explicitly nominated final mechanical manifest hash.')
 ARGS=PARSER.parse_args()
 from vent_guide_support import inspect_inputs,draw_plenum_section
+from followup_guide_support import inspect_variants
 VENT_STATE=inspect_inputs(ROOT,ARGS.manifest_sha256)
+FOLLOWUP=inspect_variants(ROOT)
 VENT=VENT_STATE['metadata'];VC=VENT_STATE['constants']
 VENT_CHECK_FILE=VENT_STATE['report_path']
 VENT_GEOMETRY_PASS=VENT_STATE['geometry_pass']
@@ -32,6 +34,7 @@ FLOW=VENT_STATE['scoped']['flow']['report']
 PRINT=VENT_STATE['scoped']['print']['report']
 DROP=next(r for r in HARNESS['checks'] if r['id']=='pigtail_drop')
 QT_REACH=next((r for r in HARNESS['checks'] if r['id']=='qt_enc' and r['category']=='mate_reach'), {})
+QT_LENGTH=next(r for r in HARNESS['checks'] if r['id']=='qt' and r['category']=='cable_routes')
 OUT=Path(__file__).parent/'out-concealed-vents';OUT.mkdir(exist_ok=True)
 MESH=ROOT/'out/compact-kowa_lm6hc/meshes'
 HDMI_SNAPSHOT=ROOT/'routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json'
@@ -53,6 +56,10 @@ START_HASHES={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [ROOT/'
 for name in ('package_concealed_guide.py','README-CONCEALED-VENTS.md','STEP-REVIEW-CONCEALED-VENTS.md','vent_guide_support.py','STEP-REVIEW.md','run_with_numpy_raster.py','raster_numpy.py','record_post_guide_check.py'):
     p=Path(__file__).parent/name
     START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+for p in FOLLOWUP['files']:
+    START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+p=ROOT/'review-2026-10-12-followup/BOND-PROCESS.md'
+START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
 for p in (CAD/'ASSEMBLY.md',CAD/'../../electronics/gs8-d2-v1/WIRING.md',CAD/'fonts/DejaVuSans.ttf',CAD/'fonts/DejaVuSans-Bold.ttf'):
     START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
 for p in (ROOT/'REVIEW.md',ROOT/'BOM-VERTICAL.csv',ROOT/'WIRING-VERTICAL.md',ROOT/'make_wiring_vertical.py',ROOT/'make_bom_vertical.py',ROOT/'steps.py',ROOT/'wiring_data.py',ROOT/'routes.py',ROOT/'signal_routes.py',ROOT/'harness_rules.py',ROOT/'evidence_rules.py',CAD/'out/build-receipt.json'):
@@ -244,6 +251,8 @@ GUIDE_OPS={
   '03v':('print_inserts',),
   '03w':('print_inserts',),
   '03x':('print_inserts',),
+  '03y':('print_inserts',),
+  '03z':('print_inserts',),
   '04':('module_bench',),
   '05':('module_bench',),
   '06':('module_bench',),
@@ -349,7 +358,7 @@ if CSI_MATCHED and CSI_CHECK.get('tool_reservations'):
     CSI_ARROWS=[(tip+back*80,tip+back*40)]
 # 1
 CORE=' x '.join(f'{v:g}' for v in MAN['core_dimensions_mm'])
-im,d=page('D2','2026-10-12 corrective assembly review',f"BLOCKED REVIEW | Vertical Pi candidate  |  {CORE} mm core  |  {PRINT_COUNTS['piece_count']} physical prints / {PRINT_COUNTS['assembly_row_count']} CAD rows")
+im,d=page('D2','Catch and QT followup review',f"2026-10-12 | f9704ac baseline | BLOCKED REVIEW | {CORE} mm core | {PRINT_COUNTS['piece_count']} physical prints / {PRINT_COUNTS['assembly_row_count']} CAD rows")
 scene(im,BASE+OPT+EVF+STACK+PANEL+['lens','cap','usb_stick'],['panel','lens_collar'],rect=(50,170,1100,820))
 note(d,'A sequence to test','Pictures expose fit, insertion and service dependencies.\n\nAmber: new part.\nGrey: already present.\nBlue: proposed motion.\nDashed: hidden part.\n\nThe outer plenum is integral to the tub.\n\nNo physical build is qualified.')
 stop(d,'All %d inherited physical gates and M1 remain open. Do not fabricate or energize from this review.'%GATES_OPEN)
@@ -424,14 +433,57 @@ scene(im,['print_tab_catch'],['print_tab_catch'],rect=(1100,190,440,460),directi
 text(d,65,860,'Piece 1  Tub body in its exported print pose',26,True,width=900)
 text(d,1100,680,'Piece 2  Catch stub',26,True,width=500)
 joint=MAN.get('tab_catch_joint',{})
-text(d,1100,740,'Separate STL and layer direction. Tenon seats against the -Y datum. Keep adhesive off the catch face.',24,width=490)
+text(d,1100,740,'Separate STL and layer direction. Keep the -Y locating datum dry. Qualify seating, adhesive escape and cure on 03y.',24,width=490)
 if joint:text(d,65,790,f"Source tenon: {joint['tenon_mm']}; ceiling floor {joint['ceiling_floor_mm']:.2f} mm. Nominal geometry only.",22,width=900)
 text(d,65,930,'Use the nominated joint dimensions and full stub/pocket coupons. Compare production layer direction, gap/tilt, cure and hot dwell. A beam estimate does not qualify an adhesive or interlayer joint.',24,width=1530)
 stop(d,'No epoxy SKU, print process, loaded service temperature or joint strength is certified. Optical torque and alignment gates remain open.',y=1040)
 save(im)
+# Process instructions are a qualification plan, not an invented cure fixture.
+im,d=page('03y','Seat and inspect the bonded catch','Process development HOLD. Use the production print direction and coupons before attempting a camera build.')
+groove=joint['adhesive_escape_groove_mm']
+text(d,65,184,'Inverted joint section',30,True,width=730)
+text(d,65,233,'Schematic only; no dimensions or fixture implied',21,color=GRAY,width=735)
+d.rectangle((140,340,700,560),fill='#D5D5D5',outline=INK,width=3)
+d.rectangle((290,339,530,515),fill='white',outline=INK,width=3)
+d.rectangle((250,293,580,339),fill='#F4F4F4',outline=INK,width=3)
+d.rectangle((290,338,509,500),fill='#F4F4F4',outline=INK,width=3)
+d.line((290,340,290,500),fill=ORANGE,width=5)
+d.rectangle((530,340,548,515),fill='white')
+d.rectangle((530,340,700,359),fill='white')
+d.line((539,495,539,350,705,350),fill=BLUE,width=8)
+arrow(d,(650,350),(745,350),width=5)
+arrow(d,(765,290),(765,435),width=5)
+text(d,85,289,'Insert',22,width=145)
+text(d,160,484,'Host',22,width=125)
+text(d,590,445,'+Z seating',22,width=205)
+text(d,65,587,'Dry -Y datum',23,True,color=ORANGE,width=310)
+text(d,410,587,'+Y escape outlet open',23,True,color=BLUE,width=395)
+text(d,65,645,f"Face recess {joint['working_face_recess_mm']:.2f} mm; host groove {groove['width']:g} x {groove['depth']:g} mm. Tenon and pocket clearances are unchanged.",24,width=735)
+text(d,65,743,'Keep -Y datum and joint-stop lands dry. Coupon-defined adhesive only on clearanced +X, -X and +Y faces. Keep the working face clean and the printed outlet open.',24,width=735)
+max_opening=max(v['catch_summary']['maximum_feasible_joint_face_opening_mm'] for v in FOLLOWUP['variants'].values())
+text(d,65,875,f"The chosen 0.10 mm axial reference does not cap tilted face opening: checked feasible poses reach {max_opening:.5f} mm. Neither is a qualified bondline, manufacturing allowance or fixture capability.",23,width=735)
+text(d,885,184,'Seating and cure plan',30,True,width=720)
+text(d,885,239,'Support the roof flat and stable, with assembly +Z down. Lower the insert axially; apply a light, distributed +Z load within the joint footprint. No sideways point push or hanging weight on the catch body.',26,width=720)
+text(d,885,465,'Maintain the dry datum position and an accessible outlet. Qualify any temporary support on the coupon. If seating stops, clean/rework before cure; do not force trapped adhesive into the joint.',26,width=720)
+text(d,885,650,'Per build: record both catch-face positions, angle, joint closure and insert depth before adhesive, before gel and after full cure. Use defined datums and calibrated instruments; record uncertainty, adhesive batch and cure history.',26,width=720)
+text(d,885,875,'Gauge accuracy, adhesive/dose, cure load, warm creep and complete-tub torque tests remain unqualified.',24,width=720)
+stop(d,'No continuous tolerance proof, fixture capability or bond-retention pass. The pocket mouth does not stop withdrawal; measured seating and bond strength remain required.',y=1020)
+save(im)
+im,d=page('03z','Read the catch evidence for all variants','Finite production-insert poses across the full BFAR range. Feasibility exclusions remain visible; all physical holds stay open.')
+for i,(variant,evidence) in enumerate(FOLLOWUP['variants'].items()):
+    x=65+i*535;cs=evidence['catch_summary'];main=evidence['reports']['main']['report']['summary']
+    title={'compact-kowa_lm6hc':'Compact Kowa','compact-fujinon_hf6xa':'Compact Fujinon','original-kowa_lm6hc':'Original Kowa'}[variant]
+    text(d,x,195,title,30,True,width=490)
+    text(d,x,258,f"{cs['evidence_mode_label']}: {cs['status'].upper()}\n{cs['pose_count']} poses; {cs['feasible_count']} feasible\n{cs['feasible_functional_rows']} feasible functional rows\n{cs['feasible_window_rows']} window + {cs['feasible_first_contact_rows']} contact\n{cs['blocked_legacy_diagnostic_rows']} blocked legacy diagnostic rows\n{cs['failing_rows']} failures; coverage {cs['coverage_status']}",24,width=490)
+    gap=cs['minimum_feasible_worst_window_gap_mm']
+    text(d,x,478,'Feasible-pose worst gap: '+('unavailable' if gap is None else f'{gap:.3f} mm')+'\nRule: at least 0.100 mm\nCentred gap: at least 0.300 mm\nFirst contact: at least 1.0 deg',25,width=490)
+    text(d,x,656,f"Main audit: {main['pass']} pass / {main['fail']} fail / {main['info']} info.\nManifest {evidence['manifest_sha256'][:12]}\n{cs['excluded_new_pose_count']} infeasible new poses excluded; {cs['legacy_blocked_diagnostic_count']} blocked legacy diagnostics retained.",23,width=490)
+text(d,65,866,'Same-code rerun: separate geometry recomputation with the main catch implementation. Saved full audit: exact main-audit rows checked for source, STEP, policy and coverage without geometry recomputation. The mode shown above comes from each receipt. Harness/service drawings apply only to compact Kowa.',24,width=1530)
+stop(d,'Passing sampled geometry is not cure control, whole-tub strength, warm creep, printed fit or complete-camera qualification.',y=1030)
+save(im)
 # 6
 im,d=page('04','Build one removable stack','Prepare J2, battery-pad and header wiring while both board faces remain accessible.')
-scene(im,STACK,['carrier'],offsets={'carrier':(0,27,0)},direction=(.7,2,1),arrows=[((-70,42,35),(-70,19,35))],labels=[((-70,47,35),'3')])
+scene(im,STACK,['carrier'],offsets={'carrier':(0,27,0)},direction=(.7,2,1),arrows=[((-70,42,35),(-70,19,35))],labels=[((-70,47,35),'4')])
 note(d,'Keep kit spacing','Seat Pi CSI end BEFORE the cooler. Correct contact face; straight cable and latch. Keep camera end protected.\n\nThen fit cooler with its 2 push pins and native fan lead once.\n\nRetain upper 4 x M2.5 x 5 + original standoffs.\n\nLower 4 x M2.5 x 8 pass through carrier. Check thread depth before tightening.\n\n3.4 mm engagement is nominal only.')
 text(d,65,907,(f"SOURCE / PROXY HOLD: registered Pi intersects the illustrative cooler perimeter / pin model ({COOLER_CLASH.get('overlap_mm3',0):.2f} mm3). Measure and register the actual cooler outline before assembly." if COOLER_CLASH else 'Actual cooler footprint and fan-lead routing remain unmeasured; kit spacing does not establish fit.'),24,color=ORANGE if COOLER_CLASH else GRAY,width=1510)
 stop(d,'No battery. No assumed pad location. Do not change pogo geometry or repeatedly unclip the cooler.')
@@ -463,7 +515,7 @@ if 'fps_nut' in DATA:
  im,d=page('06b','Set the real frame-rate switch','Conditional Lorlin CK1044. Two adjacent detents are 30 degrees apart.')
  ids=['switch_1824','knob_fps']+FPS_HARDWARE
  scene(im,ids,ids,offsets={'knob_fps':(0,40,0),'fps_nut':(0,24,0),'fps_mounting_washer':(0,12,0)},rect=(45,175,1080,710),direction=(1,2,1))
- note(d,'Three distinct pieces','Nut. Mounting washer. Stop / tang washer.\n\nStop washer shape is not measured and is not drawn. Confirm supplied hardware.\n\nSet two adjacent positions. Meter A / 2: open = 18; closed = 24.\n\nPreserve the stop setting when removing knob, nut and panel.\n\nThe switch rides with the module; washer, nut and knob go on after the panel (page 16).')
+ note(d,'Three distinct pieces','Nut. Mounting washer. Stop / tang washer.\n\nStop washer shape is not measured and is not drawn. Confirm supplied hardware.\n\nSet two adjacent positions. Meter A / 2: open = 18; closed = 24.\n\nPreserve the stop setting when removing knob, nut and panel.\n\nThe switch rides with the module; washer, nut and knob go on after the panel (step 16).')
  text(d,65,900,'Measure the actual stack before cutting. Proposed shaft length 11.8 mm from mounting face is a fit study; 6.35 mm D shaft / 5.5 mm flat needs a real knob coupon.',26,width=1520)
  stop(d,'Nut / mounting-washer shapes are estimated. Actual stop stack, pin clocking, shaft cut and tool access remain gates.')
  save(im)
@@ -618,10 +670,11 @@ for i,(key,label) in enumerate([('guide_qt_stored','Stored nominal 250 mm lead')
     scene(im,QT_BRANCH_IDS+[key],QT_BRANCH_IDS+[key],rect=(55+i*540,200,500,560),direction=(1,2,.7))
     text(d,65+i*540,780,label,24,True,width=500)
 branch_len=max(b['curve']['rounded_length_mm'] for b in _qt_source['branches'] if b['cable']=='qt')
-text(d,65,845,f"Stored: main {QT_MODEL['curve']['rounded_length_mm']:.2f} + longest branch {branch_len:.2f} = 250 mm nominal. The 240-260 mm family is checked separately.",23,width=1000)
-text(d,65,935,f"Free reach: curve {QT_FREE['curve']['rounded_length_mm']:.2f} + branch {branch_len:.2f} + 24 mm allowance. Remaining stock is not drawn as a qualified flexible shape.",23,width=1000)
-note(d,'Interpret the scope','Round routing envelopes only.\n\nFour 1.6 mm cores cannot pack inside the 3.2 mm bundle proxy. Real MP-QT section, sleeves and roots are unqualified.\n\nA minimum-reach pass cannot prove all cable stows or moves between these poses.\n\nKeep four splices and finished 250 +/- 10 mm intent.')
-stop(d,'No cut instruction or flexible-motion pass. Keep purchased parts and finished-length range unchanged.',y=1030)
+text(d,65,845,f"Installed-family length gate: {QT_LENGTH['min_route_mm']:.2f} + {QT_LENGTH['allowance_mm']:.0f} mm allowance vs {QT_LENGTH['length_min_mm']:.0f} mm minimum stock; slack {QT_LENGTH['slack_mm']:.2f} mm. Status: {QT_LENGTH['status'].upper()}.",23,width=1000)
+text(d,65,944,f"Free reach: {QT_FREE['curve']['rounded_length_mm']:.2f} + {branch_len:.2f} + 24 mm allowance. This separate pose cannot replace the installed-family gate.",23,width=1000)
+qt_clearance=QT_LENGTH['member_clearance']
+note(d,'Interpret the scope',f"Compact Kowa only.\n\nMinimum member: {qt_clearance['targets']} installed targets; {len(qt_clearance['hits'])} solid-hit records and {len(qt_clearance['cable_overlaps'])} cable overlaps. Length still fails.\n\nRound envelopes do not prove core packing, sleeves or roots. Static poses do not prove transition or full-stock motion.\n\nKeep four splices and 250 +/- 10 mm intent.")
+stop(d,'No cable-length change, cut instruction or flexible-motion pass. Alternate-variant harness and service remain unqualified.',y=1040)
 save(im)
 # 18
 im,d=page('16','Close the panel, then fit the FPS hardware','Step 6. Shown part-open; service removal is the exact reverse. Keep the FPS pair mated.')
@@ -698,7 +751,7 @@ save(im)
 for p,digest in START_HASHES.items():
     if hashlib.sha256(Path(p).read_bytes()).hexdigest()!=digest:raise RuntimeError('Source changed during render; rerun after freeze: '+p)
 # Assemble image-based PDF; links on evidence page remain clickable.
-pdf=OUT/(GUIDE_ID+'.pdf');c=canvas.Canvas(str(pdf),pagesize=(842,595),invariant=1);c.setTitle('D2 2026-10-12 corrective assembly and wiring: blocked review');c.setAuthor('D2 design review')
+pdf=OUT/(GUIDE_ID+'.pdf');c=canvas.Canvas(str(pdf),pagesize=(842,595),invariant=1);c.setTitle('D2 catch and QT followup from f9704ac blocked review');c.setAuthor('D2 design review')
 for i,p in enumerate(pages):
  c.drawImage(str(p),0,0,width=842,height=595)
  # Searchable text layer follows the visible typography; it never paints over the drawings.
@@ -716,6 +769,15 @@ receipt['computed_caption_status']={'main_source_matched':MAIN_MATCHED,'cooler_p
 receipt['flex_scope']=MAIN_CHECK.get('flex_scope')
 receipt['scoped_reports']={k:{'path':rel_posix(v['path'],ROOT),'sha256':hashlib.sha256(v['path'].read_bytes()).hexdigest(),'summary':v['report'].get('summary'),'failing':v['report'].get('failing')} for k,v in VENT_STATE['scoped'].items()}
 receipt['production_prints']=PRINT_COUNTS
+receipt['followup_variants']={variant:{'manifest_sha256':value['manifest_sha256'],
+    'reports':{label:{'path':rel_posix(ev['path'],ROOT),'sha256':hashlib.sha256(ev['path'].read_bytes()).hexdigest()} for label,ev in value['reports'].items()},
+    'catch_report':{'path':rel_posix(value['catch_path'],ROOT),'sha256':hashlib.sha256(value['catch_path'].read_bytes()).hexdigest(),
+        'evidence_mode':value['catch_summary']['evidence_mode'],'geometry_recomputed':value['catch_summary']['geometry_recomputed']},
+    'catch_summary':value['catch_summary'],'export_files':value['export_files'],
+    'harness_scope':value['harness_scope']} for variant,value in FOLLOWUP['variants'].items()}
+receipt['catch_process']={'physical_qualified':False,'fixture_qualified':False,
+    'pose_control_credit':False,'per_build_inspection_qualified':False,
+    'scope':'Process-development plan only; adhesive, dose, cure, metrology and bond retention remain unqualified'}
 receipt['local_bonded_catch_coupon']={'path':rel_posix(VENT_STATE['catch_path'],ROOT),'sha256':hashlib.sha256(VENT_STATE['catch_path'].read_bytes()).hexdigest(),'piece_count':2,'physical_qualified':False,'scope':'Local seating/tilt/adhesion/creep screening only; no whole-tub 0.5 N m qualification'}
 receipt['ventilation_review']={'source_report_sha256':hashlib.sha256(VENT_CHECK_FILE.read_bytes()).hexdigest(),'check_summary':VENT_STATE['report']['summary'],'metadata':VENT,'scope':'Saved-STEP plenum and sampled path checks only; no flow, hand-occlusion, thermal or print qualification'}
 write_text(OUT/'guide-receipt.json',json.dumps(receipt,indent=2)+'\n')

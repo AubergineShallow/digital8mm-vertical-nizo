@@ -193,7 +193,7 @@
       "purpose": "regression fixture: cots solids are in the obstacle set"
     }
   ],
-  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "snapshot_sha256": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
   "verification_source_sha256": "dbe500f5ebf6cc9ac28cb05c3cb65ba71318f96599dd640d8b77eaa50773afcf",
   "helper_source_sha256": "583b6ddabfc8ff0fd00ba8ba2b8f0a31ead31a81222e9d3f8ac2517f8a918d6d",

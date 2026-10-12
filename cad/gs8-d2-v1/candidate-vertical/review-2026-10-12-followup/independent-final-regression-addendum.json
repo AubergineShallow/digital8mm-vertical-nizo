@@ -1,0 +1,55 @@
+{
+  "reviewed_utc": "2026-10-12T19:22:08.989307+00:00",
+  "scope": "Final regression coverage reconciliation and UTF-8/packager addendum; static receipt, log and source hashing only",
+  "decision": "Verified final scoped coverage; not a single final-tree full-suite run",
+  "errors": [],
+  "coverage_receipt_sha256": "9ab25553654c8986b130b255e354c76caeec0263df54bb6e4547fd34a4da31e1",
+  "modules": 45,
+  "cases": 624,
+  "mode_counts": {
+    "final-source targeted rerun": 4,
+    "unchanged source from terminal full run": 41
+  },
+  "changed_dependency_files": {
+    "review-2026-10-12-followup/package_review.py": {
+      "full_run": "bcd248290c0b48873019f8a13f0361d4109159d8ef02356c7676a289ed4d04fb",
+      "final": "64f54fe399d785591b6bee9093ed9a36e8a0f2227c3b3470e7da3ab3de1506f2"
+    },
+    "review-2026-10-12-followup/test_package_review.py": {
+      "full_run": "bcbce72bae71889538e0639491d616911ad2e41d873455887bfe2c80d3b1617a",
+      "final": "c2f33a750ac58aa39ebbd561c9933f16ba64ba56e4f29b3a1ccea133721e479d"
+    },
+    "tests/test_repo_hygiene.py": {
+      "full_run": "b523469e98ece4d30859b521be56b177adf097e4ed02e806b14db520122fb0a3",
+      "final": "6b6af41b4afd9864512cd8d60636384f4736c44097c85f0f18ec34389757d896"
+    }
+  },
+  "UTF8_correction_verified": true,
+  "full_run_sha256": "841f9baee578cba05c55eb9f49237ec4cbc480c0e2ae401faf0a3d9cdec56776",
+  "targeted_run_sha256": "4a6de7636c9d62f2325af49105b1bd03707bd5004db034b8f56758741a050afe",
+  "first_failed_run_sha256": "c3146ae3dafa4d0f5144c22edc19e5e3121540002a54a148e39eee6ba8b1aba5",
+  "geometry_acceptance_sha256": {
+    "model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
+    "j7_collar_checks.py": "9047bf141ee178aca765fabfe022f0a8dd6f1c010a8d4c038ebcb07d081fdb76",
+    "steps.py": "0931688b9450a4f806a71d778dd23471ab55a870ebae4c8c77cab446bdbb978f",
+    "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "harness_rules.py": "1c45189ddefa87070a3d8490166c36fa907a701f1044a550a9100428cd7fb00c",
+    "verify_harness_checks.py": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4"
+  },
+  "limitations": [
+    "41 unchanged-source results plus four final-source targeted reruns. Both preceding failed full runs remain evidence; neither is relabelled all-pass.",
+    "Regression success does not waive retained QT length/harness/cooler or physical manufacturing, thermal, adhesive and flexible-service holds.",
+    "Commit cleanliness, archive packaging and final delivery are separate checks. No repository tests or CAD run by this reviewer.",
+    "624 is the total unittest case count, including declared skips and expected failures listed separately; do not describe it as 624 individual passing assertions."
+  ],
+  "nonordinary_test_outcomes": [
+    {
+      "test": "tests/test_carrier_fp11c.py",
+      "unittest_summary": "OK (skipped=1)"
+    },
+    {
+      "test": "tests/test_collar_r7_mechanical.py",
+      "unittest_summary": "OK (expected failures=1)"
+    }
+  ]
+}

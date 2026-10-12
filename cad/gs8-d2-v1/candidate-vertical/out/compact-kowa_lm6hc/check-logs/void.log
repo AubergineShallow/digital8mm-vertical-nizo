@@ -1,0 +1,77 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+clip 0 19363.802
+clip 1 12836.756
+clip 2 1355.986
+clip 3 21799.127
+clip 4 1020.527
+clip 5 3090.916
+clip 6 2972.339
+clip 7 364.109
+clip 8 3948.0
+clip 9 3570.0
+clip 10 2689.12
+clip 11 8707.721
+clip 12 0.0
+clip 13 0.0
+clip 14 226.669
+clip 15 0.0
+clip 16 0.0
+clip 17 97.9
+clip 18 212.16
+clip 19 0.0
+clip 20 0.0
+clip 21 69.36
+clip 22 69.36
+clip 23 69.36
+clip 24 0.0
+clip 25 0.0
+clip 26 0.0
+clip 27 0.0
+clip 28 0.0
+clip 29 0.0
+clip 30 13152.182
+clip 31 168727.958
+clip 32 41987.762
+clip 33 416.396
+clip 34 5911.221
+clip 35 522.038
+clip 36 149.279
+clip 37 149.279
+clip 38 149.279
+clip 39 149.279
+clip 40 149.279
+clip 41 149.279
+clip 42 70.686
+bounded remaining source assembly volume 16632.222613612816
+{
+  "variant": "compact-kowa_lm6hc",
+  "core_dimensions_mm": [
+    158.0,
+    63.6,
+    100.0
+  ],
+  "core_envelope_mm3": 1004880.0,
+  "model_solid_union_mm3": null,
+  "model_void_mm3": null,
+  "model_void_fraction": null,
+  "definition": "Core box minus exported material/proxy union. Current detailed Pi assembly contributes a conservative interval, not a completed exact occupied union. Cooling air, cable/service clearance and omitted flexible material are within this empty-model volume; it is not removable waste.",
+  "qualification": "Conservative CAD proxy-volume interval, rounded outward to whole cm3; source/kernel and baseline representation caveats remain. The slow/unreliable complete CSI Boolean was stopped and preserved as a diagnostic. No physical measurement or precise unused-volume claim.",
+  "generated_utc": "2026-10-12T12:27:28Z",
+  "verification_source_sha256": "7423c23f56f12fb61affb468deb9d7a39690274e601b2a374e5b764b8173e0c6",
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+  "model_void_interval_mm3": [
+    666698.040826522,
+    683330.2634401348
+  ],
+  "model_void_interval_cm3_outward_rounded": [
+    666,
+    684
+  ],
+  "model_solid_union_interval_mm3": [
+    321549.7365598652,
+    338181.95917347795
+  ],
+  "interval_definition": "After subtracting the non-Pi material union and simple PCB, upper bound removes no further Pi material; lower bound subtracts the sum of every remaining Pi source-solid volume, including overlaps and any material outside the core. Actual union subtraction must lie between these CAD bounds. No raw compound sum is claimed as occupied volume.",
+  "comparison_caveat": "The candidate uses source-corrected Pi geometry while baseline retains its original approximate proxy. Void differences include that representation change, not only packaging changes."
+}

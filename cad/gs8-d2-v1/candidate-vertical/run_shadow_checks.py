@@ -38,3 +38,4 @@ for label,args in commands:
  write_text(D/'review-check-run.json',json.dumps(dict(manifest_sha256=h,runner_sha256=runner_sha,checks=results,physical_qualified=False),indent=2))
  print(label,'exit',r.returncode,flush=True)
 assert digest(M)==h and digest(Path(__file__))==runner_sha
+raise SystemExit(0 if all(r['exit_code']==0 for r in results) else 1)

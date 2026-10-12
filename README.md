@@ -6,6 +6,8 @@ A restrained, Nizo-inspired development of [digital8mm](https://github.com/Auber
 
 ## Current design
 
+The current local followup starts from reviewed commit `f9704ac` on `review/vn-catch-qt-cloud-20261012`; see [the new followup record](cad/gs8-d2-v1/candidate-vertical/review-2026-10-12-followup/FOLLOWUP-REVIEW.md). This branch has not been published. The earlier published branches below remain historical checkpoints.
+
 Start with the [vertical candidate overview](cad/gs8-d2-v1/candidate-vertical/README.md), then the [review and comparison](cad/gs8-d2-v1/candidate-vertical/REVIEW.md), [assembly and wiring plan](cad/gs8-d2-v1/candidate-vertical/ASSEMBLY-VERTICAL.md), [bill of materials](cad/gs8-d2-v1/candidate-vertical/BOM-VERTICAL.md) and [wiring specification](cad/gs8-d2-v1/candidate-vertical/WIRING-VERTICAL.md).
 
 The candidate retains silent recording, the 18/24 fps selector, exposure dial, record control and rear electronic viewfinder. Compact storage has ten physical production prints across nine assembly rows because the tub body and bonded catch stub print separately; original storage has eleven prints across ten rows. The gauge and coupons are excluded. Purchased hardware and cable selections are conditional on the documented receipt and bench checks.
@@ -17,7 +19,7 @@ The concealed-vent revision preserves the internal cooler cavity and replaces vi
 - The starting upstream commit is `d38468e58eb2b02d56743e2e0cfdd8f780818a65`.
 - [The upstream README](https://github.com/AubergineShallow/digital8mm/blob/d38468e58eb2b02d56743e2e0cfdd8f780818a65/README.md) is retained as historical documentation; its earlier dimensions, gate counts and print guidance do not supersede the current review.
 - [Export18 reference](cad/gs8-d2-v1/candidate-vertical/history/reviewed-export18/README.md) preserves the preceding reviewed vertical-board checkpoint.
-- [Reproduction](cad/gs8-d2-v1/candidate-vertical/REPRODUCE.md) gives the pinned environment ([candidate lock](cad/gs8-d2-v1/candidate-vertical/requirements-candidate-lock.txt)), the Windows and POSIX commands and the inspect commands. [Cloud setup](CLOUD-START-HERE.md) is the upstream r5/r6 text, kept for history.
+- [Reproduction](cad/gs8-d2-v1/candidate-vertical/REPRODUCE.md) gives the selected Linux reference environment ([candidate lock](cad/gs8-d2-v1/candidate-vertical/requirements-candidate-lock.txt)), inspect/rebuild commands and Windows comparison limits. Cross-platform STEP formatting and mesh triangulation/order differ; full byte identity is not claimed. [Cloud setup](CLOUD-START-HERE.md) is the upstream r5/r6 text, kept for history.
 - [Repository index](cad/gs8-d2-v1/candidate-vertical/REPO-INDEX.md): the selected pipeline, helper modules, studies, evidence with no in-repo producer, and the Windows path-length note.
 
 The original upstream repository is unchanged. This development is published as its own history-preserving repository, [AubergineShallow/digital8mm-vertical-nizo](https://github.com/AubergineShallow/digital8mm-vertical-nizo) ([publication notes](cad/gs8-d2-v1/candidate-vertical/PUBLISHING.md)), not as an in-place upstream update.

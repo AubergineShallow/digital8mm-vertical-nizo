@@ -153,6 +153,31 @@ def tub_stock(tub, out, manifest):
     return stock
 
 
+def catch_joint_manufacturing_rows(stock, insert):
+    """Check the actual production stock/insert against the declared host-only escape path.
+
+    These are geometric gates, not adhesive-flow, cure, metrology or strength proof.
+    """
+    import model
+    sp=model.tab_catch_split();vent,pocket=sp['vent'],sp['pocket']
+    web=next(b for b in model.L.tab_catch_boxes() if b['side']==1 and b['kind']=='web')
+    vb=vent.BoundingBox();zs=model.TAB_CATCH_SPLIT_Z
+    access=model.box(vb.xmin,vb.xmax,web['y'][1]+1.2,model.PANEL_IN,zs+.05,
+                     zs+model.TAB_CATCH_VENT['depth']-.05)
+    checks=[('vent_empty',stock.intersect(vent).Volume()<=1e-6,
+             dict(overlap_mm3=stock.intersect(vent).Volume(),maximum_mm3=1e-6)),
+            ('insert_uncut_by_vent',insert.intersect(vent).Volume()<=1e-6,
+             dict(overlap_mm3=insert.intersect(vent).Volume(),maximum_mm3=1e-6)),
+            ('vent_connected',vent.isValid() and len(vent.Solids())==1,dict(solids=len(vent.Solids()))),
+            ('vent_meets_pocket',vent.intersect(pocket).Volume()>1e-5,
+             dict(common_mm3=vent.intersect(pocket).Volume(),minimum_mm3=1e-5)),
+            ('outlet_access_before_electronics',stock.intersect(access).Volume()<=1e-6,
+             dict(overlap_mm3=stock.intersect(access).Volume(),maximum_mm3=1e-6))]
+    return [dict(id='bonded_joint_'+name,part=PR.TUB_STOCK,status='pass' if ok else 'fail',
+                 scope='Production geometry only; physical adhesive flow, seating and cure remain HOLD',**detail)
+            for name,ok,detail in checks]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--variant', default='compact-kowa_lm6hc')
@@ -196,6 +221,9 @@ def main():
         if 'critical_features' in cats:
             rows = {pid: dict(shape=shapes[pid]) for pid in finished}
             res['critical_features'] = CK.check_critical_features(L, rows)
+            if PR.TUB_STOCK in shapes and 'tab_catch_insert' in shapes:
+                res['critical_features'].extend(catch_joint_manufacturing_rows(
+                    shapes[PR.TUB_STOCK],shapes['tab_catch_insert']))
             if 'thin_wall' in res:      # r7 build_d2: thin-spot classification gates critical_features
                 res['unclassified_thin_spots'] = CK.unclassified_thin_spots(L, res['thin_wall'])
                 res['critical_features'].append(PR.thin_spot_gate(res['unclassified_thin_spots']))

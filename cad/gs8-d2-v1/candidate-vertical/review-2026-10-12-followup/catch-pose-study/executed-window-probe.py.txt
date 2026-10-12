@@ -1,0 +1,36 @@
+import sys,json,time,hashlib
+from pathlib import Path
+CV=Path('/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical')
+sys.path[:0]=[str(CV),str(CV.parent)]
+import cadquery as cq,model,checks as CK,j7_collar_checks as J
+D=CV/'review-2026-10-12-followup'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+inputs={p.name:sha(p) for p in [CV/'model.py',CV/'j7_collar_checks.py',D/'tub-trial.step',D/'stock-trial.step',D/'insert-trial.step']}
+stock=cq.importers.importStep(str(D/'stock-trial.step')).val();stub=cq.importers.importStep(str(D/'insert-trial.step')).val()
+result=[]; t0=time.time()
+with J.candidate_layout('kowa_lm6hc') as L:
+ nominal=model.tab_catch_split()['stub'];assert J._symdiff(nominal,stub)<.001,'trial insert does not match model'
+ b=model.tab_catch_split()['pocket'].BoundingBox();bounds=[getattr(b,a+e) for a in 'xyz' for e in ('min','max')]
+ web=next(b for b in model.L.tab_catch_boxes() if b['side']==1 and b['kind']=='web')
+ cams=J.cached_camera_parts(); lat=L.COLLAR['gauge']['centring_worst_mm']+getattr(L,'HOOD_TO_TUB_LATERAL',.25)
+ moves=[]
+ for s in CK.j7_s_values(L):
+  metal=cams(L,s)['metal']
+  for dy,dz in ((0.,0.),(lat,0.),(-lat,0.),(0.,lat),(0.,-lat)):
+   for sg in (1,-1):
+    ax=cq.Vector(0.,L.LENS_AXIS[0]+dy,L.LENS_AXIS[1]+dz)
+    mr=metal.translate(cq.Vector(0.,dy,dz)).rotate(ax,ax+cq.Vector(1,0,0),sg*L.ROLL_CATCH['window_deg'])
+    moves.append((s,dy,dz,sg,mr,float(mr.distance(stock))))
+ print('prepared',len(moves),'exact window samples',round(time.time()-t0,2),flush=True)
+ for pose in J.stub_pose_table(model,web,bounds):
+  t=time.time(); sb=J.transform_stub(stub,pose); f=J.stub_pose_feasibility(stock,sb,pose);r=dict(pose,**f)
+  if f['feasible'] or pose.get('legacy'):
+   rows=[]
+   for s in CK.j7_s_values(L):
+    got=[(dy,dz,sg,round(min(base,float(mr.distance(sb))),3)) for ss,dy,dz,sg,mr,base in moves if ss==s]
+    centered=min(g for dy,dz,sg,g in got if dy==dz==0);worst=min(g for dy,dz,sg,g in got)
+    rows.append(dict(s=s,centred_gap=centered,worst_gap=worst,status='pass' if centered>=.299 and worst>=.099 else 'fail'))
+   r.update(windows=rows,min_worst_gap=min(q['worst_gap'] for q in rows),min_centred_gap=min(q['centred_gap'] for q in rows),fails=[q['s'] for q in rows if q['status']=='fail'])
+  r['seconds']=round(time.time()-t,2);result.append(r)
+  print(json.dumps({k:v for k,v in r.items() if k not in ('windows','rotations')}),flush=True)
+  (D/'catch-window-probe.json').write_text(json.dumps(dict(purpose='Experimental full-BFAR exact window tuning on production host and transformed insert. First-contact not run; not final acceptance.',inputs=inputs,cases=result,seconds=round(time.time()-t0,2)),indent=2)+'\n')

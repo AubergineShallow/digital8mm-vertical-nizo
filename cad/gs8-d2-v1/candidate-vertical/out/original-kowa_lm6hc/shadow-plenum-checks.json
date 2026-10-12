@@ -1,16 +1,16 @@
 {
-  "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
-  "saved_tub_sha256": "7b84959426e122907332142009fcbfb5b6738bb11c9015950b447faee0ce9ee2",
+  "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
+  "saved_tub_sha256": "f33a3f4dc5a196e2ed0ba96d31d8a5cf4946d9f08a5ad4d05794e045f33f24d9",
   "historical_tub_sha256": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
   "verification_source_sha256": "ce776a21cf6e6bd899f74cb0f56852577da0d7eb23b43adb4a1712d38ecb3485",
   "checked_source_sha256": {
-    "model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
     "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84"
   },
   "helper_source_sha256": {
     "cavity_rules.py": "f780df04d1155dc37cb4f8a2bfe8180cd97c1080819f0c9d7c7bab31c18a808b"
   },
-  "generated_utc": "2026-10-12T03:41:51Z",
+  "generated_utc": "2026-10-12T17:40:43Z",
   "summary": {
     "pass": 48,
     "fail": 1,
@@ -21,7 +21,7 @@
       "id": "tub_valid_single_solid",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 190427.7930117538
+      "volume_mm3": 190418.18557266422
     },
     {
       "id": "cold_wall_port_0",
@@ -1087,7 +1087,7 @@
       "id": "no_added_material_in_original_cavity",
       "status": "fail",
       "boundary_exclusion_mm": 0.1,
-      "added_total_mm3": 10118.17561601564,
+      "added_total_mm3": 10117.695699119731,
       "undeclared_mm3": 8893.784535677361,
       "undeclared_bbox": [
         -182.4,

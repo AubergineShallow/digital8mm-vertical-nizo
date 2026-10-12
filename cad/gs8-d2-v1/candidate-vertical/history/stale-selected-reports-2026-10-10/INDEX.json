@@ -1,6 +1,6 @@
 {
   "purpose": "Reports that sat in the selected output folder out/compact-kowa_lm6hc but bind another manifest (review 2026-10-10 VN-09, fix FP-04). Moved byte-identical; never current evidence.",
-  "selected_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "selected_manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "selected_manifest_history": [
     {
       "sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
@@ -13,6 +13,14 @@
     {
       "sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
       "when": "review 2026-10-12 corrective: 1b59395 re-export (selected 294220bc); moved files re-checked unchanged and not bound to it"
+    },
+    {
+      "sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "when": "Prior selected reference retained before 2026-10-12 followup revalidation"
+    },
+    {
+      "sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+      "when": "2026-10-12 followup: both moved files rechecked byte-identical, original selected-folder paths absent; no historical report rebound"
     }
   ],
   "moved": [
@@ -37,5 +45,6 @@
       },
       "reason": "Rejected angled-channel ventilation trial (verify_ventilation.py), bound to vent-study/angled-channel-trial/manifest.json. Superseded by shadow-plenum-checks.json for the selected manifest."
     }
-  ]
+  ],
+  "selected_manifest_field_scope": "Latest manifest against which continued historical exclusion was checked; not the original move manifest."
 }

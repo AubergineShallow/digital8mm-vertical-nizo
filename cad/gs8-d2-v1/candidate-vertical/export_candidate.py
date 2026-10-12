@@ -82,6 +82,9 @@ meta['tab_catch_joint']={
     'split_z_mm':model.TAB_CATCH_SPLIT_Z,
     'ceiling_top_z_mm':model.TAB_CATCH_CEILING_TOP,
     'ceiling_floor_mm':model.TAB_CATCH_CEILING_TOP-model.TAB_CATCH_SPLIT_Z-model.TAB_CATCH_TENON['h']-model.TAB_CATCH_POCKET_CLEAR['z'],
+    'working_face_recess_mm':model.TAB_CATCH_FACE_RECESS_MM,
+    'adhesive_escape_groove_mm':dict(model.TAB_CATCH_VENT),
+    'groove_location':'Host +Y pocket wall to accessible +Y joint-face edge; dry -Y locating datum and 1.6 mm tenon remain uncut.',
     'physical_qualified':False,
     'hold':'Actual seating, datum tilt, adhesive preparation/cure and warm torque/creep require the as-printed joint coupon.'}
 meta['pi_source_geometry']=m['pi_source_geometry']

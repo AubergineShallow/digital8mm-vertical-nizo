@@ -1,0 +1,25 @@
+{
+  "process_exit_code": 1,
+  "failed_children": [
+    {
+      "check": "harness",
+      "exit_code": 1
+    },
+    {
+      "check": "rigid",
+      "exit_code": 1
+    }
+  ],
+  "identity_errors": [
+    "batch process returned nonzero"
+  ],
+  "status": "blocked",
+  "scope": "Recorded CAD/software checks only; no physical release",
+  "inputs": {
+    "review-2026-10-12-followup/validation-run-primary_checks.json": "44ae4c89cc04d18fd3aa257d935175118aa2c384b9b2aa14cef6d9135b6e7a54",
+    "out/compact-kowa_lm6hc/review-check-run.json": "c7fa9eda8a86ab70a1d93b935eb45d4df16e243d0b5c9998110998118fd0a7b3",
+    "out/compact-kowa_lm6hc/manifest.json": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+    "run_shadow_checks.py": "ef659fd74ce39f34a817edeb0e0374dfda82ee9abe3599118f409b7f9cc4d1c7",
+    "review-2026-10-12-followup/aggregate_status.py": "2e0374b62b1a5aaf1526f034bd67d86a7f01b444608b32564ee27babcbbb98f5"
+  }
+}

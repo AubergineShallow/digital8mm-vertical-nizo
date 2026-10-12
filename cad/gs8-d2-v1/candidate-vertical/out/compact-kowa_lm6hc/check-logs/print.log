@@ -1,0 +1,92 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+base_grip overhang pass direction pass 24.7 failing 0
+cap overhang pass direction pass 3.9 failing 0
+carrier overhang pass direction pass 5.5 failing 0
+centring_gauge overhang pass direction pass 0.0 failing 0
+eyecup overhang pass direction pass 0.0 failing 0
+knob_exp overhang pass direction pass 0.0 failing 0
+knob_fps overhang pass direction pass 0.0 failing 0
+lens_collar overhang pass direction pass 7.2 failing 0
+panel overhang pass direction pass 5.5 failing 0
+tab_catch_insert overhang pass direction pass 0.0 failing 0
+tub overhang pass direction pass 27.7 failing 0
+carrier bed_contact pass 0.0
+base_grip bed_chamfer pass 0.0
+cap bed_chamfer pass 0.0
+carrier bed_chamfer pass 0.0
+centring_gauge bed_chamfer pass 0.0
+eyecup bed_chamfer pass 0.0
+knob_exp bed_chamfer pass 0.0
+knob_fps bed_chamfer pass 0.0
+lens_collar bed_chamfer pass 0.0
+panel bed_chamfer pass 0.0
+tab_catch_insert bed_chamfer pass 0.0
+tub bed_chamfer pass 0.0
+base_grip thin_wall pass 1.599 None
+cap thin_wall pass 1.599 None
+carrier thin_wall pass 1.85 0.0
+eyecup thin_wall pass 1.595 None
+knob_exp thin_wall pass 4.72 None
+knob_fps thin_wall pass 3.594 None
+lens_collar thin_wall pass 1.849 0.0
+panel thin_wall pass 1.599 0.0
+tab_catch_insert thin_wall pass 1.599 None
+tub thin_wall pass 1.199 0.0
+tub_print_stock thin_wall pass 1.199 0.0
+critical_features {'pass': 123, 'fail': 0, 'info': 7, 'stub': 0}
+{
+ "summary": {
+  "print_overhang": {
+   "pass": 11,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  },
+  "print_bridge_direction": {
+   "pass": 11,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  },
+  "bed_contact": {
+   "pass": 1,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  },
+  "bed_chamfer": {
+   "pass": 11,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  },
+  "thin_wall": {
+   "pass": 11,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  },
+  "critical_features": {
+   "pass": 123,
+   "fail": 0,
+   "info": 7,
+   "stub": 0
+  },
+  "unclassified_thin_spots": {
+   "pass": 0,
+   "fail": 0,
+   "info": 0,
+   "stub": 0
+  }
+ },
+ "failing": {
+  "print_overhang": [],
+  "print_bridge_direction": [],
+  "bed_contact": [],
+  "bed_chamfer": [],
+  "thin_wall": [],
+  "critical_features": [],
+  "unclassified_thin_spots": []
+ }
+}

@@ -1,0 +1,11 @@
+test_clean_out_export_meets_the_third_party_notice_rule (__main__.ExportPlan.test_clean_out_export_meets_the_third_party_notice_rule) ... ok
+test_exporter_checks_the_plan_before_writing (__main__.ExportPlan.test_exporter_checks_the_plan_before_writing) ... ok
+test_licence_copies_are_planned_and_match_the_vendor_text (__main__.ExportPlan.test_licence_copies_are_planned_and_match_the_vendor_text) ... ok
+test_plan_covers_every_file_the_last_export_bound (__main__.ExportPlan.test_plan_covers_every_file_the_last_export_bound) ... ok
+test_real_variant_folders_hold_no_leftovers (__main__.ExportPlan.test_real_variant_folders_hold_no_leftovers) ... ok
+test_stray_file_is_reported_and_licence_is_not (__main__.ExportPlan.test_stray_file_is_reported_and_licence_is_not) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.042s
+
+OK

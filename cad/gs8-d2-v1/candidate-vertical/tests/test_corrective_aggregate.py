@@ -2,6 +2,15 @@
 import importlib.util
 from pathlib import Path
 import unittest
+import contextlib
+import io
+import json
+import runpy
+import shutil
+import sys
+import tempfile
+from types import SimpleNamespace
+from unittest.mock import patch
 
 PATH = Path(__file__).resolve().parents[1] / 'corrective-2026-10-12/aggregate_status.py'
 SPEC = importlib.util.spec_from_file_location('corrective_aggregate', PATH)
@@ -10,6 +19,25 @@ SPEC.loader.exec_module(MOD)
 
 
 class AggregateVerdicts(unittest.TestCase):
+    def test_standalone_runner_preserves_child_failure_exit(self):
+        cv=PATH.parents[1]
+        sys.path.insert(0,str(cv))
+        for failed in (False,True):
+            with self.subTest(failed=failed), tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp);runner=root/'run_shadow_checks.py'
+                shutil.copyfile(cv/'run_shadow_checks.py',runner)
+                out=root/'out/compact-kowa_lm6hc';out.mkdir(parents=True)
+                (out/'manifest.json').write_text('{}',encoding='utf-8',newline='\n')
+                def child(cmd,**kwargs):
+                    return SimpleNamespace(returncode=1 if failed and Path(cmd[1]).name=='verify_harness_checks.py' else 0)
+                with patch('subprocess.run',side_effect=child), contextlib.redirect_stdout(io.StringIO()):
+                    with self.assertRaises(SystemExit) as stopped:
+                        runpy.run_path(str(runner),run_name='__main__')
+                self.assertEqual(stopped.exception.code,1 if failed else 0)
+                receipt=json.loads((out/'review-check-run.json').read_text(encoding='utf-8'))
+                self.assertEqual(len(receipt['checks']),15)
+                self.assertEqual(sum(r['exit_code']!=0 for r in receipt['checks']),int(failed))
+
     def test_zero_process_exit_does_not_hide_child_failure(self):
         result = MOD.aggregate({'exit_code': 0}, {'manifest_sha256': 'm', 'runner_sha256': 'r', 'checks': [
             {'check': 'mesh', 'exit_code': 0}, {'check': 'harness', 'exit_code': 1}]}, 'm', ['mesh', 'harness'], 'r')

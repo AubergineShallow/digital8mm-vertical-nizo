@@ -1,8 +1,8 @@
 {
-  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
   "verification_source_sha256": "590a8f76b66aeb5d06074dbed88b4cf332763ee79e2f1c7984437bbe1cf720c6",
   "checked_source_sha256": {
-    "model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "model.py": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
     "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84"
   },
   "saved_material_sha256": {
@@ -50,7 +50,7 @@
     "p_carrier2": "b5bafcead0dc91a35dfb13a9f247a95a538140ab3d5c68dc5830781f0a432672",
     "p_grip": "c7170de83e7360a6ab39640fcf11dff2e9b7a2d11c4cead01d0bada6de3b2e4b"
   },
-  "generated_utc": "2026-10-12T01:48:26Z",
+  "generated_utc": "2026-10-12T10:32:32Z",
   "summary": {
     "pass": 4,
     "fail": 0

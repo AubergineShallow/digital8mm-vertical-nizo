@@ -1,0 +1,45 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+test_empty_mesh_fails (__main__.BedChamfer.test_empty_mesh_fails) ... ok
+test_half_chamfer_fails (__main__.BedChamfer.test_half_chamfer_fails) ... ok
+test_one_sharp_edge_reports_its_length (__main__.BedChamfer.test_one_sharp_edge_reports_its_length) ... ok
+test_r7_chamfer_passes (__main__.BedChamfer.test_r7_chamfer_passes) ... ok
+test_sharp_block_fails_with_its_outline (__main__.BedChamfer.test_sharp_block_fails_with_its_outline) ... ok
+test_sharp_hole_is_info_only (__main__.BedChamfer.test_sharp_hole_is_info_only) ... ok
+test_cold_breaks_staggered (__main__.Layout.test_cold_breaks_staggered)
+A roof line at constant x crosses at most one broken row before meeting a solid one. ... ok
+test_front_metadata_counts_the_inboard_lip (__main__.Layout.test_front_metadata_counts_the_inboard_lip)
+Negative control: old dimensions reproduce the 5.6 mm2 overstatement; new step reports the smaller face. ... ok
+test_mouth_rays_and_seeds_clear_of_mullions (__main__.Layout.test_mouth_rays_and_seeds_clear_of_mullions) ... ok
+test_no_rib_lengthwise_in_a_series_family (__main__.Layout.test_no_rib_lengthwise_in_a_series_family) ... ok
+test_openings_bridgeable (__main__.Layout.test_openings_bridgeable) ... ok
+test_post_centres_empty (__main__.Layout.test_post_centres_empty) ... ok
+test_bridge_rule_and_overhang_pass (__main__.PlenumBody.test_bridge_rule_and_overhang_pass) ... /workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:865: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse_result = _expression_grammar.parseString(selectorString, parseAll=True)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/pyparsing/util.py:466: PyparsingDeprecationWarning: 'parseAll' argument is deprecated, use 'parse_all'
+  return fn(self, *args, **kwargs)
+L 158: r7 overhang pass (None); bridge direction pass, 0 failing, longest 27.1 mm
+L 185: r7 overhang pass (None); bridge direction pass, 0 failing, longest 27.1 mm
+ok
+test_sections_parity_and_sampling (__main__.PlenumBody.test_sections_parity_and_sampling) ... L 158 cold_rear: verifier planes min 522.000, every-interval min 522.000
+L 158 cold_bottom: verifier planes min 543.000, every-interval min 543.000
+L 158 hot_bottom: verifier planes min 301.000, every-interval min 301.000
+L 158 hot_front: verifier planes min 540.800, every-interval min 540.800
+L 158 cold parity 703.080 vs 420.0
+L 158 hot parity 575.200 vs 510.0
+L 185 cold_rear: verifier planes min 522.000, every-interval min 522.000
+L 185 cold_bottom: verifier planes min 705.000, every-interval min 705.000
+L 185 hot_bottom: verifier planes min 301.000, every-interval min 301.000
+L 185 hot_front: verifier planes min 540.800, every-interval min 540.800
+L 185 cold parity 835.920 vs 420.0
+L 185 hot parity 575.200 vs 510.0
+ok
+test_skin_without_chamfer_fails (__main__.PlenumBody.test_skin_without_chamfer_fails) ... ok
+test_coupon_crops_all_four_mouths (__main__.Wiring.test_coupon_crops_all_four_mouths) ... ok
+test_flow_baseline_rewritten_with_reason (__main__.Wiring.test_flow_baseline_rewritten_with_reason) ... ok
+test_print_verifier_runs_bed_chamfer_on_every_pose (__main__.Wiring.test_print_verifier_runs_bed_chamfer_on_every_pose) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 220.848s
+
+OK

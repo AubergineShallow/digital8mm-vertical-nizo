@@ -1,0 +1,7 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 5.744s
+
+OK

@@ -1,0 +1,22 @@
+test_every_linked_op_declares_support_and_hold (__main__.LinkedRibbon.test_every_linked_op_declares_support_and_hold) ... ok
+test_linked_span_follows_the_mate (__main__.LinkedRibbon.test_linked_span_follows_the_mate) ... ok
+test_missing_support_or_hold_fails (__main__.LinkedRibbon.test_missing_support_or_hold_fails) ... ok
+test_module_service_remate (__main__.LinkedRibbon.test_module_service_remate) ... ok
+test_refit_remate_position (__main__.LinkedRibbon.test_refit_remate_position) ... ok
+test_stray_support_fails (__main__.LinkedRibbon.test_stray_support_fails) ... ok
+test_corrected_order (__main__.ModelTests.test_corrected_order) ... ok
+test_driver_contexts (__main__.ModelTests.test_driver_contexts) ... ok
+test_every_removal_has_its_refit (__main__.ModelTests.test_every_removal_has_its_refit) ... ok
+test_gauge_never_with_camera_or_adapter (__main__.ModelTests.test_gauge_never_with_camera_or_adapter) ... ok
+test_lint_clean (__main__.ModelTests.test_lint_clean) ... ok
+test_manifests_built_and_tools_bound (__main__.ModelTests.test_manifests_built_and_tools_bound) ... ok
+test_obstacles_are_present_minus_movers (__main__.ModelTests.test_obstacles_are_present_minus_movers) ... ok
+test_register_omissions_now_obstacles (__main__.ModelTests.test_register_omissions_now_obstacles) ... ok
+test_verify_candidate_uses_derived_table (__main__.ModelTests.test_verify_candidate_uses_derived_table) ... ok
+test_mutations_are_caught (__main__.NegativeControls.test_mutations_are_caught) ... ok
+test_original_order_fails (__main__.NegativeControls.test_original_order_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.242s
+
+OK

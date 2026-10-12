@@ -1,0 +1,142 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+{"category": "interference", "id": "pi5/cooler", "status": "fail", "overlap_mm3": 79.902671, "bbox": [-100.8, -56.203553292294, -1.2, 4.5, 15.05, 56.25], "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."}
+{"category": "non_material_keepout", "id": "pi5/usb_storage_plug_reserve", "status": "info", "mating_partner": true, "overlap_mm3": 195.944237, "bbox": [-121.57000009118204, -109.9999999, -12.516000095660004, -8.015999895664999, 27.999894899999997, 39.9998951], "operational_status": "HOLD", "reason": "Estimated mating envelope is not material. Actual plug/contact geometry and insertion remain unmeasured; failed full-solid export16 diagnostic is preserved."}
+{"category": "interference", "id": "eyepiece/eyecup", "status": "info", "overlap_mm3": 102.918575, "bbox": [-178.3, -175.3, -7.350000000000001, 29.35, 59.65, 96.35], "reason": "Existing TPU eyecup sleeve radial interference, only its3mm engagement band; physical retention gate open"}
+{"category": "interference", "id": "eyepiece/panel", "status": "info", "overlap_mm3": 4.863836, "bbox": [-155.4, -153.5, 18.9999999999992, 25.5, 65.90661337755218, 90.09338662244782], "reason": "Only the explicitly modelled 0.1 mm radial EVF clamp region; G-EVF-1 open"}
+{"category": "interference", "id": "tub/p_panel1", "status": "info", "overlap_mm3": 21.382465, "bbox": [-130.0, -127.0, 13.6, 23.5, 46.5, 49.5], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "interference", "id": "tub/p_panel2", "status": "info", "overlap_mm3": 21.382465, "bbox": [-134.5, -131.5, 13.6, 23.5, 90.2, 93.2], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "interference", "id": "tub/p_panel3", "status": "info", "overlap_mm3": 21.382465, "bbox": [-12.3, -9.3, 13.6, 23.5, 6.800000000000001, 9.8], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "interference", "id": "tub/p_panel4", "status": "info", "overlap_mm3": 21.382465, "bbox": [-12.3, -9.3, 13.6, 23.5, 90.2, 93.2], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "interference", "id": "tub/p_carrier1", "status": "info", "overlap_mm3": 20.302543, "bbox": [-128.5, -125.5, 7.8, 17.2, 67.5, 70.5], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "interference", "id": "tub/p_carrier2", "status": "info", "overlap_mm3": 20.302543, "bbox": [-26.5, -23.5, 7.8, 17.2, 7.5, 10.5], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "interference", "id": "tub/p_grip", "status": "info", "overlap_mm3": 21.598449, "bbox": [-112.5, -109.5, -23.5, -20.5, 0.0, 10.0], "reason": "Local PT shank/pilot thread-forming interference; physical thread gate remains open"}
+{"category": "motion_coverage", "id": "base_on", "status": "info", "runner": "open", "covered_by": null, "open_reason": "keyhole engagement not swept for the candidate (r7 INSERTIONS base_on moves the base (-10,0,-15)->(-10,0,0)->0; this is the same relative motion with the tub moving); lock moved 2 mm and lip/head 2.4 mm differ from r7; the strap is already threaded (its over-bridge pass lies in the base-top recess under the tub floor), so it is an obstacle of this motion", "op": "tub_on", "movers": ["tub"], "obstacles": ["base_grip", "run_button", "strap", "tripod_nut"]}
+{"category": "motion_coverage", "id": "grip_off", "status": "info", "runner": "open", "covered_by": null, "open_reason": "reverse keyhole motion of base_on; not swept for the candidate", "op": "svc_grip_off", "movers": ["base_grip", "run_button", "strap", "tripod_nut"], "obstacles": ["c_cs_adapter", "evf_board", "eyecup", "eyepiece", "foam_pad", "gs_camera", "hmx039", "lens", "lens_collar", "s_c1", "s_c2", "s_c3", "s_c4", "tub"]}
+{"category": "motion_coverage", "id": "pack_in", "status": "info", "runner": "open", "covered_by": null, "open_reason": "r7 INSERTIONS pack_in path from the XT30 mating pose; the candidate re-posed the XT30 (21/45 deg) and needs the FP-10 mate_reach/cable_stow port first", "op": "pack_in", "movers": ["pack", "xt30_pair"], "obstacles": ["base_grip", "c_cs_adapter", "carrier", "cooler", "encoder", "evf_board", "eyecup", "eyepiece", "foam_pad", "fps_mounting_washer", "fps_nut", "gs_camera", "hmx039", "knob_exp", "knob_fps", "lens", "lens_collar", "microsd", "p_carrier1", "p_carrier2", "p_grip", "p_panel1", "p_panel2", "p_panel3", "p_panel4", "panel", "pi5", "power_button", "power_nut_reserve", "run_button", "s_c1", "s_c2", "s_c3", "s_c4", "strap", "switch_1824", "tripod_nut", "tub", "usb_stick", "usb_storage_plug_reserve", "x1203", "x1203_kit"]}
+{"category": "motion_coverage", "id": "pack_out", "status": "info", "runner": "open", "covered_by": null, "open_reason": "as pack_in; the parted pigtail half stays (xt30_pair proxy)", "op": "svc_pack_out", "movers": ["pack"], "obstacles": ["base_grip", "c_cs_adapter", "carrier", "cooler", "encoder", "evf_board", "eyecup", "eyepiece", "foam_pad", "fps_mounting_washer", "fps_nut", "gs_camera", "hmx039", "knob_exp", "knob_fps", "lens", "lens_collar", "microsd", "p_carrier1", "p_carrier2", "p_grip", "p_panel1", "p_panel2", "p_panel3", "p_panel4", "panel", "pi5", "power_button", "power_nut_reserve", "run_button", "s_c1", "s_c2", "s_c3", "s_c4", "strap", "switch_1824", "tripod_nut", "tub", "usb_stick", "usb_storage_plug_reserve", "x1203", "x1203_kit", "xt30_pair"]}
+{"category": "motion_coverage", "id": "cap_on", "status": "info", "runner": "open", "covered_by": null, "open_reason": "r7 INSERTIONS cap_on uses layout.CAP travel (grip/cap unchanged in the candidate); not swept for the candidate", "op": "cap_on", "movers": ["cap"], "obstacles": ["base_grip", "c_cs_adapter", "carrier", "cooler", "encoder", "evf_board", "eyecup", "eyepiece", "foam_pad", "fps_mounting_washer", "fps_nut", "gs_camera", "hmx039", "knob_exp", "knob_fps", "lens", "lens_collar", "microsd", "p_carrier1", "p_carrier2", "p_grip", "p_panel1", "p_panel2", "p_panel3", "p_panel4", "pack", "panel", "pi5", "power_button", "power_nut_reserve", "run_button", "s_c1", "s_c2", "s_c3", "s_c4", "strap", "switch_1824", "tripod_nut", "tub", "usb_stick", "usb_storage_plug_reserve", "x1203", "x1203_kit", "xt30_pair"]}
+{"category": "motion_coverage", "id": "cap_off", "status": "info", "runner": "open", "covered_by": null, "open_reason": "reverse of cap_on; not swept", "op": "svc_cap_off", "movers": ["cap"], "obstacles": ["base_grip", "c_cs_adapter", "carrier", "cooler", "encoder", "evf_board", "eyecup", "eyepiece", "foam_pad", "fps_mounting_washer", "fps_nut", "gs_camera", "hmx039", "knob_exp", "knob_fps", "lens", "lens_collar", "microsd", "p_carrier1", "p_carrier2", "p_grip", "p_panel1", "p_panel2", "p_panel3", "p_panel4", "pack", "panel", "pi5", "power_button", "power_nut_reserve", "run_button", "s_c1", "s_c2", "s_c3", "s_c4", "strap", "switch_1824", "tripod_nut", "tub", "usb_stick", "usb_storage_plug_reserve", "x1203", "x1203_kit", "xt30_pair"]}
+Checking motion fps_knob_off
+fps_knob_off 0 / 11
+fps_knob_off 10 / 11
+Checking motion fps_nut_after_unthread
+fps_nut_after_unthread 0 / 11
+fps_nut_after_unthread 10 / 11
+Checking motion fps_washer_off
+Motion region fps_washer_off fps_mounting_washer panel 7
+Motion region fps_washer_off fps_mounting_washer tub empty
+fps_washer_off 0 / 11
+fps_washer_off 10 / 11
+Checking motion carrier_out
+Motion region carrier_out carrier tub 35
+Motion region carrier_out cooler tub empty
+Motion region carrier_out microsd tub empty
+Motion region carrier_out pi5 tub 7
+Motion region carrier_out switch_1824 tub 19
+Motion region carrier_out x1203 tub empty
+Motion region carrier_out x1203_kit tub empty
+carrier_out 0 / 36
+carrier_out 10 / 36
+carrier_out 20 / 36
+carrier_out 30 / 36
+Checking motion panel_out
+Motion region panel_out encoder carrier empty
+Motion region panel_out encoder tub empty
+Motion region panel_out panel tub 208
+Motion region panel_out power_button carrier 8
+Motion region panel_out power_button tub empty
+Motion region panel_out power_nut_reserve carrier 12
+Motion region panel_out power_nut_reserve tub empty
+panel_out 0 / 36
+panel_out 10 / 36
+panel_out 20 / 36
+panel_out 30 / 36
+Checking motion camera_in
+Motion region camera_in c_cs_adapter lens_collar 21
+Motion region camera_in c_cs_adapter tub 30
+Motion region camera_in gs_camera tub 39
+camera_in 0 / 38
+camera_in 10 / 38
+camera_in 20 / 38
+camera_in 30 / 38
+Checking motion evf_in
+Motion region evf_in evf_board tub 16
+Motion region evf_in foam_pad tub empty
+Motion region evf_in hmx039 tub 10
+evf_in 0 / 31
+evf_in 10 / 31
+evf_in 20 / 31
+evf_in 30 / 31
+Checking motion storage_plug_reservation_through_enclosure
+Motion region storage_plug_reservation_through_enclosure usb_storage_plug_reserve tub empty
+storage_plug_reservation_through_enclosure 0 / 36
+storage_plug_reservation_through_enclosure 10 / 36
+storage_plug_reservation_through_enclosure 20 / 36
+storage_plug_reservation_through_enclosure 30 / 36
+Checking motion storage_out
+Motion region storage_out usb_stick tub empty
+storage_out 0 / 36
+storage_out 10 / 36
+storage_out 20 / 36
+storage_out 30 / 36
+Checking motion microsd_out
+Motion region microsd_out microsd carrier 8
+Motion region microsd_out microsd tub empty
+microsd_out 0 / 30
+microsd_out 10 / 30
+microsd_out 20 / 30
+Checking motion gauge_out
+Motion region gauge_out centring_gauge lens_collar 35
+Motion region gauge_out centring_gauge tub 16
+gauge_out 0 / 21
+gauge_out 10 / 21
+gauge_out 20 / 21
+Checking motion collar_off
+Motion region collar_off lens_collar tub 35
+collar_off 0 / 16
+collar_off 10 / 16
+Checking motion lens_out
+Motion region lens_out lens lens_collar 66
+Motion region lens_out lens panel 6
+Motion region lens_out lens tub 37
+lens_out 0 / 21
+lens_out 10 / 21
+lens_out 20 / 21
+Checking motion eyepiece_in
+Motion region eyepiece_in eyepiece tub 17
+eyepiece_in 0 / 16
+eyepiece_in 10 / 16
+Checking motion camera_out
+Motion region camera_out c_cs_adapter lens_collar 21
+Motion region camera_out c_cs_adapter tub 30
+Motion region camera_out gs_camera tub 39
+camera_out 0 / 38
+camera_out 10 / 38
+camera_out 20 / 38
+camera_out 30 / 38
+Checking motion evf_out
+Motion region evf_out evf_board tub 16
+Motion region evf_out foam_pad tub empty
+Motion region evf_out hmx039 tub 10
+evf_out 0 / 31
+evf_out 10 / 31
+evf_out 20 / 31
+evf_out 30 / 31
+{"category": "roll_catch", "id": "timing", "status": "info", "port": "FP-08", "kind": "roll_catch", "item": "timing", "seconds": 53.5, "booleans": 33878, "obstacle_pieces": 8, "s_values": 13, "cases": 8, "variants": ["declared", "+Y", "-Y"], "catch_host": "tub", "variant": "compact-kowa_lm6hc"}
+{"category": "lens_support", "id": "kowa_lm6hc/status", "status": "info", "port": "FP-08", "kind": "lens_support", "lens": "kowa_lm6hc", "data_only": false, "mass_g": 215.0, "item": "status", "band_status": "drawing", "warn": "kowa_lm6hc support band is 'drawing', not measured: G-LENS", "variant": "compact-kowa_lm6hc"}
+{"category": "lens_support", "id": "fujinon_hf6xa/thumb_keepouts", "status": "info", "port": "FP-08", "kind": "lens_support", "lens": "fujinon_hf6xa", "data_only": false, "mass_g": 100.0, "item": "thumb_keepouts", "note": "no thumb screws listed for this lens ([unconfirmed], G-LENS)", "variant": "compact-kowa_lm6hc"}
+{"category": "lens_support", "id": "fujinon_hf6xa/status", "status": "info", "port": "FP-08", "kind": "lens_support", "lens": "fujinon_hf6xa", "data_only": false, "mass_g": 100.0, "item": "status", "band_status": "assumed", "warn": "fujinon_hf6xa support band is 'assumed', not measured: G-LENS", "variant": "compact-kowa_lm6hc"}
+{"category": "lens_support", "id": "computar_h6z0812/rear_entry_plan", "status": "info", "port": "FP-08", "kind": "lens_support", "lens": "computar_h6z0812", "data_only": true, "mass_g": 305.0, "item": "rear_entry_plan", "warn": "computar_h6z0812 is data-only: its rear band position needs a separate entry design; no printable collar is approved", "available_to_seat_mm": 1.3, "required_land_mm": 1.6, "variant": "compact-kowa_lm6hc"}
+{"category": "lens_support", "id": "computar_h6z0812/status", "status": "info", "port": "FP-08", "kind": "lens_support", "lens": "computar_h6z0812", "data_only": true, "mass_g": 305.0, "item": "status", "band_status": "drawing", "warn": "computar_h6z0812 support band is 'drawing', not measured: G-LENS", "variant": "compact-kowa_lm6hc"}
+{"category": "lens_clamp", "id": "anchor_polygon_bolted", "status": "info", "port": "FP-08", "kind": "lens_clamp", "item": "anchor_polygon_bolted", "bolted": ["TL", "TR", "LL"], "margin_mm": -3.264, "warn": "the bolted anchors TL/TR/LL alone leave the lens axis 3.3 mm outside their triangle: the axis is enclosed only through the compression foot LR, so preload loss (audit 2026-10-06 M1, G-COL-1 creep) lets the collar pry", "variant": "compact-kowa_lm6hc"}
+{"category": "lens_clamp", "id": "clamp/kowa_lm6hc", "status": "info", "port": "FP-08", "kind": "lens_clamp", "item": "clamp", "lens": "kowa_lm6hc", "data_only": false, "geometry_status": "production profile", "pinch_N": 60.0, "clamped_mm": 5.4, "band_centre_x": 5.5, "M_sep_Nm": 0.1696, "M_static_Nm": 0.0572, "M_shock_Nm": 0.2858, "ratio_static": 2.97, "M_wall_static_Nm": 0.0627, "aim_static_deg": [0.005, 0.0092], "aim_shock_deg": 0.0458, "anchor_tension_shock_N": 50.2, "anchor_tension_nominal_shock_N": 5.2, "anchor_prying_factor": 2.0, "anchor_reactions_shock_N": {"TL": 40.704, "TR": 50.238, "LL": 25.052}, "anchor_axial_shock_N": 13.0004, "anchor_bending_shock_bound_Nm": 0.3613, "anchor_compression_foot_active": false, "anchor_model_provisional": true, "collar_g": 12.0, "masses": {"lens": 215.0, "camera": 34.0, "adapter": 4.0, "collar": 12.0}, "src": "judge 3 s6.9 + design 3 plate FE (wall coefficients); estimates until G-COL-1 / G-CAM-2", "warn": "M_sep 0.170 N m < the 5 g moment 0.286 N m (the lens rocks elastically in the collar at a knock; aim only, recovers)", "variant": "compact-kowa_lm6hc"}
+{"category": "nominal_features", "id": "panel_screw_bearing_land", "status": "info", "value_mm": 2.1, "minimum_mm": 1.6, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "nominal_features", "id": "panel_head_radial_wall", "status": "info", "value_mm": 1.7, "minimum_mm": 1.6, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "nominal_features", "id": "carrier_PT_head_radial_wall", "status": "info", "value_mm": 1.7000000000000002, "minimum_mm": 1.6, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "nominal_features", "id": "carrier_M25_head_radial_wall", "status": "info", "value_mm": 1.85, "minimum_mm": 1.6, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "nominal_features", "id": "carrier_M25_thread_engagement", "status": "info", "value_mm": 3.4, "minimum_mm": 2.5, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "nominal_features", "id": "collar_hoop_nominal", "status": "info", "value_mm": 3.8500000000000014, "minimum_mm": 1.6, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "nominal_features", "id": "collar_relief_nominal_after_bed_chamfer", "status": "info", "value_mm": 1.8262592452662019, "minimum_mm": 1.6, "analytical_meets_rule": true, "note": "Report-only analytical design value; not extracted from the current STEP and not a measured wall or strength result"}
+{"category": "physical", "id": "qualification", "status": "info", "open_inherited_gates": 56, "inherited_gate_source": {"total": 58, "open": 56, "withdrawn": 2, "source": "../out/build-receipt.json", "field": "hardware_gates.gates", "source_sha256": "2128ccead1284e777c1d67f1b621c3c8de1a5c92137a6d10179c8cf014d47ad1"}, "M1": "open", "candidate_gates": "unrun", "fabrication_release": false}
+{"pass": 1874, "fail": 1, "info": 32}

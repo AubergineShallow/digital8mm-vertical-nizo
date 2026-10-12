@@ -1,0 +1,58 @@
+test_cold_bay_passes (__main__.AreaParityAndFlow.test_cold_bay_passes) ... ok
+test_network (__main__.AreaParityAndFlow.test_network) ... ok
+test_series_section_governs_hot_bay (__main__.AreaParityAndFlow.test_series_section_governs_hot_bay) ... ok
+test_report (__main__.CheckScopeReport.test_report) ... ok
+test_axis_extraction (__main__.EvfFace.test_axis_extraction) ... ok
+test_cut_cold_path_or_larger_csi_fails (__main__.FlowDrift.test_cut_cold_path_or_larger_csi_fails) ... ok
+test_recorded_network_matches_its_baseline (__main__.FlowDrift.test_recorded_network_matches_its_baseline) ... ok
+test_face_match (__main__.HdmiFace.test_face_match) ... ok
+test_formula_sign_jump_is_carried (__main__.HdmiFace.test_formula_sign_jump_is_carried) ... ok
+test_selected_route (__main__.HdmiFace.test_selected_route) ... ok
+test_lower_change_refused (__main__.J4Screen.test_lower_change_refused) ... ok
+test_lower_set_is_the_reference_free_body (__main__.J4Screen.test_lower_set_is_the_reference_free_body) ... ok
+test_per_variant_and_envelope (__main__.J4Screen.test_per_variant_and_envelope) ... ok
+test_dogleg_declared (__main__.MicroSD.test_dogleg_declared) ... ok
+test_run_report (__main__.MicroSD.test_run_report) ... ok
+test_hdmi_state_sets_cover_present_hardware (__main__.ObstacleSets.test_hdmi_state_sets_cover_present_hardware) ... ok
+test_sources (__main__.ObstacleSets.test_sources) ... ok
+test_wire_report (__main__.ObstacleSets.test_wire_report) ... ok
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:609: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  simple_dir = oneOf(["X", "Y", "Z", "XY", "XZ", "YZ"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:613: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  cqtype = oneOf(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:616: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  cqtype = cqtype.setParseAction(pyparsing_common.upcaseTokens)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:622: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  direction_op = oneOf([">", "<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:625: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  center_nth_op = oneOf([">>", "<<"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:635: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  other_op = oneOf(["|", "#", "+", "-"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:638: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  named_view = oneOf(["front", "back", "left", "right", "top", "bottom"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:763: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  delta_op = oneOf(["exc", "except"])
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:770: PyparsingDeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+  atom.setParseAction(atom_callback)
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/selectors.py:793: PyparsingDeprecationWarning: 'infixNotation' deprecated - use 'infix_notation'
+  expr = infixNotation(
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:65: PyparsingDeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+  Name = delimitedList(
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:67: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("name")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:68: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Tag = Word(alphas, alphanums + "_").setResultsName("tag")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:69: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  Selector = _selector_grammar.setResultsName("selector")
+/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/cadquery/assembly.py:73: PyparsingDeprecationWarning: 'setResultsName' deprecated - use 'set_results_name'
+  ).setResultsName("selector_kind")
+test_post_bending (__main__.StackAndPosts.test_post_bending) ... ok
+test_r7_reproduced (__main__.StackAndPosts.test_r7_reproduced) ... ok
+test_two_screw_carrier_fails (__main__.StackAndPosts.test_two_screw_carrier_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.280s
+
+OK

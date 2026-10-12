@@ -14,8 +14,8 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_driver_checks
   s_c1-3, no knob_fps at the panel screws, lens at s_c4); a missing non-optional context id fails the row;
   coverage fails on an unmodelled screw row or a missing one.
 - Registration: verify_candidate.py runs driver_rows once, behind want('driver'), after the tools are loaded.
-- Candidate record (review-2026-10-10/fp07): complete, made by the current driver_checks.py and steps.py, bound to
-  the current manifest; every pose derived from the STEP equals the pose model.py declares; for the reviewed
+- Candidate record (out/compact-kowa_lm6hc/verification.json): canonical full audit with current manifest,
+  verifier, steps and helper bindings; every pose derived from the STEP equals the pose model.py declares; for the reviewed
   manifest 53e668d4 the expected CAD-phase failures are exactly the carrier counterbores (FP-11c: bit 2.432 and
   0.405 mm3 into the carrier, build and service) and the p_grip handle clears the strap by 1.37 mm.
   Every newer current manifest must have zero driver failures and no row errors. Planted failures/errors exercise
@@ -23,7 +23,6 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_driver_checks
 """
 import ast
 import hashlib
-import json
 import sys
 import types
 import unittest
@@ -36,10 +35,11 @@ import driver_checks as DC     # noqa: E402
 import steps as ST             # noqa: E402
 import cadquery as cq          # noqa: E402
 import cots                    # noqa: E402  r7 screw solids (read-only)
+from _full_audit_evidence import load_full_audit  # noqa: E402
 
 CK, R7L = DC.CK, DC.R7L
 REVIEWED_MANIFEST = '53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77'
-RECORD = CV / 'review-2026-10-10' / 'fp07' / 'driver-compact-kowa_lm6hc.json'
+VARIANT = 'compact-kowa_lm6hc'
 DEPTH = 3.0
 HP, AX = (0.0, 0.0, 10.0 - DEPTH), (0.0, 0.0, -1.0)
 EXPECTED_FAIL = {'p_carrier1@carrier_screws', 'p_carrier2@carrier_screws', 'p_carrier1@svc_carrier_screws_out',
@@ -270,9 +270,7 @@ class Registration(unittest.TestCase):
 
 class CandidateRecord(unittest.TestCase):
     def test_record(self):
-        if not RECORD.exists():
-            self.skipTest('no FP-07 record yet: run verify_candidate.py --only driver --out %s' % RECORD.name)
-        rec = json.loads(read_text(RECORD))
+        rec = load_full_audit(self, CV, VARIANT)
         rows = [c for c in rec['checks'] if c['category'] in DC.CATEGORIES]
         cov = next(c for c in rows if c['category'] == 'driver_coverage')
         self.assertEqual(cov['driver_source_sha256'], DC.source_sha256(), 'stale record: driver_checks.py changed')

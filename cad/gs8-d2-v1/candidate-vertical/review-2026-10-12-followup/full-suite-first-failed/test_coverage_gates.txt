@@ -1,0 +1,46 @@
+........
+----------------------------------------------------------------------
+Ran 8 tests in 2.427s
+
+OK
+{
+  "problems": [
+    [
+      "unclassified",
+      "main/interference"
+    ],
+    [
+      "r7_unmapped",
+      "sweeps"
+    ],
+    [
+      "stale_output",
+      "COVERAGE-VERTICAL.md"
+    ],
+    [
+      "stale_output",
+      "CHECKPOINT-STATUS.json"
+    ],
+    [
+      "stale_output",
+      "README.md"
+    ],
+    [
+      "stale_output",
+      "REVIEW.md"
+    ]
+  ],
+  "stale_outputs": [
+    "COVERAGE-VERTICAL.md",
+    "CHECKPOINT-STATUS.json",
+    "README.md",
+    "REVIEW.md"
+  ],
+  "summary": [
+    "- Main audit (`out/compact-kowa_lm6hc/verification.json`, 1907 rows in 21 categories): 1874 pass / 1 fail / 32 info. By kind: geometric 1588 pass / 0 fail / 8 info; bookkeeping 164 pass / 0 fail / 0 info; coverage/state 14 pass / 0 fail / 6 info; analytical/declared 0 pass / 0 fail / 9 info.",
+    "- Batch reports (print, mesh, harness, check_scope, hdmi, power_static): geometric 255 pass / 10 fail / 30 info; coverage/state 4 pass / 0 fail / 0 info; analytical/declared 7 pass / 3 fail / 11 info.",
+    "- r7 categories (`cad/gs8-d2-v1/out/checks.json`, 36): 20 ported, 5 partly, 1 report only, 9 not ported.",
+    "- Report freshness: every counted report binds the selected manifest and its current verifier.",
+    "- Per-category table and the r7 mapping: [COVERAGE-VERTICAL.md](COVERAGE-VERTICAL.md)."
+  ]
+}

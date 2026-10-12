@@ -1,0 +1,55 @@
+{
+  "artifact": "D2-catch-QT-followup-structural-supplement.pdf",
+  "library_file_id": "libfile_74c63f68fd108191bdf69f915596fb2a",
+  "file_id": "file_000000006b148207b8835dfe1e2ae4a2",
+  "current_version_number": 0,
+  "library_path": "/D2-catch-QT-followup-structural-supplement.pdf",
+  "library_download_sha256": "7cc312e7443227238653c7967900e47e684b95179805cf973deb2d595306d48a",
+  "library_download_size_bytes": 80064,
+  "canonical_pdf": "structural-review/output/pdf/D2-shadow-plenum-structural-supplement.pdf",
+  "canonical_pdf_sha256": "dcc4e24f9adfa90670d4be00be187bb4b976b3dc1e989d7bb48ea99dd836503e",
+  "canonical_pdf_size_bytes": 55101,
+  "canonical_pdf_receipt": "structural-review/output/pdf/structural-supplement-pdf-receipt.json",
+  "canonical_pdf_receipt_sha256": "3bf870eedab043c094e91fb2710f5ca2449456663a7c7b1fcf57822115ba9503",
+  "byte_identical": false,
+  "pages": 4,
+  "extracted_text_equal_on_every_page": true,
+  "rendered_png_equal_on_every_page": true,
+  "render_tool": "pdftoppm version 26.05.0",
+  "render_dpi": 120,
+  "render_checks": [
+    {
+      "page": 1,
+      "text_equal": true,
+      "pixels_equal": true,
+      "canonical_png_sha256": "74ef120aa8838d2d0af05186fe8c02683689dc599fdef4212982f0d0dd96a056",
+      "library_png_sha256": "74ef120aa8838d2d0af05186fe8c02683689dc599fdef4212982f0d0dd96a056"
+    },
+    {
+      "page": 2,
+      "text_equal": true,
+      "pixels_equal": true,
+      "canonical_png_sha256": "d4bc0755835c9a4ebaf995b169ec2845e4558e5c661154f91270ce2193052f6c",
+      "library_png_sha256": "d4bc0755835c9a4ebaf995b169ec2845e4558e5c661154f91270ce2193052f6c"
+    },
+    {
+      "page": 3,
+      "text_equal": true,
+      "pixels_equal": true,
+      "canonical_png_sha256": "fcd56f0c3b876e80ed0e09b5a37dd0c348806c0984691e8a4747cefa4600caae",
+      "library_png_sha256": "fcd56f0c3b876e80ed0e09b5a37dd0c348806c0984691e8a4747cefa4600caae"
+    },
+    {
+      "page": 4,
+      "text_equal": true,
+      "pixels_equal": true,
+      "canonical_png_sha256": "989c0aa8c803ad9b7f3564034e0e486c03c2e8a7bed1c901eb8e9da3d8e94cd8",
+      "library_png_sha256": "989c0aa8c803ad9b7f3564034e0e486c03c2e8a7bed1c901eb8e9da3d8e94cd8"
+    }
+  ],
+  "link_annotations_equal": true,
+  "link_annotation_count": 5,
+  "observed_at_utc": "2026-10-12T18:33:33.724836+00:00",
+  "verification_note": "The created Library version has different PDF bytes from the canonical repository artifact. Materialization of the exact returned file/version verifies identical extracted text, all four rendered PNGs and link annotations. The repository/package retains the canonical source-bound PDF.",
+  "physical_qualified": false
+}

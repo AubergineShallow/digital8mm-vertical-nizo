@@ -11,6 +11,20 @@ import argparse, hashlib, json, math
 P=Path(__file__).resolve().parent; C=P.parent
 
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+
+def canonical_zero(value):
+    """Serialize numerical zero consistently across OCC platforms, without rounding useful values.
+
+    This changes only magnitudes below 1e-12, long below the unchanged engineering
+    tolerances; geometry/hash identities and all nonzero loads remain strict.
+    """
+    if isinstance(value, float):
+        return 0.0 if abs(value) < 1e-12 else value
+    if isinstance(value, dict):
+        return {k: canonical_zero(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [canonical_zero(v) for v in value]
+    return value
 # FP-11c (VN-54/56/38): the carrier row may change too. It is upper-body (not a J4 lower row), so the first-moment
 # transfer below still holds; its mass change is carrier payload, so the retained reinforced-arm screen scales with it.
 # FX (verifier C2 major): lens_collar and s_c4 (C2 collar lug, FP-11d) and eyecup (FX bed chamfer) are upper-body rows
@@ -121,12 +135,16 @@ def selected_catch_description(context):
     if not joint:
         return 'The saved manifest does not expose bonded-catch dimensions; no corrective joint dimensions are claimed from it.'
     t, c = joint['tenon_mm'], joint['pocket_clearance_mm']
-    return (f"The selected manifest records {t['h']:g} mm bonded engagement with a "
+    return (f"The selected manifest records a {t['h']:g} mm nominal tenon height with a "
             f"{t['x'][1]-t['x'][0]:.1f} x {t['t']:g} mm tenon section, X/Y/Z pocket clearances "
             f"{c['x']:g}/{c['y']:g}/{c['z']:g} mm, ceiling top Z{joint['ceiling_top_z_mm']:g} mm and "
             f"{joint['ceiling_floor_mm']:.1f} mm ceiling floor. These are modeled dimensions. "
-            'The existing datum-tilt case and catch-window criterion are retained; current geometric audit results '
-            'must be read separately from bond, torque and creep qualification.')
+            f"The lower working face recess is {joint.get('working_face_recess_mm',0):g} mm; "
+            f"the host escape groove is {joint.get('adhesive_escape_groove_mm',{}).get('width',0):g} mm wide "
+            f"and {joint.get('adhesive_escape_groove_mm',{}).get('depth',0):g} mm deep. "
+            'The unchanged catch-window and first-contact rules now cover separately reported feasible sampled '
+            'tilts, yaw, translations and coupled poses; this is not exhaustive tolerance or withdrawal proof. '
+            'Actual engaged height, dry seating, adhesive flow, bond, torque and creep require separate qualification.')
 
 def bonded_coupon_context(manifest_hash):
     path = P/'bonded-catch-coupon/receipt.json'
@@ -295,8 +313,8 @@ if __name__=='__main__':
     if args.check:
         assert d['ventilation_report']['same_manifest'], 'Ventilation report does not bind the selected manifest'
         assert d['plenum_document_context']['coupons']['same_manifest'], 'Coupon inventory does not bind the selected manifest'
-    outputs={'concealed-vent-structural.json':json.dumps(d,indent=2)+'\n','CONCEALED-VENT-STRUCTURAL.md':t,
-             'j4-lower-centres.json':json.dumps(cen,indent=2)+'\n'}
+    outputs={'concealed-vent-structural.json':json.dumps(canonical_zero(d),indent=2)+'\n','CONCEALED-VENT-STRUCTURAL.md':t,
+             'j4-lower-centres.json':json.dumps(canonical_zero(cen),indent=2)+'\n'}
     for n,content in outputs.items():
         if args.check: assert read_text(P/n)==content, f'Stale structural output: {n}'
         else: write_text(P/n,content)

@@ -1,0 +1,8 @@
+....../workspace/scratch/8ece9a785de6/d2_corrective_oct12/.venv-cad/lib/python3.12/site-packages/vtkmodules/util/numpy_support.py:240: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  result.shape = shape
+.
+----------------------------------------------------------------------
+Ran 7 tests in 1.885s
+
+OK

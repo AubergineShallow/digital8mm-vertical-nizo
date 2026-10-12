@@ -1,0 +1,26 @@
+test_bundle_is_complete_and_restores_exact_checkpoint (__main__.PackagingTests.test_bundle_is_complete_and_restores_exact_checkpoint) ... ok
+test_changed_render_or_stale_manifest_receipt_is_rejected (__main__.PackagingTests.test_changed_render_or_stale_manifest_receipt_is_rejected) ... ok
+test_current_twelve_renders_and_bound_receipts_are_selected (__main__.PackagingTests.test_current_twelve_renders_and_bound_receipts_are_selected) ... ok
+test_dirty_and_untracked_checkouts_rejected (__main__.PackagingTests.test_dirty_and_untracked_checkouts_rejected) ... ok
+test_exact_commit_branch_and_ancestry_required (__main__.PackagingTests.test_exact_commit_branch_and_ancestry_required) ... ok
+test_failed_report_rows_are_retained (__main__.PackagingTests.test_failed_report_rows_are_retained) ... ok
+test_gate_baseline_cannot_introduce_unexpected_closed_or_withdrawn_states (__main__.PackagingTests.test_gate_baseline_cannot_introduce_unexpected_closed_or_withdrawn_states) ... ok
+test_harness_refresh_preserves_separate_execution_and_prior_failure (__main__.PackagingTests.test_harness_refresh_preserves_separate_execution_and_prior_failure) ... ok
+test_harness_refresh_rejects_false_counts_exit_manifest_or_chronology (__main__.PackagingTests.test_harness_refresh_rejects_false_counts_exit_manifest_or_chronology) ... ok
+test_harness_refresh_rejects_missing_receipt_and_stale_report (__main__.PackagingTests.test_harness_refresh_rejects_missing_receipt_and_stale_report) ... ok
+test_harness_refresh_requires_every_declared_dependency_captured (__main__.PackagingTests.test_harness_refresh_requires_every_declared_dependency_captured) ... ok
+test_history_private_key_blocks_bundle_even_after_deletion (__main__.PackagingTests.test_history_private_key_blocks_bundle_even_after_deletion) ... ok
+test_ignored_evidence_changes_are_also_detected (__main__.PackagingTests.test_ignored_evidence_changes_are_also_detected) ... ok
+test_incomplete_render_execution_receipt_is_rejected (__main__.PackagingTests.test_incomplete_render_execution_receipt_is_rejected) ... ok
+test_independent_zip_partition_and_every_member_hash (__main__.PackagingTests.test_independent_zip_partition_and_every_member_hash) ... ok
+test_inherited_gate_changes_and_new_waivers_are_rejected (__main__.PackagingTests.test_inherited_gate_changes_and_new_waivers_are_rejected) ... ok
+test_inherited_gates_keep_56_open_and_two_historical_withdrawals (__main__.PackagingTests.test_inherited_gates_keep_56_open_and_two_historical_withdrawals) ... ok
+test_mid_run_byte_change_rejected_even_if_timestamp_restored (__main__.PackagingTests.test_mid_run_byte_change_rejected_even_if_timestamp_restored) ... ok
+test_missing_or_partial_render_visual_review_is_rejected (__main__.PackagingTests.test_missing_or_partial_render_visual_review_is_rejected) ... ok
+test_stale_source_binding_and_false_summary_rejected (__main__.PackagingTests.test_stale_source_binding_and_false_summary_rejected) ... ok
+test_unsafe_and_secret_paths_rejected (__main__.PackagingTests.test_unsafe_and_secret_paths_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.563s
+
+OK

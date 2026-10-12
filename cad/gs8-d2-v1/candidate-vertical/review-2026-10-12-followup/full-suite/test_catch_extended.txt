@@ -1,0 +1,28 @@
+test_immutable_reviewed_failure (__main__.HistoricalCatchFailure.test_immutable_reviewed_failure) ... ok
+test_actual_overlap_feasibility_and_nan_fail_closed (__main__.PosePolicyUnits.test_actual_overlap_feasibility_and_nan_fail_closed) ... ok
+test_actual_pocket_drives_full_tilt (__main__.PosePolicyUnits.test_actual_pocket_drives_full_tilt) ... ok
+test_camera_cache_retains_every_s_and_head (__main__.PosePolicyUnits.test_camera_cache_retains_every_s_and_head) ... ok
+test_collision_cannot_be_labelled_feasible (__main__.PosePolicyUnits.test_collision_cannot_be_labelled_feasible) ... ok
+test_complete_policy (__main__.PosePolicyUnits.test_complete_policy) ... ok
+test_coupled_core_obeys_pocket_xy_and_explicit_z_screen (__main__.PosePolicyUnits.test_coupled_core_obeys_pocket_xy_and_explicit_z_screen) ... ok
+test_cutter_overlap_does_not_set_underseat_screen (__main__.PosePolicyUnits.test_cutter_overlap_does_not_set_underseat_screen) ... ok
+test_feasible_case_cannot_be_silently_excluded (__main__.PosePolicyUnits.test_feasible_case_cannot_be_silently_excluded) ... ok
+test_full_pocket_yaw_exceeds_film_yaw (__main__.PosePolicyUnits.test_full_pocket_yaw_exceeds_film_yaw) ... ok
+test_lost_engagement_rejected (__main__.PosePolicyUnits.test_lost_engagement_rejected) ... ok
+test_main_pipeline_preserves_feasible_window_failures (__main__.PosePolicyUnits.test_main_pipeline_preserves_feasible_window_failures) ... ok
+test_missing_coupled_rejected (__main__.PosePolicyUnits.test_missing_coupled_rejected) ... ok
+test_missing_feasible_failure_cannot_be_hidden (__main__.PosePolicyUnits.test_missing_feasible_failure_cannot_be_hidden) ... ok
+test_missing_full_pocket_yaw_rejected (__main__.PosePolicyUnits.test_missing_full_pocket_yaw_rejected) ... ok
+test_missing_one_coupled_sign_rejected (__main__.PosePolicyUnits.test_missing_one_coupled_sign_rejected) ... ok
+test_missing_quarter_coupled_family_rejected (__main__.PosePolicyUnits.test_missing_quarter_coupled_family_rejected) ... ok
+test_missing_translation_endpoint_rejected (__main__.PosePolicyUnits.test_missing_translation_endpoint_rejected) ... ok
+test_missing_yaw_rejected (__main__.PosePolicyUnits.test_missing_yaw_rejected) ... ok
+test_threshold_weakening_rejected (__main__.PosePolicyUnits.test_threshold_weakening_rejected) ... ok
+test_translation_endpoints_cover_pocket_corners (__main__.PosePolicyUnits.test_translation_endpoints_cover_pocket_corners) ... ok
+test_all_variants_gate_production_poses (__main__.ProductionAcceptance.test_all_variants_gate_production_poses) ... ok
+test_stale_export_or_main_sources_cannot_pass_on_equal_numbers (__main__.ReceiptFreshness.test_stale_export_or_main_sources_cannot_pass_on_equal_numbers) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.244s
+
+OK

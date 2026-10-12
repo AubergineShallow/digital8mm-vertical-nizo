@@ -1,0 +1,23 @@
+{
+  "status": "maintenance fixes applied; full final rerun pending",
+  "failed_run": "full-suite-first-failed/receipt.json",
+  "changes": [
+    "Catch nominal web expectation 3.0 to2.85;2.4minimum unchanged",
+    "Copy complete main reports into tamper fixture with byte-hash assertion",
+    "Numerical AST hot-series check replaces whitespace-sensitive text assertion",
+    "Scoped three-field execution metadata validation with negative tests",
+    "Refresh rolling exclusion ledger preserving move records and prior history",
+    "Use existing deterministic export wrapper in historical power study helper; historical outputs not rerun",
+    "Track verified new guide PDF and regenerate repository index"
+  ],
+  "source_sha256": {
+    "tests/test_critical_features_cf.py": "d67722b44c146572243108140dd4322a0231847f2bfad450b08c4d1577ed555c",
+    "tests/_evidence_fixture.py": "32c89bd1c048531fb5038c613dd430a8fdd0252aaa368ce8bbbb9513ce192c37",
+    "tests/test_fx_fixup.py": "799293efb32f94a4e4cb9dc74afe298dcca92b23c2f3531138fbbdf6f103cba7",
+    "tests/test_repo_hygiene.py": "b523469e98ece4d30859b521be56b177adf097e4ed02e806b14db520122fb0a3",
+    "make_repo_index.py": "5b20c9bbae89cbcfd4561806f01f3a381ccc456f058a20d89c7c37fd3d83c7f6",
+    "corrective-2026-10-12/power-options/probe_remedy.py": "7e2897591905cf4e886fd8e5d93aa05a05066b26bc0290f9d26b039b9192639d",
+    "history/stale-selected-reports-2026-10-10/INDEX.json": "8f52b9e3318b1a1e280b13f56a931be06f2a864601d3f0f3e70456dd6fe34b66"
+  },
+  "geometry_or_acceptance_threshold_change": false
+}

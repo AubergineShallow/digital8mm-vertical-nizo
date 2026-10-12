@@ -5,6 +5,7 @@ failure. It does not rewrite that result or imply CAD/physical qualification.
 """
 from pathlib import Path
 import argparse
+import ast
 import hashlib
 import json
 import re
@@ -33,20 +34,28 @@ def bindings():
         'out/compact-kowa_lm6hc/manifest.json',
         'routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json',
         'guide/out-concealed-vents/guide-receipt.json',
-        'guide/out-concealed-vents/D2-vertical-concealed-vents-review.pdf',
         '../checks.py', '../layout.py', '../make_tables.py',
     ]
+    guide = json.loads((OUT / 'guide-receipt.json').read_text(encoding='utf-8'))
+    paths.append('guide/out-concealed-vents/' + guide['guide_pdf_filename'])
     return {name: sha(ROOT / name) for name in paths}
 
 
+def expected_test_count():
+    tree = ast.parse((ROOT / 'tests/test_build_order_docs.py').read_text(encoding='utf-8'))
+    return sum(isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith('test_')
+               for cls in tree.body if isinstance(cls, ast.ClassDef) for node in cls.body)
+
+
 def verify_receipt():
-    value = json.loads(RECEIPT.read_text())
+    value = json.loads(RECEIPT.read_text(encoding='utf-8'))
     if value['input_sha256'] != bindings():
         raise RuntimeError('Post-guide build-order evidence has changed inputs')
     if value['log_sha256'] != sha(LOG):
         raise RuntimeError('Post-guide build-order log changed')
-    if value['exit_code'] != 0 or value['tests_run'] != 23 or value['status'] != 'pass':
-        raise RuntimeError('Post-guide build-order rerun did not pass all 23 tests')
+    if (value['exit_code'] != 0 or value['tests_run'] != expected_test_count() or
+            value.get('expected_tests') != expected_test_count() or value['status'] != 'pass'):
+        raise RuntimeError('Post-guide build-order rerun did not pass every source-defined test')
     return value
 
 
@@ -59,7 +68,7 @@ def main():
         print('Post-guide build-order receipt current: %d tests, exit %d' % (value['tests_run'], value['exit_code']))
         return 0
     before = bindings()
-    guide = json.loads((OUT / 'guide-receipt.json').read_text())
+    guide = json.loads((OUT / 'guide-receipt.json').read_text(encoding='utf-8'))
     manifest_sha = sha(ROOT / 'out/compact-kowa_lm6hc/manifest.json')
     if guide['nominated_manifest_sha256'] != manifest_sha:
         raise RuntimeError('Guide receipt does not bind the selected manifest')
@@ -73,7 +82,8 @@ def main():
     matches = re.findall(r'^Ran (\d+) tests? in ', output, flags=re.MULTILINE)
     count = int(matches[-1]) if matches else None
     unchanged = before == bindings()
-    status = 'pass' if result.returncode == 0 and count == 23 and unchanged else 'fail'
+    expected = expected_test_count()
+    status = 'pass' if result.returncode == 0 and count == expected and unchanged else 'fail'
     value = {
         'scope': 'Separate post-guide build-order rerun only; original batch result preserved',
         'command': command, 'working_directory': str(ROOT),
@@ -82,10 +92,10 @@ def main():
         'guide_receipt_sha256': sha(OUT / 'guide-receipt.json'),
         'test_source_sha256': sha(ROOT / 'tests/test_build_order_docs.py'),
         'input_sha256': before, 'inputs_unchanged_during_test': unchanged,
-        'exit_code': result.returncode, 'tests_run': count, 'status': status,
+        'exit_code': result.returncode, 'tests_run': count, 'expected_tests': expected, 'status': status,
         'log': LOG.name, 'log_sha256': sha(LOG), 'physical_qualified': False,
     }
-    RECEIPT.write_text(json.dumps(value, indent=2) + '\n')
+    RECEIPT.write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(output, end='')
     print(RECEIPT)
     return 0 if status == 'pass' else 1

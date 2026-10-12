@@ -21,7 +21,7 @@ for name in ('430200201', '430250200'):
         'scope': 'Nominal manufacturer housing STEP only, no tolerance, contact, wire, latch actuation, or device fit qualification',
     }
 out = HERE / 'vendor-model-bounds.json'
-out.write_text(json.dumps(results, indent=2) + '\n')
+out.write_text(json.dumps(results, indent=2) + '\n', encoding='utf-8', newline='\n')
 print(out)
 print(json.dumps(results, indent=2))
 
@@ -59,5 +59,5 @@ assessment = {
     'root_outer_ends_inside_prior_clear_reserve':False,
     'root_scope':'Each root represents two separated cores; listed positions are pair-axis stations only. Wire radius and individual 3 mm centerline offsets are not included.',
 }
-(HERE/'reserve-arithmetic.json').write_text(json.dumps(assessment,indent=2)+'\n')
+(HERE/'reserve-arithmetic.json').write_text(json.dumps(assessment,indent=2)+'\n', encoding='utf-8', newline='\n')
 print(json.dumps(assessment,indent=2))

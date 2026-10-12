@@ -1,0 +1,53 @@
+setUpClass (__main__.TestDocsAuditFixture) ... ERROR
+test_clean_structure_exits_zero_and_each_defect_exits_one (__main__.TestDocsAuditVerdict.test_clean_structure_exits_zero_and_each_defect_exits_one) ... ok
+test_guide_receipt_source_drift_is_a_binding_failure (__main__.TestDocsAuditVerdict.test_guide_receipt_source_drift_is_a_binding_failure) ... ok
+test_rebuildable_cache_only_exits_three_and_pending_is_listed (__main__.TestDocsAuditVerdict.test_rebuildable_cache_only_exits_three_and_pending_is_listed) ... ok
+test_exact_info_set (__main__.TestReconciler.test_exact_info_set) ... ok
+test_keepout_rule_accepts_only_the_mating_partner (__main__.TestReconciler.test_keepout_rule_accepts_only_the_mating_partner) ... ok
+test_live_selected_folders_are_clean (__main__.TestReconciler.test_live_selected_folders_are_clean) ... ok
+test_planted_foreign_unbound_and_historical_reports_fail (__main__.TestReconciler.test_planted_foreign_unbound_and_historical_reports_fail) ... ok
+test_print_failures_must_equal_the_accepted_set (__main__.TestReconciler.test_print_failures_must_equal_the_accepted_set) ... ok
+test_index_and_paths (__main__.TestStaleReportsMoved.test_index_and_paths) ... FAIL
+test_inspection_modes_are_declared (__main__.TestStaleReportsMoved.test_inspection_modes_are_declared) ... ok
+
+======================================================================
+ERROR: setUpClass (__main__.TestDocsAuditFixture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_evidence_tooling.py", line 126, in setUpClass
+    cls.rc0, cls.a0 = audit(FIXTURE.base / CV.relative_to(FX.REPO))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_evidence_tooling.py", line 44, in audit
+    assert 'Traceback' not in se, se[-2000:]
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Traceback (most recent call last):
+  File "/tmp/fp04-ny7b4lke/base/cad/gs8-d2-v1/candidate-vertical/review_docs_audit.py", line 152, in <module>
+    sel=P/'out/compact-kowa_lm6hc';vsel=json.loads(read_text(sel/'verification.json'));plen=json.loads(read_text(sel/'shadow-plenum-checks.json'))
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/fp04-ny7b4lke/base/cad/gs8-d2-v1/candidate-vertical/cv_io.py", line 34, in read_text
+    return Path(path).read_text(encoding=ENCODING)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.tools/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/.tools/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/fp04-ny7b4lke/base/cad/gs8-d2-v1/candidate-vertical/out/compact-kowa_lm6hc/verification.json'
+
+
+======================================================================
+FAIL: test_index_and_paths (__main__.TestStaleReportsMoved.test_index_and_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_evidence_tooling.py", line 288, in test_index_and_paths
+    self.assertEqual(index['selected_manifest_sha256'], selected)
+AssertionError: '294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4' != 'd2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754'
+- 294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4
++ d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 3.263s
+
+FAILED (failures=1, errors=1)

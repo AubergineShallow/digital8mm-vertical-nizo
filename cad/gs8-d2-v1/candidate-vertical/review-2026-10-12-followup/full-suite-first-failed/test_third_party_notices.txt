@@ -1,0 +1,14 @@
+test_derived_set_is_found (__main__.ThirdPartyNotices.test_derived_set_is_found) ... ok
+test_every_pi_derived_file_has_licence_beside_it (__main__.ThirdPartyNotices.test_every_pi_derived_file_has_licence_beside_it) ... ok
+test_fonts_have_licence (__main__.ThirdPartyNotices.test_fonts_have_licence) ... ok
+test_notice_carries_licence_text_and_source (__main__.ThirdPartyNotices.test_notice_carries_licence_text_and_source) ... ok
+test_notice_is_current (__main__.ThirdPartyNotices.test_notice_is_current) ... ok
+test_notice_names_every_derived_file_and_copy (__main__.ThirdPartyNotices.test_notice_names_every_derived_file_and_copy) ... ok
+test_notice_paths_exist (__main__.ThirdPartyNotices.test_notice_paths_exist) ... ok
+test_rule_flags_a_planted_derived_file (__main__.ThirdPartyNotices.test_rule_flags_a_planted_derived_file) ... ok
+test_vendor_licence_bytes_unchanged (__main__.ThirdPartyNotices.test_vendor_licence_bytes_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.033s
+
+OK

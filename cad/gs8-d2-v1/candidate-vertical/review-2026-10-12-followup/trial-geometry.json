@@ -1,0 +1,12 @@
+{
+  "source_sha256": "3ea4d6e86abfb88ad12bb192c3509a685be7a9ad67dc7d5c923cc52e5149e90c",
+  "face_recess_mm": 0.15,
+  "valid": {
+    "tub": true,
+    "stock": true,
+    "stub": true
+  },
+  "vent_host_overlap_mm3": 0.0,
+  "stub_stock_overlap_mm3": 0.0,
+  "qualification": false
+}

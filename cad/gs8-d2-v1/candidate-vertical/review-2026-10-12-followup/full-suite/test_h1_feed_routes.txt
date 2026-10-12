@@ -1,0 +1,22 @@
+test_binding (__main__.TestBoundReport.test_binding) ... ok
+test_feed_rows_pass_exact (__main__.TestBoundReport.test_feed_rows_pass_exact) ... ok
+test_route_rows_pass_exact (__main__.TestBoundReport.test_route_rows_pass_exact) ... ok
+test_feed_order_and_tails (__main__.TestFeedRoute.test_feed_order_and_tails) ... ok
+test_feed_rows_cad_free (__main__.TestFeedRoute.test_feed_rows_cad_free) ... ok
+test_installed_routes_exist_and_fit (__main__.TestFeedRoute.test_installed_routes_exist_and_fit) ... ok
+test_long_tail_fails_its_segment_row (__main__.TestFeedRoute.test_long_tail_fails_its_segment_row) ... ok
+test_usb_stock_is_the_segmented_bom_assembly (__main__.TestFeedRoute.test_usb_stock_is_the_segmented_bom_assembly) ... ok
+test_volume_off_its_leg_raises (__main__.TestFeedRoute.test_volume_off_its_leg_raises) ... ok
+test_cable_laid_onto_route_fails (__main__.TestPlantedFixtures.test_cable_laid_onto_route_fails) ... ok
+test_planted_part_on_rcy_volume_fails (__main__.TestPlantedFixtures.test_planted_part_on_rcy_volume_fails) ... ok
+test_planted_part_on_usb_route_fails (__main__.TestPlantedFixtures.test_planted_part_on_usb_route_fails) ... ok
+test_old_knots_fail_the_same_rule (__main__.TestRunLeadReroute.test_old_knots_fail_the_same_rule) ... ok
+test_recorded_and_bound_members_clear_bosses_and_floor (__main__.TestRunLeadReroute.test_recorded_and_bound_members_clear_bosses_and_floor) ... ok
+test_route_rows_pass_cad_free (__main__.TestRunLeadReroute.test_route_rows_pass_cad_free) ... ok
+test_no_evf_feed_ph_pair (__main__.TestStaleText.test_no_evf_feed_ph_pair) ... ok
+test_no_ko_5v_up (__main__.TestStaleText.test_no_ko_5v_up) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 56.186s
+
+OK

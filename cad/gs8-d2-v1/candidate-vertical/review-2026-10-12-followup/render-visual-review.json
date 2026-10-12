@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "images_inspected": 12,
+  "physical_qualified": false,
+  "render_run_sha256": "f32cad8e28de9f40483d683dba867092085817b35914cd5104e2a165211ca095",
+  "manifest_sha256": {
+    "compact-kowa_lm6hc": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+    "compact-fujinon_hf6xa": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
+    "original-kowa_lm6hc": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c"
+  },
+  "images": {
+    "out/compact-kowa_lm6hc/renders/hero.png": "9341e25b70e3f12c1769ef2edeb0eb1f8bcce55bfcee57c12548d85c50b0816c",
+    "out/compact-kowa_lm6hc/renders/rear.png": "df9f5da7c7f2fe2940c189c124fa0367fa3f4db5878c7a0a4be566b424382c50",
+    "out/compact-kowa_lm6hc/renders/vent_side.png": "5dd9ffe1d3fb70ff4603df40c974edfc573e5b48f52f977238a2cb1ceb691601",
+    "out/compact-kowa_lm6hc/renders/vent_front.png": "8ca0db7ed03e805098e89519deaafdf0fff7f94ff9fbca2ae021d8ee8273f7a5",
+    "out/compact-fujinon_hf6xa/renders/hero.png": "0c8bf9fba2808b7a4922be42c8cefd6cbbf90ecce1a702ba733723f7e14a6e19",
+    "out/compact-fujinon_hf6xa/renders/rear.png": "7010e56dbede664c4de88330efe02c306c4655cd2d7a60f6f5bbee8d90946c84",
+    "out/compact-fujinon_hf6xa/renders/vent_side.png": "fd4d721a7ef7a02194af7c914912d7c8ce98989a87a5d852bd77ca0fa50331ec",
+    "out/compact-fujinon_hf6xa/renders/vent_front.png": "e27d713e4735851e336d26364188ecc93b995b74c65164d5f29a768d4cf20200",
+    "out/original-kowa_lm6hc/renders/hero.png": "d65f92ce86f9bbda26feab2116e04e414a405a30a325c1a865d8c968b7c4290b",
+    "out/original-kowa_lm6hc/renders/rear.png": "d9c17ca3788287bf976f28abcead2c57620522f880a34723cc0643d043ccc8bc",
+    "out/original-kowa_lm6hc/renders/vent_side.png": "587cbd76fafcbdacbc5e3bf47d93ad70f72e329bc8848c12641f48f03ec5339a",
+    "out/original-kowa_lm6hc/renders/vent_front.png": "e93e4d097aceeb3bee1fd5c3053f186e97c1e1682b51ed50bdfda218cd279499"
+  },
+  "findings": [
+    "All twelve rendered images were visually inspected in three four-view contact sheets. Hero/rear views show complete camera silhouettes and distinguish the two lenses and longer original-storage body.",
+    "Side/front views intentionally crop peripheral lens/grip context to show the concealed channels and separate CSI service opening. Front/rear edge mouths remain visible; broad cooler sides remain planar.",
+    "Captions and physical-hold/proxy disclaimers are present and unclipped. Intended finish is illustrative, not a manufacturing or thermal qualification. No new visual geometry defect identified."
+  ],
+  "recorder_sha256": "4c148546e0a3abbc766bebc2586d14842a706ed80590e742bb961564d1f32896"
+}

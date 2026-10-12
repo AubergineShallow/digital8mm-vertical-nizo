@@ -96,15 +96,19 @@ STEPS = [
            'coupon-validated process, before any electronics are near. No insert may enter an optical, board or '
            'wiring clearance. Bond the printed +Y tab-catch stub into the tub (two-part epoxy V-68, default pending '
            'user decision 16) with the tub INVERTED, so the blind tenon pocket under the roof opens upward. Put only '
-           'a thin adhesive film on the tenon and pocket walls: the blind pocket has no vent, so a full dose cannot '
-           'escape and holds the stub off its seat (vent/overflow groove is an open CAD change, review GEO-3). Lower '
-           'the tenon straight into the pocket and rest the stub joint face down on the roof joint face; wipe the '
-           'overflow at once and keep adhesive off the catch face (T2, VN-53). Cure it in a fixture that holds the '
-           'tenon datum (-Y) face flat against the pocket datum wall while a light seating load along tub +Z (straight '
-           'into the pocket, downward while inverted) keeps the joint face closed; the fixture design is open. Never '
-           'push the stub sideways or press on its body: that couple tilts it into the clearance-limited pose that '
-           'fails the catch window (geometry review T02). Before the adhesive gels, check the seated depth: joint '
-           'face closed all round and the stub square to the roof; reseat or clean off and redo if not.'),
+           'a coupon-established thin adhesive film only on the clearanced +X, -X and +Y faces. Keep the -Y '
+           'locating datum and axial joint-stop lands dry and clean. Do not fill the blind pocket. Its host-side '
+           'escape groove runs down the +Y pocket wall to an accessible +Y joint-face outlet; inspect and clean '
+           'the printed path, keep it open and remove squeeze-out before gel without contaminating the catch. '
+           'Lower the tenon axially and apply a light distributed +Z seating load centred within the joint '
+           'footprint (downward while inverted). Never push sideways on the projecting tine. Temporary support '
+           'and cure load must first be qualified on the coupon; no unbuilt fixture receives geometric credit. '
+           'Record joint closure at accessible edges, insert depth and both catch-face positions at multiple X/Z points '
+           'before adhesive, before gel and after full cure, with instrument uncertainty. Compare those '
+           'measurements with the final pose study. Its 0.1 mm axial-underseat case is a chosen numerical screen, '
+           'not a mechanical withdrawal stop or a manufactured allowance. Stop if it will not seat; clean and '
+           'rework before cure rather than forcing adhesive into the joint. Epoxy identity, cure, per-build '
+           'metrology, retention, warm creep and whole-tub torque remain HOLD; see the followup BOND-PROCESS.'),
     op('module_bench', 'B2', where='bench', group='module', adds=MODULE,
        connects=['camera_fpc:pi', 'fps_1824:pi', 'fps_1824:sw', 'evf_hdmi:pi', 'evf_5v:pi', 'qt:pi', 'j2:pi', 'fan:pi', 'fan:cooler',
                  'xt30:pigtail'],

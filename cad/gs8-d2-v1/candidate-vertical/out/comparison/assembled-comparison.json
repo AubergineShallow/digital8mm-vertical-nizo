@@ -108,7 +108,7 @@
   "candidates": [
     {
       "variant": "compact-kowa_lm6hc",
-      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
       "core_dimensions_mm": [
         158.0,
         63.6,
@@ -132,14 +132,14 @@
       "overall_bbox_reduction_fraction": 0.06814178189788489,
       "core_envelope_reduction_fraction": 0.06782931354359911,
       "printed_part_count": 9,
-      "mass_est_g": 870.2589514403711,
+      "mass_est_g": 870.2502134635128,
       "com_est_mm": [
-        -46.46889533080605,
-        1.0244008637144055,
-        29.956975084337394
+        -46.4692479470395,
+        1.0243161838961576,
+        29.956427525095425
       ],
       "grip_axis_x": -47.0,
-      "com_offset_from_grip_mm": 0.5311046691939509,
+      "com_offset_from_grip_mm": 0.5307520529605014,
       "extrema_parts": {
         "0": [
           "eyecup"
@@ -164,7 +164,7 @@
     },
     {
       "variant": "compact-fujinon_hf6xa",
-      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "manifest_sha256": "e61d3064a471ed3e2d1ea665a4fbbe2e34b89ddfaec242a8eed4f6e8cd8db93c",
       "core_dimensions_mm": [
         158.0,
         63.6,
@@ -188,14 +188,14 @@
       "overall_bbox_reduction_fraction": 0.06779104108330647,
       "core_envelope_reduction_fraction": 0.06782931354359911,
       "printed_part_count": 9,
-      "mass_est_g": 756.8397332738431,
+      "mass_est_g": 756.8309952969847,
       "com_est_mm": [
-        -58.210672593185535,
-        1.1786081668825235,
-        25.45475850161642
+        -58.21121361718293,
+        1.1785125772852296,
+        25.454076904516505
       ],
       "grip_axis_x": -47.0,
-      "com_offset_from_grip_mm": -11.210672593185535,
+      "com_offset_from_grip_mm": -11.211213617182928,
       "extrema_parts": {
         "0": [
           "eyecup"
@@ -220,7 +220,7 @@
     },
     {
       "variant": "original-kowa_lm6hc",
-      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "manifest_sha256": "902aa8658965acd513d3166fcba91f723f86a7a35fd4b561430be2a2fea0fd9c",
       "core_dimensions_mm": [
         185.0,
         63.6,
@@ -244,14 +244,14 @@
       "overall_bbox_reduction_fraction": -0.032984310861940314,
       "core_envelope_reduction_fraction": -0.0914656771799629,
       "printed_part_count": 10,
-      "mass_est_g": 912.5157956804209,
+      "mass_est_g": 912.5070577055601,
       "com_est_mm": [
-        -54.04748770720856,
-        0.616265389315617,
-        30.59807844621991
+        -54.04789656478544,
+        0.6161807226938996,
+        30.597562382765396
       ],
       "grip_axis_x": -47.0,
-      "com_offset_from_grip_mm": -7.04748770720856,
+      "com_offset_from_grip_mm": -7.0478965647854395,
       "extrema_parts": {
         "0": [
           "eyecup"

@@ -1,0 +1,29 @@
+F.......F...........
+======================================================================
+FAIL: test_every_absolute_path_in_json_is_declared (__main__.TestAbsolutePaths.test_every_absolute_path_in_json_is_declared)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_repo_hygiene.py", line 113, in test_every_absolute_path_in_json_is_declared
+    self.assertEqual([r for r in hits if RI.classify_abs(r) == 'UNDECLARED'], [])
+AssertionError: Lists differ: ['guide/out-concealed-vents/post-guide-build-order-check.json'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'guide/out-concealed-vents/post-guide-build-order-check.json'
+
+- ['guide/out-concealed-vents/post-guide-build-order-check.json']
++ []
+
+======================================================================
+FAIL: test_paths_and_index (__main__.TestLinksAndIndex.test_paths_and_index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8ece9a785de6/d2_corrective_oct12/cad/gs8-d2-v1/candidate-vertical/tests/test_repo_hygiene.py", line 295, in test_paths_and_index
+    self.assertEqual((CV / RI.DOC).read_text(encoding='utf-8'), RI.render(), 'run make_repo_index.py --write')
+AssertionError: '# Re[1893 chars]uide/raster_numpy.py`, `guide/record_post_guid[8025 chars]`.\n' != '# Re[1893 chars]uide/followup_guide_support.py`, `guide/raster[8144 chars]`.\n'
+Diff is 11656 characters long. Set self.maxDiff to None to see it. : run make_repo_index.py --write
+
+----------------------------------------------------------------------
+Ran 20 tests in 16.585s
+
+FAILED (failures=2)

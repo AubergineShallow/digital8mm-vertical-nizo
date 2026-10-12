@@ -1,0 +1,24 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+test_build_rows_keep_finished_and_print_shapes_separate (__main__.CandidateCollarR7Mechanical.test_build_rows_keep_finished_and_print_shapes_separate) ... [   1.4s] module printed_collar.py: built (lens_collar)
+ok
+test_candidate_print_stock_meets_r7_contract (__main__.CandidateCollarR7Mechanical.test_candidate_print_stock_meets_r7_contract)
+The r7 membrane contract on the candidate's own print path (model.collar_print_stock), every lens. ... ok
+test_control_shaft_bores_align_in_displayed_pose (__main__.CandidateCollarR7Mechanical.test_control_shaft_bores_align_in_displayed_pose) ... ok
+test_encoder_supplied_stroke_can_fail_and_pass (__main__.CandidateCollarR7Mechanical.test_encoder_supplied_stroke_can_fail_and_pass) ... ok
+test_encoder_unknown_stroke_is_not_pass (__main__.CandidateCollarR7Mechanical.test_encoder_unknown_stroke_is_not_pass) ... ok
+test_print_stock_is_exactly_three_removable_membranes (__main__.CandidateCollarR7Mechanical.test_print_stock_is_exactly_three_removable_membranes) ... expected failure
+test_print_stock_rejects_invalid_layer (__main__.CandidateCollarR7Mechanical.test_print_stock_rejects_invalid_layer) ... ok
+test_supplied_direct_stack_detects_keeper_risk (__main__.CandidateCollarR7Mechanical.test_supplied_direct_stack_detects_keeper_risk) ... ok
+test_supplied_optical_datum_detects_inconsistency (__main__.CandidateCollarR7Mechanical.test_supplied_optical_datum_detects_inconsistency) ... ok
+test_unknown_sensor_values_remain_unknown (__main__.CandidateCollarR7Mechanical.test_unknown_sensor_values_remain_unknown) ... ok
+test_washer_flat_support_with_float_and_margin (__main__.CandidateCollarR7Mechanical.test_washer_flat_support_with_float_and_margin) ... ok
+test_washer_has_free_seat_at_every_float_extreme (__main__.CandidateCollarR7Mechanical.test_washer_has_free_seat_at_every_float_extreme) ... ok
+test_wrong_shaft_pose_is_not_hidden_by_press_mate (__main__.CandidateCollarR7Mechanical.test_wrong_shaft_pose_is_not_hidden_by_press_mate) ... ok
+test_expected_failures_are_exactly_the_listed_ones (__main__.ContextIsRestored.test_expected_failures_are_exactly_the_listed_ones) ... ok
+test_restored (__main__.ContextIsRestored.test_restored) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 7.069s
+
+OK (expected failures=1)

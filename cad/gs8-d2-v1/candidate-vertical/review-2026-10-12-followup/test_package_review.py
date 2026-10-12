@@ -1,0 +1,393 @@
+"""CAD-free regression checks for fail-closed review delivery packaging."""
+import importlib.util
+import copy
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+import zipfile
+
+sys.dont_write_bytecode = True
+SPEC = importlib.util.spec_from_file_location('package_review', Path(__file__).with_name('package_review.py'))
+P = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(P)
+
+
+class PackagingTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.repo = self.root / 'repository'
+        self.repo.mkdir()
+        self.command('init', '-q', '-b', P.BRANCH)
+        self.command('config', 'user.name', 'Packaging fixture')
+        self.command('config', 'user.email', 'fixture@example.invalid')
+        (self.repo / 'source.txt').write_text('original source\n', encoding='utf-8', newline='\n')
+        self.commit()
+        self.baseline = self.command('rev-parse', 'HEAD').strip()
+        (self.repo / 'report.json').write_text('{"status":"fail"}\n', encoding='utf-8', newline='\n')
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+
+    def command(self, *args):
+        return subprocess.check_output(['git', '-C', str(self.repo), *args], stderr=subprocess.STDOUT).decode()
+
+    def commit(self):
+        self.command('add', '--all')
+        self.command('commit', '-q', '-m', 'Fixture commit')
+
+    def snapshot(self):
+        return P.Snapshot(self.repo, self.head, baseline=self.baseline)
+
+    def harness_fixture(self):
+        candidate = self.repo / P.CANDIDATE
+        followup = candidate / 'review-2026-10-12-followup'
+        output = candidate / 'out' / P.VARIANTS[0]
+        followup.mkdir(parents=True)
+        (output / 'step').mkdir(parents=True)
+        sources = {'verify_harness_checks.py': "DEPENDENCIES = ['harness_rules.py', 'routes.py']\n",
+                   'harness_rules.py': '# strengthened rules\n', 'routes.py': '# routes\n',
+                   'model.py': '# model\n', 'review-2026-10-12-followup/refresh_harness.py': '# refresh runner\n',
+                   'review-2026-10-12-followup/harness-refresh.log': 'final audit recorded\n',
+                   'out/' + P.VARIANTS[0] + '/step/part.step': 'fixture geometry bytes\n'}
+        for name, text in sources.items():
+            (candidate / name).write_text(text, encoding='utf-8', newline='\n')
+        digest = lambda path: P.sha(path.read_bytes())
+        manifest = {'sources': {'candidate-vertical/model.py': digest(candidate / 'model.py')},
+                    'files': {'step/part.step': digest(output / 'step/part.step')}}
+        (output / 'manifest.json').write_bytes(P.encoded(manifest))
+        mh = digest(output / 'manifest.json')
+        report = {'variant': P.VARIANTS[0], 'manifest_sha256': mh,
+                  'verification_source_sha256': digest(candidate / 'verify_harness_checks.py'),
+                  'verification_dependency_sha256': {name: digest(candidate / name) for name in ('harness_rules.py', 'routes.py')},
+                  'checks': [{'id': 'qt', 'status': 'fail'}, {'id': 'another', 'status': 'fail'}],
+                  'summary': {'pass': 0, 'fail': 2, 'info': 0}, 'physical_qualified': False}
+        (output / 'harness-checks.json').write_bytes(P.encoded(report))
+        prior = {'variant': P.VARIANTS[0], 'manifest_sha256': mh,
+                 'checks': [{'id': 'qt', 'status': 'fail'}], 'summary': {'pass': 0, 'fail': 1, 'info': 0}}
+        archive = followup / 'prior-harness-before-full-minimum.json'
+        archive.write_bytes(P.encoded(prior))
+        inputs = {name: digest(candidate / name) for name in sources if not name.endswith('.log')}
+        inputs['out/' + P.VARIANTS[0] + '/manifest.json'] = mh
+        receipt = {'started_utc': '2026-10-12T11:00:00Z', 'completed_utc': '2026-10-12T11:20:00Z',
+                   'command': ['verify_harness_checks.py'], 'exit_code': 1, 'manifest_sha256': mh,
+                   'source_sha256': digest(followup / 'refresh_harness.py'), 'report_sha256': digest(output / 'harness-checks.json'),
+                   'summary': report['summary'], 'prior_report_archive': archive.relative_to(candidate).as_posix(),
+                   'prior_report_sha256': digest(archive), 'input_sha256': inputs,
+                   'declared_dependencies': ['harness_rules.py', 'routes.py'],
+                   'log': 'review-2026-10-12-followup/harness-refresh.log',
+                   'log_sha256': digest(followup / 'harness-refresh.log'), 'physical_qualified': False}
+        batch = {'checks': [{'check': 'harness', 'exit_code': 1, 'completed_utc': '2026-10-12T10:00:00Z'},
+                            {'check': 'rigid', 'exit_code': 0, 'completed_utc': '2026-10-12T10:59:00Z'}]}
+        (followup / 'harness-refresh.json').write_bytes(P.encoded(receipt))
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        return candidate, report, batch, receipt
+
+    def commit_harness_receipt(self, candidate, receipt):
+        (candidate / 'review-2026-10-12-followup/harness-refresh.json').write_bytes(P.encoded(receipt))
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+
+    def render_fixture(self):
+        candidate = self.repo / P.CANDIDATE
+        followup = candidate / 'review-2026-10-12-followup'
+        followup.mkdir(parents=True)
+        (followup / 'render_variants.py').write_text('# render runner\n', encoding='utf-8', newline='\n')
+        (candidate / 'render_review.py').write_text('# renderer\n', encoding='utf-8', newline='\n')
+        renderer = P.sha((candidate / 'render_review.py').read_bytes())
+        manifests = {variant: P.sha(variant.encode()) for variant in P.VARIANTS}
+        rows, images = [], {}
+        for variant in P.VARIANTS:
+            directory = candidate / 'out' / variant / 'renders'
+            directory.mkdir(parents=True)
+            for view in P.RENDER_VIEWS:
+                image = directory / (view + '.png')
+                image.write_bytes(('fixture image: ' + variant + view).encode())
+                digest = P.sha(image.read_bytes())
+                images[image.relative_to(candidate).as_posix()] = digest
+                (directory / (view + '-receipt.json')).write_bytes(P.encoded({
+                    'view': view, 'manifest_sha256': manifests[variant], 'renderer_sha256': renderer,
+                    'image_sha256': digest, 'physical_qualified': False}))
+                rows.append({'variant': variant, 'view': view, 'manifest_sha256': manifests[variant],
+                             'physical_qualified': False})
+        run_path = followup / 'render-run.json'
+        run_path.write_bytes(P.encoded({'checks': rows, 'source_sha256': P.sha((followup / 'render_variants.py').read_bytes())}))
+        qa = {'status': 'pass', 'physical_qualified': False, 'images_inspected': len(images),
+              'render_run_sha256': P.sha(run_path.read_bytes()), 'manifest_sha256': manifests, 'images': images}
+        (followup / 'render-visual-review.json').write_bytes(P.encoded(qa))
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        return candidate, {'variants': {v: {'manifest_sha256': h} for v, h in manifests.items()}}, qa
+
+    def commit_fixture_update(self):
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+
+    def test_exact_commit_branch_and_ancestry_required(self):
+        self.snapshot().finish()
+        with self.assertRaisesRegex(P.PackageError, 'nominated'):
+            P.Snapshot(self.repo, self.baseline, baseline=self.baseline)
+        with self.assertRaisesRegex(P.PackageError, 'Wrong branch'):
+            P.Snapshot(self.repo, self.head, branch='other', baseline=self.baseline)
+        with self.assertRaises(P.PackageError):
+            P.Snapshot(self.repo, self.head, baseline='f' * 40)
+
+    def test_dirty_and_untracked_checkouts_rejected(self):
+        (self.repo / 'untracked.txt').write_text('pending work', encoding='utf-8', newline='\n')
+        with self.assertRaisesRegex(P.PackageError, 'clean committed'):
+            self.snapshot()
+        (self.repo / 'untracked.txt').unlink()
+        (self.repo / 'source.txt').write_text('edited', encoding='utf-8', newline='\n')
+        with self.assertRaisesRegex(P.PackageError, 'clean committed'):
+            self.snapshot()
+
+    def test_mid_run_byte_change_rejected_even_if_timestamp_restored(self):
+        snapshot = self.snapshot()
+        path = self.repo / 'source.txt'
+        prior = path.stat()
+        path.write_text('changed source!\n', encoding='utf-8', newline='\n')
+        os.utime(path, ns=(prior.st_atime_ns, prior.st_mtime_ns))
+        with self.assertRaisesRegex(P.PackageError, 'changed during packaging'):
+            snapshot.read(path)
+
+    def test_ignored_evidence_changes_are_also_detected(self):
+        (self.repo / '.gitignore').write_text('cache.json\n', encoding='utf-8', newline='\n')
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        snapshot = self.snapshot()
+        path = self.repo / 'cache.json'
+        path.write_text('{"mesh":1}\n', encoding='utf-8', newline='\n')
+        snapshot.read(path, tracked=False)
+        path.write_text('{"mesh":2}\n', encoding='utf-8', newline='\n')
+        with self.assertRaisesRegex(P.PackageError, 'changed during packaging'):
+            snapshot.finish()
+
+    def test_stale_source_binding_and_false_summary_rejected(self):
+        snapshot = self.snapshot()
+        with self.assertRaisesRegex(P.PackageError, 'Stale binding'):
+            snapshot.bind(self.repo / 'source.txt', '0' * 64)
+        with self.assertRaisesRegex(P.PackageError, 'summary differs'):
+            P.check_summary({'checks': [{'status': 'fail'}], 'summary': {'pass': 1, 'fail': 0}})
+        P.check_summary({'checks': [{'status': 'fail'}], 'summary': {'pass': 0, 'fail': 1}})
+
+    def test_unsafe_and_secret_paths_rejected(self):
+        for name in ('../outside', '/absolute', 'foo\\bar', 'file\nname', '.git/config', '.env',
+                     'cache/.venv/bin/python', 'id_rsa', 'credentials.json', 'private.pem'):
+            with self.subTest(name=name), self.assertRaises(P.PackageError):
+                P.safe_name(name)
+        (self.repo / 'key.txt').write_text('-----BEGIN ' + 'PRIVATE KEY-----\n', encoding='utf-8', newline='\n')
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        with self.assertRaisesRegex(P.PackageError, 'private key content'):
+            self.snapshot()
+
+    def test_failed_report_rows_are_retained(self):
+        snapshot = self.snapshot()
+        report = {'status': 'fail', 'summary': {'pass': 0, 'fail': 1},
+                  'checks': [{'status': 'fail', 'id': 'qt', 'problems': ['too long']}]}
+        view = P.report_view(self.repo / 'report.json', report, snapshot)
+        self.assertEqual(view['failed_rows'][0]['row']['problems'], ['too long'])
+
+    def test_independent_zip_partition_and_every_member_hash(self):
+        for number in range(4):
+            (self.repo / ('payload-%d.bin' % number)).write_bytes(os.urandom(1200))
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        snapshot = self.snapshot()
+        output = self.root / 'zips'
+        output.mkdir()
+        names = ['payload-%d.bin' % number for number in range(4)]
+        records = P.write_zip_set(output, 'fixture', names, snapshot, b'review only', b'{}', {}, limit=3600)
+        self.assertGreater(len(records), 1)
+        recovered = set()
+        for record in records:
+            self.assertLess(record['bytes'], 3600)
+            with zipfile.ZipFile(output / record['file']) as archive:
+                self.assertIsNone(archive.testzip())
+                hashes = json.loads(archive.read('CONTENTS-SHA256.json'))['files']
+                self.assertEqual(set(archive.namelist()) - {'CONTENTS-SHA256.json'}, set(hashes))
+                for name, digest in hashes.items():
+                    self.assertEqual(P.sha(archive.read(name)), digest)
+                    if name in names:
+                        recovered.add(name)
+                        self.assertEqual(archive.read(name), (self.repo / name).read_bytes())
+        self.assertEqual(recovered, set(names))
+        snapshot.finish()
+
+    def test_bundle_is_complete_and_restores_exact_checkpoint(self):
+        snapshot = self.snapshot()
+        folder = self.root / 'bundle'
+        folder.mkdir()
+        result = P.create_bundle(snapshot, folder)
+        self.assertTrue((folder / result['file']).is_file())
+        self.assertEqual(result['sha256'], P.sha((folder / result['file']).read_bytes()))
+        snapshot.finish()
+
+    def test_history_private_key_blocks_bundle_even_after_deletion(self):
+        path = self.repo / 'key.txt'
+        path.write_text('-----BEGIN ' + 'PRIVATE KEY-----\n', encoding='utf-8', newline='\n')
+        self.commit()
+        path.unlink()
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        snapshot = self.snapshot()
+        with self.assertRaisesRegex(P.PackageError, 'branch history'):
+            P.inspect_history(snapshot)
+
+    def test_harness_refresh_preserves_separate_execution_and_prior_failure(self):
+        candidate, report, batch, receipt = self.harness_fixture()
+        result = P.inspect_harness_refresh(self.snapshot(), candidate, report, batch)
+        self.assertEqual(result['summary']['fail'], 2)
+        self.assertEqual(result['prior_summary']['fail'], 1)
+        self.assertEqual(result['exit_code'], 1)
+        self.assertEqual(result['started_utc'], receipt['started_utc'])
+        self.assertIn('does not claim execution of the current harness code', result['scope'])
+
+    def test_harness_refresh_rejects_missing_receipt_and_stale_report(self):
+        candidate, report, batch, receipt = self.harness_fixture()
+        path = candidate / 'review-2026-10-12-followup/harness-refresh.json'
+        path.unlink()
+        self.commit()
+        self.head = self.command('rev-parse', 'HEAD').strip()
+        with self.assertRaises(P.PackageError):
+            P.inspect_harness_refresh(self.snapshot(), candidate, report, batch)
+        receipt['report_sha256'] = '0' * 64
+        self.commit_harness_receipt(candidate, receipt)
+        with self.assertRaisesRegex(P.PackageError, 'Stale binding'):
+            P.inspect_harness_refresh(self.snapshot(), candidate, report, batch)
+
+    def test_harness_refresh_requires_every_declared_dependency_captured(self):
+        candidate, report, batch, receipt = self.harness_fixture()
+        del receipt['input_sha256']['routes.py']
+        self.commit_harness_receipt(candidate, receipt)
+        with self.assertRaisesRegex(P.PackageError, 'did not capture the current input'):
+            P.inspect_harness_refresh(self.snapshot(), candidate, report, batch)
+        receipt['input_sha256']['routes.py'] = P.sha((candidate / 'routes.py').read_bytes())
+        receipt['declared_dependencies'] = ['harness_rules.py']
+        self.commit_harness_receipt(candidate, receipt)
+        with self.assertRaisesRegex(P.PackageError, 'dependency set differs'):
+            P.inspect_harness_refresh(self.snapshot(), candidate, report, batch)
+
+    def test_harness_refresh_rejects_false_counts_exit_manifest_or_chronology(self):
+        candidate, report, batch, original = self.harness_fixture()
+        mutations = [('summary', {'pass': 2, 'fail': 0, 'info': 0}, 'counts/exit'),
+                     ('exit_code', 0, 'counts/exit'), ('manifest_sha256', '0' * 64, 'stale manifest'),
+                     ('started_utc', '2026-10-12T09:00:00Z', 'predates'),
+                     ('completed_utc', '2026-10-12T10:00:00Z', 'ends before'),
+                     ('started_utc', '2026-10-12T11:00:00', 'timezone')]
+        for key, value, message in mutations:
+            with self.subTest(key=key, value=value):
+                receipt = copy.deepcopy(original)
+                receipt[key] = value
+                self.commit_harness_receipt(candidate, receipt)
+                with self.assertRaisesRegex(P.PackageError, message):
+                    P.inspect_harness_refresh(self.snapshot(), candidate, report, batch)
+
+    def inherited_gate_fixture(self):
+        source = Path(__file__).resolve().parents[2] / 'out/build-receipt.json'
+        return json.loads(source.read_text(encoding='utf-8'))['hardware_gates']['gates']
+
+    def test_inherited_gates_keep_56_open_and_two_historical_withdrawals(self):
+        baseline = self.inherited_gate_fixture()
+        result = P.validate_inherited_gate_states(copy.deepcopy(baseline), baseline)
+        self.assertEqual(result, {'total': 58, 'open': 56, 'withdrawn': 2,
+                                 'withdrawn_ids': ['G-SKIRT-1', 'G-SNAP-1']})
+
+    def test_inherited_gate_changes_and_new_waivers_are_rejected(self):
+        baseline = self.inherited_gate_fixture()
+        active = next(name for name, value in baseline.items() if value.startswith('open'))
+        for replacement in ('closed', 'passed', 'withdrawn (new waiver)', 'open (changed gate scope)'):
+            with self.subTest(replacement=replacement):
+                current = copy.deepcopy(baseline)
+                current[active] = replacement
+                with self.assertRaisesRegex(P.PackageError, 'states changed from the baseline'):
+                    P.validate_inherited_gate_states(current, baseline)
+        current = copy.deepcopy(baseline)
+        del current['G-SKIRT-1']
+        with self.assertRaisesRegex(P.PackageError, 'states changed from the baseline'):
+            P.validate_inherited_gate_states(current, baseline)
+
+    def test_gate_baseline_cannot_introduce_unexpected_closed_or_withdrawn_states(self):
+        baseline = self.inherited_gate_fixture()
+        active = next(name for name, value in baseline.items() if value.startswith('open'))
+        for replacement, expected in (('passed', 'closed/passed'), ('withdrawn (extra)', 'Unexpected withdrawn')):
+            with self.subTest(replacement=replacement):
+                altered = copy.deepcopy(baseline)
+                altered[active] = replacement
+                with self.assertRaisesRegex(P.PackageError, expected):
+                    P.validate_inherited_gate_states(altered, altered)
+
+    def test_current_twelve_renders_and_bound_receipts_are_selected(self):
+        candidate, status, qa = self.render_fixture()
+        result, files = P.inspect_product_renders(self.snapshot(), status)
+        self.assertEqual(result['image_count'], 12)
+        self.assertEqual(len(files), 26)
+        self.assertEqual({path.relative_to(candidate).as_posix() for path in files if path.suffix == '.png'}, set(qa['images']))
+
+    def test_missing_or_partial_render_visual_review_is_rejected(self):
+        candidate, status, qa = self.render_fixture()
+        path = candidate / 'review-2026-10-12-followup/render-visual-review.json'
+        path.unlink()
+        self.commit_fixture_update()
+        with self.assertRaises(P.PackageError):
+            P.inspect_product_renders(self.snapshot(), status)
+        qa['images'].pop(next(iter(qa['images'])))
+        path.write_bytes(P.encoded(qa))
+        self.commit_fixture_update()
+        with self.assertRaisesRegex(P.PackageError, 'twelve-image visual review'):
+            P.inspect_product_renders(self.snapshot(), status)
+
+    def test_changed_render_or_stale_manifest_receipt_is_rejected(self):
+        candidate, status, qa = self.render_fixture()
+        image = candidate / next(iter(qa['images']))
+        image.write_bytes(b'changed image')
+        self.commit_fixture_update()
+        with self.assertRaisesRegex(P.PackageError, 'Stale binding'):
+            P.inspect_product_renders(self.snapshot(), status)
+        receipt_path = image.with_name(image.stem + '-receipt.json')
+        receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+        receipt['image_sha256'] = P.sha(image.read_bytes())
+        receipt['manifest_sha256'] = '0' * 64
+        receipt_path.write_bytes(P.encoded(receipt))
+        self.commit_fixture_update()
+        with self.assertRaisesRegex(P.PackageError, 'Per-view render receipt binds stale'):
+            P.inspect_product_renders(self.snapshot(), status)
+
+    def test_incomplete_render_execution_receipt_is_rejected(self):
+        candidate, status, _ = self.render_fixture()
+        path = candidate / 'review-2026-10-12-followup/render-run.json'
+        run = json.loads(path.read_text(encoding='utf-8'))
+        run['checks'].pop()
+        path.write_bytes(P.encoded(run))
+        self.commit_fixture_update()
+        with self.assertRaisesRegex(P.PackageError, 'omits or duplicates'):
+            P.inspect_product_renders(self.snapshot(), status)
+
+
+    def test_scalar_fps_input_binding_is_current_and_rejects_stale_or_unknown_sources(self):
+        candidate = self.repo / P.CANDIDATE
+        input_path = candidate / 'out/fps-service-study/mated-carry-input.json'
+        input_path.parent.mkdir(parents=True)
+        input_path.write_bytes(b'{"fixture":"frozen FPS input"}\n')
+        verifier = candidate / 'verify_fps_integrated.py'
+        verifier.write_text('# integrated FPS verifier\n', encoding='utf-8', newline='\n')
+        self.commit_fixture_update()
+        snapshot = self.snapshot()
+        report = {'source_sha256': P.sha(verifier.read_bytes()),
+                  'input_sha256': P.sha(input_path.read_bytes())}
+        P.verify_dependencies(snapshot, candidate, report)
+        stale = dict(report, input_sha256='0' * 64)
+        with self.assertRaisesRegex(P.PackageError, 'Stale binding'):
+            P.verify_dependencies(snapshot, candidate, stale)
+        unknown = dict(report, source_sha256='1' * 64)
+        with self.assertRaisesRegex(P.PackageError, 'Unsupported scalar input binding'):
+            P.verify_dependencies(snapshot, candidate, unknown)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

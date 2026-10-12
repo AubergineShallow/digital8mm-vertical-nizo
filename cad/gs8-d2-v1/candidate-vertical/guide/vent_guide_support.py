@@ -198,7 +198,11 @@ if __name__ == '__main__':
     parser.add_argument('--manifest-sha256', required=True)
     args = parser.parse_args()
     result = inspect_inputs(Path(__file__).resolve().parents[1], args.manifest_sha256)
+    from followup_guide_support import inspect_variants
+    followup = inspect_variants(Path(__file__).resolve().parents[1])
     print(json.dumps({'manifest_sha256': args.manifest_sha256,
                       'ventilation_checks': result['report']['summary'],
                       'geometry_pass': result['geometry_pass'],
+                      'followup_variants': {name: value['catch_summary']
+                                            for name, value in followup['variants'].items()},
                       'physical_qualified': False}, indent=2))

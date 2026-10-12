@@ -1,0 +1,374 @@
+{
+  "manifest_sha256": "d2b93a43ed74e2a0c777c10d5d0907d99af5e8623699dfa919a814e0f6efa754",
+  "verification_source_sha256": "d74b06c7f1ae25f11135cd1a068ab6d13933c2d19266304728ac478dd0eab12d",
+  "variant": "compact-kowa_lm6hc",
+  "pass_count": 11,
+  "fail_count": 0,
+  "rows": [
+    {
+      "id": "base_grip",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "ed6c9dee5014a433c1455e855140e84a371f308d180eb67b9afef8e3f83c9fe8",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 67174.00227887435,
+      "expected_print_stock_mm3": 67182.80798167625,
+      "volume_error_mm3": 8.805702801895677,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          5.67585691987893e-13
+        ],
+        [
+          116.5,
+          52.096580505371094,
+          110.0
+        ]
+      ],
+      "dimensions_mm": [
+        116.5,
+        52.096580505371094,
+        109.99999999999943
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "ed6c9dee5014a433c1455e855140e84a371f308d180eb67b9afef8e3f83c9fe8",
+      "physical_print_release": false
+    },
+    {
+      "id": "cap",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 6738.099531606457,
+      "expected_print_stock_mm3": 6739.347417514938,
+      "volume_error_mm3": 1.2478859084803844,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          48.0,
+          30.0,
+          10.199999809265137
+        ]
+      ],
+      "dimensions_mm": [
+        48.0,
+        30.0,
+        10.199999809265137
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
+      "physical_print_release": false
+    },
+    {
+      "id": "eyecup",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "5190ed406785dfbe67f4de03e08fb2e1d85515113775d83d88f630a7475f2382",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 4373.747494140232,
+      "expected_print_stock_mm3": 4384.3936378810195,
+      "volume_error_mm3": 10.64614374078701,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0005273062270134687,
+          0.0005273062270134687,
+          -2.1149747772076285e-15
+        ],
+        [
+          45.526832580566406,
+          45.526832580566406,
+          16.299999237060547
+        ]
+      ],
+      "dimensions_mm": [
+        45.52630527433939,
+        45.52630527433939,
+        16.29999923706055
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "5190ed406785dfbe67f4de03e08fb2e1d85515113775d83d88f630a7475f2382",
+      "physical_print_release": false
+    },
+    {
+      "id": "knob_exp",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 4792.027316957697,
+      "expected_print_stock_mm3": 4792.9768372145845,
+      "volume_error_mm3": 0.9495202568878085,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          -1.421085492696024e-15
+        ],
+        [
+          27.996545791625977,
+          27.996545791625977,
+          9.0
+        ]
+      ],
+      "dimensions_mm": [
+        27.996545791625977,
+        27.996545791625977,
+        9.000000000000002
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
+      "physical_print_release": false
+    },
+    {
+      "id": "knob_fps",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 2168.115074525833,
+      "expected_print_stock_mm3": 2168.466251538382,
+      "volume_error_mm3": 0.35117701254921485,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          -1.1990408877709927e-15
+        ],
+        [
+          23.989591598510742,
+          23.989591598510742,
+          7.0
+        ]
+      ],
+      "dimensions_mm": [
+        23.989591598510742,
+        23.989591598510742,
+        7.000000000000001
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
+      "physical_print_release": false
+    },
+    {
+      "id": "carrier",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "4d5f4688232cc98427722456ff352de7c66df07d211e614dbbb5efa39594cea4",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 13152.027354298412,
+      "expected_print_stock_mm3": 13152.181906545722,
+      "volume_error_mm3": 0.15455224730976624,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0005341668729670346,
+          0.0016388860531151295,
+          1.0000002248489182e-07
+        ],
+        [
+          112.39641571044922,
+          70.39875793457031,
+          6.0
+        ]
+      ],
+      "dimensions_mm": [
+        112.39588154357625,
+        70.3971190485172,
+        5.9999998999999775
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "4d5f4688232cc98427722456ff352de7c66df07d211e614dbbb5efa39594cea4",
+      "physical_print_release": false
+    },
+    {
+      "id": "tub",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "8ecea01bd3ed09a1ce878a1d0b616bf5c8ec34afaf92d601dcf1efac2038028c",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 170961.80806345743,
+      "expected_print_stock_mm3": 171204.26446057492,
+      "volume_error_mm3": 242.4563971174939,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          158.0,
+          105.05000305175781,
+          63.599998474121094
+        ]
+      ],
+      "dimensions_mm": [
+        158.0,
+        105.05000305175781,
+        63.599998474121094
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "8ecea01bd3ed09a1ce878a1d0b616bf5c8ec34afaf92d601dcf1efac2038028c",
+      "physical_print_release": false
+    },
+    {
+      "id": "panel",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "b2d9c26d34fd7b7a00b588c234d520c21df070be128108f6180b12679a07dec0",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 41988.99880949822,
+      "expected_print_stock_mm3": 41987.761559342995,
+      "volume_error_mm3": 1.2372501552235917,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          4.440892098500626e-15,
+          6.999999868639861e-07
+        ],
+        [
+          152.3000030517578,
+          93.80000305175781,
+          24.80000114440918
+        ]
+      ],
+      "dimensions_mm": [
+        152.3000030517578,
+        93.80000305175781,
+        24.800000444409193
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "b2d9c26d34fd7b7a00b588c234d520c21df070be128108f6180b12679a07dec0",
+      "physical_print_release": false
+    },
+    {
+      "id": "lens_collar",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "c6573eedc1fa7436df9f3f4160dace795fc8f282afa06b3ac474d8b8b0597a95",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 11267.619876072693,
+      "expected_print_stock_mm3": 11260.500129712445,
+      "volume_error_mm3": 7.119746360247518,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          9.105474600801244e-05,
+          3.552713678800501e-15,
+          7.105427357601002e-15
+        ],
+        [
+          71.69962310791016,
+          55.794395446777344,
+          11.300000190734863
+        ]
+      ],
+      "dimensions_mm": [
+        71.69953205316415,
+        55.794395446777344,
+        11.300000190734856
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "c6573eedc1fa7436df9f3f4160dace795fc8f282afa06b3ac474d8b8b0597a95",
+      "physical_print_release": false
+    },
+    {
+      "id": "centring_gauge",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "fc46a972019428f886b1ac0fd9e8e1ac83c0c5b28af1d90f21fb88b7052e8352",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 20527.563693212873,
+      "expected_print_stock_mm3": null,
+      "volume_error_mm3": null,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.006884618662297726,
+          0.0,
+          5.604601945022442e-17
+        ],
+        [
+          44.293113708496094,
+          44.29999923706055,
+          24.399999618530273
+        ]
+      ],
+      "dimensions_mm": [
+        44.286229089833796,
+        44.29999923706055,
+        24.399999618530273
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "fc46a972019428f886b1ac0fd9e8e1ac83c0c5b28af1d90f21fb88b7052e8352",
+      "physical_print_release": false
+    },
+    {
+      "id": "tab_catch_insert",
+      "status": "pass",
+      "manifest_file_binding": true,
+      "expected_sha256": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7",
+      "watertight": true,
+      "positive_volume": true,
+      "volume_mm3": 223.13364924518442,
+      "expected_print_stock_mm3": null,
+      "volume_error_mm3": null,
+      "within_volume_tolerance": true,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          6.300000190734863,
+          12.0,
+          15.0
+        ]
+      ],
+      "dimensions_mm": [
+        6.300000190734863,
+        12.0,
+        15.0
+      ],
+      "fits_250x210x220": true,
+      "bed_z_zero": true,
+      "sha256": "a263aba99eb8d5dc148e7ca6c83b62720b7099f53320fe200200233de8b3c1c7",
+      "physical_print_release": false
+    }
+  ],
+  "validator": "stdlib binarySTL + numpy; vertex welding at1e-6mm, no mesh repair",
+  "note": "Topology and bed envelope only. Supports, layer strength, slicer and every physical gate remain unrun. Collar STL includes three removable0.2mm membranes; STEP is cleared finished geometry."
+}
