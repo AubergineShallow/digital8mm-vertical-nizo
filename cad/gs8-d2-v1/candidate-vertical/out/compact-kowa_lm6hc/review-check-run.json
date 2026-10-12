@@ -1,5 +1,5 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "runner_sha256": "15238fc42a0b86842755d685d7ab7aee7606b22fe727edae423925fbdd778f1d",
   "checks": [
     {
@@ -13,8 +13,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/bound_files.log",
-      "started_utc": "2026-10-11T15:54:55Z",
-      "completed_utc": "2026-10-11T15:54:56Z"
+      "started_utc": "2026-10-12T02:10:49Z",
+      "completed_utc": "2026-10-12T02:10:49Z"
     },
     {
       "check": "mesh",
@@ -23,8 +23,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/mesh.log",
-      "started_utc": "2026-10-11T15:54:56Z",
-      "completed_utc": "2026-10-11T15:54:58Z"
+      "started_utc": "2026-10-12T02:10:49Z",
+      "completed_utc": "2026-10-12T02:10:51Z"
     },
     {
       "check": "print",
@@ -33,18 +33,18 @@
       ],
       "exit_code": 0,
       "log": "check-logs/print.log",
-      "started_utc": "2026-10-11T15:54:58Z",
-      "completed_utc": "2026-10-11T15:55:58Z"
+      "started_utc": "2026-10-12T02:10:51Z",
+      "completed_utc": "2026-10-12T02:11:47Z"
     },
     {
       "check": "build_order_docs",
       "command": [
         "tests/test_build_order_docs.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "check-logs/build_order_docs.log",
-      "started_utc": "2026-10-11T15:55:58Z",
-      "completed_utc": "2026-10-11T15:56:02Z"
+      "started_utc": "2026-10-12T02:11:47Z",
+      "completed_utc": "2026-10-12T02:11:48Z"
     },
     {
       "check": "csi",
@@ -53,8 +53,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/csi.log",
-      "started_utc": "2026-10-11T15:56:02Z",
-      "completed_utc": "2026-10-11T15:56:43Z"
+      "started_utc": "2026-10-12T02:11:48Z",
+      "completed_utc": "2026-10-12T02:12:50Z"
     },
     {
       "check": "power_rigid",
@@ -63,8 +63,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/power_rigid.log",
-      "started_utc": "2026-10-11T15:56:43Z",
-      "completed_utc": "2026-10-11T15:59:54Z"
+      "started_utc": "2026-10-12T02:12:50Z",
+      "completed_utc": "2026-10-12T02:16:58Z"
     },
     {
       "check": "power_static",
@@ -75,8 +75,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/power_static.log",
-      "started_utc": "2026-10-11T15:59:54Z",
-      "completed_utc": "2026-10-11T16:00:40Z"
+      "started_utc": "2026-10-12T02:16:58Z",
+      "completed_utc": "2026-10-12T02:18:07Z"
     },
     {
       "check": "hdmi",
@@ -89,8 +89,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/hdmi.log",
-      "started_utc": "2026-10-11T16:00:40Z",
-      "completed_utc": "2026-10-11T16:03:36Z"
+      "started_utc": "2026-10-12T02:18:07Z",
+      "completed_utc": "2026-10-12T02:21:29Z"
     },
     {
       "check": "fps",
@@ -99,8 +99,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/fps.log",
-      "started_utc": "2026-10-11T16:03:36Z",
-      "completed_utc": "2026-10-11T16:05:45Z"
+      "started_utc": "2026-10-12T02:21:29Z",
+      "completed_utc": "2026-10-12T02:24:29Z"
     },
     {
       "check": "harness",
@@ -109,8 +109,8 @@
       ],
       "exit_code": 1,
       "log": "check-logs/harness.log",
-      "started_utc": "2026-10-11T16:05:45Z",
-      "completed_utc": "2026-10-11T16:20:19Z"
+      "started_utc": "2026-10-12T02:24:29Z",
+      "completed_utc": "2026-10-12T02:43:06Z"
     },
     {
       "check": "usb_head",
@@ -119,14 +119,14 @@
         "--mechanical-manifest",
         "out/compact-kowa_lm6hc/manifest.json",
         "--expected-sha",
-        "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+        "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
         "--report-name",
         "shadow-plenum-head-checks.json"
       ],
       "exit_code": 0,
       "log": "check-logs/usb_head.log",
-      "started_utc": "2026-10-11T16:20:19Z",
-      "completed_utc": "2026-10-11T16:20:51Z"
+      "started_utc": "2026-10-12T02:43:06Z",
+      "completed_utc": "2026-10-12T02:43:54Z"
     },
     {
       "check": "rigid",
@@ -135,8 +135,8 @@
       ],
       "exit_code": 1,
       "log": "check-logs/rigid.log",
-      "started_utc": "2026-10-11T16:20:51Z",
-      "completed_utc": "2026-10-11T16:39:42Z"
+      "started_utc": "2026-10-12T02:43:54Z",
+      "completed_utc": "2026-10-12T03:12:47Z"
     },
     {
       "check": "microsd_rejected_closed_path",
@@ -145,18 +145,18 @@
       ],
       "exit_code": 0,
       "log": "check-logs/microsd_rejected_closed_path.log",
-      "started_utc": "2026-10-11T16:39:42Z",
-      "completed_utc": "2026-10-11T16:40:14Z"
+      "started_utc": "2026-10-12T03:12:47Z",
+      "completed_utc": "2026-10-12T03:13:38Z"
     },
     {
       "check": "check_scope",
       "command": [
         "verify_check_scope.py"
       ],
-      "exit_code": 1,
+      "exit_code": 0,
       "log": "check-logs/check_scope.log",
-      "started_utc": "2026-10-11T16:40:14Z",
-      "completed_utc": "2026-10-11T16:42:49Z"
+      "started_utc": "2026-10-12T03:13:38Z",
+      "completed_utc": "2026-10-12T03:17:37Z"
     },
     {
       "check": "void",
@@ -165,8 +165,8 @@
       ],
       "exit_code": 0,
       "log": "check-logs/void.log",
-      "started_utc": "2026-10-11T16:42:49Z",
-      "completed_utc": "2026-10-11T16:43:29Z"
+      "started_utc": "2026-10-12T03:17:37Z",
+      "completed_utc": "2026-10-12T03:18:27Z"
     }
   ],
   "physical_qualified": false

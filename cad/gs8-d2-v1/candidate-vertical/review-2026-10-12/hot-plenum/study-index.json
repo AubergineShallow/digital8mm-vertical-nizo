@@ -1,0 +1,24 @@
+{
+  "baseline_commit": "bdfd44fc549bd8ea9ebf9a93ea4262ad5054b13f",
+  "scope": "Isolated exploratory studies and simplified plenum-body validation, not the selected whole-assembly evidence",
+  "baseline_source_sha256": {
+    "plenum_flow.py": "22570c7026d0081c17f26bd0eef27d8f01d577588260331f0ab66af56ff34ab8",
+    "vent_geometry.py": "fcf624d9180df50e094abc607edeecae8f6498ba7ab8693fa9f2672bfafc63e6"
+  },
+  "selected": {
+    "front_z": [
+      5.0,
+      58.0
+    ],
+    "step_z": 49.0,
+    "step_y": -31.5,
+    "mullions_z": [
+      21.0,
+      49.0
+    ],
+    "external_envelope_changed": false,
+    "purchased_parts_changed": false,
+    "wall_ports_mm2": 510.0
+  },
+  "physical_qualified": false
+}

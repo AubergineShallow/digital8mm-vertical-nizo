@@ -219,10 +219,14 @@ def connectors(length, stack_y=22.2, evf_shift_y=11, panel_shift_y=3, hdmi_assem
 
 # FX (verifier D1 minor): the J2 default family (V-28, Molex Micro-Fit 3.0 class, default pending user decision 13) as
 # a class envelope, not a measurement: a 2-circuit mated wire-to-wire housing pair about 6-7.5 x 10-11 x 18-20 mm
-# (class datasheet outline, review FX); G-V-POWER measures the purchased set. The 9ced753 power_stow charged a PicoBlade
+# (legacy estimate, not a verified class upper bound); G-V-POWER measures the purchased set. The 9ced753 power_stow charged a PicoBlade
 # (PH) pair of 576 mm3.
 J2_PAIR_CLASS=dict(dims_mm=((6.0,10.0,18.0),(7.5,11.0,20.0)),volume_mm3=(6.0*10.0*18.0,7.5*11.0*20.0),
-                   src='Molex Micro-Fit 3.0 class 2-circuit mated pair outline, class datasheet range (not measured); G-V-POWER')
+                   core_count=2,core_od_mm=1.6,minimum_half_exposed_wire_mm=231.,
+                   inherited_combined_range_mm=(363.,387.),maximum_combined_wire_mm=None,
+                   stock_src='wiring_data.J2_DEFAULT lead_min_mm=231 per half; exact SKU, maximum length and maximum insulation OD unknown. The inherited 363..387 combined range is a lower-bound comparison, not the selected stock maximum.',
+                   source_conflict='Proposed exact Molex 0430250200/0430200201 pair is 24.77 mm mated; manufacturer recommends 12.7 mm unbiased free wire at each exit before bend/tie/twist. Legacy 18..20 mm proxy is not an upper bound; exact family/cuts/service remain unadopted and unqualified.',
+                   src='Provisional legacy Micro-Fit class estimate, source-conflicted by exact-parts proposal; corrective-2026-10-12/j2-parts-proposal/README.md; G-V-POWER')
 
 
 def source_obstacles(length, stack_y=22.2, evf_shift_y=11, power_button=True, panel_shift_y=3, upper_storage=True):
@@ -916,7 +920,7 @@ def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inne
         dict(id='grip_stow',cables=['pigtail','pack_lead'],box=copy.deepcopy(L.KEEPOUTS['ko_xt30']),fill_max=.20,method='fold above XT30 pair and pack; fuse sleeve remains straight'),
     ]
     reservations.append(dict(id='oled_flex_stow',cables=['oled_flex'],box=B(-147+e,-137+e,evf_shift_y-7.5,evf_shift_y+7.5,94.3,96.5),fill_max=.20,method='single S fold above driver; must verify printed top-rail and roof clearance with full12.4mm ribbon width'))
-    if power_button:reservations.append(dict(id='power_stow',cables=['power_button'],box=B(-28,-16,-20,-8,6,33),fill_max=.20,method='two-wire loop behind switch; charge the removable V-28 keyed pair (default pending user decision 13) separately at the conservative upper end of its class envelope (J2_PAIR_CLASS, class datasheet range, not measured: G-V-POWER; FX-H: was a 576 mm3 PH pair); check against printed panel and terminal guard'))
+    if power_button:reservations.append(dict(id='power_stow',cables=['power_button'],box=B(-28,-16,-20,-8,6,33),fill_max=.20,method='provisional two-wire reserve behind switch; exact cuts/roots/stow unknown; charge both cores and the removable V-28 keyed pair (default pending user decision 13) separately at the larger legacy estimate (J2_PAIR_CLASS, not a verified class upper bound; exact proposed pair is 24.77mm plus recommended 12.7mm free wire each end: G-V-POWER; FX-H: was a 576 mm3 PH pair); check against printed panel and terminal guard'))
     reservations=[q for q in reservations if q['id'] not in ('hdmi_stow','controls_stow','run_stow','grip_stow')]
     # QT/FPS/RUN/power material is explicit in selected modules. A legacy box
     # is not credited as an extra quantity of deployable cable.
@@ -931,6 +935,28 @@ def build(length=158, stack_y=22.2, evf_shift_y=11, right_inner=-25.5, left_inne
         known=[r for r in routes if r['id'] in res['cables'] and r['slack_mm'] is not None]
         res['slack_demand_mm3']=sum(max(0,r['slack_mm'])*(16*.3 if r['id']=='fpc' else 12.4*.2 if r['id']=='oled_flex' else 10*.4 if r['id']=='hdmi' and hdmi_assembly.startswith('adafruit') else math.pi*(r['od_mm']/2)**2) for r in known)
         res['rigid_splice_demand_mm3']=600 if res['id']=='usb_stow' else (576 if res['id']=='controls_stow' else (J2_PAIR_CLASS['volume_mm3'][1] if res['id']=='power_stow' else 0))
+        if res['id']=='power_stow':
+            # Corrective 2026-10-12: both conductors must be charged. The legacy 150 mm figure is an unverified
+            # finished allocation, not the purchased V-28 stock. Until the measured cut is known, show intact
+            # stock cases; selected >=231 mm per half implies >=462 mm along EACH of the two circuits. There is
+            # no finite selected upper bound or maximum insulation OD without an exact SKU. The present route
+            # even credits the entire hypothetical spine as flexible wire, so these are optimistic lower bounds
+            # until the rigid junction and exposed-wire roots are placed; none can establish a stow pass.
+            jroute=next(r for r in routes if r['id']=='power_button')
+            consumed=jroute['curve']['rounded_length_mm']
+            per_mm=J2_PAIR_CLASS['core_count']*math.pi*(J2_PAIR_CLASS['core_od_mm']/2)**2
+            stocks={'legacy_finished_allocation':jroute['length_mm'],
+                    'inherited_lower':J2_PAIR_CLASS['inherited_combined_range_mm'][0],
+                    'inherited_upper':J2_PAIR_CLASS['inherited_combined_range_mm'][1],
+                    'selected_minimum':2*J2_PAIR_CLASS['minimum_half_exposed_wire_mm']}
+            res['wire_stock_cases']={key:dict(wire_length_per_circuit_mm=L,optimistic_flexible_consumed_mm=consumed,
+                spare_per_circuit_mm=max(0,L-consumed),two_core_loop_mm3=max(0,L-consumed)*per_mm)
+                for key,L in stocks.items()}
+            res['wire_core_count']=J2_PAIR_CLASS['core_count'];res['wire_core_od_mm']=J2_PAIR_CLASS['core_od_mm']
+            res['selected_stock_maximum_mm']=J2_PAIR_CLASS['maximum_combined_wire_mm']
+            res['wire_stock_scope']=J2_PAIR_CLASS['stock_src']
+            res['finished_cut_length_mm']=None
+            res['slack_demand_mm3']=res['wire_stock_cases']['selected_minimum']['two_core_loop_mm3']
         res['slack_demand_mm3']+=res['rigid_splice_demand_mm3']
         res['capacity_mm3']=res['volume_mm3']*res['fill_max']
         res['capacity_complete']=len(known)==len(res['cables'])

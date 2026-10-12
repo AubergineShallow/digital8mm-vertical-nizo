@@ -112,6 +112,8 @@ def render_ops(label, steps=None):
                 extra.append('*CAD motion:* `%s`, not swept yet (open).' % m['id'])
         if o['no_motion']:
             extra.append('*No rigid sweep:* %s.' % o['no_motion'].rstrip('.'))
+        if o.get('flex_scope'):
+            extra.append('**Flexible-motion HOLD:** %s' % o['flex_scope'])
         if o['closes']:
             extra.append('*Review:* %s.' % ', '.join(o['closes']))
         if extra:
@@ -165,7 +167,7 @@ def render_service_routes():
                 bits.append('nut off %s (deep socket)' % _ids(o['nuts']))
             if o['disconnects']:
                 bits.append('parts %s' % _ids(o['disconnects']))
-            refit = sorted(set(o['reverse_of']) | {_remate_op(c) for c in o['disconnects']}, key=idx.get)
+            refit = sorted(set(o['reverse_of']) | {o.get('remate_at', {}).get(c, _remate_op(c)) for c in o['disconnects']}, key=idx.get)
             ref = _ids(refit) if refit else ''
             if o['refit']:
                 ref = (ref + '; ' if ref else '') + o['refit']

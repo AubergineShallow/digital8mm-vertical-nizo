@@ -1,0 +1,35 @@
+{
+  "physical_qualified": false,
+  "manifest_sha256": {
+    "compact-kowa_lm6hc": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "compact-fujinon_hf6xa": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+    "original-kowa_lm6hc": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
+  },
+  "checks": [
+    {
+      "check": "plenum",
+      "exit_code": 0,
+      "log": "plenum-validation.log"
+    },
+    {
+      "check": "outlet",
+      "exit_code": 0,
+      "log": "outlet-validation.log"
+    },
+    {
+      "check": "coupons",
+      "exit_code": 0,
+      "log": "coupons-validation.log"
+    },
+    {
+      "check": "structure",
+      "exit_code": 0,
+      "log": "structure-validation.log"
+    },
+    {
+      "check": "structure_check",
+      "exit_code": 0,
+      "log": "structure_check-validation.log"
+    }
+  ]
+}

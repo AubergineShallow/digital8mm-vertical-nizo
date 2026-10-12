@@ -1,0 +1,74 @@
+{
+  "scope": "ARITHMETIC ONLY, NO D2 FIT PASS; no actual mated registration, tolerance, latch, wire sweep or obstacle check",
+  "prior_clear_reserve_mm": [
+    [
+      -33.0,
+      -9.0
+    ],
+    [
+      -24.0,
+      -7.0
+    ],
+    [
+      15.0,
+      39.5
+    ]
+  ],
+  "reserve_size_mm": [
+    24.0,
+    17.0,
+    24.5
+  ],
+  "axis_aligned_nominal_mated_length_fits": false,
+  "nominal_study_box_local_mm": {
+    "width": 5.279999999999999,
+    "cross_height": 13.4,
+    "length": 24.77
+  },
+  "cross_height_basis": "2 x largest absolute vendor Z extent; covers either sign before actual cross-datum registration",
+  "nominal_study_center_mm": [
+    -21.0,
+    -15.5,
+    27.25
+  ],
+  "nominal_study_mating_axis": [
+    0.7071067811865475,
+    0.0,
+    0.7071067811865475
+  ],
+  "rotation_description": "45 degrees in world XZ; local transverse width in XZ, transverse height along Y",
+  "nominal_projected_housing_box_mm": [
+    [
+      -31.624279387327874,
+      -10.375720612672126
+    ],
+    [
+      -22.2,
+      -8.8
+    ],
+    [
+      16.625720612672126,
+      37.874279387327874
+    ]
+  ],
+  "per_side_arithmetic_reserve_margin_mm": [
+    1.3757206126721258,
+    1.8000000000000007,
+    1.6257206126721258
+  ],
+  "free_root_length_each_mm": 12.7,
+  "free_root_centerline_outer_ends_mm": [
+    [
+      -38.73777360606454,
+      -15.5,
+      9.512226393935457
+    ],
+    [
+      -3.2622263939354568,
+      -15.5,
+      44.98777360606454
+    ]
+  ],
+  "root_outer_ends_inside_prior_clear_reserve": false,
+  "root_scope": "Each root represents two separated cores; listed positions are pair-axis stations only. Wire radius and individual 3 mm centerline offsets are not included."
+}

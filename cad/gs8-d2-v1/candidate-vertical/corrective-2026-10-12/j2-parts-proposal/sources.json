@@ -1,0 +1,54 @@
+{
+  "checked_utc_date": "2026-10-12",
+  "redistribution": "Vendor files are ignored local study inputs. URLs and hashes are publishable provenance; no redistribution license inferred.",
+  "sources": [
+    {
+      "local_cache_name": "430200200_sd.pdf",
+      "url": "https://www.molex.com/pdm_docs/sd/430200200_sd.pdf",
+      "sha256": "6b1346a84f864d06b428fda01d10b5b26c79bd94f776f66b5a20b4bc88a17ed8",
+      "bytes": 189439
+    },
+    {
+      "local_cache_name": "430200201_sd.pdf",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/430/43020/430200201_sd.pdf",
+      "sha256": "f2c4c9f21009d7fe8069b8e419c83a352f9e8246ba6f3a35edc40fefb9717649",
+      "bytes": 376731
+    },
+    {
+      "local_cache_name": "430250200_sd.pdf",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/430/43025/430250200_sd.pdf",
+      "sha256": "3fa78847433b382fa07609fb9f44b5e8b017804b9b491250dc493eef9e029e28",
+      "bytes": 201161
+    },
+    {
+      "local_cache_name": "2147611101_sd.pdf",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147612105_sd.pdf",
+      "sha256": "81e72ddb3572cbb79bc37e4458528dde13e96ac60a1c41359ba27bbaf3b48398",
+      "bytes": 134924
+    },
+    {
+      "local_cache_name": "2147631101_sd.pdf",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214763/2147631101_sd.pdf",
+      "sha256": "eed638b7555d141f1aa47671249c43cc20cbd4ea66f7ad12bc0199711f9150b5",
+      "bytes": 135853
+    },
+    {
+      "local_cache_name": "430450001-AS-000.pdf",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/430/43045/430450001-AS-000.pdf",
+      "sha256": "2bbec1673b47a377f4c375360b7f6b521e51d6056ccd5a3912002193e4518033",
+      "bytes": 1044694
+    },
+    {
+      "local_cache_name": "430250200_stp.zip",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/3dcadmodels/430/43025/430250200_stp.zip",
+      "sha256": "f442a7e5346f3a6a2a25b898ce226217f9e5681fd7680b2a57d536c48b079ce1",
+      "bytes": 16181
+    },
+    {
+      "local_cache_name": "430200201_stp.zip",
+      "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/3dcadmodels/430/43020/430200201_stp.zip",
+      "sha256": "b8d65c39896d054de7da39ba04785bf1ff08de84d5f9ef60bdb7aa69c62a32b8",
+      "bytes": 15847
+    }
+  ]
+}

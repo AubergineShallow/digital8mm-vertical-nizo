@@ -38,9 +38,17 @@ through them and lays them along the flow:
   underside zone. The trial2 diagonal, left separator and port-band rows are gone.
   The hot min cut is 444.5 mm2 of 510: the bay with no rib at all reaches only 493.2 mm2 (plenum_flow empty-bay bound),
   so no internal layout can give 510 with these ports and mouths; that needs a port or mouth change (user decision 17).
-- cold bay: the trial2 rows without breaks and without row 18.45, windowed, no pillar in COLD_WINDOW_X (where the rear
-  air turns into the port channels); 0.6 mm cold-mouth lintels (3 layers, 45 deg, with the 1.2 mm land). Cold min cut
+- cold bay: the trial2 rows without breaks and without row 18.45, windowed; rows 43-67 keep COLD_WINDOW_X free of
+  pillars, while rows ending at -64.9 retain regular pillar spacing; 0.6 mm cold-mouth lintels (3 layers, 45 deg, with the 1.2 mm land). Cold min cut
   420 = the wall ports.
+
+Revision trial4 (corrective review 2026-10-12). The original outer envelope, gap, skin, wall ports, CSI sleeve and
+5-layer beams are retained. The front mouth is stepped around the unchanged collar and screw: full 6 mm gap from
+z 5 to 49, then only the outer 2.5 mm (y -34 to -31.5) to z 58. Existing row 49 continues through the front frame as
+its second 1.2 mm mullion, supporting the upper mouth lip; the longest front openings are 26.8 and 8.4 mm. The
+nominal hot path now reaches the unchanged 510 mm2 wall-port requirement. A plain full-gap extension to z 54 was
+rejected for collar/screw obstruction. Mouth metadata includes the inboard rib obstruction rather than assuming
+that the visible mouth is the smallest neck. This does not establish a fan operating point or cooling.
 
 Every number below is nominal CAD geometry. Bridge quality, cleanout, airflow and cooling remain physical gates.
 """
@@ -62,12 +70,16 @@ BREAK_W=3.0                  # trial2 only (kept for the record): row breaks; tr
 COLD_BREAK_W=6.0             # trial2 only
 BED_CHAMFER=0.6              # r7 layout.FDM BED_CHAMFER (45 deg) on the skin's exterior bed edges
 COLD_BREAKS={'even':(),'odd':()}   # trial3: no breaks (the beam windows join the bay's air)
-COLD_WINDOW_X=(-106.0,-92.0)       # trial3: cold rows keep this span free of pillars (one 14 mm window)
+COLD_WINDOW_X=(-106.0,-92.0)       # rows ending left of the CSI block (43-67) keep this 14 mm span free of pillars
 BEAM_Y0=-29.0                # trial3: hanging beam from y -29 to the wall (5 x 0.2 mm layers under the roof)
 PILLAR_L=1.2                 # full-depth pillar length along its rib (r7 MIN_WALL)
 WINDOW_MAX=14.0              # longest beam bridge between two pillars
 HOT_BOTTOM_MULLION_X=-31.0   # off the verifier's mouth ray at x -32; bridges -59..-31.6 and -30.4..-4.6
-HOT_FRONT_MULLION_Z=21.0     # = front-zone row 21; off the verifier's front ray at z 22.5
+HOT_FRONT_MULLION_Z=21.0     # retained alias for the lower mullion / verifier ray at z 22.5
+HOT_FRONT_MULLION_ZS=(21.0,49.0)
+HOT_FRONT_Z=(5.0,58.0)
+HOT_FRONT_STEP_Z=49.0
+HOT_FRONT_STEP_Y=-31.5        # upper opening stays 0.7 mm outside the nominal collar y minimum (-30.8)
 HOT_UZ_X=(-48.0,)            # full-height z-rib of the x-bridged region (pieces between the hot slots)
 HOT_BOUNDARY_X=-31.0         # = HOT_BOTTOM_MULLION_X: the underside-mouth mullion runs up the bay; between the slots
                              # (solid pieces) and above the top slot (windowed) it separates the x-bridged region
@@ -133,12 +145,12 @@ def cold_rows(length):
 
 def hot_rows(length):
     """Hot front-zone rows (z-bridged): [(z_centre, [(x0, x1)])]. Row 21 runs out through the front mouth as its
-    mullion; rows 28/35 lie under the strips between the slots; the band row caps the underside zone under the
+    lower mullion; row 49 is the upper-mouth mullion; rows 28/35 lie under the strips between the slots; the band row caps the underside zone under the
     column right of the slots."""
     a,b=HOT_F_X
     out=[]
     for z in HOT_F_ROWS:
-        end=0. if z==HOT_FRONT_MULLION_Z else (HOT_STRIP_ROW_END if HOT_SLOTS[0][0]<z<HOT_SLOTS[-1][1]+RIB_T else b)
+        end=0. if z in HOT_FRONT_MULLION_ZS else (HOT_STRIP_ROW_END if HOT_SLOTS[0][0]<z<HOT_SLOTS[-1][1]+RIB_T else b)
         out.append((z,[(a,end)]))
     z,x0,x1=HOT_BAND_ROW
     return out+[(z,[(x0,x1)])]
@@ -207,8 +219,8 @@ def rib_boxes(length):
             solid=[]
             if a<=-length:solid.append((a,xf))           # rear-mouth mullion through the frame
             if b>=0.:solid.append((-2.6,b))               # front-mouth mullion through the frame
-            # cold rows: no pillar in front of the port band's left end (COLD_WINDOW_X), where the rear-mouth air turns
-            # into the port channels (the path-aware min cut runs there); the keep-out is one window <= WINDOW_MAX
+            # Only cold rows ending at x <= -65 (rows 43-67) keep COLD_WINDOW_X free of pillars.
+            # The rows ending at -64.9 use their regular pillar spacing; the saved-STEP gate checks both.
             must=[c for c in (COLD_WINDOW_X[0]-PILLAR_L/2,COLD_WINDOW_X[1]+PILLAR_L/2) if a+PILLAR_L<c<b] if b<=-65 else []
             for c,d in _windowed(a,b,must,solid,alt[z]):out.append((c,d,y0,y1,z-h,z+h))
             out.append((a,b,BEAM_Y0,y1,z-h,z+h))
@@ -271,8 +283,8 @@ def mouth_cuts(length):
         cuts.extend(c.Solids())
     for x0,x1 in _openings(-59.,-5.,[HOT_BOTTOM_MULLION_X]):
         cuts.append(box(x0,x1,SKIN_INNER,WALL_OUTER,-.1,2.6))
-    for z0,z1 in _openings(5.,40.,[HOT_FRONT_MULLION_Z]):
-        cuts.append(box(-2.6,.1,SKIN_INNER,WALL_OUTER,z0,z1))
+    for y0,y1,z0,z1 in hot_front_apertures():
+        cuts.append(box(-2.6,.1,y0,y1,z0,z1))
     return cuts
 
 
@@ -310,32 +322,81 @@ def additions(length):
  return a+ribs(length)
 
 
+def hot_front_apertures():
+    """Actual front-mouth rectangles (y0, y1, z0, z1), excluding the two structural-width bridge mullions.
+
+    The upper aperture is limited to the outer 2.5 mm of the existing gap so its finite outward continuation clears
+    the unchanged collar and screw. Rectangles describe geometry; saved-STEP checks still measure the free areas.
+    """
+    out=[]
+    for a,b in _openings(*HOT_FRONT_Z,HOT_FRONT_MULLION_ZS):
+        if a<HOT_FRONT_STEP_Z:out.append((SKIN_INNER,WALL_OUTER,a,min(b,HOT_FRONT_STEP_Z)))
+        if b>HOT_FRONT_STEP_Z:out.append((SKIN_INNER,HOT_FRONT_STEP_Y,max(a,HOT_FRONT_STEP_Z),b))
+    return out
+
+
+def _rect_union_area(rects):
+    """Exact area of axis-aligned (u0,u1,v0,v1) rectangles, including overlapping beam/pillar material once."""
+    edges=sorted({u for r in rects for u in r[:2]})
+    area=0.
+    for a,b in zip(edges,edges[1:]):
+        mid=(a+b)/2
+        spans=sorted((r[2],r[3]) for r in rects if r[0]<mid<r[1])
+        end=None
+        for lo,hi in spans:
+            area+=(b-a)*max(0.,hi-max(lo,end if end is not None else lo))
+            end=max(hi,end if end is not None else hi)
+    return area
+
+
+def hot_front_neck_nominal(length):
+    """Both potential necks: the visible stepped aperture and the rib-occupied plane just beyond its cutter.
+
+    The historical z5..40 / one-mullion geometry gives mouth 202.8 but inboard 197.2 mm2. Keeping the latter prevents
+    the former metadata error from returning if another outlet or rib revision makes the inboard plane decisive.
+    """
+    z0,z1=HOT_FRONT_Z
+    at=-2.62
+    material=[]
+    for xa,xb,ya,yb,za,zb in rib_boxes(length):
+        if xa<at<xb:
+            r=(max(ya,SKIN_INNER),min(yb,WALL_OUTER),max(za,z0),min(zb,z1))
+            if r[1]>r[0] and r[3]>r[2]:material.append(r)
+    obstruction=_rect_union_area(material)
+    face=sum((b-a)*(d-c) for a,b,c,d in hot_front_apertures())
+    inboard=(z1-z0)*GAP-obstruction
+    gross=(min(z1,HOT_FRONT_STEP_Z)-z0)*GAP+max(0.,z1-HOT_FRONT_STEP_Z)*(HOT_FRONT_STEP_Y-SKIN_INNER)
+    return dict(gross=gross,net=min(face,inboard),mouth_face_mm2=face,inboard_neck_mm2=inboard,
+                inboard_rib_obstruction_mm2=obstruction,inboard_plane_x_mm=at,
+                mullions=len(HOT_FRONT_MULLION_ZS),lintel_mm=0.)
+
+
 def mouth_nominal(length):
-    """Nominal mouth areas (mm2) in the verifiers' rectangles: gross, minus mullions, minus the lintel at the outer
-    neck plane (0.05 mm in, inside the lintel land), as the verifiers sample it."""
+    """Minimum nominal mouth neck areas; cold lintel lands and all front inboard rib material are counted."""
     g=GAP;s=LINTEL
     rear=[z for z,segs in cold_rows(length) if 5<z<75 and segs[0][0]<=-length]
     nb=len(cold_bottom_mullions(length))
     return dict(cold_rear=dict(gross=70*g,net=70*(g-s)-len(rear)*RIB_T*(g-s),mullions=len(rear),lintel_mm=LINTEL),
                 cold_bottom=dict(gross=(length-87)*g,net=(length-87)*(g-s)-nb*RIB_T*(g-s),mullions=nb,lintel_mm=LINTEL),
                 hot_bottom=dict(gross=54*g,net=54*g-RIB_T*g,mullions=1,lintel_mm=0.),
-                hot_front=dict(gross=35*g,net=35*g-RIB_T*g,mullions=1,lintel_mm=0.))
+                hot_front=hot_front_neck_nominal(length))
 
 
 def support_summary(length):
     """Plain-data description of the roof support for reports and docs."""
-    return dict(revision='trial3 windowed ribs (hanging beams on pillars) + lintels',rib_thickness_mm=RIB_T,rib_y_mm=list(RIB_Y),
+    return dict(revision='trial4 windowed ribs + lintels + supported stepped front mouth',rib_thickness_mm=RIB_T,rib_y_mm=list(RIB_Y),
                 beam_y_mm=[BEAM_Y0,RIB_Y[1]],pillar_length_mm=PILLAR_L,window_max_mm=WINDOW_MAX,hot_boundary_x=HOT_BOUNDARY_X,hot_band_row=HOT_BAND_ROW,hot_column_x=HOT_COLUMN_X,hot_lip_x=HOT_LIP_X,
                 cold_rows=[(z,segs) for z,segs in cold_rows(length)],hot_rows=[(z,segs) for z,segs in hot_rows(length)],
                 hot_z_ribs=hot_zribs(),hot_diagonal=HOT_DIAGONAL,hot_left_separator=HOT_LEFT_SEPARATOR,
                 cold_bottom_mullions_x=cold_bottom_mullions(length),hot_bottom_mullion_x=HOT_BOTTOM_MULLION_X,
-                hot_front_mullion_z=HOT_FRONT_MULLION_Z,lintel_mm=LINTEL,lintel_land_mm=LINTEL_LAND,lintel_mouths=['cold_rear','cold_bottom'],
+                hot_front_mullion_z=HOT_FRONT_MULLION_Z,hot_front_mullions_z=list(HOT_FRONT_MULLION_ZS),
+                hot_front_extent_z=list(HOT_FRONT_Z),hot_front_apertures_yz=hot_front_apertures(),lintel_mm=LINTEL,lintel_land_mm=LINTEL_LAND,lintel_mouths=['cold_rear','cold_bottom'],
                 skin_bed_chamfer_mm=BED_CHAMFER,mouths=mouth_nominal(length))
 
 
 def metadata(length=158):
  mn=mouth_nominal(length)
- return dict(revision='shadow-gap plenum trial3 (windowed flow ribs, 45 deg cold-mouth lintels, mullions, skin bed chamfer)',outer_side_y_mm=OUTER_Y,inner_side_y_mm=INNER_Y,
+ return dict(revision='shadow-gap plenum trial4 (windowed flow ribs, supported stepped front mouth, cold-mouth lintels, skin bed chamfer)',outer_side_y_mm=OUTER_Y,inner_side_y_mm=INNER_Y,
   outer_skin_mm=1.6,plenum_gap_mm=GAP,original_side_wall_mm=2.5,
   intake_wall_throat_mm2=420.,exhaust_wall_throat_mm2=510.,
   cold_rear_mouth_mm2=mn['cold_rear']['net'],cold_bottom_mouth_mm2=mn['cold_bottom']['net'],hot_bottom_mouth_mm2=mn['hot_bottom']['net'],hot_front_mouth_mm2=mn['hot_front']['net'],
@@ -343,6 +404,6 @@ def metadata(length=158):
   csi_access_open_area_mm2=12*27-(4-math.pi),csi_unchanged_straight_access=True,
   panel_previous_relief='Four blind grooves with0.2mm retained floors, not through-vents; removed for plain2.8mm panel',
   airflow='Separate integral cold/hot outer bays; rear/underside intake and front/underside exhaust. 1.2 mm ribs built as hanging beams on full-depth pillars (5 mm flow windows under each beam, no rib in front of a port; path-aware min cut in check_scope); internal baffle and CSI bypass remain unsealed. Area is not flow or cooling.',
-  print='Outer face on bed with 0.6 mm bed chamfer. Roof bridges run between continuous 1.2 mm beam lines (one slicer direction per roof region; each beam is a straight bridge of at most 10 mm between pillars; spans computed by verify_print_checks print_bridge_direction); cold mouths have 45 deg lintels, every mouth has mullions. Slicer inspection and the all-four-mouth plenum coupon remain gates. No automatic trapped supports.',
+  print='Outer face on bed with 0.6 mm bed chamfer. Roof bridges run between continuous 1.2 mm beam lines (one slicer direction per roof region; each beam is a straight bridge of at most 14 mm between pillars; spans computed by verify_print_checks print_bridge_direction); cold mouths have 45 deg lintels, every mouth has mullions. Slicer inspection and the all-four-mouth plenum coupon remain gates. No automatic trapped supports.',
   support=support_summary(length),
   physical_qualified=False,remaining=['Actual cooler profile/registration','Fan operating point and plenum pressure loss','Hand and strap occlusion','Plenum bridge/cleanout coupon (all four mouths)','Real CSI latch/jaw access','All56 inherited gates andM1'])

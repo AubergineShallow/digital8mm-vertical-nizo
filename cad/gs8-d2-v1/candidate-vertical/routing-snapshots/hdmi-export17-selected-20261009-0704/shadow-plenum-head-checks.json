@@ -44,7 +44,7 @@
       "object_bbox_mm": [
         -134.80000009999995,
         -81.6099999,
-        -24.7000001,
+        -24.700000100000008,
         25.00000010000001,
         25.0,
         84.3572923407434
@@ -60,7 +60,7 @@
       "object_bbox_mm": [
         -134.8000001,
         -96.09859001258143,
-        -20.3000001,
+        -20.300000100000005,
         6.1,
         78.3999999,
         86.80000010000003
@@ -204,9 +204,9 @@
   ],
   "mechanical": {
     "manifest_path": "out/compact-kowa_lm6hc/manifest.json",
-    "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+    "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
     "all_step_sha256": {
-      "pi5": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
+      "pi5": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
       "cooler": "5f8ee240d0ea5a80c4dbcdcc7667794fe895e4593590813256929b9374531390",
       "x1203": "caf0b8a0387ffb3f68cc76a471abe8596f36c0952d26ad3c56587aa81f29c974",
       "x1203_kit": "45aa6cd394bca6c741e8621c9cf7b20d56e4ca6391fe6a46f9d27a5fa78aefe5",
@@ -221,8 +221,8 @@
       "switch_1824": "475a60a054f23de460ccd0138fd3442424deed0fbdcd46474094224b9756208d",
       "run_button": "9db1754266c6d3eb5cbdcb021127dee9f257872674c58263b87f78b048a45d64",
       "pack": "5207632700551058b8b28530ca4f46ce69fcbbee51b904dabfb58a45bcd4f8e8",
-      "xt30_pair": "1d85645b9befd431a5472a2744731aea561e0c1b9bddbcf24d9d0c08e3390a22",
-      "tripod_nut": "be267d3a92d9acdc86cbf079902c7703dd673c389d571e1f27c2abc15e22ea90",
+      "xt30_pair": "f3de469f3b0491f40cbc1e69e7072ad723c6dbedae7b489428761804d75a3895",
+      "tripod_nut": "0c2884c70fc43aa46be80cb126daf87e298be185276927586df0b945ab2010b7",
       "strap": "e976c8dc1ed068663a18610ed64d75e86286aac224fc2750bf6517f19c621d54",
       "microsd": "8b5999c867b89d4651974eadf70b14f4586dd05457cc851387fadce37aa1793b",
       "foam_pad": "956939f238b24ad7c8fd08a8ec3dda65808a6905e5e409a3c84bf3ffb3cb1f2b",
@@ -233,15 +233,15 @@
       "s_c2": "d5f3c5244e87ad63124d23d1ac2d56ce5755bac45ebcbbafb037da3fc5658af0",
       "s_c3": "47425b926e2c0fd79a59e3cf311b75cf57792b5cb95758add5709c0eac8d67ad",
       "s_c4": "550c7e67f0fff85236ee826d2d59dc6006dce0f1e05de266c7368418b9567d03",
-      "base_grip": "79d0dd29cf2b2caef650b1432a6e0c1677f5f075d35b910981c283b3b95de958",
+      "base_grip": "abed4da8834f21f0b921e31e739a5a5f8f630ae7fe83f47a0991b5dceb3241eb",
       "cap": "a0b6555b7b63548432697cbb2812ce11247dab464ea709da96c9eb081d022669",
       "eyecup": "f09779b5709c3053749ee1e62ca6c6d0546b2400300898f237560579931d29bc",
-      "knob_exp": "7fb685ef289315f3bd36bfb4a867d22089336e4fc5535fdcb8ab8ec0b80a668b",
-      "knob_fps": "d68930df84f3eb3a0e535304784b43e2146d7a60187ece2323cd2fdf0f48e62e",
-      "carrier": "005e6946119a8d8341db8bd3bd4d40ab02fb5a44fce909d90af5c35c70600524",
-      "tub": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+      "knob_exp": "28d672851b29b8add239c6ef2bd278414a83ef47f558eef210373fcbd60d3dd4",
+      "knob_fps": "5b004799fa7f8abf0ce84caf4bda91d61975a8addb5ae1d39b6c4ff32883f71a",
+      "carrier": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
+      "tub": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
       "panel": "db84317a69b3eda3e76edf512ae252a5fe5a1b947d8984903ced065aa34d1eec",
-      "lens_collar": "7527c068afdcdbedfb960458cdd335615a2e78f91bc8ca72372fac6625702216",
+      "lens_collar": "6ad36bd056aec8b204f06fa181dd7e71a5c299e927f29c461dd5feefe858b04f",
       "power_button": "36d0a1bd86582b725903227d4123ba72e0dd220cdfe94ed3298c7063ce1c00db",
       "power_nut_reserve": "2dccef188b1b2babe3eeecc3059c0740914be0a9b19078598be598fc10b0d718",
       "p_panel1": "14ed6430fed0ada5ab34dd50d8bd11075687dc4621508d2bce25bfc0d55cd559",
@@ -256,7 +256,7 @@
       {
         "object": "pi5",
         "status": "pass",
-        "step_sha256": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193"
+        "step_sha256": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be"
       },
       {
         "object": "cooler",
@@ -336,7 +336,7 @@
         "bbox_mm": [
           -178.3128321671329,
           -153.48986011943177,
-          -8.263461532823337,
+          -8.263461532823335,
           30.263461532823335,
           58.736538467176665,
           97.26346153282334
@@ -433,8 +433,8 @@
           -75.67708616620165,
           -37.74628167268213,
           -17.257372663904125,
-          5.7391025642340985,
-          -29.455129955222077,
+          5.7391025642341,
+          -29.45512995522208,
           9.931435342751417
         ]
       },
@@ -446,8 +446,8 @@
           -100.59141191199515,
           -5.550000100000014,
           5.550000100000014,
-          -5.701818267550177,
-          -0.09818173244982668
+          -5.701818267550176,
+          -0.0981817324498258
         ]
       },
       {
@@ -576,10 +576,10 @@
         "bbox_mm": [
           -117.00000010000001,
           -0.499999899999985,
-          -26.92453251653964,
+          -26.924532516539887,
           25.200000100000125,
           -110.02251171014285,
-          0.012692370455841775
+          0.012692370455839961
         ]
       },
       {
@@ -645,7 +645,7 @@
       {
         "object": "tub",
         "status": "pass",
-        "step_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4"
+        "step_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335"
       },
       {
         "object": "panel",
@@ -782,8 +782,8 @@
     ]
   },
   "source_files": {
-    "mechanical/pi5": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
-    "mechanical/tub": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4"
+    "mechanical/pi5": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
+    "mechanical/tub": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335"
   },
   "verification_source_sha256": "34e29a267cc0ea072cb156b83fa51be7313dc2f03e94d274ab9c0c85494a8f47",
   "motion_scope": "Static hard-head reservation and full carried FPS group. Co-translation preserves mutual geometry; XZ-disjoint entries stay separated for any relativeYtranslation. No USB removal/carry trajectory is selected while its complete installed lead and exit remain unknown.",

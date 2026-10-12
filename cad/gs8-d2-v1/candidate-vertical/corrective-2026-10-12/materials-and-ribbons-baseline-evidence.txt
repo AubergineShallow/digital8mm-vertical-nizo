@@ -1,0 +1,148 @@
+D2 materials and ribbon evidence
+
+Research stopgap for printed parts, bonded catch and cable routing | 12 October 2026
+
+The available evidence can guide coupons and routing changes. It does not establish safe catch strength, long-term loaded temperatures or bend limits for this camera. All physical qualification gates remain open. This report concerns baseline bdfd44fc; later geometry changes require a fresh applicability check. [S19]
+
+Products and process covered
+
+The BOM identifies Polymaker ASA class rather than an exact grade and batch, generic TPU95A, and generic structural two-part epoxy. Cables are Adafruit 3557 + 3556 + intact 3562 ribbon; official Raspberry Pi Standard-Mini 200 mm camera cable; and native Hicenda HMX039 kit flex. The OLED flex construction is unknown. No material substitutions are assumed.
+
+Printed ASA evidence
+
+Current Polymaker data give XY/Z tensile strength 43.8 ± 0.8 / 32 ± 1.8 MPa and elongation 6.7 / 1.65%. Specimens use 260°C nozzle, 90°C bed, 90°C environment, 100% infill and no cooling. HDT is 100°C at 1.8 MPa and 103°C at 0.45 MPa. These are reference values, explicitly unsuitable as design specifications. D2’s 0.4 mm nozzle, 0.2 mm layers and shell/infill assumptions do not reproduce that process. Confidence in published values: high; direct D2 applicability: low. [S1]
+
+Older Polymaker V5.3 instead reports XY/Z strength 38.6/30 MPa, with 260°C nozzle, 80°C bed and 70°C environment. Do not blend revisions into a strength range. [S2]
+
+Prusament reports 11 ± 1 MPa interlayer adhesion separately from 42-45 MPa tensile yield on other specimen orientations. Its specimens used 0.2 mm layers, two perimeters and solid rectilinear infill. This is evidence that material brand, process and test mode matter, not a substitute for Polymaker data. [S3]
+
+Mass sensitivity: Polymaker reports density 1.13 g/cm³; D2 inherits 1.07. The ASA material contribution could therefore be about 5.6% greater at equal volume. This is not a 5.6% increase in assembled mass. Weigh prints and harness before final centre-of-mass and handling qualification. [S1, S19]
+
+Layer height heat and bonded retention
+
+Experiments and service limits
+
+El Magri et al. found layer thickness was the strongest investigated influence on ASA Z tensile behaviour; their experimental optimum was 270°C, 60 mm/s and 0.155 mm layers. This supports a controlled coupon comparison, not running another filament outside its maker’s range. [S4]
+
+HDT and Tg do not establish a continuous loaded-service limit. A 2024 FDM study identifies creep as an important property missing from typical filament datasheets. No D2-compatible creep allowable was verified. Retain hot-dwell tests for fastener seats, collar position and catch alignment. [S5]
+
+TPU95A alone does not specify compression set or retention. PolyFlex TPU95 reference data give 95A hardness, XY modulus 33.6 ± 0.9 MPa and 551.2 ± 23.5% elongation on solid specimens. D2’s generic TPU cannot inherit those properties, and they do not qualify eyecup grip or skin contact. [S6]
+
+Catch geometry and analytical limits
+
+Baseline tenon is approximately 3.1 × 1.6 mm with 3.5 mm engagement. Pocket clearance is 0.1 mm in X/Z and 0.2 mm in Y; the -Y face is the datum. Tub prints -Y-down and stub upright, -Z-down. Existing design torque is 0.5 N·m; the tine screen uses 10 MPa stress, 0.1 mm deflection and E = 2000 MPa. These are screening assumptions, not qualified adhesive or printed-part allowables. [S19 and inspected baseline CAD]
+
+The split adds an adhesive interface, prying and possible interlayer failure. Preserve the 0.1 mm datum-tilt case after any face recession. A passing beam estimate alone cannot validate the new connection.
+
+Adhesive evidence and specificity
+
+3M recommends joint geometry that spreads load through shear/tension and avoids concentrated peel/cleavage. A positive locating/bearing geometry helps; generic epoxy lap-shear strength cannot prove this catch. [S7]
+
+Henkel’s ASA guide reports inconsistent benefit from roughening, warns that uncured cyanoacrylates can stress-crack ASA, and notes attack by uncured acrylic activators. Its tested molded grades are not printed Polymaker. Avoid automatic sanding or superglue substitutions. [S8]
+
+Bond evidence and ribbon constraints
+
+Printed ASA adhesive experiment
+
+Yap et al. compared Loctite E-20HP with Slo-Zap on Fortus 450mc ASA: 0.1778 mm layers, ±45° raster, IPA cleaning, 0.06 mm controlled bondline, 24-hour room-temperature cure, and 80°C/24-hour post-cure for some specimens. Cyanoacrylate outperformed that epoxy in those tests. D2 has a different print process, geometry and 0.1-0.2 mm pocket clearance. Indexed abstract load units are questionable, so failure-load numbers are excluded. Confidence in the conditional experiment: moderate; direct D2 allowable: none. [S9, S10]
+
+Raspberry Pi camera cable
+
+The official manual requires straight seating, correct contact orientation and careful latch operation, and warns against sharp-angle bending. It recommends mating the cable before installing the Pi 5 Active Cooler. No numeric bend-radius or flex-cycle limit was found there. [S11]
+
+Adafruit HDMI cable
+
+Adafruit 3562 is 300 × 10 mm. Adafruit reports a Raspberry Pi 1080p test and warns that the DIY kits are less durable and less shielded than ready-made cables. No thickness, conductor stack, bend radius or cycle limit is published on that product page. The test does not qualify the D2 route or EVF combination. Confidence in dimensions and warning: high; route reliability: unqualified. [S12]
+
+Hicenda OLED flex
+
+The HMX039-V1 public page lists -10°C to 70°C operation and directs readers to request the full datasheet. No flex-radius or cycle rating was found. Confirm the actual kit revision before applying the operating range. No manufacturer contact was made. [S13]
+
+Why no generic bend radius is assigned
+
+Molex SlimStack jumpers specify 2.0 mm for a one-time bend and 2.5 mm for 20 cycles. A different, purpose-built 15036 series specifies at least 700,000 cycles at 5 mm or five million at 10 mm. Neither product is D2’s cable. These examples demonstrate construction dependence; they are not substitute limits. Connector mating durability is separate from cable flex life. [S14, S15]
+
+All three D2 cable minimum radii and cycle limits remain UNKNOWN. A better thin-ribbon geometric model may resolve a false round-envelope collision; it cannot certify electrical continuity, fatigue or signal integrity.
+
+Proposed bounds and physical checks
+
+The following is a proposed engineering screening plan. Sample counts, margins and service-cycle targets are protocol choices, not manufacturer ratings or a certification standard.
+
+Printed and bonded coupons
+
+1. Freeze exact filament grade, colour, lot, drying, printer, nozzle, layer height, walls, infill, speed, fan and chamber history. Keep production orientations. Compare the baseline 0.20 mm layer with a 0.15 mm coupon only within approved filament/printer settings; do not infer that thinner is universally stronger.
+
+2. Freeze epoxy SKU, batch, mix ratio, shelf life, permitted cleaner/preparation, bondline and full cure schedule. Print complete stub-and-pocket coupons in both actual poses. Include nominal and measured worst gaps, tilt and any proposed catch recession.
+
+3. Use at least three specimens per initial screening condition. Apply 0.5 N·m equivalent through a surrogate tab at the real lever arm, never through the camera. Measure loaded deflection and permanent shift. Repeat after hot dwell at measured interface temperature plus an explicitly chosen margin within all material limits. Longer creep testing must follow the intended service life; a short dwell does not establish it.
+
+4. Photograph interface separation, adhesive cohesion, tenon fracture, layer splitting or pocket-wall failure. Require no crack, loss of function or tolerance violation; retain existing geometric limits. Do not convert lap-shear MPa directly to catch torque.
+
+Routing and electrical checks
+
+5. Record actual width, thickness, stiffeners, contact side, connector exit and latch access. Model installed lay plus assembly and service swept surfaces. Store excess length without creases, edgewise bending, tight twist or sharp-edge contact. Provide strain relief without crushing the flex or loading the latch.
+
+6. Use exact supplier bend guidance where obtainable. Otherwise retain the unknown rating and test the actual proposed geometry. Check continuity and full-mode camera/HDMI operation before and after the intended assembly/service cycle count, with powered tests only after safe assembly. Define cycle count from intended usage.
+
+Firsthand reports with limited weight
+
+Prusa users describe layer-parallel ASA failures and sensitivity to colour, cooling, enclosure and batch size. A related Adafruit 3558 user reported failure after months; the cause and failure rate are unknown. Adafruit support says it lacks design documents for related DIY HDMI parts. These anecdotes motivate checks, not allowable loads or rejection of an entire product family. [S16-S18]
+
+SOURCES
+
+S1  Polymaker ASA current technical data
+https://wiki.polymaker.com/polymaker-products/more-about-our-products/documents/technical-data-sheets/abs-asa/polymaker-tm-asa
+
+S2  Polymaker ASA technical data V5.3
+https://polymaker.com.cn/wp-content/uploads/lana-downloads/PolyLite_ASA_TDS_V5.3.pdf
+
+S3  Prusament ASA technical data V1.1 dated 16 February 2022
+https://prusament.com/wp-content/uploads/2022/10/ASA_Prusament_TDS_2022_16_EN.pdf
+
+S4  El Magri et al. ASA printing parameters and Z tensile behaviour 2022
+https://4spepublications.onlinelibrary.wiley.com/doi/10.1002/pen.25891
+
+S5  Hausler et al. Evaluation of creep strength of FDM samples 2024
+https://www.degruyterbrill.com/document/doi/10.1515/eng-2024-0084/html
+
+S6  PolyFlex TPU95 manufacturer technical data
+https://wiki.polymaker.com/polymaker-products/more-about-our-products/documents/technical-data-sheets/tpu/polyflex-tm-tpu95
+
+S7  3M Designing for adhesively bonded joints
+https://multimedia.3m.com/mws/media/1965232O/3ms-structural-two-part-epoxy-adhesive-whitepaper.pdf
+
+S8  Henkel Loctite Design Guide for Bonding Plastics volume 6 pages 18 to 19
+https://www.ellsworth.com/globalassets/literature-library/manufacturer/henkel-loctite/henkel-loctite-design-guide-plastic-bonding.pdf
+
+S9  Yap et al. Printed ASA epoxy and cyanoacrylate joints 2020 DOI 10.1016/j.ijadhadh.2020.102602
+https://doi.org/10.1016/j.ijadhadh.2020.102602
+
+S10  Yap et al. paper indexed full text research copy
+https://dataset-dl.liris.cnrs.fr/db_amethyst/PDFs/10.1016/j.ijadhadh.2020.102602.pdf
+
+S11  Raspberry Pi official camera connection instructions
+https://www.raspberrypi.com/documentation/accessories/camera.html
+
+S12  Adafruit 3562 300 mm DIY HDMI ribbon product documentation
+https://www.adafruit.com/product/3562
+
+S13  Hicenda HMX039-V1 manufacturer product information
+https://www.hicenda.com/product/Microoled-display-1024x768-high-resolution-microdisplay.html
+
+S14  Molex Premo-Flex SlimStack jumper specifications
+https://www.content.molex.com/dxresources/276f/276fff8e-69dd-4f1d-9708-27ac21cc77c9.pdf
+
+S15  Molex Premo-Flex 15036 ultra-flexible jumper specifications
+https://www.content.molex.com/dxresources/27c8/27c8a514-327e-46ab-ad1f-f005c3c95c8e.pdf
+
+S16  Prusa forum firsthand ASA layer-adhesion reports 2019 to 2020
+https://forum.prusa3d.com/forum/original-prusa-i3-mk3s-mk3-general-discussion-announcements-and-releases/bad-layer-adhesion-low-z-axis-strength-in-prusament-asa/
+
+S17  Adafruit forum related 3558 adapter failure report 2022
+https://forums.adafruit.com/viewtopic.php?t=191116
+
+S18  Adafruit support related DIY HDMI design-document availability 2025
+https://forums.adafruit.com/viewtopic.php?t=221666
+
+S19  D2 baseline final status and open physical gates at bdfd44fc
+https://github.com/AubergineShallow/digital8mm-vertical-nizo/blob/bdfd44fc549bd8ea9ebf9a93ea4262ad5054b13f/cad/gs8-d2-v1/candidate-vertical/review-2026-10-10/FINAL-STATUS.md

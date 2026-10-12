@@ -193,7 +193,7 @@ _gates=EVR.inherited_gates(ROOT)  # FP-04 (VN-08): counted from the r7 build rec
 add('physical','qualification',None,open_inherited_gates=_gates['open'],inherited_gate_source=_gates,M1='open',candidate_gates='unrun',fabrication_release=False)
 summary={k:sum(r['status']==k for r in checks) for k in ('pass','fail','info')}
 if hashlib.sha256((out/'manifest.json').read_bytes()).hexdigest()!=manifest_start:raise ValueError('Manifest changed during verification')
-result=dict(manifest_sha256=manifest_start,verification_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),state_model_sha256=hashlib.sha256((ROOT/'steps.py').read_bytes()).hexdigest(),scope=a.only or 'full',variant=a.variant,summary=summary,checks=checks,geometry_computed_pass=summary['fail']==0,physical_qualified=False,generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()))
+result=dict(manifest_sha256=manifest_start,verification_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),state_model_sha256=hashlib.sha256((ROOT/'steps.py').read_bytes()).hexdigest(),scope=a.only or 'full',flex_scope=ST.flexible_scope(),variant=a.variant,summary=summary,checks=checks,geometry_computed_pass=summary['fail']==0,physical_qualified=False,generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()))
 write_text(Path(a.out) if a.out else out/'verification.json',json.dumps(result,indent=2));print(json.dumps(summary),flush=True)
 sys_exit=summary['fail']>0
 raise SystemExit(1 if sys_exit else 0)

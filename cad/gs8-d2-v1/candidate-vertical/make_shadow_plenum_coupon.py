@@ -1,7 +1,7 @@
 """Crop an open-edge bridge-inspection coupon from the checked saved tub.
 
 Run through run_locked.py after verify_shadow_plenum.py. This is a separate test
-artifact, not a tenth production print or a replacement for the older coupons.
+artifact, not a production print or a replacement for the older coupons.
 Review 2026-10-10 FP-11a (VN-52): a third crop covers the whole plenum with all
 four edge mouths (cold rear, cold underside, hot underside, hot front). --export
 and --dest exist for scratch re-exports; the defaults are the selected folders.
@@ -91,12 +91,12 @@ receipts = []
 receipts.append(make_coupon(
     'preliminary_regular_grid', [-152., -104., -35.6, -25.5, 8., 40.],
     'plenum-bridge-open-edge-coupon', 'receipt.json',
-    'Open-edge regular-grid post-supported roof-bridge inspection crop from the exact selected tub',
-    'Does not reproduce the ports, CSI sleeve, post exclusions or front/top enclosure edge spans.'))
+    'Small open-edge roof/beam/pillar inspection crop from the exact selected tub (legacy regular-grid file name)',
+    'Does not reproduce the ports, CSI sleeve, support interruptions or front/top enclosure edge spans.'))
 receipts.append(make_coupon(
     'port_service_and_edge_regions', [-110., 0., -35.6, -25.5, 0., 100.],
     'plenum-port-service-open-edge-coupon', 'port-service-receipt.json',
-    'Open-edge crop retaining inlet/hot ports, CSI sleeve, post exclusions, front mouth, bottom support row and top/front frame spans',
+    'Open-edge crop retaining inlet/hot ports, CSI sleeve, support interruptions, front mouth, bottom support row and top/front frame spans',
     'The rear section and complete cold-rear mouth are absent; retained edge spans are not a global maximum-span proof.'))
 length = m['core_dimensions_mm'][0]
 receipts.append(make_coupon(

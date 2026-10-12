@@ -1,0 +1,190 @@
+{
+  "scope": "Scoped QT panel-prop static exact sweep on bound baseline STEP inputs. No continuous deformation, physical material, QT splice/core packing or actual CSI access qualification.",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "source_sha256": {
+    "signal_routes.py": "6f6fc20f737d18ced85ddc2fcb36ce8b95630ecac769908f53d8b2022c689510",
+    "harness_rules.py": "0c4080c638810733fff5a4ef729f5cd5e8a85a8acbe3205683d353e5eb0fd368",
+    "verify_harness_checks.py": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
+    "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b"
+  },
+  "current": {
+    "source": "signal_routes.py free_leads (H2): QT main free from the modeled fan-in point to the propped encoder plug",
+    "op": "panel_prop",
+    "pose": [
+      0.0,
+      60.0,
+      0.0
+    ],
+    "knots": [
+      [
+        -45.445,
+        -23.4,
+        37.0
+      ],
+      [
+        -45.445,
+        -23.4,
+        69.0
+      ],
+      [
+        -45.5,
+        8.0,
+        69.0
+      ],
+      [
+        -88.7,
+        74.8,
+        77.0
+      ],
+      [
+        -72.0,
+        74.8,
+        77.0
+      ]
+    ],
+    "radius_mm": 6.4,
+    "od_mm": 3.2,
+    "route_mm": 147.47,
+    "fixed_mm": 43.07,
+    "start_gap_mm": 0.0,
+    "end_gap_mm": 0.0,
+    "start_angle_deg": 0.0,
+    "end_angle_deg": 0.0,
+    "length_min": 240.0,
+    "margin": 24.0,
+    "need_mm": 214.55,
+    "slack_mm": 25.45,
+    "capsule_d_mm": 3.4,
+    "pieces": 40,
+    "targets": 2323,
+    "exempt": [
+      "encoder",
+      "pi5"
+    ],
+    "exempt_rule": "own end parts only within 10 mm of route length from a terminal (none at a start after the branches)",
+    "hits": {},
+    "hdmi_state": "installed",
+    "tightest_separation": {
+      "pigtail_negative": {
+        "min_centreline_mm": 3.68,
+        "need_mm": 3.2
+      },
+      "fpc": {
+        "min_centreline_mm": 11.97,
+        "need_mm": 9.6
+      },
+      "run_pin39": {
+        "min_centreline_mm": 5.99,
+        "need_mm": 2.4
+      },
+      "pigtail_positive": {
+        "min_centreline_mm": 9.87,
+        "need_mm": 3.2
+      },
+      "run_pin37": {
+        "min_centreline_mm": 11.48,
+        "need_mm": 2.4
+      }
+    },
+    "cable_overlaps": [],
+    "problems": []
+  },
+  "negative_control_previous_route": {
+    "source": "signal_routes.py free_leads (H2): QT main free from the modeled fan-in point to the propped encoder plug",
+    "op": "panel_prop",
+    "pose": [
+      0.0,
+      60.0,
+      0.0
+    ],
+    "knots": [
+      [
+        -45.445,
+        -23.4,
+        37.0
+      ],
+      [
+        -45.445,
+        -23.4,
+        43.1
+      ],
+      [
+        -59.7,
+        -18.9,
+        55.2
+      ],
+      [
+        -45.5,
+        -6.3,
+        58.0
+      ],
+      [
+        -46.0,
+        8.0,
+        68.8
+      ],
+      [
+        -88.7,
+        74.8,
+        77.0
+      ],
+      [
+        -72.0,
+        74.8,
+        77.0
+      ]
+    ],
+    "radius_mm": 6.4,
+    "od_mm": 3.2,
+    "route_mm": 142.65,
+    "fixed_mm": 43.07,
+    "start_gap_mm": 0.0,
+    "end_gap_mm": 0.0,
+    "start_angle_deg": 0.0,
+    "end_angle_deg": 0.0,
+    "length_min": 240.0,
+    "margin": 24.0,
+    "need_mm": 209.73,
+    "slack_mm": 30.27,
+    "capsule_d_mm": 3.4,
+    "pieces": 64,
+    "targets": 2323,
+    "exempt": [
+      "encoder",
+      "pi5"
+    ],
+    "exempt_rule": "own end parts only within 10 mm of route length from a terminal (none at a start after the branches)",
+    "hits": {
+      "pi5": 7.27
+    },
+    "hdmi_state": "installed",
+    "tightest_separation": {
+      "pigtail_negative": {
+        "min_centreline_mm": 5.28,
+        "need_mm": 3.2
+      },
+      "fpc": {
+        "min_centreline_mm": 12.18,
+        "need_mm": 9.6
+      },
+      "run_pin39": {
+        "min_centreline_mm": 5.99,
+        "need_mm": 2.4
+      },
+      "pigtail_positive": {
+        "min_centreline_mm": 10.08,
+        "need_mm": 3.2
+      },
+      "run_pin37": {
+        "min_centreline_mm": 11.57,
+        "need_mm": 2.4
+      }
+    },
+    "cable_overlaps": [],
+    "problems": [
+      "free route intersects pi5 7.27 mm3 at panel_prop (capsule d 3.40 mm)"
+    ]
+  },
+  "unchanged_installed_storage_hold": "250 and 260 mm members still meet HDMI R5.5; not waived.",
+  "pass_scoped": true
+}

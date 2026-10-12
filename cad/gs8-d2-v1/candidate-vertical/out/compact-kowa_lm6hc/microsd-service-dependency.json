@@ -1,9 +1,9 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "verification_source_sha256": "e32df7b2cd064edd8cd5c2c0437e1a04c93ed0fadc3004a9d0cdf18c9359249b",
   "helper_source_sha256": {
     "rigid_sweep.py": "2a5fcce72309e870a5ee7ef6299fb41bd00096629ed3d283f79c20a3e9c1c378",
-    "steps.py": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45"
+    "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960"
   },
   "closed_panel_case": "REJECTED",
   "sample_step_mm": 1,
@@ -38,7 +38,7 @@
     },
     {
       "translation_x_mm": 12,
-      "overlap_mm3": 30.92900480879566
+      "overlap_mm3": 30.929004808795664
     },
     {
       "translation_x_mm": 13,
@@ -98,7 +98,7 @@
     },
     {
       "translation_x_mm": 27,
-      "overlap_mm3": 0.8456360925443396
+      "overlap_mm3": 0.8456360925443395
     }
   ],
   "panel_off": {
@@ -143,7 +143,7 @@
     "pi5_method": "verify_candidate.py component set (official_pi5_assembly.build_parts); pi5.step hash-checked; component overlaps summed (upper bound)",
     "step_bindings": {
       "base_grip": {
-        "step_sha256": "79d0dd29cf2b2caef650b1432a6e0c1677f5f075d35b910981c283b3b95de958",
+        "step_sha256": "abed4da8834f21f0b921e31e739a5a5f8f630ae7fe83f47a0991b5dceb3241eb",
         "manifest_file_binding": true
       },
       "c_cs_adapter": {
@@ -151,7 +151,7 @@
         "manifest_file_binding": true
       },
       "carrier": {
-        "step_sha256": "005e6946119a8d8341db8bd3bd4d40ab02fb5a44fce909d90af5c35c70600524",
+        "step_sha256": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
         "manifest_file_binding": true
       },
       "cooler": {
@@ -187,7 +187,7 @@
         "manifest_file_binding": true
       },
       "lens_collar": {
-        "step_sha256": "7527c068afdcdbedfb960458cdd335615a2e78f91bc8ca72372fac6625702216",
+        "step_sha256": "6ad36bd056aec8b204f06fa181dd7e71a5c299e927f29c461dd5feefe858b04f",
         "manifest_file_binding": true
       },
       "microsd": {
@@ -207,7 +207,7 @@
         "manifest_file_binding": true
       },
       "pi5": {
-        "step_sha256": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
+        "step_sha256": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
         "manifest_file_binding": true
       },
       "run_button": {
@@ -239,11 +239,11 @@
         "manifest_file_binding": true
       },
       "tripod_nut": {
-        "step_sha256": "be267d3a92d9acdc86cbf079902c7703dd673c389d571e1f27c2abc15e22ea90",
+        "step_sha256": "0c2884c70fc43aa46be80cb126daf87e298be185276927586df0b945ab2010b7",
         "manifest_file_binding": true
       },
       "tub": {
-        "step_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+        "step_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
         "manifest_file_binding": true
       },
       "usb_stick": {
@@ -263,7 +263,7 @@
         "manifest_file_binding": true
       },
       "xt30_pair": {
-        "step_sha256": "1d85645b9befd431a5472a2744731aea561e0c1b9bddbcf24d9d0c08e3390a22",
+        "step_sha256": "f3de469f3b0491f40cbc1e69e7072ad723c6dbedae7b489428761804d75a3895",
         "manifest_file_binding": true
       }
     },
@@ -376,7 +376,7 @@
               0,
               0
             ],
-            "overlap_mm3": 36.633916086618534
+            "overlap_mm3": 36.63391608661854
           }
         ]
       },
@@ -478,7 +478,7 @@
               16.0,
               0.0
             ],
-            "overlap_mm3": 13.311691548584607
+            "overlap_mm3": 13.311691548584605
           }
         ]
       },
@@ -536,7 +536,7 @@
         ],
         "samples": 33,
         "step_mm": 2.0,
-        "worst_overlap_mm3": 0.45271547387933747,
+        "worst_overlap_mm3": 0.4527154738793375,
         "total_hits": 4,
         "hit_parts": [
           "tub"
@@ -549,7 +549,7 @@
             10.0,
             0.0
           ],
-          "overlap_mm3": 0.4149263843807802
+          "overlap_mm3": 0.41492638438077944
         },
         "first_hits": [
           {
@@ -560,7 +560,7 @@
               10.0,
               0.0
             ],
-            "overlap_mm3": 0.4149263843807802
+            "overlap_mm3": 0.41492638438077944
           },
           {
             "moving": "microsd",
@@ -570,7 +570,7 @@
               12.0,
               0.0
             ],
-            "overlap_mm3": 0.33376640554608805
+            "overlap_mm3": 0.3337664055460816
           },
           {
             "moving": "microsd",
@@ -590,7 +590,7 @@
               16.0,
               0.0
             ],
-            "overlap_mm3": 0.45271547387933747
+            "overlap_mm3": 0.4527154738793375
           }
         ]
       },
@@ -618,7 +618,7 @@
         ],
         "samples": 34,
         "step_mm": 2.0,
-        "worst_overlap_mm3": 12.185764666716413,
+        "worst_overlap_mm3": 12.185764666716457,
         "total_hits": 7,
         "hit_parts": [
           "s_c3",
@@ -632,7 +632,7 @@
             8.0,
             0.0
           ],
-          "overlap_mm3": 4.5429517089560765
+          "overlap_mm3": 4.542951708955371
         },
         "first_hits": [
           {
@@ -643,7 +643,7 @@
               8.0,
               0.0
             ],
-            "overlap_mm3": 4.5429517089560765
+            "overlap_mm3": 4.542951708955371
           },
           {
             "moving": "microsd",
@@ -653,7 +653,7 @@
               10.0,
               0.0
             ],
-            "overlap_mm3": 12.185764666716413
+            "overlap_mm3": 12.185764666716457
           },
           {
             "moving": "microsd",
@@ -673,7 +673,7 @@
               12.0,
               0.0
             ],
-            "overlap_mm3": 8.323992216728733
+            "overlap_mm3": 8.32399221672861
           },
           {
             "moving": "microsd",

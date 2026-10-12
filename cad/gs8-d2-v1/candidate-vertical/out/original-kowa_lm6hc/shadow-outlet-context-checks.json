@@ -1,0 +1,228 @@
+{
+  "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+  "verification_source_sha256": "590a8f76b66aeb5d06074dbed88b4cf332763ee79e2f1c7984437bbe1cf720c6",
+  "checked_source_sha256": {
+    "model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84"
+  },
+  "saved_material_sha256": {
+    "pi5": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
+    "cooler": "5f8ee240d0ea5a80c4dbcdcc7667794fe895e4593590813256929b9374531390",
+    "x1203": "caf0b8a0387ffb3f68cc76a471abe8596f36c0952d26ad3c56587aa81f29c974",
+    "x1203_kit": "45aa6cd394bca6c741e8621c9cf7b20d56e4ca6391fe6a46f9d27a5fa78aefe5",
+    "gs_camera": "36570e5ee42dd8dff1bd7acdaedb851fd6f4c29b7f9c5740f247ea639fc70ca0",
+    "c_cs_adapter": "3a27261a5dbd5e6615e77b99a5ac31897bc3d2f0d00e71c2a89392e668f9866d",
+    "lens": "210443f9af882d65c225579a06cf625ed6a64772601e3eebb4d9553e177390bf",
+    "eyepiece": "58937c541b998ca361b2fb334e6e7c3aff433e2bf4c30e6e16b18cccd90453f4",
+    "hmx039": "9be628729b45c31bb10fa95d29bd67291ca67acf7ac6a89f2271d41e88497759",
+    "evf_board": "40ce6865331f79baf9e8ea27e23f9a770457572e41e4a9e8f06b75cb168dee81",
+    "usb_stick": "08d1025aabec874146fc3478cab48aa2b187c8e854858dc5074402b15b2b636a",
+    "encoder": "20e425554b6925bc24668f0f5569161fbd2c8b758c528f9f1ec10c2857c2b55d",
+    "switch_1824": "475a60a054f23de460ccd0138fd3442424deed0fbdcd46474094224b9756208d",
+    "run_button": "9db1754266c6d3eb5cbdcb021127dee9f257872674c58263b87f78b048a45d64",
+    "pack": "5207632700551058b8b28530ca4f46ce69fcbbee51b904dabfb58a45bcd4f8e8",
+    "xt30_pair": "f3de469f3b0491f40cbc1e69e7072ad723c6dbedae7b489428761804d75a3895",
+    "tripod_nut": "0c2884c70fc43aa46be80cb126daf87e298be185276927586df0b945ab2010b7",
+    "strap": "e976c8dc1ed068663a18610ed64d75e86286aac224fc2750bf6517f19c621d54",
+    "microsd": "8b5999c867b89d4651974eadf70b14f4586dd05457cc851387fadce37aa1793b",
+    "foam_pad": "13b1c27f99847ba7ebd408acf9c6e948eb0636c138b750a61ea494b030021d9a",
+    "fps_nut": "b39438e45c08b3357d78046a56726190501d0609f3a6e8c71b8824a724c68f0f",
+    "fps_mounting_washer": "7cf73982d1cf4863445d948f39d3f0dd137675017b73997aff57b92c888b0ea1",
+    "s_c1": "ee79d5a3b1c220ddd2b271288ffdc7ff6b3a9d841c9476394e3359e869269f36",
+    "s_c2": "d5f3c5244e87ad63124d23d1ac2d56ce5755bac45ebcbbafb037da3fc5658af0",
+    "s_c3": "47425b926e2c0fd79a59e3cf311b75cf57792b5cb95758add5709c0eac8d67ad",
+    "s_c4": "550c7e67f0fff85236ee826d2d59dc6006dce0f1e05de266c7368418b9567d03",
+    "base_grip": "abed4da8834f21f0b921e31e739a5a5f8f630ae7fe83f47a0991b5dceb3241eb",
+    "cap": "a0b6555b7b63548432697cbb2812ce11247dab464ea709da96c9eb081d022669",
+    "eyecup": "a2299cc3837c264cd1931fd7c135859685d02dd4dec25bcb1a626fa5927c41d5",
+    "knob_exp": "28d672851b29b8add239c6ef2bd278414a83ef47f558eef210373fcbd60d3dd4",
+    "knob_fps": "5b004799fa7f8abf0ce84caf4bda91d61975a8addb5ae1d39b6c4ff32883f71a",
+    "carrier": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
+    "stick_sleeve": "2f2bb2bcb5d711d066301978a10e40a377e18e7ca02e772531c2163036c00db2",
+    "panel": "f91bf20597ed107cd332d6641e2a210e7b0a0ff371b03adf49276550a180fee8",
+    "lens_collar": "0dcb17b497341839f066b30fc9302ac2d428f6bedcb539e254d50a94375fca3f",
+    "power_button": "54c570551c700c1ea3a22f1ce263fcb067b61fe2e0959bccdbd744e4da58f428",
+    "power_nut_reserve": "ca67a76da869005b6237b195ec1214a0b09873e1421ffeb9b2352ca0a7a9f654",
+    "p_panel1": "43e794e9d462c0afda82b892cac3545afb28c50070169c7a0c49bcb87f962aff",
+    "p_panel2": "7d73df816409797d081fe2f60877871a6615662a5b0d73119db344e61043096f",
+    "p_panel3": "c5f476111ab70b272937ac976a19a6b6855159057e05bed8a71399ff8969a25f",
+    "p_panel4": "c08ec4744abfc471a67154d274a10036105e54a1223ed459a0f5e00e4f14a11d",
+    "p_carrier1": "ada41ab364ab63579bfd698bb29d1425ef933a3a3ec3f99a1e7e086f85423da2",
+    "p_carrier2": "65b64e7efef77eaf363f34ca3c85b63434b06dc9b9c0b96d27ee601094643530",
+    "p_grip": "3f6b3675ce720256a9aea4b996be4293b703dea196cefbcb111a154f09a6631e"
+  },
+  "generated_utc": "2026-10-12T03:42:35Z",
+  "summary": {
+    "pass": 4,
+    "fail": 0
+  },
+  "checks": [
+    {
+      "id": "hot_front",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -2.7,
+        12.0,
+        -34.0,
+        -28.0,
+        5.0,
+        58.0
+      ],
+      "continuation_prisms_mm": [
+        [
+          -2.7,
+          12.0,
+          -34.0,
+          -28.0,
+          5.0,
+          20.4
+        ],
+        [
+          -2.7,
+          12.0,
+          -34.0,
+          -28.0,
+          21.6,
+          48.4
+        ],
+        [
+          -2.7,
+          12.0,
+          -34.0,
+          -31.5,
+          49.6,
+          58.0
+        ]
+      ],
+      "material_inventory_count": 44,
+      "exact_queries": [
+        {
+          "part": "s_c4",
+          "overlap_mm3": 0.0,
+          "saved_material_bbox_mm": [
+            1.2,
+            8.2,
+            -30.3,
+            -23.3,
+            50.1,
+            68.9
+          ]
+        },
+        {
+          "part": "lens_collar",
+          "overlap_mm3": 0.0,
+          "saved_material_bbox_mm": [
+            -2.7,
+            8.600000000001412,
+            -30.8,
+            25.000000000000004,
+            24.4,
+            96.1
+          ]
+        }
+      ],
+      "bounding_box_rejected_count": 42,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    },
+    {
+      "id": "cold_rear",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -197.0,
+        -185.01,
+        -34.0,
+        -28.0,
+        5.0,
+        75.0
+      ],
+      "continuation_prisms_mm": [
+        [
+          -197.0,
+          -185.01,
+          -34.0,
+          -28.0,
+          5.0,
+          75.0
+        ]
+      ],
+      "material_inventory_count": 44,
+      "exact_queries": [],
+      "bounding_box_rejected_count": 44,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    },
+    {
+      "id": "cold_underside",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -181.0,
+        -83.0,
+        -34.0,
+        -28.0,
+        -12.0,
+        -0.01
+      ],
+      "continuation_prisms_mm": [
+        [
+          -181.0,
+          -83.0,
+          -34.0,
+          -28.0,
+          -12.0,
+          -0.01
+        ]
+      ],
+      "material_inventory_count": 44,
+      "exact_queries": [],
+      "bounding_box_rejected_count": 44,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    },
+    {
+      "id": "hot_underside",
+      "status": "pass",
+      "continuation_bounds_mm": [
+        -59.0,
+        -5.0,
+        -34.0,
+        -28.0,
+        -12.0,
+        -0.01
+      ],
+      "continuation_prisms_mm": [
+        [
+          -59.0,
+          -5.0,
+          -34.0,
+          -28.0,
+          -12.0,
+          -0.01
+        ]
+      ],
+      "material_inventory_count": 44,
+      "exact_queries": [],
+      "bounding_box_rejected_count": 44,
+      "hits": [],
+      "tolerance_mm3": 0.002
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "usb_storage_plug_reserve",
+      "reason": "Non-material reservation"
+    },
+    {
+      "id": "tub",
+      "reason": "Tub is the aperture owner"
+    }
+  ],
+  "physical_qualified": false,
+  "scope": "Exact finite outward aperture-prism unions versus all other saved material rows; the hot-front union follows its stepped voids and excludes solid mullions; actual saved-shape AABBs used only to reject separated pairs",
+  "limitations": [
+    "Only the specified first 12 mm beyond each exterior face are checked; the hot-front check also includes its entrance back to x -2.7 mm.",
+    "No hand/finger/garment, desk contact or airflow streamlines are modeled.",
+    "COTS proxies, real parts, flexible looms, print deformation and thermal performance remain unqualified.",
+    "Clear outward prisms do not prove whole-plenum pressure loss, external recirculation or all-view concealment."
+  ]
+}

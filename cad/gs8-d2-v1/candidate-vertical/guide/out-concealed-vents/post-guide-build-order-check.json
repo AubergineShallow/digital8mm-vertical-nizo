@@ -1,0 +1,48 @@
+{
+  "scope": "Separate post-guide build-order rerun only; original batch result preserved",
+  "command": [
+    ".venv-cad/bin/python",
+    "cad/gs8-d2-v1/candidate-vertical/tests/test_build_order_docs.py"
+  ],
+  "working_directory": "cad/gs8-d2-v1/candidate-vertical",
+  "python_version": "3.12.14",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "guide_receipt_sha256": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce",
+  "test_source_sha256": "739ade4fdf58990a40144331204f650b78a508607c6ca7579e2e5aa29eb72e2b",
+  "input_sha256": {
+    "tests/test_build_order_docs.py": "739ade4fdf58990a40144331204f650b78a508607c6ca7579e2e5aa29eb72e2b",
+    "tests/_repo_git.py": "f2af4f1328b21b9b05357d377a040227495f39a8f24d577446d7884642e7f23e",
+    "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
+    "make_assembly_text.py": "de77fdebb8ce81f36b1a59287baa69ead2674ce9a86e1072b3dde758eba87f97",
+    "make_bom_vertical.py": "a907a8f46d87a4b5326498cd17484dd1e76101912296ca30c81d76d31a1e047b",
+    "wiring_data.py": "83258fcdf98d7589500a5fcb9cc335d5d611238e07ed6c3a47d7bf0d90543f20",
+    "harness_rules.py": "baca568650e7f7c58f40cf30a97af7dce7ef0a8bc5487e1940eee6da6ab00c63",
+    "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
+    "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
+    "ASSEMBLY-VERTICAL.md": "f8e7db9793cbc330aa81b461081c347a84a15665b38b480a54ce142c8af6db66",
+    "BOM-VERTICAL.md": "73e76bb7ec3e6d3554e5c2fc4f628997cb9e2e20925edf7328d616ec4b4fdaf1",
+    "FPS-SERVICE-STUDY.md": "9f0d8a1f466fcb8d256b5fe94648a32b7c2cd128fadc35f79d2206e6b086136d",
+    "guide/build_guide_vertical.py": "47c6aeaf6aed933ce6c4f0a448759977ca899fce74be7f1189340b7255cf187c",
+    "guide/build_guide_concealed_vents.py": "36e3d978545cd09fc3534a07a569f7b9b4ea4071168937d38e2cde229b801110",
+    "guide/README-CONCEALED-VENTS.md": "658185a4c5eff0ace4ed469f4b68754d64292df39461f0f2aac3f0bb1c1f44aa",
+    "guide/record_post_guide_check.py": "e047d8cefb5d6f5a1cd1d0c04f95b9e7fe1c4434db59a22003d23149053a2d44",
+    "out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+    "guide/out-concealed-vents/guide-receipt.json": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce",
+    "guide/out-concealed-vents/D2-vertical-concealed-vents-review.pdf": "d383b996af90faf23e7d7171437379facc7afcc6bb1ad6395086f7b19a923ce0",
+    "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "../make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c"
+  },
+  "inputs_unchanged_during_test": true,
+  "exit_code": 0,
+  "tests_run": 23,
+  "status": "pass",
+  "log": "post-guide-build-order-check.log",
+  "log_sha256": "b9579d29cd3f8e18dbc90c1932be811ece8bf83d04b8696934712c0344948789",
+  "physical_qualified": false,
+  "path_normalization": {
+    "note": "After the completed test run, recorded command and working-directory paths were converted to repository-relative POSIX paths. Executed tool, script, exit status, test count, raw log and all input hashes are unchanged. Command paths are anchored at the repository root.",
+    "pre_normalization_receipt_sha256": "95b6bc1978959d1bfa36ac3c903638d5452ce9e2e4d501bf05b0b9fa7ed2957d"
+  }
+}

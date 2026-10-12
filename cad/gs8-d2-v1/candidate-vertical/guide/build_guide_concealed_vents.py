@@ -6,7 +6,7 @@ import sys as _cvsys; _cvsys.path.append(str(__import__('pathlib').Path(__file__
 from cv_io import read_text, rel_posix, write_text
 import export_cache as EC  # FP-03: no wall-clock time on pages or in the receipt; invariant PDF
 from pathlib import Path
-import sys,json,hashlib,math,datetime,argparse
+import sys,json,hashlib,math,datetime,argparse,struct
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 from reportlab.pdfgen import canvas
@@ -27,11 +27,17 @@ VENT_STATE=inspect_inputs(ROOT,ARGS.manifest_sha256)
 VENT=VENT_STATE['metadata'];VC=VENT_STATE['constants']
 VENT_CHECK_FILE=VENT_STATE['report_path']
 VENT_GEOMETRY_PASS=VENT_STATE['geometry_pass']
+HARNESS=VENT_STATE['scoped']['harness']['report']
+FLOW=VENT_STATE['scoped']['flow']['report']
+PRINT=VENT_STATE['scoped']['print']['report']
+DROP=next(r for r in HARNESS['checks'] if r['id']=='pigtail_drop')
+QT_REACH=next((r for r in HARNESS['checks'] if r['id']=='qt_enc' and r['category']=='mate_reach'), {})
 OUT=Path(__file__).parent/'out-concealed-vents';OUT.mkdir(exist_ok=True)
 MESH=ROOT/'out/compact-kowa_lm6hc/meshes'
 HDMI_SNAPSHOT=ROOT/'routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json'
 POWER_SNAPSHOT=ROOT/'routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json'
 MAN=json.loads(read_text(MESH.parent/'manifest.json'))
+PRINT_COUNTS=MAN.get('production_prints', {'assembly_row_count':9, 'piece_count':10})
 MAIN_CHECK=json.loads(read_text(MESH.parent/'verification.json'))
 MAIN_MATCHED=(MAIN_CHECK.get('manifest_sha256')==hashlib.sha256((MESH.parent/'manifest.json').read_bytes()).hexdigest() and MAIN_CHECK.get('verification_source_sha256')==hashlib.sha256((ROOT/'verify_candidate.py').read_bytes()).hexdigest())
 COOLER_CLASH=next((r for r in MAIN_CHECK.get('checks',[]) if MAIN_MATCHED and r.get('category')=='interference' and r.get('id')=='pi5/cooler' and r.get('status')=='fail'),None)
@@ -44,12 +50,30 @@ CARRIED_FAIL=HDMI_MATCHED and any(r.get('category')=='carried_sweep' and r.get('
 MATERIAL_PASS=HDMI_MATCHED and all(any(r.get('category')=='full_ribbon_vs_solids' and r.get('id')==name and r.get('status')=='pass' for r in HDMI_CHECK.get('checks',[])) for name in ('installed','premate'))
 CARRIED_OBSTRUCTIONS=', '.join(sorted({h.get('id','head')+' / '+h.get('fixed','solid') for r in HDMI_CHECK.get('checks',[]) if r.get('category')=='carried_sweep' for h in r.get('hits',[])}))
 START_HASHES={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [ROOT/'model.py',HDMI_SNAPSHOT,POWER_SNAPSHOT,ROOT/'ASSEMBLY-VERTICAL.md',ROOT/'BOM-VERTICAL.md',MESH.parent/'manifest.json',MESH.parent/'verification.json',Path(__file__),Path(__file__).parent/'software_lineart.py',Path(__file__).parent/'raster.cpp',CAD/'guide/lineart.py']}
-for name in ('package_concealed_guide.py','README-CONCEALED-VENTS.md','STEP-REVIEW-CONCEALED-VENTS.md','vent_guide_support.py','STEP-REVIEW.md'):
+for name in ('package_concealed_guide.py','README-CONCEALED-VENTS.md','STEP-REVIEW-CONCEALED-VENTS.md','vent_guide_support.py','STEP-REVIEW.md','run_with_numpy_raster.py','raster_numpy.py','record_post_guide_check.py'):
     p=Path(__file__).parent/name
     START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
 for p in (CAD/'ASSEMBLY.md',CAD/'../../electronics/gs8-d2-v1/WIRING.md',CAD/'fonts/DejaVuSans.ttf',CAD/'fonts/DejaVuSans-Bold.ttf'):
     START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
-for p in (ROOT/'REVIEW.md',ROOT/'BOM-VERTICAL.csv',ROOT/'steps.py',ROOT/'evidence_rules.py',CAD/'out/build-receipt.json'):
+for p in (ROOT/'REVIEW.md',ROOT/'BOM-VERTICAL.csv',ROOT/'WIRING-VERTICAL.md',ROOT/'make_wiring_vertical.py',ROOT/'make_bom_vertical.py',ROOT/'steps.py',ROOT/'wiring_data.py',ROOT/'routes.py',ROOT/'signal_routes.py',ROOT/'harness_rules.py',ROOT/'evidence_rules.py',CAD/'out/build-receipt.json'):
+    START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+for p in [v['path'] for v in VENT_STATE['scoped'].values()]+[VENT_STATE['coupons_path'],ROOT/'corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt']:
+    START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+for evidence in VENT_STATE['scoped'].values():
+    for field,base in (('verification_dependency_sha256',ROOT),('helper_source_sha256',ROOT),('input_sha256',CAD),('check_sources',CAD),('checked_source_sha256',ROOT)):
+        dependencies=evidence['report'].get(field,{})
+        if isinstance(dependencies,dict):
+            for name in dependencies:
+                p=base/name
+                START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+for p in [VENT_STATE['catch_path'],VENT_STATE['catch_path'].parent/'README.md']:
+    START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+for field,base in (('input_sha256',ROOT),('source_sha256',ROOT),('files',VENT_STATE['catch_path'].parent)):
+    for name in VENT_STATE['catch'][field]:
+        p=base/name
+        START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
+for name in ('tub','panel'):
+    p=MESH.parent/'step'/f'{name}.step'
     START_HASHES[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
 for name in ('microsd-service-dependency.json','wall-probe-context.json'):
     p=MESH.parent/name
@@ -135,6 +159,21 @@ for name,digest in MAN['files'].items():
     if name.startswith('meshes/') and hashlib.sha256((MESH.parent/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('Mesh/manifest changed: '+name)
 if SOURCE_MISMATCHES:raise RuntimeError('CAD export is behind sources; wait for the selected freeze: '+str(SOURCE_MISMATCHES))
 DATA={p.stem:json.loads(read_text(p)) for p in MESH.glob('*.json') if p.stem!='manifest'}
+def print_mesh(name):
+    path=MESH.parent/'stl'/f'{name}.stl'
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=MAN['files'].get('stl/'+name+'.stl'):
+        raise RuntimeError('Physical print STL differs from manifest: '+name)
+    count=struct.unpack_from('<I',raw,80)[0]
+    if len(raw)!=84+50*count:raise RuntimeError('Expected binary export STL: '+name)
+    vv=[];ff=[]
+    for i in range(count):
+        q=struct.unpack_from('<12fH',raw,84+50*i)
+        j=len(vv);vv.extend((q[3:6],q[6:9],q[9:12]));ff.append([j,j+1,j+2])
+    START_HASHES[str(path)]=hashlib.sha256(raw).hexdigest()
+    return {'vertices':vv,'faces':ff}
+DATA['print_tub_body']=print_mesh('tub')
+DATA['print_tab_catch']=print_mesh('tab_catch_insert')
 W,H=1684,1190
 INK='#181818';GRAY='#666666';ORANGE='#B23B19';BLUE='#37658A';YELLOW='#FFF0C4'
 FONT=CAD/'fonts'
@@ -204,6 +243,7 @@ GUIDE_OPS={
   '03':('optics_bench', 'print_inserts'),
   '03v':('print_inserts',),
   '03w':('print_inserts',),
+  '03x':('print_inserts',),
   '04':('module_bench',),
   '05':('module_bench',),
   '06':('module_bench',),
@@ -217,13 +257,14 @@ GUIDE_OPS={
   '07':('grip_prep', 'strap_thread'),
   '07b':('tub_on', 'grip_lock'),
   '08':('collar_on', 'collar_screws_start', 'gauge_in', 'collar_tighten', 'gauge_out'),
-  '08b':('camera_in',),
+  '08b':('camera_fpc_mate', 'camera_in'),
   '08c':('s_c4_start', 'lens_in', 'lens_float'),
   '09':('eyepiece_in', 'evf_in'),
   '11':('module_staged', 'carrier_in', 'carrier_screws'),
   '12':('evf_mate',),
   '13':('evf_mate',),
   '15':('evf_mate',),
+  '15q':('evf_mate',),
   '16':('panel_prop', 'panel_in', 'panel_screws', 'fps_washer_on', 'fps_nut_on', 'knob_fps_on'),
   '17':('storage_in', 'eyecup_on'),
   '18':('pack_in', 'cap_on')}
@@ -289,6 +330,17 @@ if FPS_READY:
     FPS_WIRES.append('guide_fps_pair')
     for i,z in enumerate((41,55)):
         key='guide_fps_splice_'+str(i);DATA[key]=cylinder_mesh([-103.5,-23.4,z],[0,0,1],1.5,10);FPS_WIRES.append(key)
+# Shape sources are frozen with the harness report; these proxy diagrams are not copper cut patterns.
+import routes as _guide_routes
+_qt_source=_guide_routes.build()['signal_geometry']
+QT_MODEL=_qt_source['qt'];QT_FREE=_qt_source['free_leads']['qt_enc']
+QT_BRANCH_IDS=[]
+for branch in _qt_source['branches']:
+    if branch['cable']=='qt':
+        key='guide_'+branch['id'];QT_BRANCH_IDS.append(key)
+        DATA[key]=tube_mesh(branch['curve']['sampled_centerline'],branch['od_mm']/2)
+DATA['guide_qt_stored']=tube_mesh(QT_MODEL['curve']['sampled_centerline'],QT_MODEL['od_mm']/2)
+DATA['guide_qt_free']=tube_mesh(QT_FREE['curve']['sampled_centerline'],QT_FREE['od_mm']/2)
 CSI_ARROWS=[]
 if CSI_MATCHED and CSI_CHECK.get('tool_reservations'):
     tool=CSI_CHECK['tool_reservations'][0];tip=np.array(tool['tip']);back=np.array(tool['axis'])
@@ -297,7 +349,7 @@ if CSI_MATCHED and CSI_CHECK.get('tool_reservations'):
     CSI_ARROWS=[(tip+back*80,tip+back*40)]
 # 1
 CORE=' x '.join(f'{v:g}' for v in MAN['core_dimensions_mm'])
-im,d=page('D2','Assembly and wiring with concealed vents',f'Vertical Pi candidate  |  {CORE} mm core  |  9 printed parts  |  revised review')
+im,d=page('D2','2026-10-12 corrective assembly review',f"BLOCKED REVIEW | Vertical Pi candidate  |  {CORE} mm core  |  {PRINT_COUNTS['piece_count']} physical prints / {PRINT_COUNTS['assembly_row_count']} CAD rows")
 scene(im,BASE+OPT+EVF+STACK+PANEL+['lens','cap','usb_stick'],['panel','lens_collar'],rect=(50,170,1100,820))
 note(d,'A sequence to test','Pictures expose fit, insertion and service dependencies.\n\nAmber: new part.\nGrey: already present.\nBlue: proposed motion.\nDashed: hidden part.\n\nThe outer plenum is integral to the tub.\n\nNo physical build is qualified.')
 stop(d,'All %d inherited physical gates and M1 remain open. Do not fabricate or energize from this review.'%GATES_OPEN)
@@ -309,12 +361,12 @@ note(d,'Four prerequisites','1  Stop recording; clean shutdown.\n\n2  Remove eve
 stop(d,'XT30 must be reachable with body closed and retention fitted. Fixed tied loops cannot unfold for service.')
 save(im)
 # 3 printed inventory
-im,d=page('01','Count the printed parts','Nine compact production parts, each x1. Gauges and plenum / structural coupons are separate test pieces.')
-parts=[('tub','1  Tub'),('panel','2  Panel'),('carrier','3  Carrier'),('base_grip','4  Base / grip'),('cap','5  Battery cap'),('eyecup','6  Eyecup'),('knob_exp','7  Exposure knob'),('knob_fps','8  18 / 24 knob'),('lens_collar','9  Lens collar')]
+im,d=page('01','Count the printed parts','Compact: 10 physical prints in 9 CAD assembly rows. Body and bonded catch stub are separate prints. Gauge / coupons excluded.')
+parts=[('tub','1 + 2  Body + bonded stub'),('panel','3  Panel'),('carrier','4  Carrier'),('base_grip','5  Base / grip'),('cap','6  Battery cap'),('eyecup','7  Eyecup'),('knob_exp','8  Exposure knob'),('knob_fps','9  18 / 24 knob'),('lens_collar','10  Lens collar')]
 for i,(pid,label) in enumerate(parts):
     x=65+(i%3)*535;y=176+(i//3)*292
     scene(im,[pid],[pid],rect=(x,y,490,226));text(d,x+15,y+231,label,25,True,width=490)
-text(d,65,1065,'Same 9 prints; no vent covers or added fasteners. Panel is plain 2.8 mm. Purchased parts are unchanged.',22,color=GRAY)
+text(d,65,1065,'Tub shown assembled above; separate print pieces on page 03x. Original storage adds one sleeve: 11 physical prints / 10 CAD rows.',22,color=GRAY)
 save(im)
 # Purchased components in the compact camera, distinct from printed parts and spares.
 im,d=page('01b','Identify the purchased assemblies','CAD envelopes. Match actual purchased identities and revisions; each group is one installed assembly.')
@@ -337,37 +389,50 @@ save(im)
 # 5
 im,d=page('03','Prepare optics and prints','Bench preparation before electronics go inside')
 scene(im,['gs_camera','c_cs_adapter','lens','lens_collar'],['lens_collar'],offsets={'lens':(45,0,0),'lens_collar':(22,0,0)},rect=(60,210,1080,700),arrows=[((70,0,60),(35,0,60))])
-note(d,'Support the load','Support camera and lens separately. Never react lens torque through PCB or cover.\n\nMeasure back focus and support band. Keep adapter / BFAR witness marks.\n\nBag tripod block after setup. Install inserts before electronics.\n\nMate the FPC camera end here and pre-fold it: the carrier later blocks that socket.')
+note(d,'Support the load','Support camera and lens separately. Never react lens torque through PCB or cover.\n\nMeasure back focus and support band. Keep adapter / BFAR witness marks.\n\nBag tripod block after setup. Install inserts before electronics.\n\nKeep the camera socket accessible. Seat the Pi cable end before the cooler (04); mate the camera end just before insertion (08b).')
 stop(d,'Review the outer plenum on 03v / 03w plus collar and horizontal-bores supports. Measured optics and M1 remain open.')
 save(im)
 # Plenum section diagrams explain the source geometry; these are not saved-STEP cutaways.
-im,d=page('03v','Inspect the concealed outer plenum','Representative sections. Blue arrows show proposed cold/hot paths, not measured airflow. Posts omitted for clarity.')
+im,d=page('03v','Inspect the concealed outer plenum','Representative sections. Blue arrows show intended paths. Windowed ribs and mouth lintels omitted; use the saved print geometry.')
 text(d,65,177,'COLD BAY  /  INTAKE',28,True,width=730)
 text(d,865,177,'HOT BAY  /  EXHAUST',28,True,width=730)
 draw_plenum_section(d,text,arrow,65,225,730,385,VENT['outer_skin_mm'],VENT['plenum_gap_mm'],VENT['original_side_wall_mm'],flow_in=True)
 draw_plenum_section(d,text,arrow,865,225,730,385,VENT['outer_skin_mm'],VENT['plenum_gap_mm'],VENT['original_side_wall_mm'],flow_in=False)
 text(d,65,638,f"Rear + underside perimeter mouths feed the cold bay. Four internal wall slots have {VENT['intake_wall_throat_mm2']:.0f} mm2 nominal total area.",25,width=730)
-text(d,65,762,f"Gross mouth areas: rear {VENT['cold_rear_mouth_mm2']:.0f} mm2; underside {VENT['cold_bottom_mouth_mm2']:.0f} mm2.",25,width=730)
+text(d,65,762,f"Net mouth necks: rear {VENT['cold_rear_mouth_mm2']:.0f} mm2; underside {VENT['cold_bottom_mouth_mm2']:.0f} mm2.",25,width=730)
 text(d,865,638,f"Four internal wall slots feed the hot bay: {VENT['exhaust_wall_throat_mm2']:.0f} mm2 nominal total area. Air is intended to leave at front + underside perimeter mouths.",25,width=730)
-text(d,865,795,f"Gross mouth areas: front {VENT['hot_front_mouth_mm2']:.0f} mm2; underside {VENT['hot_bottom_mouth_mm2']:.0f} mm2.",25,width=730)
+text(d,865,795,f"Net mouth necks: front {VENT['hot_front_mouth_mm2']:.0f} mm2; underside {VENT['hot_bottom_mouth_mm2']:.0f} mm2.",25,width=730)
 text(d,65,912,f"Side skin {VENT['outer_skin_mm']:g} mm + gap {VENT['plenum_gap_mm']:g} mm + original wall {VENT['original_side_wall_mm']:g} mm. Cavity datum stays Y {VENT['inner_side_y_mm']:g}. Broad-side grille is concealed; perimeter mouths remain.",23,width=1530)
 stop(d,'CSI is an explicit service aperture. Direct rear/front views expose mouths. No sealed-flow, dust or water rating.')
 save(im)
 im,d=page('03w','Print and inspect the outer plenum','Do not fit electronics or inserts until the full air path can be inspected and cleaned.')
 scene(im,['tub','panel'],['tub','panel'],offsets={'panel':(0,50,0)},rect=(45,180,850,560),direction=(1,-2,.6))
-text(d,65,770,'PRINT HOLD: the front mouth removes edge support at Z5..40. The 10.7 mm gap is not a supported bridge; toolpaths may need about 35 mm bridging, depending on raster direction.',24,True,color=ORANGE,width=805)
+text(d,65,770,'PRINT HOLD: continuous windowed beam lines, pillars, mouth mullions and cold-mouth lintels replace the old post grid. Geometric bridge screens are not slicer or printed-part evidence.',24,True,color=ORANGE,width=805)
 text(d,65,920,'Old panel grooves were blind, with 0.2 mm floors. The revised source specifies a plain 2.8 mm skin.',22,width=805)
 text(d,960,183,'PRINT AND INSPECT',29,True,width=650)
 pose=MAN.get('print_poses',{}).get('tub',{}).get('face_down','unrecorded')
-print_steps=[f"1  Current tub STL is {pose}-face down. Inspect the skin, posts, chamber roof and every first bridge in the slicer.",'2  Posts: diameter 1.6 mm, nominal grid 8 mm. Qualify the 48 x 32 grid and 110 x 100 port/CSI crops in the slicer and on the bench; both are geometry-only.','3  No trapped support. If slicing or either coupon fails, add local support webs and repeat the airflow-section checks before any new build trial.','4  Open-edge coupons cannot prove closed-body cleanout. Inspect both actual bays through their mouths using light/mirror or a suitable scope; remove all debris.','5  Check four perimeter mouths and all eight inner-wall slots. If any chamber region cannot be inspected or cleared, stop; do not seal debris inside.']
+support=VENT['support']
+print_steps=[f"1  Tub body STL is {pose}-face down. Stub is a separate print. Review each actual print pose and first roof layer in the slicer.",f"2  Source support: {support['rib_thickness_mm']:g} mm beam lines on pillars; beam-window spans up to {support['window_max_mm']:g} mm. Preserve the declared bridge direction in each roof region.",'3  Qualify three coupons: preliminary region, port/service crop and all-four-mouths crop. Geometry-only results do not establish printing or cleanout.','4  No trapped support. Inspect both full-body bays through their intended mouths; remove every loose particle and reject inaccessible debris.','5  Check all four perimeter mouths and eight inner-wall slots. Recheck printed openings, roof sag and actual handling occlusion before electronics.']
 y=245
 for body in print_steps:y=text(d,960,y,body,24,width=650)+23
-stop(d,'Blocked slots, roof sag, loose posts or trapped support are rejects. This plenum has no slicer, bridge, cleanout or physical print pass.')
+stop(d,'Blocked slots, roof sag, damaged beams or trapped support are rejects. This plenum has no slicer, bridge, cleanout or physical print pass.')
+save(im)
+# Separate physical prints are shown in their saved print poses, not an invented assembly split.
+im,d=page('03x','Count and qualify the bonded catch','The tub CAD row combines two prints. Bond strength, creep, exact adhesive and actual printed fit remain unqualified.')
+scene(im,['print_tub_body'],['print_tub_body'],rect=(45,190,920,640),direction=(1,2,1))
+scene(im,['print_tab_catch'],['print_tab_catch'],rect=(1100,190,440,460),direction=(1,2,1))
+text(d,65,860,'Piece 1  Tub body in its exported print pose',26,True,width=900)
+text(d,1100,680,'Piece 2  Catch stub',26,True,width=500)
+joint=MAN.get('tab_catch_joint',{})
+text(d,1100,740,'Separate STL and layer direction. Tenon seats against the -Y datum. Keep adhesive off the catch face.',24,width=490)
+if joint:text(d,65,790,f"Source tenon: {joint['tenon_mm']}; ceiling floor {joint['ceiling_floor_mm']:.2f} mm. Nominal geometry only.",22,width=900)
+text(d,65,930,'Use the nominated joint dimensions and full stub/pocket coupons. Compare production layer direction, gap/tilt, cure and hot dwell. A beam estimate does not qualify an adhesive or interlayer joint.',24,width=1530)
+stop(d,'No epoxy SKU, print process, loaded service temperature or joint strength is certified. Optical torque and alignment gates remain open.',y=1040)
 save(im)
 # 6
 im,d=page('04','Build one removable stack','Prepare J2, battery-pad and header wiring while both board faces remain accessible.')
 scene(im,STACK,['carrier'],offsets={'carrier':(0,27,0)},direction=(.7,2,1),arrows=[((-70,42,35),(-70,19,35))],labels=[((-70,47,35),'3')])
-note(d,'Keep kit spacing','Fit cooler with its 2 push pins and native fan lead once.\n\nRetain upper 4 x M2.5 x 5 + original standoffs.\n\nLower 4 x M2.5 x 8 pass through carrier. Check thread depth before tightening.\n\n3.4 mm engagement is nominal only.')
+note(d,'Keep kit spacing','Seat Pi CSI end BEFORE the cooler. Correct contact face; straight cable and latch. Keep camera end protected.\n\nThen fit cooler with its 2 push pins and native fan lead once.\n\nRetain upper 4 x M2.5 x 5 + original standoffs.\n\nLower 4 x M2.5 x 8 pass through carrier. Check thread depth before tightening.\n\n3.4 mm engagement is nominal only.')
 text(d,65,907,(f"SOURCE / PROXY HOLD: registered Pi intersects the illustrative cooler perimeter / pin model ({COOLER_CLASH.get('overlap_mm3',0):.2f} mm3). Measure and register the actual cooler outline before assembly." if COOLER_CLASH else 'Actual cooler footprint and fan-lead routing remain unmeasured; kit spacing does not establish fit.'),24,color=ORANGE if COOLER_CLASH else GRAY,width=1510)
 stop(d,'No battery. No assumed pad location. Do not change pogo geometry or repeatedly unclip the cooler.')
 save(im)
@@ -381,7 +446,7 @@ for yy in (405,470):
 d.line((1220,405,1380,405),fill=INK,width=4);d.line((1410,405,1460,405),fill=INK,width=4);d.line((1380,405,1415,375),fill=INK,width=4);d.line((1460,405,1460,470,1220,470),fill=INK,width=4)
 text(d,90,640,'Bridge only the two J2 pads with a normally-open momentary switch.',33,True)
 text(d,90,720,'Identify J2 on the actual Pi: between RTC battery connector and board edge. Insulate and strain-relieve all four solder joints. Meter open / pressed continuity before power.',28,width=1490)
-text(d,90,858,'One 2181120201 + one 2181110202 pair. Both wires are black: trace continuity. Label PWR separately from FPS; their shared key does not prevent cross-connection.',27,width=1490)
+text(d,90,858,'J2 class: Micro-Fit 3.0, 2 circuits, pre-crimped leads. Exact SKU, roots, latch travel and stow remain unqualified. It must not mate to the FPS PicoBlade or EVF RCY halves.',27,width=1490)
 stop(d,'J2 is signal-only, not GPIO or battery isolation. Finished cuts, pad reach, wire exits and nut access remain gates.')
 save(im)
 # 8
@@ -407,7 +472,7 @@ if FPS_READY:
  scene(im,['switch_1824','hdr_fps_lead_33_34']+FPS_WIRES,['switch_1824','hdr_fps_lead_33_34']+FPS_WIRES,rect=(45,175,1080,715),direction=(1,2,1))
  note(d,'Identify both black wires',('FPS-only CAD group clears; other looms remain gated.\n\n' if FPS_PASS else 'Integrated FPS group clearance awaiting current report.\n\n')+'Male 2181110202: 225 +/- 6 mm exposed stock.\n\nFemale 2181120201: 150 +/- 6 mm exposed stock.\n\n200 mm main axis includes donor stubs / splices.\n\nKeep pair mated in the camera. Bench separation only.')
  text(d,65,900,'Amber cylinders reserve two finished splices, maximum diameter 3 x 10 mm. Cut lengths, solder overlaps, individual-core fanout and terminal joints still require measurement.',26,width=1520)
- stop(d,'Label FPS distinctly from PWR. These same-key connectors can be cross-connected. Stock and study axes are not cut instructions.')
+ stop(d,'Label and continuity-test FPS. J2 uses a distinct Micro-Fit class; exact receipt try-mate checks remain open. Axes are not cuts.')
  save(im)
 im,d=page('06d','Fit the OS card on the bench','The microSD travels with the removable Pi stack. Closed-panel card access is blocked by the power switch.')
 scene(im,['pi5','microsd'],['microsd'],offsets={'microsd':(20,0,0)},rect=(45,175,1090,715),direction=(1,2,.6),arrows=[((-15.9,4.8,33.8),(-35.9,4.8,33.8))])
@@ -449,7 +514,7 @@ text(d,555,427,'Positive: 15 A 0251015.MXL fuse near XT30',28,True,width=820)
 d.line((170,515,1430,515),fill=INK,width=8);text(d,65,555,'16 AWG: buy 914.4 mm per colour. Both 270 mm path budgets include unresolved pad-root allowances. Positive also includes 20 mm rigid fuse / joint zone. Copper cuts / overlaps TBD.',29,width=1510)
 text(d,65,666,'EVF USB positive -> qualified feed -> EXT+; USB ground -> EVF GND.',29,True,width=1510)
 text(d,65,735,'Inherited diode option: 1N5817 band / cathode toward EVF. It does not guarantee the required voltage ceiling. Regulator alternative is not adopted. Trace the actual EVF revision before soldering.',27,width=1510)
-stop(d,'Meter polarity / shorts. The 8.6 A / 0.15 V hot-drop gate remains open; the conservative 60 C copper model leaves only about 7 mV margin.')
+stop(d,f"BLOCKED: {DROP['drop_lo_v']:.5f} to {DROP['drop_hi_v']:.5f} V at {DROP['i_peak_a']:g} A versus {DROP['limit_v']:.3f} V. Reach and hot-drop need one compatible solution.")
 save(im)
 # B3 bench: panel subassembly (FP-06, VN-40 / VN-46)
 im,d=page('06h','Build the panel subassembly','Bench. Encoder, exposure knob and power button only; the FPS switch rides with the module.')
@@ -464,7 +529,7 @@ save(im)
 im,d=page('07','Prepare the grip, then thread the strap','Battery stays out. Tub off: strap and run lead go in while the base top and floor passage are open.')
 scene(im,['base_grip','tripod_nut','run_button','strap'],['strap','run_button'],rect=(45,175,1090,710),direction=(-1,-2,.6))
 note(d,'Strap on the open base','Fit the tripod nut. Feed the run lead up through the open floor passage, then drop the run button into its cradle.\n\nThread the 12 mm strap through both upper and heel slots now: its pass over the bridge lies in a 2 mm recess in the base top that the seated tub floor closes.\n\nThe lower return passes through both heel slots and inside the grip wall. Keep the cap, battery travel and tripod seat clear.\n\nBuckle, closure overlap and retained tail still need real-part layout.')
-text(d,65,910,'This is a full routing proxy, not a webbing cut pattern. Piecewise folds do not prove textile bend radius, hand clearance or physical threading. Shown thickness 1.4 mm is a routing assumption.',25,width=1510)
+text(d,65,910,'Strap routing proxy only; actual bends, threading, hand clearance and the assumed 1.4 mm thickness need measurement.',25,width=1040)
 stop(d,'Neither anchor nor this routing is a rated safety tether. Qualify the actual strap, closure and both anchors before use.')
 save(im)
 im,d=page('07b','Seat the tub, then lock the grip','Over the threaded strap. Keep the run lead in the floor passage.')
@@ -481,15 +546,15 @@ save(im)
 # 10b
 im,d=page('08b','Camera before the carrier','The board cannot be pushed through the installed vertical stack. Collar fitted, gauge out.')
 scene(im,BASE+['strap']+OPT,['gs_camera','c_cs_adapter'],offsets={'gs_camera':(-11.1,65,2),'c_cs_adapter':(-11.1,65,2)},direction=(-1,2,1),arrows=[((-29,60,62),(-29,8,62)),((-29,8,62),(-29,8,60)),((-29,8,60),(-18,8,60))])
-note(d,'Three-part motion','FPC camera end was mated on the bench; keep it folded clear.\n\n1  Approach from +Y with rearward / upward offset.\n\n2  Lower onto seating height.\n\n3  Move lensward to datum; lock tab between the tines.\n\nNothing holds the camera back until the lens is on: go straight to page 08c.')
-stop(d,'Rigid camera path is sampled CAD only. Finger access, tolerances, optical support and torque catch remain open.')
+note(d,'Three-part motion','Support the prepared Pi module outside. Mate the camera FPC end before insertion; Pi end is already under the fitted cooler.\n\n1  Approach from +Y with rearward / upward offset.\n\n2  Lower onto seating height.\n\n3  Move lensward to datum; lock tab between the tines.\n\nNothing holds the camera back until the lens is on: go straight to page 08c.')
+stop(d,'HOLD: rigid camera drawing omits the full 200 mm linked FPC. Finger access, optical support and torque catch remain open.')
 save(im)
 # 10c (FP-06, VN-41: lens and pinch screw before the carrier and panel)
 im,d=page('08c','Lens before the carrier and panel','r7 step 8 method through the open +Y side. Fingertips only; never react thread torque through the PCB or cover.')
 scene(im,BASE+['strap']+OPT+['lens','s_c4'],['lens','s_c4'],offsets={'lens':(40,0,0)},direction=(1,2,1),arrows=[((75,0,60),(45,0,60))])
 note(d,'Float, then pinch','Fit s_c4 loosely.\n\nBody on its side, open side up; one fingertip pushes the camera cover forward onto its lip catch.\n\nScrew the lens in with fingertips until it stops; the tab catch takes the torque.\n\nPush the lens onto the collar cone.')
-text(d,65,898,'With s_c4 still loose, turn lens and camera together the other way until the lock tab stops on the other tine, then back about half way; look and feel: the camera touches nothing. Then snug s_c4 on its axis, 0.2 N m provisional.',24,True,width=1520)
-stop(d,'Roll window and J7-R float are not yet computed for this candidate (FP-08). Check both witness marks.')
+text(d,65,875,'With s_c4 still loose, turn lens and camera together the other way until the lock tab stops on the other tine, then back about half way; look and feel: the camera touches nothing. Then snug s_c4 on its axis, 0.2 N m provisional.',24,True,width=1520)
+stop(d,'Source-bound roll / J7 geometry does not qualify printed float, bond strength or optical alignment. Check both witness marks.')
 save(im)
 # 11
 im,d=page('09','Eyepiece, then the EVF module','Keep OLED foam, native flex and connector latches unstressed.')
@@ -501,9 +566,9 @@ save(im)
 im,d=page('11','Insert the stack with a free EVF end','Intended trial sequence: Pi HDMI adapter and OS microSD fitted first; recording drive absent.')
 carried=STACK+HEADERS+['microsd','hdmi_premate','p_hdmi_pi','p_hdmi_evf','p_usb_pi']+(['switch_1824']+FPS_WIRES if FPS_READY else [])
 scene(im,BASE+['strap']+OPT+['lens','s_c4']+EVF_IN+carried,carried,offsets={p:(0,50,-9 if p=='p_hdmi_evf' else 0) for p in carried},arrows=[((-75,70,40),(-75,23,40))])
-text(d,70,912,('CAD checked at the old 6 mm head drop: full HDMI + carried heads at 2 mm poses through +Y70. The stroke + 3 mm carry shown is not yet swept (VN-43).' if CARRIED_PASS else ('BLOCKED: carried '+CARRIED_OBSTRUCTIONS+'. Geometry must change before this step.' if CARRIED_FAIL else 'Complete HDMI strip + heads shown. FPS full mated harness shown; combined motion remains gated.')),23,color=GRAY,width=1040)
+text(d,70,912,(f"CAD: full HDMI and carried heads checked at {CARRIED_ROWS[0]['step_mm']:g} mm poses, with {CARRIED_ROWS[0]['evf_head_drop_mm']:g} mm head drop ({CARRIED_ROWS[0]['evf_stroke_mm']:g} mm stroke + {CARRIED_ROWS[0]['margin_below_mouth_mm']:g} mm margin). Other looms remain gated." if CARRIED_PASS else ('BLOCKED: carried '+CARRIED_OBSTRUCTIONS+'. Geometry must change before this step.' if CARRIED_FAIL else 'Complete HDMI strip + heads shown. FPS full mated harness shown; combined motion remains gated.')),23,color=GRAY,width=1040)
 note(d,'Hold before proceeding','Run lead onto Pi pins 37 / 39 at the staging pose.\n\nCarry FPS bushing and stack together from +Y, both supported.\n\nEVF HDMI end free, at least stroke + 3 mm low.\n\nPigtail through the floor opening; FPC clear of the 3.9 mm gap.\n\nSeat carrier; 2 x PT screws.')
-stop(d,'Only use a sweep that includes every carried plug and the full ribbon. Bare-stack clearance is insufficient.')
+stop(d,'HOLD: complete 200 mm CSI ribbon is already linked at both ends and is absent from the rigid carrier sweep. Full flexible motion is unproved.')
 save(im)
 # 14
 im,d=page('12','Mate the EVF ends from inside','Step 5, fully unpowered. Storage stays out. Hold the adapter body, never pull the ribbon.')
@@ -513,12 +578,12 @@ note(d,'EVF head upward','Bring the straight 3556 head from below.\n\nConfirm th
 stop(d,'Upward head travel, fingers / pliers and simultaneous USB + HDMI access must all clear. Final pose is insufficient.')
 save(im)
 # 15
-im,d=page('13','Prove camera connector access','12 x 27 mm R1 CSI opening = 323.14 mm2. Only the Pi end is mated here; the camera end was mated on the bench. Unpowered.')
+im,d=page('13','Prove camera connector access','Pi end seats before cooler; camera end before camera insertion. This is a tool-reserve view, not an instruction to mate late.')
 csi_tools=['csi_tip_reserve','csi_shank_reserve'] if CSI_MATCHED and CSI_CHECK.get('tool_reservations') else []
 scene(im,['tub']+OPT+EVF_IN+STACK+csi_tools,csi_tools,rect=(50,180,1050,700),direction=(1,-2,.65),arrows=CSI_ARROWS)
 text(d,70,885,('Rigid cylindrical reserve clears only; actual tool, cooler and full FPC remain unresolved.' if CSI_PASS else ('Declared cylinders intersect: '+CSI_OBSTRUCTIONS+'. Access remains blocked.' if CSI_MATCHED and CSI_OBSTRUCTIONS else 'No current clear CSI tool reservation. The inherited rotated connector / old side-slot proof is superseded.')),23,color=GRAY,width=1040)
 text(d,70,950,f"Intake wall slots: {VENT['intake_wall_throat_mm2']:.0f} mm2 nominal. CSI remains a straight unsealed bypass; keep latch/tool access clear.",21,color=GRAY,width=1510)
-note(d,'Actual connector first','Do not cover the CSI opening.\n\nCAM/DISP 1 -> official 22-to-15 FPC -> GS camera.\n\nThe inherited CSI proxy was wrongly oriented. Its old tool pass is rejected.\n\nNew reserve: 4 mm tip / 8 mm shaft at the connector ends.\n\nShow real jaws, latch travel and the complete 200 mm camera FPC before attempting this step.')
+note(d,'Keep the complete ribbon','Pi end BEFORE cooler (04). Camera end supported before insertion (08b).\n\nBoth ends are linked when the carrier moves. The rigid sweep omits all 200 mm of FPC.\n\nProve full width, roots, slack, actual latch/jaws and motion with other looms.\n\nSide cylinders do not qualify service with the cooler retained.')
 stop(d,'OPERATIONAL HOLD: actual cooler outline, latch operation, inserted FPC and interacting flexible looms are unresolved.')
 
 save(im)
@@ -547,6 +612,17 @@ if POWER_CURRENT:
     note(d,'What changed',('CAD checked: 201 sampled poses clear the closed assembly, with pack moving and cap removed.' if POWER_PASS else 'The floor passage and local tongue-corner relief are being checked for rigid junction / fuse withdrawal.')+'\n\nThe pack moves with the junction.\n\nThis does not prove the complete conductor paths, joints and retained slack can deploy or return safely.')
     stop(d,'Do not pull the pack through a blocked loom. Complete wires, pad joints, retention and pinch clearance remain STOPs.')
     save(im)
+# Stored cable and free reach are deliberately drawn as distinct states.
+im,d=page('15q','Separate QT storage from free mating reach','Source-bound routing study. The allowance is a reach budget; full flexible transition and real cable packing remain HOLD.')
+for i,(key,label) in enumerate([('guide_qt_stored','Stored nominal 250 mm lead'),('guide_qt_free','Free curve at propped panel')]):
+    scene(im,QT_BRANCH_IDS+[key],QT_BRANCH_IDS+[key],rect=(55+i*540,200,500,560),direction=(1,2,.7))
+    text(d,65+i*540,780,label,24,True,width=500)
+branch_len=max(b['curve']['rounded_length_mm'] for b in _qt_source['branches'] if b['cable']=='qt')
+text(d,65,845,f"Stored: main {QT_MODEL['curve']['rounded_length_mm']:.2f} + longest branch {branch_len:.2f} = 250 mm nominal. The 240-260 mm family is checked separately.",23,width=1000)
+text(d,65,935,f"Free reach: curve {QT_FREE['curve']['rounded_length_mm']:.2f} + branch {branch_len:.2f} + 24 mm allowance. Remaining stock is not drawn as a qualified flexible shape.",23,width=1000)
+note(d,'Interpret the scope','Round routing envelopes only.\n\nFour 1.6 mm cores cannot pack inside the 3.2 mm bundle proxy. Real MP-QT section, sleeves and roots are unqualified.\n\nA minimum-reach pass cannot prove all cable stows or moves between these poses.\n\nKeep four splices and finished 250 +/- 10 mm intent.')
+stop(d,'No cut instruction or flexible-motion pass. Keep purchased parts and finished-length range unchanged.',y=1030)
+save(im)
 # 18
 im,d=page('16','Close the panel, then fit the FPS hardware','Step 6. Shown part-open; service removal is the exact reverse. Keep the FPS pair mated.')
 scene(im,BASE+['strap']+OPT+['lens','s_c4','microsd']+EVF_IN+STACK+PANEL,PANEL,offsets={p:((0,42,0) if p=='knob_fps' else (0,25,0) if p=='fps_nut' else (0,15,0) if p=='fps_mounting_washer' else (0,0,0) if p=='switch_1824' else (0,8.5,0)) for p in PANEL},arrows=[((-10,30.5,50),(-10,39,50))])
@@ -564,14 +640,14 @@ save(im)
 im,d=page('17v','Keep ventilation clear during assembly','The outer bays conceal the inner slots. Their pressure loss, leakage, recirculation and cooling remain unmeasured.')
 scene(im,['tub','pi5','cooler','carrier'],['tub'],rect=(45,185,850,580),direction=(1,-2,.6))
 text(d,65,790,'Tub, stack and illustrative cooler. Panel and looms omitted for visibility; prove clearance with the complete final assembly.',24,color=GRAY,width=805)
-hot_sections=[r['section']['free_area_mm2'] for r in VENT_STATE['report']['checks'] if r['id'].startswith('hot_interior_horizontal_section_')]
-hot_min=min(hot_sections) if hot_sections else None
+flow_rows={r['id']:r for r in FLOW['checks'] if r['id'] in ('cold_path_min_cut','hot_path_min_cut')}
+hot_min=flow_rows.get('hot_path_min_cut',{}).get('min_cut_mm2')
 summary=VENT_STATE['report']['summary']
 status=f"Saved-STEP checks: {summary['pass']} pass / {summary['fail']} fail / {summary['info']} info. "
-status+=(f"Smallest sampled hot-bay horizontal cut: {hot_min:.1f} mm2. Mouth totals are not a global flow minimum." if hot_min is not None else 'No sampled hot-bay section is available. Mouth totals are not a global flow minimum.')
+status+=(f"Path-aware hot min cut: {hot_min:.1f} / {VENT['exhaust_wall_throat_mm2']:.0f} mm2 ({flow_rows['hot_path_min_cut']['status']}). Mouth totals are not a flow result." if hot_min is not None else 'No sampled hot-bay section is available. Mouth totals are not a global flow minimum.')
 text(d,65,880,status,23,True,color=GRAY if VENT_GEOMETRY_PASS else ORANGE,width=805)
 text(d,960,183,'BEFORE CLOSURE',29,True,width=650)
-text(d,960,242,'Keep mouths, inner slots and baffles clear of the full FPC, EVF feed, power loop, tie heads and fan lead. All loom holds stay open.\n\nCSI stays 12 x 27 mm R1 and uncovered. Its unsealed bypass means not all intake air must reach the cooler.\n\nTest hand, strap and stand occlusion. Blocking the hot underside leaves 210 mm2 front opening for 510 mm2 wall slots. No blocked-vent operation is qualified.',24,width=650)
+text(d,960,242,f"Keep mouths, inner slots and baffles clear of full FPC, EVF feed, power loop, tie heads and fan lead.\n\nCSI stays 12 x 27 mm R1 and uncovered. It is an unsealed cooling bypass.\n\nTest hand, strap and stand occlusion. Blocking the hot underside leaves only the front neck: {VENT['hot_front_mouth_mm2']:.1f} mm2 versus {VENT['exhaust_wall_throat_mm2']:.0f} mm2 wall slots. No blocked-vent operation is qualified.",24,width=650)
 text(d,960,665,'THERMAL GATE',29,True,width=650)
 text(d,960,720,'After electrical prerequisites pass, record ambient, closed-body load, fan speed/duty, component temperatures and throttling at normal hand positions. Compare with the open reference using the same hardware and conditions.\n\nMeasure the actual cooler first; its proxy/source conflict remains open.',24,width=650)
 stop(d,'No airflow, fan operating-point, hand-occlusion or thermal pass. All %d inherited physical gates, M1 and candidate gates stay open.'%GATES_OPEN)
@@ -611,10 +687,10 @@ save(im)
 # 22 sources & audit
 im,d=page('20','Evidence and open checks','Source-linked review candidate. Vendor facts are not real-part measurements.')
 text(d,65,180,'Snapshot',30,True);text(d,65,230,f"Mesh manifest: {ARGS.manifest_sha256[:16]}. No build time is printed, so the same inputs give the same pages.",24,width=1510)
-text(d,65,286,'Geometry: compact-kowa_lm6hc meshes plus source-bound concealed-vent STEP checks; 300 mm HDMI snapshot. Wiring intent: candidate assembly/BOM and inherited WIRING. The separate receipt records exact source hashes.',24,width=1510)
+text(d,65,286,'Geometry: compact-kowa_lm6hc meshes plus source-bound concealed-vent STEP checks; 300 mm HDMI snapshot. Wiring intent: candidate assembly/BOM and WIRING-VERTICAL. The separate receipt records exact source hashes.',24,width=1510)
 text(d,65,398,'What the CAD motions check',30,True);text(d,65,448,'Rigid body motions are sampled, not continuous swept-volume proofs. Complete HDMI shapes and carried heads have a separate source-bound check. The source-registered CSI ends have a limited declared-tool check; real cooler, latch and full FPC access remain blocked. Other flexible leads, hands, tolerances and physical retention remain unqualified.',25,width=1510)
-text(d,65,581,'Primary sources checked 2026-10-09',30,True)
-links=[('Pi J2 and GPIO reference','https://www.raspberrypi.com/documentation/computers/raspberry-pi.html'),('Pi right-angle head 3557','https://www.adafruit.com/product/3557'),('EVF straight head 3556','https://www.adafruit.com/product/3556'),('Intact 30 cm ribbon 3562','https://www.adafruit.com/product/3562'),('Compact Princeton SSD','https://www.princeton.co.jp/product/storage/phdussd.html'),('Lorlin CK rotary switch drawing','https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf'),('USB donor 4448 + supplier drawing','https://www.adafruit.com/product/4448'),('EVF source socket half 2180','https://www.pololu.com/product/2180'),('EVF pin half 2181','https://www.pololu.com/product/2181'),('Molex male assembly drawing','https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/218/218111/2181110201_sd.pdf')]
+text(d,65,581,'Primary sources and 12 October evidence',30,True)
+links=[('Official camera connection order','https://www.raspberrypi.com/documentation/accessories/camera.html'),('Pi right-angle head 3557','https://www.adafruit.com/product/3557'),('EVF straight head 3556','https://www.adafruit.com/product/3556'),('Intact 30 cm ribbon 3562','https://www.adafruit.com/product/3562'),('Compact Princeton SSD','https://www.princeton.co.jp/product/storage/phdussd.html'),('Lorlin CK rotary switch drawing','https://lorlinelectronics.co.uk/wp-content/uploads/2020/11/CK-ROTARY-Nov-2020-1.pdf'),('USB donor 4448 + supplier drawing','https://www.adafruit.com/product/4448'),('EVF source socket half 2180','https://www.pololu.com/product/2180'),('EVF pin half 2181','https://www.pololu.com/product/2181'),('Molex male assembly drawing','https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/218/218111/2181110201_sd.pdf')]
 for i,(name,url) in enumerate(links):text(d,65+(i//5)*790,645+(i%5)*66,name,25,color=BLUE,width=750)
 stop(d,'No manufacturer bend limit, purchased cable measurement or production release is invented here.')
 save(im)
@@ -622,7 +698,7 @@ save(im)
 for p,digest in START_HASHES.items():
     if hashlib.sha256(Path(p).read_bytes()).hexdigest()!=digest:raise RuntimeError('Source changed during render; rerun after freeze: '+p)
 # Assemble image-based PDF; links on evidence page remain clickable.
-pdf=OUT/(GUIDE_ID+'.pdf');c=canvas.Canvas(str(pdf),pagesize=(842,595),invariant=1);c.setTitle('D2 vertical assembly and wiring concealed vent review');c.setAuthor('D2 design review')
+pdf=OUT/(GUIDE_ID+'.pdf');c=canvas.Canvas(str(pdf),pagesize=(842,595),invariant=1);c.setTitle('D2 2026-10-12 corrective assembly and wiring: blocked review');c.setAuthor('D2 design review')
 for i,p in enumerate(pages):
  c.drawImage(str(p),0,0,width=842,height=595)
  # Searchable text layer follows the visible typography; it never paints over the drawings.
@@ -637,6 +713,10 @@ files=list(dict.fromkeys(files+[Path(p) for p in START_HASHES]))
 receipt={'guide_identity':GUIDE_ID,'guide_pdf_filename':pdf.name,'nominated_manifest_sha256':ARGS.manifest_sha256,'generated_utc':EC.UNRECORDED,'guide_pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'mesh_export_utc':MAN.get('built_utc'),'page_count':len(pages),'sources':dict(sorted({rel_posix(p,CAD):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}.items())),'scope':'Compact Princeton storage and Kowa LM6HC only; unqualified review','physical_gates':'%d inherited + M1 remain open'%GATES_OPEN,'source_export_mismatches':SOURCE_MISMATCHES,'mesh_files':{n:h for n,h in MAN['files'].items() if n.startswith('meshes/')} }
 receipt['page_images']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in pages}
 receipt['computed_caption_status']={'main_source_matched':MAIN_MATCHED,'cooler_pi_clash':COOLER_CLASH is not None,'hdmi_source_matched':HDMI_MATCHED,'hdmi_selected_full_material_pass':MATERIAL_PASS,'hdmi_carried_pass':CARRIED_PASS,'power_rigid_pass':POWER_PASS,'csi_source_matched':CSI_MATCHED,'csi_cylinder_reserve_pass':CSI_PASS,'wire_source_matched':WIRE_MATCHED,'fps_material_pass':FPS_PASS,'ventilation_source_matched':True,'ventilation_saved_step_geometry_pass':VENT_GEOMETRY_PASS,'ventilation_physical_qualified':False}
+receipt['flex_scope']=MAIN_CHECK.get('flex_scope')
+receipt['scoped_reports']={k:{'path':rel_posix(v['path'],ROOT),'sha256':hashlib.sha256(v['path'].read_bytes()).hexdigest(),'summary':v['report'].get('summary'),'failing':v['report'].get('failing')} for k,v in VENT_STATE['scoped'].items()}
+receipt['production_prints']=PRINT_COUNTS
+receipt['local_bonded_catch_coupon']={'path':rel_posix(VENT_STATE['catch_path'],ROOT),'sha256':hashlib.sha256(VENT_STATE['catch_path'].read_bytes()).hexdigest(),'piece_count':2,'physical_qualified':False,'scope':'Local seating/tilt/adhesion/creep screening only; no whole-tub 0.5 N m qualification'}
 receipt['ventilation_review']={'source_report_sha256':hashlib.sha256(VENT_CHECK_FILE.read_bytes()).hexdigest(),'check_summary':VENT_STATE['report']['summary'],'metadata':VENT,'scope':'Saved-STEP plenum and sampled path checks only; no flow, hand-occlusion, thermal or print qualification'}
 write_text(OUT/'guide-receipt.json',json.dumps(receipt,indent=2)+'\n')
 print(pdf, len(pages),flush=True)

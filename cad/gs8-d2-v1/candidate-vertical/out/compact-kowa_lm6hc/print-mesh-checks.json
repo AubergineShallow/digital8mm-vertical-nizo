@@ -1,5 +1,5 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "verification_source_sha256": "d74b06c7f1ae25f11135cd1a068ab6d13933c2d19266304728ac478dd0eab12d",
   "variant": "compact-kowa_lm6hc",
   "pass_count": 11,
@@ -9,12 +9,12 @@
       "id": "base_grip",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "a84e035665521ca5dd1eecc9381dab3bac0be716ff0ea050e93af4e754ac665a",
+      "expected_sha256": "ed6c9dee5014a433c1455e855140e84a371f308d180eb67b9afef8e3f83c9fe8",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 67174.00227864475,
-      "expected_print_stock_mm3": 67182.8079816763,
-      "volume_error_mm3": 8.805703031554003,
+      "volume_mm3": 67174.00227887435,
+      "expected_print_stock_mm3": 67182.80798167625,
+      "volume_error_mm3": 8.805702801895677,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
@@ -35,19 +35,19 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "a84e035665521ca5dd1eecc9381dab3bac0be716ff0ea050e93af4e754ac665a",
+      "sha256": "ed6c9dee5014a433c1455e855140e84a371f308d180eb67b9afef8e3f83c9fe8",
       "physical_print_release": false
     },
     {
       "id": "cap",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "59357036478028fa842d3251eb3f883856d9eaa192f8589b129a4ec73034bd32",
+      "expected_sha256": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 6738.099531707466,
+      "volume_mm3": 6738.099531606457,
       "expected_print_stock_mm3": 6739.347417514938,
-      "volume_error_mm3": 1.2478858074719028,
+      "volume_error_mm3": 1.2478859084803844,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
@@ -68,14 +68,14 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "59357036478028fa842d3251eb3f883856d9eaa192f8589b129a4ec73034bd32",
+      "sha256": "c6e24b71996c776ffd3156c92ef44f30ec9f55cb3fc115c1a196c9ecf4b27fe6",
       "physical_print_release": false
     },
     {
       "id": "eyecup",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "b0786159d9afece3c5b3c8aab57051a97666a41ee74994687cf03ae6e2af5bae",
+      "expected_sha256": "5190ed406785dfbe67f4de03e08fb2e1d85515113775d83d88f630a7475f2382",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 4373.747494140232,
@@ -101,14 +101,14 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "b0786159d9afece3c5b3c8aab57051a97666a41ee74994687cf03ae6e2af5bae",
+      "sha256": "5190ed406785dfbe67f4de03e08fb2e1d85515113775d83d88f630a7475f2382",
       "physical_print_release": false
     },
     {
       "id": "knob_exp",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "d418cacd52c6c250e051d17d986f0a5c0b56a2627b8024c61c30ac064a41a820",
+      "expected_sha256": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 4792.027316957697,
@@ -134,19 +134,19 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "d418cacd52c6c250e051d17d986f0a5c0b56a2627b8024c61c30ac064a41a820",
+      "sha256": "45e38317588ee7b196bbb8c88f6d4620cd3e906f01b6b540d83d6462fe825e30",
       "physical_print_release": false
     },
     {
       "id": "knob_fps",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "3609733b170238cbfcbec4883458a4a5825711a14b2e8d6bc9541cb817202d56",
+      "expected_sha256": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 2168.115074525833,
-      "expected_print_stock_mm3": 2168.4662515383825,
-      "volume_error_mm3": 0.3511770125496696,
+      "expected_print_stock_mm3": 2168.466251538382,
+      "volume_error_mm3": 0.35117701254921485,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
@@ -167,19 +167,19 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "3609733b170238cbfcbec4883458a4a5825711a14b2e8d6bc9541cb817202d56",
+      "sha256": "2684b41a34236a7a84ddb10cd62beccc5c4bdca5a464a9225772595b8ba50b85",
       "physical_print_release": false
     },
     {
       "id": "carrier",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "845a273727cee6e4871f3ebbdc6a566cb8838aab2497b817f3a6b6dce948fb54",
+      "expected_sha256": "4d5f4688232cc98427722456ff352de7c66df07d211e614dbbb5efa39594cea4",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 13152.027355876487,
-      "expected_print_stock_mm3": 13152.181906545724,
-      "volume_error_mm3": 0.15455066923641425,
+      "volume_mm3": 13152.027354298412,
+      "expected_print_stock_mm3": 13152.181906545722,
+      "volume_error_mm3": 0.15455224730976624,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
@@ -200,19 +200,19 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "845a273727cee6e4871f3ebbdc6a566cb8838aab2497b817f3a6b6dce948fb54",
+      "sha256": "4d5f4688232cc98427722456ff352de7c66df07d211e614dbbb5efa39594cea4",
       "physical_print_release": false
     },
     {
       "id": "tub",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "9bab1b15b9c000ca28aa0193b3c097a20c56220b5b10693bf20522a817125672",
+      "expected_sha256": "c259ee067bd4efbab7a612008dcec1a70316d2d6f46ae5df76d6d128b31f0bd5",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 171183.56890487767,
-      "expected_print_stock_mm3": 171392.24587990914,
-      "volume_error_mm3": 208.67697503147065,
+      "volume_mm3": 170966.6480780678,
+      "expected_print_stock_mm3": 171213.87191176615,
+      "volume_error_mm3": 247.2238336983428,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
@@ -233,14 +233,14 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "9bab1b15b9c000ca28aa0193b3c097a20c56220b5b10693bf20522a817125672",
+      "sha256": "c259ee067bd4efbab7a612008dcec1a70316d2d6f46ae5df76d6d128b31f0bd5",
       "physical_print_release": false
     },
     {
       "id": "panel",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "f49b1fa16ae57ec87664d12f306bce96e40e25ec7972bdf344a45ea8eb2399e5",
+      "expected_sha256": "b2d9c26d34fd7b7a00b588c234d520c21df070be128108f6180b12679a07dec0",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 41988.99880949822,
@@ -266,25 +266,25 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "f49b1fa16ae57ec87664d12f306bce96e40e25ec7972bdf344a45ea8eb2399e5",
+      "sha256": "b2d9c26d34fd7b7a00b588c234d520c21df070be128108f6180b12679a07dec0",
       "physical_print_release": false
     },
     {
       "id": "lens_collar",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "5646cb4e5ff7f7ee8a8cd9425d7f9be96263c87e6c1fbcfe071729be73f8a0eb",
+      "expected_sha256": "c6573eedc1fa7436df9f3f4160dace795fc8f282afa06b3ac474d8b8b0597a95",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 11267.619875776227,
-      "expected_print_stock_mm3": 11260.500129712402,
-      "volume_error_mm3": 7.119746063825005,
+      "volume_mm3": 11267.619876072693,
+      "expected_print_stock_mm3": 11260.500129712445,
+      "volume_error_mm3": 7.119746360247518,
       "within_volume_tolerance": true,
       "bounds_mm": [
         [
           9.105474600801244e-05,
           3.552713678800501e-15,
-          3.552713678800501e-15
+          7.105427357601002e-15
         ],
         [
           71.69962310791016,
@@ -295,18 +295,18 @@
       "dimensions_mm": [
         71.69953205316415,
         55.794395446777344,
-        11.30000019073486
+        11.300000190734856
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "5646cb4e5ff7f7ee8a8cd9425d7f9be96263c87e6c1fbcfe071729be73f8a0eb",
+      "sha256": "c6573eedc1fa7436df9f3f4160dace795fc8f282afa06b3ac474d8b8b0597a95",
       "physical_print_release": false
     },
     {
       "id": "centring_gauge",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "bf9fae293ce97663f21363be62e552a9da78a4fef4a928c7032385302af6f4e4",
+      "expected_sha256": "fc46a972019428f886b1ac0fd9e8e1ac83c0c5b28af1d90f21fb88b7052e8352",
       "watertight": true,
       "positive_volume": true,
       "volume_mm3": 20527.563693212873,
@@ -332,17 +332,17 @@
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "bf9fae293ce97663f21363be62e552a9da78a4fef4a928c7032385302af6f4e4",
+      "sha256": "fc46a972019428f886b1ac0fd9e8e1ac83c0c5b28af1d90f21fb88b7052e8352",
       "physical_print_release": false
     },
     {
       "id": "tab_catch_insert",
       "status": "pass",
       "manifest_file_binding": true,
-      "expected_sha256": "a542e2e2aa789066c92f321a660e906d514c1b927940c41513f757c45c786812",
+      "expected_sha256": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
       "watertight": true,
       "positive_volume": true,
-      "volume_mm3": 195.56000114917728,
+      "volume_mm3": 227.79999939799276,
       "expected_print_stock_mm3": null,
       "volume_error_mm3": null,
       "within_volume_tolerance": true,
@@ -355,17 +355,17 @@
         [
           6.300000190734863,
           12.0,
-          8.5
+          15.0
         ]
       ],
       "dimensions_mm": [
         6.300000190734863,
         11.999999999999998,
-        8.5
+        15.0
       ],
       "fits_250x210x220": true,
       "bed_z_zero": true,
-      "sha256": "a542e2e2aa789066c92f321a660e906d514c1b927940c41513f757c45c786812",
+      "sha256": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
       "physical_print_release": false
     }
   ],

@@ -150,25 +150,24 @@ if 'area_parity' in cats or 'flow_network' in cats:
         return [round(x0 + i * dx, 6) for i in range(n + 1)]
     ports = {'cold': sum(free('y', -26.75, -103., -68., z, z + 3.) for z in (18., 24., 30., 36.)),
              'hot': sum(free('y', -26.75, -59., -16.5, z, z + 3.) for z in (16., 23., 30., 37.))}
-    mouths = {   # verify_shadow_plenum.py mouth planes and rectangles, unchanged
+    import vent_geometry as VG
+    mouths = {   # Saved-STEP planes; bounds follow the source-bound stepped mouth geometry
         'cold_rear': ('x', [-length + .05, -length + 1.25, -length + 2.49, -length + 2.62], -34., -28., 5., 75.),
         'cold_bottom': ('z', [.05, 1.25, 2.49, 2.62], -length + 4., -83., -34., -28.),
         'hot_bottom': ('z', [.05, 1.25, 2.49, 2.62], -59., -5., -34., -28.),
-        'hot_front': ('x', [-.05, -1.25, -2.49, -2.62], -34., -28., 5., 40.)}
+        'hot_front': ('x', [-.05, -1.25, -2.49, -2.62], -34., -28., *VG.HOT_FRONT_Z)}
     neck = {k: min(free(ax, p, *uv) for p in planes) for k, (ax, planes, *uv) in mouths.items()}
-    import vent_geometry as VG
-    pc = VG.post_centres(length)        # a round post's smallest section is its centre plane: always sample it
+    import plenum_flow as PF
 
-    def planes(grid, axis, lo, hi):
-        c = [x for x, z in pc] if axis == 'x' else [z for x, z in pc]
-        return sorted(set(grid) | {round(v, 6) for v in c if lo <= v <= hi})
+    def planes(grid,axis,lo,hi):
+        return PF.section_sample_planes(VG,length,axis,lo,hi,grid)
     series = {   # sections across the bay between the wall ports and each mouth (flow-normal planes)
         'cold_rear': [('x', x, -34., -28., 2.5, 97.5) for x in planes(frange(-length + 3., -104., 2.), 'x', -length + 3., -104.)],
         'cold_bottom': [('z', z, -length + 2.5, -65., -34., -28.) for z in planes(frange(2.6, 17.8, .4), 'z', 2.6, 17.8)],
         # FX (verifier T1 major): also through the hot port band and the rows above it (z 16.05..42.95, 0.5 mm pitch:
         # every 1.2 mm row band is sampled), where the trial2 rows choked the underside branch unseen
         'hot_bottom': [('z', z, -62., -2.5, -34., -28.) for z in planes(frange(2.6, 15.8, .4), 'z', 2.6, 15.8)]
-                      + [('z', z, -62., -2.5, -34., -28.) for z in frange(16.05, 42.95, .5)],
+                      + [('z', z, -62., -2.5, -34., -28.) for z in planes(frange(16.05,42.95,.5),'z',16.05,42.95)],
         'hot_front': [('x', x, -34., -28., 2.5, 97.5) for x in planes(frange(-16., -2.7, 1.), 'x', -16., -2.7)]}
     sec = {k: [(s[1], free(*s)) for s in v] for k, v in series.items()}
     csi = free('y', -31., -89., -77., 41., 68.)
@@ -199,6 +198,7 @@ if 'area_parity' in cats or 'flow_network' in cats:
                 port_face_mm2=mc['port_face_mm2'], port_face_blocked_mm2=mc['port_face_blocked_mm2'],
                 mouth_face_mm2=mc['mouth_face_mm2'], cut_composition_mm2=mc['cut_composition_mm2'],
                 internal_cut_bbox_xz=mc['internal_cut_bbox_xz'], grid=mc['grid'], step_grid=mc['step_grid'],
+                min_cut_quantization=mc['quantization'],nominal_quantization=nom['quantization'],empty_bay_quantization=empty['quantization'],
                 empty_bay_bound_nominal_mm2=empty['min_cut_mm2'], nominal_with_ribs_mm2=nom['min_cut_mm2'],
                 empty_bay_bound_reaches_ports=empty['min_cut_mm2'] >= need - PF.TOL_MM2,
                 rule='minimum cut (max flow) from the wall-port faces to the mouth faces of the bay over the free gap '

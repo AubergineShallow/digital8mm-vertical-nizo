@@ -1,8 +1,8 @@
 # Vertical Pi candidate: assembly and service plan
 
-**Shadow-gap ventilation candidate.** A plain integral cooler-side skin at Y−35.6 conceals separate cold and hot outer plenums; the original wall remains Y−28..−25.5 and the inner cavity datum stays fixed. Rear/underside mouths supply intake, and front/underside mouths discharge exhaust. The compact core is now 158 × 63.6 × 100 mm. The control panel is plain 2.8 mm: its four former grooves had 0.2 mm blind floors and were not through UPS vents. Nine compact production parts and all purchased selections/quantities are retained.
+**Shadow-gap ventilation candidate.** A plain integral cooler-side skin at Y−35.6 conceals separate cold and hot outer plenums; the original wall remains Y−28..−25.5 and the inner cavity datum stays fixed. Rear/underside mouths supply intake, and front/underside mouths discharge exhaust. The compact core is now 158 × 63.6 × 100 mm. The control panel is plain 2.8 mm: its four former grooves had 0.2 mm blind floors and were not through UPS vents. Compact uses 10 physical printed pieces represented by 9 CAD assembly rows; original storage adds the sleeve for 11 pieces / 10 rows. The tub body and bonded catch stub are separate prints. Gauge and coupons are excluded; no purchased-part substitution is authorized.
 
-**PRINT HOLD.** The front mouth removes the frame beneath the first roof layer over Z5..40. A nominal 10.7 mm distance there is not a two-ended supported bridge; raster direction may require about 35 mm of bridging. The expanded coupon contains this region. Freeze geometry for review, but do not release the tub for printing until slicer paths, bridge behavior and cleanout are demonstrated.
+**PRINT HOLD.** The nominated source uses continuous windowed ribs on pillars, cold-mouth lintels and supported mouth mullions. Review its actual print poses, bridge directions and first layers. The three plenum coupons are geometry-only tests; no slicer, bridge, cleanout or physical-print release is established. The earlier post-grid and unsupported-mouth descriptions are historical.
 
 **USB and CSI source corrections retained.** EVF power remains at source-registered USB2 and recording storage at USB3. The 12 × 27 mm R1 CSI tool opening remains straight and unsealed through the deeper side structure. It is a bypass around the intended cooling path; no seal, dust/water rating or airflow performance is implied. Actual cooler registration, latch/jaw operation, the full 200 mm FPC and complete EVF feed remain on HOLD.
 
@@ -20,7 +20,7 @@ side) and reach verified, or on the bench.
 
 The current compact-Kowa export is a shadow-gap plenum candidate derived from reviewed export18. The earlier visible angled-channel trial is preserved in `vent-study/angled-channel-trial/` as a rejected visual alternative; its dimensions, throat values and 75 geometric passes do not validate the plenum. Its manifest and ventilation report live in `out/compact-kowa_lm6hc/`; the source geometry is `vent_geometry.py`. New evidence is valid only for the manifest hash recorded in that report. Re-export or source changes require rebinding, not reusing old pass counts.
 
-Current selected manifest `dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810` (FX re-export, review 2026-10-10) has **620 pass / 14 fail / 32 info** in the main audit (the 9ced753 record was 292 / 1 / 18 before the review ported the r7 checks); failing rows: interference pi5/cooler and the 13 roll_catch stub_tilt_on_joint_edge window rows (s 0..3; the bonded-stub stack-up, worst window 0.055 mm < 0.10, open: [FIX-LOG](review-2026-10-10/FIX-LOG.md) FX). The cooler/source-Pi conflict is **79.902671 mm³**. The separate plenum report has **49 pass / 0 fail / 21 info**: `no_added_material_in_original_cavity` passes against the declared inventory of in-cavity additions (FP-11c seat rib, T2 tub additions; cavity_rules.py), undeclared 0.000 mm³. Path-aware plenum area (check_scope, plenum_flow.py): cold 420.0 of 420 mm² (pass); hot 444.5 of 510 mm² (fail: the bay with no rib reaches only 493.2 mm², so the hot ports and mouths cannot reach parity: user decision 17). FPS passes again: 332 of 332 material checks are clear, and 0 hit (the FX corbel lane keeps the switch bundle clear of the T2 pair-guide corbel), plus 9 clear non-material reservation diagnostics. The declared CSI cylinders and static power-wire checks pass their narrow geometric scope; actual CSI operation stays on HOLD. Received overmold/exit, full EVF feed and actual service still remain unqualified.
+The current manifest and its reports are listed in [REVIEW.md](REVIEW.md) and the [12 October corrective fix log](review-2026-10-10/FIX-LOG.md). Recheck the main audit, plenum geometry, path-aware flow, print and harness reports against that exact manifest. Preserve every failed row. The prior FX report contained the cooler/source-Pi conflict and bonded-catch tilt-window failures; the corrective geometry requires fresh evidence and does not qualify the printed joint. Cylinder and static-wire clearances cover declared geometric reserves only. Actual cooler, CSI latch, complete linked ribbon, EVF feed, J2 roots/stow and full flexible service remain HOLD.
 
 The frozen export18 reference is preserved in `history/reviewed-export18/`, manifest
 `c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76` (2026-10-09 07:46:39 UTC).
@@ -28,7 +28,7 @@ Its **288 pass / 2 fail / 18 info**, six scoped HDMI passes, 332 clear FPS mater
 
 The frozen export18 raw failures are the active cooler/source-Pi overlap witness, **79.902671 mm³**, and the obsolete right-wall ray through the intentional CSI opening. The ray does not measure adjacent wall thickness. The frozen supplement's three adjacent 2.5 mm measurements describe the old wall. The new checker treats X−80/Z50 as an expected-empty CSI aperture test and separately probes the outer skin and original wall at X−110/Z50. Read its new manifest-bound result for the current count; the old 288/2/18 report remains preserved. Correcting this test context does not resolve the actual cooler/source conflict. Actual cooler profile and registration remain unresolved. Source Pi geometry retains 149 overlapping named-component solids; the raw sum is not occupied material, and the older 11.669 mm³ Boolean-difference witness is not an established lost-material volume.
 
-The complete camera FPC and EVF feed remain unplaced. Storage plug clearance is a non-material reservation and does not establish actual mating. The intact 300 mm HDMI ribbon is retained; the fragile 200 mm study remains rejected. Both 270 mm power-path budgets include unresolved pad-root allowances, and the positive includes the 20 mm rigid fuse/joint zone. These are finished-path allocations, not copper-cut instructions. Complete flexible withdrawal, retained slack, hand/tool access and all physical tests remain STOPs. All 56 inherited gates and M1 remain open.
+The complete camera FPC and EVF feed remain unplaced. Storage plug clearance is a non-material reservation and does not establish actual mating. The intact 300 mm HDMI ribbon is retained; the fragile 200 mm study remains rejected. Both 270 mm power-path budgets include unresolved pad-root allowances, and the positive includes the 20 mm rigid fuse/joint zone. These are finished-path allocations, not copper-cut instructions. The 270 mm pigtail remains blocked by reach and hot-drop; a compatible proposal is pending with the 0.150 V limit unchanged. Complete flexible withdrawal, retained slack, hand/tool access and all physical tests remain STOPs. All 56 inherited gates and M1 remain open.
 
 ## 1. Safety and service prerequisite
 
@@ -107,27 +107,26 @@ The numbered operations in each step are generated from [`steps.py`](steps.py), 
 run `python make_assembly_text.py`; `--check` reports a stale or missing block. The paragraphs after each list are
 hand-written details and holds; they never change the order.
 
-Corrected order (review 2026-10-10: VN-39, VN-40, VN-41, VN-43, VN-44, VN-46): bench work B0-B4 (the camera end of
-the FPC is mated on the bench); grip, tub and strap, then the grip lock; with the carrier and panel absent, the lens
-collar and its centring gauge on the empty tub lip, the gauge out, then the camera, then the lens with its turn-back
-float check and the pinch screw; the eyepiece and EVF module without any mating; the complete module; the EVF HDMI,
-EVF power and Pi-end FPC matings from inside; the panel, its four screws, then the FPS washer, nut and knob; media;
-pack last. The published guide PDF still shows the superseded order and is **stale** until it is rebuilt (VN-12; see
-[`guide/README-CONCEALED-VENTS.md`](guide/README-CONCEALED-VENTS.md)).
+Corrected order (12 October): bench optical work, prints and electrical preparation; seat the Pi end of the full
+200 mm CSI cable before fitting the cooler, leaving the camera end free. Prepare grip, tub and strap, then lock the
+grip. Fit collar and gauge on the empty tub lip; remove the gauge. Support the complete Pi module outside the body,
+mate the camera end just before camera insertion, then fit and float the lens. Fit eyepiece and EVF, then the
+linked module, EVF HDMI and power; inspect the already-mated CSI. Panel, four screws, FPS washer/nut/knob, media and
+pack follow. The full 200 mm ribbon is omitted from the rigid camera and carrier sweeps, so this linked sequence
+remains HOLD. Use the selected guide only when its receipt binds this source and the nominated manifest; earlier PDFs remain historical.
 
-### B0. Supported optical setup and camera-end FPC (bench)
+### B0. Supported optical setup (bench)
 
 <!-- BEGIN:ops B0 -->
-1. **`optics_bench`** Supported optical setup. Camera on its tripod block in a clamp, lens supported separately; never react lens thread torque through the PCB or cover. Seat the C-CS adapter, mark adapter/BFAR and BFAR/housing, measure infinity back focus, rear-cell clearance, cover reach and the lens support band; record actual values. Lens off again; tripod block and its 2 screws off and bagged. Then, still on the bench and unpowered, mate the CAMERA END of the 200 mm FPC and pre-fold it to the reviewed slack shape: the carrier plate later blocks any +Y approach to that socket (3.91 mm gap), so it is never mated in the body.
-   *Into the bench group:* `gs_camera`, `c_cs_adapter`. *Mates:* `camera_fpc:cam`. *Tools:* camera clamp/tripod block, lens support, tripod-block screw driver (one-time bench exception). *Review:* VN-44.
+1. **`optics_bench`** Supported optical setup. Camera on its tripod block in a clamp, lens supported separately; never react lens thread torque through the PCB or cover. Seat the C-CS adapter, mark adapter/BFAR and BFAR/housing, measure infinity back focus, rear-cell clearance, cover reach and the lens support band; record actual values. Lens off again; tripod block and its 2 screws off and bagged. Keep the camera connector accessible. The official 200 mm FPC Pi end is seated before the cooler at module_bench; its camera end is mated while supported immediately before camera_in. Complete linked-ribbon motion remains HOLD.
+   *Into the bench group:* `gs_camera`, `c_cs_adapter`. *Tools:* camera clamp/tripod block, lens support, tripod-block screw driver (one-time bench exception). *Review:* VN-44.
 
 Bench step: nothing enters the body.
 <!-- END:ops B0 -->
 
 Details and holds: the CAD optical pose is not an infinity calibration. Keep the C-CS adapter correctly seated and the
 witness marks across adapter/BFAR and BFAR/housing. Do not print or freeze a collar before these dimensions and the
-revised M1/collar load requirements are settled. The bench-mated camera end and its pre-folded slack travel with the
-camera into the body (step 2); the Pi end is mated only in step 5.
+revised M1/collar load requirements are settled. The Pi cable end is seated before the cooler at B2; the camera end remains free until the supported mating operation immediately before camera insertion in step 2. The linked full-length motion remains unproved.
 
 ### B1. Printed components and inserts (bench)
 
@@ -138,10 +137,10 @@ camera into the body (step 2); the Pi end is mated only in step 5.
 Bench step: nothing enters the body.
 <!-- END:ops B1 -->
 
-Details and holds: after the print holds are closed, inspect and slice the nominated part set: compact has nine production parts; original storage adds the sleeve.
+Details and holds: after the print holds are closed, inspect and slice the nominated part set: compact has 10 physical prints / 9 CAD assembly rows; original storage adds the sleeve for 11 prints / 10 rows. Print the tub body and catch stub separately; do not omit the stub when counting material or process steps.
 The horizontal optical and EVF bores require a declared support and slicer review; do not assume a support-free tub.
 Base grip (C2, VN-57): paint supports only on the declared zone `grip_rear_pocket_passage_band` (`model.grip_support_zones`), the rear J4 head-pocket floor beside the power passage (x -82.75..-65.8, y -12.6..-3.8). The supports stand on the bed through the neck slot and window and never on the keyhole lips. Pull them out through the window, check that the pocket floor is flat, and slide the rear tongue through its full 10 mm by hand before the grip is used (the floor clears the tongue head by only 0.25 mm). The lens collar needs no support: the cone under the LR compression foot (C2, VN-58) carries it.
-Inspect the separate cold/hot plenums, roof bridges and integral posts for sag, incomplete bonds and support debris. Check all four edge mouths and both banks of inner-wall slots with a representative plenum coupon before a production tub. The 6 mm gap is not a bridge span. Keep the outer skin on the declared bed face; verify actual toolpaths and do not enable inaccessible internal supports. The deeper CSI tunnel must remain straight and open. Remove accessible supports without damaging the skin/posts, optical datums, carrier ears or screw seats. Do not drill out the deleted panel grooves: the selected panel is plain 2.8 mm. Check the selected
+Inspect the separate cold/hot plenums, windowed beams, pillars, lintels and mouth mullions for sag, incomplete layer bonds and debris. Inspect all three coupon crops, including the all-four-mouths crop, before a production tub; open coupon edges cannot prove closed-body cleanout. The 6 mm gap is not a bridge span. Keep the outer skin on the declared bed face; verify actual toolpaths and do not enable inaccessible internal supports. The deeper CSI tunnel must remain straight and open. Remove accessible supports without damaging the skin/posts, optical datums, carrier ears or screw seats. Do not drill out the deleted panel grooves: the selected panel is plain 2.8 mm. Check the selected
 lens's collar and separate centring gauge (a printed tool, never left in the body). Install the three short tub
 inserts and one long collar insert under the coupon-validated process, on the bench before electronics are present.
 Verify no insert enters an optical, board or wiring clearance. No hood, Pi keeper or printed power plunger is used.
@@ -149,13 +148,13 @@ Verify no insert enters an optical, board or wiring clearance. No hood, Pi keepe
 ### B2. Electrical and stack preparation, fully unpowered (bench)
 
 <!-- BEGIN:ops B2 -->
-1. **`module_bench`** Electrical and stack preparation, fully unpowered (ASSEMBLY B2 items 1-6 unchanged in content). Stack Pi, X1203, cooler and the 4 standoffs on the carrier with the 4 M2.5 x 8 lower screws; OS microSD in. Solder the 16 AWG pigtail with its one inline fuse to the X1203 pads (RTV strain relief), the J2 signal half to the Pi J2 pads, the EVF feed and the leads. The CK1044 FPS switch belongs to THIS module: mate its inline pair here and carry the switch with the carrier, hand-supported; its washer, nut and knob are fitted only after the panel is on (op fps_washer_on..knob_fps_on). Pre-mate on the bench: the 3557 right-angle HDMI head on the Pi (300 mm 3562 ribbon pre-formed, EVF end free), the USB donor in the Pi USB2 port (EVF power, RCY pair half free), and the wall-facing GPIO housings (QT 1/3/5/6, 18/24 33/34) that cannot be reached once the carrier is in. Run pins 37/39 stay free for the run lead (op module_staged). Bench test only under the inherited gate, then disconnect all power again.
-   *Into the bench group:* `carrier`, `pi5`, `cooler`, `x1203`, `x1203_kit`, `microsd`, `switch_1824`. *Mates:* `fps_1824:pi`, `fps_1824:sw`, `evf_hdmi:pi`, `evf_5v:pi`, `qt:pi`, `j2:pi`, `fan:pi`, `fan:cooler`, `xt30:pigtail`. *Tools:* soldering iron, multimeter, ESD strap, kit driver, PH1. *Review:* VN-40.
+1. **`module_bench`** Electrical and stack preparation, fully unpowered. Seat the Pi end of the official 200 mm camera FPC straight in CAM/DISP 1 with the correct contacts and latch, BEFORE fitting the Active Cooler, as the Raspberry Pi camera instructions recommend. Keep its camera end protected and free. Then stack Pi, X1203, cooler and the 4 standoffs on the carrier with the 4 M2.5 x 8 lower screws; OS microSD in. Solder the 16 AWG pigtail with its one inline fuse to the X1203 pads (RTV strain relief), the J2 signal half to the Pi J2 pads, the EVF feed and the leads. The CK1044 FPS switch belongs to THIS module: mate its inline pair here and carry the switch with the carrier, hand-supported; its washer, nut and knob are fitted only after the panel is on (op fps_washer_on..knob_fps_on). Pre-mate on the bench: the 3557 right-angle HDMI head on the Pi (300 mm 3562 ribbon pre-formed, EVF end free), the USB donor in the Pi USB2 port (EVF power, RCY pair half free), and the wall-facing GPIO housings (QT 1/3/5/6, 18/24 33/34) that cannot be reached once the carrier is in. Run pins 37/39 stay free for the run lead (op module_staged). Bench test only under the inherited gate, then disconnect all power again.
+   *Into the bench group:* `carrier`, `pi5`, `cooler`, `x1203`, `x1203_kit`, `microsd`, `switch_1824`. *Mates:* `camera_fpc:pi`, `fps_1824:pi`, `fps_1824:sw`, `evf_hdmi:pi`, `evf_5v:pi`, `qt:pi`, `j2:pi`, `fan:pi`, `fan:cooler`, `xt30:pigtail`. *Tools:* soldering iron, multimeter, ESD strap, kit driver, PH1. *Review:* VN-40.
 
 Bench step: nothing enters the body.
 <!-- END:ops B2 -->
 
-Details and holds (unchanged content, now all on the bench):
+Details and holds (all on the bench, with the corrected CSI-before-cooler order):
 
 1. Identify the actual Pi 5 J2 pads from the official drawing and board itself. Prepare the removable signal
    pair with one half soldered to the two J2 pads and the other to the two power-switch terminals. Insulate and
@@ -171,9 +170,10 @@ Details and holds (unchanged content, now all on the bench):
    including a 20 mm rigid fuse/joint-sleeve zone.** Determine and trim actual copper cuts and solder overlaps
    to that finished path; do not cut 270 mm copper and then add a fuse. Both 270 mm total path budgets include unresolved
    pad-root allowances; they are not extra length to add later. No exact production cut or offcut is established. STOP until
-   complete stored/extraction paths and joint allowances are proven. Conservatively charging both as 270 mm
-   copper gives 0.142811 V at 8.6 A with copper at 60°C, leaving only about 7.2 mV to the unchanged G-W5 limit
-   before hot fuse/contact/pad uncertainty. This nominal estimate is not a hot-test pass.
+   complete stored/extraction paths and joint allowances are proven. The current source model spans 0.14277 to
+   0.16254 V at 8.6 A against the unchanged 0.150 V limit, including vendor-minimum copper and hot-fuse cases.
+   The earlier nominal-only 0.142811 V margin is insufficient. Reach and hot-drop remain blocked; no wire, fuse,
+   connector or cutoff substitution is adopted. See WIRING-VERTICAL section 8 for regenerated model values.
    Retain the pack's 60 mm 18 AWG lead and the near-XT30 positive inline fuse. Solder/insulate under the baseline
    fuse-temperature rules. Verify polarity and absence of shorts. Use the measured X1203 battery pads and
    neutral-cure RTV strain relief; do not move an assumed pad to make a route work.
@@ -186,7 +186,10 @@ Details and holds (unchanged content, now all on the bench):
 4. Bridge encoder A0 for address 0x37. Map the run, 18/24 and QT header leads before the stack becomes enclosed.
    Use the baseline pin mapping: QT physical pins 1/3/5/6, 18/24 pins 33/34, run pins 37/39. Do not substitute J2
    for a GPIO header pin or count the new button as a record control.
-5. Fit the Active Cooler once and keep its native fan lead with the stack. Assemble Pi, X1203 and the four actual
+5. Seat the Pi end of the official 200 mm camera FPC straight in CAM/DISP 1 BEFORE fitting the Active Cooler,
+   following the [official camera instructions](https://www.raspberrypi.com/documentation/accessories/camera.html).
+   Confirm contact orientation and close the latch without a sharp bend. Keep the camera end protected and free.
+   Then fit the Active Cooler once and keep its native fan lead with the stack. Assemble Pi, X1203 and the four actual
    standoffs at their original spacing. Retain four upper M2.5 × 5 screws. Replace the four lower M2.5 × 5 screws
    with four M2.5 × 8 through the carrier; bag the removed four. The head recess leaves 3 mm of carrier material,
    giving 3.4 mm nominal engagement beyond the 1.6 mm PCB. Measure thread depth and bottoming before tightening.
@@ -269,13 +272,15 @@ check (FP-07) audits p_grip with the strap fitted. The pack remains out.
    *Drives:* `s_c1`, `s_c2`, `s_c3` (straight PH1 on the screw axis). *Tools:* straight PH1 driver on the screw axis (baseline bit/handle envelope); provisional torque cap per ASSEMBLY s2; thumb holding the gauge home. *No rigid sweep:* screws tightened in place; audited with the gauge present.
 5. **`gauge_out`** Pull the gauge out forward (+X) through the collar. The tub lip is now free for the camera.
    *Leaves:* `centring_gauge`. *CAD motion:* `gauge_out`, swept by verify_candidate.py. *Review:* VN-39.
-6. **`camera_in`** Camera with adapter (FPC camera end mated on the bench, op optics_bench) in through the open +Y side: approach 11.1 mm rearward and 2 mm high, lower 2 mm, then move lensward (+X) 11.1 mm until the adapter passes the lip and the metal lock tab enters between the tab-catch tines. Keep the free FPC folded and out of the path. Do not leave it: nothing holds the camera back until the lens is on (next ops).
-   *Enters:* `gs_camera`, `c_cs_adapter`. *CAD motion:* `camera_in`, swept by verify_candidate.py. *Review:* VN-39, VN-44.
-7. **`s_c4_start`** Fit the pinch screw s_c4 (M3 x 16, washer) loosely in the collar lug.
+6. **`camera_fpc_mate`** Support the camera and prepared Pi module beside the body, both unpowered. Seat the camera end of the full 200 mm FPC straight and close its latch before camera insertion. The Pi end was seated before the cooler at module_bench. Never let the ribbon carry either assembly; its full linked camera/module insertion and stored shape remain HOLD.
+   *Mates:* `camera_fpc:cam`. *Tools:* ESD support for camera and complete Pi module. *No rigid sweep:* connector operation outside the body; actual latch and full linked FPC motion remain HOLD.
+7. **`camera_in`** With all power absent and the prepared Pi module supported outside the body, mate the camera end of its 200 mm FPC at camera_fpc_mate before insertion; the Pi end was seated before the cooler at module_bench. HOLD until the full linked camera/module ribbon motion is checked. Bring camera with adapter in through the open +Y side: approach 11.1 mm rearward and 2 mm high, lower 2 mm, then move lensward (+X) 11.1 mm until the adapter passes the lip and the metal lock tab enters between the tab-catch tines. Keep the linked FPC slack and out of the path; do not let it carry either assembly. Do not leave it: nothing holds the camera back until the lens is on (next ops).
+   *Enters:* `gs_camera`, `c_cs_adapter`. *CAD motion:* `camera_in`, swept by verify_candidate.py. **Flexible-motion HOLD:** HOLD: rigid camera/adapter sweep omits the complete 200 mm CSI FPC linking the camera to the supported module outside the body. Full-width stored material, linked motion, roots, bends and latch operation remain unproved; no complete assembly qualification. *Review:* VN-39, VN-44.
+8. **`s_c4_start`** Fit the pinch screw s_c4 (M3 x 16, washer) loosely in the collar lug.
    *Enters:* `s_c4`. *No rigid sweep:* screw started loosely in the collar lug insert. *Review:* VN-41.
-8. **`lens_in`** Lens with the carrier and panel still out (r7 step 8 method). Rest the body on its side so the open +Y side is up; one fingertip on the centre of the camera cover presses the camera forward (+X) onto its lip catch: push only, never pinch or turn the cover. Pass the lens through the collar and screw it into the adapter with fingertips until it stops, no extra snug; the camera turns with it until the metal lock tab meets the tab catch, which takes the torque through metal. Never react thread torque through the PCB or cover.
+9. **`lens_in`** Lens with the carrier and panel still out (r7 step 8 method). Rest the body on its side so the open +Y side is up; one fingertip on the centre of the camera cover presses the camera forward (+X) onto its lip catch: push only, never pinch or turn the cover. Pass the lens through the collar and screw it into the adapter with fingertips until it stops, no extra snug; the camera turns with it until the metal lock tab meets the tab catch, which takes the torque through metal. Never react thread torque through the PCB or cover.
    *Enters:* `lens`. *Tools:* fingertips only; folded cloth for the side rest. *CAD motion:* `lens_in`, covered by the swept reverse `lens_out`. *Review:* VN-41.
-9. **`lens_float`** Set iris and focus and push the lens gently rearward until it seats on the collar cone. With s_c4 still loose, turn lens and camera together the other way until the lock tab stops on the other tine, then back about half way: a soft stop each way means the tab floats between the tines. Look and feel: the camera now hangs on the lens and touches neither the tub lip, the counterbore nor the tines (J7-R float). Snug s_c4 on its axis to the provisional pinch cap (0.2 N m). Check both optical witness marks. The camera is now retained before anything else enters the body.
+10. **`lens_float`** Set iris and focus and push the lens gently rearward until it seats on the collar cone. With s_c4 still loose, turn lens and camera together the other way until the lock tab stops on the other tine, then back about half way: a soft stop each way means the tab floats between the tines. Look and feel: the camera now hangs on the lens and touches neither the tub lip, the counterbore nor the tines (J7-R float). Snug s_c4 on its axis to the provisional pinch cap (0.2 N m). Check both optical witness marks. The camera is now retained before anything else enters the body.
    *Drives:* `s_c4` (straight PH1 on the screw axis). *Tools:* straight PH1 driver on the screw axis (baseline bit/handle envelope); provisional torque cap per ASSEMBLY s2; hand on the grip until s_c4 is snug. *No rigid sweep:* rotation about the lens axis in place (roll window is FP-08 roll_catch), then a screw. *Review:* VN-41.
 
 In the body after this step: 14 ids (`steps.present_at`).
@@ -315,8 +320,8 @@ clamping happens in step 6; do not let the unclosed module fall. No EVF HDMI or 
 <!-- BEGIN:ops 4 -->
 1. **`module_staged`** Hold the complete module (carrier, Pi, cooler, X1203, kit, OS microSD, FPS switch hand-supported, Pi HDMI head mated, EVF ends free) just outside the open +Y side. Plug the run lead from the grip onto Pi pins 37/39 (wall-facing: reachable only now). Carry the EVF HDMI head at least stroke + 3 mm below its mated height for the slide (VN-43 carried-head margin).
    *Mates:* `run_lead:pi`.
-2. **`carrier_in`** Bring the module in along -Y onto its two bosses, feeding the pigtail and XT30 through the floor passage without scraping the pair, fuse or XT30 body. Keep the camera FPC clear of the 3.9 mm camera-to-carrier gap during the slide. Recording storage stays out. Do not force the USB 5 V adapter aside.
-   *Enters:* `carrier`, `pi5`, `cooler`, `x1203`, `x1203_kit`, `microsd`, `switch_1824`. *CAD motion:* `carrier_in`, covered by the swept reverse `carrier_out`. *Review:* VN-44.
+2. **`carrier_in`** Bring the module in along -Y onto its two bosses, feeding the pigtail and XT30 through the floor passage without scraping the pair, fuse or XT30 body. HOLD: the whole 200 mm camera FPC is linked at both ends and is absent from this rigid sweep. Prove its complete motion and keep it clear of the 3.9 mm camera-to-carrier gap during the slide. Recording storage stays out. Do not force the USB 5 V adapter aside.
+   *Enters:* `carrier`, `pi5`, `cooler`, `x1203`, `x1203_kit`, `microsd`, `switch_1824`. *CAD motion:* `carrier_in`, covered by the swept reverse `carrier_out`. **Flexible-motion HOLD:** HOLD: rigid carrier sweep omits the complete 200 mm CSI FPC already connected to both camera and Pi. The full flexible sweep, stored slack, roots, bends and interaction with other looms are unproved; this operation is not a complete assembly or service pass. *Review:* VN-44.
 3. **`carrier_screws`** Drive the two carrier PT screws (p_carrier1, p_carrier2) on their axes, 0.35-0.5 N m provisional, stop at head contact.
    *Enters:* `p_carrier1`, `p_carrier2`. *Drives:* `p_carrier1`, `p_carrier2` (straight PH1 on the screw axis). *Tools:* straight PH1 driver on the screw axis (baseline bit/handle envelope); provisional torque cap per ASSEMBLY s2. *No rigid sweep:* screws: audited by the straight-driver check (FP-07).
 
@@ -341,21 +346,24 @@ step 2; the camera cannot be fitted after this step.
 ### 5. Internal connections and slack
 
 <!-- BEGIN:ops 5 -->
-1. **`evf_mate`** Fully unpowered. Push the 3556 straight EVF HDMI head UP from below into the board receptacle by its body, never by the ribbon. Mate the EVF power RCY pair (2180 source half to 2181 EVF half) by both housings. Mate the camera FPC at the Pi end through the CSI side slot (latch HOLD) and check full width and folds. Seat and tug-test the header leads; route and secure the pigtail, run, 18/24 and EVF leads in their qualified lanes. Leave the QT and J2 leads FREE (out of their lanes): their panel ends mate at panel_prop, and a lead already secured cannot reach the propped panel (FP-10 mate_reach).
-   *Mates:* `camera_fpc:pi`, `evf_hdmi:evf`, `evf_5v:evf`. *Tools:* tweezers, fingertip / steel-rule push stick, smooth-jaw pliers. *No rigid sweep:* no rigid part moves; connector and lead motions are harness checks (FP-10). *Review:* VN-43, VN-44.
+1. **`evf_mate`** Fully unpowered. Push the 3556 straight EVF HDMI head UP from below into the board receptacle by its body, never by the ribbon. Mate the EVF power RCY pair (2180 source half to 2181 EVF half) by both housings. The camera FPC is already mated at both ends: inspect its full width, roots and folds without releasing its latch; complete route and actual latch service remain HOLD. Seat and tug-test the header leads; route and secure the pigtail, run, 18/24 and EVF leads in their qualified lanes. Leave the QT and J2 leads FREE (out of their lanes): their panel ends mate at panel_prop, and a lead already secured cannot reach the propped panel (FP-10 mate_reach).
+   *Mates:* `evf_hdmi:evf`, `evf_5v:evf`. *Tools:* tweezers, fingertip / steel-rule push stick, smooth-jaw pliers. *No rigid sweep:* no rigid part moves; connector and lead motions are harness checks (FP-10). *Review:* VN-43, VN-44.
 
 In the body after this step: 27 ids (`steps.present_at`).
 <!-- END:ops 5 -->
 
-The camera end of the FPC was mated and pre-folded on the bench (B0, VN-44): the carrier plate leaves a 3.91 mm gap
-and blocks any +Y approach to that socket, so only the Pi end is mated here, through the CSI side slot.
-The selected 12 × 27 mm R1 CSI side slot has 323.14 mm² nominal opening; both declared cylinders clear export18 solids. Actual latch/FPC operation remains on HOLD.
-STOP until actual latch/jaw dimensions, operation and FPC occupancy in those corridors are demonstrated.
-Mate the Pi end only while fully unpowered. Check its latch, full ribbon width and all folds, and the bench-mated
-camera end where it can be seen; preserve the entire purchased 200 mm cable with honest slack storage. Mate the EVF
-HDMI head (pushed up from below) and the EVF power pair by their bodies. The native fan lead and the wall-facing header
-housings were mated on the bench. All individual header sockets must match physical pin numbers and be seated
-straight, then gently tug-tested.
+The Pi end was seated before the cooler at B2. With the module supported outside the body, the camera end was
+mated immediately before camera insertion in step 2. Both ends were therefore linked during carrier insertion.
+The current rigid camera/carrier sweeps omit the complete 200 mm FPC; `steps.flexible_scope()` and the main report
+record that omission. STOP until the entire full-width stored ribbon and linked assembly/service motion, roots,
+stiffeners, contact face and interaction with the other looms are proved. Real cable bend and flex-cycle limits
+remain UNKNOWN; a round reservation is not a thin-ribbon material model.
+
+The straight 12 × 27 mm R1 CSI opening remains unsealed and uncovered. Declared tool cylinders do not establish
+actual latch/jaw access with the cooler retained. Do not repeat cooler removal to bypass this service HOLD. Here,
+inspect the already-mated cable without releasing it, and mate the EVF HDMI head upward and the EVF power pair by
+their bodies. The native fan lead and wall-facing header housings were mated on the bench. Verify physical pin
+numbers and gently tug-test each seated socket.
 
 Route and secure the 16 AWG pigtail, pack lead, run lead, QT, 18/24, J2 lead and EVF wiring in the lanes of the
 harness schedule ([WIRING-VERTICAL.md](WIRING-VERTICAL.md)). These lanes are NOT yet qualified: the harness rows
@@ -374,7 +382,7 @@ Keep junctions, fuse sleeve and splices in accessible straight reservations. Avo
 carrier screw heads, vent paths and seam pinch lines. The HDMI ribbon needs a full-width, keyed-end route and
 real bend/twist specification; a successful centreline drawing is not permission to pack it arbitrarily.
 Use one intact 300 mm 3562 ribbon for either variant, with no virtual cut. The 200 mm 3561 study is rejected
-and not installed. The refreshed full 300 mm exact study binds the selected shadow-plenum manifest and records 6 scoped passes / 0 failures. The old
+and not installed. The refreshed full 300 mm exact study binds the selected shadow-plenum manifest; read its current report for the complete scoped check summary. The old
 over-PCB tool failures remain rejected diagnostics; CSI operational access is still on HOLD. Complete interacting
 loom service and actual FPC release remain STOPs. The developable 45° cylindrical fold does not qualify physical R3 bend, thickness,
 clocking, EMI, service tolerance or retention.
@@ -427,7 +435,13 @@ In the body after this step: 39 ids (`steps.present_at`).
 
 Details and holds: support the panel on a stable prop, not its wires. The 18/24 pair stays mated with the supported
 switch/carrier assembly; it is disconnected only on the bench. Service reach/slack for the prop pose must be
-measured; the baseline 60 mm prop offset is a starting target, not an inherited fit result. Computed for that pose (review H2, harness `mate_reach`): the QT lead, still free, reaches the encoder on its declared free route (`signal_routes.py` free_leads: out of the wall lane over the cooler fins and the Pi top edge, over the carrier where it is open, across the prop gap to the plug from -X) with 30.3 mm to spare on a 240 mm lead (fixed branch 43.1 + route 142.7 + margin 24.0 mm; exact sweep clear). The J2 pair does not yet: from its hypothetical pads (VN-73) the lead starts inside the conservative 16 mm FPC envelope and grazes a cooler fin; measure J2 first. Move the panel inward
+measured; the baseline 60 mm prop offset is a starting target, not an inherited fit result. The corrected QT source
+stores the complete nominal 250 mm lead and separately checks its 240–260 mm family in the existing envelope model.
+The free propped-panel curve plus its fixed branch and 24 mm allowance is a minimum-reach budget, not the whole
+stored cable. Do not add that allowance to the finished cable or treat remaining slack as automatically stowed.
+Four 1.6 mm cores do not fit inside the round 3.2 mm bundle proxy: actual MP-QT packing, sleeves and roots remain
+unqualified. The full flexible transition to panel closure is HOLD. J2 still requires actual pad, housing, root and
+stow measurements. Read the current bound harness rows in WIRING-VERTICAL before using any route claim. Move the panel inward
 along −Y without rotating it into the camera, EVF or stack. Confirm the tub bosses contact the panel pads at Y23.5
 with no nominal seating gap; the face plate spans Y25.2..28. Tighten the four panel PT screws to the validated limit.
 There is no hood to snap down and no hood-release pin operation. If slack cannot stow without force, stop and
@@ -474,7 +488,7 @@ place the pack and slack/fuse safely in the grip, then close the cap. Never forc
 
 Run inherited closed-body electrical/workload/thermal/recording gates, including the unchanged 8.6 A and ≤0.15 V
 pack-to-pads test, the fuse/contact temperatures, Pi rails and resets, warm ≥100 MB/s storage, EVF stability and
-zero dropped frames. The swept floor passage adds body/grip air communication, and the unchanged CSI slot remains an unsealed bypass. Measure closed-body airflow/temperature with hand and strap in place, including rear/underside intake and front/underside exhaust mouth occlusion. Gross mouth or inner-slot area alone does not establish cooling. Record unobstructed, normal-hand, fitted-strap and stand/support positions as separate powered qualification cases. A blocked hot underside mouth leaves only 210 mm² front opening versus 510 mm² hot wall slots; do not credit the 534 mm² gross outlet sum or infer rated operation with a blocked vent. Re-evaluate battery temperature, fan clearance and pressure loss. Re-run the revised collar, relieved tongue and strap
+zero dropped frames. The swept floor passage adds body/grip air communication, and the unchanged CSI slot remains an unsealed bypass. Measure closed-body airflow/temperature with hand and strap in place, including rear/underside intake and front/underside exhaust mouth occlusion. Gross mouth or inner-slot area alone does not establish cooling. Record unobstructed, normal-hand, fitted-strap and stand/support positions as separate powered qualification cases. With the hot underside mouth blocked, only the nominated front-mouth neck remains. Use the current manifest and path-aware report, including rib/mullion obstruction; never credit a historical gross-mouth sum or infer rated operation with a blocked vent. Re-evaluate battery temperature, fan clearance and pressure loss. Re-run the revised collar, relieved tongue and strap
 load/service tests. A J2 shutdown does not end the need
 to disconnect the pack before reopening. Record measured results; no gate is closed by this written plan.
 
@@ -536,32 +550,32 @@ Refit, whole chain (this route and every route done first), in build order: `pan
 
 **`module`**: Complete Pi/UPS/cooler module out (carrier with it). Do first: `safety` -> `storage` -> `panel`.
 
-1. `svc_module_unplug` Unplug the EVF HDMI head at the EVF end and part the EVF power pair; release the camera FPC at the Pi (latch HOLD); free the pigtail in the grip passage (flexible: FP-10). (parts `evf_hdmi`, `evf_5v`, `camera_fpc`) *Refit:* `evf_mate`.
+1. `svc_module_unplug` Unplug the EVF HDMI head at the EVF end and part the EVF power pair; release the camera FPC at the Pi (latch HOLD); free the pigtail in the grip passage (flexible: FP-10). (parts `evf_hdmi`, `evf_5v`, `camera_fpc`) *Refit:* `module_bench`, `evf_mate`; CSI Pi end only: use the connection named at module_bench with the assembled module supported; do not repeat cooler installation or soldering. HOLD until real latch access with the cooler retained and the complete linked-ribbon motion are proved.
 2. `svc_carrier_screws_out` Remove the two carrier PT screws. (screws out `p_carrier1`, `p_carrier2`) *Refit:* `carrier_screws`.
 3. `svc_carrier_out` Stage the module +Y with the FPS switch hand-supported; part the run lead at the staging pose. (parts `run_lead`) *Refit:* `module_staged`, `carrier_in`.
 4. `svc_pigtail_out` The pigtail, fuse and its XT30 half leave with the module, drawn up through the floor passage (flexible withdrawal: FP-10 lead_access/pigtail checks). *Refit:* `pack_in`.
 
-Refit, whole chain (this route and every route done first), in build order: `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
+Refit, whole chain (this route and every route done first), in build order: `module_bench` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
 
 **`camera`**: Camera/adapter service and the first half of any lens change (VN-42 dependency chain). Do first: `safety` -> `panel` -> `storage` -> `module` -> `lens`.
 
 1. `svc_camera_out` Reverse the camera-first insertion: -X 11.1, up 2, out +Y. *Refit:* `camera_in`.
 
-Refit, whole chain (this route and every route done first), in build order: `camera_in` -> `lens_in` -> `lens_float` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
+Refit, whole chain (this route and every route done first), in build order: `module_bench` -> `camera_in` -> `lens_in` -> `lens_float` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
 
 **`collar`**: Collar swap for a different lens: camera out first (the gauge needs the empty lip), then the full refit from op collar_on. Do first: `safety` -> `panel` -> `storage` -> `module` -> `lens` -> `camera`.
 
 1. `svc_collar_screws_out` Remove s_c1..s_c3 from the front. (screws out `s_c1`, `s_c2`, `s_c3`) *Refit:* `collar_screws_start`.
 2. `svc_collar_off` Draw the collar +X off its feet; s_c4 stays in its lug insert. *Refit:* `collar_on`, `s_c4_start`.
 
-Refit, whole chain (this route and every route done first), in build order: `collar_on` -> `collar_screws_start` -> `gauge_in` -> `collar_tighten` -> `gauge_out` -> `camera_in` -> `s_c4_start` -> `lens_in` -> `lens_float` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
+Refit, whole chain (this route and every route done first), in build order: `module_bench` -> `collar_on` -> `collar_screws_start` -> `gauge_in` -> `collar_tighten` -> `gauge_out` -> `camera_in` -> `s_c4_start` -> `lens_in` -> `lens_float` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
 
 **`grip`**: Grip/base off. Default per VN-45: Pi module out first (the run lead's Pi end is reachable only with the carrier out); an inline junction is the user's alternative. Do first: `safety` -> `storage` -> `panel` -> `module`.
 
 1. `svc_grip_screw_out` Remove the grip-lock PT screw from below. (screws out `p_grip`) *Refit:* `grip_lock`.
 2. `svc_grip_off` Slide the grip off its keyholes with the run lead following through the floor passage; the strap stays threaded in the base and leaves with it. *Refit:* `grip_prep`, `strap_thread`; the strap stays threaded in the removed base (never re-thread it with the tub on: the seated tub floor closes its recess); slide base, tripod nut, run button and strap back together onto the keyholes (the base_on relative motion), then grip_lock.
 
-Refit, whole chain (this route and every route done first), in build order: `grip_prep` -> `strap_thread` -> `grip_lock` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
+Refit, whole chain (this route and every route done first), in build order: `module_bench` -> `grip_prep` -> `strap_thread` -> `grip_lock` -> `module_staged` -> `carrier_in` -> `carrier_screws` -> `evf_mate` -> `panel_prop` -> `panel_in` -> `panel_screws` -> `fps_washer_on` -> `fps_nut_on` -> `knob_fps_on` -> `storage_in` -> `pack_in` -> `cap_on`.
 <!-- END:service-routes -->
 
 ### 5.1 r7 versus candidate service dependencies (VN-42)
@@ -578,10 +592,10 @@ quotes the r7 release's ASSEMBLY section 7. Counts are state-model bookkeeping, 
 | Lens change, same collar (lens off and on): `lens` | "Lens swap": panel on, body closed, no isolation (nothing electrical is touched); s_c4 one turn, nose-down, fingertip unscrew; refit with the turn-back, s_c4 0.2 N m. | `safety` | 3 ids; 0 screws out, 1 loosened; cables parted: xt30; J2 cycles: 0 | 4 ops: `lens_in`, `lens_float`, `pack_in`, `cap_on` | Closed body as in r7, refit by the r7 nose-down method (5.2). The candidate keeps the isolation route first (conservative). |
 | EVF board/OLED: `evf` | Item 7: pack out, panel off; HDMI unplugged downward, OLED/pad/board +Y 45, eyepiece -X 30. | `safety` -> `panel` | 17 ids; 4 screws out, 1 nut; cables parted: evf_5v, evf_hdmi, j2, qt, xt30; J2 cycles: 1 | 10 ops: `evf_in`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `pack_in`, `cap_on` | Similar; the eyepiece stays. Finger/pliers corridor for the HDMI head not re-measured (VN-43). |
 | OS microSD: `microsd` | Item 8: pack out; tweezers through the front slot, before the stack moves. | `safety` -> `panel` | 15 ids; 4 screws out, 1 nut; cables parted: j2, qt, xt30; J2 cycles: 1 | 8 ops: `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `pack_in`, `cap_on`; plus the text refit of `svc_microsd_out` (section 5 routes) | Panel off first (closed-panel +X path blocked by the power switch); panel-off reach unqualified (VN-29, user decision). |
-| Pi/UPS/cooler module: `module` | Item 10 (Pi stack): panel, lens, camera, collar, EVF, microSD and hood out first (items 3-9). | `safety` -> `storage` -> `panel` | 27 ids; 6 screws out, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 13 ops: `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on` | Much shorter than r7: lens, camera, collar and EVF stay in. Passes through the module STOPs (FPC release, pigtail withdrawal, run-lead reach, fixed-to-carried leads). |
-| Camera / adapter: `camera` | Items 6a-6b: pack out, panel off, lens off, camera -X 11.1 / up 2 / +Y 60; the collar may stay. | `safety` -> `panel` -> `storage` -> `module` -> `lens` | 30 ids; 6 screws out, 1 loosened, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 16 ops: `camera_in`, `lens_in`, `lens_float`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on` | REGRESSION (VN-42): the whole module must come out first; the camera meets the carrier after 3.9 mm. User decision 5 (section 5.3). |
-| Lens change, different collar (collar swap, e.g. Kowa to Fujinon): `collar` | Lens swap note + item 6c: panel off, lens and camera out (items 6a-6b), collar off, then step 7 with that collar's centring gauge (camera out), then step 8. | `safety` -> `panel` -> `storage` -> `module` -> `lens` -> `camera` | 35 ids; 9 screws out, 1 loosened, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 22 ops: `collar_on`, `collar_screws_start`, `gauge_in`, `collar_tighten`, `gauge_out`, `camera_in`, `s_c4_start`, `lens_in`, `lens_float`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on` | REGRESSION (VN-42): full electronics teardown, because the gauge needs the empty lip and the camera needs the module out. User decision 5 (section 5.3). |
-| Grip / base: `grip` | Item 11, after the Pi stack (items 8-10): run lead down through the floor hole, s_j out, base 10 mm rearward and off. | `safety` -> `storage` -> `panel` -> `module` | 32 ids; 7 screws out, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 16 ops: `grip_prep`, `strap_thread`, `grip_lock`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on`; plus the text refit of `svc_grip_off` (section 5 routes) | Same dependency: module out first (VN-45 default); an inline run-lead junction is user decision 11. |
+| Pi/UPS/cooler module: `module` | Item 10 (Pi stack): panel, lens, camera, collar, EVF, microSD and hood out first (items 3-9). | `safety` -> `storage` -> `panel` | 27 ids; 6 screws out, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 14 ops: `module_bench`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on`; plus the text refit of `svc_module_unplug` (section 5 routes) | Much shorter than r7: lens, camera, collar and EVF stay in. Passes through the module STOPs (FPC release, pigtail withdrawal, run-lead reach, fixed-to-carried leads). |
+| Camera / adapter: `camera` | Items 6a-6b: pack out, panel off, lens off, camera -X 11.1 / up 2 / +Y 60; the collar may stay. | `safety` -> `panel` -> `storage` -> `module` -> `lens` | 30 ids; 6 screws out, 1 loosened, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 17 ops: `module_bench`, `camera_in`, `lens_in`, `lens_float`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on`; plus the text refit of `svc_module_unplug` (section 5 routes) | REGRESSION (VN-42): the whole module must come out first; the camera meets the carrier after 3.9 mm. User decision 5 (section 5.3). |
+| Lens change, different collar (collar swap, e.g. Kowa to Fujinon): `collar` | Lens swap note + item 6c: panel off, lens and camera out (items 6a-6b), collar off, then step 7 with that collar's centring gauge (camera out), then step 8. | `safety` -> `panel` -> `storage` -> `module` -> `lens` -> `camera` | 35 ids; 9 screws out, 1 loosened, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 23 ops: `module_bench`, `collar_on`, `collar_screws_start`, `gauge_in`, `collar_tighten`, `gauge_out`, `camera_in`, `s_c4_start`, `lens_in`, `lens_float`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on`; plus the text refit of `svc_module_unplug` (section 5 routes) | REGRESSION (VN-42): full electronics teardown, because the gauge needs the empty lip and the camera needs the module out. User decision 5 (section 5.3). |
+| Grip / base: `grip` | Item 11, after the Pi stack (items 8-10): run lead down through the floor hole, s_j out, base 10 mm rearward and off. | `safety` -> `storage` -> `panel` -> `module` | 32 ids; 7 screws out, 1 nut; cables parted: camera_fpc, evf_5v, evf_hdmi, j2, qt, run_lead, xt30; J2 cycles: 1 | 17 ops: `module_bench`, `grip_prep`, `strap_thread`, `grip_lock`, `module_staged`, `carrier_in`, `carrier_screws`, `evf_mate`, `panel_prop`, `panel_in`, `panel_screws`, `fps_washer_on`, `fps_nut_on`, `knob_fps_on`, `storage_in`, `pack_in`, `cap_on`; plus the text refit of `svc_module_unplug` (section 5 routes); plus the text refit of `svc_grip_off` (section 5 routes) | Same dependency: module out first (VN-45 default); an inline run-lead junction is user decision 11. |
 <!-- END:service-matrix -->
 
 ### 5.2 Holds and methods for the routes

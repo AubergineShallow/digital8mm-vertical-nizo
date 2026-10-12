@@ -1,0 +1,65 @@
+{
+  "scope": "Selected software regressions, not the full repository test suite or physical qualification",
+  "checks": [
+    {
+      "suite": "repo_hygiene",
+      "tests": 20,
+      "exit_code": 0,
+      "test_source_sha256": "8423a4527b737e12f2e945003d45c4715a089a45f1d15f412dc457dfa9f67ff3",
+      "log": "corrective-2026-10-12/software-checks/repo_hygiene.txt",
+      "log_sha256": "3666eaac4cca654dfd8cd008ac7775275c1fcd5d21fb5440b772245eff450d90"
+    },
+    {
+      "suite": "fxh_harness",
+      "tests": 31,
+      "exit_code": 0,
+      "test_source_sha256": "54bf628558006d67b38b10a47f75e0aa1b92aea894da805fe760bba894caa9e1",
+      "log": "corrective-2026-10-12/software-checks/fxh_harness.txt",
+      "log_sha256": "343e3f3fce74f8fb9189b9e10338d77d08f746dcc2b3f50f5edbe9efcd1b8a5c"
+    },
+    {
+      "suite": "h2_harness",
+      "tests": 21,
+      "exit_code": 0,
+      "test_source_sha256": "3df514624d3c69aae52ceebe789737d9f233df79d77b6c426bb60f862dd545e2",
+      "log": "corrective-2026-10-12/software-checks/h2_harness.txt",
+      "log_sha256": "24818e05c2053277b7ea3cec8cf20a8f90816d4fd4e587bb3671ab546f594d80"
+    },
+    {
+      "suite": "blocked_review_receipt",
+      "tests": 7,
+      "exit_code": 0,
+      "test_source_sha256": "af78ab6df1280953445dd32cd672c0beab968239be96b1708f719814c14f267f",
+      "log": "corrective-2026-10-12/software-checks/blocked_review_receipt.txt",
+      "log_sha256": "e01da0ad5e71ab21054300539f882ebfb355681d8fe1f3fa9b6bfd49c4ee2264"
+    },
+    {
+      "suite": "reconciler_variants",
+      "tests": 6,
+      "exit_code": 0,
+      "test_source_sha256": "4ccfe8c6d4326a81d629a1ccd6206b2c8b46a87ea728ee79664a9c04b31bcc74",
+      "log": "corrective-2026-10-12/software-checks/reconciler_variants.txt",
+      "log_sha256": "e110735e8b7f7272020cee687e1cd5535b8a19a8c55e57a36628b199b0f4a868"
+    },
+    {
+      "suite": "isolated_rigid_receipt",
+      "tests": 5,
+      "exit_code": 0,
+      "test_source_sha256": "4f212034fd5de9feea030e20d91e43c8ce4ea5f425f21ee607b8662c5aeab365",
+      "log": "corrective-2026-10-12/software-checks/isolated_rigid_receipt.txt",
+      "log_sha256": "888a0c0ed615e57d32cf72be501b0c355f33b8613c81dfdaa99db33d7959487e"
+    },
+    {
+      "suite": "corrective_aggregate",
+      "tests": 5,
+      "exit_code": 0,
+      "test_source_sha256": "5063121a337200d6834759c1f30123a4171d75e01e7ce5c62591ce8226296183",
+      "log": "corrective-2026-10-12/software-checks/corrective_aggregate.txt",
+      "log_sha256": "0ccfc5a4c37f3dee2f806b46dca4a7b9c2ed97786fd558ddc9c8ae9d859e6ac4"
+    }
+  ],
+  "post_guide_receipt": "guide/out-concealed-vents/post-guide-build-order-check.json",
+  "review_docs_audit": "out/review-docs-audit.json",
+  "release_status": "blocked",
+  "physical_qualified": false
+}

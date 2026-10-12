@@ -6,7 +6,7 @@
   "body": "closed; cap removed before withdrawal",
   "source_sha256": "49c18b6676145eaff89e7d99ef76b8a2ba87c86b01985b635dd77c9ae894fddd",
   "snapshot_sha256": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "physical_qualified": false,
   "remaining_stop": [
     "Full270mm flexible-core deployment and retention",

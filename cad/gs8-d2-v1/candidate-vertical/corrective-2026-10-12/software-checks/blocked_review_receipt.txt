@@ -1,0 +1,12 @@
+test_blocked_record_is_current_deterministic_and_never_green (test_blocked_review_receipt.BlockedReceipt.test_blocked_record_is_current_deterministic_and_never_green) ... ok
+test_checkpoint_binds_blocked_receipt_without_claiming_acceptance (test_blocked_review_receipt.BlockedReceipt.test_checkpoint_binds_blocked_receipt_without_claiming_acceptance) ... ok
+test_failed_check_scope_is_an_acceptance_failure (test_blocked_review_receipt.BlockedReceipt.test_failed_check_scope_is_an_acceptance_failure) ... ok
+test_generated_receipt_is_not_an_input_but_audits_still_check_it (test_blocked_review_receipt.BlockedReceipt.test_generated_receipt_is_not_an_input_but_audits_still_check_it) ... ok
+test_stale_report_and_source_are_preserved_as_identity_failures (test_blocked_review_receipt.BlockedReceipt.test_stale_report_and_source_are_preserved_as_identity_failures) ... ok
+test_historical_rows_are_not_reinterpreted_as_physical_pieces (test_blocked_review_receipt.ProductionPrintCounts.test_historical_rows_are_not_reinterpreted_as_physical_pieces) ... ok
+test_wrong_declared_counts_or_unbound_piece_fail (test_blocked_review_receipt.ProductionPrintCounts.test_wrong_declared_counts_or_unbound_piece_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.159s
+
+OK

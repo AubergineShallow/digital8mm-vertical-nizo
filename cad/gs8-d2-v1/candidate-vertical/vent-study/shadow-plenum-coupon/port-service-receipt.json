@@ -1,8 +1,8 @@
 {
   "name": "port_service_and_edge_regions",
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-  "tub_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
-  "source_check_sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "tub_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+  "source_check_sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
   "crop_bounds_mm": [
     -110.0,
     0.0,
@@ -14,10 +14,10 @@
   "generated_utc": "unrecorded (deterministic build, FP-03)",
   "valid": true,
   "solid_count": 1,
-  "volume_mm3": 48659.253914198656,
+  "volume_mm3": 48474.75391419861,
   "production_part": false,
   "physical_qualified": false,
-  "purpose": "Open-edge crop retaining inlet/hot ports, CSI sleeve, post exclusions, front mouth, bottom support row and top/front frame spans",
+  "purpose": "Open-edge crop retaining inlet/hot ports, CSI sleeve, support interruptions, front mouth, bottom support row and top/front frame spans",
   "limitations": [
     "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
     "The rear section and complete cold-rear mouth are absent; retained edge spans are not a global maximum-span proof.",
@@ -45,8 +45,8 @@
     10.100000000000016
   ],
   "files": {
-    "plenum-port-service-open-edge-coupon.step": "0a322a5521bc6748fde41430bb25b00d7257ba3139f7eddebaf5d89cc2609a07",
-    "plenum-port-service-open-edge-coupon.stl": "2dfda18fd7d88f7ab2053e86b208707e29c512229b5bb1c7ba3966aa75e8c8e5"
+    "plenum-port-service-open-edge-coupon.step": "8794dce5dd0a89277b9b2357f6c53c0365b651cff76ef2d9976494a9b84290be",
+    "plenum-port-service-open-edge-coupon.stl": "acd6b99c204e31cdfabc471b0d2457f47103dacbfd82fada53ec499f69f86722"
   },
-  "source_sha256": "573f2f8f66df23c1cbb82873bb2364537d5af8d22fb1809c10fc4e27770e12f7"
+  "source_sha256": "964debf1149051e91129a3cf614f9000ee34f8b7ab19d98558f7ba902c0cd019"
 }

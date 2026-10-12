@@ -147,9 +147,9 @@ class FreeLeads(unittest.TestCase):
         r = row(self._rows(data()), 'qt_enc')
         self.assertEqual(r['status'], 'pass', r['problems'])
         fl = r['free_lead']
-        self.assertAlmostEqual(fl['route_mm'], 142.65, delta=0.05)
+        self.assertAlmostEqual(fl['route_mm'], 147.47, delta=0.05)
         self.assertAlmostEqual(fl['fixed_mm'], 43.07, delta=0.05)
-        self.assertAlmostEqual(fl['slack_mm'], 30.27, delta=0.05)
+        self.assertAlmostEqual(fl['slack_mm'], 25.45, delta=0.05)
         self.assertEqual((fl['start_gap_mm'], fl['end_gap_mm']), (0.0, 0.0))
         self.assertTrue(r['secured_lane_case']['problems'])     # kept, labelled, not gating
         self.assertTrue(r['lead_state'].startswith('free at panel_prop'))
@@ -163,9 +163,9 @@ class FreeLeads(unittest.TestCase):
             self.assertIn('no obstacle-checked free-lead route', r['problems'][0])
 
     def test_lead_shortened_10mm_fails(self):
-        # fixed 43.07 + route 142.65 = 185.72; L passes iff 185.72 + max(10, 0.1 L) <= L, i.e. L >= 206.4
-        ok = row(self._rows(data(), lengths={'qt': 210.0}), 'qt_enc')
-        bad = row(self._rows(data(), lengths={'qt': 200.0}), 'qt_enc')
+        # Corrective route: fixed 43.07 + route 147.47 = 190.54; the unchanged margin requires L >= 211.8.
+        ok = row(self._rows(data(), lengths={'qt': 220.0}), 'qt_enc')
+        bad = row(self._rows(data(), lengths={'qt': 210.0}), 'qt_enc')
         self.assertEqual(ok['status'], 'pass', ok['problems'])
         self.assertEqual(bad['status'], 'fail')
         self.assertTrue(any('lead short' in p for p in bad['problems']), bad['problems'])
@@ -320,15 +320,16 @@ class BoundReports(unittest.TestCase):
         cr = row(rep['checks'], 'qt', 'cable_routes')
         self.assertEqual(cr['fan_in_gap_mm'], 0.0)
         self.assertEqual(cr['member_clearance']['hits'], {})                    # shortest member (top 56) clear
-        self.assertEqual(set(cr['installed_clearance']['hits']), {'hdmi_ribbon'})  # the remaining, real conflict
+        self.assertEqual(cr['installed_clearance']['hits'], {})  # corrected stored route, unchanged HDMI
         self.assertEqual(cr['installed_clearance']['cable_overlaps'], [])
-        self.assertEqual(len(cr['problems']), 1, cr['problems'])
-        # FX-H (verifier finding 3): own end parts are exempt only near their terminal; the QT free route starts at the
-        # fan-in point (no terminal) and crosses the pi5 there, so qt_enc now fails honestly on that hit alone
+        self.assertEqual(cr['problems'], [])
+        self.assertIn('released_minimum', cr['basis'])
+        # Corrective 2026-10-12: own end parts remain exempt only near their terminal. The free route
+        # rises above the Pi before traversing it; the old crossing remains an exact negative-control study.
         q = row(rep['checks'], 'qt_enc')
-        self.assertEqual(q['status'], 'fail')
-        self.assertEqual(set(q['free_lead']['hits']), {'pi5'})
-        self.assertEqual(len(q['problems']), 1, q['problems'])
+        self.assertEqual(q['status'], 'pass')
+        self.assertEqual(q['free_lead']['hits'], {})
+        self.assertEqual(q['problems'], [])
         j2 = row(rep['checks'], 'j2_btn')['free_lead']
         self.assertEqual(set(j2['hits']), {'cooler'})
         self.assertTrue(j2['cable_overlaps'][0].startswith('fpc '))

@@ -8,6 +8,7 @@ Installed quantities, purchases and included-kit detail are distinct fields.
 from cv_io import read_text, write_text
 import evidence_rules as ER  # FP-04 (VN-08): repeated figures come from their source rows; CAD-free
 import wiring_data as WD     # FP-14 (VN-61/63/64): J2 family, junctions, spares, buy split, wire SKUs; CAD-free
+import harness_rules as HR   # Current pigtail failure bounds, not the superseded nominal-only estimate.
 from pathlib import Path
 import argparse
 import csv
@@ -67,6 +68,8 @@ def export18_power():
 
 def build_rows():
     base = baseline()
+    drop = HR.pigtail_drop_row()
+    drop_note = (f"Current source-bound model at {drop['i_peak_a']:g} A: {drop['drop_lo_v']:.5f} to {drop['drop_hi_v']:.5f} V against unchanged {drop['limit_v']:.3f} V; status {drop['status']}. The high case includes hot fuse and vendor-minimum copper. The earlier nominal-only 0.142811 V estimate is insufficient. 270 mm is blocked by full reach and hot-drop; proposed changes remain pending, with no wire/fuse/connector substitution authorized. " )
     rows = []
     for sec, lid, item, qty, unit, sku, supplier, _pid, _est, ref, _note in base.LINES:
         outside = sec in (base.S_CO, base.S_TO)
@@ -135,7 +138,7 @@ def build_rows():
         status='conditional matched Generic pair; no JST rating inherited', installed_qty=1, purchase_qty=1,
         installed_unit='matched pair', purchase_unit='pair (one 2180 and one 2181)', spare_or_remainder='No spare pair provision; actual tail offcuts TBD',
         note='Replaces unsupported PH wire-to-wire pair, not an EVF board socket. Buy ONE 2180 and ONE 2181. Both have nominal 100 mm 20 AWG silicone tails, stripped/tinned; trim only after complete routing and joint budgets are verified. Use 2180 recessed SOCKET contacts on USB source side, 2181 on the EVF board side; confirm actual mating/continuity and insulate when separated. Brand is explicitly Generic; no current/contact-resistance/OD/tolerance rating is published and JST specifications must not be borrowed. Vendor housing lengths are 13 mm and 19 mm; reserve their full sum 32 mm axially, width 7 mm and provisional thickness 7 mm until actual mated geometry is measured. This is a planning reserve, not a guaranteed vendor bound. Keep straight exit space and real disconnect access. Distinct family prevents mating to PicoBlade signal pairs; label EVF polarity. Preserve G-W6 voltage/drop, contact heating, pull retention and insulation gates. Two housings and four factory contacts are included below; no crimper. The EVF board receives two soldered pigtail joints at traced EXT+/GND pads.')
-    change('D2-24', installed_unit='retained socket-end lead section', note='Join to D2-24B by pin-number continuity, not colour alone; four QT splice joints. Finished QT lead 250 +/- 10 mm. Revised routing requires a new straight splice/stow location.')
+    change('D2-24', installed_unit='retained socket-end lead section', note='Join to D2-24B by pin-number continuity, not colour alone; four QT splice joints. Finished QT lead 250 +/- 10 mm. Complete 240-260 mm stored-length routes and a separate free route for minimum mating reach must both be qualified. The free curve plus 24 mm allowance is a reach budget, not a depiction of all stored cable. Four splice sleeves, roots and the full flexible transition remain open.')
     change('D2-24B', installed_unit='retained SH-end lead section', note='One purchased cable contributes the SH end; offcut is not another harness. Combined finished lead is 250 +/- 10 mm with D2-24.')
     change('D2-25', item='GPIO donor jumpers: two cut female-ended stubs from Adafruit 1950 pack',
         status='conditional new-build donor; measured cut/fit gates open', installed_qty=2, installed_unit='female-ended donor stubs; installed lengths TBD',
@@ -152,7 +155,7 @@ def build_rows():
            installed_qty=2, installed_unit='conductor-path allocations; copper cuts TBD', purchase_qty=2, purchase_unit='36 in lengths, one per colour',
            spare_or_remainder='Offcuts not fixed; determine after measured cuts, joint overlaps and pad allowance', sku_or_class='PRC 16 AWG silicone; red '+WD.WIRE_SKUS['red']+'; black '+WD.WIRE_SKUS['black'], supplier='ProgressiveRC',
            status='provisional length; service route blocked', source=SOURCES['wire'],
-           note='Purchase one 914.4 mm stock length per colour: red '+WD.WIRE_SKUS['red']+', black '+WD.WIRE_SKUS['black']+' (store product record '+SOURCES['wire_variants']+', read 2026-10-11; the product page shows one SKU field with a colour selector). POSITIVE: 270 mm FINISHED-PATH allocation includes a 20 mm rigid fuse/joint-sleeve zone; actual copper cut and solder overlap must be measured/trimmed to that finished path, not 270 mm copper plus fuse. NEGATIVE: 270 mm total path budget includes unresolved pad-root allowances. BOTH budgets include those allowances; they are not extra length to add later. Neither is a proved production cut; no exact offcut claim. Electrical estimate conservatively charges BOTH as 270 mm copper: at 8.6 A cold drop 0.129789 V and copper-at-60 C drop 0.142811 V, leaving about 7.2 mV before hot fuse/contact/pad uncertainty under the unchanged 0.15 V G-W5 limit. Vendor OD 3.0 mm; reserve 3.2 mm/core, 6.4 x 3.2 mm pair. Existing pack lead stays 60 mm 18 AWG. Four carrier tie eyes are present; separate red/black cold-side slack retention is provisional. Full stored-length/bend and battery-disconnect reach checks pending; fixed ties cannot be assumed to unfold for service. Nominal resistance is not a vendor specification or hot-test pass.')
+           note='Purchase one 914.4 mm stock length per colour: red '+WD.WIRE_SKUS['red']+', black '+WD.WIRE_SKUS['black']+' (store product record '+SOURCES['wire_variants']+', read 2026-10-11; the product page shows one SKU field with a colour selector). POSITIVE: 270 mm FINISHED-PATH allocation includes a 20 mm rigid fuse/joint-sleeve zone; actual copper cut and solder overlap must be measured/trimmed to that finished path, not 270 mm copper plus fuse. NEGATIVE: 270 mm total path budget includes unresolved pad-root allowances. BOTH budgets include those allowances; they are not extra length to add later. Neither is a proved production cut; no exact offcut claim. '+drop_note+' Vendor OD 3.0 mm; reserve 3.2 mm/core, 6.4 x 3.2 mm pair. Existing pack lead stays 60 mm 18 AWG. Four carrier tie eyes are present; separate red/black cold-side slack retention is provisional. Full stored-length/bend and battery-disconnect reach checks pending; fixed ties cannot be assumed to unfold for service. Nominal resistance is not a vendor specification or hot-test pass.')
     change('D2-30', installed_qty=7, purchase_qty=11, spare_or_remainder='4 spare', note='Four panel + two carrier + one independent grip-lock PT 3.0 x 12 PH1; seven installed, not eleven. Same body screw count as baseline.')
     change('D2-32', installed_qty=0, installed_unit='inserts', status='contingency stock', note='Fallback stock only; pack quantity unspecified. Do not count a pack as an installed insert. One long collar insert is separately counted at D2-36.')
     change('D2-33', installed_qty=0, status='contingency stock', note='Seven fallback screws for stripped PT bosses, not installed in the candidate. Requalify a repaired boss before use.')
@@ -192,7 +195,7 @@ def build_rows():
         note='Full 200 mm study had effectively zero tolerance reserve with both heads unplugged. Retained research record only; primary compact length is now 300 mm V-22O. No procurement or service-fit recommendation.')
     add('V-22O', base.S_CB, 'HDMI ribbon cable, intact 300 x 10 mm', 1, 1, variant='both',
         status='conditional primary; selected scoped checks passed; physical HOLD', sku_or_class='Adafruit 3562', supplier='Adafruit', layout_id='hdmi', source=SOURCES['hdmi_original_ribbon'],
-        note='One intact 300 mm ribbon for either compact or original-storage body, with 3557/3556 heads. Selected routing input: routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json. The refreshed selected shadow-plenum report has 6 scoped passes / 0 failures, bound to the current compact-Kowa manifest; alternatives still require their own audit. Earlier over-PCB tool failures remain rejected diagnostics; CSI operational access stays on HOLD. This does not qualify complete interacting loom service. Actual availability, full-width/slack/service tolerance, bend/thickness/clocking/EMI and retention remain gates.')
+        note='One intact 300 mm ribbon for either compact or original-storage body, with 3557/3556 heads. Selected routing input: routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json. The selected HDMI report binds the current compact-Kowa manifest; read its complete scoped check summary; alternatives still require their own audit. Earlier over-PCB tool failures remain rejected diagnostics; CSI operational access stays on HOLD. This does not qualify complete interacting loom service. Actual availability, full-width/slack/service tolerance, bend/thickness/clocking/EMI and retention remain gates.')
     # FP-14 (VN-64): spare policy of record in wiring_data.SPARES; spare rows are separate lines so the buy view sums them.
     sp={s['line']:s for s in WD.SPARES}
     add('V-23S', base.S_CB, 'Spare EVF Generic RCY-style matched pair', 0, 1, unit='pair',
@@ -278,16 +281,16 @@ def build_rows():
                           ('base_grip','ASA, black'),('cap','ASA, black'),('eyecup','TPU 95A, black'),
                           ('knob_exp','ASA, black'),('knob_fps','ASA, black'),('lens_collar','ASA, black; thermal qualification pending'),
                           ('stick_sleeve','ASA, satin silver')]:
-        add('P-'+name,'D. Printed production parts',name,1,0,unit='part',variant='original only' if name=='stick_sleeve' else 'both',
+        add('P-'+name,'D. Printed production parts',name,1,0,unit='CAD assembly row',variant='original only' if name=='stick_sleeve' else 'both',
             sku_or_class=material,supplier='print after qualification',layout_id=name,
             note=('Concealed-vent revision: tub incorporates the source-defined ventilation geometry; panel is plain 2.8 mm after removal of four blind grooves. ' if name in ('tub','panel') else '')
-                 +('T2 (VN-53): printed as two pieces, the body (stl/tub.stl, -Y face down, tenon pocket open) and the +Y tab-catch stub (stl/tab_catch_insert.stl, bed face down, catch face vertical), bonded with V-68 at B1 print_inserts (default pending user decision 16); the stub is part of this production part, not another installed part. ' if name=='tub' else '')
-                 +'Slice orientation, supports, filament and measured print mass remain pending. Nine compact production parts retained; this is a production-part count, not a purchase quantity.')
+                 +('T2 (VN-53): TWO physical printed pieces: body (stl/tub.stl, -Y face down, tenon pocket open) and +Y tab-catch stub (stl/tab_catch_insert.stl, bed face down, catch face vertical), bonded with V-68 at B1 print_inserts (default pending user decision 16). The assembled CAD row contains both; count the stub as a separate print. ' if name=='tub' else 'One physical printed piece. ')
+                 +'Slice orientation, supports, filament and measured print mass remain pending. Compact: 9 CAD assembly rows / 10 physical printed pieces. Original storage: 10 rows / 11 pieces. Gauge and coupons excluded; no purchase quantity is implied.')
     add('V-68',base.S_CO,'Two-part epoxy adhesive, small pack (bond the +Y tab-catch stub into the tub, B1 print_inserts)',0,1,unit='pack',
         sku_or_class='class; structural two-part epoxy, confirm on receipt',supplier='any',layout_id='tab_catch_insert',
         note='T2 (VN-53, FP-11b): default pending user decision 16 (bonded stub; alternatives: press fit with a printed detent, or a panel-held block, which needs the panel on at lens_in). Adhesive type, cure, gap fill (0.1 to 0.2 mm pocket clearance) and the bond and tenon strength under the r7 roll_catch design torque are a G-V-PRINT tine coupon gate; amount consumed not measured.')
     add('T-gauge',base.S_TO,'Printed collar centring gauge for selected lens',0,0,unit='tool',supplier='print after qualification',
-        note='Retained baseline tool; separate from the nine/ten installed printed production parts. Inspect candidate gauge export for selected lens.')
+        note='Retained baseline tool; excluded from the 10 compact / 11 original-storage physical production prints and 9 / 10 CAD assembly rows. Inspect candidate gauge export for selected lens.')
     return rows, set(by), base
 
 
@@ -414,6 +417,12 @@ def outputs(rows, base):
     manifest=json.loads(read_text(manifest_path))
     core=' x '.join(format(v,'g') for v in manifest['core_dimensions_mm'])
     ventilation_revision=manifest.get('ventilation',{}).get('revision','source-defined ventilation candidate')
+    counts=manifest.get('production_prints', {})
+    compact_rows=counts.get('assembly_row_count', sum(r['kind']=='printed' for r in manifest['rows']))
+    compact_pieces=counts.get('piece_count', compact_rows + 1)
+    if (compact_rows, compact_pieces)!=(9, 10):
+        raise ValueError('Printed inventory changed; reconcile assembly rows and actual printed pieces')
+    drop=HR.pigtail_drop_row()
     manifest_hash=hashlib.sha256(manifest_path.read_bytes()).hexdigest()
     def bound_report(relative, verifier):
         path=HERE/relative
@@ -451,15 +460,15 @@ def outputs(rows, base):
         'including explicit replaced/removed/optional rows. Candidate assembly and notes supersede old step numbers. '
         'The CSV carries separate installed units, purchase units, spares and included-in fields.','',
         '## Current checkpoint: assembly STOPs','',
-        '- Current compact ventilation geometry: '+ventilation_revision+'. Core '+core+' mm. Geometry identity: '+manifest_hash+'. The panel is plain 2.8 mm; four former grooves had blind 0.2 mm floors, not through-vent area. Nine printed production parts are unchanged from reviewed export18; the purchased selections and quantities that differ from it are listed under "Purchase changes against reviewed export18" (computed from history/reviewed-export18/BOM-VERTICAL.csv).',
+        '- Current compact ventilation geometry: '+ventilation_revision+'. Core '+core+' mm. Geometry identity: '+manifest_hash+'. The panel is plain 2.8 mm; four former grooves had blind 0.2 mm floors, not through-vent area. The compact inventory has 9 CAD assembly rows and 10 physical printed pieces because the tub body and bonded catch stub are separate prints; the purchased selections and quantities that differ from it are listed under "Purchase changes against reviewed export18" (computed from history/reviewed-export18/BOM-VERTICAL.csv).',
         current_check_note,
         '- Reviewed export18 is frozen history, manifest c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76. Its 288 pass / 2 fail / 18 info, six scoped HDMI passes, 332 clear FPS material checks plus nine separate clear keepout diagnostics and other service checks are not automatically current evidence for the shadow-plenum tub. Read the new manifest-bound ventilation report and structural supplement for this revision.',
         '- Retained unresolved failure: '+cooler_text+'. The old right-wall ray runs through the intentional CSI opening and does not measure adjacent wall thickness. The new checker records that location as expected-empty and separately probes outer skin and original wall; read its manifest-bound result for the current count. The original 288/2/18 result and old wall supplement remain historical. The former 11.669 mm3 Boolean-difference witness is not an established lost-material volume; the Pi raw component-volume sum is not occupied material. Full FPC and EVF donor wire routes remain unplaced. Storage plug keepout is non-material; actual mating stays open.',
         '- Pigtail convention: positive 270 mm is the FINISHED PATH including a 20 mm rigid fuse/joint-sleeve zone; both 270 mm total path budgets include unresolved pad-root allowances; they are not extra length to add later. Actual copper cuts/overlaps and offcuts are not established. Buy one 914.4 mm stock length per colour; full flexible deployment remains unqualified.',
-        '- Conservatively charging both paths as 270 mm copper gives 0.142811 V at 8.6 A with copper at 60 C, just 7.2 mV below G-W5 before hot fuse/contact uncertainty. This nominal calculation is not a pass.',
+        f"- Pigtail remains BLOCKED: current {drop['i_peak_a']:g} A drop model gives {drop['drop_lo_v']:.5f} to {drop['drop_hi_v']:.5f} V against the unchanged {drop['limit_v']:.3f} V limit ({drop['status']}); the nominal-only 0.142811 V estimate does not cover hot fuse/vendor-minimum copper. Both full service reach and hot-drop need a compatible solution. No proposed alternative is adopted.",
         '- PRINT HOLD: the front mouth removes first-roof frame support over Z5..40. The nominal 10.7 mm distance is not a two-ended supported span; raster direction may require about 35 mm bridging. The expanded coupon contains the region, but slicer/bridge/cleanout qualification remains open.',
-        '- Intact 300 mm HDMI selected; fragile 200 mm study rejected. Limited geometry checks do not qualify the full interacting loom or service.',
-        '- CSI slot remains straight 12 x 27 mm R1 (323.14 mm2) and unsealed. It bypasses the intended cooling path. Current declared cylinder clearances do not establish actual latch/jaw/FPC/cooler access, which remains on HOLD.', '',
+        '- Intact 300 mm HDMI selected; fragile 200 mm study rejected. Complete HDMI, official 200 mm camera FPC and native OLED flex retain unknown manufacturer bend/cycle limits. Limited geometry checks do not qualify full interacting loom or service. See corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt for baseline evidence and applicability limits.',
+        '- CSI slot remains straight 12 x 27 mm R1 (323.14 mm2) and unsealed. Seat the Pi cable end before installing the cooler per the official camera manual; mate the camera end while supported before camera insertion. Complete 200 mm linked camera/module motion, latch/jaw/FPC/cooler service and all bend/cycle limits remain HOLD. Cylinder clearance does not close those holds.', '',
         'The detailed service evidence applies to selected compact Kowa. Fresh shadow-plenum compact Fujinon and original-storage Kowa exports have their own source/file, mesh, assembly-envelope, mass/CoM and core-void comparisons in out/comparison/assembled-comparison.json and the three volume reports. Their full service/harness audits were not rerun; compact-Kowa service results do not transfer. Export18 alternative main audits remain historical.','',
         '## Count rules','',
         '- Filter to one storage variant; compact and original drives are mutually exclusive.',
@@ -467,10 +476,11 @@ def outputs(rows, base):
         '- Buy is a planning provision, not an order. Zero for printed items and included-kit constituents.',
         '- Included rows decompose a parent kit or harness. Never add both a parent assembly and its constituents to claim a physical total.',
         '- Workshop tools and spools are outside the camera; consumption and slice masses remain unmeasured.',
-        '- Qualification aids are separate: retain the nine prior structural coupon pieces. A preliminary regular-grid open-edge plenum coupon STEP/STL is generated; its open edges do not prove closed-body cleanout or represent all ports/CSI/post exclusions. The expanded feature-region crop is also generated, giving two plenum coupons total. Neither has been sliced, printed or tested; neither establishes every unsupported span or closed-body cleanout. Coupons are neither additional production parts nor purchased items.','',
+        '- Qualification aids are separate: retain the nine prior structural coupon pieces. A preliminary regular-grid open-edge plenum coupon STEP/STL is generated; its open edges do not prove closed-body cleanout or represent all ports/CSI/post exclusions. The expanded feature-region crop and the all-four-mouths crop are also generated, giving three separate plenum coupons total. None has been sliced, printed or tested; none establishes every unsupported span or closed-body cleanout. The separate [bonded-catch local study](structural-review/bonded-catch-coupon/README.md) adds two test pieces, host plus exact production insert copy, bound by [its receipt](structural-review/bonded-catch-coupon/receipt.json). That local seating/tilt/adhesion/creep screen does not qualify the whole-tub 0.5 N m case. Coupons are neither additional production parts nor purchased items.','',
         '| Count | Baseline | Compact candidate | Original-storage candidate |',
         '|---|---:|---:|---:|',
-        '| Installed printed production parts | 12 | 9 | 10 |',
+        '| Physical printed production pieces | 12 | 10 (body and bonded stub counted separately) | 11 (includes sleeve) |',
+        '| Printed CAD assembly rows | 12 | 9 | 10 |',
         '| Installed PT body screws | 7 | 7 (4 panel + 2 carrier + 1 grip) | 7 |',
         '| Installed lens M3 screws / washers / inserts | 4 / 4 / 4 | 4 / 4 / 4 | 4 / 4 / 4 |',
         '| Installed stack screws / standoffs | 8 / 4 | 8 / 4 (4 old + 4 longer screws) | 8 / 4 |',
@@ -482,7 +492,7 @@ def outputs(rows, base):
         'Use the chosen manifest and its ventilation report for passage geometry and normal throat definitions; earlier visible angled-channel figures are not transferable to a new plenum. The straight CSI slot remains an unsealed bypass, and the source-driven floor passage adds body/grip air communication. Useful flow, pressure loss, hand occlusion, print/support quality and battery/thermal performance remain unqualified. Integral passages add no purchased fan, mesh, seal or duct part. See structural-review/CONCEALED-VENT-STRUCTURAL.md for the manifest-bound mass/load sensitivity; old whole-tub binding does not apply.','',
         '## Installed pieces by category (not a grand total)','',
         '| Category | Installed count and contents |', '|---|---|',
-        '| Printed production pieces | Compact 9; original-stick 10 including sleeve. Gauge/coupons excluded. Integrated FPS rest/guide do not add loose pieces. The tub is printed as two pieces (body + bonded +Y tab-catch stub, T2) and counted once. |',
+        '| Printed production pieces | Compact 10; original-stick 11 including sleeve. Gauge/coupons excluded. The tub body and bonded +Y tab-catch stub (T2) are TWO physical prints represented by ONE assembled CAD row. Thus there are 9 / 10 printed CAD assembly rows. Integrated FPS rest/guide add no loose pieces. |',
         '| Body screws | 7 PT: four panel, two carrier, one independent grip lock. |',
         '| Stack hardware | 4 standoffs + 4 retained upper M2.5 x 5 + 4 replacement lower M2.5 x 8 = 12. Removed lower screws are not installed. |',
         '| Cooler mounting | 2 supplied push pins, not four illustrative proxy feet. Other cooler/fan internals stay inside the purchased assembly count. |',

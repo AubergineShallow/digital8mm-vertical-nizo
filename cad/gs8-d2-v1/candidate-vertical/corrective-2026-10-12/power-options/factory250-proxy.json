@@ -1,0 +1,369 @@
+{
+  "analysis_radius_mm": 9.25,
+  "conditional_od_mm": 3.7,
+  "cores": [
+    {
+      "allocated_length_mm": 250,
+      "broad_phase_targets": [
+        "base_grip",
+        "cooler",
+        "microsd",
+        "panel",
+        "pi5",
+        "run_button",
+        "strap",
+        "tub",
+        "x1203_kit",
+        "plug p_hdmi_pi",
+        "plug p_qt_hdr",
+        "housing hdr_qt_1",
+        "housing hdr_qt_3",
+        "housing hdr_qt_5",
+        "housing hdr_qt_6"
+      ],
+      "cable_neighbours": [
+        {
+          "centerline_distance_mm": 0.24822417593566612,
+          "id": "run_pin39",
+          "margin_mm": -2.4017758240643343,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 1.7153698429650777,
+          "id": "run_pin37",
+          "margin_mm": -0.9346301570349227,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 14.318345506323139,
+          "id": "fpc",
+          "margin_mm": 4.468345506323139,
+          "need_mm": 9.85
+        },
+        {
+          "centerline_distance_mm": 12.052792693868644,
+          "id": "power_button",
+          "margin_mm": 8.602792693868643,
+          "need_mm": 3.45
+        },
+        {
+          "centerline_distance_mm": 11.657805894578258,
+          "id": "fan",
+          "margin_mm": 8.807805894578259,
+          "need_mm": 2.85
+        },
+        {
+          "centerline_distance_mm": 12.680596422225591,
+          "id": "qt:hdr_qt_1",
+          "margin_mm": 10.03059642222559,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 13.796622374739561,
+          "id": "qt:hdr_qt_6",
+          "margin_mm": 11.146622374739561,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 13.880147391491846,
+          "id": "qt:hdr_qt_3",
+          "margin_mm": 11.230147391491846,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 15.183908903500638,
+          "id": "qt:hdr_qt_5",
+          "margin_mm": 12.533908903500638,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 16.728134224444226,
+          "id": "qt",
+          "margin_mm": 13.278134224444226,
+          "need_mm": 3.45
+        },
+        {
+          "centerline_distance_mm": 38.677352135036855,
+          "id": "header_branch:hdr_fps_lead_33_34",
+          "margin_mm": 36.02735213503686,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 38.677352135036855,
+          "id": "header_branch:fps_fps_header_branch",
+          "margin_mm": 36.02735213503686,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 38.74582697561946,
+          "id": "header_branch:fps_fps_ck1044_pin_2",
+          "margin_mm": 36.39582697561946,
+          "need_mm": 2.35
+        },
+        {
+          "centerline_distance_mm": 42.760950513447916,
+          "id": "header_branch:fps_fps_switch_bundle",
+          "margin_mm": 39.61095051344792,
+          "need_mm": 3.1500000000000004
+        },
+        {
+          "centerline_distance_mm": 45.09338339732428,
+          "id": "header_branch:fps_fps_ck1044_pin_A",
+          "margin_mm": 42.74338339732428,
+          "need_mm": 2.35
+        },
+        {
+          "centerline_distance_mm": 46.987809630965906,
+          "id": "header_branch:fps_fps_200_main",
+          "margin_mm": 43.83780963096591,
+          "need_mm": 3.1500000000000004
+        },
+        {
+          "centerline_distance_mm": 58.45826190266408,
+          "id": "usb_5v",
+          "margin_mm": 54.80826190266408,
+          "need_mm": 3.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 82.74623707768767,
+          "id": "oled_flex",
+          "margin_mm": 74.69623707768767,
+          "need_mm": 8.05
+        }
+      ],
+      "cad_distances": [],
+      "corridor_mm": 212.27477463913954,
+      "final_axial_straight_mm": 112.99260388468643,
+      "id": "positive",
+      "knots": [
+        [
+          -65.5,
+          8.3,
+          63
+        ],
+        [
+          -32,
+          8.3,
+          25
+        ],
+        [
+          -32,
+          -5.8,
+          10
+        ],
+        [
+          -51.2,
+          -5.8,
+          -8
+        ],
+        [
+          -51.2,
+          -5.8,
+          -125
+        ]
+      ],
+      "margin_after_unchanged_allowance_mm": 6.425225360860452,
+      "source_proxy_hits": [],
+      "unmeasured_root_allowance_mm": 6.299999999999999
+    },
+    {
+      "allocated_length_mm": 250,
+      "broad_phase_targets": [
+        "base_grip",
+        "cooler",
+        "microsd",
+        "panel",
+        "pi5",
+        "run_button",
+        "strap",
+        "tub",
+        "x1203_kit",
+        "plug p_hdmi_pi",
+        "plug p_qt_hdr",
+        "housing hdr_qt_1",
+        "housing hdr_qt_3",
+        "housing hdr_qt_5",
+        "housing hdr_qt_6"
+      ],
+      "cable_neighbours": [
+        {
+          "centerline_distance_mm": 0.129764366268929,
+          "id": "run_pin37",
+          "margin_mm": -2.520235633731071,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 0.48,
+          "id": "run_pin39",
+          "margin_mm": -2.1700000000000004,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 18.57142069394309,
+          "id": "fpc",
+          "margin_mm": 8.72142069394309,
+          "need_mm": 9.85
+        },
+        {
+          "centerline_distance_mm": 15.394838987560753,
+          "id": "power_button",
+          "margin_mm": 11.944838987560754,
+          "need_mm": 3.45
+        },
+        {
+          "centerline_distance_mm": 15.55754794568131,
+          "id": "qt",
+          "margin_mm": 12.107547945681311,
+          "need_mm": 3.45
+        },
+        {
+          "centerline_distance_mm": 15.415203072568117,
+          "id": "fan",
+          "margin_mm": 12.565203072568117,
+          "need_mm": 2.85
+        },
+        {
+          "centerline_distance_mm": 19.46876017819642,
+          "id": "qt:hdr_qt_1",
+          "margin_mm": 16.81876017819642,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 19.640175753992544,
+          "id": "qt:hdr_qt_6",
+          "margin_mm": 16.990175753992546,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 20.30910288748288,
+          "id": "qt:hdr_qt_3",
+          "margin_mm": 17.65910288748288,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 21.18944015129026,
+          "id": "qt:hdr_qt_5",
+          "margin_mm": 18.539440151290258,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 39.12983194221484,
+          "id": "header_branch:fps_fps_ck1044_pin_2",
+          "margin_mm": 36.77983194221484,
+          "need_mm": 2.35
+        },
+        {
+          "centerline_distance_mm": 40.86546854525384,
+          "id": "header_branch:hdr_fps_lead_33_34",
+          "margin_mm": 38.21546854525384,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 40.86546854525384,
+          "id": "header_branch:fps_fps_header_branch",
+          "margin_mm": 38.21546854525384,
+          "need_mm": 2.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 44.9009873449589,
+          "id": "header_branch:fps_fps_switch_bundle",
+          "margin_mm": 41.7509873449589,
+          "need_mm": 3.1500000000000004
+        },
+        {
+          "centerline_distance_mm": 45.42378243009679,
+          "id": "header_branch:fps_fps_ck1044_pin_A",
+          "margin_mm": 43.07378243009679,
+          "need_mm": 2.35
+        },
+        {
+          "centerline_distance_mm": 49.608520794606314,
+          "id": "header_branch:fps_fps_200_main",
+          "margin_mm": 46.458520794606315,
+          "need_mm": 3.1500000000000004
+        },
+        {
+          "centerline_distance_mm": 60.69360307016974,
+          "id": "usb_5v",
+          "margin_mm": 57.043603070169745,
+          "need_mm": 3.6500000000000004
+        },
+        {
+          "centerline_distance_mm": 82.74599543290712,
+          "id": "oled_flex",
+          "margin_mm": 74.69599543290713,
+          "need_mm": 8.05
+        }
+      ],
+      "cad_distances": [],
+      "corridor_mm": 212.95001938721435,
+      "final_axial_straight_mm": 111.57066186112031,
+      "id": "negative",
+      "knots": [
+        [
+          -65.5,
+          12.7,
+          63
+        ],
+        [
+          -31.5,
+          12.7,
+          20
+        ],
+        [
+          -31.5,
+          -0.8,
+          3
+        ],
+        [
+          -51.2,
+          -0.8,
+          -8
+        ],
+        [
+          -51.2,
+          -0.8,
+          -125
+        ]
+      ],
+      "margin_after_unchanged_allowance_mm": 10.14998061278564,
+      "source_proxy_hits": [],
+      "unmeasured_root_allowance_mm": 1.9000000000000004
+    }
+  ],
+  "curve_chord_radial_error_bound_mm": 0.0021621621621621626,
+  "existing_endpoint_exemptions": [
+    "pack",
+    "x1203",
+    "xt30_pair"
+  ],
+  "face_out_mm": 15,
+  "inputs": {
+    "cad/gs8-d2-v1/candidate-vertical/corrective-2026-10-12/power-options/probe_factory250.py": "1d1335ed5a2db723dee659a764b9bcff37729662b0249b83ab7bc308f75df6f6",
+    "cad/gs8-d2-v1/candidate-vertical/harness_rules.py": "2bb8d9d83f79d84ebeae4f50f535db4a1f5de8b454e064358726e75e9565cc0b",
+    "cad/gs8-d2-v1/candidate-vertical/out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "cad/gs8-d2-v1/candidate-vertical/power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+    "cad/gs8-d2-v1/candidate-vertical/routes.py": "2b9e41e36ce09d93f1dd36a2d38d678541167e63ae9986e7d5a35a78932f8e35",
+    "cad/gs8-d2-v1/candidate-vertical/signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
+    "cad/gs8-d2-v1/candidate-vertical/steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960"
+  },
+  "method": "Kernel minimum distance from sampled polyline to manifest-bound solids/keepout boxes; radius includes existing MEMBER_TOL, larger than arc chord error. This rejects or retains one service pose only; no selected gate is changed.",
+  "pair_centerline_distance_mm": 4.299988429603559,
+  "pair_insulation_gap_mm": 0.5999884296035587,
+  "pose": "pack_in",
+  "sampling_step_max_mm": 0.4,
+  "screen_radius_mm": 1.9500000000000002,
+  "service_allowance_mm": 25.0,
+  "source_paths_relative_to_repository": true,
+  "status": "EXPLORATORY ONLY; service corridor screen, not an installed or deployment pass",
+  "supplier_lead": "Pimoroni CAB0244, nominal 250 mm / 14 AWG; actual usable length, OD and resistance unknown",
+  "unresolved": [
+    "supplier dimensions and resistance",
+    "actual pad/root construction",
+    "installed slack storage and retention",
+    "full deployment sweep and hand access",
+    "CAB0244 actual housing and cross-mating with received pack",
+    "positive fuse and negative fuse-bypass local construction",
+    "printed passages, valid solids and loaded ligaments after any proposed change"
+  ]
+}

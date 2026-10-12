@@ -204,8 +204,15 @@ class ModelTests(unittest.TestCase):
                  'storage_in', 'pack_in', 'cap_on']
         self.assertEqual(sorted(chain, key=i.get), chain)
         tok = {t: o['id'] for o in ST.STEPS for t in o['connects']}
-        self.assertEqual({tok['evf_hdmi:evf'], tok['evf_5v:evf'], tok['camera_fpc:pi']}, {'evf_mate'})
-        self.assertEqual(ST.STEPS[i[tok['camera_fpc:cam']]]['where'], 'bench')
+        self.assertEqual({tok['evf_hdmi:evf'], tok['evf_5v:evf']}, {'evf_mate'})
+        self.assertEqual(tok['camera_fpc:pi'], 'module_bench')
+        self.assertEqual(tok['camera_fpc:cam'], 'camera_fpc_mate')
+        scope = ST.flexible_scope()
+        self.assertFalse(scope['complete_flexible_motion_qualified'])
+        self.assertEqual(set(scope['operations']), {'camera_in', 'carrier_in'})
+        for hold in scope['operations'].values():
+            self.assertIn('200 mm', hold)
+            self.assertIn('HOLD', hold)
         panel_bench = {a for o in ST.STEPS if o['group'] == 'panel' and o['where'] == 'bench' for a in o['adds']}
         self.assertFalse({'switch_1824', 'knob_fps', 'fps_nut', 'fps_mounting_washer'} & panel_bench)
         self.assertIn('switch_1824', ST.MODULE)

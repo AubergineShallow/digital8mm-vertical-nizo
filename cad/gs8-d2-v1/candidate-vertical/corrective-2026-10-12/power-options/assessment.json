@@ -1,0 +1,470 @@
+{
+  "baseline_commit": "bdfd44fc549bd8ea9ebf9a93ea4262ad5054b13f",
+  "electrical": {
+    "area14_mm2": 2.0106192982974678,
+    "area16_mm2": 1.2566370614359172,
+    "area18_assumed_mm2": 0.7539822368615504,
+    "historical_270mm16_drop_hi_v": 0.16253577,
+    "maximum_14awg_path_by_contact_mm": {
+      "1.0": 360.692554,
+      "1.2": 350.90865,
+      "2.4": 292.205225
+    },
+    "maximum_16awg_path_historical_contact_mm": 225.432846,
+    "options": [
+      {
+        "14awg_per_polarity_mm": 270,
+        "16awg_terminal_tail_per_polarity_mm": 0,
+        "additional_splices": 0,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13405634,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 15.94366,
+            "total_added_splice_budget_mohm": 1.853913
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.13577634,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 14.22366,
+            "total_added_splice_budget_mohm": 1.653913
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.14609634,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 3.90366,
+            "total_added_splice_budget_mohm": 0.453913
+          }
+        ],
+        "total_path_per_polarity_mm": 270
+      },
+      {
+        "14awg_per_polarity_mm": 246,
+        "16awg_terminal_tail_per_polarity_mm": 24,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13658785,
+            "each_of_two_equal_splices_budget_mohm": 0.779776,
+            "margin_mv": 13.41215,
+            "total_added_splice_budget_mohm": 1.559552
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.13830785,
+            "each_of_two_equal_splices_budget_mohm": 0.679776,
+            "margin_mv": 11.69215,
+            "total_added_splice_budget_mohm": 1.359552
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.14862785,
+            "each_of_two_equal_splices_budget_mohm": 0.079776,
+            "margin_mv": 1.37215,
+            "total_added_splice_budget_mohm": 0.159552
+          }
+        ],
+        "total_path_per_polarity_mm": 270
+      },
+      {
+        "14awg_per_polarity_mm": 230,
+        "16awg_terminal_tail_per_polarity_mm": 40,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13827552,
+            "each_of_two_equal_splices_budget_mohm": 0.681656,
+            "margin_mv": 11.72448,
+            "total_added_splice_budget_mohm": 1.363312
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.13999552,
+            "each_of_two_equal_splices_budget_mohm": 0.581656,
+            "margin_mv": 10.00448,
+            "total_added_splice_budget_mohm": 1.163312
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15031552,
+            "each_of_two_equal_splices_budget_mohm": -0.018344,
+            "margin_mv": -0.31552,
+            "total_added_splice_budget_mohm": -0.036688
+          }
+        ],
+        "total_path_per_polarity_mm": 270
+      },
+      {
+        "14awg_per_polarity_mm": 280,
+        "16awg_terminal_tail_per_polarity_mm": 0,
+        "additional_splices": 0,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13581433,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 14.18567,
+            "total_added_splice_budget_mohm": 1.649496
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.13753433,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 12.46567,
+            "total_added_splice_budget_mohm": 1.449496
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.14785433,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 2.14567,
+            "total_added_splice_budget_mohm": 0.249496
+          }
+        ],
+        "total_path_per_polarity_mm": 280
+      },
+      {
+        "14awg_per_polarity_mm": 256,
+        "16awg_terminal_tail_per_polarity_mm": 24,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13834584,
+            "each_of_two_equal_splices_budget_mohm": 0.677567,
+            "margin_mv": 11.65416,
+            "total_added_splice_budget_mohm": 1.355135
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.14006584,
+            "each_of_two_equal_splices_budget_mohm": 0.577567,
+            "margin_mv": 9.93416,
+            "total_added_splice_budget_mohm": 1.155135
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15038584,
+            "each_of_two_equal_splices_budget_mohm": -0.022433,
+            "margin_mv": -0.38584,
+            "total_added_splice_budget_mohm": -0.044865
+          }
+        ],
+        "total_path_per_polarity_mm": 280
+      },
+      {
+        "14awg_per_polarity_mm": 240,
+        "16awg_terminal_tail_per_polarity_mm": 40,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.14003351,
+            "each_of_two_equal_splices_budget_mohm": 0.579447,
+            "margin_mv": 9.96649,
+            "total_added_splice_budget_mohm": 1.158894
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.14175351,
+            "each_of_two_equal_splices_budget_mohm": 0.479447,
+            "margin_mv": 8.24649,
+            "total_added_splice_budget_mohm": 0.958894
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15207351,
+            "each_of_two_equal_splices_budget_mohm": -0.120553,
+            "margin_mv": -2.07351,
+            "total_added_splice_budget_mohm": -0.241106
+          }
+        ],
+        "total_path_per_polarity_mm": 280
+      },
+      {
+        "14awg_per_polarity_mm": 285,
+        "16awg_terminal_tail_per_polarity_mm": 0,
+        "additional_splices": 0,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13669333,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 13.30667,
+            "total_added_splice_budget_mohm": 1.547287
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.13841333,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 11.58667,
+            "total_added_splice_budget_mohm": 1.347287
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.14873333,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 1.26667,
+            "total_added_splice_budget_mohm": 0.147287
+          }
+        ],
+        "total_path_per_polarity_mm": 285
+      },
+      {
+        "14awg_per_polarity_mm": 261,
+        "16awg_terminal_tail_per_polarity_mm": 24,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13922483,
+            "each_of_two_equal_splices_budget_mohm": 0.626463,
+            "margin_mv": 10.77517,
+            "total_added_splice_budget_mohm": 1.252926
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.14094483,
+            "each_of_two_equal_splices_budget_mohm": 0.526463,
+            "margin_mv": 9.05517,
+            "total_added_splice_budget_mohm": 1.052926
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15126483,
+            "each_of_two_equal_splices_budget_mohm": -0.073537,
+            "margin_mv": -1.26483,
+            "total_added_splice_budget_mohm": -0.147074
+          }
+        ],
+        "total_path_per_polarity_mm": 285
+      },
+      {
+        "14awg_per_polarity_mm": 245,
+        "16awg_terminal_tail_per_polarity_mm": 40,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.1409125,
+            "each_of_two_equal_splices_budget_mohm": 0.528343,
+            "margin_mv": 9.0875,
+            "total_added_splice_budget_mohm": 1.056686
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.1426325,
+            "each_of_two_equal_splices_budget_mohm": 0.428343,
+            "margin_mv": 7.3675,
+            "total_added_splice_budget_mohm": 0.856686
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.1529525,
+            "each_of_two_equal_splices_budget_mohm": -0.171657,
+            "margin_mv": -2.9525,
+            "total_added_splice_budget_mohm": -0.343314
+          }
+        ],
+        "total_path_per_polarity_mm": 285
+      },
+      {
+        "14awg_per_polarity_mm": 300,
+        "16awg_terminal_tail_per_polarity_mm": 0,
+        "additional_splices": 0,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.13933031,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 10.66969,
+            "total_added_splice_budget_mohm": 1.240661
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.14105031,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": 8.94969,
+            "total_added_splice_budget_mohm": 1.040661
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15137031,
+            "each_of_two_equal_splices_budget_mohm": null,
+            "margin_mv": -1.37031,
+            "total_added_splice_budget_mohm": -0.159339
+          }
+        ],
+        "total_path_per_polarity_mm": 300
+      },
+      {
+        "14awg_per_polarity_mm": 276,
+        "16awg_terminal_tail_per_polarity_mm": 24,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.14186182,
+            "each_of_two_equal_splices_budget_mohm": 0.47315,
+            "margin_mv": 8.13818,
+            "total_added_splice_budget_mohm": 0.9463
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.14358182,
+            "each_of_two_equal_splices_budget_mohm": 0.37315,
+            "margin_mv": 6.41818,
+            "total_added_splice_budget_mohm": 0.7463
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15390182,
+            "each_of_two_equal_splices_budget_mohm": -0.22685,
+            "margin_mv": -3.90182,
+            "total_added_splice_budget_mohm": -0.4537
+          }
+        ],
+        "total_path_per_polarity_mm": 300
+      },
+      {
+        "14awg_per_polarity_mm": 260,
+        "16awg_terminal_tail_per_polarity_mm": 40,
+        "additional_splices": 2,
+        "contact_sensitivity": [
+          {
+            "connector_loop_mohm": 1.0,
+            "drop_v_before_added_splices": 0.14354949,
+            "each_of_two_equal_splices_budget_mohm": 0.37503,
+            "margin_mv": 6.45051,
+            "total_added_splice_budget_mohm": 0.75006
+          },
+          {
+            "connector_loop_mohm": 1.2,
+            "drop_v_before_added_splices": 0.14526949,
+            "each_of_two_equal_splices_budget_mohm": 0.27503,
+            "margin_mv": 4.73051,
+            "total_added_splice_budget_mohm": 0.55006
+          },
+          {
+            "connector_loop_mohm": 2.4,
+            "drop_v_before_added_splices": 0.15558949,
+            "each_of_two_equal_splices_budget_mohm": -0.32497,
+            "margin_mv": -5.58949,
+            "total_added_splice_budget_mohm": -0.64994
+          }
+        ],
+        "total_path_per_polarity_mm": 300
+      }
+    ]
+  },
+  "equation": "V = I/1000 * [2*k*((L14/1000)*r14 + (L16/1000)*r16 + (60/1000)*r18) + 4.46*1.30 + R_XT30_loop + sum(R_added_splices)]; k=1+0.00393*(60-20); r_gauge=(1000/58)*1.03/A_gauge in mOhm/m; lengths in mm, areas in mm^2, remaining resistances in mOhm",
+  "geometry": {
+    "cases": [
+      {
+        "cores": [
+          {
+            "family_minimum_mm": 251.834878,
+            "hump_top_z_mm": 94.949741,
+            "id": "positive",
+            "margin_at_270mm_allocation_mm": -8.834878,
+            "minimum_stock_with_10pct_allowance_mm": 279.816531,
+            "source_proxy_hits": [
+              "xt30_selected_housing"
+            ],
+            "wall_overrun_sample_points": 0
+          },
+          {
+            "family_minimum_mm": 250.916096,
+            "hump_top_z_mm": 69.571312,
+            "id": "negative",
+            "margin_at_270mm_allocation_mm": -7.916096,
+            "minimum_stock_with_10pct_allowance_mm": 278.795663,
+            "source_proxy_hits": [
+              "xt30_selected_housing"
+            ],
+            "wall_overrun_sample_points": 0
+          }
+        ],
+        "name": "selected_baseline"
+      },
+      {
+        "cores": [
+          {
+            "family_minimum_mm": 241.834878,
+            "hump_top_z_mm": 99.94982,
+            "id": "positive",
+            "margin_at_270mm_allocation_mm": 1.165122,
+            "minimum_stock_with_10pct_allowance_mm": 268.70542,
+            "source_proxy_hits": [
+              "xt30_selected_housing"
+            ],
+            "wall_overrun_sample_points": 84
+          },
+          {
+            "family_minimum_mm": 240.916096,
+            "hump_top_z_mm": 74.659301,
+            "id": "negative",
+            "margin_at_270mm_allocation_mm": 2.083904,
+            "minimum_stock_with_10pct_allowance_mm": 267.684552,
+            "source_proxy_hits": [
+              "xt30_selected_housing"
+            ],
+            "wall_overrun_sample_points": 0
+          }
+        ],
+        "name": "shortened_rear_probe"
+      }
+    ],
+    "scope": "Pure route/proxy arithmetic only. No exact CAD, cable-neighbour, retained-service or physical pass.",
+    "source_sha256": {
+      "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+      "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac"
+    }
+  },
+  "inputs": {
+    "added_splice_mohm_in_tabulated_drop": 0.0,
+    "alpha_per_k": 0.00393,
+    "connector_loop_sensitivities_mohm": [
+      1.0,
+      1.2,
+      2.4
+    ],
+    "copper_hot_c": 60.0,
+    "current_a": 8.6,
+    "fuse_cold_mohm": 4.46,
+    "fuse_hot_factor": 1.3,
+    "historical_connector_loop_mohm": 1.0,
+    "lay_factor": 1.03,
+    "limit_v": 0.15,
+    "pack18_strands_assumed": 150,
+    "pack_lead_per_polarity_mm": 60.0,
+    "prc14_strands_conservative": 400,
+    "prc16_strands_conservative": 250,
+    "reference_c": 20.0,
+    "rho20_ohm_mm2_per_m": 0.017241379310344827,
+    "strand_diameter_mm": 0.08
+  },
+  "qualifications": [
+    "No hardware measurements were made.",
+    "All new splice resistance is zero only for tabulation; a real splice consumes the stated remaining budget.",
+    "Vendor strand diameters and OD have no retrieved tolerance; strand counts are conservative interpretations, not measured lower bounds.",
+    "1.2 and 2.4 mOhm are connector-scope sensitivity cases, not resolved specification interpretations.",
+    "The 270mm positive allocation includes a 20mm rigid fuse/joint zone; no copper-displacement credit is taken.",
+    "14 AWG direct termination in XT30U cups is unsupported by retrieved manufacturer evidence."
+  ],
+  "sources": {
+    "connector_page": "https://www.china-amass.net/xt30u-f-product/",
+    "connector_spec_archive": "https://www.china-amass.net/uploads/XT30U-MF.rar",
+    "connector_spec_version": "2025V0; female A.06.1; male A.01.1",
+    "read_date_utc": "2026-10-12",
+    "wire14": "https://www.progressiverc.com/products/prc-silicone-wire-14-awg",
+    "wire14_variants": "https://www.progressiverc.com/products/prc-silicone-wire-14-awg.json",
+    "wire16": "https://www.progressiverc.com/products/prc-silicone-wire-16-awg"
+  },
+  "status": "EXPLORATORY ONLY; no final part selection, purchase or physical qualification"
+}

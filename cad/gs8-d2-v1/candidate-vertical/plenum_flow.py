@@ -175,10 +175,13 @@ def min_cut(xs, zs, masks, ports, mouths, debug=False, level_w=None):
     seen = G.reachable(S)
     # cut composition: original capacity of every edge from the source side to the sink side
     comp = dict(port=0.0, mouth=0.0, internal=0.0)
+    cut_capacity_count=0
     cut_list = []
     box = [None, None, None, None]
     for e in range(len(G.to)):
         u, v = G.to[e ^ 1], G.to[e]
+        if seen[u] and not seen[v]:
+            cut_capacity_count+=1  # include capacities rounded down to zero; the bound must count their possible error
         if seen[u] and not seen[v] and G.cap0[e] > 0:
             kind = 'port' if u == S else ('mouth' if v == T else 'internal')
             comp[kind] += G.cap0[e] / SCALE
@@ -197,6 +200,9 @@ def min_cut(xs, zs, masks, ports, mouths, debug=False, level_w=None):
                 mouth_face_mm2=mouth_face, grid=dict(nx=nx, nz=nz, free_cells=free_cells, max_cell_mm=MAX_CELL,
                                                     levels=len(lw), level_thickness_mm=[round(w, 6) for w in lw]),
                 cut_composition_mm2={k: round(v, 4) for k, v in comp.items()},
+                quantization=dict(capacity_units_per_mm2=int(SCALE),selected_cut_capacity_count=cut_capacity_count,
+                    selected_cut_abs_error_bound_mm2=cut_capacity_count/(2*SCALE),
+                    scope='Arithmetic bound for the summed selected cut only: each integer-rounded capacity contributes at most 0.5/SCALE mm2; not a geometric acceptance tolerance'),
                 internal_cut_bbox_xz=[None if v is None else round(v, 3) for v in box],
                 **({'cut_edges': cut_list} if debug else {}))
 
@@ -242,9 +248,9 @@ def mask_from_boxes(xs, zs, boxes, polys=(), levels=None):
 
 
 # ------------------------------------------------------------------------------------------- bays (verifier rectangles)
-def bays(length):
+def bays(length, front_z=(5.0,58.0)):
     """The two bays with the plenum verifiers' own port and mouth rectangles (verify_shadow_plenum / check_scope
-    area_parity, unchanged): name -> dict(x=(x0, x1), z=(0, 100), ports=[(x0, x1, z0, z1)], mouths={name: (face, lo, hi)},
+    area_parity; front_z comes from the source-bound stepped mouth): name -> dict(x=(x0, x1), z=(0, 100), ports=[(x0, x1, z0, z1)], mouths={name: (face, lo, hi)},
     wall_ports_mm2)."""
     return {
         'cold': dict(x=(-length, -65.0), z=(0.0, 100.0),
@@ -253,7 +259,7 @@ def bays(length):
                      wall_ports_mm2=420.0),
         'hot': dict(x=(-62.0, 0.0), z=(0.0, 100.0),
                     ports=[(-59.0, -16.5, z, z + 3.0) for z in (16.0, 23.0, 30.0, 37.0)],
-                    mouths={'hot_bottom': ('z_min', -59.0, -5.0), 'hot_front': ('x_max', 5.0, 40.0)},
+                    mouths={'hot_bottom': ('z_min', -59.0, -5.0), 'hot_front': ('x_max', *front_z)},
                     wall_ports_mm2=510.0)}
 
 
@@ -264,8 +270,9 @@ def nominal_frame_boxes(VG, length):
     y0, y1 = VG.RIB_Y
     land = VG.WALL_OUTER - VG.LINTEL
     xs = -length
+    front_lo,front_hi=VG.HOT_FRONT_Z
     b = [(xs, xs + 2.5, y0, y1, 0, 5), (xs, xs + 2.5, y0, y1, 75, 100),
-         (-2.5, 0, y0, y1, 0, 5), (-2.5, 0, y0, y1, 40, 100),
+         (-2.5, 0, y0, y1, 0, front_lo), (-2.5, 0, y0, y1, front_hi, 100),
          (xs, xs + 4, y0, y1, 0, 2.5), (-83, -59, y0, y1, 0, 2.5), (-5, 0, y0, y1, 0, 2.5),
          (xs, 0, y0, y1, 97.5, 100), (-65, -62, y0, y1, 2.4, 97.6), (-91, -75, y0, y1, 39, 70)]
     w, s = VG.LINTEL_LAND, VG.LINTEL     # cold lintels: flat land, then the 45 deg slope in 4 steps (nominal only)
@@ -278,14 +285,30 @@ def nominal_frame_boxes(VG, length):
     b += [(xs, xs + 2.6, y0, y1, z - h, z + h) for z in rear]
     b += [(x - h, x + h, y0, y1, 0, 2.6) for x in VG.cold_bottom_mullions(length)]
     b.append((VG.HOT_BOTTOM_MULLION_X - h, VG.HOT_BOTTOM_MULLION_X + h, y0, y1, 0, 2.6))
-    b.append((-2.6, 0, y0, y1, VG.HOT_FRONT_MULLION_Z - h, VG.HOT_FRONT_MULLION_Z + h))
+    b += [(-2.6,0,y0,y1,z-h,z+h) for z in VG.HOT_FRONT_MULLION_ZS]
+    if VG.HOT_FRONT_STEP_Z<front_hi:
+        b.append((-2.5,0,VG.HOT_FRONT_STEP_Y,y1,VG.HOT_FRONT_STEP_Z,front_hi))
     return b
+
+
+def section_sample_planes(VG,length,axis,lo,hi,regular):
+    """Retain every regular plane and add a midpoint in each constant rib-material interval.
+
+    Full-depth pillars can be only 1.2 mm long while the rear-plane pitch is 2 mm. Sampling only regular planes
+    misses a 522 mm2 cold-rear section (reporting 534); the interval samples resolve these source-defined features.
+    The saved-STEP minimum-cut remains the independent path gate; no area threshold is changed here.
+    """
+    k={'x':0,'z':4}[axis]
+    edges=sorted({lo,hi}|{v for b in VG.rib_boxes(length) for v in b[k:k+2] if lo<v<hi})
+    mids={round((a+b)/2,6) for a,b in zip(edges,edges[1:]) if b-a>1e-5}
+    posts={round(x if axis=='x' else z,6) for x,z in VG.post_centres(length) if lo<=(x if axis=='x' else z)<=hi}
+    return sorted(set(regular)|mids|posts)
 
 
 def nominal_min_cut(VG, length, which, ribs=True):
     """CAD-free nominal min cut of one bay from vent_geometry (ribs=False: the empty-bay bound, i.e. the best any
     internal rib layout can reach with these ports, mouths, mullions and frame)."""
-    B = bays(length)[which]
+    B = bays(length,VG.HOT_FRONT_Z)[which]
     boxes = nominal_frame_boxes(VG, length)
     polys = []
     if ribs:
@@ -395,7 +418,8 @@ def step_masks(tub, x_range, z_range, extra_x=(), extra_z=()):
 def step_min_cut(tub, length, which):
     """Gate computation on the saved tub: min cut of one bay between its wall ports and its mouths (verifier
     rectangles). -> dict(min_cut_mm2, wall_ports_mm2, ...)."""
-    B = bays(length)[which]
+    import vent_geometry as VG
+    B = bays(length,VG.HOT_FRONT_Z)[which]
     ex_x = [p for q in B['ports'] for p in q[:2]] + [v for m in B['mouths'].values() if m[0] == 'z_min' for v in m[1:]]
     ex_z = [p for q in B['ports'] for p in q[2:]] + [v for m in B['mouths'].values() if m[0] != 'z_min' for v in m[1:]]
     xs, zs, masks, info = step_masks(tub, B['x'], B['z'], ex_x, ex_z)

@@ -1,5 +1,5 @@
 {
- "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+ "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
  "variant": "compact-kowa_lm6hc",
  "categories": [
   "print_overhang",
@@ -15,7 +15,7 @@
   "candidate-vertical/verify_print_checks.py": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e",
   "candidate-vertical/print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb",
   "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
-  "candidate-vertical/model.py": "271e02017315dce2abecd5022adf09038e0f6e3c2fc05fc51b926a8e2cd79533",
+  "candidate-vertical/model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
   "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
   "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
   "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
@@ -2563,7 +2563,7 @@
      "directions": 8,
      "px": 0.1
     },
-    "layers": 42,
+    "layers": 75,
     "regions": 1,
     "short_overhangs": 1,
     "bridge_regions": 0,
@@ -2618,9 +2618,9 @@
      "px": 0.1
     },
     "layers": 317,
-    "regions": 425,
+    "regions": 426,
     "short_overhangs": 275,
-    "bridge_regions": 136,
+    "bridge_regions": 137,
     "longest_bridge_mm": 29.9,
     "apex_line_mm2": 0.58,
     "hole_edge_bridges": 2,
@@ -2649,7 +2649,7 @@
      {
       "z": 7.6,
       "span_mm": 28.7,
-      "area_mm2": 603.5,
+      "area_mm2": 626.17,
       "hole_edge_mm2": 0.0,
       "bbox": [
        127.8,
@@ -2908,7 +2908,7 @@
       35.6
      ]
     },
-    "seconds": 7.7,
+    "seconds": 7.2,
     "zones_assembly": [
      {
       "id": "tongue_f_minus_y_wing",
@@ -3980,7 +3980,7 @@
      "px": 0.1,
      "single_direction_per_region": true
     },
-    "layers": 42,
+    "layers": 75,
     "regions": 1,
     "short_overhangs": 1,
     "bridge_regions": 0,
@@ -4034,9 +4034,9 @@
      "single_direction_per_region": true
     },
     "layers": 317,
-    "regions": 425,
+    "regions": 426,
     "short_overhangs": 275,
-    "bridge_regions": 150,
+    "bridge_regions": 151,
     "longest_bridge_mm": 27.7,
     "failing_region_count": 0,
     "failing_regions": [],
@@ -4112,7 +4112,7 @@
      },
      {
       "z": 7.6,
-      "area_mm2": 603.5,
+      "area_mm2": 626.17,
       "direction_deg": 90.0,
       "span_mm": 26.5,
       "longest_two_ended_run_mm": 26.5,
@@ -4358,7 +4358,7 @@
       35.6
      ]
     },
-    "seconds": 7.7,
+    "seconds": 7.2,
     "zones_assembly": [
      {
       "id": "tongue_f_minus_y_wing",
@@ -4834,17 +4834,17 @@
      {
       "t": 1.599,
       "at": [
-       -56.9,
+       -53.0,
        12.2,
-       -109.0
+       -108.9
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -40.6,
+       -43.4,
        12.2,
-       -108.3
+       -108.8
       ]
      },
      {
@@ -4858,17 +4858,17 @@
      {
       "t": 1.599,
       "at": [
-       -52.1,
+       -46.8,
        12.2,
-       -108.3
+       -109.1
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -46.8,
+       -56.9,
        12.2,
-       -109.1
+       -109.0
       ]
      }
     ],
@@ -5006,17 +5006,17 @@
      {
       "t": 1.595,
       "at": [
-       -175.4,
-       13.2,
-       60.1
+       -177.2,
+       0.5,
+       92.7
       ]
      },
      {
       "t": 1.595,
       "at": [
-       -177.2,
-       0.5,
-       92.7
+       -175.4,
+       13.2,
+       60.1
       ]
      }
     ],
@@ -5270,14 +5270,6 @@
      {
       "t": 1.599,
       "at": [
-       -147.5,
-       17.6,
-       79.9
-      ]
-     },
-     {
-      "t": 1.599,
-      "at": [
        -69.5,
        18.1,
        66.4
@@ -5297,6 +5289,14 @@
        -147.5,
        4.5,
        80.6
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -147.5,
+       6.1,
+       77.7
       ]
      },
      {
@@ -5344,25 +5344,17 @@
      {
       "t": 1.599,
       "at": [
-       -11.5,
+       -12.3,
        8.3,
-       86.8
+       86.9
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -11.2,
-       9.9,
-       86.0
-      ]
-     },
-     {
-      "t": 1.599,
-      "at": [
-       -12.6,
+       -10.5,
        8.3,
-       84.9
+       90.0
       ]
      },
      {
@@ -5370,23 +5362,31 @@
       "at": [
        -11.0,
        9.9,
-       84.0
+       86.2
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -12.5,
-       8.3,
-       85.7
+       -11.5,
+       9.9,
+       86.6
       ]
      },
      {
       "t": 1.599,
       "at": [
-       -11.4,
+       -11.1,
        8.3,
-       85.8
+       86.8
+      ]
+     },
+     {
+      "t": 1.599,
+      "at": [
+       -10.3,
+       8.3,
+       84.4
       ]
      }
     ],
@@ -5410,7 +5410,7 @@
     "p5": 1.599,
     "share_below_min_wall": 0.0,
     "share_below_min_feature": 0.0,
-    "loaded_samples": 98,
+    "loaded_samples": 102,
     "share_loaded_below_1_6": 0.0,
     "loaded_zones": 10,
     "role": "secondary screen (share-based); local thickness is gated by critical_features",
@@ -5426,7 +5426,31 @@
      {
       "t": 1.199,
       "at": [
-       -108.7,
+       -12.4,
+       -29.0,
+       76.4
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -124.5,
+       -32.5,
+       42.7
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -75.1,
+       -28.9,
+       76.6
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -96.3,
        -28.8,
        75.4
       ]
@@ -5434,33 +5458,9 @@
      {
       "t": 1.199,
       "at": [
-       -31.5,
-       -33.0,
-       81.4
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -136.9,
-       -29.9,
-       67.0
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -125.7,
-       -30.1,
-       43.2
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -30.1,
-       -31.8,
-       77.6
+       -17.7,
+       -30.9,
+       15.1
       ]
      }
     ],
@@ -5475,7 +5475,7 @@
     "wall_threshold": 1.2,
     "normal_ray": {
      "p1": 1.199,
-     "share_below_min_wall": 0.0013
+     "share_below_min_wall": 0.0007
     },
     "part": "tub_print_stock",
     "samples": 1500,
@@ -5484,7 +5484,7 @@
     "p5": 1.599,
     "share_below_min_wall": 0.0,
     "share_below_min_feature": 0.0,
-    "loaded_samples": 97,
+    "loaded_samples": 98,
     "share_loaded_below_1_6": 0.0,
     "loaded_zones": 10,
     "role": "secondary screen (share-based); local thickness is gated by critical_features",
@@ -5492,23 +5492,15 @@
      {
       "t": 1.199,
       "at": [
-       -16.1,
-       -31.6,
+       -20.7,
+       -28.7,
        77.6
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -143.1,
-       -32.5,
-       50.7
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -94.6,
+       -128.6,
        -28.9,
        75.4
       ]
@@ -5516,25 +5508,33 @@
      {
       "t": 1.199,
       "at": [
-       -118.0,
-       -28.8,
-       67.6
-      ]
-     },
-     {
-      "t": 1.199,
-      "at": [
-       -152.5,
-       -28.8,
+       -72.6,
+       -32.3,
        84.6
       ]
      },
      {
       "t": 1.199,
       "at": [
-       -154.5,
-       -32.8,
+       -30.5,
+       -31.3,
+       91.4
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -73.3,
+       -32.4,
        83.4
+      ]
+     },
+     {
+      "t": 1.199,
+      "at": [
+       -127.1,
+       -28.8,
+       67.6
       ]
      }
     ],
@@ -9749,7 +9749,7 @@
     "origin": [
      -11.35,
      9.08,
-     85.25
+     88.5
     ],
     "direction": [
      0,
@@ -9772,12 +9772,12 @@
     "entry": [
      -11.35,
      8.28,
-     85.25
+     88.5
     ],
     "exit": [
      -11.35,
      9.88,
-     85.25
+     88.5
     ],
     "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
     "status": "pass"
@@ -9791,7 +9791,7 @@
     "origin": [
      -13.75,
      9.18,
-     85.3
+     88.55
     ],
     "direction": [
      1,
@@ -9814,12 +9814,12 @@
     "entry": [
      -14.5,
      9.18,
-     85.3
+     88.55
     ],
     "exit": [
      -13.0,
      9.18,
-     85.3
+     88.55
     ],
     "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
     "status": "pass"
@@ -9833,7 +9833,7 @@
     "origin": [
      -8.95,
      9.18,
-     85.3
+     88.55
     ],
     "direction": [
      1,
@@ -9850,18 +9850,18 @@
     "rays_outside": 0,
     "expected_outside": [],
     "values": [
-     1.5
+     7.0
     ],
-    "measured_mm": 1.5,
+    "measured_mm": 7.0,
     "entry": [
      -9.7,
      9.18,
-     85.3
+     88.55
     ],
     "exit": [
-     -8.2,
+     -2.7,
      9.18,
-     85.3
+     88.55
     ],
     "method": "OCP IntCurvesFace_ShapeIntersector chord through origin (B-rep, exact)",
     "status": "pass"

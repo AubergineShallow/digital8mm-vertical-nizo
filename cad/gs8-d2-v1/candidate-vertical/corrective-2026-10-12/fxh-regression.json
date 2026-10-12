@@ -1,0 +1,10 @@
+{
+  "command": ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/tests/test_fxh_harness.py",
+  "exit_code": 0,
+  "tests": 31,
+  "result": "pass",
+  "scope": "Software regressions; not physical qualification",
+  "test_source_sha256": "54bf628558006d67b38b10a47f75e0aa1b92aea894da805fe760bba894caa9e1",
+  "bound_report_sha256": "6823886ab27c3885c1e81b66a424f759c300a7a952e71d322196cd17b7f49143",
+  "log_sha256": "343e3f3fce74f8fb9189b9e10338d77d08f746dcc2b3f50f5edbe9efcd1b8a5c"
+}

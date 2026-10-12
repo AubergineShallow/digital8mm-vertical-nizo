@@ -1,0 +1,288 @@
+{
+  "height_mm": 7.5,
+  "ceiling_floor_mm": 1.5999999999999885,
+  "baseline_manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "stock_valid": true,
+  "stub_valid": true,
+  "rows": [
+    {
+      "category": "roll_catch",
+      "id": "stub_tilt_on_joint_edge:first_contact@s1.25",
+      "kind": "roll_catch",
+      "item": "first_contact",
+      "variant": "declared",
+      "s": 1.25,
+      "metal_min_deg": 1.648,
+      "metal_max_deg": 4.766,
+      "centred_deg": 3.25,
+      "pcb_cover_min_deg": null,
+      "min_margin_deg": null,
+      "rule_margin_deg": 1.0,
+      "cases": [
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.164,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 1.672,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 4.664,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.18,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.141,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 3.133,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 1.648,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 4.641,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": null,
+          "pcb_cover_to": [],
+          "margin_deg": null
+        }
+      ],
+      "lateral_offset": 0.55,
+      "sag": 0.75,
+      "status": "pass",
+      "catch_host": "tub",
+      "stub_case": "tilt_on_joint_edge",
+      "stub_shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": -0.7638984609299951,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_tilt_on_joint_edge:window@s1.25",
+      "kind": "roll_catch",
+      "item": "window",
+      "s": 1.25,
+      "window_deg": 1.4,
+      "centred_gap": 0.649,
+      "worst_gap": 0.099,
+      "rule": "centred >= 0.30, worst offset >= 0.10",
+      "gaps": {
+        "+0.00/+0.00/+1": 0.679,
+        "+0.00/+0.00/-1": 0.649,
+        "+0.55/+0.00/+1": 1.056,
+        "+0.55/+0.00/-1": 0.099,
+        "-0.55/+0.00/+1": 0.129,
+        "-0.55/+0.00/-1": 1.1,
+        "+0.00/+0.55/+1": 0.679,
+        "+0.00/+0.55/-1": 0.656,
+        "+0.00/-0.55/+1": 0.679,
+        "+0.00/-0.55/-1": 0.641
+      },
+      "status": "pass",
+      "catch_host": "tub",
+      "stub_case": "tilt_on_joint_edge",
+      "stub_shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": -0.7638984609299951,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    }
+  ]
+}

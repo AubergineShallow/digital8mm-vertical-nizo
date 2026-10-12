@@ -33,7 +33,7 @@ L.FLOOR_HOLES=copy.deepcopy(L.FLOOR_HOLES)
 L.FLOOR_HOLES["pigtail"]=L.B(-65.8,-55,-8,2,0,2.5)
 L.BASE_OPENING=copy.deepcopy(L.BASE_OPENING);L.BASE_OPENING["x"]=(-65.8,-25.5)
 V=cq.Vector
-REV='D2-V1 vertical-board shadow-plenum candidate, 2026-10-09'
+REV='D2-V1 vertical-board shadow-plenum corrective candidate, 2026-10-12'
 STACK_DX=-28.0
 PCB_Z_OFFSET=39.3
 WIDTH=28.0-VG.OUTER_Y
@@ -230,8 +230,10 @@ def tub_print_fixes(length):
 # assembly check sees the same catch faces; tub_print_parts gives the two print files.
 FPS_BUNDLE_LANE=(-135.3,-131.7,78.1)      # FX: x0, x1, z0 of the switch-bundle lane through the pair-guide corbel
 TAB_CATCH_SPLIT_Z=83.5                     # joint plane: tab top 82.1 (CAM top_r 22.1 above the axis z 60) + 1.4
-TAB_CATCH_CEILING_TOP=90.0                 # into the panel-screw boss column (its underside z 87.5..89.2 over the tine x)
-TAB_CATCH_TENON=dict(x=(-12.9,-9.8),t=1.6,h=3.5)    # on the stub top; its -Y face lies on the catch-face plane.
+TAB_CATCH_CEILING_TOP=95.2                 # 1.6 mm over the 10 mm tenon plus 0.1 mm pocket end clearance
+TAB_CATCH_TENON=dict(x=(-12.9,-9.8),t=1.6,h=10.0)   # Oct12: deeper datum engagement limits the unchanged 0.1 mm tilt case.
+                                           # Existing catch contact faces, pocket clearances and exterior stay unchanged.
+                                           # Bond strength, seating/cure and actual tilt still require the tine coupon.
                                            # FX: was x -13.5..-9.2, which left 0.9 mm pocket side walls in the print
                                            # stock (web x -14.5..-8.2); now pocket -13.0..-9.7, walls 1.5 (>= r7 MIN_WALL)
 TAB_CATCH_POCKET_CLEAR=dict(x=.1,y=.2,z=.1)          # adhesive clearance; the -Y face is the datum (no clearance)

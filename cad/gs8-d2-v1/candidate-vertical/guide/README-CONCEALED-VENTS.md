@@ -1,50 +1,41 @@
-# D2 concealed ventilation assembly and wiring review
+# D2 2026-10-12 corrective assembly and wiring: blocked review
 
-> **STALE (review 2026-10-10, FP-06; VN-12).** The tracked PDF, `guide-receipt.json`, page images and QA contact
-> sheets in `out-concealed-vents/` show the superseded build order (camera before the collar gauge, lens after the
-> panel, EVF matings in step 3, FPS washer/nut/knob on the bench panel, nut tools not specified as on-axis deep sockets). The
-> builder and `../ASSEMBLY-VERTICAL.md` now follow the corrected order of `../steps.py`. Do not use the PDF as an
-> assembly reference until it is rebuilt in the rebuild worktree (Linux rasterizer, VN-12) and its receipt binds the
-> current sources; `tests/test_build_order_docs.py` keeps this banner until then.
+This guide covers the compact Princeton and Kowa LM6HC vertical candidate. It is an unqualified review, not a fabrication, energization or complete-service release. All inherited physical gates, M1 and the candidate holds remain open. The original reviewed 29-page guide and its source bundle remain separate historical artifacts.
 
-This revised guide covers the compact Princeton and Kowa LM6HC vertical candidate with an integral outer shadow-gap plenum. It has a distinct output identity from the original reviewed 29-page guide. The original generator, `out/` PDF, receipt and page images are preserved. The revised guide remains an unqualified review: all 56 inherited physical gates, M1 and the candidate-specific holds stay open.
+Use a PDF only when its `guide-receipt.json` binds the current assembly, guide sources, nominated mechanical manifest and scoped reports. A receipt from an earlier source state is stale even when its PDF opens normally.
 
 ## Final source nomination
 
-Do not render while geometry, exported files, routing checks or source documents are still being revised. The builder must nominate an exact final `out/compact-kowa_lm6hc/manifest.json` SHA-256. The guide requires this hash explicitly and rejects source, saved-STEP or ventilation-report mismatches. `vent_geometry.py` is the geometry authority; `shadow-plenum-checks.json` must bind the same source, verifier, saved manifest and historical tub comparison. The earlier `ventilation-checks.json` belongs to the archived angled-channel trial and is not selected plenum evidence.
-
-Lightweight input review does not render or invoke CadQuery:
+Freeze geometry, exported files, routing checks and source documents before rendering. The builder requires the exact lowercase SHA-256 of `out/compact-kowa_lm6hc/manifest.json`. Its preflight rejects changed source/STEP bindings and requires current main, plenum, outlet-context, print, path-aware flow, harness and structural evidence plus the three-coupon index. Report failures are retained; current evidence does not mean a passing or qualified camera.
 
 ```sh
 .venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/guide/vent_guide_support.py --manifest-sha256 NOMINATED_HASH
-```
-
-After source nomination, use the shared CAD lock for the CPU guide render:
-
-```sh
 .venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/guide/build_guide_concealed_vents.py --manifest-sha256 NOMINATED_HASH
 ```
 
-The result is `out-concealed-vents/D2-vertical-concealed-vents-review.pdf`, numbered PNG pages and a separate `guide-receipt.json`. The receipt records the nominated mechanical manifest, all guide inputs, PDF/page hashes, saved-STEP ventilation report and limited computed-caption status. The cover dimensions come from the current manifest. Successful generation does not establish completed visual review.
+Windows without 64-bit g++ uses `guide/run_with_numpy_raster.py -- --manifest-sha256 NOMINATED_HASH` through the same lock. The selected result is `out-concealed-vents/D2-vertical-concealed-vents-review.pdf`, numbered PNG pages and `guide-receipt.json`. The receipt binds sources, reports, PDF, images, meshes and the two separately illustrated tub print STLs. Successful generation does not establish visual review.
 
-After every page is visually inspected, package the revised guide with:
+Inspect every rendered page for clipping, overlap, wrong arrows, unreadable labels and misleading assembly claims. Then run the separate build-order check and package:
 
 ```sh
+.venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/guide/record_post_guide_check.py
 .venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/guide/package_concealed_guide.py
 ```
 
-The package is `out-concealed-vents/D2-vertical-concealed-vents-source-and-pages.zip`. The packager verifies source, report, PDF, mesh and image hashes. Publish or save this as a new revised identity; do not replace the original reviewed PDF or original source bundle.
+The [separate post-guide receipt](out-concealed-vents/post-guide-build-order-check.json) and [raw log](out-concealed-vents/post-guide-build-order-check.log) bind the actual 23-test rerun to this manifest, final guide receipt and tested sources/documents. They supplement the original primary-batch stale-banner failure, which stays preserved. Re-running this repository test requires its historical Git fixture; the guide-only archive does not include Git history.
 
-## Added review content
+The packager verifies all receipt-bound inputs and writes `D2-vertical-concealed-vents-source-and-pages.zip`. The PDF and editable source bundle are the two review deliverables. Preserve their confirmed Library identities when updating an existing delivered version.
 
-- Section 03v shows representative cold and hot plenum sections: exterior skin, gap, original inner wall and internal slots. Rear/underside perimeter mouths feed the cold bay; front/underside mouths serve the hot bay. Gross mouth and wall-slot areas are reported separately. Section 17v shows the smallest recorded hot-bay horizontal cut and explicitly rejects summed mouth area as a global flow minimum.
-- Section 03w records the exported print orientation, layer/bridge review, representative plenum coupon and cleanout/inspection of both bays, four perimeter mouths and eight inner-wall slots. The integral posts are an unsliced roof-support proposal. The front mouth removes frame support across Z5..40: 10.7 mm is not a supported bridge there, and front-edge toolpaths may require about 35 mm bridging. The expanded coupon must screen this under a prominent print HOLD; failure requires local webs and renewed airflow-section checks. No trapped internal supports are acceptable; no support-free printing is claimed.
-- Section 17v keeps the separating baffle and passage mouths clear during assembly, retains the straight CSI service bypass and states the actual cooler, hand/strap occlusion and closed-body thermal gates.
-- The printed inventory stays at nine parts and purchased parts do not change. The four old panel grooves had 0.2 mm floors and were blind reliefs, not through-vents. The revised panel restores its plain 2.8 mm skin.
-- The full camera FPC, EVF feed, complete flexible looms, real cooler geometry, CSI latch/jaws, retention and electrical qualification holds remain unchanged. Saved-STEP ventilation geometry checks do not close them.
+## Corrective content
 
-## Visual and evidence review
+- Inventory: 10 compact physical printed pieces represented by 9 CAD assembly rows. The tub body and bonded catch stub are distinct prints. Original storage adds a sleeve, giving 11 pieces / 10 rows. Gauge and three plenum coupons are separate qualification aids.
+- Sections 03v–03x: current windowed beams, pillars, cold-mouth lintels and stepped front-mouth support replace the historical post grid. Net mouth necks are separated from gross openings and path-aware minimum cuts. The bonded stub is shown in its own exported print pose. Actual slice quality, bond/creep, support removal and full-body cleanout remain HOLD.
+- Sections 04, 08b, 11 and 13: the official camera instructions recommend seating the Pi CSI end before the cooler. The camera end is mated while both assemblies are supported immediately before camera insertion. The complete 200 mm linked ribbon is absent from the rigid camera/carrier sweeps. Actual latch service with the cooler retained and complete flexible motion remain HOLD.
+- Section 05: J2 uses the conditional Micro-Fit 3.0 class from the BOM, with exact SKU, roots, latch and stow unqualified. The obsolete FPS-identical PicoBlade proposal is not drawn as the J2 selection.
+- Section 15q: the complete nominal QT stored length is distinct from the shorter free curve plus 24 mm reach allowance. Existing round bundle/branch envelopes do not prove actual four-core packing, splice geometry or a continuous flexible transition.
+- Sections 06g and 15: the 270 mm pigtail remains blocked by reach and hot-drop. The high-case drop is quoted from the bound report; no substitute wire, fuse, connector or cutoff is adopted.
+- Section 17v: source-bound path-aware area checks do not establish airflow, fan operating point, recirculation, hand/strap occlusion or closed-body cooling.
 
-Inspect every page for clipping, text overflow, misplaced arrows, unreadable labels and misleading drawings. The two plenum sections are analytical diagrams derived from the source/report, not saved-STEP cutaway renders. Their arrows indicate intended paths, not measured flow. The exterior has blank broad faces, perimeter mouths and the required CSI service aperture. Direct front and rear views expose mouths; no light, dust or water rating is implied.
+The separate [bonded-catch local study](../structural-review/bonded-catch-coupon/README.md) has two test pieces, retained outside production counts. Its [bound receipt](../structural-review/bonded-catch-coupon/receipt.json) and exact files are included in the source bundle. It screens local seating, tilt, adhesion and creep; it does not qualify the whole-tub 0.5 N m case.
 
-Recheck isolation-before-opening on page 00, physical J8 versus BCM pin numbering, J2's normally-open circuit, exact full-material HDMI snapshots, preserved FPC and EVF-feed holds, and the complete supported FPS service sequence. Review all new section, print and thermal pages against `STEP-REVIEW-CONCEALED-VENTS.md`.
+The 300 mm HDMI ribbon, official 200 mm camera FPC and native OLED flex retain unknown manufacturer bend-radius and flex-cycle limits. Connector cycle ratings are not ribbon durability evidence. The analytical plenum sections omit support detail and show intended flow only. No dust, water, all-angle concealment or thermal rating is implied.

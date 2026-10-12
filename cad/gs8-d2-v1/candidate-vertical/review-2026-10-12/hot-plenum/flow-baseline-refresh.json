@@ -1,0 +1,96 @@
+{
+  "physical_qualified": false,
+  "rule": "Area gates unchanged: cold 420, hot 510, tolerance 0.002 mm2; baseline drift tolerance 1e-6",
+  "variants": [
+    {
+      "variant": "compact-kowa_lm6hc",
+      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "hot_min_cut_mm2": 509.999996,
+      "cold_min_cut_mm2": 420.0,
+      "hot_branch_effective_mm2": 575.1999999999998,
+      "elements": {
+        "cold_rear": {
+          "mouth_mm2": 332.6399999999999,
+          "series_min_mm2": 522.0000000000001
+        },
+        "cold_bottom": {
+          "mouth_mm2": 370.43999999999994,
+          "series_min_mm2": 543.0
+        },
+        "hot_bottom": {
+          "mouth_mm2": 316.79999999999995,
+          "series_min_mm2": 300.99999999999994
+        },
+        "hot_front": {
+          "mouth_mm2": 274.19999999999993,
+          "series_min_mm2": 540.8000000000001
+        },
+        "cold_ports_mm2": 420.0,
+        "hot_ports_mm2": 510.0,
+        "csi_mm2": 323.1415926536036
+      },
+      "baseline": "review-2026-10-10/fp12/flow-network-baseline.json",
+      "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-compact-kowa_lm6hc.json"
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "hot_min_cut_mm2": 509.999996,
+      "cold_min_cut_mm2": 420.0,
+      "hot_branch_effective_mm2": 575.1999999999998,
+      "elements": {
+        "cold_rear": {
+          "mouth_mm2": 332.6399999999999,
+          "series_min_mm2": 522.0000000000001
+        },
+        "cold_bottom": {
+          "mouth_mm2": 370.43999999999994,
+          "series_min_mm2": 543.0
+        },
+        "hot_bottom": {
+          "mouth_mm2": 316.79999999999995,
+          "series_min_mm2": 300.99999999999994
+        },
+        "hot_front": {
+          "mouth_mm2": 274.19999999999993,
+          "series_min_mm2": 540.8000000000001
+        },
+        "cold_ports_mm2": 420.0,
+        "hot_ports_mm2": 510.0,
+        "csi_mm2": 323.1415926536036
+      },
+      "baseline": "review-2026-10-10/fp12/flow-network-baseline-compact-fujinon_hf6xa.json",
+      "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-compact-fujinon_hf6xa.json"
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "hot_min_cut_mm2": 509.999996,
+      "cold_min_cut_mm2": 420.0,
+      "hot_branch_effective_mm2": 575.1999999999998,
+      "elements": {
+        "cold_rear": {
+          "mouth_mm2": 332.6399999999999,
+          "series_min_mm2": 522.0000000000001
+        },
+        "cold_bottom": {
+          "mouth_mm2": 503.27999999999986,
+          "series_min_mm2": 704.9999999999998
+        },
+        "hot_bottom": {
+          "mouth_mm2": 316.79999999999995,
+          "series_min_mm2": 300.99999999999994
+        },
+        "hot_front": {
+          "mouth_mm2": 274.19999999999993,
+          "series_min_mm2": 540.8000000000001
+        },
+        "cold_ports_mm2": 420.0,
+        "hot_ports_mm2": 510.0,
+        "csi_mm2": 323.1415926536036
+      },
+      "baseline": "review-2026-10-10/fp12/flow-network-baseline-original-kowa_lm6hc.json",
+      "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-original-kowa_lm6hc.json"
+    }
+  ]
+}

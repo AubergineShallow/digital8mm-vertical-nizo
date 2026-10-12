@@ -1,0 +1,106 @@
+{
+  "recorded_utc": "2026-10-12T02:08:27.806441+00:00",
+  "scope": "Saved whole-tub area and flow proof, with prior baseline drift retained in scoped reports; final full check-scope regeneration is a separate required step",
+  "physical_qualified": false,
+  "thermal_qualified": false,
+  "thresholds": {
+    "hot_mm2": 510.0,
+    "cold_mm2": 420.0,
+    "area_tolerance_mm2": 0.002,
+    "flow_baseline_relative_tolerance": 1e-06
+  },
+  "source_sha256": {
+    "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84",
+    "plenum_flow.py": "e76cabf5f90b1ea0b6c7676c9c01b7c1999a6a998e17cf1723fe64af40fb4d89",
+    "verify_check_scope.py": "e9479e6d589baea68a16ef47d773357560fa15a4b796d67277efd1574ee98566",
+    "verify_shadow_plenum.py": "ce776a21cf6e6bd899f74cb0f56852577da0d7eb23b43adb4a1712d38ecb3485",
+    "verify_shadow_outlet_context.py": "590a8f76b66aeb5d06074dbed88b4cf332763ee79e2f1c7984437bbe1cf720c6",
+    "tests/test_fx_fixup.py": "3fc62532e42f8da0444ea6b554e2dcd4810059247d2c152bd5a4cca3c5023cda",
+    "tests/test_plenum_trial2.py": "63a0f60b0871ac30ffffb5cf8ba0bd44dad234770bab244be0ecfc6d5dd5e94d",
+    "tests/test_check_scope.py": "f3ca1c6ba323af3ed9bbbb640741be0fbf8961393d969a3bd70f7cc351f7fcd5"
+  },
+  "variants": [
+    {
+      "variant": "compact-kowa_lm6hc",
+      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-compact-kowa_lm6hc.json",
+      "source_report_sha256": "61c69cb55e88cb406717f67971aa5b0a85de07bc226dce870b9d432ad6e03bca",
+      "baseline": "review-2026-10-10/fp12/flow-network-baseline.json",
+      "baseline_sha256": "6a099d6f56dfa1be92bf7863def7abe6b0aaf7ac070e9dce15dadae82edffb26",
+      "area_pass_count": 4,
+      "hot_min_cut_mm2": 509.999996,
+      "cold_min_cut_mm2": 420.0,
+      "hot_branch_effective_mm2": 575.1999999999998
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+      "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-compact-fujinon_hf6xa.json",
+      "source_report_sha256": "10d2a0c218f47f98bf29e6428b879ce65c018ae5725a53ed68480331c8d926ad",
+      "baseline": "review-2026-10-10/fp12/flow-network-baseline-compact-fujinon_hf6xa.json",
+      "baseline_sha256": "a4ffefdaec7c10b9c52138d70fddefc4dd875f7d153f1ee79222a22d6f3ce0a4",
+      "area_pass_count": 4,
+      "hot_min_cut_mm2": 509.999996,
+      "cold_min_cut_mm2": 420.0,
+      "hot_branch_effective_mm2": 575.1999999999998
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+      "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-original-kowa_lm6hc.json",
+      "source_report_sha256": "a338432b896b0713201f350411f3345877cc46b3667027002620b59eb393f268",
+      "baseline": "review-2026-10-10/fp12/flow-network-baseline-original-kowa_lm6hc.json",
+      "baseline_sha256": "45c9dd02770ff2fa5dcdf225f02940c069569ffbc592412c7dd52534f0f17a4a",
+      "area_pass_count": 4,
+      "hot_min_cut_mm2": 509.999996,
+      "cold_min_cut_mm2": 420.0,
+      "hot_branch_effective_mm2": 575.1999999999998
+    }
+  ],
+  "tests": [
+    {
+      "command": "tests/test_fx_fixup.py MinCutFixtures.test_quantization_allowance_rejects_a_larger_excess Trial3Nominal.test_hot_value_and_empty_bay_bound",
+      "tests": 2,
+      "exit_code": 0,
+      "elapsed_seconds": 13.015
+    },
+    {
+      "command": "tests/test_plenum_trial2.py Wiring.test_flow_baseline_rewritten_with_reason",
+      "tests": 1,
+      "exit_code": 0,
+      "elapsed_seconds": 0.004
+    },
+    {
+      "check": "AST UTF-8/LF/path lint of 11 owned geometry/checker/probe scripts",
+      "findings": 0
+    }
+  ],
+  "previous_test_snapshot": "review-2026-10-12/hot-plenum/focused-test-results.json",
+  "resolved_findings": [
+    {
+      "check": "nominal versus empty-bay consistency",
+      "nominal_mm2": 510.0000052,
+      "empty_mm2": 509.999995,
+      "raw_excess_mm2": 1.02e-05,
+      "accumulated_selected_cut_quantization_bound_mm2": 0.000229,
+      "correction": "Keep raw graph values and original area gates; use the solver-derived summed rounding bound only for the same-port-surface consistency assertion; larger excess regression fails"
+    }
+  ],
+  "commands": [
+    ".venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/review-2026-10-12/hot-plenum/refresh_flow_baselines.py",
+    ".venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_fx_fixup.py MinCutFixtures.test_quantization_allowance_rejects_a_larger_excess Trial3Nominal.test_hot_value_and_empty_bay_bound",
+    ".venv-cad/bin/python cad/gs8-d2-v1/run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_plenum_trial2.py Wiring.test_flow_baseline_rewritten_with_reason"
+  ],
+  "proof_child_commands_under_parent_lock": [
+    ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/verify_check_scope.py --variant compact-kowa_lm6hc --categories area_parity,flow_network --out cad/gs8-d2-v1/candidate-vertical/review-2026-10-12/hot-plenum/check-scope-flow-compact-kowa_lm6hc.json",
+    ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/verify_check_scope.py --variant compact-fujinon_hf6xa --categories area_parity,flow_network --out cad/gs8-d2-v1/candidate-vertical/review-2026-10-12/hot-plenum/check-scope-flow-compact-fujinon_hf6xa.json",
+    ".venv-cad/bin/python cad/gs8-d2-v1/candidate-vertical/verify_check_scope.py --variant original-kowa_lm6hc --categories area_parity,flow_network --out cad/gs8-d2-v1/candidate-vertical/review-2026-10-12/hot-plenum/check-scope-flow-original-kowa_lm6hc.json"
+  ],
+  "preserved_diagnostics": [
+    "Scoped source reports retain the pre-refresh baseline_drift failure; regenerate the full reports afterward",
+    "The rejected trial3 444.5 mm2 path and 493.2 mm2 empty-bay bound remain negative controls",
+    "The earlier original-mouth metadata 202.8 mm2 versus actual 197.2 mm2 neck remains a negative control",
+    "The earlier regular-plane cold minimum 534 mm2 versus true interval 522 mm2 is recorded in focused-test-results.json",
+    "The initial nominal-versus-empty assertion failed at 1e-6 because independent graph quantization reverses totals by 1.02e-5 mm2; raw values and fixed area gates remain unchanged"
+  ]
+}

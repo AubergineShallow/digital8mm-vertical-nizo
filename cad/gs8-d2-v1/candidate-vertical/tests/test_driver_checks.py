@@ -18,6 +18,8 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_driver_checks
   the current manifest; every pose derived from the STEP equals the pose model.py declares; for the reviewed
   manifest 53e668d4 the expected CAD-phase failures are exactly the carrier counterbores (FP-11c: bit 2.432 and
   0.405 mm3 into the carrier, build and service) and the p_grip handle clears the strap by 1.37 mm.
+  Every newer current manifest must have zero driver failures and no row errors. Planted failures/errors exercise
+  that branch without running CAD or changing a saved report.
 """
 import ast
 import hashlib
@@ -42,6 +44,43 @@ DEPTH = 3.0
 HP, AX = (0.0, 0.0, 10.0 - DEPTH), (0.0, 0.0, -1.0)
 EXPECTED_FAIL = {'p_carrier1@carrier_screws', 'p_carrier2@carrier_screws', 'p_carrier1@svc_carrier_screws_out',
                  'p_carrier2@svc_carrier_screws_out'}
+
+
+def assert_record_failure_contract(test, manifest_sha256, rows):
+    """The old failure list belongs only to its frozen manifest; subsequent current records must be clear."""
+    failing = {c['id'] for c in rows if c['status'] == 'fail'}
+    test.assertEqual(failing, EXPECTED_FAIL if manifest_sha256 == REVIEWED_MANIFEST else set())
+    for c in rows:
+        if c['category'] != 'driver_coverage':
+            test.assertEqual(c['errors'], [], c['id'])
+
+
+class RecordFailureContract(unittest.TestCase):
+    NEW_MANIFEST = 'a' * 64
+
+    def rows(self, failing=()):
+        return [dict(category='driver', id=name, status='fail' if name in failing else 'pass', errors=[])
+                for name in sorted(EXPECTED_FAIL)]
+
+    def test_historical_failure_set_remains_exact(self):
+        assert_record_failure_contract(self, REVIEWED_MANIFEST, self.rows(EXPECTED_FAIL))
+        with self.assertRaises(AssertionError):
+            assert_record_failure_contract(self, REVIEWED_MANIFEST, self.rows())
+
+    def test_new_manifest_requires_no_failures(self):
+        assert_record_failure_contract(self, self.NEW_MANIFEST, self.rows())
+        with self.assertRaises(AssertionError):
+            assert_record_failure_contract(self, self.NEW_MANIFEST, self.rows(EXPECTED_FAIL))
+        planted = self.rows()
+        planted.append(dict(category='driver', id='planted_obstruction', status='fail', errors=[]))
+        with self.assertRaises(AssertionError):
+            assert_record_failure_contract(self, self.NEW_MANIFEST, planted)
+
+    def test_new_manifest_rejects_errors_even_on_a_pass_row(self):
+        planted = self.rows()
+        planted[0]['errors'] = ['planted boolean failure']
+        with self.assertRaises(AssertionError):
+            assert_record_failure_contract(self, self.NEW_MANIFEST, planted)
 
 
 def plate(cb_d, depth=DEPTH):
@@ -251,11 +290,9 @@ class CandidateRecord(unittest.TestCase):
             self.assertEqual([float(x) for x in c['axis']], [float(x) for x in want[c['screw']][1]], c['id'])
             for u, v in zip(c['head_point'], want[c['screw']][0]):
                 self.assertAlmostEqual(u, v, places=3, msg=c['id'])
-        failing = {c['id'] for c in rows if c['status'] == 'fail'}
+        assert_record_failure_contract(self, rec['manifest_sha256'], rows)
         if rec['manifest_sha256'] == REVIEWED_MANIFEST:
-            self.assertEqual(failing, EXPECTED_FAIL)
             for c in screw_rows:
-                self.assertEqual(c['errors'], [], c['id'])
                 if c['id'] in EXPECTED_FAIL:
                     self.assertEqual({(h['part'], h['tool']) for h in c['hits']}, {('carrier', 'bit')}, c)
             vol = {c['id']: c['hits'][0]['volume_mm3'] for c in screw_rows if c['id'] in EXPECTED_FAIL}

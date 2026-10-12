@@ -1,0 +1,288 @@
+{
+  "built_utc": "unrecorded (deterministic build, FP-03)",
+  "crop_bounds_mm": [
+    -20.0,
+    0.0,
+    -35.6,
+    28.0,
+    76.0,
+    100.0
+  ],
+  "files": {
+    "catch-host-coupon.step": "eb2717504976c80c9cfa20454df70068040023d0f40c98ef2314d57cc9d88e95",
+    "catch-host-coupon.stl": "a29172ac339586249bbbca01bc40fa49af5ee261775fcd0f58efcad62e894a4f",
+    "catch-insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
+    "catch-insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8"
+  },
+  "geometry_overlap_tolerance_mm3": 1e-06,
+  "input_sha256": {
+    "out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "out/compact-kowa_lm6hc/step/tab_catch_insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
+    "out/compact-kowa_lm6hc/step/tub.step": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+    "out/compact-kowa_lm6hc/stl/tab_catch_insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
+    "out/compact-kowa_lm6hc/stl/tub.stl": "c259ee067bd4efbab7a612008dcec1a70316d2d6f46ae5df76d6d128b31f0bd5"
+  },
+  "joint": {
+    "ceiling_floor_mm": 1.6000000000000028,
+    "ceiling_top_z_mm": 95.2,
+    "hold": "Actual seating, datum tilt, adhesive preparation/cure and warm torque/creep require the as-printed joint coupon.",
+    "physical_qualified": false,
+    "pocket_clearance_mm": {
+      "x": 0.1,
+      "y": 0.2,
+      "z": 0.1
+    },
+    "split_z_mm": 83.5,
+    "tenon_mm": {
+      "h": 10.0,
+      "t": 1.6,
+      "x": [
+        -12.9,
+        -9.8
+      ]
+    }
+  },
+  "limitations": [
+    "Cropped host and fixture omit whole-tub compliance, complete lens/camera constraints and service loads.",
+    "No whole-camera or whole-tub 0.5 N m torque qualification follows from this coupon.",
+    "The full Y span retains the original bed-side skin, ceiling, pad, both catch faces and roof connection; cut edges still change stiffness.",
+    "Exact epoxy SKU, surface preparation, bondline, full cure, conditioning and specimen/test protocol remain unqualified.",
+    "No slicer, print, bond, load, deflection, creep, impact, fatigue or failure test has been performed."
+  ],
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "nominal_host_insert_overlap_mm3": 0,
+  "parts": [
+    {
+      "angle_deg": 90,
+      "face_down": "-Y",
+      "id": "catch-host-coupon",
+      "mesh": {
+        "bed_z_zero": true,
+        "fits_250x210x220": true,
+        "inconsistent_edge_winding": 0,
+        "nonmanifold_edges": 0,
+        "pass_geometry_only": true,
+        "print_bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            20.0,
+            24.0,
+            63.599998474121094
+          ]
+        ],
+        "print_dimensions_mm": [
+          20.0,
+          24.0,
+          63.599998474121094
+        ],
+        "rules": "Unmodified verify_print_meshes numerical rules: vertex weld 1e-6 mm; positive closed winding; volume difference <= max(1 mm3, 0.5%); bed Z < 0.002 mm; 250x210x220 envelope. No slicer test.",
+        "signed_volume_mm3": 15260.35875777466,
+        "source_volume_mm3": 15260.704189003187,
+        "triangles": 5078,
+        "volume_error_mm3": 0.34543122852664965
+      },
+      "rotation_axis": [
+        1,
+        0,
+        0
+      ],
+      "solid_count": 1,
+      "source_bounds_mm": [
+        -20.0,
+        8.881784197001252e-16,
+        -35.6,
+        28.0,
+        76.0,
+        100.0
+      ],
+      "step_reimport_valid": true,
+      "translation_mm": [
+        20.0,
+        100.0,
+        35.599999999999994
+      ],
+      "valid": true,
+      "volume_mm3": 15260.704189003187
+    },
+    {
+      "exact_production_step_and_stl_copy": true,
+      "face_down": "-Z",
+      "id": "catch-insert",
+      "mesh": {
+        "bed_z_zero": true,
+        "fits_250x210x220": true,
+        "inconsistent_edge_winding": 0,
+        "nonmanifold_edges": 0,
+        "pass_geometry_only": true,
+        "print_bounds_mm": [
+          [
+            0.0,
+            1.7763568394002505e-15,
+            0.0
+          ],
+          [
+            6.300000190734863,
+            12.0,
+            15.0
+          ]
+        ],
+        "print_dimensions_mm": [
+          6.300000190734863,
+          11.999999999999998,
+          15.0
+        ],
+        "rules": "Unmodified verify_print_meshes numerical rules: vertex weld 1e-6 mm; positive closed winding; volume difference <= max(1 mm3, 0.5%); bed Z < 0.002 mm; 250x210x220 envelope. No slicer test.",
+        "signed_volume_mm3": 227.7999993979927,
+        "source_volume_mm3": 227.80000000000427,
+        "triangles": 48,
+        "volume_error_mm3": 6.0201156770745e-07
+      },
+      "production_print_pose": {
+        "angle_deg": 0,
+        "face_down": "-Z",
+        "footprint_mm": [
+          6.300000000000002,
+          12.000000000000004,
+          15.000000000000005
+        ],
+        "physical_release": false,
+        "rotation_axis": [
+          0,
+          0,
+          1
+        ],
+        "slicer_state": "NOT RUN",
+        "translation_mm": [
+          14.5,
+          -8.279999999999998,
+          -78.5
+        ]
+      },
+      "solid_count": 1,
+      "source_bounds_mm": [
+        -14.5,
+        -8.2,
+        8.28,
+        20.28,
+        78.499999999999,
+        93.5
+      ],
+      "valid": true,
+      "volume_mm3": 227.80000000000427
+    }
+  ],
+  "physical_qualified": false,
+  "piece_count": 2,
+  "pocket_preservation": {
+    "entire_pocket_inside_crop": true,
+    "host_material_in_pocket_mm3": 0,
+    "source_pocket_bounds_mm": [
+      -13.0,
+      -9.700000000000001,
+      8.28,
+      10.079999999999998,
+      83.4,
+      93.6
+    ]
+  },
+  "production_geometry_changed": false,
+  "production_part_count_change": 0,
+  "purpose": "Local joint seating, datum-tilt, adhesion and warm-creep screening in the production layer orientations",
+  "replaces_earlier_coupon_set": false,
+  "runtime": {
+    "cadquery": "2.6.1",
+    "cadquery_ocp": "7.8.1.1.post1",
+    "platform": "linux-x86_64",
+    "python": "3.12.14"
+  },
+  "source_sha256": {
+    "../../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324",
+    "../_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "../audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "../build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "../cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
+    "../coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
+    "../d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "../fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "../make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
+    "../make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "../printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "../printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "../printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "../printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "../printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
+    "../printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "../printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "../run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "../sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
+    "../test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "../test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "../test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "../test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "../test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
+    "../test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
+    "../test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "../test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
+    "../test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "../test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "../test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "../test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "../test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "../test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "../test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "../test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "../test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "../test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "../test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "../test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
+    "../test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
+    "../test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
+    "../test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
+    "cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+    "export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
+    "export_candidate.py": "188550509bee00f04722e31aebe02417ec940f47b5edd86166085217bafcb3d6",
+    "fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "make_corrected_pi.py": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
+    "model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
+    "official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
+    "official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
+    "out/source-components/pi5-corrected.json": "fd251c7be6cde774df557971032d0ca7a29761cc1d43b0544584dd7569f59e87",
+    "out/source-components/pi5-corrected.step": "15f13dc88100375c8fd5e8d90fc4d71464cec952168e6e6238d593ba1fde2729",
+    "power_geometry.py": "583b6ddabfc8ff0fd00ba8ba2b8f0a31ead31a81222e9d3f8ac2517f8a918d6d",
+    "print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+    "routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
+    "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
+    "structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
+    "structural-review/make_bonded_catch_coupon.py": "3b0a28c2dfee64c66f2259add30a7fcccc37148508492b60b2232c8cae7f4287",
+    "structure_geometry.py": "4230b810c2e67229b6176eae7a35ddac22e2549a848c22a3cd74f3d2c7b58985",
+    "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84",
+    "verify_print_checks.py": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e"
+  },
+  "status": "GEOMETRY ONLY: separate local bonded-catch study; not print released",
+  "tub_stock_check": {
+    "bound_stl_volume_mm3": 170966.6480780677,
+    "relative_difference": 5.282043312801362e-05,
+    "rule": "Existing verify_print_checks.tub_stock bound-STL 0.5% tessellation rule",
+    "step_volume_mm3": 170975.67861046962
+  },
+  "variant": "compact-kowa_lm6hc"
+}

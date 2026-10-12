@@ -3,7 +3,8 @@
 CAD-free. Reads the selected compact-Kowa reports and the r7 out/checks.json category list; writes nothing by default.
   --write  rewrites COVERAGE-VERTICAL.md, the generated blocks between the coverage markers in README.md and
            REVIEW.md, and CHECKPOINT-STATUS.json fields main_summary, plenum_summary, check_coverage and
-           current_evidence_reconciler (path + sha256 of reconcile_review_evidence.py; all other fields untouched)
+           current_evidence_reconciler. A status-bearing review receipt also refreshes its checkpoint bindings and
+           explicit blocked/gate/identity fields; legacy receipt identity is preserved until deliberately replaced.
   --check  read-only; exit 1 if any of those differs from a fresh generation (or a category is unclassified)
 Every count is computed from the report rows; nothing is typed. Geometric rows (computed from the exported STEP or
 mesh geometry) are counted apart from bookkeeping rows (file, hash and export identity), coverage/state rows and
@@ -243,6 +244,45 @@ def checkpoint(root, col):
     # (the reconciler recorded inside selected_evidence); the docs audit checks both pairs (checkpoint_hash).
     d['current_evidence_reconciler'] = {'path': RECONCILER, 'sha256': sha(Path(root) / RECONCILER),
                                         'generator': 'make_coverage_vertical.py'}
+    # Oct12: a recorded blocked receipt is evidence of the current review, not acceptance. Legacy receipts retain
+    # their historical writer until the reconciler explicitly replaces them with the status-bearing schema.
+    receipt_rel = SEL + '/current-review-evidence.json'
+    receipt_path = Path(root) / receipt_rel
+    if receipt_path.is_file():
+        receipt = load(receipt_path)
+        if 'reconciliation_status' in receipt:
+            manifest_path = Path(root) / SEL / 'manifest.json'
+            manifest_hash = sha(manifest_path)
+            manifest = load(manifest_path)
+            current = (receipt.get('mechanical_manifest_sha256') == manifest_hash
+                       and receipt.get('reconciler_sha256') == d['current_evidence_reconciler']['sha256']
+                       and receipt.get('rules_sha256') == sha(Path(root) / 'evidence_rules.py'))
+            if current:
+                import reconcile_review_evidence
+                _, fresh_receipt = reconcile_review_evidence.reconcile(root)
+                current = receipt == fresh_receipt
+            d['manifest_sha256'] = manifest_hash
+            d['manifest'] = {'path': SEL + '/manifest.json', 'sha256': manifest_hash}
+            d['geometry_source_current'] = all((Path(root).parent / rel).is_file()
+                                              and sha(Path(root).parent / rel) == digest
+                                              for rel, digest in manifest['sources'].items())
+            d['selected_evidence'] = {'path': receipt_rel, 'sha256': sha(receipt_path),
+                                      'mechanical_manifest_sha256': receipt.get('mechanical_manifest_sha256'),
+                                      'reconciliation_status': receipt['reconciliation_status']}
+            d['evidence_reconciler_that_wrote_current_evidence'] = {
+                'path': RECONCILER, 'sha256': receipt['reconciler_sha256'],
+                'note': 'Writer hash recorded by the selected receipt; a later writer edit makes this pair stale.'}
+            d['selected_evidence_current'] = current
+            d['source_and_export_hashes_verified'] = current and receipt.get('source_and_export_hashes_verified') is True
+            d['source_and_export_binding_scope'] = receipt.get('source_and_export_binding_scope')
+            d['evidence_bindings_verified'] = current and receipt.get('evidence_bindings_verified') is True
+            d['evidence_gates_pass'] = current and receipt.get('evidence_gates_pass') is True
+            d['evidence_reconciliation_status'] = receipt['reconciliation_status'] if current else 'stale'
+            d['evidence_gate_failures'] = receipt.get('gate_failures', [])
+            d['active_rigid_failures'] = receipt.get('active_rigid_failures', [])
+            d['release_status'] = 'blocked'
+            d['physical_qualified'] = False
+            d['state'] = 'REVIEW CANDIDATE; RELEASE BLOCKED; SEE CURRENT RECEIPT FOR IDENTITY AND GATE STATUS'
     return json.dumps(d, indent=2) + '\n'
 
 

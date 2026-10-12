@@ -1,13 +1,13 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-  "source_sha256": "573f2f8f66df23c1cbb82873bb2364537d5af8d22fb1809c10fc4e27770e12f7",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "source_sha256": "964debf1149051e91129a3cf614f9000ee34f8b7ab19d98558f7ba902c0cd019",
   "coupon_count": 3,
   "production_part_count_change": 0,
   "replaces_earlier_coupon_set": false,
   "receipts": {
-    "receipt.json": "7c6dfeb343b860c2cf16cbc8301a6f42114f4284bfd17040a859d05d76c4245b",
-    "port-service-receipt.json": "62a6924348f6be3538ff9705ffa219cadb34af8586d41847c09ba8e29cf474bb",
-    "all-mouths-receipt.json": "3d73c7ff47a12a6d4461901b5745f9e611c9c6a2e8cc89496a5cda62d432b5f1"
+    "receipt.json": "a6f5e45798a23847ddf735204337ea48789aecedb7bc6cab345a8026531d94c5",
+    "port-service-receipt.json": "59b5b8c8435da1bd38c9edca0b26636464af5000a468975b2dd3d036a678e836",
+    "all-mouths-receipt.json": "96266e878fef8d7618e5f93b35db152b332d863a497a5a088b4518472e3ce752"
   },
   "physical_qualified": false,
   "mouths_covered": {

@@ -1,0 +1,20 @@
+[
+  {
+    "full_height_top": 49.0,
+    "front_top": 56.0,
+    "outer_gap_depth": 2.5,
+    "upper_row": 58.0,
+    "min_cut": 510.0000049,
+    "mouths": {
+      "hot_bottom": 316.79999999999984,
+      "hot_front": 274.2999999999998
+    },
+    "cut_bbox": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "seconds": 35.83914788000402
+  }
+]

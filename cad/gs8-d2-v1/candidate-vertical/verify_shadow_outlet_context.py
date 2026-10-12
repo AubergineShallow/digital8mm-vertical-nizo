@@ -11,6 +11,7 @@ import json
 import time
 
 import cadquery as cq
+import vent_geometry as VG
 
 P = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser()
@@ -56,14 +57,17 @@ for row in m['rows']:
     inventory[name] = dict(shape=shape, bounds=bounds(shape), sha256=expected)
 
 prisms = {
-    'hot_front': [0.01, 12., -34., -28., 5., 40.],
+    'hot_front': [[-2.7,12.,y0,y1,z0,z1] for y0,y1,z0,z1 in VG.hot_front_apertures()],
     'cold_rear': [-length-12., -length-.01, -34., -28., 5., 75.],
     'cold_underside': [-length+4., -83., -34., -28., -12., -.01],
     'hot_underside': [-59., -5., -34., -28., -12., -.01],
 }
 checks = []
-for name, b in prisms.items():
-    prism = cq.Solid.makeBox(b[1]-b[0], b[3]-b[2], b[5]-b[4], cq.Vector(b[0], b[2], b[4]))
+for name, extents in prisms.items():
+    boxes=extents if isinstance(extents[0],list) else [extents]
+    b=[min(q[i] for q in boxes) if i%2==0 else max(q[i] for q in boxes) for i in range(6)]
+    solids=[cq.Solid.makeBox(q[1]-q[0],q[3]-q[2],q[5]-q[4],cq.Vector(q[0],q[2],q[4])) for q in boxes]
+    prism=cq.Compound.makeCompound(solids)
     queries, hits = [], []
     for part, data in inventory.items():
         if not overlap(b, data['bounds']):
@@ -75,7 +79,7 @@ for name, b in prisms.items():
         if volume > .002:
             item = dict(item, witness_bbox_mm=bounds(witness))
             hits.append(item)
-    row = dict(id=name, status='fail' if hits else 'pass', continuation_bounds_mm=b,
+    row = dict(id=name, status='fail' if hits else 'pass', continuation_bounds_mm=b, continuation_prisms_mm=boxes,
                material_inventory_count=len(inventory), exact_queries=queries,
                bounding_box_rejected_count=len(inventory)-len(queries), hits=hits,
                tolerance_mm3=.002)
@@ -90,8 +94,8 @@ result = dict(manifest_sha256=mh, verification_source_sha256=sha(Path(__file__))
               generated_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
               summary={k: sum(row['status'] == k for row in checks) for k in ('pass', 'fail')},
               checks=checks, exclusions=excluded, physical_qualified=False,
-              scope='Exact finite outward mouth prisms versus all other saved material rows; actual saved-shape AABBs used only to reject separated pairs',
-              limitations=['Only the specified first 12 mm beyond each exterior face are checked.',
+              scope='Exact finite outward aperture-prism unions versus all other saved material rows; the hot-front union follows its stepped voids and excludes solid mullions; actual saved-shape AABBs used only to reject separated pairs',
+              limitations=['Only the specified first 12 mm beyond each exterior face are checked; the hot-front check also includes its entrance back to x -2.7 mm.',
                            'No hand/finger/garment, desk contact or airflow streamlines are modeled.',
                            'COTS proxies, real parts, flexible looms, print deformation and thermal performance remain unqualified.',
                            'Clear outward prisms do not prove whole-plenum pressure loss, external recirculation or all-view concealment.'])

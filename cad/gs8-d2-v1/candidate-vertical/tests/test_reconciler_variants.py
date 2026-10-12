@@ -8,7 +8,8 @@ and original-kowa_lm6hc: each must exist, bind its own variant manifest and the 
 fail only on the shared pi5/cooler witness, and the print failures must equal the accepted (empty) set. The test
 writes a valid synthetic pair into a light copy of the tree (tests/_evidence_fixture.py), confirms no variant finding
 for that variant, then removes, rebinds or adds a failure and confirms each produces its finding. The reconciler must
-never write while any gate fails. CAD-free; the live tree is never touched.
+never write with pass-only --write while any gate fails. Explicit --record-blocked has separate tests and retains
+nonzero failure exit status. CAD-free; the live tree is never touched.
 """
 from pathlib import Path
 import json

@@ -1,0 +1,1479 @@
+{
+  "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+  "saved_tub_sha256": "7b84959426e122907332142009fcbfb5b6738bb11c9015950b447faee0ce9ee2",
+  "historical_tub_sha256": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
+  "verification_source_sha256": "ce776a21cf6e6bd899f74cb0f56852577da0d7eb23b43adb4a1712d38ecb3485",
+  "checked_source_sha256": {
+    "model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84"
+  },
+  "helper_source_sha256": {
+    "cavity_rules.py": "f780df04d1155dc37cb4f8a2bfe8180cd97c1080819f0c9d7c7bab31c18a808b"
+  },
+  "generated_utc": "2026-10-12T03:41:51Z",
+  "summary": {
+    "pass": 48,
+    "fail": 1,
+    "info": 21
+  },
+  "checks": [
+    {
+      "id": "tub_valid_single_solid",
+      "status": "pass",
+      "solids": 1,
+      "volume_mm3": 190427.7930117538
+    },
+    {
+      "id": "cold_wall_port_0",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 105.0,
+        "gross_area_mm2": 105.0,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -103.0,
+          -68.0,
+          18.0,
+          21.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "cold_wall_port_1",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 105.0,
+        "gross_area_mm2": 105.0,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -103.0,
+          -68.0,
+          24.0,
+          27.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "cold_wall_port_2",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 105.0,
+        "gross_area_mm2": 105.0,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -103.0,
+          -68.0,
+          30.0,
+          33.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "cold_wall_port_3",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 105.0,
+        "gross_area_mm2": 105.0,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -103.0,
+          -68.0,
+          36.0,
+          39.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "hot_wall_port_0",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 127.5,
+        "gross_area_mm2": 127.5,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -59.0,
+          -16.5,
+          16.0,
+          19.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "hot_wall_port_1",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 127.5,
+        "gross_area_mm2": 127.5,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -59.0,
+          -16.5,
+          23.0,
+          26.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "hot_wall_port_2",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 127.5,
+        "gross_area_mm2": 127.5,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -59.0,
+          -16.5,
+          30.0,
+          33.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "hot_wall_port_3",
+      "status": "pass",
+      "section": {
+        "position_mm": -26.75,
+        "free_area_mm2": 127.5,
+        "gross_area_mm2": 127.5,
+        "obstruction_mm2": 0.0,
+        "axis": "y",
+        "rectangle_uv_mm": [
+          -59.0,
+          -16.5,
+          37.0,
+          40.0
+        ]
+      },
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "cold_rear_sections_and_path",
+      "status": "pass",
+      "minimum_sampled_neck_mm2": 332.6399999999999,
+      "sections": [
+        {
+          "position_mm": -184.95,
+          "free_area_mm2": 332.6399999999999,
+          "gross_area_mm2": 420.0,
+          "obstruction_mm2": 87.36000000000013,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            75.0
+          ]
+        },
+        {
+          "position_mm": -183.75,
+          "free_area_mm2": 335.71999999999935,
+          "gross_area_mm2": 420.0,
+          "obstruction_mm2": 84.28000000000065,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            75.0
+          ]
+        },
+        {
+          "position_mm": -182.51,
+          "free_area_mm2": 369.59999999999997,
+          "gross_area_mm2": 420.0,
+          "obstruction_mm2": 50.400000000000034,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            75.0
+          ]
+        },
+        {
+          "position_mm": -182.38,
+          "free_area_mm2": 411.5999999999997,
+          "gross_area_mm2": 420.0,
+          "obstruction_mm2": 8.400000000000318,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            75.0
+          ]
+        }
+      ],
+      "bay": "cold",
+      "seed": [
+        -182.49,
+        -31.0,
+        40.0
+      ],
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "cold_bottom_sections_and_path",
+      "status": "pass",
+      "minimum_sampled_neck_mm2": 503.27999999999986,
+      "sections": [
+        {
+          "position_mm": 0.05,
+          "free_area_mm2": 503.27999999999986,
+          "gross_area_mm2": 588.0,
+          "obstruction_mm2": 84.72000000000014,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -181.0,
+            -83.0,
+            -34.0,
+            -28.0
+          ]
+        },
+        {
+          "position_mm": 1.25,
+          "free_area_mm2": 507.94000000000017,
+          "gross_area_mm2": 588.0,
+          "obstruction_mm2": 80.05999999999983,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -181.0,
+            -83.0,
+            -34.0,
+            -28.0
+          ]
+        },
+        {
+          "position_mm": 2.49,
+          "free_area_mm2": 559.1999999999999,
+          "gross_area_mm2": 588.0,
+          "obstruction_mm2": 28.800000000000068,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -181.0,
+            -83.0,
+            -34.0,
+            -28.0
+          ]
+        },
+        {
+          "position_mm": 2.62,
+          "free_area_mm2": 588.0,
+          "gross_area_mm2": 588.0,
+          "obstruction_mm2": 0.0,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -181.0,
+            -83.0,
+            -34.0,
+            -28.0
+          ]
+        }
+      ],
+      "bay": "cold",
+      "seed": [
+        -132.0,
+        -31.0,
+        2.51
+      ],
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "hot_bottom_sections_and_path",
+      "status": "pass",
+      "minimum_sampled_neck_mm2": 316.79999999999995,
+      "sections": [
+        {
+          "position_mm": 0.05,
+          "free_area_mm2": 316.79999999999995,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 7.2000000000000455,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -59.0,
+            -5.0,
+            -34.0,
+            -28.0
+          ]
+        },
+        {
+          "position_mm": 1.25,
+          "free_area_mm2": 316.79999999999995,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 7.2000000000000455,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -59.0,
+            -5.0,
+            -34.0,
+            -28.0
+          ]
+        },
+        {
+          "position_mm": 2.49,
+          "free_area_mm2": 316.79999999999995,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 7.2000000000000455,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -59.0,
+            -5.0,
+            -34.0,
+            -28.0
+          ]
+        },
+        {
+          "position_mm": 2.62,
+          "free_area_mm2": 316.79999999999995,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 7.2000000000000455,
+          "axis": "z",
+          "rectangle_uv_mm": [
+            -59.0,
+            -5.0,
+            -34.0,
+            -28.0
+          ]
+        }
+      ],
+      "bay": "hot",
+      "seed": [
+        -32.0,
+        -31.0,
+        2.51
+      ],
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "hot_front_sections_and_path",
+      "status": "pass",
+      "minimum_sampled_neck_mm2": 274.19999999999993,
+      "sections": [
+        {
+          "position_mm": -0.05,
+          "free_area_mm2": 274.19999999999993,
+          "gross_area_mm2": 318.0,
+          "obstruction_mm2": 43.80000000000007,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            58.0
+          ]
+        },
+        {
+          "position_mm": -1.25,
+          "free_area_mm2": 274.19999999999993,
+          "gross_area_mm2": 318.0,
+          "obstruction_mm2": 43.80000000000007,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            58.0
+          ]
+        },
+        {
+          "position_mm": -2.49,
+          "free_area_mm2": 274.19999999999993,
+          "gross_area_mm2": 318.0,
+          "obstruction_mm2": 43.80000000000007,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            58.0
+          ]
+        },
+        {
+          "position_mm": -2.62,
+          "free_area_mm2": 304.0,
+          "gross_area_mm2": 318.0,
+          "obstruction_mm2": 14.0,
+          "axis": "x",
+          "rectangle_uv_mm": [
+            -34.0,
+            -28.0,
+            5.0,
+            58.0
+          ]
+        }
+      ],
+      "bay": "hot",
+      "seed": [
+        -2.51,
+        -31.0,
+        22.5
+      ],
+      "through_ray_material_mm": 0
+    },
+    {
+      "id": "cold_summed_sampled_mouth_necks",
+      "status": "pass",
+      "minimum_sampled_necks_sum_mm2": 835.9199999999997,
+      "wall_ports_mm2": 420.0,
+      "note": "Parallel-mouth area comparison, not a proof of global series minimum or pressure loss"
+    },
+    {
+      "id": "hot_summed_sampled_mouth_necks",
+      "status": "pass",
+      "minimum_sampled_necks_sum_mm2": 590.9999999999999,
+      "wall_ports_mm2": 510.0,
+      "note": "Parallel-mouth area comparison, not a proof of global series minimum or pressure loss"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z7.2",
+      "status": "info",
+      "section": {
+        "position_mm": 7.2,
+        "free_area_mm2": 704.9999999999998,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 2.2737367544323206e-13,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z7.2",
+      "status": "info",
+      "section": {
+        "position_mm": 7.2,
+        "free_area_mm2": 353.4,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 3.6000000000000227,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z8",
+      "status": "info",
+      "section": {
+        "position_mm": 8.0,
+        "free_area_mm2": 704.9999999999998,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 2.2737367544323206e-13,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z8",
+      "status": "info",
+      "section": {
+        "position_mm": 8.0,
+        "free_area_mm2": 353.4,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 3.6000000000000227,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z8.8",
+      "status": "info",
+      "section": {
+        "position_mm": 8.8,
+        "free_area_mm2": 704.9999999999998,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 2.2737367544323206e-13,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z8.8",
+      "status": "info",
+      "section": {
+        "position_mm": 8.8,
+        "free_area_mm2": 353.4,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 3.6000000000000227,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z12",
+      "status": "info",
+      "section": {
+        "position_mm": 12.0,
+        "free_area_mm2": 704.9999999999998,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 2.2737367544323206e-13,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z12",
+      "status": "info",
+      "section": {
+        "position_mm": 12.0,
+        "free_area_mm2": 353.4,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 3.6000000000000227,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z16",
+      "status": "info",
+      "section": {
+        "position_mm": 16.0,
+        "free_area_mm2": 704.9999999999998,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 2.2737367544323206e-13,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z16",
+      "status": "info",
+      "section": {
+        "position_mm": 16.0,
+        "free_area_mm2": 328.19999999999993,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 28.800000000000068,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z21",
+      "status": "info",
+      "section": {
+        "position_mm": 21.0,
+        "free_area_mm2": 704.9999999999998,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 2.2737367544323206e-13,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z21",
+      "status": "info",
+      "section": {
+        "position_mm": 21.0,
+        "free_area_mm2": 300.99999999999994,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 56.00000000000006,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z22.5",
+      "status": "info",
+      "section": {
+        "position_mm": 22.5,
+        "free_area_mm2": 539.5000000000005,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 165.49999999999955,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z22.5",
+      "status": "info",
+      "section": {
+        "position_mm": 22.5,
+        "free_area_mm2": 341.4,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 15.600000000000023,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z28.5",
+      "status": "info",
+      "section": {
+        "position_mm": 28.5,
+        "free_area_mm2": 533.5000000000005,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 171.49999999999955,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z28.5",
+      "status": "info",
+      "section": {
+        "position_mm": 28.5,
+        "free_area_mm2": 316.3,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 40.69999999999999,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z34.5",
+      "status": "info",
+      "section": {
+        "position_mm": 34.5,
+        "free_area_mm2": 539.5000000000005,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 165.49999999999955,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z34.5",
+      "status": "info",
+      "section": {
+        "position_mm": 34.5,
+        "free_area_mm2": 322.29999999999995,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 34.700000000000045,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "cold_interior_horizontal_section_z43",
+      "status": "info",
+      "section": {
+        "position_mm": 43.0,
+        "free_area_mm2": 541.5000000000001,
+        "gross_area_mm2": 705.0,
+        "obstruction_mm2": 163.4999999999999,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -182.5,
+          -65.0,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "hot_interior_horizontal_section_z43",
+      "status": "info",
+      "section": {
+        "position_mm": 43.0,
+        "free_area_mm2": 354.6,
+        "gross_area_mm2": 357.0,
+        "obstruction_mm2": 2.3999999999999773,
+        "axis": "z",
+        "rectangle_uv_mm": [
+          -62.0,
+          -2.5,
+          -34.0,
+          -28.0
+        ]
+      },
+      "note": "One measured cut; ports and branches mean this is not a global flow bottleneck"
+    },
+    {
+      "id": "external_bay_topology",
+      "status": "pass",
+      "significant_void_solids": 3,
+      "seed_ownership": {
+        "cold": [
+          0
+        ],
+        "hot": [
+          1
+        ],
+        "csi": [
+          2
+        ]
+      },
+      "void_solid_volumes_mm3": [
+        63140.40000000002,
+        34373.880000000005,
+        2743.472121629032
+      ],
+      "domain": "External cold bay, external hot bay, isolated straight CSI sleeve; main cavity excluded"
+    },
+    {
+      "id": "cold_rear_feeds_correct_bay",
+      "status": "pass",
+      "ownership": [
+        0
+      ]
+    },
+    {
+      "id": "cold_bottom_feeds_correct_bay",
+      "status": "pass",
+      "ownership": [
+        0
+      ]
+    },
+    {
+      "id": "hot_bottom_feeds_correct_bay",
+      "status": "pass",
+      "ownership": [
+        1
+      ]
+    },
+    {
+      "id": "hot_front_feeds_correct_bay",
+      "status": "pass",
+      "ownership": [
+        1
+      ]
+    },
+    {
+      "id": "cold_port_0_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        0
+      ]
+    },
+    {
+      "id": "cold_port_1_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        0
+      ]
+    },
+    {
+      "id": "cold_port_2_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        0
+      ]
+    },
+    {
+      "id": "cold_port_3_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        0
+      ]
+    },
+    {
+      "id": "hot_port_0_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        1
+      ]
+    },
+    {
+      "id": "hot_port_1_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        1
+      ]
+    },
+    {
+      "id": "hot_port_2_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        1
+      ]
+    },
+    {
+      "id": "hot_port_3_joins_correct_bay",
+      "status": "pass",
+      "ownership": [
+        1
+      ]
+    },
+    {
+      "id": "continuous_external_divider",
+      "status": "pass",
+      "missing_material_mm3": 0.0,
+      "note": "Interior baffle remains partial; this checks the external divider only"
+    },
+    {
+      "id": "csi_straight_sleeve_area",
+      "status": "pass",
+      "expected_mm2": 323.1415926535898,
+      "sections": [
+        {
+          "position_mm": -35.5,
+          "free_area_mm2": 323.1415926536036,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 0.8584073463964046,
+          "axis": "y",
+          "rectangle_uv_mm": [
+            -89.0,
+            -77.0,
+            41.0,
+            68.0
+          ]
+        },
+        {
+          "position_mm": -31.0,
+          "free_area_mm2": 323.1415926536036,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 0.8584073463964046,
+          "axis": "y",
+          "rectangle_uv_mm": [
+            -89.0,
+            -77.0,
+            41.0,
+            68.0
+          ]
+        },
+        {
+          "position_mm": -26.75,
+          "free_area_mm2": 323.1415926536036,
+          "gross_area_mm2": 324.0,
+          "obstruction_mm2": 0.8584073463964046,
+          "axis": "y",
+          "rectangle_uv_mm": [
+            -89.0,
+            -77.0,
+            41.0,
+            68.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "csi_sleeve_left_wall",
+      "status": "pass",
+      "material_span_mm": 5.799999999999997
+    },
+    {
+      "id": "csi_sleeve_right_wall",
+      "status": "pass",
+      "material_span_mm": 5.799999999999997
+    },
+    {
+      "id": "csi_sleeve_bottom_wall",
+      "status": "pass",
+      "material_span_mm": 5.799999999999997
+    },
+    {
+      "id": "csi_sleeve_top_wall",
+      "status": "pass",
+      "material_span_mm": 5.799999999999997
+    },
+    {
+      "id": "csi_declared_lower_tool_vs_tub",
+      "status": "pass",
+      "overlap_mm3": 0.0,
+      "source": "Export18 csi-source-tool-checks.json declared cylinders; all other components and real jaws remain separate"
+    },
+    {
+      "id": "csi_declared_upper_tool_vs_tub",
+      "status": "pass",
+      "overlap_mm3": 0.0,
+      "source": "Export18 csi-source-tool-checks.json declared cylinders; all other components and real jaws remain separate"
+    },
+    {
+      "id": "blank_outer_face_ray_0",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -85.5,
+        19.5
+      ]
+    },
+    {
+      "id": "blank_outer_face_ray_1",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -85.5,
+        37.5
+      ]
+    },
+    {
+      "id": "blank_outer_face_ray_2",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -37.75,
+        17.5
+      ]
+    },
+    {
+      "id": "blank_outer_face_ray_3",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -37.75,
+        38.5
+      ]
+    },
+    {
+      "id": "blank_outer_face_ray_4",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -120.0,
+        50.0
+      ]
+    },
+    {
+      "id": "blank_outer_face_ray_5",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -40.0,
+        70.0
+      ]
+    },
+    {
+      "id": "blank_outer_face_ray_6",
+      "status": "pass",
+      "material_span_mm": 1.6000000000000014,
+      "xz": [
+        -110.0,
+        90.0
+      ]
+    },
+    {
+      "id": "old_front_grille_closed_z9.5",
+      "status": "pass",
+      "material_span_mm": 5.1000000000000005
+    },
+    {
+      "id": "old_front_grille_closed_z15.5",
+      "status": "pass",
+      "material_span_mm": 5.1000000000000005
+    },
+    {
+      "id": "old_front_grille_closed_z21.5",
+      "status": "pass",
+      "material_span_mm": 5.1000000000000005
+    },
+    {
+      "id": "old_front_grille_closed_z27.5",
+      "status": "pass",
+      "material_span_mm": 5.1000000000000005
+    },
+    {
+      "id": "old_front_grille_closed_z33.5",
+      "status": "pass",
+      "material_span_mm": 5.1000000000000005
+    },
+    {
+      "id": "no_added_material_in_original_cavity",
+      "status": "fail",
+      "boundary_exclusion_mm": 0.1,
+      "added_total_mm3": 10118.17561601564,
+      "undeclared_mm3": 8893.784535677361,
+      "undeclared_bbox": [
+        -182.4,
+        -149.146,
+        -25.4,
+        24.9,
+        2.6,
+        96.2
+      ],
+      "declared_inside_mm3": {
+        "carrier_locator_seat": 200.235,
+        "t2_minus_y_tine_flange": 193.914,
+        "t2_minus_y_tine_fill": 525.2256198168669,
+        "t2_ll_insert_boss_cone": 106.46492227936528,
+        "t2_rear_landing_wedge": 25.201619284293294,
+        "t2_fps_guide_corbel": 112.75290016543163,
+        "t2_tab_catch_ceiling": 1222.1118000000001,
+        "t2_tab_catch_pad": 72.48989000000005
+      },
+      "stale_declarations": [],
+      "tol_mm3": 1e-05,
+      "inventory": {
+        "carrier_locator_seat": "model.carrier_locator_seat (FP-11c, VN-38): tub floor seat rib under the carrier tongue",
+        "t2_minus_y_tine_flange": "model.tub_print_fixes (1) (T2, VN-53): -Y tab-catch flange grown from the -Y wall",
+        "t2_minus_y_tine_fill": "model.tub_print_fixes (1) (T2, VN-53): 50 deg fill under the -Y web outer face",
+        "t2_ll_insert_boss_cone": "model.tub_print_fixes (2) (T2): cone under the LL collar insert boss",
+        "t2_rear_landing_wedge": "model.tub_print_fixes (3) (T2): wedge under the rear panel-screw landing",
+        "t2_fps_guide_corbel": "model.tub_print_fixes (5) (T2; FX bundle lane): corbel under the FPS pair guide",
+        "t2_tab_catch_ceiling": "model.tab_catch_split (T2, VN-53): ceiling over the tab slot above the +Y tine joint",
+        "t2_tab_catch_pad": "model.tab_catch_split (T2, VN-53): +Y web pad above the joint (pocket wall)"
+      },
+      "declared_additions_covered_by": [
+        "verification.json interference (tub vs every part) and motion sweeps",
+        "harness-checks.json installed_clearance / feed_volumes / member sweeps (tub in the obstacle set)",
+        "fps-service-study/integrated-fps-checks.json static and carried checks (tub fixed)",
+        "hdmi-checks.json installed / premate / carried sweeps (tub in the obstacle set)"
+      ],
+      "rule": "saved tub minus historical tub inside the original cavity, minus the declared additions (cavity_rules.INVENTORY, rebuilt from model.py) < 1e-5 mm3; every declared addition present in the tub"
+    },
+    {
+      "id": "print_and_thermal_limits",
+      "status": "info",
+      "post_count": 0,
+      "roof_support": {
+        "revision": "trial4 windowed ribs + lintels + supported stepped front mouth",
+        "rib_thickness_mm": 1.2,
+        "rib_y_mm": [
+          -34.05,
+          -27.9
+        ],
+        "beam_y_mm": [
+          -29.0,
+          -27.9
+        ],
+        "pillar_length_mm": 1.2,
+        "window_max_mm": 14.0,
+        "hot_boundary_x": -31.0,
+        "hot_band_row": [
+          10.0,
+          -16.5,
+          -2.6
+        ],
+        "hot_column_x": -17.1,
+        "hot_lip_x": -3.2,
+        "cold_rows": [
+          [
+            22.5,
+            [
+              [
+                -185.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            28.5,
+            [
+              [
+                -185.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            34.5,
+            [
+              [
+                -185.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            43.0,
+            [
+              [
+                -185.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            51.0,
+            [
+              [
+                -185.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            59.0,
+            [
+              [
+                -185.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            67.0,
+            [
+              [
+                -185.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            55.0,
+            [
+              [
+                -75.1,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            76.0,
+            [
+              [
+                -182.6,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            84.0,
+            [
+              [
+                -182.6,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            92.0,
+            [
+              [
+                -182.6,
+                -64.9
+              ]
+            ]
+          ]
+        ],
+        "hot_rows": [
+          [
+            21.0,
+            [
+              [
+                -30.4,
+                0.0
+              ]
+            ]
+          ],
+          [
+            28.0,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            35.0,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            40.6,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            49.0,
+            [
+              [
+                -30.4,
+                0.0
+              ]
+            ]
+          ],
+          [
+            77.0,
+            [
+              [
+                -30.4,
+                -2.4
+              ]
+            ]
+          ],
+          [
+            10.0,
+            [
+              [
+                -16.5,
+                -2.6
+              ]
+            ]
+          ]
+        ],
+        "hot_z_ribs": [
+          [
+            -48.0,
+            2.75,
+            16.0
+          ],
+          [
+            -48.0,
+            19.0,
+            23.0
+          ],
+          [
+            -48.0,
+            26.0,
+            30.0
+          ],
+          [
+            -48.0,
+            33.0,
+            37.0
+          ],
+          [
+            -48.0,
+            40.0,
+            97.6
+          ],
+          [
+            -31.0,
+            2.4,
+            16.0
+          ],
+          [
+            -31.0,
+            19.0,
+            23.0
+          ],
+          [
+            -31.0,
+            26.0,
+            30.0
+          ],
+          [
+            -31.0,
+            33.0,
+            37.0
+          ],
+          [
+            -31.0,
+            40.0,
+            97.6
+          ],
+          [
+            -3.2,
+            2.4,
+            10.6
+          ],
+          [
+            -60.4,
+            15.4,
+            40.6
+          ],
+          [
+            -17.1,
+            9.4,
+            16.0
+          ]
+        ],
+        "hot_diagonal": null,
+        "hot_left_separator": null,
+        "cold_bottom_mullions_x": [
+          -161.4,
+          -141.8,
+          -122.2,
+          -102.6
+        ],
+        "hot_bottom_mullion_x": -31.0,
+        "hot_front_mullion_z": 21.0,
+        "hot_front_mullions_z": [
+          21.0,
+          49.0
+        ],
+        "hot_front_extent_z": [
+          5.0,
+          58.0
+        ],
+        "hot_front_apertures_yz": [
+          [
+            -34.0,
+            -28.0,
+            5.0,
+            20.4
+          ],
+          [
+            -34.0,
+            -28.0,
+            21.6,
+            48.4
+          ],
+          [
+            -34.0,
+            -31.5,
+            49.6,
+            58.0
+          ]
+        ],
+        "lintel_mm": 0.6,
+        "lintel_land_mm": 1.2,
+        "lintel_mouths": [
+          "cold_rear",
+          "cold_bottom"
+        ],
+        "skin_bed_chamfer_mm": 0.6,
+        "mouths": {
+          "cold_rear": {
+            "gross": 420.0,
+            "net": 332.64,
+            "mullions": 7,
+            "lintel_mm": 0.6
+          },
+          "cold_bottom": {
+            "gross": 588.0,
+            "net": 503.28000000000003,
+            "mullions": 4,
+            "lintel_mm": 0.6
+          },
+          "hot_bottom": {
+            "gross": 324.0,
+            "net": 316.8,
+            "mullions": 1,
+            "lintel_mm": 0.0
+          },
+          "hot_front": {
+            "gross": 286.5,
+            "net": 274.2,
+            "mouth_face_mm2": 274.2,
+            "inboard_neck_mm2": 304.0,
+            "inboard_rib_obstruction_mm2": 14.000000000000002,
+            "inboard_plane_x_mm": -2.62,
+            "mullions": 2,
+            "lintel_mm": 0.0
+          }
+        }
+      },
+      "support_free_claim": false,
+      "cleanout_qualified": false,
+      "thermal_qualified": false,
+      "limitations": [
+        "Roof bridges run between continuous 1.2 mm ribs; the per-region single-direction bridge rule is computed by verify_print_checks.py (print_bridge_direction), not here, and no slicer result exists.",
+        "Ribs, row breaks, mullions and lintels add flow resistance beyond the sampled planar sections.",
+        "No trapped support is permitted; slicer/bridge coupon and debris removal remain gates.",
+        "Cold/hot mouths may be occluded by hands and may recirculate externally.",
+        "CSI remains an unsealed direct bypass to the main enclosure.",
+        "Fan operating point, actual cooler geometry, full loom and all physical gates remain open."
+      ]
+    }
+  ],
+  "physical_qualified": false,
+  "scope": "Exact saved-STEP named planar sections, finite rays, external void connectivity and local material comparison; no global flow/strength/print/thermal qualification"
+}

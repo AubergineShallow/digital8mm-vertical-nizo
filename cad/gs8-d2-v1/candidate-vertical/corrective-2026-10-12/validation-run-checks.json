@@ -1,0 +1,75 @@
+{
+  "physical_qualified": false,
+  "manifest_sha256": {
+    "compact-kowa_lm6hc": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "compact-fujinon_hf6xa": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
+    "original-kowa_lm6hc": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
+  },
+  "checks": [
+    {
+      "check": "compact-fujinon_hf6xa-mesh",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-mesh-validation.log"
+    },
+    {
+      "check": "compact-fujinon_hf6xa-print",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-print-validation.log"
+    },
+    {
+      "check": "compact-fujinon_hf6xa-scope",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-scope-validation.log"
+    },
+    {
+      "check": "compact-fujinon_hf6xa-plenum",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-plenum-validation.log"
+    },
+    {
+      "check": "compact-fujinon_hf6xa-outlet",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-outlet-validation.log"
+    },
+    {
+      "check": "compact-fujinon_hf6xa-void",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-void-validation.log"
+    },
+    {
+      "check": "original-kowa_lm6hc-mesh",
+      "exit_code": 0,
+      "log": "original-kowa_lm6hc-mesh-validation.log"
+    },
+    {
+      "check": "original-kowa_lm6hc-print",
+      "exit_code": 0,
+      "log": "original-kowa_lm6hc-print-validation.log"
+    },
+    {
+      "check": "original-kowa_lm6hc-scope",
+      "exit_code": 0,
+      "log": "original-kowa_lm6hc-scope-validation.log"
+    },
+    {
+      "check": "original-kowa_lm6hc-plenum",
+      "exit_code": 1,
+      "log": "original-kowa_lm6hc-plenum-validation.log"
+    },
+    {
+      "check": "original-kowa_lm6hc-outlet",
+      "exit_code": 0,
+      "log": "original-kowa_lm6hc-outlet-validation.log"
+    },
+    {
+      "check": "original-kowa_lm6hc-void",
+      "exit_code": 0,
+      "log": "original-kowa_lm6hc-void-validation.log"
+    },
+    {
+      "check": "comparison",
+      "exit_code": 0,
+      "log": "comparison-validation.log"
+    }
+  ]
+}

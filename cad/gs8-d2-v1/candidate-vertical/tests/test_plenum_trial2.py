@@ -31,6 +31,7 @@ import sys
 import tempfile
 import types
 import unittest
+from unittest import mock
 from pathlib import Path
 
 CV = Path(__file__).resolve().parents[1]
@@ -43,6 +44,7 @@ import manifold3d as m3         # noqa: E402
 import print_rules as PR        # noqa: E402
 import check_scope as CS        # noqa: E402
 import vent_geometry as VG      # noqa: E402
+import plenum_flow as PF        # noqa: E402
 import layout as R7L            # noqa: E402  (r7 layout: PRINT_OVERHANG rule constants, read-only)
 
 LENGTHS = (158.0, 185.0)
@@ -152,8 +154,10 @@ class Layout(unittest.TestCase):
             self.assertLessEqual(max(e[i + 1] - e[i] for i in range(0, len(e), 2)), 30.0)
         hb = [(-59., VG.HOT_BOTTOM_MULLION_X - VG.RIB_T / 2), (VG.HOT_BOTTOM_MULLION_X + VG.RIB_T / 2, -5.)]
         self.assertLessEqual(max(b - a for a, b in hb), 30.0)
-        hf = [(5., VG.HOT_FRONT_MULLION_Z - VG.RIB_T / 2), (VG.HOT_FRONT_MULLION_Z + VG.RIB_T / 2, 40.)]
-        self.assertLessEqual(max(b - a for a, b in hf), 30.0)
+        hf=VG.hot_front_apertures()
+        self.assertLessEqual(max(b-a for _,_,a,b in hf),30.0)
+        self.assertEqual(VG.HOT_FRONT_MULLION_ZS,(21.,49.))
+        self.assertTrue(all(y1<=-31.5 for _,y1,z0,_ in hf if z0>=49.))
 
     def test_cold_breaks_staggered(self):
         """A roof line at constant x crosses at most one broken row before meeting a solid one."""
@@ -165,6 +169,18 @@ class Layout(unittest.TestCase):
                           for z, segs in rows]
                 for i in range(len(broken) - 1):
                     self.assertFalse(broken[i] and broken[i + 1], 'x %.1f rows %d,%d (L %g)' % (x, i, i + 1, L))
+
+    def test_front_metadata_counts_the_inboard_lip(self):
+        """Negative control: old dimensions reproduce the 5.6 mm2 overstatement; new step reports the smaller face."""
+        with mock.patch.multiple(VG,HOT_FRONT_Z=(5.,40.),HOT_FRONT_STEP_Z=40.,HOT_FRONT_MULLION_ZS=(21.,)):
+            old=VG.hot_front_neck_nominal(158.)
+            self.assertAlmostEqual(old['mouth_face_mm2'],202.8,places=6)
+            self.assertAlmostEqual(old['inboard_neck_mm2'],197.2,places=6)
+            self.assertAlmostEqual(old['net'],197.2,places=6)
+        now=VG.hot_front_neck_nominal(158.)
+        self.assertAlmostEqual(now['mouth_face_mm2'],274.2,places=6)
+        self.assertAlmostEqual(now['inboard_neck_mm2'],304.,places=6)
+        self.assertAlmostEqual(now['net'],274.2,places=6)
 
     def test_post_centres_empty(self):
         self.assertEqual(VG.post_centres(158.), [])
@@ -220,11 +236,13 @@ def families(L):
     mouths = {'cold_rear': ('x', [-L + .05, -L + 1.25, -L + 2.49, -L + 2.62], -34., -28., 5., 75.),
               'cold_bottom': ('z', [.05, 1.25, 2.49, 2.62], -L + 4., -83., -34., -28.),
               'hot_bottom': ('z', [.05, 1.25, 2.49, 2.62], -59., -5., -34., -28.),
-              'hot_front': ('x', [-.05, -1.25, -2.49, -2.62], -34., -28., 5., 40.)}
+              'hot_front': ('x', [-.05, -1.25, -2.49, -2.62], -34., -28., *VG.HOT_FRONT_Z)}
     series = {'cold_rear': ('x', frange(-L + 3., -104., 2.), (-L + 3., -104.), (-34., -28., 2.5, 97.5)),
               'cold_bottom': ('z', frange(2.6, 17.8, .4), (2.6, 17.8), (-L + 2.5, -65., -34., -28.)),
-              'hot_bottom': ('z', frange(2.6, 15.8, .4), (2.6, 15.8), (-62., -2.5, -34., -28.)),
+              'hot_bottom': ('z', frange(2.6,15.8,.4)+frange(16.05,42.95,.5), (2.6,42.95), (-62.,-2.5,-34.,-28.)),
               'hot_front': ('x', frange(-16., -2.7, 1.), (-16., -2.7), (-34., -28., 2.5, 97.5))}
+    for name,(axis,regular,(lo,hi),rect) in list(series.items()):
+        series[name]=(axis,PF.section_sample_planes(VG,L,axis,lo,hi,regular),(lo,hi),rect)
     return mouths, series
 
 
@@ -314,8 +332,12 @@ class Wiring(unittest.TestCase):
 
     def test_flow_baseline_rewritten_with_reason(self):
         b = json.loads(read_text(CV / 'review-2026-10-10/fp12/flow-network-baseline.json'))
-        # FX: rewritten again for trial3 with its reason; the FP-11a reason is kept in 'previous'
-        self.assertTrue(re.search(r'trial3', b['reason']) and re.search(r'FP-11a', b['previous']['reason']), b['reason'])
+        # Trial4 has a geometric reason and a separate sampling correction; retain the full trial3 -> FP-11a chain.
+        self.assertRegex(b['reason'], r'trial4')
+        self.assertRegex(b['reason'], r'Sampling:')
+        self.assertRegex(b['previous']['reason'], r'trial3')
+        self.assertRegex(b['previous']['previous']['reason'], r'FP-11a')
+        self.assertEqual(b['rel_tol'], 1e-6)
         r = json.loads(read_text(CV / b['source_report']))
         el = next(c for c in r['checks'] if c['category'] == 'flow_network' and c['id'] == 'model')['elements']
         ok, det = CS.flow_drift(CS.flow_network(el), b)

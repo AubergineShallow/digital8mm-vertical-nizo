@@ -215,7 +215,7 @@ class TestProvenance(unittest.TestCase):
 
 LOCK = CV / 'requirements-candidate-lock.txt'
 DIST = {'cadquery': 'cadquery', 'OCP': 'cadquery-ocp', 'numpy': 'numpy', 'PIL': 'pillow', 'reportlab': 'reportlab',
-        'vtk': 'vtk', 'manifold3d': 'manifold3d'}
+        'vtk': 'vtk', 'manifold3d': 'manifold3d', 'matplotlib': 'matplotlib', 'mpl_toolkits': 'matplotlib'}
 
 
 def lock_sections():
@@ -243,7 +243,8 @@ def third_party_imports():
 class TestToolchain(unittest.TestCase):
     def test_every_import_is_declared_once(self):
         pinned, optional, external, _ = lock_sections()
-        declared = pinned + list(optional) + external
+        local_pins = re.search(r'^# pinned-in-candidate: (.+)$', LOCK.read_text(encoding='utf-8'), re.M)
+        declared = pinned + (local_pins.group(1).split() if local_pins else []) + list(optional) + external
         self.assertEqual(len(declared), len(set(declared)))
         self.assertEqual(sorted(set(third_party_imports()) - set(declared)), [])
 
@@ -263,6 +264,14 @@ class TestToolchain(unittest.TestCase):
             self.assertIsNone(importlib.util.find_spec(m), '%s is installed: pin its version in the lock' % m)
             for rel in used.get(m, ()):
                 self.assertIn(Path(rel).name, users, (m, rel))
+
+    def test_candidate_pins_match_installed_versions(self):
+        text = LOCK.read_text(encoding='utf-8')
+        names = re.search(r'^# pinned-in-candidate: (.+)$', text, re.M)
+        pins = dict(re.findall(r'^([A-Za-z0-9_-]+)==([^\s]+)$', text, re.M))
+        self.assertEqual({DIST.get(name, name) for name in (names.group(1).split() if names else [])}, set(pins))
+        for name, version in pins.items():
+            self.assertEqual(md.version(name), version)
 
     def test_reproduce_gives_windows_commands(self):
         text = (CV / 'REPRODUCE.md').read_text(encoding='utf-8')
@@ -291,8 +300,9 @@ class TestLinksAndIndex(unittest.TestCase):
     def test_structural_page_images_are_bound(self):
         rec = json.loads((CV / 'structural-review/output/pdf/structural-supplement-pdf-receipt.json').read_text(encoding='utf-8'))
         imgs = rec['visual_review']['rendered_page_sha256']
+        self.assertEqual(len(imgs), rec['pages'])
         for name, h in imgs.items():
-            self.assertEqual(sha(CV / 'structural-review/tmp/pdfs' / name), h, name)
+            self.assertEqual(sha(CV / 'structural-review/output/pdf' / name), h, name)
 
 
 if __name__ == '__main__':

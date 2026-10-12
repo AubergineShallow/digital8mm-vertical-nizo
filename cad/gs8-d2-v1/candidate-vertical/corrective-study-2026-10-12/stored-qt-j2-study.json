@@ -1,0 +1,249 @@
+{
+  "scope": "Exploratory static routing, not selected geometry; full QT stock lengths and strict source-bound exact sweeps. No service deformation or J2 mating-access proof.",
+  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "source_sha256": {
+    "signal_routes.py": "6f6fc20f737d18ced85ddc2fcb36ce8b95630ecac769908f53d8b2022c689510",
+    "harness_rules.py": "0c4080c638810733fff5a4ef729f5cd5e8a85a8acbe3205683d353e5eb0fd368",
+    "verify_harness_checks.py": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
+    "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b"
+  },
+  "stored_qt": [
+    {
+      "variable": "low",
+      "value": 54.695476581438484,
+      "od_mm": 3.2,
+      "capsule_d_mm": 3.4,
+      "polyline_points": 50,
+      "pieces": 96,
+      "member_length_mm": 196.93,
+      "exempt": [
+        "encoder",
+        "pi5"
+      ],
+      "exempt_rule": "own end parts only within 10 mm of the terminal",
+      "targets": 6934,
+      "hits": {},
+      "member_errors": [],
+      "installed_targets": true,
+      "cable_overlaps": [],
+      "stock_length_mm": 240,
+      "complete_longest_branch_and_main_mm": 240.00000000000003,
+      "knots": [
+        [
+          -45.445,
+          -23.4,
+          37.0
+        ],
+        [
+          -45.445,
+          -23.4,
+          90.5
+        ],
+        [
+          -72.5,
+          -23.4,
+          90.5
+        ],
+        [
+          -72.5,
+          -23.4,
+          54.695476581438484
+        ],
+        [
+          -93.2,
+          -23.4,
+          54.695476581438484
+        ],
+        [
+          -93.2,
+          -23.4,
+          68.0
+        ],
+        [
+          -93.2,
+          14.8,
+          68.0
+        ],
+        [
+          -85.0,
+          14.8,
+          77.0
+        ],
+        [
+          -72.0,
+          14.8,
+          77.0
+        ]
+      ]
+    },
+    {
+      "variable": "low",
+      "value": 49.6954765814385,
+      "od_mm": 3.2,
+      "capsule_d_mm": 3.4,
+      "polyline_points": 50,
+      "pieces": 100,
+      "member_length_mm": 206.93,
+      "exempt": [
+        "encoder",
+        "pi5"
+      ],
+      "exempt_rule": "own end parts only within 10 mm of the terminal",
+      "targets": 6934,
+      "hits": {},
+      "member_errors": [],
+      "installed_targets": true,
+      "cable_overlaps": [],
+      "stock_length_mm": 250,
+      "complete_longest_branch_and_main_mm": 249.99999999999997,
+      "knots": [
+        [
+          -45.445,
+          -23.4,
+          37.0
+        ],
+        [
+          -45.445,
+          -23.4,
+          90.5
+        ],
+        [
+          -72.5,
+          -23.4,
+          90.5
+        ],
+        [
+          -72.5,
+          -23.4,
+          49.6954765814385
+        ],
+        [
+          -93.2,
+          -23.4,
+          49.6954765814385
+        ],
+        [
+          -93.2,
+          -23.4,
+          68.0
+        ],
+        [
+          -93.2,
+          14.8,
+          68.0
+        ],
+        [
+          -85.0,
+          14.8,
+          77.0
+        ],
+        [
+          -72.0,
+          14.8,
+          77.0
+        ]
+      ]
+    },
+    {
+      "variable": "low",
+      "value": 44.695476581438456,
+      "od_mm": 3.2,
+      "capsule_d_mm": 3.4,
+      "polyline_points": 48,
+      "pieces": 100,
+      "member_length_mm": 216.93,
+      "exempt": [
+        "encoder",
+        "pi5"
+      ],
+      "exempt_rule": "own end parts only within 10 mm of the terminal",
+      "targets": 6934,
+      "hits": {},
+      "member_errors": [],
+      "installed_targets": true,
+      "cable_overlaps": [],
+      "stock_length_mm": 260,
+      "complete_longest_branch_and_main_mm": 260.00000000000006,
+      "knots": [
+        [
+          -45.445,
+          -23.4,
+          37.0
+        ],
+        [
+          -45.445,
+          -23.4,
+          90.5
+        ],
+        [
+          -72.5,
+          -23.4,
+          90.5
+        ],
+        [
+          -72.5,
+          -23.4,
+          44.695476581438456
+        ],
+        [
+          -93.2,
+          -23.4,
+          44.695476581438456
+        ],
+        [
+          -93.2,
+          -23.4,
+          68.0
+        ],
+        [
+          -93.2,
+          14.8,
+          68.0
+        ],
+        [
+          -85.0,
+          14.8,
+          77.0
+        ],
+        [
+          -72.0,
+          14.8,
+          77.0
+        ]
+      ]
+    }
+  ],
+  "j2_home_candidates": [
+    {
+      "name": "upper_class_housing",
+      "box": [
+        -25.25,
+        -17.75,
+        -19.5,
+        -8.5,
+        15,
+        35
+      ],
+      "hits": [],
+      "capacity_at_20pct_mm3": 330.0
+    },
+    {
+      "name": "expanded_reserve",
+      "box": [
+        -33,
+        -9,
+        -24,
+        -7,
+        15,
+        39.5
+      ],
+      "hits": [],
+      "capacity_at_20pct_mm3": 1999.2
+    }
+  ],
+  "remaining": [
+    "Stored QT family needs released minimum and service/guide-state integration before selection.",
+    "Actual QT splice sleeves and four-core bundle cross section remain unmodeled.",
+    "J2 exact SKU, root datums, housing exits, latch clearance, wire stock allocation and withdrawal stroke are unknown. A class bounding box cannot close those gates."
+  ]
+}

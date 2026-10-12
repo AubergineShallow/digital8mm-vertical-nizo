@@ -7,7 +7,7 @@ All nominal stock lengths, diameters, source roots, and bend radii stay explicit
 """
 import math
 
-REVISION = 'signal-reconciliation-2026-10-11-v4-qt-fanin-free-leads'
+REVISION = 'signal-reconciliation-2026-10-12-v6-qt-stored-and-released'
 
 
 def _solve_top(make_curve, target, low=35., high=95.):
@@ -62,23 +62,35 @@ def build(R, step=.2):
             status='ROOT CONTACT AND ACTUAL CORE SECTION UNQUALIFIED; screen against the current dogleg power revision'))
     qt_branches=[b for b in branches if b['cable']=='qt']
     qt_longest=max(b['curve']['rounded_length_mm'] for b in qt_branches)
-    # H2 (VN-28): the storage variable is the height of the top run (knots 1 and 2); the under-tool run is fixed at
-    # Z38 (QT_LOW): 4.5 mm above the FPS mated-carry 200 main, which lies in the same Y-23.4 lane at Z33.5 (the
-    # superseded family's Z34 bound member overlapped it), and below the CSI tool. The shortest member (top 56) is
-    # the minimum route; the longest (top 87.5, the superseded top run) is the spare home. Top >= 56: the top run passes
-    # over the tub wall rib at X-64 (top about Z52) with its 3.4 mm capsule (exact member sweep, H2 run 1: top 52 hit 17.21 mm3).
-    QT_LOW=38.
-    def qt_curve(top):
-        return R.rounded_path([[qt_x,-23.4,QT_FZ],[qt_x,-23.4,top],[-72.5,-23.4,top],
-            [-72.5,-23.4,QT_LOW],[-93.2,-23.4,QT_LOW],[-93.2,-23.4,65],
-            [-93.2,14.8,65],[-85,14.8,77],[-72,14.8,77]],6.4,3,4,step)
-    qc=_solve_top(qt_curve,250-qt_longest,56.,87.5)
+    # Corrective 2026-10-12: the complete-length installed loop crosses above the unchanged R5.5 HDMI U,
+    # at Z90.5. Its lower return stores 240..260 mm at Z54.695..44.695. The +Y crossing rises to Z68 to
+    # keep both R6.4 corner trims on the shortest upper leg. All source roots, branches, stock and radii stay.
+    # The released minimum is a DIFFERENT static pose with the guides released; it retains the previously
+    # swept short route (top56/low38/cross65) for the unchanged service allowance. Neither this minimum nor
+    # the propped minimum-reach route claims complete-stock flexible service/deformation qualification.
+    def qt_curve(low):
+        return R.rounded_path([[qt_x,-23.4,QT_FZ],[qt_x,-23.4,90.5],[-72.5,-23.4,90.5],
+            [-72.5,-23.4,low],[-93.2,-23.4,low],[-93.2,-23.4,68.],
+            [-93.2,14.8,68.],[-85,14.8,77],[-72,14.8,77]],6.4,3,4,step)
+    lo,hi=44.,55.2
+    for _ in range(64):
+        low=(lo+hi)/2
+        qc=qt_curve(low)
+        if qc['errors']:raise ValueError(qc['errors'])
+        if qc['rounded_length_mm']+qt_longest>250:lo=low
+        else:hi=low
+    qc=qt_curve((lo+hi)/2)
+    qt_released=R.rounded_path([[qt_x,-23.4,QT_FZ],[qt_x,-23.4,56.],[-72.5,-23.4,56.],
+        [-72.5,-23.4,38.],[-93.2,-23.4,38.],[-93.2,-23.4,65.],
+        [-93.2,14.8,65.],[-85,14.8,77.],[-72.,14.8,77.]],6.4,3,4,step)
     qt=dict(id='qt',stock_length_mm=250,od_mm=3.2,minimum_centerline_radius_mm=6.4,
-        curve=qc,nominal_longest_breakout_plus_main_mm=qt_longest+qc['rounded_length_mm'],
+        curve=qc,released_minimum_curve=qt_released,
+        released_minimum_scope='Separate guides-released static minimum for the unchanged allowance; complete-stock service deformation remains unqualified.',
+        nominal_longest_breakout_plus_main_mm=qt_longest+qc['rounded_length_mm'],
         nominal_other_branch_remainders_mm={b['id']:250-qc['rounded_length_mm']-b['curve']['rounded_length_mm'] for b in qt_branches},
         fan_in_point=[qt_x,-23.4,QT_FZ],fan_in_rise_mm=QT_FANIN_RISE,fan_in_tail_mm=QT_FANIN_TAIL,
-        status='UPPER ROUTE AND MODELED FAN-IN RECONCILED; actual QT breakout construction (MP-QT) unmeasured',
-        fan_in_gate='H2: the modeled fan-in brings every branch onto the main start at F, tangent to it, with no invisible straight jump; the stock solve uses the longest branch including its fan-in. The real breakout position, core OD and bundle construction remain MP-QT measurements; re-solve the top-run height after they are known.',
+        status='COMPLETE-LENGTH STORED ROUTE AND SEPARATE RELEASED MINIMUM; actual QT breakout construction (MP-QT) and full-material flexible service remain unmeasured',
+        fan_in_gate='H2: the modeled fan-in brings every branch onto the main start at F, tangent to it, with no invisible straight jump; the stock solve uses the longest branch including its fan-in. The real breakout position, core OD and bundle construction remain MP-QT measurements; re-solve the stored lower-return height after they are known.',
         section_gate='The main OD3.2 envelope and branch OD1.6 proxies are retained. Four real OD1.6 circular cores cannot fit inside a round OD3.2 bundle (minimum enclosing OD3.863 for a square pack). Measure the actual breakout/core OD and bundle construction; do not shrink the proxy cores or claim a passed merge.',
         final_root_gate='The modeled endpoint is on the socket rear face. Only the local terminal approach may enter that source envelope; connector/root measurement remains required.')
     fps_branch=next(b for b in branches if b['cable']=='fps_lead')
@@ -169,14 +181,18 @@ def build(R, step=.2):
     # on the body-fixed end of its free lead along the installed first leg and ends on the posed plug / far end along
     # the installed last leg, at the cable's own bend radius. Design aid: 1 mm voxel clearance search (scratch, not
     # evidence); the exact capsule sweep, separation and reach are harness_rules.free_lead_eval in
-    # verify_harness_checks.py. QT: lane exit -> over the cooler fins and the Pi top edge -> over the carrier where it
+    # verify_harness_checks.py. Corrective 2026-10-12: the old diagonal crossed the Pi solid at Z56..65.
+    # QT now rises to Z69 beside the cooler before the +Y crossing. Source/end roots, R6.4,
+    # purchased 240..260 mm range and all terminal exemptions are unchanged. This is a scoped static
+    # propped route, not a continuous deformation, actual splice-volume, or CSI access qualification.
+    # QT: lane exit -> over the cooler fins and the Pi top edge -> over the carrier where it
     # is open (X-46) -> across the prop gap to the encoder from -X. J2: up off the pads, +Y past the FPC strip edge,
     # down in front of the X1203 and through the carrier's switch opening -> straight out to the switch terminals.
     PANEL_PROP_Y=60.
     qe=[-72.,14.8+PANEL_PROP_Y,77.];je=[-20.,-1.4+PANEL_PROP_Y,25.5]
     free_leads={
         'qt_enc':dict(cable='qt',op='panel_prop',od_mm=3.2,radius=6.4,first_tail=3,last_tail=4,hdmi_state='installed',
-            knots=[[qt_x,-23.4,QT_FZ],[qt_x,-23.4,43.1],[-59.7,-18.9,55.2],[-45.5,-6.3,58.],[-46.,8.,68.8],
+            knots=[[qt_x,-23.4,QT_FZ],[qt_x,-23.4,69.],[-45.5,8.,69.],
                    [-88.7,qe[1],qe[2]],qe],
             src='signal_routes.py free_leads (H2): QT main free from the modeled fan-in point to the propped encoder plug'),
         'j2_btn':dict(cable='power_button',op='panel_prop',od_mm=1.6,radius=3.2,first_tail=3,last_tail=3,hdmi_state='installed',

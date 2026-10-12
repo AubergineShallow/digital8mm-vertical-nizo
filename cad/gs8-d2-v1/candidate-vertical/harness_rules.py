@@ -174,9 +174,9 @@ def tail_box(p0, p1, d=TAIL_D):
 # A route stretched to its stock length by a solver is judged at the shortest member of its own family: the
 # solver variable at its own bound. Each entry names the knots that carry the variable and the source literal.
 FAMILIES = {
-    # H2 (VN-28): the QT storage variable moved from the under-tool run (knots 3, 4: 'lo,hi=34.,50.') to the top run
-    'qt': dict(var='top', knots=(1, 2), axis=2, bound=(56.0, 87.5),
-               src="signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)'"),
+    # Corrective 2026-10-12: complete-length installed storage, with a separately swept released minimum.
+    'qt': dict(var='low', knots=(3, 4), axis=2, bound=(44.0, 55.2),
+               src="signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68"),
     'run_pin37': dict(var='top', knots=(6, 7), axis=2, bound=(35.0, 80.0),
                       src="signal_routes.py build(): run cores '_solve_top(make,250,35,80)'"),
     'run_pin39': dict(var='top', knots=(4, 5), axis=2, bound=(35.0, 80.0),
@@ -289,7 +289,9 @@ def collect(out, rows, L, ST):
         curve = item['curve']
         c.update(curve=curve, points=[list(p) for p in curve.get('sampled_centerline') or []],
                  errors=list(curve.get('errors') or []), family=FAMILIES.get(cid), branches=[], od_mm=item.get('od_mm'),
-                 feed=item.get('feed'), stubs=item.get('stubs'), sweep_points=item.get('sweep_points'))   # H1
+                 feed=item.get('feed'), stubs=item.get('stubs'), sweep_points=item.get('sweep_points'),
+                 released_minimum_curve=item.get('released_minimum_curve'),
+                 released_minimum_scope=item.get('released_minimum_scope'))   # H1
         if cid == 'qt':
             c['branches'] = [dict(id=b['id'], points=[list(p) for p in b['curve']['sampled_centerline']],
                                   length=b['curve']['rounded_length_mm']) for b in sig['branches'] if b['cable'] == 'qt']
@@ -623,6 +625,24 @@ def min_route(H, c, rounded_path):
     if c.get('family'):
         fr = family_range(rounded_path, c['curve'], c['family'])
         br = max([b['length'] for b in c['branches']] or [0.0])
+        rel = c.get('released_minimum_curve')
+        if rel is not None:
+            rc = rounded_path(rel['knots'], rel['centerline_radius_mm'], rel['first_straight_min_mm'],
+                              rel['last_straight_min_mm'], 0.5)
+            problems = list(rc['errors'])
+            if rc['rounded_length_mm'] is None or abs(rc['rounded_length_mm'] - rel['rounded_length_mm']) > 1e-6:
+                problems.append('released minimum recorded length differs from its knots')
+            if rel['centerline_radius_mm'] < c['curve']['centerline_radius_mm'] - 1e-9:
+                problems.append('released minimum reduces the installed bend-radius allowance')
+            if not rc['sampled_centerline']:
+                problems.append('released minimum has no valid sampled curve')
+            else:
+                for end in (0, -1):
+                    if math.dist(rc['sampled_centerline'][end], c['points'][end]) > ROUTE_END_TOL:
+                        problems.append('released minimum endpoint differs from installed endpoint')
+            detail = dict(length_mm=rc['rounded_length_mm'], problems=problems, scope=c.get('released_minimum_scope'))
+            return (None if problems else rc['rounded_length_mm'] + br), dict(family=fr, released_minimum=detail,
+                                                                            longest_branch_mm=br)
         return (None if fr['min_mm'] is None else fr['min_mm'] + br), dict(family=fr, longest_branch_mm=br)
     if c.get('core'):
         hx = hump_excess(c['core']['upper_curve']['slack_hump'])
@@ -716,29 +736,34 @@ def cable_stow_rows(H, rounded_path, finished=None):
 
 def j2_stow_row(out):
     """FX (verifier D1 minor): does the default J2 keyed pair fit its stow space? routes.py power_stow charges the V-28
-    class envelope (class datasheet range, not measured) plus the loop slack against fill_max of its box. FX-H: gated at
-    the conservative UPPER end of the class range (the lower end is reported); user decision 13 (J2 family: 'fits the J2
+    legacy class estimate (not a verified upper bound) plus the loop slack against fill_max of its box. FX-H: gated at
+    the larger legacy estimate (the smaller is reported); user decision 13 (J2 family: 'fits the J2
     stow space') and G-V-POWER (measure the purchased pair) settle it."""
     r = next((q for q in out.get('slack_reservations') or [] if q['id'] == 'power_stow'), None)
-    row = dict(category='cable_stow', id='power_button_j2_pair', kind='rigid pair in its stow space', estimate=True)
+    row = dict(category='cable_stow', id='power_button_j2_pair', kind='provisional two-core and rigid-class stow capacity', estimate=True)
     if r is None:
         return dict(row, status='fail', problems=['routes.py has no power_stow reservation'])
     import routes as R
     cl = R.J2_PAIR_CLASS
     loop = r['slack_demand_mm3'] - r['rigid_splice_demand_mm3']
     lo, hi = loop + cl['volume_mm3'][0], loop + cl['volume_mm3'][1]
-    probs = []
+    probs = [cl['source_conflict']] if cl.get('source_conflict') else []
+    if r.get('selected_stock_maximum_mm') is None and r.get('finished_cut_length_mm') is None:
+        probs.append('V-28 has no exact SKU/maximum exposed-wire length or maximum insulation OD and no measured finished cut; intact selected stock is at least 462 mm per circuit; BOM permits measured trimming, but the legacy 150 mm finished allocation is unverified [G-V-POWER, VN-73]')
     if hi > r['capacity_mm3'] + 1e-9:
-        probs.append('the V-28 class mated pair (class upper end %.0f mm3; lower end %.0f) plus the loop (%.0f mm3) '
+        probs.append('the V-28 class mated pair (larger legacy estimate %.0f mm3; smaller %.0f) plus the loop (%.0f mm3) '
                      'exceeds the power_stow capacity %.1f mm3 (box %.0f mm3 x fill %.2f): no modeled home for the J2 '
                      'pair%s [user decision 13 (J2 family: fits the J2 stow space), G-V-POWER]'
                      % (cl['volume_mm3'][1], cl['volume_mm3'][0], loop, r['capacity_mm3'], r['volume_mm3'],
-                        r['fill_max'], ' even at the class lower end' if lo > r['capacity_mm3'] + 1e-9 else ''))
+                        r['fill_max'], ' even at the smaller legacy estimate' if lo > r['capacity_mm3'] + 1e-9 else ''))
     if r.get('obstacle_overlaps'):
         probs.append('power_stow box overlaps %s' % ', '.join(o['obstacle'] for o in r['obstacle_overlaps']))
     return dict(row, box=r['box'], volume_mm3=r['volume_mm3'], fill_max=r['fill_max'], capacity_mm3=r['capacity_mm3'],
-                loop_demand_mm3=loop, pair_class_mm3=list(cl['volume_mm3']), pair_class_dims_mm=[list(d) for d in cl['dims_mm']],
-                pair_class_src=cl['src'], demand_range_mm3=[lo, hi], gate='class upper end (conservative)',
+                loop_demand_mm3=loop, wire_core_count=r.get('wire_core_count'),wire_core_od_mm=r.get('wire_core_od_mm'),
+                wire_stock_cases=r.get('wire_stock_cases'),wire_stock_scope=r.get('wire_stock_scope'),
+                selected_stock_maximum_mm=r.get('selected_stock_maximum_mm'),finished_cut_length_mm=r.get('finished_cut_length_mm'),
+                pair_class_mm3=list(cl['volume_mm3']), pair_class_dims_mm=[list(d) for d in cl['dims_mm']],
+                pair_class_src=cl['src'], demand_range_mm3=[lo, hi], gate='larger legacy estimate plus both cores at selected intact-stock minimum; exact housing/exit source conflict and upper stock/cut/OD unresolved',
                 reservation_status=r['status'], problems=probs,
                 status='fail' if probs else 'pass')
 
@@ -1419,6 +1444,21 @@ def apply_member_clearance(rows, H, rounded_path, final_present, hits=box_hits):
             value = max(c['family']['bound'], key=lambda b: fr['length_at_bound_mm'][str(b)] if fr['valid_at_bound'][str(b)]
                         else float('-inf'))
             use = 'longest member (the spare home)'
+        elif r['category'] == 'cable_routes' and c.get('released_minimum_curve'):
+            # Every geometric minimum used in the length gate is swept. This separate released pose receives
+            # the STRICT installed target/tolerance and neighbour checks, including both own end-part zones.
+            rh = copy.deepcopy(H)
+            rc = rh['cables'][r['id']]
+            rc['curve'] = copy.deepcopy(c['released_minimum_curve'])
+            rc['points'] = copy.deepcopy(rc['curve']['sampled_centerline'])
+            mc = installed_clearance(rh, r['id'], final_present, hits)
+            r['member_clearance'] = dict(mc, use='separate released minimum (guides released; no deformation proof)')
+            if mc['hits'] or mc['cable_overlaps']:
+                r.setdefault('problems', []).append('released minimum intersects %s%s' % (
+                    ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
+                    '; overlaps ' + '; '.join(mc['cable_overlaps']) if mc['cable_overlaps'] else ''))
+                r['status'] = 'fail'
+            continue
         elif r['category'] == 'cable_routes' and isinstance(r.get('basis'), dict) and 'family' in r['basis']:
             value, use = r['basis']['family']['min_at'], 'shortest member (the minimum route)'
         else:

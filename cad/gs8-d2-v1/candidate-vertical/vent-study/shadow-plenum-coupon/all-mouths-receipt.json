@@ -1,8 +1,8 @@
 {
   "name": "all_four_mouths",
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-  "tub_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
-  "source_check_sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "tub_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+  "source_check_sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
   "crop_bounds_mm": [
     -158.0,
     0.0,
@@ -14,7 +14,7 @@
   "generated_utc": "unrecorded (deterministic build, FP-03)",
   "valid": true,
   "solid_count": 1,
-  "volume_mm3": 70493.27791419844,
+  "volume_mm3": 70308.77791419838,
   "production_part": false,
   "physical_qualified": false,
   "purpose": "Whole-plenum crop (skin, frame, ribs, lintels, mullions, divider, CSI sleeve and the original side wall to its inner face) with all four edge mouths: cold rear, cold underside, hot underside and hot front (review VN-52)",
@@ -45,8 +45,8 @@
     10.10000000000002
   ],
   "files": {
-    "plenum-all-mouths-coupon.step": "9b98d7668b20492175d8cff8f631798dcdc688e4e8bdb879108bb7d9a3296b82",
-    "plenum-all-mouths-coupon.stl": "20e9277c47757741f4419c40be003c971201d39d4140e3eb322eff3077008b7b"
+    "plenum-all-mouths-coupon.step": "6601380586c9c17adc94a64599f81cc7b823afe2e6675dee77e1248d97744ce8",
+    "plenum-all-mouths-coupon.stl": "c270a338ff7361b21d09ae00024460e2fd75777ce0f1c96f4d8fb25359b01fab"
   },
-  "source_sha256": "573f2f8f66df23c1cbb82873bb2364537d5af8d22fb1809c10fc4e27770e12f7"
+  "source_sha256": "964debf1149051e91129a3cf614f9000ee34f8b7ab19d98558f7ba902c0cd019"
 }

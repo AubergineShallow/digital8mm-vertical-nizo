@@ -1,8 +1,9 @@
 {
-  "manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "renderer_sha256": "b8013990d7c02a4140bc058bb3c038abe6b0c34d93c4801c21455efbb08d64db",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "renderer_sha256": "11a6f7f6e782ff81eacb37116d41b1cf01fdabc40a2038d7e328712352623d14",
   "view": "rear",
-  "image_sha256": "8c708a032ba5319f09b2e23d7b651b08088dda0652fc9b4fc5e77e401e2193b1",
+  "blender_version": "4.3.2",
+  "image_sha256": "37d37a4ac4abf27ddb4157242abf32a9aba8e547b57e02c70df154d235048005",
   "physical_qualified": false,
   "scope": "Source tessellation product illustration; service view omits flexible harnesses"
 }

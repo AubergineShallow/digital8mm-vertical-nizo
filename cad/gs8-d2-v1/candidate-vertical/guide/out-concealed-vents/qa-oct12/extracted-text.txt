@@ -1,0 +1,696 @@
+D2 2026-10-12 corrective assembly review
+BLOCKED REVIEW | Vertical Pi candidate | 158 x 63.6 x 100 mm core | 10 physical prints / 9 CAD rows
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 01
+A sequence to test
+Pictures expose fit, insertion and
+service dependencies.
+Amber: new part.
+Grey: already present.
+Blue: proposed motion.
+Dashed: hidden part.
+The outer plenum is integral to
+the tub.
+No physical build is qualified.
+STOP All 56 inherited physical gates and M1 remain open. Do not fabricate or energize from this review.
+00 Disconnect before opening
+The J2 button requests power control. It does not isolate the battery.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 02
+Four prerequisites
+1 Stop recording; clean
+shutdown.
+2 Remove every external supply.
+3 Withdraw pack; part XT30 by
+housings. Protect contacts.
+4 Only then touch internal
+connectors. Use ESD protection.
+Charge the pack outside the
+body.
+STOP XT30 must be reachable with body closed and retention fitted. Fixed tied loops cannot unfold for
+service.
+01 Count the printed parts
+Compact: 10 physical prints in 9 CAD assembly rows. Body and bonded catch stub are separate prints. Gauge / coupons
+excluded.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 03
+1 + 2 Body + bonded stub 3 Panel 4 Carrier
+5 Base / grip 6 Battery cap 7 Eyecup
+8 Exposure knob 9 18 / 24 knob 10 Lens collar
+Tub shown assembled above; separate print pieces on page 03x. Original storage adds one sleeve: 11 physical prints / 10 CAD rows.
+01b Identify the purchased assemblies
+CAD envelopes. Match actual purchased identities and revisions; each group is one installed assembly.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 04
+A Raspberry Pi 5 B Active Cooler envelope C X1203 + kit hardware D GS camera + C-CS
+E Kowa LM6HC lens F EVF kit (flex not shown) G QT encoder H 18 / 24 switch
+I J2 power switch J Run button K Protected pack + XT30 L Princeton USB SSD
+Also identify microSD, camera FPC, HDMI heads + ribbon, EVF feed, QT / switch / run / J2 leads, fuse and insulation.
+02 Sort hardware and tools
+Counts are installed quantities. Purchased spares are not extra installed hardware.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 05
+A 7 x PT 3.0 x 12 PH1
+Panel 4 | carrier 2 | independent grip lock 1
+B 3 x M3 x 10 + washers
+Collar anchors into 3 short M3 inserts
+C 1 x M3 x 16 + washer
+Collar pinch into 1 long M3 insert
+D 4 x M2.5 x 5 retained
+Upper kit screws; retain 4 original standoffs
+E 4 x M2.5 x 8 replacements
+Lower screws through carrier; bag 4 old M2.5 x 5
+F 2 x supplied cooler push pins
+Included in cooler kit; proxy feet are not fasteners
+G 1 x tripod nut
+Capture in grip before joining the tub
+TOOLS
+T1 PH1 + torque driver
+T2 Iron + correct insert tip
+T3 Solder / flux / wick + heat gun
+T4 Stripper / cutter
+T5 Meter, thermocouple, calipers
+T6 Fine tweezers + smooth pliers
+T7 Deep sockets, saw, file, soft vise
+T8 ESD mat + wrist strap
+T9 Panel prop, shims, rule, gauge
+T10 Bench supply, Pi PSU, charger
+T11 Scope, USB meter, DC load
+T12 Insert-repair pin vise / drills
+STOP Torque and insert process need revised coupons. No threadlocker on ASA. Power-nut deep-socket fit
+is unmeasured.
+03 Prepare optics and prints
+Bench preparation before electronics go inside
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 06
+Support the load
+Support camera and lens
+separately. Never react lens
+torque through PCB or cover.
+Measure back focus and support
+band. Keep adapter / BFAR
+witness marks.
+Bag tripod block after setup.
+Install inserts before electronics.
+Keep the camera socket
+accessible. Seat the Pi cable end
+before the cooler (04); mate the
+camera end just before insertion
+(08b).
+STOP Review the outer plenum on 03v / 03w plus collar and horizontal-bores supports. Measured optics and
+M1 remain open.
+03v Inspect the concealed outer plenum
+Representative sections. Blue arrows show intended paths. Windowed ribs and mouth lintels omitted; use the saved print
+geometry.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 07
+COLD BAY / INTAKE HOT BAY / EXHAUST
+EXTERIOR CAVITY
+1.6 mm skin
+6 mm gap
+2.5 mm wall
+3 mm wall slot
+Underside mouth opens into the gap
+EXTERIOR CAVITY
+1.6 mm skin
+6 mm gap
+2.5 mm wall
+3 mm wall slot
+Underside mouth opens into the gap
+Rear + underside perimeter mouths feed the cold bay.
+Four internal wall slots have 420 mm2 nominal total area.
+Net mouth necks: rear 333 mm2; underside 370 mm2.
+Four internal wall slots feed the hot bay: 510 mm2
+nominal total area. Air is intended to leave at front +
+underside perimeter mouths.
+Net mouth necks: front 274 mm2; underside 317 mm2.
+Side skin 1.6 mm + gap 6 mm + original wall 2.5 mm. Cavity datum stays Y -25.5. Broad-side grille is concealed; perimeter mouths
+remain.
+STOP CSI is an explicit service aperture. Direct rear/front views expose mouths. No sealed-flow, dust or
+water rating.
+03w Print and inspect the outer plenum
+Do not fit electronics or inserts until the full air path can be inspected and cleaned.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 08
+PRINT HOLD: continuous windowed beam lines, pillars,
+mouth mullions and cold-mouth lintels replace the old post
+grid. Geometric bridge screens are not slicer or
+printed-part evidence.
+Old panel grooves were blind, with 0.2 mm floors. The revised source
+specifies a plain 2.8 mm skin.
+PRINT AND INSPECT
+1 Tub body STL is -Y-face down. Stub is a separate
+print. Review each actual print pose and first roof
+layer in the slicer.
+2 Source support: 1.2 mm beam lines on pillars;
+beam-window spans up to 14 mm. Preserve the
+declared bridge direction in each roof region.
+3 Qualify three coupons: preliminary region,
+port/service crop and all-four-mouths crop.
+Geometry-only results do not establish printing or
+cleanout.
+4 No trapped support. Inspect both full-body bays
+through their intended mouths; remove every loose
+particle and reject inaccessible debris.
+5 Check all four perimeter mouths and eight
+inner-wall slots. Recheck printed openings, roof sag
+and actual handling occlusion before electronics.
+STOP Blocked slots, roof sag, damaged beams or trapped support are rejects. This plenum has no slicer,
+bridge, cleanout or physical print pass.
+03x Count and qualify the bonded catch
+The tub CAD row combines two prints. Bond strength, creep, exact adhesive and actual printed fit remain unqualified.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 09
+Piece 1 Tub body in its exported print pose
+Piece 2 Catch stub
+Separate STL and layer direction. Tenon
+seats against the -Y datum. Keep
+adhesive off the catch face.Source tenon: {'x': [-12.9, -9.8], 't': 1.6, 'h': 10.0}; ceiling floor 1.60 mm.
+Nominal geometry only.
+Use the nominated joint dimensions and full stub/pocket coupons. Compare production layer direction, gap/tilt, cure and hot
+dwell. A beam estimate does not qualify an adhesive or interlayer joint.
+STOP No epoxy SKU, print process, loaded service temperature or joint strength is certified. Optical torque
+and alignment gates remain open.
+04 Build one removable stack
+Prepare J2, battery-pad and header wiring while both board faces remain accessible.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 10
+Keep kit spacing
+Seat Pi CSI end BEFORE the
+cooler. Correct contact face;
+straight cable and latch. Keep
+camera end protected.
+Then fit cooler with its 2 push
+pins and native fan lead once.
+Retain upper 4 x M2.5 x 5 +
+original standoffs.
+Lower 4 x M2.5 x 8 pass through
+carrier. Check thread depth
+before tightening.
+3.4 mm engagement is nominal
+only.
+SOURCE / PROXY HOLD: registered Pi intersects the illustrative cooler perimeter / pin model (79.90 mm3). Measure and
+register the actual cooler outline before assembly.
+STOP No battery. No assumed pad location. Do not change pogo geometry or repeatedly unclip the cooler.
+05 Wire the detachable power button
+Electrical schematic, not a measured pad-location drawing
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 11
+Pi 5 J2 Molex signal pair NO momentary
+Bridge only the two J2 pads with a normally-open momentary switch.
+Identify J2 on the actual Pi: between RTC battery connector and board edge. Insulate and strain-relieve all
+four solder joints. Meter open / pressed continuity before power.
+J2 class: Micro-Fit 3.0, 2 circuits, pre-crimped leads. Exact SKU, roots, latch travel and stow remain
+unqualified. It must not mate to the FPS PicoBlade or EVF RCY halves.
+STOP J2 is signal-only, not GPIO or battery isolation. Finished cuts, pad reach, wire exits and nut access
+remain gates.
+06 Prepare control wiring
+Physical J8 pin numbers below. This is a pin map, not a rotated-board orientation drawing.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 12
+QT encoder
+Pin 1 3V3 -> SH 2
+Pin 3 SDA -> SH 3
+Pin 5 SCL -> SH 4
+Pin 6 GND -> SH 1
+Bridge A0: address 0x37
+18 / 24
+Pin 33 GPIO13
+Pin 34 GND
+CK1044 common A / throw 2
+Closed / low = 24 fps
+Open / high = 18 fps
+Run button
+Pin 37 GPIO26
+Pin 39 GND
+Normally open
+Pressed / low = run
+Match physical pin 1 to the real board silkscreen / official pinout before plugging.
+QT target: 250 +/- 10 mm, two source leads, four staggered insulated splices. Meter by SH pin number;
+never match wire colours alone. Place splice sleeves on a straight, accessible run.
+The panel carries encoder and J2. Support the FPS switch on its tub rest; keep its complete pair mated
+during carrier service. Separate that pair only on the bench.
+STOP Header plugs and every wire tail must clear the stack, HDMI, fan and carrier motion.
+06b Set the real frame-rate switch
+Conditional Lorlin CK1044. Two adjacent detents are 30 degrees apart.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 13
+Three distinct pieces
+Nut. Mounting washer. Stop /
+tang washer.
+Stop washer shape is not
+measured and is not drawn.
+Confirm supplied hardware.
+Set two adjacent positions. Meter
+A / 2: open = 18; closed = 24.
+Preserve the stop setting when
+removing knob, nut and panel.
+The switch rides with the
+module; washer, nut and knob
+go on after the panel (page 16).
+Measure the actual stack before cutting. Proposed shaft length 11.8 mm from mounting face is a fit study; 6.35 mm
+D shaft / 5.5 mm flat needs a real knob coupon.
+STOP Nut / mounting-washer shapes are estimated. Actual stop stack, pin clocking, shaft cut and tool
+access remain gates.
+06c Keep the full FPS harness together
+Two donor female GPIO heads + two splices + both factory Molex housings + A / throw 2.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 14
+Identify both black wires
+FPS-only CAD group clears; other
+looms remain gated.
+Male 2181110202: 225 +/- 6 mm
+exposed stock.
+Female 2181120201: 150 +/- 6
+mm exposed stock.
+200 mm main axis includes
+donor stubs / splices.
+Keep pair mated in the camera.
+Bench separation only.
+Amber cylinders reserve two finished splices, maximum diameter 3 x 10 mm. Cut lengths, solder overlaps,
+individual-core fanout and terminal joints still require measurement.
+STOP Label and continuity-test FPS. J2 uses a distinct Micro-Fit class; exact receipt try-mate checks remain
+open. Axes are not cuts.
+06d Fit the OS card on the bench
+The microSD travels with the removable Pi stack. Closed-panel card access is blocked by the power switch.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 15
+Card before carrier
+Prepare and verify the OS image
+on the bench.
+Identify real contact orientation.
+Insert -X before the stack enters
+the body.
+Leave the card with the stack
+during carrier insertion.
+For later card service: isolate all
+power, remove the panel, then
+withdraw +X.
+The panel-mounted J2 power switch occupies the card extraction route. The front slit alone does not establish service
+access.
+STOP No closed-panel microSD service. Only a panel-off rigid path is checked; real contact orientation and
+handling remain open.
+06e Preform HDMI on the bench
+3557 right-angle micro-HDMI at Pi | intact 300 mm 3562 ribbon | 3556 straight head at EVF
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 16
+Installed EVF end free / Pi still mated
+A full-length study
+Each selected pose models 300
+mm.
+Keep Pi head mated during
+service.
+Both-end-free pose rejected:
+power-wire conflict.
+R3 / R5 are allowances, not
+manufacturer limits.
+The complete serpentine strip and both rigid heads must fit through every assembly and service pose.
+STOP Full material clears checked solids; head/carry status is separate. Real bend, clocking, retention and
+EMI remain open.
+06f Build the detachable EVF feed
+Unpowered electrical schematic. Contact identity is traced by continuity, never colour alone.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 17
+USB donor 4448 2180 socket 2181 pins EVF board
+VBUS +
+GND
+1N5817
+Anode: USB side | Band / cathode: EVF side
+EXT +
+GND
+USB side: 2 diode / positive joints + 1 ground splice. EVF side: 2 traced board joints.
+Remove four donor jumper ends only after qualifying the length budget. Separately sleeve D+ and D-; insulate a
+shield only if present. Keep all joints off bends and strain-relieve both cable ends.
+4448 length conflict: catalog 300 mm; supplier drawing 325 +/- 10 mm. Both Generic RCY-style tails: nominal 100 mm /
+20 AWG. Final cuts, overlaps and actual plug / junction envelopes remain unmeasured.
+STOP Isolate USB and battery. Meter polarity and diode direction. A diode does not guarantee the EVF
+voltage ceiling; G-W6 remains open.
+06g Verify the battery and EVF power paths
+Electrical intent only. Bench qualification is required before any full-camera power-up.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 18
+1S2P protected pack
+60 mm 18 AWG lead
+XT30 junction
+Mate by housings
+X1203 battery pads
+Pogo feed -> Pi 5
++
+-
+Positive: 15 A 0251015.MXL fuse near XT30
+16 AWG: buy 914.4 mm per colour. Both 270 mm path budgets include unresolved pad-root
+allowances. Positive also includes 20 mm rigid fuse / joint zone. Copper cuts / overlaps TBD.
+EVF USB positive -> qualified feed -> EXT+; USB ground -> EVF GND.
+Inherited diode option: 1N5817 band / cathode toward EVF. It does not guarantee the required voltage ceiling.
+Regulator alternative is not adopted. Trace the actual EVF revision before soldering.
+STOP BLOCKED: 0.14277 to 0.16254 V at 8.6 A versus 0.150 V. Reach and hot-drop need one compatible
+solution.
+06h Build the panel subassembly
+Bench. Encoder, exposure knob and power button only; the FPS switch rides with the module.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 19
+Thumb behind the board
+Snap the encoder into its cradle.
+Thumb flat on the back of the
+encoder board; press knob_exp
+onto 2 paper strips; pull the
+paper out.
+Power button flange on the outer
+face; nut on the inner face with a
+deep socket on the button axis.
+No FPS washer, nut or knob here.
+STOP Thread length and deep-socket reach on the real panel are unmeasured. Keep the J2 junction half
+free.
+07 Prepare the grip, then thread the strap
+Battery stays out. Tub off: strap and run lead go in while the base top and floor passage are open.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 20
+Strap on the open base
+Fit the tripod nut. Feed the run
+lead up through the open floor
+passage, then drop the run
+button into its cradle.
+Thread the 12 mm strap through
+both upper and heel slots now:
+its pass over the bridge lies in a
+2 mm recess in the base top that
+the seated tub floor closes.
+The lower return passes through
+both heel slots and inside the
+grip wall. Keep the cap, battery
+travel and tripod seat clear.
+Buckle, closure overlap and
+retained tail still need real-part
+layout.Strap routing proxy only; actual bends, threading, hand clearance and the
+assumed 1.4 mm thickness need measurement.
+STOP Neither anchor nor this routing is a rated safety tether. Qualify the actual strap, closure and both
+anchors before use.
+07b Seat the tub, then lock the grip
+Over the threaded strap. Keep the run lead in the floor passage.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 21
+Tub on, then lock
+Engage the keyhole tongues in
+their actual keyed direction over
+the threaded strap; do not lock
+yet.
+The strap is already fitted: it
+went in on the open base (page
+07), before the tub and before
+the grip-lock screw, whose driver
+handle passes close to it.
+Then drive the 1 x PT grip-lock
+screw on its axis.
+The panel is never the grip lock.
+STOP Arrows show approach only. Keyhole engagement, driver access and actual lead passage need dry
+fitting.
+08 Collar and centring gauge first
+The camera is still out: the gauge seats in the empty tub lip. Carrier and panel absent.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 22
+Gauge, then camera
+1 Collar feet onto the tub face
+over the 3 short inserts.
+2 Start s_c1..s_c3 about 2 turns.
+3 Push the gauge for this lens
+through the collar until its rear
+cone seats in the empty lip.
+4 Thumb on the gauge; tighten
+s_c1..s_c3 on axis, 0.15 N m
+provisional.
+5 Pull the gauge out forward.
+STOP The gauge and the camera / adapter are never in the body together (CAD overlap 927.75 mm3). The
+gauge is a tool and is not drawn.
+08b Camera before the carrier
+The board cannot be pushed through the installed vertical stack. Collar fitted, gauge out.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 23
+Three-part motion
+Support the prepared Pi module
+outside. Mate the camera FPC
+end before insertion; Pi end is
+already under the fitted cooler.
+1 Approach from +Y with
+rearward / upward offset.
+2 Lower onto seating height.
+3 Move lensward to datum; lock
+tab between the tines.
+Nothing holds the camera back
+until the lens is on: go straight to
+page 08c.
+STOP HOLD: rigid camera drawing omits the full 200 mm linked FPC. Finger access, optical support and
+torque catch remain open.
+08c Lens before the carrier and panel
+r7 step 8 method through the open +Y side. Fingertips only; never react thread torque through the PCB or cover.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 24
+Float, then pinch
+Fit s_c4 loosely.
+Body on its side, open side up;
+one fingertip pushes the camera
+cover forward onto its lip catch.
+Screw the lens in with fingertips
+until it stops; the tab catch takes
+the torque.
+Push the lens onto the collar
+cone.
+With s_c4 still loose, turn lens and camera together the other way until the lock tab stops on the other tine,
+then back about half way; look and feel: the camera touches nothing. Then snug s_c4 on its axis, 0.2 N m
+provisional.
+STOP Source-bound roll / J7 geometry does not qualify printed float, bond strength or optical alignment.
+Check both witness marks.
+09 Eyepiece, then the EVF module
+Keep OLED foam, native flex and connector latches unstressed.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 25
+Keep the board secure
+Push the eyepiece spigot +X
+through the rear-wall bore from
+behind first.
+Slide the module from +Y into its
+seats; foam and native flex
+unstressed.
+The panel supplies clamping
+later; do not let the open module
+fall.
+No HDMI or EVF power mating
+yet: their ends arrive with the
+carrier.
+STOP Native flex contact face follows the actual EVF kit. Do not infer it from a CAD envelope.
+11 Insert the stack with a free EVF end
+Intended trial sequence: Pi HDMI adapter and OS microSD fitted first; recording drive absent.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 26
+CAD: full HDMI and carried heads checked at 2 mm poses, with 9 mm head drop (6 mm
+stroke + 3 mm margin). Other looms remain gated.
+Hold before proceeding
+Run lead onto Pi pins 37 / 39 at
+the staging pose.
+Carry FPS bushing and stack
+together from +Y, both
+supported.
+EVF HDMI end free, at least
+stroke + 3 mm low.
+Pigtail through the floor opening;
+FPC clear of the 3.9 mm gap.
+Seat carrier; 2 x PT screws.
+STOP HOLD: complete 200 mm CSI ribbon is already linked at both ends and is absent from the rigid carrier
+sweep. Full flexible motion is unproved.
+12 Mate the EVF ends from inside
+Step 5, fully unpowered. Storage stays out. Hold the adapter body, never pull the ribbon.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 27
+Tub omitted for visibility. Adapter blocks are unmeasured catalog envelopes, not detailed
+keyed connectors.
+EVF head upward
+Bring the straight 3556 head
+from below.
+Confirm the keyed receptacle
+and actual contact face.
+Mate fully by its body. Add
+qualified strain relief clear of the
+latch.
+No twist to correct a wrong head.
+Then mate the EVF power RCY
+pair by both housings.
+STOP Upward head travel, fingers / pliers and simultaneous USB + HDMI access must all clear. Final pose is
+insufficient.
+13 Prove camera connector access
+Pi end seats before cooler; camera end before camera insertion. This is a tool-reserve view, not an instruction to mate
+late.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 28
+Rigid cylindrical reserve clears only; actual tool, cooler and full FPC remain unresolved.
+Intake wall slots: 420 mm2 nominal. CSI remains a straight unsealed bypass; keep latch/tool access clear.
+Keep the complete ribbon
+Pi end BEFORE cooler (04).
+Camera end supported before
+insertion (08b).
+Both ends are linked when the
+carrier moves. The rigid sweep
+omits all 200 mm of FPC.
+Prove full width, roots, slack,
+actual latch/jaws and motion
+with other looms.
+Side cylinders do not qualify
+service with the cooler retained.
+STOP OPERATIONAL HOLD: actual cooler outline, latch operation, inserted FPC and interacting flexible
+looms are unresolved.
+15 Prove stored slack and disconnection
+Complete cable lengths, connector bodies, sleeves and tie heads must fit at the same time.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 29
+No hidden excess
+Static wire capsules: clear
+printed solids; root joints
+omitted.
+Keep fuse straight and
+supported. Keep joints off bends.
+Four tie slots are provisions, not
+a tested retention scheme.
+Loops must clear CSI tools, GPIO
+tails and UPS PCB.
+Test pack extraction with
+retention unchanged.
+STOP If XT30 cannot be parted before opening the body, the assembly is not safely serviceable. Redesign
+before closure.
+15b Rigid connector withdrawal study
+Body omitted for clarity; it stays closed during isolation. Full flexible-harness service is still blocked.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 30
+Stored Unwind / lower Withdrawal limit
+What changed
+CAD checked: 201 sampled
+poses clear the closed assembly,
+with pack moving and cap
+removed.
+The pack moves with the
+junction.
+This does not prove the
+complete conductor paths, joints
+and retained slack can deploy or
+return safely.
+STOP Do not pull the pack through a blocked loom. Complete wires, pad joints, retention and pinch
+clearance remain STOPs.
+15q Separate QT storage from free mating reach
+Source-bound routing study. The allowance is a reach budget; full flexible transition and real cable packing remain HOLD.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 31
+Stored nominal 250 mm lead Free curve at propped panel
+Stored: main 206.93 + longest branch 43.07 = 250 mm nominal. The 240-260 mm
+family is checked separately.
+Free reach: curve 147.47 + branch 43.07 + 24 mm allowance. Remaining stock is not
+drawn as a qualified flexible shape.
+Interpret the scope
+Round routing envelopes only.
+Four 1.6 mm cores cannot pack
+inside the 3.2 mm bundle proxy.
+Real MP-QT section, sleeves and
+roots are unqualified.
+A minimum-reach pass cannot
+prove all cable stows or moves
+between these poses.
+Keep four splices and finished
+250 +/- 10 mm intent.
+STOP No cut instruction or flexible-motion pass. Keep purchased parts and finished-length range
+unchanged.
+16 Close the panel, then fit the FPS hardware
+Step 6. Shown part-open; service removal is the exact reverse. Keep the FPS pair mated.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 32
+Panel, screws, then FPS
+Prop the panel; mate QT and J2.
+Move it in along -Y, guiding
+bushing and peg; support the
+switch body.
+Drive the 4 panel screws before
+the FPS knob is on.
+Then washer, nut (deep socket
+on the bushing axis), knob on
+the paper strips.
+Removal: knob, nut, washer,
+screws; tip support for the first
+8.5 mm, then bushing.
+STOP Never use screws to crush slack into the enclosure. Real shaft grip, stop-stack retention and
+whole-harness motion remain STOPs.
+17 Recording drive and eyecup
+Fit selected compact Princeton drive with its protective cap removed. OS microSD is already installed.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 33
+Straight insertion
+Drive travels +X into upper
+USB3.
+OS microSD was fitted on the
+bench. Later card service
+requires panel removal.
+Push the eyecup over the
+eyepiece barrel from the rear.
+The lens and s_c4 went on in
+step 2 (page 08c).
+Estimated storage-plug keepout omitted: it is not a physical inventory item or a proven
+mating shape.
+STOP Published Princeton size includes cap. Real plug fit and warm sustained >=100 MB/s are not
+measured.
+17v Keep ventilation clear during assembly
+The outer bays conceal the inner slots. Their pressure loss, leakage, recirculation and cooling remain unmeasured.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 34
+Tub, stack and illustrative cooler. Panel and looms omitted for
+visibility; prove clearance with the complete final assembly.
+Saved-STEP checks: 49 pass / 0 fail / 21 info. Path-aware hot
+min cut: 510.0 / 510 mm2 (pass). Mouth totals are not a flow
+result.
+BEFORE CLOSURE
+Keep mouths, inner slots and baffles clear of full FPC,
+EVF feed, power loop, tie heads and fan lead.
+CSI stays 12 x 27 mm R1 and uncovered. It is an
+unsealed cooling bypass.
+Test hand, strap and stand occlusion. Blocking the
+hot underside leaves only the front neck: 274.2 mm2
+versus 510 mm2 wall slots. No blocked-vent
+operation is qualified.
+THERMAL GATE
+After electrical prerequisites pass, record ambient,
+closed-body load, fan speed/duty, component
+temperatures and throttling at normal hand positions.
+Compare with the open reference using the same
+hardware and conditions.
+Measure the actual cooler first; its proxy/source
+conflict remains open.
+STOP No airflow, fan operating-point, hand-occlusion or thermal pass. All 56 inherited physical gates, M1
+and candidate gates stay open.
+18 Close the loop before power
+Physical checks and measured records decide whether this candidate can become a build.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 35
+Pack disconnected during all internal work
+Connector identities, contact faces and continuity verified
+No trapped ribbon, fuse sleeve, splice, tie head or fan lead
+Panel flush; grip lock, strap and optical support secure
+Plenum mouths and wall slots clear; no trapped support; CSI open
+XT30 disconnect reachable with retention fitted
+Required bench gates passed before pack is connected last
+Then qualify closed-body power, thermal, storage and recording performance, plus revised collar / strap
+loads. Nothing in this booklet closes a physical gate.
+STOP 56 inherited gates + M1 + candidate gates remain open. No fabrication, safety or performance
+certification.
+19 Service in dependency order
+Always start with page 00 and physical battery disconnection. Routes and refits: ASSEMBLY-VERTICAL section 5.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 36
+Panel Knob, FPS nut (deep socket), washer, 4 screws off -> tip, then bushing support, +Y -> QT / J2 apart
+(one J2 cycle). Refit: panel, screws, washer, nut, knob.
+Pi module Drive out -X -> panel off -> EVF HDMI / power and Pi FPC released -> 2 carrier screws -> stage +Y,
+switch supported; run lead apart there; pigtail drawn up.
+Lens, same collar Closed body: s_c4 one turn, nose-down, fingertip unscrew. Refit nose-down; turn back to float; then
+s_c4.
+Lens, other collar Full chain: lens, panel, drive, module, camera, then collar. Refit from that collar and its gauge (lip
+empty), camera, lens float, module, panel, drive, pack.
+Camera Lens, panel, drive and the whole module out first (VN-42, user decision); reverse camera path.
+Refit camera, then lens, before the carrier.
+EVF Panel off -> EVF power pair and HDMI body unplugged -> flex protected -> module +Y.
+OS card Panel off before in-body microSD withdrawal, or on the bench with the module out.
+Grip Pi module out first (run lead at pins 37 / 39) -> grip-lock screw -> grip off.
+Refit Collar + gauge before camera. Lens + s_c4 before carrier. Junctions before panel. FPS hardware
+after panel screws. Pack last.
+STOP CSI tool clearance is not latch qualification. GPIO plugs stay carried; actual FPC release, run slack and
+wire withdrawal must pass.
+19b Camera and collar service: a user decision
+VN-42. The current geometry needs the whole module out before the camera can leave.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 37
+Option A Accept
+Camera, collar and any lens change that needs a different collar go through the full module route: panel off (one J2
+cycle), module STOPs, camera out. A collar change always removes the camera because the centring gauge needs the
+empty lip. r7 needed only the pack out and the panel off.
+Option B Redesign
+B1: let the camera leave ahead of the carrier front, so camera service needs only the panel, as in r7.
+B2: a centring gauge that seats without entering the lip, so a collar can be re-centred with the camera in place.
+Either changes the service model and needs new motion checks; neither is modelled.
+STOP Not decided in this guide. Pages 08 to 08c and 19 show option A, the current geometry.
+20 Evidence and open checks
+Source-linked review candidate. Vendor facts are not real-part measurements.
+D2 CONCEALED VENTS | COMPACT + KOWA LM6HC | REVIEW ONLY 38
+Snapshot
+Mesh manifest: 294220bc7e1babc5. No build time is printed, so the same inputs give the same pages.
+Geometry: compact-kowa_lm6hc meshes plus source-bound concealed-vent STEP checks; 300 mm HDMI snapshot. Wiring
+intent: candidate assembly/BOM and WIRING-VERTICAL. The separate receipt records exact source hashes.
+What the CAD motions check
+Rigid body motions are sampled, not continuous swept-volume proofs. Complete HDMI shapes and carried heads have
+a separate source-bound check. The source-registered CSI ends have a limited declared-tool check; real cooler, latch
+and full FPC access remain blocked. Other flexible leads, hands, tolerances and physical retention remain unqualified.
+Primary sources and 12 October evidence
+Official camera connection order
+Pi right-angle head 3557
+EVF straight head 3556
+Intact 30 cm ribbon 3562
+Compact Princeton SSD
+Lorlin CK rotary switch drawing
+USB donor 4448 + supplier drawing
+EVF source socket half 2180
+EVF pin half 2181
+Molex male assembly drawing
+STOP No manufacturer bend limit, purchased cable measurement or production release is invented here.

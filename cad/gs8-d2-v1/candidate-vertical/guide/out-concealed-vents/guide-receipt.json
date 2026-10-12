@@ -1,293 +1,389 @@
 {
   "guide_identity": "D2-vertical-concealed-vents-review",
   "guide_pdf_filename": "D2-vertical-concealed-vents-review.pdf",
-  "nominated_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-  "generated_utc": "2026-10-09T15:45:17.797023+00:00",
-  "guide_pdf_sha256": "b41e1e148d0449f2294976165cca98f6c25be100f45af70167e1aa0cb7f079a9",
-  "mesh_export_utc": "2026-10-09T14:58:12Z",
-  "page_count": 32,
+  "nominated_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "generated_utc": "unrecorded (deterministic build, FP-03)",
+  "guide_pdf_sha256": "d383b996af90faf23e7d7171437379facc7afcc6bb1ad6395086f7b19a923ce0",
+  "mesh_export_utc": "unrecorded (deterministic build, FP-03)",
+  "page_count": 38,
   "sources": {
-    "candidate-vertical/model.py": "61382452ff32d4db90ba612b4d707a68f4817f6c50a5bdb6699f177fe53b228e",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
-    "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
-    "candidate-vertical/ASSEMBLY-VERTICAL.md": "8765639e8c017c49b0bc2e92f59a98efce2e23e5c5bad3d473abfd05c86c1996",
-    "candidate-vertical/BOM-VERTICAL.md": "1140c37eb2eab4555de37fe104f976a5f8622ec7a7c5ad7d7544152e0d20179d",
-    "candidate-vertical/out/compact-kowa_lm6hc/manifest.json": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-    "candidate-vertical/out/compact-kowa_lm6hc/verification.json": "6c2a96db753347696ab1b5d42751783aa5faafa10c6e3b72ef8b3148650d795f",
-    "candidate-vertical/out/compact-kowa_lm6hc/hdmi-solid-checks.json": "3673f7a247d396cf5b60840d2961d3005c37960483ce24134dd782c20a323794",
-    "candidate-vertical/out/compact-kowa_lm6hc/power-service-checks.json": "7c72c8b08db8e90ffb4199c31fd02179f7ee4fea1c5368771659bbe5a5516e55",
-    "candidate-vertical/out/compact-kowa_lm6hc/csi-source-tool-checks.json": "325d92a7a2351025ca558c2d8f58a73c6281fa3aebb5e153eb9d5f0e16beea26",
-    "candidate-vertical/out/compact-kowa_lm6hc/wire-solid-checks.json": "5b4b0d15dedb4db172e53e0da18955828d62ba91735b42f6e2320fbdcb5968b0",
-    "candidate-vertical/routing-snapshots/power-csi-clear-20261009-0358/power-270-csi-clear.json": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
-    "candidate-vertical/guide/build_guide_concealed_vents.py": "2014cfb99e2dcea2b994106c784f9c8ade7d6c3e2f133545a4f5142cee6a4117",
-    "candidate-vertical/guide/software_lineart.py": "5ab7f4b98b84e2933b84ffc8dc61b2e8c9938e7f50ba33c3e9c9ae03bf7cc73d",
-    "candidate-vertical/guide/raster.cpp": "fc9bec5febfea77541aa67f71588c63f9d3dbeceec784a925617a3abfc8ab386",
-    "guide/lineart.py": "61f3576bbbc46351d0736f47903e7ae4080bd55d34244ca8633ab3d911102347",
-    "candidate-vertical/guide/package_concealed_guide.py": "7f19a303de04bdeff0d516621b424fb028c3b25dd5a31836303375abd0378b25",
-    "candidate-vertical/guide/README-CONCEALED-VENTS.md": "8779ea8039ca778aab53782038455f7bf7bd3f09d23ac43542227e1bd7879991",
-    "candidate-vertical/guide/STEP-REVIEW-CONCEALED-VENTS.md": "35700379497db9fe4d9a3d7bb7d0d5e3ef78b77c841337b225afe239a035b296",
-    "candidate-vertical/guide/vent_guide_support.py": "3752f47c3924c34d299d37a3109d8dc543717c9b56fa37c490164ae6eeda01ad",
-    "candidate-vertical/guide/STEP-REVIEW.md": "b796adf869861c5745df6695220ddcdfcb240ec5e023df66ecac9e898ea3ec40",
-    "ASSEMBLY.md": "24f7f8d7b0faac2f728da0d6b1c7eafceac7b43cfc290311d4cf9a3c5f5c368c",
     "../../electronics/gs8-d2-v1/WIRING.md": "234b40e4aef88161ce93f26b876ffad64a6e7e9883a95abb997518ab1afdc953",
-    "fonts/DejaVuSans.ttf": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
-    "fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
-    "candidate-vertical/REVIEW.md": "b65861783fb9df3c3df4806c4a7154cc5e52ae8f3639a42887f06344f4d4dba3",
-    "candidate-vertical/BOM-VERTICAL.csv": "295feeca012709c870caa2dcae3cad8108c59f31cf62bad247be604deb43390e",
-    "candidate-vertical/out/compact-kowa_lm6hc/microsd-service-dependency.json": "5119f0895490dca3c58a4928522448bf3b00393e0f3d2f016b7cc836f692cd87",
-    "candidate-vertical/out/compact-kowa_lm6hc/wall-probe-context.json": "cc4b53494d71dbb4f50bed41cfbea810c466d7f90c8bcfad65d66a84834b8345",
-    "candidate-vertical/out/compact-kowa_lm6hc/shadow-plenum-checks.json": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
-    "candidate-vertical/vent_geometry.py": "5209e01c97823921cbc27ca16fda5f32c65ac6fa16dca0c29691ec8aae5f316b",
-    "candidate-vertical/history/reviewed-export18/tub.step": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
-    "candidate-vertical/history/reviewed-export18/panel.step": "3b808f3bb15c59e8aa6be9d04afa52ddf69f7a80ecdf9f5f3349a32fff7f8455",
-    "candidate-vertical/structural-review/CONCEALED-VENT-STRUCTURAL.md": "aa673fefcc05e5b4e31ac4711a90ee65ffedcffad7d8ff21c5a23d625d624ff2",
-    "candidate-vertical/structural-review/concealed-vent-structural.json": "cd9fd62d27ad44be1a4010a0c66fa169d1355ecdbb0905c2171e92310e2f3976",
-    "candidate-vertical/structural-review/update_concealed_vent_structure.py": "aa9e3f51115970bbf17f51b55053ea315787e610196fcb23597e04825e05b4fc",
-    "candidate-vertical/structural-review/reference-export18-structural-binding.json": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
+    "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324",
+    "ASSEMBLY.md": "24f7f8d7b0faac2f728da0d6b1c7eafceac7b43cfc290311d4cf9a3c5f5c368c",
+    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "candidate-vertical/../../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324",
+    "candidate-vertical/../_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
+    "candidate-vertical/../audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
+    "candidate-vertical/../build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
+    "candidate-vertical/../checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "candidate-vertical/../cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
+    "candidate-vertical/../coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
+    "candidate-vertical/../d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "candidate-vertical/../fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "candidate-vertical/../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
+    "candidate-vertical/../make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
+    "candidate-vertical/../make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "candidate-vertical/../printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "candidate-vertical/../printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "candidate-vertical/../printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "candidate-vertical/../printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "candidate-vertical/../printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
+    "candidate-vertical/../printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "candidate-vertical/../printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "candidate-vertical/../run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "candidate-vertical/../sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
+    "candidate-vertical/../test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "candidate-vertical/../test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "candidate-vertical/../test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "candidate-vertical/../test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "candidate-vertical/../test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
+    "candidate-vertical/../test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
+    "candidate-vertical/../test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "candidate-vertical/../test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
+    "candidate-vertical/../test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "candidate-vertical/../test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "candidate-vertical/../test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "candidate-vertical/../test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "candidate-vertical/../test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "candidate-vertical/../test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "candidate-vertical/../test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "candidate-vertical/../test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "candidate-vertical/../test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "candidate-vertical/../test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "candidate-vertical/../test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "candidate-vertical/../test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
+    "candidate-vertical/../test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
+    "candidate-vertical/../test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
+    "candidate-vertical/../test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
+    "candidate-vertical/ASSEMBLY-VERTICAL.md": "f8e7db9793cbc330aa81b461081c347a84a15665b38b480a54ce142c8af6db66",
+    "candidate-vertical/BOM-VERTICAL.csv": "61343e13479fe007eff69a83bba7f08d98f330987266cbb63dbefe67daceebe0",
+    "candidate-vertical/BOM-VERTICAL.md": "73e76bb7ec3e6d3554e5c2fc4f628997cb9e2e20925edf7328d616ec4b4fdaf1",
+    "candidate-vertical/FPS-SERVICE-STUDY.md": "9f0d8a1f466fcb8d256b5fe94648a32b7c2cd128fadc35f79d2206e6b086136d",
+    "candidate-vertical/REVIEW.md": "aeab7be0d3e39209df9dee103ce172f8165db9937dac6ba19bb47d51ba33060d",
+    "candidate-vertical/WIRING-VERTICAL.md": "ba69b4bd28142d32b632721d4686991c2114a121b144cd3fb0d103a2b2060534",
+    "candidate-vertical/check_scope.py": "bd7aad3d6baf5af417df1fa574754d26ab61ec6885d805b82c167a4d5cbedbb6",
+    "candidate-vertical/corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt": "0679b83308cae12ea0d4f72d8c00f04edb4aecbb0c61f7443c35c81ba03a3038",
+    "candidate-vertical/critical_features_vertical.py": "756900708a415c8be618d28bc031bd3cbda279bca0fc164e2123cba244be9be4",
+    "candidate-vertical/cv_io.py": "d1ffe0a36f61987ee9d9f65cf2f4d4ab2f6b902aae6e359501e3e3a8ca34193b",
+    "candidate-vertical/evidence_rules.py": "07d0c0512a25fe04bc604330692b66ea729740ec41ff1c45eec69fa4d685d4ef",
+    "candidate-vertical/export_cache.py": "cec4548ff4861489d786ceadb534fb67f36b1d741d804faa9863366b8f8af997",
+    "candidate-vertical/export_candidate.py": "188550509bee00f04722e31aebe02417ec940f47b5edd86166085217bafcb3d6",
+    "candidate-vertical/fps_ck1044_mated_carry.py": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb",
+    "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
+    "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
+    "candidate-vertical/guide/README-CONCEALED-VENTS.md": "658185a4c5eff0ace4ed469f4b68754d64292df39461f0f2aac3f0bb1c1f44aa",
+    "candidate-vertical/guide/STEP-REVIEW-CONCEALED-VENTS.md": "34cb69b400faa4a5a4129a23abe16b692adb310051e74715f857f0eb568eadfe",
+    "candidate-vertical/guide/STEP-REVIEW.md": "51ec66c3a826f3cc19997b510c92d2e558366e6a5c4715b6560dd0c90aa0e722",
+    "candidate-vertical/guide/build_guide_concealed_vents.py": "36e3d978545cd09fc3534a07a569f7b9b4ea4071168937d38e2cde229b801110",
+    "candidate-vertical/guide/package_concealed_guide.py": "2569c4bc3b1f38fe60633f76c8c2a85f223149e81525184a917a9720082a1686",
+    "candidate-vertical/guide/raster.cpp": "fc9bec5febfea77541aa67f71588c63f9d3dbeceec784a925617a3abfc8ab386",
+    "candidate-vertical/guide/raster_numpy.py": "1c1fb47eaef18be4833c856445939b227e8d9570d800922354e3f56b01051c81",
+    "candidate-vertical/guide/record_post_guide_check.py": "e047d8cefb5d6f5a1cd1d0c04f95b9e7fe1c4434db59a22003d23149053a2d44",
+    "candidate-vertical/guide/run_with_numpy_raster.py": "ffc7cc87871733aede405395a96acd167fd86151ad9ac98d61e4d5c7066bdbfe",
+    "candidate-vertical/guide/software_lineart.py": "5ab7f4b98b84e2933b84ffc8dc61b2e8c9938e7f50ba33c3e9c9ae03bf7cc73d",
+    "candidate-vertical/guide/vent_guide_support.py": "bbbd5e34f9836a735660ede1cbe28ed00816adc7ffae804cc6e6941cf7ed90c3",
+    "candidate-vertical/harness_rules.py": "baca568650e7f7c58f40cf30a97af7dce7ef0a8bc5487e1940eee6da6ab00c63",
+    "candidate-vertical/hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
     "candidate-vertical/history/reviewed-export18/manifest.json": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
-    "candidate-vertical/vent-study/shadow-plenum-coupon/receipt.json": "c48ad89b1370a025bf695698d8a838c9be3d93f11f21a835167c69672f2cace1",
-    "candidate-vertical/vent-study/shadow-plenum-coupon/port-service-receipt.json": "5c366eeebd4ec886995a6a991fa8f936b9db661d98ba7c88877f53105e5b2ca2",
-    "candidate-vertical/make_shadow_plenum_coupon.py": "8d07be5e175cd99100be5f67f08f7736af5c5069eff9e0930d0a4693a7050a3e",
-    "candidate-vertical/verify_shadow_outlet_context.py": "ec4977391fc2ef4cb4cf00b92d8ece1325b6183c94358f3f2473879058e794b0",
-    "candidate-vertical/verify_print_meshes.py": "322928bcdf02f8e524ecd995f81dc201feed9f7989c08af81355340d5ef54ac1",
-    "candidate-vertical/verify_fps_carrier_route.py": "0e9bd4d7baf3f299a8fae216103d4cf39d0a7c2ab2f80bb3149da0dfb9b2dafe",
-    "candidate-vertical/verify_wall_probe_context.py": "c13dd111db78e32ec1a01d173097546c9687c2fe0436beba2732934e86474bf6",
-    "candidate-vertical/verify_fps_mated_carry.py": "46b0ea0c26d686939552cc267f4a337dd77175f6173005cce1a7ef88c01e43fe",
-    "candidate-vertical/verify_microsd_service.py": "c8f637d95168e5a21b6fd696704832431013ed295b078d7f836a82c8e7133067",
-    "candidate-vertical/verify_fps_central_rest_wide.py": "c25f432f1a2f1e0cd3cb065a81ecd9816110f61e752c19a1585141943d914954",
-    "candidate-vertical/verify_fps_integrated.py": "cb8da4e0209c7774de3b5a6dac667f26aead19b8e68885503092ce5833d0d82e",
-    "candidate-vertical/verify_csi_source.py": "ac75e22c089b69a591d214abc7b2c5b37207eea1ae7f94d93b7f83fad8139a5f",
-    "candidate-vertical/verify_fps_pair_guide.py": "99e2100002c6aba17a5b92dec8cb5ee67096eb903fb6c5892bb38b7dca4a02d5",
-    "candidate-vertical/verify_ventilation.py": "cb5d207b72391d244c251681787b1ed94c0f0f2ca33e94e5a75e56d4d22dd99a",
-    "candidate-vertical/verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
-    "candidate-vertical/verify_fps_fixed_service.py": "96f0151a097f9d74457a1ceffd0003ea74f5690e7141e32d98f6c027c3804217",
-    "candidate-vertical/verify_wire_solids.py": "f5087087b98050cb000e1e5d424bffdee4922cdf746728863ae045dd496765d9",
-    "candidate-vertical/verify_fps_final_candidate.py": "b2a2add0efcf537fa132556131227758c5538ad0a5761d264a326c6e2cc4484e",
-    "candidate-vertical/verify_shadow_usb_head.py": "4a1d81f80403bede7ca7a0c5126a23d86fa3e292a9a1420a1ea45ce1f726ee9f",
-    "candidate-vertical/verify_hdmi.py": "8d842217a75aa1b3ba3b3fabbbf3c5be785e56c637ad3becc2096a836e1fa556",
-    "candidate-vertical/verify_shadow_plenum.py": "58491fdb3550c8a0e1bde7cff0cd306ddcab67e7125d845fd2f1c0ed36332e97",
-    "candidate-vertical/verify_fps_central_rest.py": "d127844102ef5ea6164d1d261ac2ee8dc2b9cd912146b069340e6c25e560dd5a",
-    "candidate-vertical/verify_csi_access.py": "74f9fb9f631f088787ac5a22573ec45d81b6dedbca270c67fb084d17d4b5e545",
-    "candidate-vertical/verify_power_service.py": "759ac8914a9d2d931d1e65bc9fe66b2f4f85b6fb1bd1a640017cd2da6cd496ca",
-    "candidate-vertical/verify_candidate.py": "f2df03ae9fdda0c115497ac3db6e5f4528d6e7c5b32e617975f162c70133fe1f",
-    "candidate-vertical/verify_fps_pair_deployment.py": "3029d4623d7e672d89bdaad077ebad9d6b5ad647901b42aecbdadd6b311e63bc",
-    "candidate-vertical/verify_fps_contact_pad.py": "46d3ca50ad663d6b04ea71ed3b17a62b4bc1c053fe852259d51a7e3c1b48ac7d",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/usb-donor-provenance.json": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-power-clearance.json": "4ff375a60d9ccb9df71ade12266cdb9120dbc83abf0e904b914daf42301cb64c",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/fps-final-source-receipt.json": "4dd81f22c8c683657ec66788d3d9e7802c49b0ecbb4c62ce9e1f033d7fe77a0a",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-create_corrected_port_hdmi_snapshot.py": "21d6d73c94db09d5979868e760b777b1a1335d5ca589b7fbc61ea097fc6a2524",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/usb2-head-reservation.json": "3e411f4de1d471cfcbbfa9f4311f25e0182da4678f7e2e09b7efd7b5a540eaf3",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-selected-hdmi-checks.json": "774fe5d21768623fe1e0d8dcd1ac33d5a85df7b5ed5dde39173a5f335ce57f34",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-fps-conservative-screen.json": "1824c6e841efd770beaa6d6220310a97f10d3b02130ae5137907a31830868c0a",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-final-receipt.json": "03a71f07ad32f6149e8e7963fe6e6fffa1f4779f3b185d8aff7ab26313510388",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-fps-exact-arc-bounds.json": "1427a2f9a5afb29bc4fa16b110c2560bef371a7aba5c334b9a55115ff81081d8",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-head-checks.json": "ee23ceb9cb39cda408c568bb77fad6868f1d4d95c4b4fd2ec6622c0c87d06707",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/prior-hdmi-solid-checks-321b333f3a9c.json": "321b333f3a9cd0847155c7eb7942eeeaa64f4d1f11a10dd31aaacce7985eaf5d",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/check_head_power_clearance.py": "638fd822c35ef65ffc2a8070cbe455e018fb041ce1b433e107b12faeb2de8d2a",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-export16-verify_hdmi.py": "72439840fbb66463e6fbaf9e1311138232b81706ace46e84d1c5d5002e9c118e",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/rejected-previous-usb-head.json": "25538a9962d6275d690dcc0d98677b42419bf2c22196c3ad41461a752d44c84b",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/run_selected_hdmi_export16.py": "53fee76824e6213d3ea37e5b827311b5d758cf7a07822ee9faa75292c43b7368",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-verify_hdmi.py": "7c12d0789205c8ddc9c602b2d5914aa809180adfbd8e1561005b286220a2d3d9",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/check_head_fps_arc_bounds.py": "a31435122a5fa0c294d930ec8ea14bde64dce2f8cc933f81fcbe52d100b6e93d",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-selected-hdmi-receipt.json": "77386a94bae7ee79934faa37b40c6031cb3861b81483d4bdd8fed621f0165d0f",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/creation-checks.json": "c7cf6bde5d623d5a06a8ea98ac0a8b6d589c6e7178ca015b3b92d4031e543f89",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/EXPORT16-RESULT.md": "adb55c37c269f07a6f9818e74add9d681194d7535f6420d8f24e46719f83e5d2",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-fps-support-checks.json": "020358b32096f7a72214cbda6714e87d9c6ebd895021a41aca095815881d6c1d",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/README.md": "9406f1e53a188df45e8dade13fe811a42a3281db643d74faf0a86b984a5e5199",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/verify_corrected_usb_head.py": "a8ff3f38a60a284167d8c094d2af3f4e6500a853783a5a4855b2f964daa78f4c",
-    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/context-input-receipt.json": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/usb-donor-provenance.json": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/head-power-clearance.json": "4ff375a60d9ccb9df71ade12266cdb9120dbc83abf0e904b914daf42301cb64c",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/mechanical-manifest.json": "ed58af4220b6afebf3bf1d88d61a9f786f21fd717f74791387b613e62366be4b",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/run_selected_hdmi_export17.py": "7e30d305de678a5b21e0334f0ea5f8e3a23435feca68e1934dec12fbfe73f2e3",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/head-fps-exact-arc-bounds.json": "1427a2f9a5afb29bc4fa16b110c2560bef371a7aba5c334b9a55115ff81081d8",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/head-check-first-attempt.txt": "4b2061b3107ba32371edb2a4b9b1dea5bf25cdd8bdf93ba67714a2e893b4dc1f",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json": "abd3a4d1f0cd27b9fff8fddd794655c53a0526298916d614834d91b11ac636cb",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/export17-selected-hdmi-checks.json": "1a589bdbf4d84ecf351e3dd51cfdae0f002a0b5e8bea667961cada53856771da",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/source-verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/export17-selected-hdmi-receipt.json": "69f9a70307618a0841052a621d0c75524fdaaaf3549475fc4a9af057b73da00b",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/conserved-ribbon-proof.json": "9c09eadb4c2cc8f4a17b5c9d6be214c1b1db6c268be2a798d2d4da19d32f3a0b",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/source-verify_hdmi.py": "8d842217a75aa1b3ba3b3fabbbf3c5be785e56c637ad3becc2096a836e1fa556",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/creation-checks.json": "c7cf6bde5d623d5a06a8ea98ac0a8b6d589c6e7178ca015b3b92d4031e543f89",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/README.md": "c0589712413a5e2dab37d127e47a7925131e5dabc4847c67ab9ef951f56e436d",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/export18-head-checks.json": "c6b124abb356d606a3519f74661e7f481d1871be4d64f0db6a1e260b1ddee28b",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/verify_corrected_usb_head.py": "a8ff3f38a60a284167d8c094d2af3f4e6500a853783a5a4855b2f964daa78f4c",
-    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/context-input-receipt.json": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
-    "candidate-vertical/out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
-    "candidate-vertical/out/fps-service-study/fps-final-source-receipt.json": "964e699ad9fdeb0a0944da5adb11968e811eb328e81cf579baf17e78aaf3cce1",
-    "candidate-vertical/FPS-SERVICE-STUDY.md": "9096d2a183a892d0d8781bcf5398a613f6e188dfd5a9a0277d6dc21c6dfb9021",
-    "candidate-vertical/out/fps-service-study/fixed-fps-service-checks.json": "87cb0350f16029ded3ffa888e6902a29a1435c3e469e28a167af6006926c88dd",
-    "candidate-vertical/out/fps-service-study/mated-carry-checks.json": "30850e6a08f800c995e8debc07cbb1958b04288f16055cddb90691a77e25adb8",
+    "candidate-vertical/history/reviewed-export18/panel.step": "3b808f3bb15c59e8aa6be9d04afa52ddf69f7a80ecdf9f5f3349a32fff7f8455",
+    "candidate-vertical/history/reviewed-export18/tub.step": "dc81c4241dea35af771bc10b130c87cfb80585b7b2329faeec410f0944d20a46",
+    "candidate-vertical/make_bom_vertical.py": "a907a8f46d87a4b5326498cd17484dd1e76101912296ca30c81d76d31a1e047b",
+    "candidate-vertical/make_corrected_pi.py": "3e55c984f4470a42b2eec998a6316c3c997f262eefeb731fb4bc497c64c6e2a2",
+    "candidate-vertical/make_shadow_plenum_coupon.py": "964debf1149051e91129a3cf614f9000ee34f8b7ab19d98558f7ba902c0cd019",
+    "candidate-vertical/make_wiring_vertical.py": "54be985e165f137b0500918ea497efc345c3b6b59b5a8a22f0781aa018dac403",
+    "candidate-vertical/model.py": "c3e2699295b57ea84ee040a102bbe1b367c714ee6b1371d860483ef8be63c5df",
+    "candidate-vertical/official_pi5_assembly.py": "a9abd95cd3847be355862ae0752cfc075ce8ed8440e9b66f67cd12b7bc91bce2",
+    "candidate-vertical/official_pi5_csi.py": "ca464bc7195037f8485fcb7fcaefa97e8d3061441f97fa988807556b1103291b",
+    "candidate-vertical/official_pi5_geometry.py": "0d3bc6007879dd482cbd48bfa1d76c8f495d394608e88f01fcf56fe4883c29ec",
+    "candidate-vertical/out/compact-kowa_lm6hc/check-scope-checks.json": "eb7c39f135a40c27fb05f9c161536dc5c57ccf508b6571fcdaab672912696de8",
+    "candidate-vertical/out/compact-kowa_lm6hc/csi-source-tool-checks.json": "1df78d57cbffe6b8163dfae9ff7cb39236be68a5ea52776edcf60183df8979ea",
+    "candidate-vertical/out/compact-kowa_lm6hc/harness-checks.json": "6823886ab27c3885c1e81b66a424f759c300a7a952e71d322196cd17b7f49143",
+    "candidate-vertical/out/compact-kowa_lm6hc/hdmi-solid-checks.json": "fc3c0750fd3015680e3488e1a3ca1bfb9b1a4754ba30ea5afe263f676b79fa99",
+    "candidate-vertical/out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "candidate-vertical/out/compact-kowa_lm6hc/microsd-service-dependency.json": "53d4e54aa35d4661f510a8b64d7c95ca2e007ed88cfdfb280fe5a56924138568",
+    "candidate-vertical/out/compact-kowa_lm6hc/power-service-checks.json": "ae5f1aafccc709c24c8ac97d5eea47d69ec95cfbef05542d7d506613439931bc",
+    "candidate-vertical/out/compact-kowa_lm6hc/print-checks.json": "fdf74f89ae03e44d177ac97edb577ac7abd9ec4a39a41627df15e4acbf50a658",
+    "candidate-vertical/out/compact-kowa_lm6hc/shadow-outlet-context-checks.json": "72794ad354d1e4d0834ee59f5c9a1929f5b75be297a4643aec7cc8defd6ee4aa",
+    "candidate-vertical/out/compact-kowa_lm6hc/shadow-plenum-checks.json": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
+    "candidate-vertical/out/compact-kowa_lm6hc/step/panel.step": "db84317a69b3eda3e76edf512ae252a5fe5a1b947d8984903ced065aa34d1eec",
+    "candidate-vertical/out/compact-kowa_lm6hc/step/tab_catch_insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
+    "candidate-vertical/out/compact-kowa_lm6hc/step/tub.step": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+    "candidate-vertical/out/compact-kowa_lm6hc/stl/tab_catch_insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
+    "candidate-vertical/out/compact-kowa_lm6hc/stl/tub.stl": "c259ee067bd4efbab7a612008dcec1a70316d2d6f46ae5df76d6d128b31f0bd5",
+    "candidate-vertical/out/compact-kowa_lm6hc/verification.json": "0e6981840abf5e4e8c0f4d3e2a82705bd15ae90bf2db603b11a3798f21822497",
+    "candidate-vertical/out/compact-kowa_lm6hc/wall-probe-context.json": "cc4b53494d71dbb4f50bed41cfbea810c466d7f90c8bcfad65d66a84834b8345",
+    "candidate-vertical/out/compact-kowa_lm6hc/wire-solid-checks.json": "f980cf75fcd23f3ad61d9e5c063e37d8be761513235ab32f49ab2d5788d90688",
     "candidate-vertical/out/fps-service-study/central-rest-checks.json": "8c8b79112de3681a5cfc4a8df669b5dff5c4702d6508d93169aa9d26f38b1524",
-    "candidate-vertical/out/fps-service-study/central-rest-wide-checks.json": "983894975ace07785859ed5db875ab4150c5682f10c5ba0b8bb968e4d8481517",
     "candidate-vertical/out/fps-service-study/central-rest-pad-checks.json": "1f7feb5af8b23dc968c2f788a1d87d85bc91df26676520b18adcca01918c4299",
-    "candidate-vertical/out/fps-service-study/open-guide-checks.json": "065a998dff8055bf2374de7e3ab1cb1bf2599f0a457488721abe0564c6ac8c33",
-    "candidate-vertical/out/fps-service-study/selected-support-hdmi-bounds.json": "91e1b3b8c5e4a59ed802ce451a70bd53943db74049a4fdd85d557d67fff2f11f",
+    "candidate-vertical/out/fps-service-study/central-rest-wide-checks.json": "983894975ace07785859ed5db875ab4150c5682f10c5ba0b8bb968e4d8481517",
+    "candidate-vertical/out/fps-service-study/fixed-fps-service-checks.json": "87cb0350f16029ded3ffa888e6902a29a1435c3e469e28a167af6006926c88dd",
+    "candidate-vertical/out/fps-service-study/fps-final-source-receipt.json": "964e699ad9fdeb0a0944da5adb11968e811eb328e81cf579baf17e78aaf3cce1",
+    "candidate-vertical/out/fps-service-study/integrated-fps-checks.json": "850edce58713c30e5ce7f3ea2efb0ff7925d4766f4f37af3b178f9a8873e4f1f",
     "candidate-vertical/out/fps-service-study/integrated-fps-export16-checks.json": "97be80d41eacae7abf1087628ebb6f0e1ef56ab0647eaa1e2024bd4c60c6073d",
     "candidate-vertical/out/fps-service-study/integrated-fps-export17-checks.json": "b1145b2ab7d0ca4be9648428e2e55598d8a307e79c70d9b6b5e421ef12a8a0fe",
     "candidate-vertical/out/fps-service-study/integrated-fps-export18-checks.json": "00e1f68a713bd1592d5df1ef0d572c8bda5bde935310163155c8f40d15e271eb",
-    "candidate-vertical/structural-review/actual-shelf-screening.json": "47eec8d92189297268eb2540d7189f848ad89207afef89adbb97d7af21e68a1a",
-    "candidate-vertical/out/fps-service-study/integrated-fps-checks.json": "af025a881fea58b34e9d497e1709e7d63533f1f3fd0500bd6ee7fa79e7c7e962",
-    "candidate-vertical/fps_fixed_support.py": "15e938b959c1ed855feba025b167220b1e4d3a8622c4d80f88dda07e12af5d7e",
-    "candidate-vertical/fps_pair_guide.py": "582f96f2acf6f4dcc94bc41ff3137bd68f6168fda5be69f730ad2ada75f5e5bf",
-    "candidate-vertical/fps_ck1044_mated_carry.py": "adf835653a0fa30bf24c9c4ba7a991c24187c478c2613f891a4dca3f4a9469cb",
-    "candidate-vertical/export_candidate.py": "b92b103ee8d1404b5dccfe5568b73987df72d8b2b8614b98ac055badbe92faf5",
-    "candidate-vertical/power_geometry.py": "666ae58641f5018db1cf381ef0f6fcf15d3424392bbc9f157436ae0269b32b3c",
-    "candidate-vertical/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
-    "candidate-vertical/structure_geometry.py": "22243dec9a95e7703703fe2986889ed71676a153856e2da6cdda27bf172b9c0a",
-    "candidate-vertical/strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
-    "candidate-vertical/official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
-    "candidate-vertical/official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
-    "candidate-vertical/official_pi5_assembly.py": "ffae358f5c4b882b92ab73ee6519da76eff810fd1e4ee3a1a400c018fea01055",
-    "candidate-vertical/make_corrected_pi.py": "0bb0b4e344d7834e32ac3ce59d84e8fa5369468b1ca6541ba5fd8ee17c11113d",
-    "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
-    "candidate-vertical/out/source-components/pi5-corrected.json": "429ab9db6441ec0807f5ef7b599feed75c11238f47e6c42e095288bf2af01820",
-    "candidate-vertical/out/source-components/pi5-corrected.step": "85fae8b04a9b0171d8dc0b15a29800540c85dc748e6910d293ff5d51adbe372f",
-    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/out/fps-service-study/mated-carry-checks.json": "30850e6a08f800c995e8debc07cbb1958b04288f16055cddb90691a77e25adb8",
+    "candidate-vertical/out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "candidate-vertical/out/fps-service-study/open-guide-checks.json": "065a998dff8055bf2374de7e3ab1cb1bf2599f0a457488721abe0564c6ac8c33",
+    "candidate-vertical/out/fps-service-study/selected-support-hdmi-bounds.json": "91e1b3b8c5e4a59ed802ce451a70bd53943db74049a4fdd85d557d67fff2f11f",
+    "candidate-vertical/out/source-components/pi5-corrected.json": "fd251c7be6cde774df557971032d0ca7a29761cc1d43b0544584dd7569f59e87",
+    "candidate-vertical/out/source-components/pi5-corrected.step": "15f13dc88100375c8fd5e8d90fc4d71464cec952168e6e6238d593ba1fde2729",
+    "candidate-vertical/plenum_flow.py": "e76cabf5f90b1ea0b6c7676c9c01b7c1999a6a998e17cf1723fe64af40fb4d89",
+    "candidate-vertical/power_geometry.py": "583b6ddabfc8ff0fd00ba8ba2b8f0a31ead31a81222e9d3f8ac2517f8a918d6d",
+    "candidate-vertical/power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
+    "candidate-vertical/print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb",
+    "candidate-vertical/review-2026-10-10/fp12/flow-network-baseline.json": "6a099d6f56dfa1be92bf7863def7abe6b0aaf7ac070e9dce15dadae82edffb26",
+    "candidate-vertical/routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp0-native.step": "dbc6cfbb12ef5fd0aa39c7ee145443df62d3f936289a335274acadb9caaf859d",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/cam_disp1-native.step": "c37514c24aaf44260718edc9f3fe9cdd3d6e8019d62d62d9df498b39fe32cc23",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/connector-extraction.json": "c94bc81d735cd7a599d5a98ee9eeb5e9a95ebc10f834e0215a334d15512b4f25",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/ethernet-native.step": "a7b8323f9cf8f599665d1cd58b7eb7f246e440909facc4afef6842880eae14e8",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/gpio-native.step": "67d33aea721a070533a03dd7c1608997c51524d2c4c73a4e6a7691e7f220f2d4",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/port-landmarks.json": "2210fe04d30ff06a8a646c3c9fbdcf7123b292ed2a370bd678f13b5748d3a5c0",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb2-native.step": "2a0b6eb05141b3d30d5636d2b43f21dc4223fb7b8996be9dd9a603b32edcede1",
+    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usb3-native.step": "d9290cb1e7feccc00f476c6f04194423372e957f7a48ad649a4b6586906abf34",
     "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/usbc-native.step": "6858df292db04744de3e10b27bfca83c465c679017a73998334e1126f1ef91b9",
-    "candidate-vertical/routing-snapshots/hdmi-ck1044-clear-20261009-0524/official-fpc-sources/LICENSE.txt": "4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea524d154c7fc",
-    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
-    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
-    "_thin_spot_rib_l.py": "8bddc20a57822fb31f100fff1b5a4180dc9ead5053f088b390e2507e84ceca7c",
-    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
-    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
-    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
-    "audit_cloud_release.py": "6fe4bd768cb61dde8983ee7c73b19104d280ec28bb0a1dbfef7c9e268f671b50",
-    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
-    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
-    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec",
-    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
-    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
-    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/EXPORT16-RESULT.md": "adb55c37c269f07a6f9818e74add9d681194d7535f6420d8f24e46719f83e5d2",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/README.md": "9406f1e53a188df45e8dade13fe811a42a3281db643d74faf0a86b984a5e5199",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/check_head_fps_arc_bounds.py": "a31435122a5fa0c294d930ec8ea14bde64dce2f8cc933f81fcbe52d100b6e93d",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/check_head_power_clearance.py": "638fd822c35ef65ffc2a8070cbe455e018fb041ce1b433e107b12faeb2de8d2a",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/context-input-receipt.json": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/creation-checks.json": "c7cf6bde5d623d5a06a8ea98ac0a8b6d589c6e7178ca015b3b92d4031e543f89",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-final-receipt.json": "03a71f07ad32f6149e8e7963fe6e6fffa1f4779f3b185d8aff7ab26313510388",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-head-checks.json": "ee23ceb9cb39cda408c568bb77fad6868f1d4d95c4b4fd2ec6622c0c87d06707",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-selected-hdmi-checks.json": "774fe5d21768623fe1e0d8dcd1ac33d5a85df7b5ed5dde39173a5f335ce57f34",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/export16-selected-hdmi-receipt.json": "77386a94bae7ee79934faa37b40c6031cb3861b81483d4bdd8fed621f0165d0f",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/fps-final-source-receipt.json": "4dd81f22c8c683657ec66788d3d9e7802c49b0ecbb4c62ce9e1f033d7fe77a0a",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-fps-conservative-screen.json": "1824c6e841efd770beaa6d6220310a97f10d3b02130ae5137907a31830868c0a",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-fps-exact-arc-bounds.json": "1427a2f9a5afb29bc4fa16b110c2560bef371a7aba5c334b9a55115ff81081d8",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-fps-support-checks.json": "020358b32096f7a72214cbda6714e87d9c6ebd895021a41aca095815881d6c1d",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/head-power-clearance.json": "4ff375a60d9ccb9df71ade12266cdb9120dbc83abf0e904b914daf42301cb64c",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/prior-hdmi-solid-checks-321b333f3a9c.json": "321b333f3a9cd0847155c7eb7942eeeaa64f4d1f11a10dd31aaacce7985eaf5d",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/rejected-previous-usb-head.json": "25538a9962d6275d690dcc0d98677b42419bf2c22196c3ad41461a752d44c84b",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/run_selected_hdmi_export16.py": "53fee76824e6213d3ea37e5b827311b5d758cf7a07822ee9faa75292c43b7368",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-create_corrected_port_hdmi_snapshot.py": "21d6d73c94db09d5979868e760b777b1a1335d5ca589b7fbc61ea097fc6a2524",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-export16-verify_hdmi.py": "72439840fbb66463e6fbaf9e1311138232b81706ace46e84d1c5d5002e9c118e",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-official_pi5_csi.py": "06f5564d2ae0aa666a36b4827046101d5b227ef3b9bb6ca026afe021740d3025",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-official_pi5_geometry.py": "5faf8e122860e1af63b805cfab832100620ed0cb3ad1c57502f52d6bf1f0060d",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/source-verify_hdmi.py": "7c12d0789205c8ddc9c602b2d5914aa809180adfbd8e1561005b286220a2d3d9",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/usb-donor-provenance.json": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/usb2-head-reservation.json": "3e411f4de1d471cfcbbfa9f4311f25e0182da4678f7e2e09b7efd7b5a540eaf3",
+    "candidate-vertical/routing-snapshots/hdmi-corrected-ports-20261009-0623/verify_corrected_usb_head.py": "a8ff3f38a60a284167d8c094d2af3f4e6500a853783a5a4855b2f964daa78f4c",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/README.md": "c0589712413a5e2dab37d127e47a7925131e5dabc4847c67ab9ef951f56e436d",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/conserved-ribbon-proof.json": "9c09eadb4c2cc8f4a17b5c9d6be214c1b1db6c268be2a798d2d4da19d32f3a0b",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/context-input-receipt.json": "a1c1d38ffe53af302771bf054dc1dd5953f9dd7815834d729c2a04f2d54d414e",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/creation-checks.json": "c7cf6bde5d623d5a06a8ea98ac0a8b6d589c6e7178ca015b3b92d4031e543f89",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/export17-selected-hdmi-checks.json": "1a589bdbf4d84ecf351e3dd51cfdae0f002a0b5e8bea667961cada53856771da",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/export17-selected-hdmi-receipt.json": "69f9a70307618a0841052a621d0c75524fdaaaf3549475fc4a9af057b73da00b",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/export18-head-checks.json": "c6b124abb356d606a3519f74661e7f481d1871be4d64f0db6a1e260b1ddee28b",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/fps_geometry.py": "28f6d258505029aad3ddf599dafc37d5df8e3b2eefedaca6c40df11220b6864a",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/head-check-first-attempt.txt": "4b2061b3107ba32371edb2a4b9b1dea5bf25cdd8bdf93ba67714a2e893b4dc1f",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/head-fps-exact-arc-bounds.json": "1427a2f9a5afb29bc4fa16b110c2560bef371a7aba5c334b9a55115ff81081d8",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/head-power-clearance.json": "4ff375a60d9ccb9df71ade12266cdb9120dbc83abf0e904b914daf42301cb64c",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/input.json": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/mechanical-manifest.json": "ed58af4220b6afebf3bf1d88d61a9f786f21fd717f74791387b613e62366be4b",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/run_selected_hdmi_export17.py": "7e30d305de678a5b21e0334f0ea5f8e3a23435feca68e1934dec12fbfe73f2e3",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json": "36a9907f7b3a69ea59fd827f282265ce8fee0ff744873fb088373d6a9963cb84",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/source-verify_fps_access.py": "5559e8b8a68ff0d9192cbb721c4297bf793df254e3e7efd3d15af98f1d936044",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/source-verify_hdmi.py": "8d842217a75aa1b3ba3b3fabbbf3c5be785e56c637ad3becc2096a836e1fa556",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/usb-donor-provenance.json": "da66632af4ff00ebf0c2bdb085f16b495c7719668ce4251fdc0b03a0a768c798",
+    "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/verify_corrected_usb_head.py": "a8ff3f38a60a284167d8c094d2af3f4e6500a853783a5a4855b2f964daa78f4c",
+    "candidate-vertical/routing-snapshots/power-csi-clear-20261009-0358/power-270-csi-clear.json": "25dbada89d952e968acfcee8dac5523497991bcaf368e87f0d1df529aa885bca",
+    "candidate-vertical/routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
+    "candidate-vertical/signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
+    "candidate-vertical/steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
+    "candidate-vertical/strap_route_proposal.py": "59ef1f737e37dbd964dcf32d03b267573baf63b17931c6d858ad24c60753bd85",
+    "candidate-vertical/structural-review/CONCEALED-VENT-STRUCTURAL.md": "6d121c452794c8dbf93a509d7e013bf8fd1622cec0e3954617966eaabff2e273",
+    "candidate-vertical/structural-review/actual-shelf-screening.json": "47eec8d92189297268eb2540d7189f848ad89207afef89adbb97d7af21e68a1a",
+    "candidate-vertical/structural-review/bonded-catch-coupon/README.md": "03345973721e0e2cfb3fe669650aacd59225c54a12facb65f31c2704729971be",
+    "candidate-vertical/structural-review/bonded-catch-coupon/catch-host-coupon.step": "eb2717504976c80c9cfa20454df70068040023d0f40c98ef2314d57cc9d88e95",
+    "candidate-vertical/structural-review/bonded-catch-coupon/catch-host-coupon.stl": "a29172ac339586249bbbca01bc40fa49af5ee261775fcd0f58efcad62e894a4f",
+    "candidate-vertical/structural-review/bonded-catch-coupon/catch-insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
+    "candidate-vertical/structural-review/bonded-catch-coupon/catch-insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8",
+    "candidate-vertical/structural-review/bonded-catch-coupon/receipt.json": "93521fbf6151a766ff3eea2fb8a0ba453eb31f67ea63121de50bc5f0880cd135",
+    "candidate-vertical/structural-review/concealed-vent-structural.json": "ecd5797716a7421c25079e87c464964d751c00499c32bbfaf5beaa3345446b7e",
+    "candidate-vertical/structural-review/j4_trial_geometry.py": "eefbf6649fc41c66310564543e8a2309d0d5945fd1829cd6694ce73b45ff5a08",
+    "candidate-vertical/structural-review/make_bonded_catch_coupon.py": "3b0a28c2dfee64c66f2259add30a7fcccc37148508492b60b2232c8cae7f4287",
+    "candidate-vertical/structural-review/reference-export18-structural-binding.json": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
+    "candidate-vertical/structural-review/update_concealed_vent_structure.py": "d5d6f9ea5dc1f6801852b4d8b948acb9bbd2c5eaaa68367b291f2a0f8005cd85",
+    "candidate-vertical/structure_geometry.py": "4230b810c2e67229b6176eae7a35ddac22e2549a848c22a3cd74f3d2c7b58985",
+    "candidate-vertical/vent-study/shadow-plenum-coupon/all-mouths-receipt.json": "96266e878fef8d7618e5f93b35db152b332d863a497a5a088b4518472e3ce752",
+    "candidate-vertical/vent-study/shadow-plenum-coupon/coupon-index.json": "0e4fc3ccc3e3094347244bd041822d81d5c8986d45320871b711fa793d5b8b4b",
+    "candidate-vertical/vent-study/shadow-plenum-coupon/port-service-receipt.json": "59b5b8c8435da1bd38c9edca0b26636464af5000a468975b2dd3d036a678e836",
+    "candidate-vertical/vent-study/shadow-plenum-coupon/receipt.json": "a6f5e45798a23847ddf735204337ea48789aecedb7bc6cab345a8026531d94c5",
+    "candidate-vertical/vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84",
+    "candidate-vertical/verify_candidate.py": "b008c54d35391c4664ad94e01598d77de2662165d79a167f35df9552e5735851",
+    "candidate-vertical/verify_check_scope.py": "e9479e6d589baea68a16ef47d773357560fa15a4b796d67277efd1574ee98566",
+    "candidate-vertical/verify_csi_access.py": "0aa68e3b22aa4e644301836a9780427f9cbb99a27e1b3ffea2085d3a2470d205",
+    "candidate-vertical/verify_csi_source.py": "339f6f2e22bdac2df5b2ce9fa9b45882266ef07c093bce04d91ec4a912b5dcf1",
+    "candidate-vertical/verify_fps_access.py": "7bd67d44c963a998320e21048b23167306a08a782fceb83b0fc2282754b8b360",
+    "candidate-vertical/verify_fps_carrier_route.py": "583da8c39402113b6656667d66adcb757398230ac2114edfcccf6d8d85fc9ff4",
+    "candidate-vertical/verify_fps_central_rest.py": "e08f6ba6762d7d74d1d11f9382f58ffaef416320cd98efa07b7abcece5940719",
+    "candidate-vertical/verify_fps_central_rest_wide.py": "0b78b42c3848061199e91f2389556754d6736819171fb6f2cc85718d9f5a9bca",
+    "candidate-vertical/verify_fps_contact_pad.py": "c0559d64cbb8e32a3fdf4db7473f4f3ed2fefa2ce8c519c8cb45fa3cb164545d",
+    "candidate-vertical/verify_fps_final_candidate.py": "4a52e8638455e132aafc283eb2e607f9c82d8d50b317416d7e55900f51dd2c99",
+    "candidate-vertical/verify_fps_fixed_service.py": "3c04e6e1cee4523114dd9cf63effa0ce26e6b920cb700675828239fc9e1041c3",
+    "candidate-vertical/verify_fps_integrated.py": "81cbbadc6fea142de8aac73bf9b90d6093e4e58b885970c119eb69c732f24b4f",
+    "candidate-vertical/verify_fps_mated_carry.py": "60dc53a79cf3bb6f0f8283c4fd59315b6681b79029fa0ca3c60bc85c514fd9b4",
+    "candidate-vertical/verify_fps_pair_deployment.py": "6e81c840042ae99890093c73a9afbacf0665638e8a2da31587cc054fc42ab1c5",
+    "candidate-vertical/verify_fps_pair_guide.py": "fa2a3c2ff17fde4374338e8cffb3da0bfa001bf19c1ba925ab225fa6fcb3eaa3",
+    "candidate-vertical/verify_harness_checks.py": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
+    "candidate-vertical/verify_hdmi.py": "982dc28718e9d79a586ba87965725131391039f8341818848aa83516e52cb1a9",
+    "candidate-vertical/verify_microsd_service.py": "e32df7b2cd064edd8cd5c2c0437e1a04c93ed0fadc3004a9d0cdf18c9359249b",
+    "candidate-vertical/verify_power_service.py": "49c18b6676145eaff89e7d99ef76b8a2ba87c86b01985b635dd77c9ae894fddd",
+    "candidate-vertical/verify_print_checks.py": "dbfdbdb17cd8a98b5b37a18f154265fb036b955334331b19490eca0ca1b88f3e",
+    "candidate-vertical/verify_print_meshes.py": "d74b06c7f1ae25f11135cd1a068ab6d13933c2d19266304728ac478dd0eab12d",
+    "candidate-vertical/verify_shadow_outlet_context.py": "590a8f76b66aeb5d06074dbed88b4cf332763ee79e2f1c7984437bbe1cf720c6",
+    "candidate-vertical/verify_shadow_plenum.py": "ce776a21cf6e6bd899f74cb0f56852577da0d7eb23b43adb4a1712d38ecb3485",
+    "candidate-vertical/verify_shadow_usb_head.py": "34e29a267cc0ea072cb156b83fa51be7313dc2f03e94d274ab9c0c85494a8f47",
+    "candidate-vertical/verify_ventilation.py": "dafd2d0b3aeb494bbedea31fdf34d1a973649d94e4d76510fcf86faf0d253d85",
+    "candidate-vertical/verify_wall_probe_context.py": "0409abb365b2b599a4f423768647065980fb729371faeec5eee1dea08e36a937",
+    "candidate-vertical/verify_wire_solids.py": "dbe500f5ebf6cc9ac28cb05c3cb65ba71318f96599dd640d8b77eaa50773afcf",
+    "candidate-vertical/wiring_data.py": "83258fcdf98d7589500a5fcb9cc335d5d611238e07ed6c3a47d7bf0d90543f20",
+    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
+    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
     "coupons_r1.py": "456121837dbb1d303ce40432114abbc739d8e0b8ca7345fde31007c9a74028cb",
-    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
-    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
+    "fonts/DejaVuSans-Bold.ttf": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "fonts/DejaVuSans.ttf": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+    "guide/lineart.py": "61f3576bbbc46351d0736f47903e7ae4080bd55d34244ca8633ab3d911102347",
+    "layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
     "make_coupons.py": "aeb1fecbdb0b219a26e8a068af873ee43e94bcd3457101c58a4b6e2aa0789bb3",
-    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "make_tables.py": "69be676b422b7ce658e7d632a1b925d1fd7923a092622452dfd3840dfaa1d48c",
+    "out/build-receipt.json": "2128ccead1284e777c1d67f1b621c3c8de1a5c92137a6d10179c8cf014d47ad1",
+    "out/checks.json": "2d6f68b24619f4e4db39e22a4c72f4a15f322188e7dbefe643c2c9657e7b7c8b",
+    "out/parts-manifest.json": "6bb65631747c84974fa245a3a97e98f855e828c893e99c1b9234fc6b2fd26dd4",
+    "printed_collar.py": "fbb8a356db82cd10a496b4864baa95930374ffc519578e373f38e4019af7afe0",
+    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
+    "printed_hood.py": "4964680f210418fdc19b08ae2a8f90e99013c335c5cd5344e69b15634ed9463d",
+    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
+    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
     "printed_small.py": "0a00bd199a2e9955c76992edff427500180f7122ab91388f7fcb62b448df69e3",
+    "printed_tub.py": "c14268a803dbc5463f841cfd0e5df928ee844bc4f7a1b5e90590247da305963e",
+    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
+    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
     "test_audit_cloud_release.py": "63fd607ef264d756167fb3b2324054a921ceccda237db62dc299c26f11e723d0",
+    "test_build_outputs.py": "a8b7a9ea7c7f777fb79b9efa4f29697b82903dabc640f18cf523c3b96aea8c35",
+    "test_collar.py": "057acad20194cab66021b3cebd8b283fad399062a9ab6c91c1b4ae2493fe2709",
+    "test_collar_rear_land.py": "2eb2f29fe5e3ce34efed607b6c87b315dda82c048fc1c982302a9eea9d2839dc",
+    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
     "test_datum_inputs.py": "09f056f60c3f7085d9eaa260427f2844c3f823b0c03e61f266a9e0abac8009dd",
-    "build_d2.py": "dcc4e9f58045aa160e75d65aac1cfd2e18ae945d2d8f08573d997284a2a5bb56",
-    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "test_grip_small.py": "7e078d5c68bd873a52300875cdcd3cbf01d1e09aa48c69fa1add7322db883ca6",
+    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
     "test_keeper.py": "e76b02790c3d219183e92783ddf2d62ec411bdc4b7f1e208571f48a1addceeab",
+    "test_mechanical_refinements.py": "3cb18f5e74d86770c11a2d2cd2b241ba29b19d991a37cacf258ba3bc8b6a19e8",
+    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
+    "test_print_stock_exports.py": "568f179e2c4cf3750f20b135229305ac09e0ad05a7ac5da3f6070e014e5f973e",
+    "test_r3_regressions.py": "0f48bc4b9cb54eb7a7811f673734e7d4fc3743c2bec9839a5ce024585a93535d",
+    "test_r7_c1.py": "cf0ec5fd6ffb12f8d9211162f329919ffc88ec3c20feec37192a732ae375efa0",
+    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
+    "test_r7_c4.py": "05e9267850551e6aa3db9fe0d74778b0a76eec3593d2086378ce38e8e2dfcfb3",
+    "test_r7_c5_handling.py": "59258fd8b1c5ae46ed57f15d4a9945f080a542f62586a101ce2638d9aa1245c2",
+    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
+    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
+    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
     "test_release_gates.py": "986679f603c3f1d0c93d0cb469437d234bf6c677bb122693db18271645919c3d",
     "test_run_locked.py": "e3c527ea842ad31e6c90c09b4de86ed870b73910122822c974ad78903b75ba12",
-    "test_r7_lead_access.py": "a5b53b29081e952860b8adb77c322a72f6136babd4e134700ba7c7e7dcf02b57",
-    "d2_common.py": "69727dbd58cf0c0fbce48a0b44083a7ba4ba386b025a1dc132b1d4d431cf4a8e",
-    "checks.py": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
-    "test_panel_refinements.py": "ae9f61e97fdff79f641a26f17d3a2dadcf68dedcde70edebfe628910df3fcca5",
-    "test_r7_c2_mate_reach.py": "8e413e115d9474ff21fcb74263d56f9dfb87c25ee8ae1e755eef37b7bebac178",
-    "test_common.py": "7ec7df2f34de0a9699374d4abe252cdc338d64744c5fe974d7e0b3c912f3a333",
-    "sweep_tub.py": "2ce1c7be822b8474eca9194b2337640689e6545aa0135fd785861507c21c3b10",
-    "test_r7_integration.py": "f3496e8f0856247bc6ca9f729f1bd5f16cf6b836668a3c912dc92c0b0640775d",
-    "test_hood_panel.py": "6068824fa77c05719454ab4b04793b284ff31ad4ef0a01231951d8741ec58c44",
-    "cots.py": "28e5d0b1141cf957930d28042230422da6936ba4ef49238562a244e3a0c49b50",
-    "printed_keeper.py": "52a7922d9f071be2b91b8bb2381385d611633670971912a10bb37932656e9857",
-    "printed_grip.py": "83ae0974d1a31c71ddfc6b782bf19f3baa2c4a6b5c8636099f5b774dea59ddfe",
-    "test_r7_fixup.py": "d24eddecf29ecd098abae758d623eb97395f652cf7587a1e649da227495b3ee7",
-    "run_locked.py": "1b665e3836d56550787b26f83de0b457b76b94b31a57e78f1febe5755dfd4d7b",
-    "printed_panel.py": "9901e47e02704bca4705e47acd22b680d9d35d29b5c6c86a9656dfcc350b4321",
-    "../gs8-pxl-v3/cad-requirements-lock.txt": "935beb24e0ed79d3753de06396185d54ef209350b8d0ca347ef8daadf0208324"
+    "test_tub.py": "250957c3c4e643074be5e63eeb488ba981452f99b0975c2ba65016f4a333edec"
   },
   "scope": "Compact Princeton storage and Kowa LM6HC only; unqualified review",
   "physical_gates": "56 inherited + M1 remain open",
   "source_export_mismatches": [],
   "mesh_files": {
-    "meshes/tripod_nut.json": "5e0efe0ff10cd96f900c8f6fdfb7aadff470e9768ff7d7df1c01bd3d9b996c02",
-    "meshes/fps_mounting_washer.json": "0fc5cd6af5ade2148195cdc5d84d0f20fd119bf921617abc57c5d40babca2f07",
-    "meshes/p_carrier2.json": "fdf3e62a44c7b3361668093d4e2b99d614c8873c759ea565f340c3ea448c3795",
-    "meshes/switch_1824.json": "be8b8c5b474e7416b1bbebb3220deca3365528f649189ec6026377d397bcb085",
-    "meshes/eyepiece.json": "baf47255e3c10c092b4c69f314726876823e0f5161b66b59b14a8d63793dd6de",
-    "meshes/gs_camera.json": "e9212ee98b5882cf9fd415fa6fdc16d4f127e0f3086899be01402b918cde31d3",
-    "meshes/evf_board.json": "3c024bf4ee434a70b4938662747432fbd456fb434745d35f82b298f9c28bf664",
-    "meshes/lens.json": "d4a148ecd28faaaf8f169be9fd9f7ddfed06e23e8437f73c74cc949bae973b5f",
-    "meshes/run_button.json": "10e6fdd836f553c065a9850dec613801e464b065c11b4e4f50e2cdaf26fa925b",
-    "meshes/cap.json": "b380e85e4a434c8dca0a87c3669b194382069f269c7a38f3c3b4d3a989433359",
-    "meshes/x1203_kit.json": "95973d39cd08cc9a21f7730e0d9e5f3223b89468cd5dc0436f406d9f6fd0a817",
-    "meshes/p_carrier1.json": "a0697c12db66de6c971875cc2dafff976471be5caa0dc6c43ad3bf698ad0fd17",
-    "meshes/foam_pad.json": "4e00122903e31e02034c2e0f07accd8710f535fda6b576afc755441c73e874d1",
-    "meshes/cooler.json": "97c2699c4c10b95d6039135719dac25daa86ca4d1daf0e7af8699e9023ff68b7",
-    "meshes/c_cs_adapter.json": "6b0ffe2c19511c3023bc400fa60c80a7c79f3619b9b4842e6411f7ab074c34da",
-    "meshes/strap.json": "f036f027e6f166c35c128f8f40fbe0b1fde09e684e043f82a496fb276602b412",
-    "meshes/base_grip.json": "7ec1e93cbe8f696e683aaeb413463133d0005f1022a17b0e1d739282aa47eea0",
-    "meshes/power_button.json": "b44c7cf2d42eff76efd3971c6e9a4b5f6d965da40633d92b4ee2e30ed0b10d99",
-    "meshes/pi5.json": "d0f843f33bc4e455711b98645b6976fa7ee41277bd934efafedc167577bec943",
-    "meshes/p_panel2.json": "a3bbec5aaa83fd3c95ef45a3565e1ddf5e0278c0c699ae1b4cf571fcec434f34",
-    "meshes/p_grip.json": "9173853591f1eb621f6b9a243ef8c68f9463dee5e83cf893b8abadb192989f16",
-    "meshes/xt30_pair.json": "9bdbe9e230feb47f7a726ed74f3da2966e4610918ef61771854edc2b0c2d0b41",
-    "meshes/s_c2.json": "8c0b5cc9abaccbbd5e6bf95a327bd7ee2d15430db0857827455338302ad30e7d",
-    "meshes/lens_collar.json": "3562e21f12d5519fd24558831798f832f504c54b4c32aa7ccc47bffb8264b7f0",
-    "meshes/tub.json": "a2f3235c5ce723b95b07ce146d202130d8e67136d5a51bdb45edbef78ced6e67",
-    "meshes/panel.json": "42fca8914acde44d90a2d03f79963415282addf51f2aa9d26e57c92177f4dd7e",
-    "meshes/knob_fps.json": "98c0531f1781e4b032e756d4e71dcc921e810b59662d244a4ae377d73d7c6be2",
-    "meshes/encoder.json": "3ada1ccd552595fd765c9c8967eeb3548af99cf300ad7f2cbfd0636b8f93d399",
-    "meshes/knob_exp.json": "8882ecbf8b72682f992af8b50ed186f9e14022c856764c212f113c06101d5e11",
-    "meshes/usb_storage_plug_reserve.json": "85edde8372c050943ae742e8543d2438c095c9a270909c2844944cbacd5a8ca1",
-    "meshes/pack.json": "679dd7da50663ccbe275e99fdc309d6a9875cf38edac8ffa95d87cfad31c0ff6",
-    "meshes/carrier.json": "0e53beaf1003509a367e504ce0980e31445d08cd9ab2db95316dde9e1e795576",
-    "meshes/p_panel3.json": "ba04ef8e8e25c17bd18fc0229d102c43d3b735bb441b18bf0e6fffc6e8843fc7",
-    "meshes/fps_nut.json": "5b2daab2c4e5cebd23ec6347a02df44d15dc4f33de549bcb6d174201f08fed90",
-    "meshes/power_nut_reserve.json": "f0639d4078d9b16c69a32543764388b97c6bcfeef4d7010b408e6284aaaa29cd",
-    "meshes/usb_stick.json": "d3df903a813641602f2357f656c95ca8407841ce50c298c4c61664aff7915388",
-    "meshes/hmx039.json": "c89398ac45b1399a85a32864c3f84685ccd23740a219558a348c80ba9c785baa",
-    "meshes/s_c1.json": "b35fc3c4e1f4bfebdb4441e629982ea682e68ef3b024d3f6bf7154ab6ecc28c2",
-    "meshes/microsd.json": "e941bff35db3b7fba76f5ae5a69a3ff2f831a4583fda07b4a38173e673f17370",
-    "meshes/x1203.json": "0a01820ce6fc843e0397e8d4cba23565f5a9bb8f29d3cc8f1cf5611d4e1fb4e3",
-    "meshes/s_c4.json": "879b28d0227d30710ffe2357bc1660dc813f805ed387c44dcc657af4495b4302",
-    "meshes/p_panel4.json": "4ea43717c9060041a89fca8f358d744f1baa2bd4d768b373e25ee49cd6045d76",
-    "meshes/p_panel1.json": "91421882473f75b2f5852c74f1149a16916a3414431822eb8af7ad153dca7ddf",
-    "meshes/s_c3.json": "26ccf854e8caeead21d188f2339fca892d9cef64998ad61946ed6c9fea1a0765",
-    "meshes/eyecup.json": "57d8f0dffbd0212233cf72276b132ee43271f67b924506058006589252aa33cf"
+    "meshes/base_grip.json": "5e59ea54d7ab6ece7417532c8cbf2bc1a13a89a2fb546af485c6f6444aff791f",
+    "meshes/c_cs_adapter.json": "a98457dc67a0eb811ed37cd45cc31091cac9c12c0dae8471bff0cf6d56ff3834",
+    "meshes/cap.json": "6c30bf0845b816f7b8e9e415b30abbc4004a16340d7a23988ce0a52890a2a9b6",
+    "meshes/carrier.json": "160b8580b5bc6c6cdbca322044f9578d1f862ccdd11ceba630bfb3176a7fc1d2",
+    "meshes/cooler.json": "006716823797a8d2f2c5c5dd6fc8fe47873268bf4786b7c7c24d24f0cbbe5781",
+    "meshes/encoder.json": "626cc25d6217b9c82d56fcd780bcecd58b18c22a394f512a993c85fe2dee2816",
+    "meshes/evf_board.json": "bdc9967473f11f16eb3005e98844a7f7cb9e5220fc4611b7af740114e2b3444d",
+    "meshes/eyecup.json": "ba0ba92f507742045f486d4fee89184475264f8e33a44bcf24fde4f5be4d9b19",
+    "meshes/eyepiece.json": "a8d9b85f85bff9db4374f185821ac1c3ce7e970625cfe90ffe5c69943e678b99",
+    "meshes/foam_pad.json": "ee644fc4b77bc95fb61a7edebed2b9e2851d3baac8150fbb18673fb62b553bbd",
+    "meshes/fps_mounting_washer.json": "76613317ff357382e2d63a31c2bb453d25c0f6e358b898fbd38d1545bccb7024",
+    "meshes/fps_nut.json": "d9524645dd40e4e6737af4b15b63d8a13029c5b8e1b5e269e02a36215853fe3c",
+    "meshes/gs_camera.json": "20ede2393229d91c1648faa8bbe87b33819d2ad6263aa3aa8d49be20add368e8",
+    "meshes/hmx039.json": "e7ff122e7b991906b83bc15c00ad435fbf8c0e20b4e0d8811d59ea4e4d674500",
+    "meshes/knob_exp.json": "96d0cfc0bb2f423f9cdd32eb9116d65049019b217913a177c8c8303243379dec",
+    "meshes/knob_fps.json": "7ad16dfb5b1257a0f8fc14988389615a53efb83a08b03557d4f68dbd23069a5d",
+    "meshes/lens.json": "62b2235e7fb8b09d2533d13eb63cb477c298825673980f108cb3e02266d9c7da",
+    "meshes/lens_collar.json": "1a1f798a8c4df8399782683fb3cb4b7a652397cff2c952e3ad9b132e192a5ff2",
+    "meshes/microsd.json": "941f1e6c22d93c88bd0e8d3c3c6ce249f3923a7ec3d95b52dca7009daf4cde17",
+    "meshes/p_carrier1.json": "8f260750fcadb356f772762bb34c7816c676a274e271cb4ab4971ab26e3a663a",
+    "meshes/p_carrier2.json": "84ca5d1bc22c35b9765385560d946b84093a9bffe4be7c55542792638f60ca8b",
+    "meshes/p_grip.json": "1818d661b8caa46d027c4af34909e3d2b34a5ed36b529fa00c02720dce07e79e",
+    "meshes/p_panel1.json": "301254ad5f5b79d0c8393118253bf48f0eb2de616adcc66beba0211f701380fa",
+    "meshes/p_panel2.json": "b58954e979d64ba77ca0de185d46ad125f077e61abdaed862ed5ed187255af94",
+    "meshes/p_panel3.json": "1d29d795cd7d9d16636a33d292d5558b16db7d48a0711b40aae73e219bcc6127",
+    "meshes/p_panel4.json": "48dfd33d238110039d591594962774ce3ab76b4045fd7452d0934a4c470b29ad",
+    "meshes/pack.json": "12a6861a7dd69f3d940c56d6e688ccd6fd9eafc2e75acebf8d52a1a433a50c23",
+    "meshes/panel.json": "4e2e27a381f0d1a4cfff99d292ef4e2f08560fd17c0701f8aced56ea489455ea",
+    "meshes/pi5.json": "2c61f7670e7f87e0991dd011c2e881f1c157f731ce7def9fe132e4321dd5ba71",
+    "meshes/power_button.json": "da2e6f0fbf6253bd4cbe201de94fe83464ac393caa17b9878f4a751aefe39364",
+    "meshes/power_nut_reserve.json": "825cce3c056fde109756b35c06fbf18118c9e9bb20fe1be0624e4860897bb64b",
+    "meshes/run_button.json": "f998e2a605565c1ba6a7ce5b3e5cdf9dffd3287995052c5a08e09d5e7b32db9f",
+    "meshes/s_c1.json": "2a28ce59024c633c2c0eeea8ef12f590087493b2932953069d36cc6c4db9afe9",
+    "meshes/s_c2.json": "d102219421b6003844d4e6016a88fc02fbe00ea17cae5657df19f892bcb31eed",
+    "meshes/s_c3.json": "fc4a6aed7a2c1c3aa3d22b71e7343e2214098f5d6dcd8457f346a75a7226de29",
+    "meshes/s_c4.json": "58726a4c4eb53fb24135a9b308661aaaac99b8522c7af90a2e21754adfd151ba",
+    "meshes/strap.json": "6c18c9a8ee2132cf8f718604ee6b849369831e5ff388b210e3c2ded1e52e5d72",
+    "meshes/switch_1824.json": "2850ad93ce56ac2aebfabb6df5b90fc1d506d33fd9c075bf10a6613d5675736d",
+    "meshes/tripod_nut.json": "98cee6f41c7402ee3e3793464cb5a377020dcb041a1ea240cb6013f8dbb030ad",
+    "meshes/tub.json": "c790c8d134987e2383edb2600e2b3e0394ef1a2d01bb6ea2943bb2ba87ba8a27",
+    "meshes/usb_stick.json": "bd6c8f74c58cdb672ec82ddf8c2b881ab57685c2d0b158cff8131206fe60ad9f",
+    "meshes/usb_storage_plug_reserve.json": "1380d387a92da743b712138e08056c532e4f7ea67e549acb27ad55cf6ce59071",
+    "meshes/x1203.json": "f8e33ba6495e42dd78e45b2b6d308adbe5c1db6c6e0883e2050645310ca6554a",
+    "meshes/x1203_kit.json": "f3c4aa3b1c6b5c3b68f491b82d1ceb1f5e389aa144d2daa7b37ceaa85ad048e9",
+    "meshes/xt30_pair.json": "1181d7a80acf73e7ec1dc130e01cba990906dc8ae96285f1cdb46452410d8ad1"
   },
   "page_images": {
-    "page-01.png": "44ad265f6dc45d690d2e992437516558e6fc3fdad531a74c64534d8f5bcc79c5",
-    "page-02.png": "3f32c2d06aaf9c17508efe7d4be7b56646b7e77c7005075bfd5d28b8b996e727",
-    "page-03.png": "0d5946b9136e9c019625998348e98957e1fe2de7e5b662e93591fda3750c2a6d",
+    "page-01.png": "29e561aaad017752aafcc817c847921538ae21c5d1a0c830f7322f6b5a30b753",
+    "page-02.png": "c9e82f7cbd5a5220f23466c998060794b9d96e36487e0e41e77e4dc54b0ef1f0",
+    "page-03.png": "e2001f56fca766d994fb653a558b8c038b2e37f2c171acf9c15a399de742c548",
     "page-04.png": "02df0ec794f70e964378065fc7e91bfce1de9088d7e79eff214e3268741bca2e",
-    "page-05.png": "d0ffd8d51e98155359bc670437b75c5aa413e33c4bbb306524153270b9353020",
-    "page-06.png": "198e1cfe02263fa58dc0f4db0cd98e5313909b7d6402b6cf557a5ebad62a5f8e",
-    "page-07.png": "1023d1bd7313e62b2197b083aa1f51ed6152a6a5cd7d6ec1c3f62e86ae1b5718",
-    "page-08.png": "470a342cdabe7c1986ff5c6b87f3238b4816bb92bbf96a794d0ea6363f8be111",
-    "page-09.png": "e6e01abaceb4e8c397e81fcd8cf05dabb1ce0f8b4724c3d01394b5243b04ec36",
-    "page-10.png": "d14c8824bf07555734a05b74c18ddca9ebfb3c13632c966472a4869786f0a656",
-    "page-11.png": "23c615d00468236123feff93c092dbb60f9d59ad3c12087a3fd49a7e3d0b56fe",
-    "page-12.png": "29cda741a206619870e050b54b37053d3296b870ca31eb3566f7817315826da0",
-    "page-13.png": "d872336057a4bca0e75757239f1a1db689fca6e221751452254f9781b80eae7e",
-    "page-14.png": "68f7307f37d70ab91e9459aedceb2c8f053bf56c5dbaa09c8572b17c18ba30a9",
-    "page-15.png": "393f535ef59ff7be06d8b8fc799ef0df60d6340d4aa109982e0f8216ce809521",
-    "page-16.png": "7d8421b84667b63ca817b0d19ec124c4f8472f2dedfea3ac1e91b71b2cc995aa",
-    "page-17.png": "399b7b596a8e2d4d5347dfe633ac240085b23256d80b63714d7035834df2ef48",
-    "page-18.png": "7a7509041ddf4ce6d626ae7ce9e7e52f347e6b1cf97092d6a7ab14d6833827be",
-    "page-19.png": "38f49c796b17a04c6fc15eafeb396336d90ce3009f9d4895b2a0046ff3dbf437",
-    "page-20.png": "d4fd9d3777b2cf7c57b6488ab415524c0b1959b8bc0da4beab95de26101ec82f",
-    "page-21.png": "f45d3ad49b4271a8a684119c76fb6589c697198ab6086986c6dd0198f2a2aa11",
-    "page-22.png": "d30263fff778921792dd5796ddc641980ef3c98f440c887f6196114b1deaa87b",
-    "page-23.png": "affbd9cf00cada8b79cd2dd6b59fbdb88a9a6ca4cf74ff45dff3cd99bab196d5",
-    "page-24.png": "a55b6920302df37f7e9c8030009d59078d53dc15b0dadfef769f2de7031a7301",
-    "page-25.png": "d321e3bc9d52a9d015d695934f9d6e4c724707aa87d889f02f285e9170fe382a",
-    "page-26.png": "4ec1fa07680fe926d530f9f1b60d36348e2e15ff028ac993903855ebba8d93b0",
-    "page-27.png": "d294ee3f6b2afeb49d7e4cc109cdd809d60d4ab1adf7b12a686e63c35065c3a2",
-    "page-28.png": "07980693e1fca50247cad0f72564a188ed927971fb902817d99abc600f93346a",
-    "page-29.png": "0e0e4e7e920fa95283ca1ca950507352eed923b564e6714fa4ab17a936c289ba",
-    "page-30.png": "b974fb50cfcb748c761a57ea7ce8d82c2f69815955b2252fb9472d5b78c3a197",
-    "page-31.png": "73ea5fca09e981958d1cf6fd21bdbc3c07c5355cd59a539389d84d39ef013874",
-    "page-32.png": "08ffa0bb64e00742b2381a3f6c90dfc1eb668181ef46cabb1110db2da0f47f3f"
+    "page-05.png": "f36e337e7ed84b7c605c5bd82f7b2d6e307a3cf2a0caf4ae82808488c2ff3514",
+    "page-06.png": "084915606e66b718f488d6e4959f5d9129fb59427697a13e1fbac9ede6279cf8",
+    "page-07.png": "a129ff6659ee87ca2d49fa753b82105d3f56d031118484eae7cbd6fb191e221c",
+    "page-08.png": "46309601e7b51c7a1678497606a7be9171e20f7f054558b4454a4d5886b183c7",
+    "page-09.png": "db825f0006aa29625c20529c581ea6305a9fa42fc8363fa7d5913f778dba9822",
+    "page-10.png": "316ddc232ee8832a3692f14b8352fcadaecad9bd423b4b8401ec8122c8d05610",
+    "page-11.png": "1a002768cc69a0ea8f1709095ce70f423b6b934b83a3aba1e296b0740627cb43",
+    "page-12.png": "9dd1204af38c2bf359eb18f9bfceeb921c8a4fbcae4a8553d422a2aec3ba7b92",
+    "page-13.png": "5ca9ded21f05fc1dcddea420ac32b37fd5e49ffa17aff23a366fd64ebdc13e40",
+    "page-14.png": "856e7f14d6258058e8ba3bf2141f443355dbce6731c9a3c24dbee00093695d33",
+    "page-15.png": "efc1d28878e8376cec8bdf322c79913341a4bdd3818f2a7394dc6036a4533ada",
+    "page-16.png": "ba5835948ed5dcdcf29f28cfb0eaf7f7ecced527a99bc8db46dd90c0475d942b",
+    "page-17.png": "291389bb01a59cad5a7d50cecfede4f0b28790fea20ce278d9ae1e3782075528",
+    "page-18.png": "be017b23da5ac3dbc69ca62741c73646855e6cf57b601b10e999b2d4b0bddd52",
+    "page-19.png": "be8d039a52d9b1c770516a0743b8cd358c14b8b6468c729066e436da69ae8c2c",
+    "page-20.png": "7145f6f867b672eaf5cff05979c001c5f1642bcab6ae4c18a66de9c3f46b199c",
+    "page-21.png": "98fd8fcb5b687b893cef51fb20963a9fec57bccbe34bb2ec297eb71ed4316a2f",
+    "page-22.png": "98914dfbe4111256bd9a587f92593af1d8c95075be6d1f7cc5bd44069f5eb6a8",
+    "page-23.png": "9855c08cf6fb8072df52e8eee5a35039e14b03e1ea9e0758545ccbed9bd3a850",
+    "page-24.png": "593a4ecf842c0371b4c67f647ab072d46749927932c37176a29f13a3d25af763",
+    "page-25.png": "785c38479b1f21b000867891ae64aa00d29bac725c53a4d3bcef9394b2234364",
+    "page-26.png": "7cac635d1b7db974aebc2672d8c8c95eefbbe5553f3c255dc750335bfd38c7e4",
+    "page-27.png": "066f42e146e5bc9ad068b1144744ebff879480b399ffcfb0c083491ef3b64eef",
+    "page-28.png": "c1fa218c603f61fcc64a2dab910adb842c6d4e75cf5590dfb892556ba0a78100",
+    "page-29.png": "1d83a85e64d2fe1122675e8a5b5bd802dddff3ad7879f85df8878938a3a14a35",
+    "page-30.png": "b3fa57a8c63f611c8459d1867698bcd644baf0fc79cfee47387003b30de540ac",
+    "page-31.png": "7279bc182a1d1c8a2fe53debfdc213053ded9d30814ba1d7252f453e53a298ab",
+    "page-32.png": "5ff86f389db1cf1f0dd694feba44c6515202dc6bd8ea0905a90b4427b66dc778",
+    "page-33.png": "30175c9505f31604085f84c3d5e88b5de8d2a789a185f4cc7a196374e642f6d5",
+    "page-34.png": "1c9dce36cdf5a21f1d65f901f319f31e68d170dee719be37465ae8faf3fbbbab",
+    "page-35.png": "2f9e02e605bd573a2acee0de05fa00f7a80b301ee3bcb435b6fd041dcba38fdb",
+    "page-36.png": "15f50ce9a7a722133f33d629b7843ef2894ed4bd5e94aead7fb2e7b51a0d1ca7",
+    "page-37.png": "7c9319b9752da6c8bbf2c0e80aa9d2ede1bbd78aac06e5d1163c40e3f77a3bc9",
+    "page-38.png": "6e5eb3c86d5247e6925aa294c8c590508e82fdfd8a92cab16942acc2f076353e"
   },
   "computed_caption_status": {
     "main_source_matched": true,
@@ -304,15 +400,166 @@
     "ventilation_saved_step_geometry_pass": true,
     "ventilation_physical_qualified": false
   },
+  "flex_scope": {
+    "physical_qualified": false,
+    "complete_flexible_motion_qualified": false,
+    "operations": {
+      "camera_in": "HOLD: rigid camera/adapter sweep omits the complete 200 mm CSI FPC linking the camera to the supported module outside the body. Full-width stored material, linked motion, roots, bends and latch operation remain unproved; no complete assembly qualification.",
+      "carrier_in": "HOLD: rigid carrier sweep omits the complete 200 mm CSI FPC already connected to both camera and Pi. The full flexible sweep, stored slack, roots, bends and interaction with other looms are unproved; this operation is not a complete assembly or service pass."
+    }
+  },
+  "scoped_reports": {
+    "main": {
+      "path": "out/compact-kowa_lm6hc/verification.json",
+      "sha256": "0e6981840abf5e4e8c0f4d3e2a82705bd15ae90bf2db603b11a3798f21822497",
+      "summary": {
+        "pass": 633,
+        "fail": 1,
+        "info": 32
+      },
+      "failing": null
+    },
+    "harness": {
+      "path": "out/compact-kowa_lm6hc/harness-checks.json",
+      "sha256": "6823886ab27c3885c1e81b66a424f759c300a7a952e71d322196cd17b7f49143",
+      "summary": {
+        "pass": 30,
+        "fail": 12,
+        "info": 20
+      },
+      "failing": {
+        "cable_routes": [
+          "fan",
+          "fpc",
+          "oled_flex",
+          "pigtail_negative",
+          "pigtail_positive",
+          "power_button"
+        ],
+        "cable_stow": [
+          "power_button_j2_pair"
+        ],
+        "lead_access": [
+          "pigtail_drop",
+          "pigtail_ties_on_route",
+          "pigtail_xt30_mouth"
+        ],
+        "mate_reach": [
+          "j2_btn",
+          "xt30_pack"
+        ]
+      }
+    },
+    "flow": {
+      "path": "out/compact-kowa_lm6hc/check-scope-checks.json",
+      "sha256": "eb7c39f135a40c27fb05f9c161536dc5c57ccf508b6571fcdaab672912696de8",
+      "summary": {
+        "pass": 36,
+        "fail": 0,
+        "info": 14
+      },
+      "failing": null
+    },
+    "print": {
+      "path": "out/compact-kowa_lm6hc/print-checks.json",
+      "sha256": "fdf74f89ae03e44d177ac97edb577ac7abd9ec4a39a41627df15e4acbf50a658",
+      "summary": {
+        "print_overhang": {
+          "pass": 11,
+          "fail": 0,
+          "info": 0,
+          "stub": 0
+        },
+        "print_bridge_direction": {
+          "pass": 11,
+          "fail": 0,
+          "info": 0,
+          "stub": 0
+        },
+        "bed_contact": {
+          "pass": 1,
+          "fail": 0,
+          "info": 0,
+          "stub": 0
+        },
+        "bed_chamfer": {
+          "pass": 11,
+          "fail": 0,
+          "info": 0,
+          "stub": 0
+        },
+        "thin_wall": {
+          "pass": 11,
+          "fail": 0,
+          "info": 0,
+          "stub": 0
+        },
+        "critical_features": {
+          "pass": 116,
+          "fail": 0,
+          "info": 7,
+          "stub": 0
+        },
+        "unclassified_thin_spots": {
+          "pass": 0,
+          "fail": 0,
+          "info": 0,
+          "stub": 0
+        }
+      },
+      "failing": {
+        "print_overhang": [],
+        "print_bridge_direction": [],
+        "bed_contact": [],
+        "bed_chamfer": [],
+        "thin_wall": [],
+        "critical_features": [],
+        "unclassified_thin_spots": []
+      }
+    },
+    "outlet": {
+      "path": "out/compact-kowa_lm6hc/shadow-outlet-context-checks.json",
+      "sha256": "72794ad354d1e4d0834ee59f5c9a1929f5b75be297a4643aec7cc8defd6ee4aa",
+      "summary": {
+        "pass": 4,
+        "fail": 0
+      },
+      "failing": null
+    }
+  },
+  "production_prints": {
+    "assembly_row_count": 9,
+    "piece_count": 10,
+    "files": [
+      "stl/base_grip.stl",
+      "stl/cap.stl",
+      "stl/carrier.stl",
+      "stl/eyecup.stl",
+      "stl/knob_exp.stl",
+      "stl/knob_fps.stl",
+      "stl/lens_collar.stl",
+      "stl/panel.stl",
+      "stl/tab_catch_insert.stl",
+      "stl/tub.stl"
+    ],
+    "count_basis": "The tub assembly row is made from separate printed body and bonded tab-catch insert. Gauge and coupons are excluded."
+  },
+  "local_bonded_catch_coupon": {
+    "path": "structural-review/bonded-catch-coupon/receipt.json",
+    "sha256": "93521fbf6151a766ff3eea2fb8a0ba453eb31f67ea63121de50bc5f0880cd135",
+    "piece_count": 2,
+    "physical_qualified": false,
+    "scope": "Local seating/tilt/adhesion/creep screening only; no whole-tub 0.5 N m qualification"
+  },
   "ventilation_review": {
-    "source_report_sha256": "a4c4fdc1170a8c4a9488b539ea2b6eaf5a3e2387253d01893a103a13696d65ba",
+    "source_report_sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
     "check_summary": {
       "pass": 49,
       "fail": 0,
       "info": 21
     },
     "metadata": {
-      "revision": "shadow-gap plenum trial1",
+      "revision": "shadow-gap plenum trial4 (windowed flow ribs, supported stepped front mouth, cold-mouth lintels, skin bed chamfer)",
       "outer_side_y_mm": -35.6,
       "inner_side_y_mm": -25.5,
       "outer_skin_mm": 1.6,
@@ -320,21 +567,355 @@
       "original_side_wall_mm": 2.5,
       "intake_wall_throat_mm2": 420.0,
       "exhaust_wall_throat_mm2": 510.0,
-      "cold_rear_mouth_mm2": 420.0,
-      "cold_bottom_mouth_mm2": 426.0,
-      "hot_bottom_mouth_mm2": 324.0,
-      "hot_front_mouth_mm2": 210.0,
+      "cold_rear_mouth_mm2": 332.64,
+      "cold_bottom_mouth_mm2": 370.44000000000005,
+      "hot_bottom_mouth_mm2": 316.8,
+      "hot_front_mouth_mm2": 274.2,
+      "mouth_gross_mm2": {
+        "cold_rear": 420.0,
+        "cold_bottom": 426.0,
+        "hot_bottom": 324.0,
+        "hot_front": 286.5
+      },
       "csi_access_open_area_mm2": 323.1415926535898,
       "csi_unchanged_straight_access": true,
       "panel_previous_relief": "Four blind grooves with0.2mm retained floors, not through-vents; removed for plain2.8mm panel",
-      "airflow": "Separate integral cold/hot outer bays; rear/underside intake and front/underside exhaust. Internal baffle and CSI bypass remain unsealed. Area is not flow or cooling.",
-      "print": "Outer face on bed;1.6mm integral posts nominal8mm grid. Internal roof bridges and inaccessible support removal require a representative plenum coupon and slicer inspection. No automatic trapped supports.",
+      "airflow": "Separate integral cold/hot outer bays; rear/underside intake and front/underside exhaust. 1.2 mm ribs built as hanging beams on full-depth pillars (5 mm flow windows under each beam, no rib in front of a port; path-aware min cut in check_scope); internal baffle and CSI bypass remain unsealed. Area is not flow or cooling.",
+      "print": "Outer face on bed with 0.6 mm bed chamfer. Roof bridges run between continuous 1.2 mm beam lines (one slicer direction per roof region; each beam is a straight bridge of at most 14 mm between pillars; spans computed by verify_print_checks print_bridge_direction); cold mouths have 45 deg lintels, every mouth has mullions. Slicer inspection and the all-four-mouth plenum coupon remain gates. No automatic trapped supports.",
+      "support": {
+        "revision": "trial4 windowed ribs + lintels + supported stepped front mouth",
+        "rib_thickness_mm": 1.2,
+        "rib_y_mm": [
+          -34.05,
+          -27.9
+        ],
+        "beam_y_mm": [
+          -29.0,
+          -27.9
+        ],
+        "pillar_length_mm": 1.2,
+        "window_max_mm": 14.0,
+        "hot_boundary_x": -31.0,
+        "hot_band_row": [
+          10.0,
+          -16.5,
+          -2.6
+        ],
+        "hot_column_x": -17.1,
+        "hot_lip_x": -3.2,
+        "cold_rows": [
+          [
+            22.5,
+            [
+              [
+                -158.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            28.5,
+            [
+              [
+                -158.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            34.5,
+            [
+              [
+                -158.0,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            43.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            51.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            59.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            67.0,
+            [
+              [
+                -158.0,
+                -90.9
+              ]
+            ]
+          ],
+          [
+            55.0,
+            [
+              [
+                -75.1,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            76.0,
+            [
+              [
+                -155.6,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            84.0,
+            [
+              [
+                -155.6,
+                -64.9
+              ]
+            ]
+          ],
+          [
+            92.0,
+            [
+              [
+                -155.6,
+                -64.9
+              ]
+            ]
+          ]
+        ],
+        "hot_rows": [
+          [
+            21.0,
+            [
+              [
+                -30.4,
+                0.0
+              ]
+            ]
+          ],
+          [
+            28.0,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            35.0,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            40.6,
+            [
+              [
+                -30.4,
+                -17.3
+              ]
+            ]
+          ],
+          [
+            49.0,
+            [
+              [
+                -30.4,
+                0.0
+              ]
+            ]
+          ],
+          [
+            77.0,
+            [
+              [
+                -30.4,
+                -2.4
+              ]
+            ]
+          ],
+          [
+            10.0,
+            [
+              [
+                -16.5,
+                -2.6
+              ]
+            ]
+          ]
+        ],
+        "hot_z_ribs": [
+          [
+            -48.0,
+            2.75,
+            16.0
+          ],
+          [
+            -48.0,
+            19.0,
+            23.0
+          ],
+          [
+            -48.0,
+            26.0,
+            30.0
+          ],
+          [
+            -48.0,
+            33.0,
+            37.0
+          ],
+          [
+            -48.0,
+            40.0,
+            97.6
+          ],
+          [
+            -31.0,
+            2.4,
+            16.0
+          ],
+          [
+            -31.0,
+            19.0,
+            23.0
+          ],
+          [
+            -31.0,
+            26.0,
+            30.0
+          ],
+          [
+            -31.0,
+            33.0,
+            37.0
+          ],
+          [
+            -31.0,
+            40.0,
+            97.6
+          ],
+          [
+            -3.2,
+            2.4,
+            10.6
+          ],
+          [
+            -60.4,
+            15.4,
+            40.6
+          ],
+          [
+            -17.1,
+            9.4,
+            16.0
+          ]
+        ],
+        "hot_diagonal": null,
+        "hot_left_separator": null,
+        "cold_bottom_mullions_x": [
+          -130.33333333333334,
+          -106.66666666666666
+        ],
+        "hot_bottom_mullion_x": -31.0,
+        "hot_front_mullion_z": 21.0,
+        "hot_front_mullions_z": [
+          21.0,
+          49.0
+        ],
+        "hot_front_extent_z": [
+          5.0,
+          58.0
+        ],
+        "hot_front_apertures_yz": [
+          [
+            -34.0,
+            -28.0,
+            5.0,
+            20.4
+          ],
+          [
+            -34.0,
+            -28.0,
+            21.6,
+            48.4
+          ],
+          [
+            -34.0,
+            -31.5,
+            49.6,
+            58.0
+          ]
+        ],
+        "lintel_mm": 0.6,
+        "lintel_land_mm": 1.2,
+        "lintel_mouths": [
+          "cold_rear",
+          "cold_bottom"
+        ],
+        "skin_bed_chamfer_mm": 0.6,
+        "mouths": {
+          "cold_rear": {
+            "gross": 420.0,
+            "net": 332.64,
+            "mullions": 7,
+            "lintel_mm": 0.6
+          },
+          "cold_bottom": {
+            "gross": 426.0,
+            "net": 370.44000000000005,
+            "mullions": 2,
+            "lintel_mm": 0.6
+          },
+          "hot_bottom": {
+            "gross": 324.0,
+            "net": 316.8,
+            "mullions": 1,
+            "lintel_mm": 0.0
+          },
+          "hot_front": {
+            "gross": 286.5,
+            "net": 274.2,
+            "mouth_face_mm2": 274.2,
+            "inboard_neck_mm2": 304.0,
+            "inboard_rib_obstruction_mm2": 14.000000000000002,
+            "inboard_plane_x_mm": -2.62,
+            "mullions": 2,
+            "lintel_mm": 0.0
+          }
+        }
+      },
       "physical_qualified": false,
       "remaining": [
         "Actual cooler profile/registration",
         "Fan operating point and plenum pressure loss",
         "Hand and strap occlusion",
-        "Plenum bridge/cleanout coupon",
+        "Plenum bridge/cleanout coupon (all four mouths)",
         "Real CSI latch/jaw access",
         "All56 inherited gates andM1"
       ]
@@ -342,61 +923,62 @@
     "scope": "Saved-STEP plenum and sampled path checks only; no flow, hand-occlusion, thermal or print qualification"
   },
   "visual_review": {
-    "completed_utc": "2026-10-09T15:47:29.353778+00:00",
-    "pdf_sha256": "b41e1e148d0449f2294976165cca98f6c25be100f45af70167e1aa0cb7f079a9",
-    "pdf_render_dpi": 144,
-    "reviewed_pages": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32
-    ],
-    "full_size_focus_pages": [
-      7,
-      8,
-      29
-    ],
-    "result": "All 32 PDF-rendered pages inspected; no clipping, overlap, missing labels or misleading passage arrows found. New plenum section, print HOLD and thermal/occlusion pages inspected at full size.",
-    "retained_hold_text_checks": [
-      "All 56 inherited physical gates and M1 remain open",
-      "complete 200 mm camera FPC",
-      "Build the detachable EVF feed",
-      "PRINT HOLD",
-      "about 35 mm bridging",
-      "10.7 mm gap is not a supported bridge",
-      "299.4 mm2",
-      "63.6",
-      "No blocked-vent operation is qualified",
-      "No trapped support"
-    ],
-    "fabrication_or_physical_release": false
+    "status": "visually reviewed",
+    "scope": "All 38 PDF pages rasterized with pdftoppm at 144 dpi and inspected in contact sheets; corrected pages 24, 26 and 31 re-inspected at full size.",
+    "page_count": 38,
+    "pdf_sha256": "d383b996af90faf23e7d7171437379facc7afcc6bb1ad6395086f7b19a923ce0",
+    "findings": "Corrected QT footer overlap and stale roll/J7 and HDMI carrier captions. Final pages have no observed clipping or text overlap. Assembly and physical holds remain open.",
+    "pdf_page_images": {
+      "pdf-page-01.png": "55cde2c81b714525f5af6812617e153cf8795e1eb4c26a5276114269e4a74d16",
+      "pdf-page-02.png": "ff01129c28274f98a10a44166e9d1e52eda40cbc2bc30715553a3a5ac9a61278",
+      "pdf-page-03.png": "716634101dbde7fa2651d1d6eb9a929e2188a8498b0c3fc7f0a81b5358f65226",
+      "pdf-page-04.png": "a990970a65dd94ddc9a6a927e722563bf153b476f9edb17d029ad2335584bbdc",
+      "pdf-page-05.png": "0fe903f244d604c4b2c98c2a478b18c9fe0efdef949b5f51d85fde4bbb34869b",
+      "pdf-page-06.png": "af9a86e069f930e97f32332bfd0fe8e7b7703eabcaa2ba8fbf06a691d4433131",
+      "pdf-page-07.png": "a7f76887a3f035cdaaf00eb59326e9ee570b68a38f225ed03b2fd4ad2de262e7",
+      "pdf-page-08.png": "490ec360ac0e58a20cc9553a516ccc59f3679b6cf0cd6fe90f50e7d311d8230e",
+      "pdf-page-09.png": "bd37002ef427fa2cedef8d293343b69272d1b5e921959acf37211288ebfc2c5d",
+      "pdf-page-10.png": "3af6a2ad6c81a1d7ff032cde317853448dbc5fec49b232e83f422705a9c7a3ee",
+      "pdf-page-11.png": "5739b74f42c87b1cf623434634ae90bc76b265f2e4fccd4c1fcd89a12b394688",
+      "pdf-page-12.png": "8916342f18edabb04f3b0874ebad020dd4850a406f8c3420a9d82e238108f0fc",
+      "pdf-page-13.png": "da2a7f6e443558bac0718baf0ea1786bcea2f7840d02d8f54149372391ddc003",
+      "pdf-page-14.png": "492d004b2e6d2aa0f6aab7ba01d49d9da8d0c28ad724cea4243a8ade57ce719b",
+      "pdf-page-15.png": "6cdf453391dea6f3a59e0be5ce73af8e33a679ac4550f01330ac46df2caf94c9",
+      "pdf-page-16.png": "69355615aca7bfa48f5b021b3293ca054820cf84d511d931233da15661f67592",
+      "pdf-page-17.png": "0ab21509f8c9e715ddc13a381c455bb2d926f2cbe74c7a43956373654fb97a3b",
+      "pdf-page-18.png": "13dc8a05b85d81fec22df8f23327034cf23c0b4e3ef77daba1eb41e0b3279c53",
+      "pdf-page-19.png": "ed1c378c9e00ee25a4d364721232c34320005e2b13eda9eddd36e203b5167c3e",
+      "pdf-page-20.png": "a572472a409c7ff8e29969ff2a7dd879d54699ea9e609aa1b5e12f0b7c08604e",
+      "pdf-page-21.png": "d91129dee2eb125e26738800dfc8c7433cc1591ca895367c87d41461e12e0f4d",
+      "pdf-page-22.png": "ea4024512a85d9ac41c88e1002cecfbc8e95db1362b99af40c582bc484df7658",
+      "pdf-page-23.png": "f18274c29a5702b7c3436320a0695df74c776848406b30a6d832c72630962b35",
+      "pdf-page-24.png": "a85189f49c1f70a758f11574f0c6b49222d95a06e5dbf97e6fc10de48e92fbbe",
+      "pdf-page-25.png": "68d0e2733a1ca42eb05c899555a1a727bdd132a77745eb98d17e2ba448b62dfa",
+      "pdf-page-26.png": "d0650aa7f6416e569564edc416b9ea6e5a4974e875ca7d65c08f64796658ed02",
+      "pdf-page-27.png": "7cb151a4cb432f2472e080ff462458b067e4361fc0982cfe5dfd46d547a12a87",
+      "pdf-page-28.png": "c286213befe509807c0765689f507c1293bef2d14afd29868e226f1cea15b654",
+      "pdf-page-29.png": "b554d6f112ea9393a9a7868d97cd2b36300003d04e86a39d90b0c34ef512bc1f",
+      "pdf-page-30.png": "d4cd9341bdc718c7710c2b11a0251d061f7c823978184cc28fc381ea1b414114",
+      "pdf-page-31.png": "468d912daa6e049dcdcbfd1dda80f0f7e4fdd6bf79584e42e85e857b8f2e6a76",
+      "pdf-page-32.png": "3934a5de6d2d7b829076a6d9343a4069a6fdb8bcb8f41841c62964dc1c2cd0da",
+      "pdf-page-33.png": "faed86da4363f92902545693fe10c6f1ae981650763ef62d2076b41df161109b",
+      "pdf-page-34.png": "a09273cb05406e649125775ea258b156d46311311247d877f45042871d4dc893",
+      "pdf-page-35.png": "7673d58eab1d662295591d73b17bd2260fb8b2492da350ed1a6b16a42419ba03",
+      "pdf-page-36.png": "415ef8a0f9c1e61a930ad5c229288881e031a2b2a2b375b901c7e6b5cc837e6a",
+      "pdf-page-37.png": "f2ae8e1b079b21b5fd141447f9361b4a843998b4d073d88ff8e602c87b0be32f",
+      "pdf-page-38.png": "e41abaa1fdf4c5c5201f113f59e8ed06792117970b5fbe3d92399956db4ba7eb"
+    },
+    "contact_sheets": {
+      "pdf-contact-01.png": "23ab3e6fb3db4858be112352a2842388015e798d999840aaaff0e8e7cf31f14b",
+      "pdf-contact-02.png": "d9f83dbe6df5b3831b70adf6428f0d1535c5af0a737619951c429f39494e2f94",
+      "pdf-contact-03.png": "0ee060ebf71420158c2d6a5aff8e0de023dacd4632b281fc3437e6d2b1cf8b5e",
+      "pdf-contact-04.png": "347254c53f527334efc7a6aa3648fac72a9184fa9690def8a4bf8d88ce63f2e3",
+      "pdf-contact-05.png": "e3dae23a483b381db0dea6328c62ae98b0d03ed724a994c48a1f7be1b1d937b3",
+      "pdf-contact-06.png": "4de7052f90b059f505327b6d7330a5fc572b94f75ab9f17817cde6ae50f5a3bd",
+      "pdf-contact-07.png": "81db1e308928cf283f898cbe241ce2b409079f4efe22bdda026482e933b4bd6c",
+      "pdf-contact-08.png": "3d655a09d132f6c1f8d5a55aed2bab5dc0823bd17d86678d09c149e99ac9b644",
+      "pdf-contact-09.png": "5496a74616fc7670fd8f5d6279e4d0af7a15b36024c268860f79a10cfc2ea446",
+      "pdf-contact-10.png": "805f42a4d8301bbc9ce17b955748f01475e91d6080a96564d558034c28fc5446"
+    }
   }
 }

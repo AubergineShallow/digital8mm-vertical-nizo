@@ -1,0 +1,35 @@
+{
+  "scope": "Focused current-source plenum regressions; saved whole-tub area and assembly-context reports are separate",
+  "physical_qualified": false,
+  "recorded_from_test_runner_output": true,
+  "checks": [
+    {
+      "command": "tests/test_plenum_trial2.py",
+      "tests": 18,
+      "exit_code": 0,
+      "elapsed_seconds": 227.956,
+      "notes": "Both body lengths; strict print, metadata negative control, exact interval sampling and branch parity pass"
+    },
+    {
+      "command": "tests/test_cross_platform_io.py TestLint.test_live_scripts_are_clean TestKeys.test_no_backslash_in_any_json_key_or_string",
+      "tests": 2,
+      "exit_code": 0,
+      "elapsed_seconds": 2.455
+    }
+  ],
+  "resolved_findings": [
+    {
+      "check": "test_sections_parity_and_sampling",
+      "earlier_exit_code": 1,
+      "old_regular_plane_min_mm2": 534.0,
+      "every_interval_min_mm2": 522.0,
+      "correction": "Retain original planes and add source rib-face interval midpoints; no geometry or acceptance-threshold change"
+    }
+  ],
+  "source_sha256": {
+    "vent_geometry.py": "05faaebd36dcc48d450f99d49733c00798891e409054b1b514ba892b106f5f84",
+    "plenum_flow.py": "3131e4fb2e99f0c9440c07ff39e17d56d49b992a89590b99f02154906b282b51",
+    "tests/test_plenum_trial2.py": "bc43696e07902dbab5d654cd6fc8500440816c6333fc793fbbe8b434f10d8b83",
+    "print_rules.py": "1c726f1dda0ec667371b42599b8514871142f4dd13d124998573ebe031446dcb"
+  }
+}

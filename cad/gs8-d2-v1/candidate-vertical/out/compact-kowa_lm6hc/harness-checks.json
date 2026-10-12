@@ -1,13 +1,13 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "verification_source_sha256": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
   "verification_dependency_sha256": {
-    "harness_rules.py": "0c4080c638810733fff5a4ef729f5cd5e8a85a8acbe3205683d353e5eb0fd368",
-    "routes.py": "64e2a6bbd246bdefdc9d41a59c8bb9d3b534c5c4568e1fa7cf5eb7216c723321",
-    "signal_routes.py": "bf0e4e6b257f952a737cf2cda0a13566edc35460d07918633e0924637e6d89d9",
+    "harness_rules.py": "baca568650e7f7c58f40cf30a97af7dce7ef0a8bc5487e1940eee6da6ab00c63",
+    "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
+    "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
     "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
     "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-    "steps.py": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+    "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
     "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
     "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
     "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"
@@ -15,19 +15,19 @@
   "variant": "compact-kowa_lm6hc",
   "r7_source": "r7 cad/gs8-d2-v1/checks.py + layout.py at d38468e",
   "summary": {
-    "pass": 27,
-    "fail": 15,
+    "pass": 30,
+    "fail": 12,
     "info": 20
   },
   "per_category": {
     "cable_routes": {
-      "pass": 4,
-      "fail": 7,
+      "pass": 5,
+      "fail": 6,
       "info": 2
     },
     "cable_stow": {
-      "pass": 2,
-      "fail": 2,
+      "pass": 3,
+      "fail": 1,
       "info": 10
     },
     "feed_volumes": {
@@ -46,8 +46,8 @@
       "info": 2
     },
     "mate_reach": {
-      "pass": 2,
-      "fail": 3,
+      "pass": 3,
+      "fail": 2,
       "info": 5
     },
     "signal_routes": {
@@ -63,12 +63,10 @@
       "oled_flex",
       "pigtail_negative",
       "pigtail_positive",
-      "power_button",
-      "qt"
+      "power_button"
     ],
     "cable_stow": [
-      "power_button_j2_pair",
-      "qt"
+      "power_button_j2_pair"
     ],
     "lead_access": [
       "pigtail_drop",
@@ -77,7 +75,6 @@
     ],
     "mate_reach": [
       "j2_btn",
-      "qt_enc",
       "xt30_pack"
     ]
   },
@@ -86,27 +83,27 @@
       "category": "signal_routes",
       "id": "family_qt",
       "family": {
-        "variable": "top",
-        "recorded": 79.2301159168203,
+        "variable": "low",
+        "recorded": 49.6954765814385,
         "knots_share_variable": true,
         "bound": [
-          56.0,
-          87.5
+          44.0,
+          55.2
         ],
-        "src": "signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)'",
-        "recomputed_mm": 206.9281381817836,
-        "recorded_mm": 206.9281381817836,
+        "src": "signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68",
+        "recomputed_mm": 206.92813818178354,
+        "recorded_mm": 206.92813818178354,
         "length_at_bound_mm": {
-          "56.0": 160.46790634814298,
-          "87.5": 223.467906348143
+          "44.0": 218.31909134466054,
+          "55.2": 195.91909134466056
         },
         "valid_at_bound": {
-          "56.0": true,
-          "87.5": true
+          "44.0": true,
+          "55.2": true
         },
-        "min_mm": 160.46790634814298,
-        "max_mm": 223.467906348143,
-        "min_at": 56.0
+        "min_mm": 195.91909134466056,
+        "max_mm": 218.31909134466054,
+        "min_at": 55.2
       },
       "problems": [],
       "status": "pass"
@@ -188,59 +185,43 @@
       "end_gap_mm": 0.0,
       "basis": {
         "family": {
-          "variable": "top",
-          "recorded": 79.2301159168203,
+          "variable": "low",
+          "recorded": 49.6954765814385,
           "knots_share_variable": true,
           "bound": [
-            56.0,
-            87.5
+            44.0,
+            55.2
           ],
-          "src": "signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)'",
-          "recomputed_mm": 206.9281381817836,
-          "recorded_mm": 206.9281381817836,
+          "src": "signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68",
+          "recomputed_mm": 206.92813818178354,
+          "recorded_mm": 206.92813818178354,
           "length_at_bound_mm": {
-            "56.0": 160.46790634814298,
-            "87.5": 223.467906348143
+            "44.0": 218.31909134466054,
+            "55.2": 195.91909134466056
           },
           "valid_at_bound": {
-            "56.0": true,
-            "87.5": true
+            "44.0": true,
+            "55.2": true
           },
-          "min_mm": 160.46790634814298,
-          "max_mm": 223.467906348143,
-          "min_at": 56.0
+          "min_mm": 195.91909134466056,
+          "max_mm": 218.31909134466054,
+          "min_at": 55.2
+        },
+        "released_minimum": {
+          "length_mm": 160.46790634814298,
+          "problems": [],
+          "scope": "Separate guides-released static minimum for the unchanged allowance; complete-stock service deformation remains unqualified."
         },
         "longest_branch_mm": 43.071861818216426
       },
-      "problems": [
-        "installed route intersects hdmi_ribbon 5.10 mm3 in the closed camera (capsule d 3.40 mm)"
-      ],
-      "status": "fail",
+      "problems": [],
+      "status": "pass",
       "member_clearance": {
-        "variable": "top",
-        "value": 56.0,
-        "od_mm": 3.2,
-        "capsule_d_mm": 3.4,
-        "polyline_points": 50,
-        "pieces": 100,
-        "member_length_mm": 160.47,
-        "exempt": [
-          "encoder",
-          "pi5"
-        ],
-        "exempt_rule": "own end parts only within 10 mm of the terminal",
-        "targets": 45,
-        "hits": {},
-        "member_errors": [],
-        "installed_targets": false,
-        "use": "shortest member (the minimum route)"
-      },
-      "installed_clearance": {
         "envelope_d_mm": 3.2,
         "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
         "capsule_d_mm": 3.4,
-        "polyline_points": 44,
-        "pieces": 176,
+        "polyline_points": 47,
+        "pieces": 180,
         "stubs": 0,
         "exempt": [
           "encoder",
@@ -248,9 +229,7 @@
         ],
         "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
         "targets": 6934,
-        "hits": {
-          "hdmi_ribbon": 5.1
-        },
+        "hits": {},
         "cable_separation": {
           "run_pin37": {
             "min_centreline_mm": 4.31,
@@ -314,6 +293,89 @@
           },
           "header_branch:fps_fps_ck1044_pin_2": {
             "min_centreline_mm": 12.23,
+            "need_mm": 2.1
+          }
+        },
+        "cable_overlaps": [],
+        "use": "separate released minimum (guides released; no deformation proof)"
+      },
+      "installed_clearance": {
+        "envelope_d_mm": 3.2,
+        "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
+        "capsule_d_mm": 3.4,
+        "polyline_points": 45,
+        "pieces": 186,
+        "stubs": 0,
+        "exempt": [
+          "encoder",
+          "pi5"
+        ],
+        "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
+        "targets": 6934,
+        "hits": {},
+        "cable_separation": {
+          "run_pin37": {
+            "min_centreline_mm": 4.31,
+            "need_mm": 1.6
+          },
+          "run_pin39": {
+            "min_centreline_mm": 2.89,
+            "need_mm": 1.6
+          },
+          "power_button": {
+            "min_centreline_mm": 16.28,
+            "need_mm": 3.2
+          },
+          "fpc": {
+            "min_centreline_mm": 10.18,
+            "need_mm": 9.6
+          },
+          "fan": {
+            "min_centreline_mm": 22.35,
+            "need_mm": 2.6
+          },
+          "oled_flex": {
+            "min_centreline_mm": 54.95,
+            "need_mm": 7.8
+          },
+          "usb_5v": {
+            "min_centreline_mm": 23.86,
+            "need_mm": 3.4
+          },
+          "pack_lead": {
+            "min_centreline_mm": 39.99,
+            "need_mm": 3.2
+          },
+          "pigtail_positive": {
+            "min_centreline_mm": 6.78,
+            "need_mm": 3.2
+          },
+          "pigtail_negative": {
+            "min_centreline_mm": 3.68,
+            "need_mm": 3.2
+          },
+          "header_branch:hdr_fps_lead_33_34": {
+            "min_centreline_mm": 24.68,
+            "need_mm": 2.4
+          },
+          "header_branch:fps_fps_header_branch": {
+            "min_centreline_mm": 24.68,
+            "need_mm": 2.4
+          },
+          "header_branch:fps_fps_200_main": {
+            "min_centreline_mm": 10.28,
+            "need_mm": 2.9
+          },
+          "header_branch:fps_fps_switch_bundle": {
+            "min_centreline_mm": 13.64,
+            "need_mm": 2.9
+          },
+          "header_branch:fps_fps_ck1044_pin_A": {
+            "min_centreline_mm": 17.68,
+            "need_mm": 2.1
+          },
+          "header_branch:fps_fps_ck1044_pin_2": {
+            "min_centreline_mm": 10.76,
             "need_mm": 2.1
           }
         },
@@ -937,7 +999,7 @@
         },
         "cable_separation": {
           "qt": {
-            "min_centreline_mm": 18.6,
+            "min_centreline_mm": 22.35,
             "need_mm": 2.6
           },
           "qt:hdr_qt_1": {
@@ -1064,7 +1126,7 @@
         },
         "cable_separation": {
           "qt": {
-            "min_centreline_mm": 56.11,
+            "min_centreline_mm": 54.95,
             "need_mm": 7.8
           },
           "qt:hdr_qt_1": {
@@ -1185,7 +1247,7 @@
         "hits": {},
         "cable_separation": {
           "qt": {
-            "min_centreline_mm": 17.61,
+            "min_centreline_mm": 23.86,
             "need_mm": 3.4
           },
           "qt:hdr_qt_1": {
@@ -1506,10 +1568,8 @@
       ],
       "out_of_mm": 36.8,
       "targets": 31,
-      "problems": [
-        "free-lead route: free route intersects pi5 7.27 mm3 at panel_prop (capsule d 3.40 mm)"
-      ],
-      "status": "fail",
+      "problems": [],
+      "status": "pass",
       "lead_state": "free at panel_prop; laid into its lanes at panel_in (steps.py secures)",
       "free_lead": {
         "source": "signal_routes.py free_leads (H2): QT main free from the modeled fan-in point to the propped encoder plug",
@@ -1528,22 +1588,12 @@
           [
             -45.445,
             -23.4,
-            43.1
-          ],
-          [
-            -59.7,
-            -18.9,
-            55.2
+            69.0
           ],
           [
             -45.5,
-            -6.3,
-            58.0
-          ],
-          [
-            -46.0,
             8.0,
-            68.8
+            69.0
           ],
           [
             -88.7,
@@ -1558,7 +1608,7 @@
         ],
         "radius_mm": 6.4,
         "od_mm": 3.2,
-        "route_mm": 142.65,
+        "route_mm": 147.47,
         "fixed_mm": 43.07,
         "start_gap_mm": 0.0,
         "end_gap_mm": 0.0,
@@ -1566,27 +1616,25 @@
         "end_angle_deg": 0.0,
         "length_min": 240.0,
         "margin": 24.0,
-        "need_mm": 209.73,
-        "slack_mm": 30.27,
+        "need_mm": 214.55,
+        "slack_mm": 25.45,
         "capsule_d_mm": 3.4,
-        "pieces": 64,
+        "pieces": 40,
         "targets": 2323,
         "exempt": [
           "encoder",
           "pi5"
         ],
         "exempt_rule": "own end parts only within 10 mm of route length from a terminal (none at a start after the branches)",
-        "hits": {
-          "pi5": 7.27
-        },
+        "hits": {},
         "hdmi_state": "installed",
         "tightest_separation": {
           "pigtail_negative": {
-            "min_centreline_mm": 5.28,
+            "min_centreline_mm": 3.68,
             "need_mm": 3.2
           },
           "fpc": {
-            "min_centreline_mm": 12.18,
+            "min_centreline_mm": 11.97,
             "need_mm": 9.6
           },
           "run_pin39": {
@@ -1594,45 +1642,43 @@
             "need_mm": 2.4
           },
           "pigtail_positive": {
-            "min_centreline_mm": 10.08,
+            "min_centreline_mm": 9.87,
             "need_mm": 3.2
           },
           "run_pin37": {
-            "min_centreline_mm": 11.57,
+            "min_centreline_mm": 11.48,
             "need_mm": 2.4
           }
         },
         "cable_overlaps": [],
-        "problems": [
-          "free route intersects pi5 7.27 mm3 at panel_prop (capsule d 3.40 mm)"
-        ]
+        "problems": []
       },
       "secured_lane_case": {
         "problems": [
-          "lead short by 28.0 mm in the mating pose (L 240, fixed 179.3, tail 64.8, margin 24.0)"
+          "lead short by 65.2 mm in the mating pose (L 240, fixed 216.9, tail 64.3, margin 24.0)"
         ],
-        "slack_mm": -28.0,
-        "fixed_mm": 179.3,
-        "tail_mm": 64.8,
+        "slack_mm": -65.2,
+        "fixed_mm": 216.9,
+        "tail_mm": 64.3,
         "anchor_pt": [
           -93.2,
           14.8,
-          65.0
+          68.0
         ],
         "W_pose": [
           -72.0,
           74.8,
           77.0
         ],
-        "max_offset_y_for_reach_mm": 27.5,
+        "max_offset_y_for_reach_mm": null,
         "margin": 24.0,
         "note": "lanes secured before panel_prop is not the documented order (steps.py secures at panel_in); reported, not gating"
       },
-      "slack_mm": 30.27,
+      "slack_mm": 25.45,
       "fixed_mm": 43.07,
-      "route_mm": 142.65,
+      "route_mm": 147.47,
       "margin": 24.0,
-      "need_mm": 209.73
+      "need_mm": 214.55
     },
     {
       "category": "mate_reach",
@@ -1819,7 +1865,7 @@
             "need_mm": 2.4
           },
           "free_lead:qt_enc": {
-            "min_centreline_mm": 13.83,
+            "min_centreline_mm": 17.05,
             "need_mm": 2.4
           },
           "run_pin37": {
@@ -2687,24 +2733,21 @@
       "id": "qt",
       "estimate": true,
       "kind": "loop",
-      "home": "qt loop (signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)')",
+      "home": "qt loop (signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68)",
       "length_max_mm": 260.0,
-      "family_min_mm": 203.54,
-      "family_max_mm": 266.54,
-      "problems": [
-        "member storing 250.0 mm (top=79.23) intersects hdmi_ribbon 5.20 mm3",
-        "member storing 260.0 mm (top=84.23) intersects hdmi_ribbon 56.06 mm3"
-      ],
-      "status": "fail",
+      "family_min_mm": 238.99,
+      "family_max_mm": 261.39,
+      "problems": [],
+      "status": "pass",
       "stow_members": {
         "use": "members storing L_min / mid / L_max (installed targets: closed-camera parts, HDMI ribbon cells, FPS pair box, INSTALLED_TOL, cable separation)",
         "sweeps": [
           {
-            "variable": "top",
-            "value": 74.2301159168203,
+            "variable": "low",
+            "value": 54.6954765814385,
             "od_mm": 3.2,
             "capsule_d_mm": 3.4,
-            "polyline_points": 47,
+            "polyline_points": 50,
             "pieces": 96,
             "member_length_mm": 196.93,
             "exempt": [
@@ -2720,12 +2763,12 @@
             "stores_lead_mm": 240.0
           },
           {
-            "variable": "top",
-            "value": 79.2301159168203,
+            "variable": "low",
+            "value": 49.6954765814385,
             "od_mm": 3.2,
             "capsule_d_mm": 3.4,
-            "polyline_points": 47,
-            "pieces": 96,
+            "polyline_points": 50,
+            "pieces": 100,
             "member_length_mm": 206.93,
             "exempt": [
               "encoder",
@@ -2733,21 +2776,19 @@
             ],
             "exempt_rule": "own end parts only within 10 mm of the terminal",
             "targets": 6934,
-            "hits": {
-              "hdmi_ribbon": 5.2
-            },
+            "hits": {},
             "member_errors": [],
             "installed_targets": true,
             "cable_overlaps": [],
             "stores_lead_mm": 250.0
           },
           {
-            "variable": "top",
-            "value": 84.23011591682032,
+            "variable": "low",
+            "value": 44.69547658143847,
             "od_mm": 3.2,
             "capsule_d_mm": 3.4,
-            "polyline_points": 47,
-            "pieces": 96,
+            "polyline_points": 48,
+            "pieces": 100,
             "member_length_mm": 216.93,
             "exempt": [
               "encoder",
@@ -2755,9 +2796,7 @@
             ],
             "exempt_rule": "own end parts only within 10 mm of the terminal",
             "targets": 6934,
-            "hits": {
-              "hdmi_ribbon": 56.06
-            },
+            "hits": {},
             "member_errors": [],
             "installed_targets": true,
             "cable_overlaps": [],
@@ -2766,13 +2805,13 @@
         ]
       },
       "member_clearance": {
-        "variable": "top",
-        "value": 87.5,
+        "variable": "low",
+        "value": 44.0,
         "od_mm": 3.2,
         "capsule_d_mm": 3.4,
         "polyline_points": 48,
         "pieces": 100,
-        "member_length_mm": 223.47,
+        "member_length_mm": 218.32,
         "exempt": [
           "encoder",
           "pi5"
@@ -3218,7 +3257,7 @@
       "axis_off_route_mm": 0.0,
       "cable_separation": {
         "qt": {
-          "min_axis_distance_mm": 30.99,
+          "min_axis_distance_mm": 39.35,
           "need_mm": 4.99
         },
         "qt:hdr_qt_1": {
@@ -3338,7 +3377,7 @@
       "axis_off_route_mm": 0.0,
       "cable_separation": {
         "qt": {
-          "min_axis_distance_mm": 36.59,
+          "min_axis_distance_mm": 44.04,
           "need_mm": 5.97
         },
         "qt:hdr_qt_1": {
@@ -3458,7 +3497,7 @@
       "axis_off_route_mm": 0.0,
       "cable_separation": {
         "qt": {
-          "min_axis_distance_mm": 22.01,
+          "min_axis_distance_mm": 26.47,
           "need_mm": 6.55
         },
         "qt:hdr_qt_1": {
@@ -3584,7 +3623,7 @@
     {
       "category": "cable_stow",
       "id": "power_button_j2_pair",
-      "kind": "rigid pair in its stow space",
+      "kind": "provisional two-core and rigid-class stow capacity",
       "estimate": true,
       "box": {
         "x": [
@@ -3603,7 +3642,38 @@
       "volume_mm3": 3888,
       "fill_max": 0.2,
       "capacity_mm3": 777.6,
-      "loop_demand_mm3": 147.27194296214316,
+      "loop_demand_mm3": 1549.1703280619063,
+      "wire_core_count": 2,
+      "wire_core_od_mm": 1.6,
+      "wire_stock_cases": {
+        "legacy_finished_allocation": {
+          "wire_length_per_circuit_mm": 150,
+          "optimistic_flexible_consumed_mm": 76.75294468383514,
+          "spare_per_circuit_mm": 73.24705531616486,
+          "two_core_loop_mm3": 294.54388592428637
+        },
+        "inherited_lower": {
+          "wire_length_per_circuit_mm": 363.0,
+          "optimistic_flexible_consumed_mm": 76.75294468383514,
+          "spare_per_circuit_mm": 286.24705531616485,
+          "two_core_loop_mm3": 1151.0677069990077
+        },
+        "inherited_upper": {
+          "wire_length_per_circuit_mm": 387.0,
+          "optimistic_flexible_consumed_mm": 76.75294468383514,
+          "spare_per_circuit_mm": 310.24705531616485,
+          "two_core_loop_mm3": 1247.577433317286
+        },
+        "selected_minimum": {
+          "wire_length_per_circuit_mm": 462.0,
+          "optimistic_flexible_consumed_mm": 76.75294468383514,
+          "spare_per_circuit_mm": 385.24705531616485,
+          "two_core_loop_mm3": 1549.1703280619063
+        }
+      },
+      "wire_stock_scope": "wiring_data.J2_DEFAULT lead_min_mm=231 per half; exact SKU, maximum length and maximum insulation OD unknown. The inherited 363..387 combined range is a lower-bound comparison, not the selected stock maximum.",
+      "selected_stock_maximum_mm": null,
+      "finished_cut_length_mm": null,
       "pair_class_mm3": [
         1080.0,
         1650.0
@@ -3620,15 +3690,17 @@
           20.0
         ]
       ],
-      "pair_class_src": "Molex Micro-Fit 3.0 class 2-circuit mated pair outline, class datasheet range (not measured); G-V-POWER",
+      "pair_class_src": "Provisional legacy Micro-Fit class estimate, source-conflicted by exact-parts proposal; corrective-2026-10-12/j2-parts-proposal/README.md; G-V-POWER",
       "demand_range_mm3": [
-        1227.2719429621432,
-        1797.2719429621432
+        2629.1703280619063,
+        3199.1703280619063
       ],
-      "gate": "class upper end (conservative)",
+      "gate": "larger legacy estimate plus both cores at selected intact-stock minimum; exact housing/exit source conflict and upper stock/cut/OD unresolved",
       "reservation_status": "blocked",
       "problems": [
-        "the V-28 class mated pair (class upper end 1650 mm3; lower end 1080) plus the loop (147 mm3) exceeds the power_stow capacity 777.6 mm3 (box 3888 mm3 x fill 0.20): no modeled home for the J2 pair even at the class lower end [user decision 13 (J2 family: fits the J2 stow space), G-V-POWER]"
+        "Proposed exact Molex 0430250200/0430200201 pair is 24.77 mm mated; manufacturer recommends 12.7 mm unbiased free wire at each exit before bend/tie/twist. Legacy 18..20 mm proxy is not an upper bound; exact family/cuts/service remain unadopted and unqualified.",
+        "V-28 has no exact SKU/maximum exposed-wire length or maximum insulation OD and no measured finished cut; intact selected stock is at least 462 mm per circuit; BOM permits measured trimming, but the legacy 150 mm finished allocation is unverified [G-V-POWER, VN-73]",
+        "the V-28 class mated pair (larger legacy estimate 1650 mm3; smaller 1080) plus the loop (1549 mm3) exceeds the power_stow capacity 777.6 mm3 (box 3888 mm3 x fill 0.20): no modeled home for the J2 pair even at the smaller legacy estimate [user decision 13 (J2 family: fits the J2 stow space), G-V-POWER]"
       ],
       "status": "fail"
     },
@@ -3689,16 +3761,16 @@
     {
       "category": "signal_routes",
       "id": "binding",
-      "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
       "route_revision": "vertical-harness-source-study-2026-10-11-h1-feed-routes",
-      "signal_revision": "signal-reconciliation-2026-10-11-v4-qt-fanin-free-leads",
+      "signal_revision": "signal-reconciliation-2026-10-12-v6-qt-stored-and-released",
       "dependency_sha256": {
-        "harness_rules.py": "0c4080c638810733fff5a4ef729f5cd5e8a85a8acbe3205683d353e5eb0fd368",
-        "routes.py": "64e2a6bbd246bdefdc9d41a59c8bb9d3b534c5c4568e1fa7cf5eb7216c723321",
-        "signal_routes.py": "bf0e4e6b257f952a737cf2cda0a13566edc35460d07918633e0924637e6d89d9",
+        "harness_rules.py": "baca568650e7f7c58f40cf30a97af7dce7ef0a8bc5487e1940eee6da6ab00c63",
+        "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
+        "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
         "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
         "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-        "steps.py": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+        "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
         "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
         "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
         "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"

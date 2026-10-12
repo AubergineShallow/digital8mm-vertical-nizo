@@ -4,7 +4,7 @@
   "variants": [
     {
       "variant": "compact-kowa_lm6hc",
-      "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
       "sources": {
         "checked": 73,
         "missing": [],
@@ -31,15 +31,15 @@
       "reports": [
         {
           "path": "out/compact-kowa_lm6hc/verification.json",
-          "sha256": "d619a8d1ef314c2eb801d8f09c899a9782e2249d5eb2b4d3ce3b640fb92ac225",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "0e6981840abf5e4e8c0f4d3e2a82705bd15ae90bf2db603b11a3798f21822497",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_candidate.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 620,
-            "fail": 14,
+            "pass": 633,
+            "fail": 1,
             "info": 32
           },
           "physical_qualified": false,
@@ -58,546 +58,13 @@
                 56.25
               ],
               "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.4,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.4,
-                "+0.00/+0.00/-1": 0.4,
-                "+0.55/+0.00/+1": 0.4,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.4,
-                "+0.00/+0.55/+1": 0.4,
-                "+0.00/+0.55/-1": 0.4,
-                "+0.00/-0.55/+1": 0.4,
-                "+0.00/-0.55/-1": 0.4
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.4 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.65,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.65,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.65,
-                "+0.00/+0.55/+1": 0.65,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.65,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.9,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.9,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s3.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 3.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-kowa_lm6hc"
             }
           ]
         },
         {
           "path": "out/compact-kowa_lm6hc/print-mesh-checks.json",
-          "sha256": "69580932c3191e02dfbaf19cecff3d741293c5eb33c7bf8d0fba3916cdf993f9",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "946109931ffa694e2a84c86abe11ab51896a0eccafae99e8929c1dcde678996b",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_meshes.py",
@@ -607,8 +74,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/print-checks.json",
-          "sha256": "632a05afa03d08f0614a6eba022983fa62cb6d7b446f664c600133f57ac47aa8",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "fdf74f89ae03e44d177ac97edb577ac7abd9ec4a39a41627df15e4acbf50a658",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_checks.py",
@@ -669,8 +136,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/csi-source-tool-checks.json",
-          "sha256": "495e115ba18c47ba23fc344b7e4106db8f4c751ec24172b75de72b537e5a2f98",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "1df78d57cbffe6b8163dfae9ff7cb39236be68a5ea52776edcf60183df8979ea",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_csi_source.py",
@@ -682,8 +149,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/power-service-checks.json",
-          "sha256": "35803d20b67b140316d8f34715976ef97299b388e9eeee89963d2de5115e7b45",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "ae5f1aafccc709c24c8ac97d5eea47d69ec95cfbef05542d7d506613439931bc",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_power_service.py",
@@ -696,8 +163,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/hdmi-solid-checks.json",
-          "sha256": "4195536ec67b10ce25c629b067d6fd986eebf66d5e4f5bf7dcad29f71e39bb4f",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "fc3c0750fd3015680e3488e1a3ca1bfb9b1a4754ba30ea5afe263f676b79fa99",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_hdmi.py",
@@ -712,8 +179,8 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/wire-solid-checks.json",
-          "sha256": "7a4c48b2452177aa635700f25c62674f12bd983134ef382e0595d9c84de2c492",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "f980cf75fcd23f3ad61d9e5c063e37d8be761513235ab32f49ab2d5788d90688",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_wire_solids.py",
@@ -723,348 +190,31 @@
         },
         {
           "path": "out/compact-kowa_lm6hc/check-scope-checks.json",
-          "sha256": "778cd75a1a5d5780f26f27514fafca5b5590ab74b16fa5627498895964aa51ce",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "eb7c39f135a40c27fb05f9c161536dc5c57ccf508b6571fcdaab672912696de8",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_check_scope.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 34,
-            "fail": 2,
+            "pass": 36,
+            "fail": 0,
             "info": 14
           },
           "physical_qualified": false,
-          "failed_checks": [
-            {
-              "category": "area_parity",
-              "id": "hot_branch_series",
-              "status": "fail",
-              "branches": [
-                {
-                  "name": "hot_bottom",
-                  "mouth_mm2": 316.79999999999995,
-                  "series_min_mm2": 300.99999999999994,
-                  "effective_mm2": 300.99999999999994,
-                  "governed_by": "series section"
-                },
-                {
-                  "name": "hot_front",
-                  "mouth_mm2": 197.2,
-                  "series_min_mm2": 534.8,
-                  "effective_mm2": 197.2,
-                  "governed_by": "mouth"
-                }
-              ],
-              "effective_sum_mm2": 498.19999999999993,
-              "wall_ports_mm2": 510.0,
-              "margin_mm2": -11.800000000000068,
-              "margin_percent": -2.313725490196092,
-              "sections": {
-                "hot_bottom": {
-                  "axis": "z",
-                  "positions_mm": [
-                    2.6,
-                    3.0,
-                    3.4,
-                    3.8,
-                    4.2,
-                    4.6,
-                    5.0,
-                    5.4,
-                    5.8,
-                    6.2,
-                    6.6,
-                    7.0,
-                    7.4,
-                    7.8,
-                    8.2,
-                    8.6,
-                    9.0,
-                    9.4,
-                    9.8,
-                    10.2,
-                    10.6,
-                    11.0,
-                    11.4,
-                    11.8,
-                    12.2,
-                    12.6,
-                    13.0,
-                    13.4,
-                    13.8,
-                    14.2,
-                    14.6,
-                    15.0,
-                    15.4,
-                    15.8,
-                    16.05,
-                    16.55,
-                    17.05,
-                    17.55,
-                    18.05,
-                    18.55,
-                    19.05,
-                    19.55,
-                    20.05,
-                    20.55,
-                    21.05,
-                    21.55,
-                    22.05,
-                    22.55,
-                    23.05,
-                    23.55,
-                    24.05,
-                    24.55,
-                    25.05,
-                    25.55,
-                    26.05,
-                    26.55,
-                    27.05,
-                    27.55,
-                    28.05,
-                    28.55,
-                    29.05,
-                    29.55,
-                    30.05,
-                    30.55,
-                    31.05,
-                    31.55,
-                    32.05,
-                    32.55,
-                    33.05,
-                    33.55,
-                    34.05,
-                    34.55,
-                    35.05,
-                    35.55,
-                    36.05,
-                    36.55,
-                    37.05,
-                    37.55,
-                    38.05,
-                    38.55,
-                    39.05,
-                    39.55,
-                    40.05,
-                    40.55,
-                    41.05,
-                    41.55,
-                    42.05,
-                    42.55
-                  ],
-                  "free_area_mm2": [
-                    342.5999999999999,
-                    335.4,
-                    335.4,
-                    347.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    321.5,
-                    321.5,
-                    321.5,
-                    321.5,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    353.4,
-                    335.4,
-                    328.19999999999993,
-                    328.19999999999993,
-                    349.79999999999995,
-                    349.79999999999995,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    341.4,
-                    341.4,
-                    341.4,
-                    300.99999999999994,
-                    300.99999999999994,
-                    300.99999999999994,
-                    341.4,
-                    341.4,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    341.4,
-                    341.4,
-                    341.4,
-                    316.3,
-                    316.3,
-                    316.3,
-                    341.4,
-                    341.4,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    341.4,
-                    341.4,
-                    341.4,
-                    322.29999999999995,
-                    322.29999999999995,
-                    322.29999999999995,
-                    341.4,
-                    341.4,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    355.8,
-                    349.79999999999995,
-                    310.29999999999995,
-                    310.29999999999995,
-                    317.5,
-                    354.6,
-                    354.6,
-                    354.6
-                  ]
-                },
-                "hot_front": {
-                  "axis": "x",
-                  "positions_mm": [
-                    -16.0,
-                    -15.0,
-                    -14.0,
-                    -13.0,
-                    -12.0,
-                    -11.0,
-                    -10.0,
-                    -9.0,
-                    -8.0,
-                    -7.0,
-                    -6.0,
-                    -5.0,
-                    -4.0,
-                    -3.0
-                  ],
-                  "free_area_mm2": [
-                    553.2,
-                    565.1999999999998,
-                    565.1999999999998,
-                    565.1999999999998,
-                    565.1999999999998,
-                    565.1999999999998,
-                    559.1999999999998,
-                    559.2,
-                    565.1999999999998,
-                    565.1999999999998,
-                    565.1999999999998,
-                    565.1999999999998,
-                    565.1999999999998,
-                    534.8
-                  ]
-                }
-              },
-              "rule": "sum over branches of min(mouth neck, every sampled series section) >= wall ports - 0.002 mm2 (replaces the parallel-mouth-only comparison of hot/cold_summed_sampled_mouth_necks)"
-            },
-            {
-              "category": "area_parity",
-              "id": "hot_path_min_cut",
-              "status": "fail",
-              "min_cut_mm2": 444.5,
-              "wall_ports_mm2": 510.0,
-              "shortfall_mm2": 65.5,
-              "port_face_mm2": 509.9999999999981,
-              "port_face_blocked_mm2": 0.0,
-              "mouth_face_mm2": {
-                "hot_bottom": 316.79999999999984,
-                "hot_front": 202.79999999999993
-              },
-              "cut_composition_mm2": {
-                "port": 0.0,
-                "mouth": 0.0,
-                "internal": 444.5
-              },
-              "internal_cut_bbox_xz": [
-                -61.75,
-                -2.25,
-                15.85,
-                39.85
-              ],
-              "grid": {
-                "nx": 134,
-                "nz": 227,
-                "free_cells": 28406,
-                "max_cell_mm": 0.5,
-                "levels": 12,
-                "level_thickness_mm": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
-              },
-              "step_grid": {
-                "levels": 12,
-                "level_thickness_mm": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ],
-                "slanted_edge_segments": 0,
-                "cells": 30418
-              },
-              "empty_bay_bound_nominal_mm2": 493.2,
-              "nominal_with_ribs_mm2": 444.5,
-              "empty_bay_bound_reaches_ports": false,
-              "rule": "minimum cut (max flow) from the wall-port faces to the mouth faces of the bay over the free gap volume of the saved tub STEP >= wall ports - 0.002 mm2 (verifier rectangles; plenum_flow.py)",
-              "note": "No internal layout can pass: with these wall ports, mouths, mullions and frame the bay without any rib reaches only the empty-bay bound; closing the row needs a port or mouth change (user decision 17)"
-            }
-          ]
+          "failed_checks": []
         },
         {
           "path": "out/compact-kowa_lm6hc/harness-checks.json",
-          "sha256": "7414daeefca6d9738ce8f1236f57f004a73132853d5e94c9176755217b1f3bf5",
-          "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+          "sha256": "6823886ab27c3885c1e81b66a424f759c300a7a952e71d322196cd17b7f49143",
+          "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_harness_checks.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 27,
-            "fail": 15,
+            "pass": 30,
+            "fail": 12,
             "info": 20
           },
           "status": "fail",
@@ -1076,12 +226,10 @@
               "oled_flex",
               "pigtail_negative",
               "pigtail_positive",
-              "power_button",
-              "qt"
+              "power_button"
             ],
             "cable_stow": [
-              "power_button_j2_pair",
-              "qt"
+              "power_button_j2_pair"
             ],
             "lead_access": [
               "pigtail_drop",
@@ -1090,162 +238,10 @@
             ],
             "mate_reach": [
               "j2_btn",
-              "qt_enc",
               "xt30_pack"
             ]
           },
           "failed_checks": [
-            {
-              "category": "cable_routes",
-              "id": "qt",
-              "length_mm": 250.0,
-              "length_range": [
-                240.0,
-                260.0
-              ],
-              "range_src": "BOM D2-24 / D2-24B: finished QT lead 250 +/- 10 mm (MP-QT measures)",
-              "estimate": true,
-              "fan_in_gap_mm": 0.0,
-              "installed_mm": 206.93,
-              "min_route_mm": 203.54,
-              "allowance_mm": 25.0,
-              "length_min_mm": 240.0,
-              "slack_mm": 11.46,
-              "end_gap_mm": 0.0,
-              "basis": {
-                "family": {
-                  "variable": "top",
-                  "recorded": 79.2301159168203,
-                  "knots_share_variable": true,
-                  "bound": [
-                    56.0,
-                    87.5
-                  ],
-                  "src": "signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)'",
-                  "recomputed_mm": 206.9281381817836,
-                  "recorded_mm": 206.9281381817836,
-                  "length_at_bound_mm": {
-                    "56.0": 160.46790634814298,
-                    "87.5": 223.467906348143
-                  },
-                  "valid_at_bound": {
-                    "56.0": true,
-                    "87.5": true
-                  },
-                  "min_mm": 160.46790634814298,
-                  "max_mm": 223.467906348143,
-                  "min_at": 56.0
-                },
-                "longest_branch_mm": 43.071861818216426
-              },
-              "problems": [
-                "installed route intersects hdmi_ribbon 5.10 mm3 in the closed camera (capsule d 3.40 mm)"
-              ],
-              "status": "fail",
-              "member_clearance": {
-                "variable": "top",
-                "value": 56.0,
-                "od_mm": 3.2,
-                "capsule_d_mm": 3.4,
-                "polyline_points": 50,
-                "pieces": 100,
-                "member_length_mm": 160.47,
-                "exempt": [
-                  "encoder",
-                  "pi5"
-                ],
-                "exempt_rule": "own end parts only within 10 mm of the terminal",
-                "targets": 45,
-                "hits": {},
-                "member_errors": [],
-                "installed_targets": false,
-                "use": "shortest member (the minimum route)"
-              },
-              "installed_clearance": {
-                "envelope_d_mm": 3.2,
-                "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
-                "capsule_d_mm": 3.4,
-                "polyline_points": 44,
-                "pieces": 176,
-                "stubs": 0,
-                "exempt": [
-                  "encoder",
-                  "pi5"
-                ],
-                "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
-                "targets": 6934,
-                "hits": {
-                  "hdmi_ribbon": 5.1
-                },
-                "cable_separation": {
-                  "run_pin37": {
-                    "min_centreline_mm": 4.31,
-                    "need_mm": 1.6
-                  },
-                  "run_pin39": {
-                    "min_centreline_mm": 2.89,
-                    "need_mm": 1.6
-                  },
-                  "power_button": {
-                    "min_centreline_mm": 16.28,
-                    "need_mm": 3.2
-                  },
-                  "fpc": {
-                    "min_centreline_mm": 10.18,
-                    "need_mm": 9.6
-                  },
-                  "fan": {
-                    "min_centreline_mm": 18.6,
-                    "need_mm": 2.6
-                  },
-                  "oled_flex": {
-                    "min_centreline_mm": 56.11,
-                    "need_mm": 7.8
-                  },
-                  "usb_5v": {
-                    "min_centreline_mm": 17.61,
-                    "need_mm": 3.4
-                  },
-                  "pack_lead": {
-                    "min_centreline_mm": 39.99,
-                    "need_mm": 3.2
-                  },
-                  "pigtail_positive": {
-                    "min_centreline_mm": 6.78,
-                    "need_mm": 3.2
-                  },
-                  "pigtail_negative": {
-                    "min_centreline_mm": 3.68,
-                    "need_mm": 3.2
-                  },
-                  "header_branch:hdr_fps_lead_33_34": {
-                    "min_centreline_mm": 12.98,
-                    "need_mm": 2.4
-                  },
-                  "header_branch:fps_fps_header_branch": {
-                    "min_centreline_mm": 12.98,
-                    "need_mm": 2.4
-                  },
-                  "header_branch:fps_fps_200_main": {
-                    "min_centreline_mm": 4.54,
-                    "need_mm": 2.9
-                  },
-                  "header_branch:fps_fps_switch_bundle": {
-                    "min_centreline_mm": 16.4,
-                    "need_mm": 2.9
-                  },
-                  "header_branch:fps_fps_ck1044_pin_A": {
-                    "min_centreline_mm": 19.42,
-                    "need_mm": 2.1
-                  },
-                  "header_branch:fps_fps_ck1044_pin_2": {
-                    "min_centreline_mm": 12.23,
-                    "need_mm": 2.1
-                  }
-                },
-                "cable_overlaps": []
-              }
-            },
             {
               "category": "cable_routes",
               "id": "power_button",
@@ -1545,7 +541,7 @@
                 },
                 "cable_separation": {
                   "qt": {
-                    "min_centreline_mm": 18.6,
+                    "min_centreline_mm": 22.35,
                     "need_mm": 2.6
                   },
                   "qt:hdr_qt_1": {
@@ -1672,7 +668,7 @@
                 },
                 "cable_separation": {
                   "qt": {
-                    "min_centreline_mm": 56.11,
+                    "min_centreline_mm": 54.95,
                     "need_mm": 7.8
                   },
                   "qt:hdr_qt_1": {
@@ -1815,169 +811,6 @@
                 "shortest route 250.9 + allowance 27.0 > minimum stock 270.0 mm"
               ],
               "status": "fail"
-            },
-            {
-              "category": "mate_reach",
-              "id": "qt_enc",
-              "connection": "qt:enc",
-              "op": "panel_prop",
-              "estimate": true,
-              "disp_src": "ASSEMBLY-VERTICAL.md s6: baseline 60 mm prop offset (r7 MATE_POSES qt_enc)",
-              "anchor_src": "secured-lane anchor: knot 6, the last route knot fixed to the body once the QT lead is in its lanes (the wall loop may shrink to its family minimum); applies only if steps.py secures the lead before panel_prop (lead_state, fixup-1)",
-              "cable": "qt",
-              "pose": [
-                0.0,
-                60.0,
-                0.0
-              ],
-              "length_min": 240.0,
-              "info_free_lead_need_mm": 176.4,
-              "info_free_lead_note": "if the lead were left out of its lanes until the panel closes: longest branch + straight main start to the posed plug + margin (lower bound, not obstacle-checked); see lead_state for whether this is the documented order",
-              "hand": "pinch_sh",
-              "hand_box": [
-                -102.0,
-                -72.0,
-                64.8,
-                84.8,
-                65.0,
-                89.0
-              ],
-              "hand_hits": [],
-              "tail_hits": [],
-              "out_of": [
-                "+y",
-                28.001398690423215,
-                0.0
-              ],
-              "out_of_mm": 36.8,
-              "targets": 31,
-              "problems": [
-                "free-lead route: free route intersects pi5 7.27 mm3 at panel_prop (capsule d 3.40 mm)"
-              ],
-              "status": "fail",
-              "lead_state": "free at panel_prop; laid into its lanes at panel_in (steps.py secures)",
-              "free_lead": {
-                "source": "signal_routes.py free_leads (H2): QT main free from the modeled fan-in point to the propped encoder plug",
-                "op": "panel_prop",
-                "pose": [
-                  0.0,
-                  60.0,
-                  0.0
-                ],
-                "knots": [
-                  [
-                    -45.445,
-                    -23.4,
-                    37.0
-                  ],
-                  [
-                    -45.445,
-                    -23.4,
-                    43.1
-                  ],
-                  [
-                    -59.7,
-                    -18.9,
-                    55.2
-                  ],
-                  [
-                    -45.5,
-                    -6.3,
-                    58.0
-                  ],
-                  [
-                    -46.0,
-                    8.0,
-                    68.8
-                  ],
-                  [
-                    -88.7,
-                    74.8,
-                    77.0
-                  ],
-                  [
-                    -72.0,
-                    74.8,
-                    77.0
-                  ]
-                ],
-                "radius_mm": 6.4,
-                "od_mm": 3.2,
-                "route_mm": 142.65,
-                "fixed_mm": 43.07,
-                "start_gap_mm": 0.0,
-                "end_gap_mm": 0.0,
-                "start_angle_deg": 0.0,
-                "end_angle_deg": 0.0,
-                "length_min": 240.0,
-                "margin": 24.0,
-                "need_mm": 209.73,
-                "slack_mm": 30.27,
-                "capsule_d_mm": 3.4,
-                "pieces": 64,
-                "targets": 2323,
-                "exempt": [
-                  "encoder",
-                  "pi5"
-                ],
-                "exempt_rule": "own end parts only within 10 mm of route length from a terminal (none at a start after the branches)",
-                "hits": {
-                  "pi5": 7.27
-                },
-                "hdmi_state": "installed",
-                "tightest_separation": {
-                  "pigtail_negative": {
-                    "min_centreline_mm": 5.28,
-                    "need_mm": 3.2
-                  },
-                  "fpc": {
-                    "min_centreline_mm": 12.18,
-                    "need_mm": 9.6
-                  },
-                  "run_pin39": {
-                    "min_centreline_mm": 5.99,
-                    "need_mm": 2.4
-                  },
-                  "pigtail_positive": {
-                    "min_centreline_mm": 10.08,
-                    "need_mm": 3.2
-                  },
-                  "run_pin37": {
-                    "min_centreline_mm": 11.57,
-                    "need_mm": 2.4
-                  }
-                },
-                "cable_overlaps": [],
-                "problems": [
-                  "free route intersects pi5 7.27 mm3 at panel_prop (capsule d 3.40 mm)"
-                ]
-              },
-              "secured_lane_case": {
-                "problems": [
-                  "lead short by 28.0 mm in the mating pose (L 240, fixed 179.3, tail 64.8, margin 24.0)"
-                ],
-                "slack_mm": -28.0,
-                "fixed_mm": 179.3,
-                "tail_mm": 64.8,
-                "anchor_pt": [
-                  -93.2,
-                  14.8,
-                  65.0
-                ],
-                "W_pose": [
-                  -72.0,
-                  74.8,
-                  77.0
-                ],
-                "max_offset_y_for_reach_mm": 27.5,
-                "margin": 24.0,
-                "note": "lanes secured before panel_prop is not the documented order (steps.py secures at panel_in); reported, not gating"
-              },
-              "slack_mm": 30.27,
-              "fixed_mm": 43.07,
-              "route_mm": 142.65,
-              "margin": 24.0,
-              "need_mm": 209.73
             },
             {
               "category": "mate_reach",
@@ -2164,7 +997,7 @@
                     "need_mm": 2.4
                   },
                   "free_lead:qt_enc": {
-                    "min_centreline_mm": 13.83,
+                    "min_centreline_mm": 17.05,
                     "need_mm": 2.4
                   },
                   "run_pin37": {
@@ -2753,111 +1586,8 @@
             },
             {
               "category": "cable_stow",
-              "id": "qt",
-              "estimate": true,
-              "kind": "loop",
-              "home": "qt loop (signal_routes.py build(): QT top run '_solve_top(qt_curve,250-qt_longest,56.,87.5)')",
-              "length_max_mm": 260.0,
-              "family_min_mm": 203.54,
-              "family_max_mm": 266.54,
-              "problems": [
-                "member storing 250.0 mm (top=79.23) intersects hdmi_ribbon 5.20 mm3",
-                "member storing 260.0 mm (top=84.23) intersects hdmi_ribbon 56.06 mm3"
-              ],
-              "status": "fail",
-              "stow_members": {
-                "use": "members storing L_min / mid / L_max (installed targets: closed-camera parts, HDMI ribbon cells, FPS pair box, INSTALLED_TOL, cable separation)",
-                "sweeps": [
-                  {
-                    "variable": "top",
-                    "value": 74.2301159168203,
-                    "od_mm": 3.2,
-                    "capsule_d_mm": 3.4,
-                    "polyline_points": 47,
-                    "pieces": 96,
-                    "member_length_mm": 196.93,
-                    "exempt": [
-                      "encoder",
-                      "pi5"
-                    ],
-                    "exempt_rule": "own end parts only within 10 mm of the terminal",
-                    "targets": 6934,
-                    "hits": {},
-                    "member_errors": [],
-                    "installed_targets": true,
-                    "cable_overlaps": [],
-                    "stores_lead_mm": 240.0
-                  },
-                  {
-                    "variable": "top",
-                    "value": 79.2301159168203,
-                    "od_mm": 3.2,
-                    "capsule_d_mm": 3.4,
-                    "polyline_points": 47,
-                    "pieces": 96,
-                    "member_length_mm": 206.93,
-                    "exempt": [
-                      "encoder",
-                      "pi5"
-                    ],
-                    "exempt_rule": "own end parts only within 10 mm of the terminal",
-                    "targets": 6934,
-                    "hits": {
-                      "hdmi_ribbon": 5.2
-                    },
-                    "member_errors": [],
-                    "installed_targets": true,
-                    "cable_overlaps": [],
-                    "stores_lead_mm": 250.0
-                  },
-                  {
-                    "variable": "top",
-                    "value": 84.23011591682032,
-                    "od_mm": 3.2,
-                    "capsule_d_mm": 3.4,
-                    "polyline_points": 47,
-                    "pieces": 96,
-                    "member_length_mm": 216.93,
-                    "exempt": [
-                      "encoder",
-                      "pi5"
-                    ],
-                    "exempt_rule": "own end parts only within 10 mm of the terminal",
-                    "targets": 6934,
-                    "hits": {
-                      "hdmi_ribbon": 56.06
-                    },
-                    "member_errors": [],
-                    "installed_targets": true,
-                    "cable_overlaps": [],
-                    "stores_lead_mm": 260.0
-                  }
-                ]
-              },
-              "member_clearance": {
-                "variable": "top",
-                "value": 87.5,
-                "od_mm": 3.2,
-                "capsule_d_mm": 3.4,
-                "polyline_points": 48,
-                "pieces": 100,
-                "member_length_mm": 223.47,
-                "exempt": [
-                  "encoder",
-                  "pi5"
-                ],
-                "exempt_rule": "own end parts only within 10 mm of the terminal",
-                "targets": 45,
-                "hits": {},
-                "member_errors": [],
-                "installed_targets": false,
-                "use": "longest member (the spare home)"
-              }
-            },
-            {
-              "category": "cable_stow",
               "id": "power_button_j2_pair",
-              "kind": "rigid pair in its stow space",
+              "kind": "provisional two-core and rigid-class stow capacity",
               "estimate": true,
               "box": {
                 "x": [
@@ -2876,7 +1606,38 @@
               "volume_mm3": 3888,
               "fill_max": 0.2,
               "capacity_mm3": 777.6,
-              "loop_demand_mm3": 147.27194296214316,
+              "loop_demand_mm3": 1549.1703280619063,
+              "wire_core_count": 2,
+              "wire_core_od_mm": 1.6,
+              "wire_stock_cases": {
+                "legacy_finished_allocation": {
+                  "wire_length_per_circuit_mm": 150,
+                  "optimistic_flexible_consumed_mm": 76.75294468383514,
+                  "spare_per_circuit_mm": 73.24705531616486,
+                  "two_core_loop_mm3": 294.54388592428637
+                },
+                "inherited_lower": {
+                  "wire_length_per_circuit_mm": 363.0,
+                  "optimistic_flexible_consumed_mm": 76.75294468383514,
+                  "spare_per_circuit_mm": 286.24705531616485,
+                  "two_core_loop_mm3": 1151.0677069990077
+                },
+                "inherited_upper": {
+                  "wire_length_per_circuit_mm": 387.0,
+                  "optimistic_flexible_consumed_mm": 76.75294468383514,
+                  "spare_per_circuit_mm": 310.24705531616485,
+                  "two_core_loop_mm3": 1247.577433317286
+                },
+                "selected_minimum": {
+                  "wire_length_per_circuit_mm": 462.0,
+                  "optimistic_flexible_consumed_mm": 76.75294468383514,
+                  "spare_per_circuit_mm": 385.24705531616485,
+                  "two_core_loop_mm3": 1549.1703280619063
+                }
+              },
+              "wire_stock_scope": "wiring_data.J2_DEFAULT lead_min_mm=231 per half; exact SKU, maximum length and maximum insulation OD unknown. The inherited 363..387 combined range is a lower-bound comparison, not the selected stock maximum.",
+              "selected_stock_maximum_mm": null,
+              "finished_cut_length_mm": null,
               "pair_class_mm3": [
                 1080.0,
                 1650.0
@@ -2893,34 +1654,74 @@
                   20.0
                 ]
               ],
-              "pair_class_src": "Molex Micro-Fit 3.0 class 2-circuit mated pair outline, class datasheet range (not measured); G-V-POWER",
+              "pair_class_src": "Provisional legacy Micro-Fit class estimate, source-conflicted by exact-parts proposal; corrective-2026-10-12/j2-parts-proposal/README.md; G-V-POWER",
               "demand_range_mm3": [
-                1227.2719429621432,
-                1797.2719429621432
+                2629.1703280619063,
+                3199.1703280619063
               ],
-              "gate": "class upper end (conservative)",
+              "gate": "larger legacy estimate plus both cores at selected intact-stock minimum; exact housing/exit source conflict and upper stock/cut/OD unresolved",
               "reservation_status": "blocked",
               "problems": [
-                "the V-28 class mated pair (class upper end 1650 mm3; lower end 1080) plus the loop (147 mm3) exceeds the power_stow capacity 777.6 mm3 (box 3888 mm3 x fill 0.20): no modeled home for the J2 pair even at the class lower end [user decision 13 (J2 family: fits the J2 stow space), G-V-POWER]"
+                "Proposed exact Molex 0430250200/0430200201 pair is 24.77 mm mated; manufacturer recommends 12.7 mm unbiased free wire at each exit before bend/tie/twist. Legacy 18..20 mm proxy is not an upper bound; exact family/cuts/service remain unadopted and unqualified.",
+                "V-28 has no exact SKU/maximum exposed-wire length or maximum insulation OD and no measured finished cut; intact selected stock is at least 462 mm per circuit; BOM permits measured trimming, but the legacy 150 mm finished allocation is unverified [G-V-POWER, VN-73]",
+                "the V-28 class mated pair (larger legacy estimate 1650 mm3; smaller 1080) plus the loop (1549 mm3) exceeds the power_stow capacity 777.6 mm3 (box 3888 mm3 x fill 0.20): no modeled home for the J2 pair even at the smaller legacy estimate [user decision 13 (J2 family: fits the J2 stow space), G-V-POWER]"
               ],
               "status": "fail"
             }
           ]
         }
       ],
+      "printed_count_semantics": "Historical field: printed assembly rows, not physical production pieces.",
+      "production_prints": {
+        "assembly_row_count": 9,
+        "piece_count": 10,
+        "files": [
+          "stl/base_grip.stl",
+          "stl/cap.stl",
+          "stl/carrier.stl",
+          "stl/eyecup.stl",
+          "stl/knob_exp.stl",
+          "stl/knob_fps.stl",
+          "stl/lens_collar.stl",
+          "stl/panel.stl",
+          "stl/tab_catch_insert.stl",
+          "stl/tub.stl"
+        ],
+        "count_basis": "Printed assembly rows and separate STL print poses; centring gauge and external coupons excluded.",
+        "declared_metadata": {
+          "assembly_row_count": 9,
+          "piece_count": 10,
+          "files": [
+            "stl/base_grip.stl",
+            "stl/cap.stl",
+            "stl/carrier.stl",
+            "stl/eyecup.stl",
+            "stl/knob_exp.stl",
+            "stl/knob_fps.stl",
+            "stl/lens_collar.stl",
+            "stl/panel.stl",
+            "stl/tab_catch_insert.stl",
+            "stl/tub.stl"
+          ],
+          "count_basis": "The tub assembly row is made from separate printed body and bonded tab-catch insert. Gauge and coupons are excluded."
+        },
+        "historical_row_count_semantics": "printed_count counts assembly rows only"
+      },
+      "production_print_findings": [],
+      "expected_production_piece_count": 10,
       "bound_cache": {
         "variant": "compact-kowa_lm6hc",
         "recorded_runtime": {
           "python": "3.12.14",
           "cadquery": "2.6.1",
           "cadquery_ocp": "7.8.1.1.post1",
-          "platform": "win32-amd64"
+          "platform": "linux-x86_64"
         },
         "host_runtime": {
           "python": "3.12.14",
           "cadquery": "2.6.1",
           "cadquery_ocp": "7.8.1.1.post1",
-          "platform": "win32-amd64"
+          "platform": "linux-x86_64"
         },
         "regenerable_from_bound_step": true,
         "tracked": {
@@ -2936,42 +1737,11 @@
         "state": "complete",
         "action": "none: every bound file is present and byte-identical"
       },
-      "selected_folder_findings": [
-        [
-          "foreign_manifest_report",
-          "out/compact-kowa_lm6hc/current-review-evidence.json",
-          "binds 53e668d4, selected manifest dbea5ca5"
-        ],
-        [
-          "foreign_manifest_report",
-          "out/compact-kowa_lm6hc/renders/hero-receipt.json",
-          "binds 53e668d4, selected manifest dbea5ca5"
-        ],
-        [
-          "foreign_manifest_report",
-          "out/compact-kowa_lm6hc/renders/rear-receipt.json",
-          "binds 53e668d4, selected manifest dbea5ca5"
-        ],
-        [
-          "foreign_manifest_report",
-          "out/compact-kowa_lm6hc/renders/receipt.json",
-          "binds 53e668d4, selected manifest dbea5ca5"
-        ],
-        [
-          "foreign_manifest_report",
-          "out/compact-kowa_lm6hc/renders/vent_front-receipt.json",
-          "binds 53e668d4, selected manifest dbea5ca5"
-        ],
-        [
-          "foreign_manifest_report",
-          "out/compact-kowa_lm6hc/renders/vent_side-receipt.json",
-          "binds 53e668d4, selected manifest dbea5ca5"
-        ]
-      ]
+      "selected_folder_findings": []
     },
     {
       "variant": "compact-fujinon_hf6xa",
-      "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
+      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
       "sources": {
         "checked": 73,
         "missing": [],
@@ -2998,15 +1768,15 @@
       "reports": [
         {
           "path": "out/compact-fujinon_hf6xa/verification.json",
-          "sha256": "0403ec4f96c6ce79b390b4081e0ba636d8535b05daabb4b0467d84dd6b561644",
-          "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
+          "sha256": "f4458efe61404918aa437cd9548f080b7012d08ed2470e9d7b7ecc5de0619fdf",
+          "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
           "same_manifest": true,
           "evidence_role": "historical only; full alternative audit not rerun",
           "verifier_file": "verify_candidate.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 615,
-            "fail": 14,
+            "pass": 628,
+            "fail": 1,
             "info": 32
           },
           "physical_qualified": false,
@@ -3025,546 +1795,13 @@
                 56.25
               ],
               "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.4,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.4,
-                "+0.00/+0.00/-1": 0.4,
-                "+0.55/+0.00/+1": 0.4,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.4,
-                "+0.00/+0.55/+1": 0.4,
-                "+0.00/+0.55/-1": 0.4,
-                "+0.00/-0.55/+1": 0.4,
-                "+0.00/-0.55/-1": 0.4
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.4 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.65,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.65,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.65,
-                "+0.00/+0.55/+1": 0.65,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.65,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.9,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.9,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s3.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 3.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "compact-fujinon_hf6xa"
             }
           ]
         },
         {
           "path": "out/compact-fujinon_hf6xa/print-mesh-checks.json",
-          "sha256": "dd84de93f8e50842558e0fd157a97fcdff5d8c32fe886ab6a10eb07b1b49f0d7",
-          "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835",
+          "sha256": "3f73cf0d0acf5ccaa5ffe26599be2b59de6709bfb127a637ad50c1e035d588bd",
+          "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_meshes.py",
@@ -3573,19 +1810,57 @@
           "fail_count": 0
         }
       ],
+      "printed_count_semantics": "Historical field: printed assembly rows, not physical production pieces.",
+      "production_prints": {
+        "assembly_row_count": 9,
+        "piece_count": 10,
+        "files": [
+          "stl/base_grip.stl",
+          "stl/cap.stl",
+          "stl/carrier.stl",
+          "stl/eyecup.stl",
+          "stl/knob_exp.stl",
+          "stl/knob_fps.stl",
+          "stl/lens_collar.stl",
+          "stl/panel.stl",
+          "stl/tab_catch_insert.stl",
+          "stl/tub.stl"
+        ],
+        "count_basis": "Printed assembly rows and separate STL print poses; centring gauge and external coupons excluded.",
+        "declared_metadata": {
+          "assembly_row_count": 9,
+          "piece_count": 10,
+          "files": [
+            "stl/base_grip.stl",
+            "stl/cap.stl",
+            "stl/carrier.stl",
+            "stl/eyecup.stl",
+            "stl/knob_exp.stl",
+            "stl/knob_fps.stl",
+            "stl/lens_collar.stl",
+            "stl/panel.stl",
+            "stl/tab_catch_insert.stl",
+            "stl/tub.stl"
+          ],
+          "count_basis": "The tub assembly row is made from separate printed body and bonded tab-catch insert. Gauge and coupons are excluded."
+        },
+        "historical_row_count_semantics": "printed_count counts assembly rows only"
+      },
+      "production_print_findings": [],
+      "expected_production_piece_count": 10,
       "bound_cache": {
         "variant": "compact-fujinon_hf6xa",
         "recorded_runtime": {
           "python": "3.12.14",
           "cadquery": "2.6.1",
           "cadquery_ocp": "7.8.1.1.post1",
-          "platform": "win32-amd64"
+          "platform": "linux-x86_64"
         },
         "host_runtime": {
           "python": "3.12.14",
           "cadquery": "2.6.1",
           "cadquery_ocp": "7.8.1.1.post1",
-          "platform": "win32-amd64"
+          "platform": "linux-x86_64"
         },
         "regenerable_from_bound_step": true,
         "tracked": {
@@ -3605,7 +1880,7 @@
     },
     {
       "variant": "original-kowa_lm6hc",
-      "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
+      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
       "sources": {
         "checked": 73,
         "missing": [],
@@ -3632,15 +1907,15 @@
       "reports": [
         {
           "path": "out/original-kowa_lm6hc/verification.json",
-          "sha256": "89c60f8434f57b2509e326156d410344e58c43fadb32246f13351a18d8aa7cbe",
-          "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
+          "sha256": "4c28b5baa7fa1d02a2d95883f4cdd91cd50aae0e620bc202056145d51b1e0db3",
+          "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
           "same_manifest": true,
           "evidence_role": "historical only; full alternative audit not rerun",
           "verifier_file": "verify_candidate.py",
           "verifier_hash_current": true,
           "summary": {
-            "pass": 623,
-            "fail": 14,
+            "pass": 636,
+            "fail": 1,
             "info": 32
           },
           "physical_qualified": false,
@@ -3659,546 +1934,13 @@
                 56.25
               ],
               "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.4,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.4,
-                "+0.00/+0.00/-1": 0.4,
-                "+0.55/+0.00/+1": 0.4,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.4,
-                "+0.00/+0.55/+1": 0.4,
-                "+0.00/+0.55/-1": 0.4,
-                "+0.00/-0.55/+1": 0.4,
-                "+0.00/-0.55/-1": 0.4
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.4 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.65,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.65,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.65,
-                "+0.00/+0.55/+1": 0.65,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.65,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.9,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 0.9,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s0.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 0.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s1.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 1.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.25",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.25,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.50",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.5,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s2.75",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 2.75,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
-            },
-            {
-              "category": "roll_catch",
-              "id": "stub_tilt_on_joint_edge:window@s3.00",
-              "status": "fail",
-              "port": "FP-08",
-              "kind": "roll_catch",
-              "item": "window",
-              "s": 3.0,
-              "window_deg": 1.4,
-              "centred_gap": 0.605,
-              "worst_gap": 0.055,
-              "rule": "centred >= 0.30, worst offset >= 0.10",
-              "gaps": {
-                "+0.00/+0.00/+1": 0.679,
-                "+0.00/+0.00/-1": 0.605,
-                "+0.55/+0.00/+1": 0.989,
-                "+0.55/+0.00/-1": 0.055,
-                "-0.55/+0.00/+1": 0.129,
-                "-0.55/+0.00/-1": 1.1,
-                "+0.00/+0.55/+1": 0.679,
-                "+0.00/+0.55/-1": 0.619,
-                "+0.00/-0.55/+1": 0.679,
-                "+0.00/-0.55/-1": 0.592
-              },
-              "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
-              "catch_host": "tub",
-              "stub_case": "tilt_on_joint_edge",
-              "stub_shift_mm": [
-                0.0,
-                0.0,
-                0.0
-              ],
-              "stub_tilt_deg": -1.6365770416167185,
-              "stub_pivot": [
-                -11.35,
-                8.28,
-                83.5
-              ],
-              "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
-              "variant": "original-kowa_lm6hc"
             }
           ]
         },
         {
           "path": "out/original-kowa_lm6hc/print-mesh-checks.json",
-          "sha256": "4599a8fe416c0ae01bc8e063de8fdd8a7ab2ddaab5089f0f4ca0552afff69244",
-          "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
+          "sha256": "54be948a2382c040c37dd02d02c7ad64fd38441d8829c4b9bfc42550a91e9215",
+          "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
           "same_manifest": true,
           "evidence_role": "current manifest-bound scoped evidence",
           "verifier_file": "verify_print_meshes.py",
@@ -4207,19 +1949,59 @@
           "fail_count": 0
         }
       ],
+      "printed_count_semantics": "Historical field: printed assembly rows, not physical production pieces.",
+      "production_prints": {
+        "assembly_row_count": 10,
+        "piece_count": 11,
+        "files": [
+          "stl/base_grip.stl",
+          "stl/cap.stl",
+          "stl/carrier.stl",
+          "stl/eyecup.stl",
+          "stl/knob_exp.stl",
+          "stl/knob_fps.stl",
+          "stl/lens_collar.stl",
+          "stl/panel.stl",
+          "stl/stick_sleeve.stl",
+          "stl/tab_catch_insert.stl",
+          "stl/tub.stl"
+        ],
+        "count_basis": "Printed assembly rows and separate STL print poses; centring gauge and external coupons excluded.",
+        "declared_metadata": {
+          "assembly_row_count": 10,
+          "piece_count": 11,
+          "files": [
+            "stl/base_grip.stl",
+            "stl/cap.stl",
+            "stl/carrier.stl",
+            "stl/eyecup.stl",
+            "stl/knob_exp.stl",
+            "stl/knob_fps.stl",
+            "stl/lens_collar.stl",
+            "stl/panel.stl",
+            "stl/stick_sleeve.stl",
+            "stl/tab_catch_insert.stl",
+            "stl/tub.stl"
+          ],
+          "count_basis": "The tub assembly row is made from separate printed body and bonded tab-catch insert. Gauge and coupons are excluded."
+        },
+        "historical_row_count_semantics": "printed_count counts assembly rows only"
+      },
+      "production_print_findings": [],
+      "expected_production_piece_count": 11,
       "bound_cache": {
         "variant": "original-kowa_lm6hc",
         "recorded_runtime": {
           "python": "3.12.14",
           "cadquery": "2.6.1",
           "cadquery_ocp": "7.8.1.1.post1",
-          "platform": "win32-amd64"
+          "platform": "linux-x86_64"
         },
         "host_runtime": {
           "python": "3.12.14",
           "cadquery": "2.6.1",
           "cadquery_ocp": "7.8.1.1.post1",
-          "platform": "win32-amd64"
+          "platform": "linux-x86_64"
         },
         "regenerable_from_bound_step": true,
         "tracked": {
@@ -4249,8 +2031,6 @@
     "cad_imported": false,
     "not_a_physical_total": true,
     "installed_categories": {
-      "printed_compact": 9,
-      "printed_original": 10,
       "body_pt_screws": 7,
       "stack_screws": 8,
       "stack_standoffs": 4,
@@ -4260,8 +2040,13 @@
       "lens_inserts": 4,
       "functional_harnesses": 11,
       "hdmi_purchased_pieces": 3,
-      "planned_solder_joints": 24
+      "planned_solder_joints": 24,
+      "printed_assembly_rows_compact": 9,
+      "physical_printed_pieces_compact": 10,
+      "printed_assembly_rows_original": 10,
+      "physical_printed_pieces_original": 11
     },
+    "historical_printed_category_semantics": "Previous printed_compact / printed_original values counted assembly rows only.",
     "export18_selection_claim": {
       "phrase": "every purchased selection/quantity are unchanged from reviewed export18",
       "claimed": false
@@ -4270,51 +2055,51 @@
   "documents": [
     {
       "path": "README.md",
-      "sha256": "9df52624b0157c97d638c7d3cc9ed65302192b3a6cab7ed84d5d4502a8f5d966"
+      "sha256": "6c871d86b61d1ff3c68d13f3f5a8a87864b4b699d84bd3f30465d3a4f8b69a17"
     },
     {
       "path": "REPRODUCE.md",
-      "sha256": "d27d1711cc177c198a5551e06de2dcb658f0783f7fc52649d0efb315ef764941"
+      "sha256": "ec25c35360c07710c73c98066d6b87446bcde8a9c4765a5fe5b5ac66580be2bc"
     },
     {
       "path": "CHECKPOINT-STATUS.json",
-      "sha256": "c47c9f76a8381183884e702df589eb820712fd17cedc3d23ef966608cf583a91"
+      "sha256": "c9c9285a420961134bb1d665f86af4e5b230f4ef091074e6607cfcbe8b671b05"
     },
     {
       "path": "REVIEW.md",
-      "sha256": "a8ec23ac675c2d86b4f45b231d7ab1aea396dda0a7b9e370d7d2e13378cc6de2"
+      "sha256": "aeab7be0d3e39209df9dee103ce172f8165db9937dac6ba19bb47d51ba33060d"
     },
     {
       "path": "ASSEMBLY-VERTICAL.md",
-      "sha256": "41a244205d0bbe84e961e16bc65a1f0a3f0db7d1cfddc1fbc5caecddf797c027"
+      "sha256": "f8e7db9793cbc330aa81b461081c347a84a15665b38b480a54ce142c8af6db66"
     },
     {
       "path": "MEASUREMENTS-TO-CLOSE.md",
-      "sha256": "de108a0951ebf92eb6daa4b627fa033914f789f5e0110e39e334dbf7a018015d"
+      "sha256": "4d2daf8ce67ae9112860b658015f173c71756b76149dc4a2f0f23141d0ff870c"
     },
     {
       "path": "make_bom_vertical.py",
-      "sha256": "0c9fd162c6a1ba2663d8958ed33523c3f37897d80d8e863a60a3aa959f1cc421"
+      "sha256": "a907a8f46d87a4b5326498cd17484dd1e76101912296ca30c81d76d31a1e047b"
     },
     {
       "path": "BOM-VERTICAL.md",
-      "sha256": "d3b71f5989115ac3a4325e497645617a612215692883d4b6445f09cc07f4a214"
+      "sha256": "73e76bb7ec3e6d3554e5c2fc4f628997cb9e2e20925edf7328d616ec4b4fdaf1"
     },
     {
       "path": "BOM-VERTICAL.csv",
-      "sha256": "b9168248ba51e6a9bce270054402e8e296c7c8fa37b52144ed12529160ec32fa"
+      "sha256": "61343e13479fe007eff69a83bba7f08d98f330987266cbb63dbefe67daceebe0"
     },
     {
       "path": "structural-review/CONCEALED-VENT-STRUCTURAL.md",
-      "sha256": "436c1c5a524608930dd3de4971329c275fb28cbd6491a905cdf0eb4ce00d4eff"
+      "sha256": "6d121c452794c8dbf93a509d7e013bf8fd1622cec0e3954617966eaabff2e273"
     },
     {
       "path": "structural-review/concealed-vent-structural.json",
-      "sha256": "3e208632620a195aaa47d7867007b72284cf23ea2b66f2277e4c45c98209d096"
+      "sha256": "ecd5797716a7421c25079e87c464964d751c00499c32bbfaf5beaa3345446b7e"
     },
     {
       "path": "structural-review/update_concealed_vent_structure.py",
-      "sha256": "aedf0062db5758c7a245fabbf5e65ec5b25e630361c7f7a2361f72637f01069a"
+      "sha256": "d5d6f9ea5dc1f6801852b4d8b948acb9bbd2c5eaaa68367b291f2a0f8005cd85"
     },
     {
       "path": "structural-review/reference-export18-structural-binding.json",
@@ -4332,12 +2117,12 @@
   "missing_document_local_links": [],
   "audit_source": {
     "path": "review_docs_audit.py",
-    "sha256": "e7989886b4d3019ab3f9a017022fd8db591e6dc82cee6a35df12a577af46208d"
+    "sha256": "a2cd13f5bc9df0322572f77e3979238a217c84dfbd6f48331ebe3b8501a86022"
   },
   "selected_supplemental_reports": [
     {
       "path": "out/compact-kowa_lm6hc/microsd-service-dependency.json",
-      "sha256": "b8cffba9e123e212e70beff41ff2d1f7d2aded8ea270f6161138f8b0048aa6f8",
+      "sha256": "53d4e54aa35d4661f510a8b64d7c95ca2e007ed88cfdfb280fe5a56924138568",
       "same_primary_manifest": true,
       "evidence_role": "current manifest-bound scoped evidence",
       "verifier_file": "verify_microsd_service.py",
@@ -4435,7 +2220,7 @@
     },
     {
       "path": "out/fps-service-study/integrated-fps-checks.json",
-      "sha256": "70df29d910fa396ef1778db3d05491d232e1df9107b87009871f412f0ffa0760",
+      "sha256": "850edce58713c30e5ce7f3ea2efb0ff7925d4766f4f37af3b178f9a8873e4f1f",
       "same_primary_manifest": true,
       "evidence_role": "current manifest-bound scoped evidence",
       "verifier_file": "verify_fps_integrated.py",
@@ -4581,7 +2366,7 @@
   "assembly_comparison": {
     "file": {
       "path": "out/comparison/assembled-comparison.json",
-      "sha256": "21d53fc019332a935ab018e0040738faf6cbf7fd021e892b082ecd5ea4fbbc8d"
+      "sha256": "7dd51b06eea1c109227d940fd4a69ddbfd6b702909601c235f534ff2bb4c41a3"
     },
     "current_producer_file": {
       "path": "measure_comparison.py",
@@ -4602,7 +2387,7 @@
   "core_void_reports": [
     {
       "path": "out/comparison/volume-compact-kowa_lm6hc.json",
-      "sha256": "ac76693b6f06bef6760688cc2ac5c315a431436130505f4137f25abe5b01650b",
+      "sha256": "f30aaed77024b00677c800f4d6325766ecd8c391e15f32773fc87c99408f3309",
       "same_variant_manifest": true,
       "verifier_hash_current": true,
       "model_void_mm3": null,
@@ -4616,7 +2401,7 @@
     },
     {
       "path": "out/comparison/volume-compact-fujinon_hf6xa.json",
-      "sha256": "a923c2f20025a5b21589d894e58ac88689c1277583f7928bc11aca3dca582cc4",
+      "sha256": "be700580d5c33a838be6788309aba4238151286c61b02a8b777e34007cf153f3",
       "same_variant_manifest": true,
       "verifier_hash_current": true,
       "model_void_mm3": null,
@@ -4630,7 +2415,7 @@
     },
     {
       "path": "out/comparison/volume-original-kowa_lm6hc.json",
-      "sha256": "ab8865e2604f8f44cf11bf4f6258622ea2da415103ec6973a43559622af479fd",
+      "sha256": "0fe42ad43b7d24505b822036090b926490740e6a5b228241313d5285fd27e6ec",
       "same_variant_manifest": true,
       "verifier_hash_current": true,
       "model_void_mm3": null,
@@ -4646,7 +2431,7 @@
   "concealed_vent_reports": [
     {
       "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-      "sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
+      "sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
       "same_primary_manifest": true,
       "verifier_file": "verify_shadow_plenum.py",
       "verifier_hash_current": true,
@@ -4666,7 +2451,7 @@
     },
     {
       "path": "out/compact-kowa_lm6hc/shadow-outlet-context-checks.json",
-      "sha256": "c272f70eb98a84836a340d282867516d0f908a525a3dd595905645b4aef5fe1d",
+      "sha256": "72794ad354d1e4d0834ee59f5c9a1929f5b75be297a4643aec7cc8defd6ee4aa",
       "same_primary_manifest": true,
       "verifier_file": "verify_shadow_outlet_context.py",
       "verifier_hash_current": true,
@@ -4688,9 +2473,9 @@
         "changed": [],
         "pass": true
       },
-      "scope": "Exact finite outward mouth prisms versus all other saved material rows; actual saved-shape AABBs used only to reject separated pairs",
+      "scope": "Exact finite outward aperture-prism unions versus all other saved material rows; the hot-front union follows its stepped voids and excludes solid mullions; actual saved-shape AABBs used only to reject separated pairs",
       "limitations": [
-        "Only the specified first 12 mm beyond each exterior face are checked.",
+        "Only the specified first 12 mm beyond each exterior face are checked; the hot-front check also includes its entrance back to x -2.7 mm.",
         "No hand/finger/garment, desk contact or airflow streamlines are modeled.",
         "COTS proxies, real parts, flexible looms, print deformation and thermal performance remain unqualified.",
         "Clear outward prisms do not prove whole-plenum pressure loss, external recirculation or all-view concealment."
@@ -4716,13 +2501,13 @@
     },
     {
       "path": "structural-review/concealed-vent-structural.json",
-      "sha256": "3e208632620a195aaa47d7867007b72284cf23ea2b66f2277e4c45c98209d096",
+      "sha256": "ecd5797716a7421c25079e87c464964d751c00499c32bbfaf5beaa3345446b7e",
       "same_primary_manifest": true,
       "verifier_file": "structural-review/update_concealed_vent_structure.py",
       "verifier_hash_current": true,
       "evidence_role": "current manifest-bound scoped evidence",
       "method": "CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification",
-      "geometry_scope": "All manifest rows other than s_c4/base_grip/eyecup/carrier/tub/panel/lens_collar are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
+      "geometry_scope": "Changed manifest rows: s_c4, base_grip, eyecup, carrier, tub, panel, lens_collar. All other rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
       "physical_qualified": false,
       "changed_manifest_rows": [
         "s_c4",
@@ -4735,13 +2520,13 @@
       ],
       "assembly": {
         "reference_mass_g": 831.3793077015797,
-        "current_mass_g": 870.4211825643972,
-        "delta_mass_g": 39.04187486281751,
-        "delta_mass_percent": 4.696036394116202,
+        "current_mass_g": 870.2589514403712,
+        "delta_mass_g": 38.879643738791515,
+        "delta_mass_percent": 4.676522903399853,
         "com_mm": [
-          -46.46040339000588,
-          1.0181348267748092,
-          29.959862170988103
+          -46.468895314001784,
+          1.0244011769533663,
+          29.956975351895313
         ],
         "manifest_mesh_dimensions_mm": [
           248.83393461632127,
@@ -4758,9 +2543,9 @@
         "wiring_mass_sensitivity_g": 12,
         "wiring_upper_height_mm": 100,
         "added_5g_moment_Nmm": 58.8399,
-        "equal_share_plus_wiring_Nm": 0.9367862517832902,
+        "equal_share_plus_wiring_Nm": 0.9366054980064421,
         "proposed_rounded_equal_share_screen_Nm": 0.95,
-        "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
+        "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
         "old_0_90_Nm_covers_equal_share_plus_wiring": false,
         "all_variants_screen_Nm": 1.0,
         "governing_variant": "original-kowa_lm6hc",
@@ -4783,12 +2568,12 @@
               "tub"
             ],
             "added_rows": [],
-            "upper_mass_g": 565.8594999368922,
-            "floor_moment_5g_Nmm": 1481.0538306410776,
-            "equal_share_plus_wiring_Nm": 0.7699468653205388,
-            "seventy_percent_share_plus_wiring_Nm": 1.077925611448754,
+            "upper_mass_g": 565.6972688128662,
+            "floor_moment_5g_Nmm": 1480.6923230873817,
+            "equal_share_plus_wiring_Nm": 0.7697661115436908,
+            "seventy_percent_share_plus_wiring_Nm": 1.077672556161167,
             "proposed_rounded_equal_share_screen_Nm": 0.8,
-            "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835"
+            "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f"
           },
           "compact-kowa_lm6hc": {
             "valid": true,
@@ -4802,12 +2587,12 @@
               "tub"
             ],
             "added_rows": [],
-            "upper_mass_g": 679.27871810342,
-            "floor_moment_5g_Nmm": 1814.7326035665806,
-            "equal_share_plus_wiring_Nm": 0.9367862517832902,
-            "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
+            "upper_mass_g": 679.116486979394,
+            "floor_moment_5g_Nmm": 1814.3710960128842,
+            "equal_share_plus_wiring_Nm": 0.9366054980064421,
+            "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
             "proposed_rounded_equal_share_screen_Nm": 0.95,
-            "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810"
+            "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4"
           },
           "original-kowa_lm6hc": {
             "valid": true,
@@ -4830,12 +2615,12 @@
             "added_rows": [
               "stick_sleeve"
             ],
-            "upper_mass_g": 721.5355623426694,
-            "floor_moment_5g_Nmm": 1905.4884510286029,
-            "equal_share_plus_wiring_Nm": 0.9821641755143014,
-            "seventy_percent_share_plus_wiring_Nm": 1.375029845720022,
+            "upper_mass_g": 721.373331219444,
+            "floor_moment_5g_Nmm": 1905.1269434770163,
+            "equal_share_plus_wiring_Nm": 0.9819834217385082,
+            "seventy_percent_share_plus_wiring_Nm": 1.3747767904339114,
             "proposed_rounded_equal_share_screen_Nm": 1.0,
-            "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9"
+            "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
           }
         },
         "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
@@ -4866,6 +2651,136 @@
           "sku_or_class": [
             "PRC 16 AWG; red SW-16R; black colour selection",
             "PRC 16 AWG silicone; red SW-16R; black SW-16B"
+          ]
+        }
+      },
+      {
+        "line": "P-base_grip",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-cap",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-carrier",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-eyecup",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-knob_exp",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-knob_fps",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-lens_collar",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-panel",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-stick_sleeve",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
+          ]
+        }
+      },
+      {
+        "line": "P-tub",
+        "changes": {
+          "installed_unit": [
+            "part",
+            "CAD assembly row"
+          ],
+          "purchase_unit": [
+            "part",
+            "CAD assembly row"
           ]
         }
       },
@@ -4921,7 +2836,7 @@
   },
   "selected_usb_head_report": {
     "path": "routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json",
-    "sha256": "d2433cd9890408bbe7fe7eac2b5e5536fac2e5c0fb5d61ecec8db5c2a3cae017",
+    "sha256": "36a9907f7b3a69ea59fd827f282265ce8fee0ff744873fb088373d6a9963cb84",
     "status": "pass_for_bounded_head_reservation",
     "same_primary_manifest": true,
     "verifier_file": "verify_shadow_usb_head.py",
@@ -4946,7 +2861,7 @@
   },
   "plenum_coupon_identity": {
     "path": "vent-study/shadow-plenum-coupon/coupon-index.json",
-    "sha256": "dd979d6371045f0cfba16eda1c300795ed49b16fc13ef2942c745f86fd9460a6",
+    "sha256": "0e4fc3ccc3e3094347244bd041822d81d5c8986d45320871b711fa793d5b8b4b",
     "coupon_count": 3,
     "same_primary_manifest": true,
     "source_current": true,
@@ -4961,7 +2876,7 @@
     "receipts": [
       {
         "path": "vent-study/shadow-plenum-coupon/receipt.json",
-        "sha256": "7c6dfeb343b860c2cf16cbc8301a6f42114f4284bfd17040a859d05d76c4245b",
+        "sha256": "a6f5e45798a23847ddf735204337ea48789aecedb7bc6cab345a8026531d94c5",
         "same_primary_manifest": true,
         "files": {
           "checked": 2,
@@ -4973,14 +2888,14 @@
         "status": "Geometry-only open-edge coupon; not print released",
         "limitations": [
           "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
-          "Does not reproduce the ports, CSI sleeve, post exclusions or front/top enclosure edge spans.",
+          "Does not reproduce the ports, CSI sleeve, support interruptions or front/top enclosure edge spans.",
           "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
           "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
         ]
       },
       {
         "path": "vent-study/shadow-plenum-coupon/port-service-receipt.json",
-        "sha256": "62a6924348f6be3538ff9705ffa219cadb34af8586d41847c09ba8e29cf474bb",
+        "sha256": "59b5b8c8435da1bd38c9edca0b26636464af5000a468975b2dd3d036a678e836",
         "same_primary_manifest": true,
         "files": {
           "checked": 2,
@@ -4999,7 +2914,7 @@
       },
       {
         "path": "vent-study/shadow-plenum-coupon/all-mouths-receipt.json",
-        "sha256": "3d73c7ff47a12a6d4461901b5745f9e611c9c6a2e8cc89496a5cda62d432b5f1",
+        "sha256": "96266e878fef8d7618e5f93b35db152b332d863a497a5a088b4518472e3ce752",
         "same_primary_manifest": true,
         "files": {
           "checked": 2,
@@ -5040,226 +2955,110 @@
   "structural_pdf": {
     "receipt": {
       "path": "structural-review/output/pdf/structural-supplement-pdf-receipt.json",
-      "sha256": "ccfe41dc35d2ba4f211aa38189be38df7e98a90818f0a91d31f426076498775b"
+      "sha256": "8e10568afb88fa84125bfe7f9794c408cf37e88eb8f83084cb412003767da121"
     },
     "artifact": {
       "path": "structural-review/output/pdf/D2-shadow-plenum-structural-supplement.pdf",
-      "sha256": "7cb47b145befbb69901c82638d1ced418a5a3405cc6415770f7bd62601c3a1c9"
+      "sha256": "59a8771f2036ec0aa6d78c0890023576530f5ea3e802600402ed793812e8d79d"
     },
-    "same_primary_manifest": false,
+    "same_primary_manifest": true,
     "pdf_hash_matches": true,
     "source_bindings": {
-      "checked": 8,
+      "checked": 23,
       "missing": [],
-      "changed": [
-        "structural-review/CONCEALED-VENT-STRUCTURAL.md",
-        "structural-review/concealed-vent-structural.json",
-        "structural-review/update_concealed_vent_structure.py",
-        "out/compact-kowa_lm6hc/manifest.json",
-        "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-        "vent-study/shadow-plenum-coupon/coupon-index.json",
-        "structural-review/build_shadow_structural_pdf.py"
-      ],
-      "pass": false
+      "changed": [],
+      "pass": true
     },
-    "pages": 2,
+    "pages": 3,
     "text_checks_pass": true,
     "visual_review": {
       "status": "passed",
-      "pages_inspected": [
-        1,
-        2
-      ],
-      "findings": "Both complete page PNGs inspected. No clipping, overlap, missing glyphs or table overflow. Print hold and 0.95 N m target are visible; source hashes and page numbers are legible.",
+      "pages_inspected": 3,
+      "render_tool": "pdftoppm",
+      "render_dpi": 110,
+      "render_version": "pdftoppm version 26.05.0",
       "rendered_page_sha256": {
-        "supplement-1.png": "a05acdf8ae2d293506681c21877f826e4eee6eb56c1e10d7348c1aa81ee7cdf5",
-        "supplement-2.png": "c6a650cf8e117df7b28834b399c7f964592c7cb42c6ecadcd38f470553568040"
+        "qa/page-1.png": "11ea63372133e8c3303ecc33890ec8ce043507f3c5364cc015a2b4acbd0760a8",
+        "qa/page-2.png": "4bdab83b9380b02b98558e77d635e6430ccd8dc8b9cb88892868d5ca40084dd5",
+        "qa/page-3.png": "606cfc465c623cd74ca12dd505467d6540479f02ac9dae53750f37759fae93e4"
       },
-      "text_within_page_bounds": true
+      "text_bounds_checks": [
+        {
+          "page": 1,
+          "characters": 2660,
+          "text_bounds_pt": [
+            44.0,
+            51.04492240000002,
+            568.000044,
+            768.9218752
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 3045,
+          "text_bounds_pt": [
+            44.0,
+            54.13808615999994,
+            568.000044,
+            768.9218752
+          ]
+        },
+        {
+          "page": 3,
+          "characters": 3565,
+          "text_bounds_pt": [
+            44.0,
+            48.88281280000001,
+            568.000044,
+            768.9218752
+          ]
+        }
+      ],
+      "findings": "All three pages inspected: readable text and tables, intact grid/headers, clear physical HOLDs, no clipping, overlap, missing glyphs or near-empty spill page. Numerical/source text checks passed.",
+      "physical_qualified": false
     },
     "physical_qualified": false
   },
   "checkpoint_status": {
     "file": {
       "path": "CHECKPOINT-STATUS.json",
-      "sha256": "c47c9f76a8381183884e702df589eb820712fd17cedc3d23ef966608cf583a91"
+      "sha256": "c9c9285a420961134bb1d665f86af4e5b230f4ef091074e6607cfcbe8b671b05"
     },
     "same_primary_manifest": true,
     "selected_evidence_binding": true,
     "preserved_export18_binding": true,
     "physical_qualified": false,
     "guide_receipt_current": true,
-    "guide_nominated_manifest_current": false,
-    "guide_manifest_claim": false
+    "guide_nominated_manifest_current": true,
+    "guide_manifest_claim": true
   },
   "guide_bound_cache": {
     "receipt": "guide/out-concealed-vents/guide-receipt.json",
-    "nominated_manifest_sha256": "53e668d43847acd1f59d2b559a562476c54a23db0918debd482d632f0e8ceb77",
-    "nominated_manifest_current": false,
+    "nominated_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "nominated_manifest_current": true,
     "pdf_match": true,
     "mesh_files": {
       "checked": 45,
-      "present_match": 0,
+      "present_match": 45,
       "missing": [],
-      "changed": [
-        "meshes/base_grip.json",
-        "meshes/c_cs_adapter.json",
-        "meshes/cap.json",
-        "meshes/carrier.json",
-        "meshes/cooler.json",
-        "meshes/encoder.json",
-        "meshes/evf_board.json",
-        "meshes/eyecup.json",
-        "meshes/eyepiece.json",
-        "meshes/foam_pad.json",
-        "meshes/fps_mounting_washer.json",
-        "meshes/fps_nut.json",
-        "meshes/gs_camera.json",
-        "meshes/hmx039.json",
-        "meshes/knob_exp.json",
-        "meshes/knob_fps.json",
-        "meshes/lens.json",
-        "meshes/lens_collar.json",
-        "meshes/microsd.json",
-        "meshes/p_carrier1.json",
-        "meshes/p_carrier2.json",
-        "meshes/p_grip.json",
-        "meshes/p_panel1.json",
-        "meshes/p_panel2.json",
-        "meshes/p_panel3.json",
-        "meshes/p_panel4.json",
-        "meshes/pack.json",
-        "meshes/panel.json",
-        "meshes/pi5.json",
-        "meshes/power_button.json",
-        "meshes/power_nut_reserve.json",
-        "meshes/run_button.json",
-        "meshes/s_c1.json",
-        "meshes/s_c2.json",
-        "meshes/s_c3.json",
-        "meshes/s_c4.json",
-        "meshes/strap.json",
-        "meshes/switch_1824.json",
-        "meshes/tripod_nut.json",
-        "meshes/tub.json",
-        "meshes/usb_stick.json",
-        "meshes/usb_storage_plug_reserve.json",
-        "meshes/x1203.json",
-        "meshes/x1203_kit.json",
-        "meshes/xt30_pair.json"
-      ]
+      "changed": []
     },
     "page_images": {
-      "checked": 32,
-      "present_match": 0,
-      "missing": [
-        "page-01.png",
-        "page-02.png",
-        "page-03.png",
-        "page-04.png",
-        "page-05.png",
-        "page-06.png",
-        "page-07.png",
-        "page-08.png",
-        "page-09.png",
-        "page-10.png",
-        "page-11.png",
-        "page-12.png",
-        "page-13.png",
-        "page-14.png",
-        "page-15.png",
-        "page-16.png",
-        "page-17.png",
-        "page-18.png",
-        "page-19.png",
-        "page-20.png",
-        "page-21.png",
-        "page-22.png",
-        "page-23.png",
-        "page-24.png",
-        "page-25.png",
-        "page-26.png",
-        "page-27.png",
-        "page-28.png",
-        "page-29.png",
-        "page-30.png",
-        "page-31.png",
-        "page-32.png"
-      ],
+      "checked": 38,
+      "present_match": 38,
+      "missing": [],
       "changed": []
     },
     "unexpected_tracked": 0,
-    "deterministic_build": false,
+    "deterministic_build": true,
     "sources": {
-      "checked": 197,
+      "checked": 287,
       "missing": [],
-      "changed": [
-        "candidate-vertical/ASSEMBLY-VERTICAL.md",
-        "candidate-vertical/BOM-VERTICAL.csv",
-        "candidate-vertical/BOM-VERTICAL.md",
-        "candidate-vertical/FPS-SERVICE-STUDY.md",
-        "candidate-vertical/REVIEW.md",
-        "candidate-vertical/export_candidate.py",
-        "candidate-vertical/guide/README-CONCEALED-VENTS.md",
-        "candidate-vertical/guide/STEP-REVIEW.md",
-        "candidate-vertical/guide/build_guide_concealed_vents.py",
-        "candidate-vertical/guide/package_concealed_guide.py",
-        "candidate-vertical/guide/vent_guide_support.py",
-        "candidate-vertical/make_corrected_pi.py",
-        "candidate-vertical/make_shadow_plenum_coupon.py",
-        "candidate-vertical/model.py",
-        "candidate-vertical/official_pi5_assembly.py",
-        "candidate-vertical/official_pi5_csi.py",
-        "candidate-vertical/official_pi5_geometry.py",
-        "candidate-vertical/out/compact-kowa_lm6hc/csi-source-tool-checks.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/hdmi-solid-checks.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/manifest.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/microsd-service-dependency.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/power-service-checks.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/verification.json",
-        "candidate-vertical/out/compact-kowa_lm6hc/wire-solid-checks.json",
-        "candidate-vertical/out/fps-service-study/integrated-fps-checks.json",
-        "candidate-vertical/out/source-components/pi5-corrected.json",
-        "candidate-vertical/out/source-components/pi5-corrected.step",
-        "candidate-vertical/power_geometry.py",
-        "candidate-vertical/routing-snapshots/hdmi-export17-selected-20261009-0704/shadow-plenum-head-checks.json",
-        "candidate-vertical/structural-review/CONCEALED-VENT-STRUCTURAL.md",
-        "candidate-vertical/structural-review/concealed-vent-structural.json",
-        "candidate-vertical/structural-review/update_concealed_vent_structure.py",
-        "candidate-vertical/structure_geometry.py",
-        "candidate-vertical/vent-study/shadow-plenum-coupon/port-service-receipt.json",
-        "candidate-vertical/vent-study/shadow-plenum-coupon/receipt.json",
-        "candidate-vertical/vent_geometry.py",
-        "candidate-vertical/verify_candidate.py",
-        "candidate-vertical/verify_csi_access.py",
-        "candidate-vertical/verify_csi_source.py",
-        "candidate-vertical/verify_fps_access.py",
-        "candidate-vertical/verify_fps_carrier_route.py",
-        "candidate-vertical/verify_fps_central_rest.py",
-        "candidate-vertical/verify_fps_central_rest_wide.py",
-        "candidate-vertical/verify_fps_contact_pad.py",
-        "candidate-vertical/verify_fps_final_candidate.py",
-        "candidate-vertical/verify_fps_fixed_service.py",
-        "candidate-vertical/verify_fps_integrated.py",
-        "candidate-vertical/verify_fps_mated_carry.py",
-        "candidate-vertical/verify_fps_pair_deployment.py",
-        "candidate-vertical/verify_fps_pair_guide.py",
-        "candidate-vertical/verify_hdmi.py",
-        "candidate-vertical/verify_microsd_service.py",
-        "candidate-vertical/verify_power_service.py",
-        "candidate-vertical/verify_print_meshes.py",
-        "candidate-vertical/verify_shadow_outlet_context.py",
-        "candidate-vertical/verify_shadow_plenum.py",
-        "candidate-vertical/verify_shadow_usb_head.py",
-        "candidate-vertical/verify_ventilation.py",
-        "candidate-vertical/verify_wall_probe_context.py",
-        "candidate-vertical/verify_wire_solids.py"
-      ],
-      "pass": false
+      "changed": [],
+      "pass": true
     },
-    "state": "mismatch",
-    "action": "a bound guide file differs (PDF, page image or mesh cache); inspect before use"
+    "state": "complete",
+    "action": "none: every bound guide file is present and byte-identical"
   },
   "run_records": [
     {
@@ -5272,7 +3071,7 @@
     },
     {
       "path": "out/compact-kowa_lm6hc/review-check-run.json",
-      "sha256": "2a673ba629694f1ca7cc899d888c31b8895027719d09dc3190ce0c6eb87e10d6"
+      "sha256": "44fa5800ab0e161a31cf2aa48fd34d951d2ec58e5b9da80310b09cb0fbcbf29e"
     }
   ],
   "source_numbers": {
@@ -5366,14 +3165,14 @@
     {
       "field": "main_summary",
       "recorded": {
-        "pass": 620,
-        "fail": 14,
+        "pass": 633,
+        "fail": 1,
         "info": 32
       },
       "source": "out/compact-kowa_lm6hc/verification.json summary",
       "source_value": {
-        "pass": 620,
-        "fail": 14,
+        "pass": 633,
+        "fail": 1,
         "info": 32
       },
       "match": true
@@ -5400,40 +3199,40 @@
       "field": "manifest",
       "kind": "path",
       "target": "out/compact-kowa_lm6hc/manifest.json",
-      "recorded": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-      "actual": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+      "recorded": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+      "actual": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
       "match": true
     },
     {
       "field": "selected_evidence",
       "kind": "path",
       "target": "out/compact-kowa_lm6hc/current-review-evidence.json",
-      "recorded": "4f8985876ea14648411f4f6162c0302b1a762d4ab8845139a9776ae84fcfd017",
-      "actual": "4f8985876ea14648411f4f6162c0302b1a762d4ab8845139a9776ae84fcfd017",
+      "recorded": "8f3a46860619c02ad209b68f75e978550f30b507adddb95a3d21c42490839ce3",
+      "actual": "8f3a46860619c02ad209b68f75e978550f30b507adddb95a3d21c42490839ce3",
       "match": true
     },
     {
       "field": "evidence_reconciler_that_wrote_current_evidence",
-      "kind": "git_object",
-      "target": "9ced753:cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py",
-      "recorded": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9",
-      "actual": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9",
+      "kind": "path",
+      "target": "reconcile_review_evidence.py",
+      "recorded": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
+      "actual": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
       "match": true
     },
     {
       "field": "current_evidence_reconciler",
       "kind": "path",
       "target": "reconcile_review_evidence.py",
-      "recorded": "d0306ca040135cf74da99d8e2d59ae51a9a4ee362c6f194a305f3e36a0acf1ab",
-      "actual": "d0306ca040135cf74da99d8e2d59ae51a9a4ee362c6f194a305f3e36a0acf1ab",
+      "recorded": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
+      "actual": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
       "match": true
     },
     {
       "field": "guide.receipt",
       "kind": "path",
       "target": "guide/out-concealed-vents/guide-receipt.json",
-      "recorded": "d03df5f2b6d616fad932bedf773bbb976d066a4d1673ce9825db066e056c6afe",
-      "actual": "d03df5f2b6d616fad932bedf773bbb976d066a4d1673ce9825db066e056c6afe",
+      "recorded": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce",
+      "actual": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce",
       "match": true
     },
     {
@@ -5448,74 +3247,15 @@
       "field": "evidence_reconciler_that_wrote_current_evidence.sha256",
       "kind": "writer_of_selected_evidence",
       "target": "out/compact-kowa_lm6hc/current-review-evidence.json reconciler_sha256",
-      "recorded": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9",
-      "actual": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9",
+      "recorded": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
+      "actual": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
       "match": true
     }
   ],
   "verdict": {
-    "failures": [
-      [
-        "foreign_manifest_report",
-        "out/compact-kowa_lm6hc/current-review-evidence.json",
-        "binds 53e668d4, selected manifest dbea5ca5"
-      ],
-      [
-        "foreign_manifest_report",
-        "out/compact-kowa_lm6hc/renders/hero-receipt.json",
-        "binds 53e668d4, selected manifest dbea5ca5"
-      ],
-      [
-        "foreign_manifest_report",
-        "out/compact-kowa_lm6hc/renders/rear-receipt.json",
-        "binds 53e668d4, selected manifest dbea5ca5"
-      ],
-      [
-        "foreign_manifest_report",
-        "out/compact-kowa_lm6hc/renders/receipt.json",
-        "binds 53e668d4, selected manifest dbea5ca5"
-      ],
-      [
-        "foreign_manifest_report",
-        "out/compact-kowa_lm6hc/renders/vent_front-receipt.json",
-        "binds 53e668d4, selected manifest dbea5ca5"
-      ],
-      [
-        "foreign_manifest_report",
-        "out/compact-kowa_lm6hc/renders/vent_side-receipt.json",
-        "binds 53e668d4, selected manifest dbea5ca5"
-      ],
-      [
-        "stale_selected_report",
-        "structural-review/output/pdf/structural-supplement-pdf-receipt.json",
-        "binds another manifest"
-      ],
-      [
-        "binding",
-        "structural-review/output/pdf/structural-supplement-pdf-receipt.json",
-        "sources",
-        "missing 0 changed 7: structural-review/CONCEALED-VENT-STRUCTURAL.md, structural-review/concealed-vent-structural.json, structural-review/update_concealed_vent_structure.py, out/compact-kowa_lm6hc/manifest.json, out/compact-kowa_lm6hc/shadow-plenum-checks.json"
-      ],
-      [
-        "binding",
-        "guide/out-concealed-vents/guide-receipt.json",
-        "sources",
-        "missing 0 changed 61: candidate-vertical/ASSEMBLY-VERTICAL.md, candidate-vertical/BOM-VERTICAL.csv, candidate-vertical/BOM-VERTICAL.md, candidate-vertical/FPS-SERVICE-STUDY.md, candidate-vertical/REVIEW.md"
-      ],
-      [
-        "guide_manifest_stale",
-        "guide/out-concealed-vents/guide-receipt.json",
-        "nominates 53e668d4, not the current manifest"
-      ],
-      [
-        "bound_files",
-        "guide",
-        "mismatch",
-        "a bound guide file differs (PDF, page image or mesh cache); inspect before use"
-      ]
-    ],
+    "failures": [],
     "rebuildable_caches": [],
     "declared_pending": [],
-    "exit_code": 1
+    "exit_code": 0
   }
 }

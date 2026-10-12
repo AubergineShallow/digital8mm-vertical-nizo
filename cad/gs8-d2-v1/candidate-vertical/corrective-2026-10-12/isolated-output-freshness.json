@@ -1,0 +1,8 @@
+{
+  "observed_utc": "2026-10-12T02:48:23Z",
+  "report_existed_before_first_output": {
+    "compact-fujinon_hf6xa": false,
+    "original-kowa_lm6hc": false
+  },
+  "helper_sha256": "0e13cd5b96bfd0d0ce7eb6b3359f04b3b6ec4c6d42480f729cfc7e7b4179fe42"
+}

@@ -10,6 +10,8 @@ receipt=json.loads(read_text(OUT/'guide-receipt.json'))
 if receipt.get('guide_identity')!='D2-vertical-concealed-vents-review':raise RuntimeError('Wrong guide identity')
 from vent_guide_support import inspect_inputs
 inspect_inputs(V,receipt['nominated_manifest_sha256'])
+from record_post_guide_check import verify_receipt
+post_check=verify_receipt()
 for name,digest in receipt['sources'].items():
  if hashlib.sha256((CAD/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('Guide source changed after render: '+name)
 if hashlib.sha256((OUT/'D2-vertical-concealed-vents-review.pdf').read_bytes()).hexdigest()!=receipt['guide_pdf_sha256']:raise RuntimeError('PDF no longer matches receipt')
@@ -18,9 +20,11 @@ for name,digest in receipt['page_images'].items():
 for name,digest in receipt['mesh_files'].items():
  if hashlib.sha256((V/'out/compact-kowa_lm6hc'/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('Guide mesh changed after render: '+name)
 paths=[CAD/name for name in receipt['sources']]
-for name in ['build_guide_concealed_vents.py','software_lineart.py','raster.cpp','package_concealed_guide.py','README-CONCEALED-VENTS.md','STEP-REVIEW-CONCEALED-VENTS.md','vent_guide_support.py']:paths.append(G/name)
+paths += [OUT/'post-guide-build-order-check.json',OUT/'post-guide-build-order-check.log']
+paths += [V/name for name in post_check['input_sha256']]
+for name in ['build_guide_concealed_vents.py','software_lineart.py','raster.cpp','package_concealed_guide.py','README-CONCEALED-VENTS.md','STEP-REVIEW-CONCEALED-VENTS.md','vent_guide_support.py','run_with_numpy_raster.py','raster_numpy.py']:paths.append(G/name)
 paths+=[OUT/name for name in receipt['page_images']]+[OUT/'D2-vertical-concealed-vents-review.pdf',OUT/'guide-receipt.json']
-for name in ['model.py','export_candidate.py','ASSEMBLY-VERTICAL.md','BOM-VERTICAL.md','BOM-VERTICAL.csv','REVIEW.md','FPS-SERVICE-STUDY.md','power_geometry.py','vent_geometry.py','verify_shadow_plenum.py','verify_candidate.py','verify_hdmi.py','verify_power_service.py','verify_csi_access.py','verify_csi_source.py','verify_print_meshes.py','verify_wire_solids.py']:
+for name in ['model.py','export_candidate.py','ASSEMBLY-VERTICAL.md','WIRING-VERTICAL.md','BOM-VERTICAL.md','BOM-VERTICAL.csv','REVIEW.md','FPS-SERVICE-STUDY.md','power_geometry.py','vent_geometry.py','verify_shadow_plenum.py','verify_candidate.py','verify_hdmi.py','verify_power_service.py','verify_csi_access.py','verify_csi_source.py','verify_print_meshes.py','verify_wire_solids.py']:
  p=V/name
  if p.exists():paths.append(p)
 M=V/'out/compact-kowa_lm6hc'
@@ -37,7 +41,7 @@ for name,digest in manifest['sources'].items():
  p=CAD/name
  if p in paths and hashlib.sha256(p.read_bytes()).hexdigest()!=digest:
   raise RuntimeError('Bundled CAD source differs from frozen export: '+name)
-readme='''D2 vertical concealed-vent assembly and wiring review source bundle
+readme='''D2 2026-10-12 corrective assembly and wiring source bundle: BLOCKED REVIEW
 
 Review only. All %d inherited physical gates and M1 remain open.
 
@@ -53,7 +57,7 @@ Rebuild on Linux with Python 3.12 and g++:
 Read nominated_manifest_sha256 in guide-receipt.json and substitute that exact value for NOMINATED_HASH_FROM_RECEIPT.
 
 This is a distinct guide identity. The original reviewed 29-page PDF is retained
-separately. No purchased parts or extra production prints are introduced.
+separately. No purchased substitutions are introduced by this correction. Compact inventory is 10 physical prints in 9 CAD assembly rows: the tub body and bonded stub are separate pieces. Original storage adds the sleeve. Gauge and coupons are excluded. The separate two-piece bonded-catch local study and its bound receipt are included as qualification aids; they do not qualify the whole-tub 0.5 N m case.
 
 Use the same frozen inputs. The generator rejects mesh/source mismatches or
 mid-render changes. No display server, printer, device or network service is used

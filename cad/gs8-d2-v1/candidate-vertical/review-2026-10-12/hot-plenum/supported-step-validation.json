@@ -1,0 +1,497 @@
+{
+  "selected": {
+    "full_height_top": 49.0,
+    "front_top": 58.0,
+    "outer_gap_depth": 2.5,
+    "mullions": [
+      21.0,
+      49.0
+    ],
+    "min_cut": 510.0000052,
+    "mouths": {
+      "hot_bottom": 316.7999999999997,
+      "hot_front": 274.1999999999999
+    },
+    "cut_bbox": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "seconds": 9.771815800006152
+  },
+  "step_hot_cut": {
+    "min_cut_mm2": 509.999996,
+    "port_face_mm2": 509.9999999999922,
+    "port_face_blocked_mm2": 0.0,
+    "mouth_face_mm2": {
+      "hot_bottom": 316.7999999999997,
+      "hot_front": 274.1999999999999
+    },
+    "grid": {
+      "nx": 134,
+      "nz": 227,
+      "free_cells": 28602,
+      "max_cell_mm": 0.5,
+      "levels": 12,
+      "level_thickness_mm": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "cut_composition_mm2": {
+      "port": 510.0,
+      "mouth": 0.0,
+      "internal": 0.0
+    },
+    "internal_cut_bbox_xz": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "wall_ports_mm2": 510.0,
+    "bay": "hot",
+    "step_grid": {
+      "levels": 12,
+      "level_thickness_mm": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "slanted_edge_segments": 0,
+      "cells": 30418
+    }
+  },
+  "mouth_neck_sections": [
+    274.19999999999993,
+    274.19999999999993,
+    274.19999999999993,
+    304.0
+  ],
+  "print_overhang": {
+    "kind": "print_overhang",
+    "part": "tub",
+    "face_down": "-Y",
+    "rule": {
+      "layer": 0.2,
+      "overhang_deg": 45.0,
+      "cantilever_max": 1.0,
+      "bridge_max": 30.0,
+      "edge_tol": 0.3,
+      "directions": 8,
+      "px": 0.1
+    },
+    "layers": 317,
+    "regions": 127,
+    "short_overhangs": 4,
+    "bridge_regions": 123,
+    "longest_bridge_mm": 29.9,
+    "apex_line_mm2": 0.0,
+    "hole_edge_bridges": 2,
+    "hole_edge_mm2": 293.77,
+    "bridges": [
+      {
+        "z": 7.6,
+        "span_mm": 29.9,
+        "area_mm2": 1681.52,
+        "hole_edge_mm2": 279.53,
+        "bbox": [
+          1.9,
+          78.3,
+          92.8,
+          98.1
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 28.7,
+        "area_mm2": 626.17,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          127.8,
+          51.8,
+          158.0,
+          78.2
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 27.1,
+        "area_mm2": 1359.45,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          96.2,
+          2.7,
+          126.2,
+          100.0
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 26.5,
+        "area_mm2": 731.4,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          127.8,
+          23.8,
+          155.3,
+          50.2
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 26.3,
+        "area_mm2": 325.69,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          127.8,
+          84.0,
+          154.0,
+          100.0
+        ]
+      },
+      {
+        "z": 7.0,
+        "span_mm": 22.8,
+        "area_mm2": 31.92,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          52.1,
+          98.7,
+          74.8,
+          100.0
+        ]
+      },
+      {
+        "z": 7.0,
+        "span_mm": 22.8,
+        "area_mm2": 31.92,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          4.2,
+          98.7,
+          26.9,
+          100.0
+        ]
+      },
+      {
+        "z": 7.0,
+        "span_mm": 22.2,
+        "area_mm2": 31.08,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          28.5,
+          98.7,
+          50.5,
+          100.0
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 19.6,
+        "area_mm2": 540.96,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          127.8,
+          2.7,
+          155.3,
+          22.2
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 19.0,
+        "area_mm2": 598.4,
+        "hole_edge_mm2": 14.24,
+        "bbox": [
+          1.9,
+          45.8,
+          92.8,
+          64.7
+        ]
+      },
+      {
+        "z": 7.0,
+        "span_mm": 16.6,
+        "area_mm2": 23.24,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          0.0,
+          78.3,
+          1.3,
+          94.8
+        ]
+      },
+      {
+        "z": 7.6,
+        "span_mm": 15.5,
+        "area_mm2": 889.7,
+        "hole_edge_mm2": 0.0,
+        "bbox": [
+          110.8,
+          2.7,
+          126.2,
+          60.0
+        ]
+      }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "unsupported": [],
+    "status": "pass"
+  },
+  "print_bridge_direction": {
+    "kind": "print_bridge_direction",
+    "part": "tub",
+    "face_down": "-Y",
+    "rule": {
+      "layer": 0.2,
+      "overhang_deg": 45.0,
+      "cantilever_max": 1.0,
+      "bridge_max": 30.0,
+      "edge_tol": 0.3,
+      "directions": 8,
+      "px": 0.1,
+      "single_direction_per_region": true
+    },
+    "layers": 317,
+    "regions": 127,
+    "short_overhangs": 4,
+    "bridge_regions": 123,
+    "longest_bridge_mm": 27.1,
+    "failing_region_count": 0,
+    "failing_regions": [],
+    "regions_by_span": [
+      {
+        "z": 7.6,
+        "area_mm2": 1359.45,
+        "direction_deg": 0.0,
+        "span_mm": 27.1,
+        "longest_two_ended_run_mm": 27.1,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          96.2,
+          2.7,
+          126.2,
+          100.0
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 731.4,
+        "direction_deg": 90.0,
+        "span_mm": 26.5,
+        "longest_two_ended_run_mm": 26.5,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          127.8,
+          23.8,
+          155.3,
+          50.2
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 626.17,
+        "direction_deg": 90.0,
+        "span_mm": 26.5,
+        "longest_two_ended_run_mm": 26.5,
+        "open_ended_run": true,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          127.8,
+          51.8,
+          158.0,
+          78.2
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 325.69,
+        "direction_deg": 0.0,
+        "span_mm": 26.3,
+        "longest_two_ended_run_mm": 26.3,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          127.8,
+          84.0,
+          154.0,
+          100.0
+        ]
+      },
+      {
+        "z": 7.0,
+        "area_mm2": 31.92,
+        "direction_deg": 0.0,
+        "span_mm": 22.8,
+        "longest_two_ended_run_mm": 22.8,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          52.1,
+          98.7,
+          74.8,
+          100.0
+        ]
+      },
+      {
+        "z": 7.0,
+        "area_mm2": 31.92,
+        "direction_deg": 0.0,
+        "span_mm": 22.8,
+        "longest_two_ended_run_mm": 22.8,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          4.2,
+          98.7,
+          26.9,
+          100.0
+        ]
+      },
+      {
+        "z": 7.0,
+        "area_mm2": 31.08,
+        "direction_deg": 0.0,
+        "span_mm": 22.2,
+        "longest_two_ended_run_mm": 22.2,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          28.5,
+          98.7,
+          50.5,
+          100.0
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 1681.52,
+        "direction_deg": 90.0,
+        "span_mm": 19.9,
+        "longest_two_ended_run_mm": 19.9,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          1.9,
+          78.3,
+          92.8,
+          98.1
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 540.96,
+        "direction_deg": 90.0,
+        "span_mm": 19.6,
+        "longest_two_ended_run_mm": 19.6,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          127.8,
+          2.7,
+          155.3,
+          22.2
+        ]
+      },
+      {
+        "z": 7.0,
+        "area_mm2": 23.24,
+        "direction_deg": 90.0,
+        "span_mm": 16.6,
+        "longest_two_ended_run_mm": 16.6,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          0.0,
+          78.3,
+          1.3,
+          94.8
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 889.7,
+        "direction_deg": 0.0,
+        "span_mm": 15.5,
+        "longest_two_ended_run_mm": 15.5,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          110.8,
+          2.7,
+          126.2,
+          60.0
+        ]
+      },
+      {
+        "z": 7.6,
+        "area_mm2": 63.55,
+        "direction_deg": 0.0,
+        "span_mm": 15.5,
+        "longest_two_ended_run_mm": 15.5,
+        "open_ended_run": false,
+        "bad_area_mm2": 0.0,
+        "bbox": [
+          110.8,
+          63.0,
+          126.2,
+          67.0
+        ]
+      }
+    ],
+    "supports_used": {},
+    "declared_zones": [],
+    "status": "pass"
+  },
+  "bed_chamfer": {
+    "kind": "bed_chamfer",
+    "part": "tub",
+    "face_down": "-Y",
+    "rule": {
+      "chamfer_mm": 0.6,
+      "angle_deg": 45.0,
+      "z_lo_mm": 0.1,
+      "z_hi_mm": 0.7,
+      "tol_mm": 0.15,
+      "band_width_mm": 0.35,
+      "max_unchamfered_mm": 2.0,
+      "source": "r7 layout.FDM BED_CHAMFER (45 deg, exterior bed-face edges)"
+    },
+    "status": "pass",
+    "bed_area_mm2": 15219.86,
+    "exterior_perimeter_mm": 512.0,
+    "exterior_unchamfered_mm": 0.0,
+    "exterior_unchamfered_share": 0.0,
+    "hole_perimeter_mm": 76.28,
+    "hole_unchamfered_mm_info": 77.38,
+    "unchamfered_bands": [],
+    "exceptions": []
+  },
+  "valid": true,
+  "solid_count": 1,
+  "scope": "Isolated plenum body, not the final whole tub export; envelope and hardware unchanged; actual print/cleanout/thermal performance unqualified"
+}

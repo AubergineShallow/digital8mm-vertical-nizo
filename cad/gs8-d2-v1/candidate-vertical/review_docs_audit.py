@@ -32,6 +32,9 @@ for variant,expected in [('compact-kowa_lm6hc',9),('compact-fujinon_hf6xa',9),('
  d=P/'out'/variant;m=json.loads(read_text(d/'manifest.json'));h=sha(d/'manifest.json')
  printed=[r for r in m['rows'] if r['kind']=='printed'];pi=next(r for r in m['rows'] if r['id']=='pi5');keepout=[r for r in m['rows'] if r['kind']=='keepout']
  rec={'variant':variant,'manifest_sha256':h,'sources':bindings(m['sources'],CAD),'files':bindings(m['files'],d),'mesh_manifest_identical':(d/'meshes/manifest.json').exists() and (d/'manifest.json').read_bytes()==(d/'meshes/manifest.json').read_bytes(),'printed_count':len(printed),'expected_printed_count':expected,'printed_valid_one_solid':all(r['valid'] and r['solid_count']==1 for r in printed),'pi_representation':{k:pi.get(k) for k in ('geometry_role','solid_count','volume_semantics','occupied_material_volume_mm3')},'keepouts_non_material':all(r.get('occupied_material_volume_mm3')==0 for r in keepout),'reports':[]}
+ rec['printed_count_semantics']='Historical field: printed assembly rows, not physical production pieces.'
+ rec['production_prints'],rec['production_print_findings']=ER.production_print_counts(m)
+ rec['expected_production_piece_count']=expected+1  # tub body and bonded insert are separate physical prints
  rec['bound_cache']=EC.summarize_bindings(rec['files'],m,variant)  # FP-03: files.pass stays false while a bound cache is missing
  rec['selected_folder_findings']=ER.selected_folder_findings(d,h,P)  # FP-04 (VN-09): every report in the folder binds this manifest or is declared historical
  for name in ['verification.json','print-mesh-checks.json']+(['print-checks.json','csi-source-tool-checks.json','power-service-checks.json','hdmi-solid-checks.json','wire-solid-checks.json','check-scope-checks.json','harness-checks.json'] if variant=='compact-kowa_lm6hc' else []):
@@ -53,6 +56,13 @@ expected=b.outputs(rows,base)
 refs=[(r['line'],r['included_in']) for r in rows if r['included_in'] and r['included_in'] not in by]
 source_missing=[(r['line'],r['source']) for r in rows if not r['source'].startswith(('http://','https://')) and not (P/r['source']).exists()]
 out['bom']={'rows':len(rows),'baseline_rows_preserved':len(base.LINES),'included_decomposition_rows':sum(bool(r['included_in']) for r in rows),'generator_outputs_current':all(read_text(P/n)==s for n,s in expected.items()),'invalid_parent_references':refs,'missing_local_sources':source_missing,'cad_imported': 'cadquery' in sys.modules,'not_a_physical_total':True,'installed_categories':{'printed_compact':9,'printed_original':10,'body_pt_screws':7,'stack_screws':8,'stack_standoffs':4,'cooler_push_pins':2,'lens_screws':4,'lens_washers':4,'lens_inserts':4,'functional_harnesses':11,'hdmi_purchased_pieces':3,'planned_solder_joints':24}}
+counts_by_variant={v['variant']:v['production_prints'] for v in out['variants']}
+installed=out['bom']['installed_categories']
+for suffix,variant in [('compact','compact-kowa_lm6hc'),('original','original-kowa_lm6hc')]:
+ installed.pop('printed_'+suffix)
+ installed['printed_assembly_rows_'+suffix]=counts_by_variant[variant]['assembly_row_count']
+ installed['physical_printed_pieces_'+suffix]=counts_by_variant[variant]['piece_count']
+out['bom']['historical_printed_category_semantics']='Previous printed_compact / printed_original values counted assembly rows only.'
 owned=['README.md','REPRODUCE.md','CHECKPOINT-STATUS.json','REVIEW.md','ASSEMBLY-VERTICAL.md','MEASUREMENTS-TO-CLOSE.md','make_bom_vertical.py','BOM-VERTICAL.md','BOM-VERTICAL.csv','structural-review/CONCEALED-VENT-STRUCTURAL.md','structural-review/concealed-vent-structural.json','structural-review/update_concealed_vent_structure.py','structural-review/reference-export18-structural-binding.json','structural-review/coupons/README.md','structural-review/coupon-reproducer-recovery.json'];out['documents']=[entry(P/n) for n in owned];out['missing_document_local_links']=[]
 for name in [n for n in owned if n.endswith('.md')]:
  for target in re.findall(r'\]\(([^)]+)\)',read_text(P/name)):

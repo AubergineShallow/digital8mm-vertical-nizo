@@ -1,31 +1,33 @@
 {
-  "state": "FROZEN SHADOW-PLENUM REVIEW CANDIDATE; PRINT AND PHYSICAL HOLDS REMAIN",
-  "updated_utc": "2026-10-11T16:44:34Z",
+  "state": "REVIEW CANDIDATE; RELEASE BLOCKED; SEE CURRENT RECEIPT FOR IDENTITY AND GATE STATUS",
+  "updated_utc": "2026-10-12T03:59:22Z",
   "baseline_head": "d38468e58eb2b02d56743e2e0cfdd8f780818a65",
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "manifest": {
     "path": "out/compact-kowa_lm6hc/manifest.json",
-    "sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810"
+    "sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4"
   },
   "geometry_source_current": true,
-  "source_and_export_hashes_verified": false,
+  "source_and_export_hashes_verified": true,
   "selected_evidence": {
     "path": "out/compact-kowa_lm6hc/current-review-evidence.json",
-    "sha256": "4f8985876ea14648411f4f6162c0302b1a762d4ab8845139a9776ae84fcfd017"
+    "sha256": "8f3a46860619c02ad209b68f75e978550f30b507adddb95a3d21c42490839ce3",
+    "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+    "reconciliation_status": "blocked"
   },
   "evidence_reconciler_that_wrote_current_evidence": {
-    "note": "The reconciler that wrote selected_evidence, as committed in 9ced753; selected_evidence records the same hash as reconciler_sha256. It is not the current reconcile_review_evidence.py (current_evidence_reconciler). Update this entry when a reconciler rewrites selected_evidence.",
-    "git_object": "9ced753:cad/gs8-d2-v1/candidate-vertical/reconcile_review_evidence.py",
-    "sha256": "9b350bc41d3ad213f1785d4a282bf683bf29c4d84ffcf73f78b0714e21e9e7e9"
+    "path": "reconcile_review_evidence.py",
+    "sha256": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
+    "note": "Writer hash recorded by the selected receipt; a later writer edit makes this pair stale."
   },
   "current_evidence_reconciler": {
     "path": "reconcile_review_evidence.py",
-    "sha256": "d0306ca040135cf74da99d8e2d59ae51a9a4ee362c6f194a305f3e36a0acf1ab",
+    "sha256": "5230b24b3ee8a6cde2cbcfa531af305f0982a914c615c4879c92a9575990429d",
     "generator": "make_coverage_vertical.py"
   },
   "main_summary": {
-    "pass": 620,
-    "fail": 14,
+    "pass": 633,
+    "fail": 1,
     "info": 32
   },
   "plenum_summary": {
@@ -61,11 +63,11 @@
     "identity": "D2-vertical-concealed-vents-review",
     "receipt": {
       "path": "guide/out-concealed-vents/guide-receipt.json",
-      "sha256": "d03df5f2b6d616fad932bedf773bbb976d066a4d1673ce9825db066e056c6afe"
+      "sha256": "b1b47384df5174e46caab97dd18693d0b0bbe864a68ad67b1461c3a22b6505ce"
     },
     "pdf": "guide/out-concealed-vents/D2-vertical-concealed-vents-review.pdf",
-    "pages": 32,
-    "manifest_binding_current": false,
+    "pages": 38,
+    "manifest_binding_current": true,
     "visual_review_recorded": true,
     "physical_release": false
   },
@@ -91,8 +93,8 @@
           "info": 6
         },
         "geometric": {
-          "fail": 14,
-          "pass": 442,
+          "fail": 1,
+          "pass": 455,
           "info": 17
         }
       },
@@ -114,9 +116,9 @@
           "pass": 1
         },
         "geometric": {
-          "pass": 26,
+          "pass": 29,
           "info": 18,
-          "fail": 12
+          "fail": 9
         }
       },
       "check_scope": {
@@ -125,8 +127,7 @@
           "info": 9
         },
         "geometric": {
-          "pass": 28,
-          "fail": 2,
+          "pass": 30,
           "info": 5
         }
       },
@@ -190,5 +191,35 @@
         "removals"
       ]
     }
-  }
+  },
+  "selected_evidence_current": true,
+  "source_and_export_binding_scope": "Selected manifest sources and all selected manifest export files only.",
+  "evidence_bindings_verified": true,
+  "evidence_gates_pass": false,
+  "evidence_reconciliation_status": "blocked",
+  "evidence_gate_failures": [
+    [
+      "harness_failures_differ",
+      "{\"cable_routes\": [\"fan\", \"fpc\", \"oled_flex\", \"pigtail_negative\", \"pigtail_positive\", \"power_button\"], \"cable_stow\": [\"power_button_j2_pair\"], \"lead_access\": [\"pigtail_drop\", \"pigtail_ties_on_route\", \"pigtail_xt30_mouth\"], \"mate_reach\": [\"j2_btn\", \"xt30_pack\"]}",
+      "{}"
+    ]
+  ],
+  "active_rigid_failures": [
+    {
+      "category": "interference",
+      "id": "pi5/cooler",
+      "status": "fail",
+      "overlap_mm3": 79.902671,
+      "bbox": [
+        -100.8,
+        -56.203553292294,
+        -1.2,
+        4.5,
+        15.05,
+        56.25
+      ],
+      "reason": "Active source/proxy conflict: source-corrected Pi features meet the approximate cooler perimeter/underside/pin profile. Actual cooler registration and geometry are unmeasured; no physical incompatibility or clearance qualification is inferred."
+    }
+  ],
+  "release_status": "blocked"
 }

@@ -1,0 +1,24 @@
+{
+  "physical_qualified": false,
+  "published": false,
+  "checks": [
+    {
+      "variant": "compact-kowa_lm6hc",
+      "exit_code": 0,
+      "log": "compact-kowa_lm6hc-export.log",
+      "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4"
+    },
+    {
+      "variant": "compact-fujinon_hf6xa",
+      "exit_code": 0,
+      "log": "compact-fujinon_hf6xa-export.log",
+      "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f"
+    },
+    {
+      "variant": "original-kowa_lm6hc",
+      "exit_code": 0,
+      "log": "original-kowa_lm6hc-export.log",
+      "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
+    }
+  ]
+}

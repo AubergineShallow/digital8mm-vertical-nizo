@@ -442,7 +442,7 @@ def roll_catch_rows(L, rr, shapes, CK, ST, s_values=None, parts_of=None):
 
 # FX (verifier T2 minor): the +Y catch is a bonded stub (model.tab_catch_split); the roll_catch rows above grade the
 # ideal bonded tub. Its location stack-up: the tenon's -Y face is the zero-clearance datum, so an adhesive film moves
-# the stub +Y by its thickness; the pocket clearances let it shift +-0.1 in x and tilt 0.1 mm over the 3.5 mm tenon
+# the stub +Y by its thickness; the pocket clearances let it shift +-0.1 in x and tilt 0.1 mm over the modeled tenon
 # about x with the tenon's -Y face still on the datum at one end (pivot on the datum's lower edge on the joint plane:
 # the tenon top swings +Y and the catch face below swings -Y; or pivot on its upper edge: the whole stub swings +Y).
 # Each case rebuilds the tub as print stock + displaced stub and reruns r7 check_roll_catch; its window and

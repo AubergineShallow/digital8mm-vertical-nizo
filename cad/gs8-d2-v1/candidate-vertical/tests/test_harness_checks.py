@@ -95,10 +95,10 @@ class TestR7Port(unittest.TestCase):
 class TestFamilies(unittest.TestCase):
     def test_bounds_are_source_literals(self):
         src = read_text(CV / 'signal_routes.py')
-        self.assertIn('_solve_top(qt_curve,250-qt_longest,56.,87.5)', src)   # H2: was 'lo,hi=34.,50.' (low run)
+        self.assertIn('lo,hi=44.,55.2', src)   # H2: was 'lo,hi=34.,50.' (low run)
         self.assertNotIn('lo,hi=34.,50.', src)
         self.assertIn('_solve_top(make,250,35,80)', src)
-        self.assertEqual(HR.FAMILIES['qt']['bound'], (56.0, 87.5))
+        self.assertEqual(HR.FAMILIES['qt']['bound'], (44.0, 55.2))
         self.assertEqual(HR.FAMILIES['run_pin37']['bound'], (35.0, 80.0))
 
     def test_recompute_and_minima(self):
@@ -211,7 +211,7 @@ class TestFamilyMemberClearance(unittest.TestCase):
         r = row(rows, 'qt', 'cable_stow')
         self.assertEqual(r['status'], 'pass')
         mc = r['member_clearance']
-        self.assertEqual((mc['variable'], mc['value'], mc['od_mm']), ('top', 87.5, 3.2))   # H2 (was low 34)
+        self.assertEqual((mc['variable'], mc['value'], mc['od_mm']), ('low', 44.0, 3.2))   # H2 (was low 34)
         self.assertGreater(mc['pieces'], 2)
         self.assertIn('pi5', mc['exempt'])
         for rid in ('run_pin37', 'run_pin39'):
@@ -223,7 +223,7 @@ class TestFamilyMemberClearance(unittest.TestCase):
     def test_planted_part_on_the_bound_member_fails(self):
         H = data()
         c = H['cables']['qt']
-        mem = HR.family_eval(R.rounded_path, c['curve'], c['family'], 87.5)['points']   # H2: longest member
+        mem = HR.family_eval(R.rounded_path, c['curve'], c['family'], 44.0)['points']   # H2: longest member
         p = mem[len(mem) // 2]
         H['boxes']['zz_planted'] = [p[0] - 1, p[0] + 1, p[1] - 1, p[1] + 1, p[2] - 1, p[2] + 1]
         H['kinds']['zz_planted'] = 'printed'
@@ -401,13 +401,13 @@ class TestRegistrationAndArchive(unittest.TestCase):
 # cable_stow power_button_j2_pair (new row: the V-28 class pair does not fit routes.py power_stow, user decision 13);
 # cable_routes power_button (installed sweep added: cooler and pi5 at the J2 pad hypothesis, VN-73 / G-V-POWER), fan
 # (the estimated native-lead route runs inside the cooler model beyond its 10 mm terminal zone), fpc and oled_flex
-# (ribbon round-envelope screen: not proof of a conflict, clearance unproven); mate_reach qt_enc (end parts exempt
-# only near their terminals: the free route crosses the pi5 about 100 mm from the QT headers).
+# (ribbon round-envelope screen: not proof of a conflict, clearance unproven). Corrective 2026-10-12 removes
+# the QT route/stow and qt_enc failures only after exact stored/free sweeps, with old-geometry negative controls.
 EXPECTED_FAILING = {
-    'cable_routes': ['fan', 'fpc', 'oled_flex', 'pigtail_negative', 'pigtail_positive', 'power_button', 'qt'],
-    'cable_stow': ['power_button_j2_pair', 'qt'],
+    'cable_routes': ['fan', 'fpc', 'oled_flex', 'pigtail_negative', 'pigtail_positive', 'power_button'],
+    'cable_stow': ['power_button_j2_pair'],
     'lead_access': ['pigtail_drop', 'pigtail_ties_on_route', 'pigtail_xt30_mouth'],
-    'mate_reach': ['j2_btn', 'qt_enc', 'xt30_pack'],
+    'mate_reach': ['j2_btn', 'xt30_pack'],
 }
 
 if __name__ == '__main__':

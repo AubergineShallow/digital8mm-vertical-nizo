@@ -71,6 +71,19 @@ for ki,k in enumerate(('x','y','z')):
     com.append(sum(r['mass_est_g']*(model.L.lens_spec(a.lens)['com'][ki] if r['id']=='lens' else getattr(m['rows'][r['id']]['shape'].Center(),k)) for r in manifest)/mass)
 meta={'runtime':EC.runtime(),'determinism':EC.POLICY,'print_poses':print_poses,'revision':model.REV,'storage':a.storage,'lens':a.lens,'state':m['physical_state'],'built_utc':EC.UNRECORDED,'rows':manifest,'sources':sources,'core_dimensions_mm':[m['length'],m['width'],m['height']],'core_origin_mm':list(m['core_origin']),'ventilation':m['ventilation'],'complete_bbox_mm':bb,'complete_dimensions_mm':dims,'complete_bbox_volume_mm3':dims[0]*dims[1]*dims[2],'mass_est_g':mass,'com_est_mm':com,'grip_axis_x':model.L.GRIP['axis_x'],'com_offset_from_grip_mm':com[0]-model.L.GRIP['axis_x'],'qualification':'Computed geometry only. COTS proxies, mass and centre of mass are estimates. The legacy12g XT30/fused-pigtail mass is concentrated at its rigid proxy; other harness masses are excluded. The270mm16AWG distributed mass and actual weights remain unmeasured. No physical qualification claimed.'}
 meta['fps_geometry']=m['fps_geometry']
+meta['production_prints']={
+    'assembly_row_count':sum(r['kind']=='printed' for r in manifest),
+    'piece_count':sum(r['kind']=='printed' for r in manifest)+1,
+    'files':sorted(f'stl/{n}.stl' for n in print_poses if n!='centring_gauge'),
+    'count_basis':'The tub assembly row is made from separate printed body and bonded tab-catch insert. Gauge and coupons are excluded.'}
+meta['tab_catch_joint']={
+    'tenon_mm':dict(model.TAB_CATCH_TENON),
+    'pocket_clearance_mm':dict(model.TAB_CATCH_POCKET_CLEAR),
+    'split_z_mm':model.TAB_CATCH_SPLIT_Z,
+    'ceiling_top_z_mm':model.TAB_CATCH_CEILING_TOP,
+    'ceiling_floor_mm':model.TAB_CATCH_CEILING_TOP-model.TAB_CATCH_SPLIT_Z-model.TAB_CATCH_TENON['h']-model.TAB_CATCH_POCKET_CLEAR['z'],
+    'physical_qualified':False,
+    'hold':'Actual seating, datum tilt, adhesive preparation/cure and warm torque/creep require the as-printed joint coupon.'}
 meta['pi_source_geometry']=m['pi_source_geometry']
 meta['joint_geometry']={'lip_mm':2.4,'head_mm':2.4,'axial_gap_mm':.25,'front_floor_min_mm':2.7,'physical_qualified':False}
 meta['files']={rel_posix(f,out):hashlib.sha256(f.read_bytes()).hexdigest() for folder in ('step','stl','meshes') for f in (out/folder).glob('*') if f.is_file() and f.name!='manifest.json'}

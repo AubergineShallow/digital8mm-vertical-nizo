@@ -1,8 +1,8 @@
 {
   "method": "CAD-free analytical mass/load sensitivity using retained export18 sections; no FEA, contact solution, physical test or strength qualification",
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "built_utc": "unrecorded (deterministic build, FP-03)",
-  "verification_source_sha256": "aedf0062db5758c7a245fabbf5e65ec5b25e630361c7f7a2361f72637f01069a",
+  "verification_source_sha256": "d5d6f9ea5dc1f6801852b4d8b948acb9bbd2c5eaaa68367b291f2a0f8005cd85",
   "reference_manifest_sha256": "c9e1e20710bb5f947ad47fa62328cebffb099fd3832d22909056bf8f1867cc76",
   "reference_structural_binding_sha256": "c02c0fad5c6ce7bfa81629c5a29c2bc49982dc89944d1e8de836c10c4c802fbc",
   "changed_manifest_rows": [
@@ -28,10 +28,10 @@
     "field": "hardware_gates.gates",
     "source_sha256": "2128ccead1284e777c1d67f1b621c3c8de1a5c92137a6d10179c8cf014d47ad1"
   },
-  "geometry_scope": "All manifest rows other than s_c4/base_grip/eyecup/carrier/tub/panel/lens_collar are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
+  "geometry_scope": "Changed manifest rows: s_c4, base_grip, eyecup, carrier, tub, panel, lens_collar. All other rows are identical. This is metadata consistency, not a new geometric equivalence test. Retained local sections require source/STEP preservation evidence. Old full-tub and full-panel zero-difference bindings do not apply.",
   "ventilation_report": {
     "path": "out/compact-kowa_lm6hc/shadow-plenum-checks.json",
-    "sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
+    "sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
     "same_manifest": true,
     "summary": {
       "pass": 49,
@@ -39,15 +39,169 @@
       "info": 21
     }
   },
+  "plenum_document_context": {
+    "same_manifest": true,
+    "revision": "shadow-gap plenum trial4 (windowed flow ribs, supported stepped front mouth, cold-mouth lintels, skin bed chamfer)",
+    "printed_assembly_rows": 9,
+    "physical_print_pieces": 10,
+    "tab_catch_joint": {
+      "tenon_mm": {
+        "x": [
+          -12.9,
+          -9.8
+        ],
+        "t": 1.6,
+        "h": 10.0
+      },
+      "pocket_clearance_mm": {
+        "x": 0.1,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "split_z_mm": 83.5,
+      "ceiling_top_z_mm": 95.2,
+      "ceiling_floor_mm": 1.6000000000000028,
+      "physical_qualified": false,
+      "hold": "Actual seating, datum tilt, adhesive preparation/cure and warm torque/creep require the as-printed joint coupon."
+    },
+    "mouths": {
+      "cold_rear": {
+        "minimum_sampled_neck_mm2": 332.6399999999999,
+        "status": "pass"
+      },
+      "cold_bottom": {
+        "minimum_sampled_neck_mm2": 370.43999999999994,
+        "status": "pass"
+      },
+      "hot_bottom": {
+        "minimum_sampled_neck_mm2": 316.79999999999995,
+        "status": "pass"
+      },
+      "hot_front": {
+        "minimum_sampled_neck_mm2": 274.19999999999993,
+        "status": "pass"
+      }
+    },
+    "wall_ports_mm2": {
+      "cold": 420.0,
+      "hot": 510.0
+    },
+    "coupons": {
+      "same_manifest": true,
+      "count": 3,
+      "receipts": [
+        {
+          "name": "preliminary_regular_grid",
+          "print_dimensions_mm": [
+            48.0,
+            32.0,
+            10.100000000000009
+          ],
+          "valid": true,
+          "solid_count": 1,
+          "step_reimport_valid": true,
+          "physical_qualified": false,
+          "status": "Geometry-only open-edge coupon; not print released",
+          "limitations": [
+            "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
+            "Does not reproduce the ports, CSI sleeve, support interruptions or front/top enclosure edge spans.",
+            "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
+            "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
+          ]
+        },
+        {
+          "name": "port_service_and_edge_regions",
+          "print_dimensions_mm": [
+            110.000000000001,
+            100.0,
+            10.100000000000016
+          ],
+          "valid": true,
+          "solid_count": 1,
+          "step_reimport_valid": true,
+          "physical_qualified": false,
+          "status": "Geometry-only open-edge coupon; not print released",
+          "limitations": [
+            "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
+            "The rear section and complete cold-rear mouth are absent; retained edge spans are not a global maximum-span proof.",
+            "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
+            "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
+          ]
+        },
+        {
+          "name": "all_four_mouths",
+          "print_dimensions_mm": [
+            158.000000000001,
+            100.00000000000867,
+            10.10000000000002
+          ],
+          "valid": true,
+          "solid_count": 1,
+          "step_reimport_valid": true,
+          "physical_qualified": false,
+          "status": "Geometry-only open-edge coupon; not print released",
+          "limitations": [
+            "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
+            "The crop opens the inner wall face and the tub body is absent, so internal cleanout and the tub-side stiffness are not represented.",
+            "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
+            "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
+          ]
+        }
+      ],
+      "source_sha256": {
+        "vent-study/shadow-plenum-coupon/coupon-index.json": "0e4fc3ccc3e3094347244bd041822d81d5c8986d45320871b711fa793d5b8b4b",
+        "vent-study/shadow-plenum-coupon/receipt.json": "a6f5e45798a23847ddf735204337ea48789aecedb7bc6cab345a8026531d94c5",
+        "vent-study/shadow-plenum-coupon/port-service-receipt.json": "59b5b8c8435da1bd38c9edca0b26636464af5000a468975b2dd3d036a678e836",
+        "vent-study/shadow-plenum-coupon/all-mouths-receipt.json": "96266e878fef8d7618e5f93b35db152b332d863a497a5a088b4518472e3ce752"
+      }
+    }
+  },
+  "bonded_catch_coupon": {
+    "same_manifest": true,
+    "path": "structural-review/bonded-catch-coupon/receipt.json",
+    "sha256": "93521fbf6151a766ff3eea2fb8a0ba453eb31f67ea63121de50bc5f0880cd135",
+    "status": "GEOMETRY ONLY: separate local bonded-catch study; not print released",
+    "piece_count": 2,
+    "crop_bounds_mm": [
+      -20.0,
+      0.0,
+      -35.6,
+      28.0,
+      76.0,
+      100.0
+    ],
+    "purpose": "Local joint seating, datum-tilt, adhesion and warm-creep screening in the production layer orientations",
+    "physical_qualified": false,
+    "parts": [
+      {
+        "id": "catch-host-coupon",
+        "face_down": "-Y",
+        "print_dimensions_mm": [
+          20.0,
+          24.0,
+          63.599998474121094
+        ]
+      },
+      {
+        "id": "catch-insert",
+        "face_down": "-Z",
+        "print_dimensions_mm": [
+          6.300000190734863,
+          11.999999999999998,
+          15.0
+        ]
+      }
+    ]
+  },
   "assembly": {
     "reference_mass_g": 831.3793077015797,
-    "current_mass_g": 870.4211825643972,
-    "delta_mass_g": 39.04187486281751,
-    "delta_mass_percent": 4.696036394116202,
+    "current_mass_g": 870.2589514403712,
+    "delta_mass_g": 38.879643738791515,
+    "delta_mass_percent": 4.676522903399853,
     "com_mm": [
-      -46.46040339000588,
-      1.0181348267748092,
-      29.959862170988103
+      -46.468895314001784,
+      1.0244011769533663,
+      29.956975351895313
     ],
     "manifest_mesh_dimensions_mm": [
       248.83393461632127,
@@ -63,8 +217,8 @@
   "printed": {
     "tub": {
       "reference_proxy_mass_g": 122.5801431089637,
-      "current_proxy_mass_g": 155.88124762777736,
-      "delta_volume_mm3": 36614.73833844272
+      "current_proxy_mass_g": 155.7190165037513,
+      "delta_volume_mm3": 36436.364370299736
     },
     "panel": {
       "reference_proxy_mass_g": 37.41200176346288,
@@ -73,43 +227,43 @@
     },
     "carrier": {
       "reference_proxy_mass_g": 9.39895220326626,
-      "current_proxy_mass_g": 14.072834640003924,
-      "delta_volume_mm3": 4368.11442685763
+      "current_proxy_mass_g": 14.072834640003922,
+      "delta_volume_mm3": 4368.114426857628
     }
   },
   "upper_body": {
     "free_body": "new free body: complete manifest minus the J4 lower rows measured from their bound STEPs (lower rows changed: base_grip)",
-    "mass_g": 679.27871810342,
+    "mass_g": 679.116486979394,
     "com_mm": [
-      -44.73351011984788,
-      1.5809591234016365,
-      54.48462343243173
+      -44.743979630119554,
+      1.5891236357648704,
+      54.486782707692065
     ],
-    "force_5g_N": 33.30724320444452,
-    "floor_moment_5g_Nmm": 1814.7326035665806,
-    "moment_change_percent": 5.498822779220425,
-    "lip_stress_MPa": 8.979145694730477,
-    "head_wing_stress_MPa": 9.924318925754738,
+    "force_5g_N": 33.29928848518237,
+    "floor_moment_5g_Nmm": 1814.3710960128842,
+    "moment_change_percent": 5.477806668491048,
+    "lip_stress_MPa": 8.977356985480416,
+    "head_wing_stress_MPa": 9.922341931320462,
     "unequal_station_sharing_multiplier": [
       0.6,
       1.4
     ]
   },
   "grip": {
-    "force_5g_N": 42.679579449975726,
-    "load_point_z_mm": 54.48462343243173,
+    "force_5g_N": 42.67162473071358,
+    "load_point_z_mm": 54.486782707692065,
     "hand_plane_z_mm": -55,
-    "moment_Nmm": 4672.757684335144,
-    "moment_change_percent": 4.4165541341820935,
+    "moment_Nmm": 4671.978904675817,
+    "moment_change_percent": 4.399151672092239,
     "nominal_stress_x_y_MPa": [
-      1.587785564587524,
-      1.687067298494566
+      1.5875209381753266,
+      1.6867861254090477
     ]
   },
   "carrier": {
-    "payload_g": 127.27283464000394,
+    "payload_g": 127.27283464000392,
     "reference_payload_g": 122.59895220326626,
-    "carrier_mass_delta_g": 4.673882436737664,
+    "carrier_mass_delta_g": 4.673882436737662,
     "payload_ratio": 1.0381233473267248,
     "reinforced_screen": {
       "stress_MPa": 3.517507274114796,
@@ -126,9 +280,9 @@
     "wiring_mass_sensitivity_g": 12,
     "wiring_upper_height_mm": 100,
     "added_5g_moment_Nmm": 58.8399,
-    "equal_share_plus_wiring_Nm": 0.9367862517832902,
+    "equal_share_plus_wiring_Nm": 0.9366054980064421,
     "proposed_rounded_equal_share_screen_Nm": 0.95,
-    "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
+    "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
     "old_0_90_Nm_covers_equal_share_plus_wiring": false,
     "all_variants_screen_Nm": 1.0,
     "governing_variant": "original-kowa_lm6hc",
@@ -151,12 +305,12 @@
           "tub"
         ],
         "added_rows": [],
-        "upper_mass_g": 565.8594999368922,
-        "floor_moment_5g_Nmm": 1481.0538306410776,
-        "equal_share_plus_wiring_Nm": 0.7699468653205388,
-        "seventy_percent_share_plus_wiring_Nm": 1.077925611448754,
+        "upper_mass_g": 565.6972688128662,
+        "floor_moment_5g_Nmm": 1480.6923230873817,
+        "equal_share_plus_wiring_Nm": 0.7697661115436908,
+        "seventy_percent_share_plus_wiring_Nm": 1.077672556161167,
         "proposed_rounded_equal_share_screen_Nm": 0.8,
-        "manifest_sha256": "1ef16c8742bafe6b48d0d6dfa3643fbeb5cfc0f40d2d6b54156d9e778cac2835"
+        "manifest_sha256": "e3a652e732a8d099fa8df51b62c37dea6f71e6f3b8a40a35aed735fe8ac03a1f"
       },
       "compact-kowa_lm6hc": {
         "valid": true,
@@ -170,12 +324,12 @@
           "tub"
         ],
         "added_rows": [],
-        "upper_mass_g": 679.27871810342,
-        "floor_moment_5g_Nmm": 1814.7326035665806,
-        "equal_share_plus_wiring_Nm": 0.9367862517832902,
-        "seventy_percent_share_plus_wiring_Nm": 1.3115007524966062,
+        "upper_mass_g": 679.116486979394,
+        "floor_moment_5g_Nmm": 1814.3710960128842,
+        "equal_share_plus_wiring_Nm": 0.9366054980064421,
+        "seventy_percent_share_plus_wiring_Nm": 1.3112476972090188,
         "proposed_rounded_equal_share_screen_Nm": 0.95,
-        "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810"
+        "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4"
       },
       "original-kowa_lm6hc": {
         "valid": true,
@@ -198,12 +352,12 @@
         "added_rows": [
           "stick_sleeve"
         ],
-        "upper_mass_g": 721.5355623426694,
-        "floor_moment_5g_Nmm": 1905.4884510286029,
-        "equal_share_plus_wiring_Nm": 0.9821641755143014,
-        "seventy_percent_share_plus_wiring_Nm": 1.375029845720022,
+        "upper_mass_g": 721.373331219444,
+        "floor_moment_5g_Nmm": 1905.1269434770163,
+        "equal_share_plus_wiring_Nm": 0.9819834217385082,
+        "seventy_percent_share_plus_wiring_Nm": 1.3747767904339114,
         "proposed_rounded_equal_share_screen_Nm": 1.0,
-        "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9"
+        "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295"
       }
     },
     "warning": "Proposed inert-sample screen only, not a rating or approved load test. Equal-share target does not bound 70% station reaction; fixture capacity, local contact, warm creep and whole-assembly response remain unqualified."
@@ -226,7 +380,15 @@
       30
     ],
     "not_allowables": true,
-    "notches_creep_fatigue_impact_excluded": true
+    "notches_creep_fatigue_impact_excluded": true,
+    "asa_density": {
+      "inherited_g_cm3": 1.07,
+      "manufacturer_reference_g_cm3": 1.13,
+      "contribution_change_percent": 5.607476635513997,
+      "scope": "ASA contribution at fixed volume and unchanged empirical mass factor only; not a complete-camera mass change or adopted grade",
+      "source": "https://wiki.polymaker.com/polymaker-products/more-about-our-products/documents/technical-data-sheets/abs-asa/polymaker-tm-asa",
+      "exact_grade_batch_and_process_confirmed": false
+    }
   },
   "physical_qualified": false,
   "j4_lower_centres_file": "structural-review/j4-lower-centres.json"

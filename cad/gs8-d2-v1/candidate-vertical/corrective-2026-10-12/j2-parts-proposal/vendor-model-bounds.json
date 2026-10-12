@@ -1,0 +1,42 @@
+{
+  "430200201": {
+    "file_sha256": "c7f739c1ae8184d404227223ce324142bbbba3c06c2fc2d5a3712434e4b9613c",
+    "valid": true,
+    "solids": 1,
+    "vendor_axes_bbox_mm": [
+      -2.625,
+      2.635,
+      -8.445,
+      8.445,
+      -4.825,
+      4.125
+    ],
+    "vendor_axes_size_mm": [
+      5.26,
+      16.89,
+      8.95
+    ],
+    "nominal_solid_volume_mm3": 312.5525860557168,
+    "scope": "Nominal manufacturer housing STEP only, no tolerance, contact, wire, latch actuation, or device fit qualification"
+  },
+  "430250200": {
+    "file_sha256": "f9a12a374778b5a2bcf6ebc2d436bef732abc6640d76b9224b3c5d63f337a2a2",
+    "valid": true,
+    "solids": 1,
+    "vendor_axes_bbox_mm": [
+      -2.645,
+      2.635,
+      -4.0,
+      10.0,
+      -6.7,
+      4.13
+    ],
+    "vendor_axes_size_mm": [
+      5.279999999999999,
+      14.0,
+      10.83
+    ],
+    "nominal_solid_volume_mm3": 334.65845649700316,
+    "scope": "Nominal manufacturer housing STEP only, no tolerance, contact, wire, latch actuation, or device fit qualification"
+  }
+}

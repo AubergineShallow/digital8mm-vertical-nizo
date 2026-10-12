@@ -1,75 +1,150 @@
 {
- "purpose": "VN-36 regression pin (fixup-1 of FP-12): the orifice-network effective areas and shares for every occlusion case. verify_check_scope.py row flow_network/baseline_drift fails when a recomputed value drifts from these without a recorded reason; to accept a deliberate CAD change, rewrite this file with the new values and a new reason.",
- "fields": [
-  "intake_eff_mm2",
-  "system_eff_mm2",
-  "exhaust_eff_mm2",
-  "cold_path_eff_mm2",
-  "csi_share_of_intake"
- ],
- "rel_tol": 1e-06,
- "variant": "original-kowa_lm6hc",
- "cases": {
-  "cold_bottom_blocked": {
-   "intake_eff_mm2": 557.4593260219305,
-   "system_eff_mm2": 275.1081007520819,
-   "exhaust_eff_mm2": 316.3093414093827,
-   "cold_path_eff_mm2": 234.31773336832683,
-   "csi_share_of_intake": 0.5796684665042113
+  "purpose": "VN-36 regression pin (fixup-1 of FP-12): the orifice-network effective areas and shares for every occlusion case. verify_check_scope.py row flow_network/baseline_drift fails when a recomputed value drifts from these without a recorded reason; to accept a deliberate CAD change, rewrite this file with the new values and a new reason.",
+  "fields": [
+    "intake_eff_mm2",
+    "system_eff_mm2",
+    "exhaust_eff_mm2",
+    "cold_path_eff_mm2",
+    "csi_share_of_intake"
+  ],
+  "rel_tol": 1e-06,
+  "variant": "original-kowa_lm6hc",
+  "cases": {
+    "nominal": {
+      "intake_eff_mm2": 681.9246365332715,
+      "system_eff_mm2": 306.21630824793243,
+      "exhaust_eff_mm2": 342.71241596743664,
+      "cold_path_eff_mm2": 358.7830438796679,
+      "csi_share_of_intake": 0.4738670160039559
+    },
+    "cold_rear_blocked": {
+      "intake_eff_mm2": 616.3861658714331,
+      "system_eff_mm2": 299.5276675933983,
+      "exhaust_eff_mm2": 342.71241596743664,
+      "cold_path_eff_mm2": 293.2445732178296,
+      "csi_share_of_intake": 0.524251857918896
+    },
+    "cold_bottom_blocked": {
+      "intake_eff_mm2": 556.4172427628308,
+      "system_eff_mm2": 291.8032097745033,
+      "exhaust_eff_mm2": 342.71241596743664,
+      "cold_path_eff_mm2": 233.27565010922726,
+      "csi_share_of_intake": 0.5807540957017764
+    },
+    "cold_bottom_strap_20_of_71": {
+      "intake_eff_mm2": 662.2496100263453,
+      "system_eff_mm2": 304.3714160011921,
+      "exhaust_eff_mm2": 342.71241596743664,
+      "cold_path_eff_mm2": 339.1080173727417,
+      "csi_share_of_intake": 0.48794531210180486
+    },
+    "hot_bottom_blocked": {
+      "intake_eff_mm2": 681.9246365332715,
+      "system_eff_mm2": 209.81961250243128,
+      "exhaust_eff_mm2": 220.51746527686922,
+      "cold_path_eff_mm2": 358.7830438796679,
+      "csi_share_of_intake": 0.4738670160039559
+    },
+    "hot_front_blocked": {
+      "intake_eff_mm2": 681.9246365332715,
+      "system_eff_mm2": 192.46282411768485,
+      "exhaust_eff_mm2": 200.61891051948535,
+      "cold_path_eff_mm2": 358.7830438796679,
+      "csi_share_of_intake": 0.4738670160039559
+    },
+    "set_down_on_table": {
+      "intake_eff_mm2": 556.4172427628308,
+      "system_eff_mm2": 205.00466631291522,
+      "exhaust_eff_mm2": 220.51746527686922,
+      "cold_path_eff_mm2": 233.27565010922726,
+      "csi_share_of_intake": 0.5807540957017764
+    },
+    "csi_plugged": {
+      "intake_eff_mm2": 358.7830438796679,
+      "system_eff_mm2": 247.82090984088535,
+      "exhaust_eff_mm2": 342.71241596743664,
+      "cold_path_eff_mm2": 358.7830438796679,
+      "csi_share_of_intake": 0.0
+    }
   },
-  "cold_bottom_strap_20_of_71": {
-   "intake_eff_mm2": 662.6217707433209,
-   "system_eff_mm2": 285.45346227073003,
-   "exhaust_eff_mm2": 316.3093414093827,
-   "cold_path_eff_mm2": 339.48017808971736,
-   "csi_share_of_intake": 0.4876712582067857
-  },
-  "cold_rear_blocked": {
-   "intake_eff_mm2": 616.3861658714331,
-   "system_eff_mm2": 281.4179171825832,
-   "exhaust_eff_mm2": 316.3093414093827,
-   "cold_path_eff_mm2": 293.2445732178296,
-   "csi_share_of_intake": 0.524251857918896
-  },
-  "csi_plugged": {
-   "intake_eff_mm2": 359.03769186214765,
-   "system_eff_mm2": 237.3408929702046,
-   "exhaust_eff_mm2": 316.3093414093827,
-   "cold_path_eff_mm2": 359.03769186214765,
-   "csi_share_of_intake": 0.0
-  },
-  "hot_bottom_blocked": {
-   "intake_eff_mm2": 682.1792845157513,
-   "system_eff_mm2": 168.5383375193842,
-   "exhaust_eff_mm2": 173.93008106796813,
-   "cold_path_eff_mm2": 359.03769186214765,
-   "csi_share_of_intake": 0.47369012807679645
-  },
-  "hot_front_blocked": {
-   "intake_eff_mm2": 682.1792845157513,
-   "system_eff_mm2": 192.46854611717646,
-   "exhaust_eff_mm2": 200.61891051948535,
-   "cold_path_eff_mm2": 359.03769186214765,
-   "csi_share_of_intake": 0.47369012807679645
-  },
-  "nominal": {
-   "intake_eff_mm2": 682.1792845157513,
-   "system_eff_mm2": 286.96233302122164,
-   "exhaust_eff_mm2": 316.3093414093827,
-   "cold_path_eff_mm2": 359.03769186214765,
-   "csi_share_of_intake": 0.47369012807679645
-  },
-  "set_down_on_table": {
-   "intake_eff_mm2": 557.4593260219305,
-   "system_eff_mm2": 166.03616311290506,
-   "exhaust_eff_mm2": 173.93008106796813,
-   "cold_path_eff_mm2": 234.31773336832683,
-   "csi_share_of_intake": 0.5796684665042113
+  "manifest_sha256": "0b467d106d226aac67f6f1e3f6cb2f15b02e112035a5cabec3854cc3acc0f295",
+  "source_report": "review-2026-10-12/hot-plenum/check-scope-flow-original-kowa_lm6hc.json",
+  "source_report_sha256": "a338432b896b0713201f350411f3345877cc46b3667027002620b59eb393f268",
+  "verification_source_sha256": "e9479e6d589baea68a16ef47d773357560fa15a4b796d67277efd1574ee98566",
+  "reason": "Corrective review 2026-10-12: trial4 geometric revision and independent sampling correction. Geometry: the front mouth is full 6 mm gap at Z5..49 and outer 2.5 mm gap (Y-34..-31.5) at Z49..58; the existing Z49 support row is continued as the second 1.2 mm mouth mullion. Skin, envelope, CSI, cooler and 510 mm2 hot wall ports are unchanged. Sampling: source rib-face interval midpoints now supplement all original planes; this corrects previously missed narrow cold-rear pillar intervals (the compact isolated body gave 534 mm2 on the old grid versus 522 mm2 at its actual smaller section), not a cold-geometry change. Saved original-kowa_lm6hc manifest 0b467d10 proves hot path 509.999996 and cold path 420.000000 mm2 with the unchanged 0.002 mm2 tolerance. The front minimum neck is 274.20 mm2; cold-rear series minimum is 522.00 mm2. This records a geometric/reporting revision only; the orifice network has no measured fan operating point or thermal qualification.",
+  "previous": {
+    "purpose": "VN-36 regression pin (fixup-1 of FP-12): the orifice-network effective areas and shares for every occlusion case. verify_check_scope.py row flow_network/baseline_drift fails when a recomputed value drifts from these without a recorded reason; to accept a deliberate CAD change, rewrite this file with the new values and a new reason.",
+    "fields": [
+      "intake_eff_mm2",
+      "system_eff_mm2",
+      "exhaust_eff_mm2",
+      "cold_path_eff_mm2",
+      "csi_share_of_intake"
+    ],
+    "rel_tol": 1e-06,
+    "variant": "original-kowa_lm6hc",
+    "cases": {
+      "cold_bottom_blocked": {
+        "intake_eff_mm2": 557.4593260219305,
+        "system_eff_mm2": 275.1081007520819,
+        "exhaust_eff_mm2": 316.3093414093827,
+        "cold_path_eff_mm2": 234.31773336832683,
+        "csi_share_of_intake": 0.5796684665042113
+      },
+      "cold_bottom_strap_20_of_71": {
+        "intake_eff_mm2": 662.6217707433209,
+        "system_eff_mm2": 285.45346227073003,
+        "exhaust_eff_mm2": 316.3093414093827,
+        "cold_path_eff_mm2": 339.48017808971736,
+        "csi_share_of_intake": 0.4876712582067857
+      },
+      "cold_rear_blocked": {
+        "intake_eff_mm2": 616.3861658714331,
+        "system_eff_mm2": 281.4179171825832,
+        "exhaust_eff_mm2": 316.3093414093827,
+        "cold_path_eff_mm2": 293.2445732178296,
+        "csi_share_of_intake": 0.524251857918896
+      },
+      "csi_plugged": {
+        "intake_eff_mm2": 359.03769186214765,
+        "system_eff_mm2": 237.3408929702046,
+        "exhaust_eff_mm2": 316.3093414093827,
+        "cold_path_eff_mm2": 359.03769186214765,
+        "csi_share_of_intake": 0.0
+      },
+      "hot_bottom_blocked": {
+        "intake_eff_mm2": 682.1792845157513,
+        "system_eff_mm2": 168.5383375193842,
+        "exhaust_eff_mm2": 173.93008106796813,
+        "cold_path_eff_mm2": 359.03769186214765,
+        "csi_share_of_intake": 0.47369012807679645
+      },
+      "hot_front_blocked": {
+        "intake_eff_mm2": 682.1792845157513,
+        "system_eff_mm2": 192.46854611717646,
+        "exhaust_eff_mm2": 200.61891051948535,
+        "cold_path_eff_mm2": 359.03769186214765,
+        "csi_share_of_intake": 0.47369012807679645
+      },
+      "nominal": {
+        "intake_eff_mm2": 682.1792845157513,
+        "system_eff_mm2": 286.96233302122164,
+        "exhaust_eff_mm2": 316.3093414093827,
+        "cold_path_eff_mm2": 359.03769186214765,
+        "csi_share_of_intake": 0.47369012807679645
+      },
+      "set_down_on_table": {
+        "intake_eff_mm2": 557.4593260219305,
+        "system_eff_mm2": 166.03616311290506,
+        "exhaust_eff_mm2": 173.93008106796813,
+        "cold_path_eff_mm2": 234.31773336832683,
+        "csi_share_of_intake": 0.5796684665042113
+      }
+    },
+    "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
+    "source_report": "review-2026-10-10/fx/check-scope-flow-original-kowa_lm6hc.json",
+    "source_report_sha256": "d8d0da3fd29d7a49d1441108d329e4d8bdd62275e3478d277abca93e250a0bc2",
+    "verification_source_sha256": "0805acebbca976dd1f251149f749ec032fb19d91dcae74419d62671dce4ddaac",
+    "reason": "FX (2026-10-11, verifier T1 major VN-37 + minor flow baseline): plenum trial3 (vent_geometry.py) made every rib a hanging beam on pillars (5 mm flow windows), cleared the wall-port fronts, re-laid the hot bay along the flow and lowered the cold-mouth lintel to 0.6 mm. Measured on manifest 13d4c85a: necks cold rear 332.64, cold underside 503.28, hot underside 316.80, hot front 197.20 mm2; nominal cold path 359.0, exhaust 316.3, system 287.0 mm2 eq.; CSI share of intake 47.4 %. First baseline of this variant: until FX the drift row of this variant compared its tub with the compact-Kowa baseline (verifier T1 minor); each variant now has its own pin."
   }
- },
- "manifest_sha256": "13d4c85ac345c096fd3d3887392bf73fd2287d1813b05dea3a9f52a8e7907fc9",
- "source_report": "review-2026-10-10/fx/check-scope-flow-original-kowa_lm6hc.json",
- "source_report_sha256": "d8d0da3fd29d7a49d1441108d329e4d8bdd62275e3478d277abca93e250a0bc2",
- "verification_source_sha256": "0805acebbca976dd1f251149f749ec032fb19d91dcae74419d62671dce4ddaac",
- "reason": "FX (2026-10-11, verifier T1 major VN-37 + minor flow baseline): plenum trial3 (vent_geometry.py) made every rib a hanging beam on pillars (5 mm flow windows), cleared the wall-port fronts, re-laid the hot bay along the flow and lowered the cold-mouth lintel to 0.6 mm. Measured on manifest 13d4c85a: necks cold rear 332.64, cold underside 503.28, hot underside 316.80, hot front 197.20 mm2; nominal cold path 359.0, exhaust 316.3, system 287.0 mm2 eq.; CSI share of intake 47.4 %. First baseline of this variant: until FX the drift row of this variant compared its tub with the compact-Kowa baseline (verifier T1 minor); each variant now has its own pin."
 }

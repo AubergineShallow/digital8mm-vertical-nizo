@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MIT
 """Regression tests for the FX fix-up of the phase-2 verifier findings (review 2026-10-10). Run through ../run_locked.py.
 
-CAD-free: plenum_flow (path-aware min cut) fixtures and the trial3 nominal numbers with a trial2-like choke as negative
-control; vent_geometry trial3 layout rules; model data for the FPS bundle lane, tenon pocket walls, tie slots, kit-boss
+CAD-free: plenum_flow (path-aware min cut) fixtures and the selected trial4 geometry, with the rejected trial3 numbers
+and a trial2-like choke as negative controls; vent_geometry layout rules; model data for the FPS bundle lane, tenon pocket walls, tie slots, kit-boss
 rim, locator crush ridge and grip scar allowance; bed-chamfer exceptions; verify_fps_integrated exit code; per-variant
 flow baselines. CAD: the cavity inventory (an undeclared 1 mm3 block fails, a missing declared addition is stale), the
 J4 direct free body against the export18 transfer, and the bound reports of the FX refresh.
@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 CV = Path(__file__).resolve().parents[1]
@@ -37,6 +38,19 @@ def toy(boxes, ports, mouths, x=(0., 10.), z=(0., 10.)):
     bz = [v for b in boxes for v in b[4:]] + [v for p in ports for v in p[2:]]
     xs, zs = PF.subdivide(bx, *x), PF.subdivide(bz, *z)
     return PF.min_cut(xs, zs, PF.mask_from_boxes(xs, zs, boxes), ports, mouths)
+
+
+def port_cut_consistent(nominal,empty):
+    """Nominal/empty consistency for port-limited cuts, using only their accumulated integer-rounding bounds.
+
+    Both cuts are known source-port sets, so their selected-cut error bounds apply to the same geometric surface.
+    Independent grid subdivisions can reverse their graph totals by 1e-5 mm2. No acceptance gate uses this helper.
+    """
+    for cut in (nominal,empty):
+        if cut['cut_composition_mm2']['internal'] or cut['cut_composition_mm2']['mouth']:
+            raise ValueError('This comparison requires both selected cuts to be the port faces')
+    allowance=sum(cut['quantization']['selected_cut_abs_error_bound_mm2'] for cut in (nominal,empty))
+    return nominal['min_cut_mm2']<=empty['min_cut_mm2']+allowance
 
 
 # ------------------------------------------------------------------------------------------- plenum_flow (CAD-free)
@@ -69,6 +83,13 @@ class MinCutFixtures(unittest.TestCase):
         self.assertAlmostEqual(r['port_face_blocked_mm2'], 4.0, places=3)
         self.assertAlmostEqual(r['min_cut_mm2'], 16.0, places=3)
 
+    def test_quantization_allowance_rejects_a_larger_excess(self):
+        reference=toy([],self.PORT,self.MOUTH)
+        allowance=2*reference['quantization']['selected_cut_abs_error_bound_mm2']
+        self.assertTrue(port_cut_consistent(reference,reference))
+        excess=dict(reference,min_cut_mm2=reference['min_cut_mm2']+allowance+1/PF.SCALE)
+        self.assertFalse(port_cut_consistent(excess,reference))
+
     def test_levels_follow_breaks(self):
         c, w = PF.levels_from_breaks([-29.0, -28.4])
         self.assertAlmostEqual(sum(w), 6.0, places=9)
@@ -77,7 +98,7 @@ class MinCutFixtures(unittest.TestCase):
 
 
 class Trial3Nominal(unittest.TestCase):
-    """The nominal (CAD-free) min cut of the trial3 rib layout; the gate itself runs on the saved STEP."""
+    """Selected nominal cut and retained trial3 negative controls; the gate itself runs on the saved STEP."""
 
     def test_cold_reaches_the_ports(self):
         for L in (158., 185.):
@@ -86,11 +107,25 @@ class Trial3Nominal(unittest.TestCase):
 
     def test_hot_value_and_empty_bay_bound(self):
         r = PF.nominal_min_cut(VG, 158., 'hot')
-        self.assertAlmostEqual(r['min_cut_mm2'], 444.5, delta=0.05)
+        self.assertGreaterEqual(r['min_cut_mm2'],510.0-PF.TOL_MM2)
         e = PF.nominal_min_cut(VG, 158., 'hot', ribs=False)
-        self.assertAlmostEqual(e['min_cut_mm2'], 493.2, delta=0.05)
-        self.assertLess(e['min_cut_mm2'], 510.0)        # no internal layout can reach the 510 mm2 of hot ports
-        self.assertLessEqual(r['min_cut_mm2'], e['min_cut_mm2'] + 1e-6)
+        self.assertGreaterEqual(e['min_cut_mm2'],510.0-PF.TOL_MM2)
+        # Both selected cuts must be the complete port faces. Compare their geometric areas, not independently
+        # quantized graph totals (510.0000052 vs 509.999995); the original 1e-6 comparison tolerance is retained.
+        for cut in (r,e):
+            self.assertEqual(cut['cut_composition_mm2']['internal'],0.)
+            self.assertEqual(cut['cut_composition_mm2']['mouth'],0.)
+            self.assertAlmostEqual(cut['port_face_mm2'],510.,delta=1e-6)
+        self.assertLessEqual(r['port_face_mm2'],e['port_face_mm2']+1e-6)
+        self.assertTrue(port_cut_consistent(r,e))
+
+    def test_rejected_trial3_bound_is_retained(self):
+        with mock.patch.multiple(VG,HOT_FRONT_Z=(5.,40.),HOT_FRONT_STEP_Z=40.,HOT_FRONT_MULLION_ZS=(21.,)):
+            r=PF.nominal_min_cut(VG,158.,'hot')
+            e=PF.nominal_min_cut(VG,158.,'hot',ribs=False)
+        self.assertAlmostEqual(r['min_cut_mm2'],444.5,delta=.05)
+        self.assertAlmostEqual(e['min_cut_mm2'],493.2,delta=.05)
+        self.assertLess(e['min_cut_mm2'],510.)
 
     def test_trial2_like_rows_choke_the_hot_bay(self):
         """Negative control: full-depth rows across the port band and the upper bay, as trial2 had, cut the path."""
@@ -101,7 +136,8 @@ class Trial3Nominal(unittest.TestCase):
         orig = VG.rib_boxes
         try:
             VG.rib_boxes = lambda L: orig(L) + rows
-            r = PF.nominal_min_cut(VG, 158., 'hot')
+            with mock.patch.multiple(VG,HOT_FRONT_Z=(5.,40.),HOT_FRONT_STEP_Z=40.,HOT_FRONT_MULLION_ZS=(21.,)):
+                r = PF.nominal_min_cut(VG, 158., 'hot')
         finally:
             VG.rib_boxes = orig
         self.assertLess(r['min_cut_mm2'], 300.0)
@@ -143,9 +179,9 @@ class Trial3Layout(unittest.TestCase):
                                              for z, segs in VG.cold_rows(158.)):
                     self.assertFalse(a + 1e-6 < x0 < b - 1e-6 and a + 1e-6 < x1 < b - 1e-6, (x0, x1))
 
-    def test_metadata_names_trial3(self):
-        self.assertIn('trial3', VG.metadata(158.)['revision'])
-        self.assertIn('trial3', VG.support_summary(158.)['revision'])
+    def test_metadata_names_trial4(self):
+        self.assertIn('trial4',VG.metadata(158.)['revision'])
+        self.assertIn('trial4',VG.support_summary(158.)['revision'])
 
 
 # ------------------------------------------------------------------------------------------- model data (CAD-free import)
@@ -181,6 +217,7 @@ class ModelData(unittest.TestCase):
         T, C = self.m.TAB_CATCH_TENON, self.m.TAB_CATCH_POCKET_CLEAR
         self.assertGreaterEqual((T['x'][0] - C['x']) - web['x'][0], 1.2 + 0.25)
         self.assertGreaterEqual(web['x'][1] - (T['x'][1] + C['x']), 1.2 + 0.25)
+        self.assertGreaterEqual(self.m.TAB_CATCH_CEILING_TOP - self.m.TAB_CATCH_SPLIT_Z - T['h'] - C['z'], 1.6 - 1e-9)
 
     def test_kit_boss_rim_and_exception_retired(self):
         import critical_features_vertical as CFV
@@ -361,11 +398,11 @@ class BoundReports(unittest.TestCase):
         rows = {(q['category'], q['id']): q for q in r['checks']}
         cold, hot = rows[('area_parity', 'cold_path_min_cut')], rows[('area_parity', 'hot_path_min_cut')]
         self.assertEqual(cold['status'], 'pass', cold)
-        # hot: the bay with no rib reaches only the empty-bay bound (< 510 mm2); the row fails honestly (decision 17)
-        self.assertEqual(hot['status'], 'fail')
-        self.assertFalse(hot['empty_bay_bound_reaches_ports'])
-        self.assertLess(hot['empty_bay_bound_nominal_mm2'], hot['wall_ports_mm2'])
-        self.assertGreater(hot['min_cut_mm2'], 400.0)
+        # Trial4 changes the actual outlet geometry; the 510 mm2 gate and tolerance stay unchanged.
+        self.assertEqual(hot['status'],'pass')
+        self.assertTrue(hot['empty_bay_bound_reaches_ports'])
+        self.assertGreaterEqual(hot['empty_bay_bound_nominal_mm2'],hot['wall_ports_mm2']-PF.TOL_MM2)
+        self.assertGreaterEqual(hot['min_cut_mm2'],hot['wall_ports_mm2']-PF.TOL_MM2)
         for v in ('compact-kowa_lm6hc', 'compact-fujinon_hf6xa', 'original-kowa_lm6hc'):
             self.assertTrue(rows[('j4_screen', v)]['valid'], v)
         self.assertEqual(rows[('flow_network', 'baseline_drift')]['status'], 'pass')

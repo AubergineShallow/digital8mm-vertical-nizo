@@ -347,9 +347,22 @@ class CheckScopeReport(unittest.TestCase):
         hot = {c['id']: c for c in r['checks'] if c['category'] == 'area_parity'}['hot_branch_series']
         # FP-11a (VN-37): the trial1 post-grid tub fails by 0.6 mm2 (509.4 < 510); trial2 passed only because its
         # series planes skipped the ribbed port band. FX: the hot_bottom series now also samples z 16.05..42.95, and the
-        # path-aware min cut is the gate; on trial3 both report the real hot shortfall (decision 17).
+        # path-aware min cut is the gate; on trial3 both report the real hot shortfall (decision 17). Trial4's stepped
+        # mouth is proved on the saved whole-tub STEP with the same 510 mm2 requirement and 0.002 mm2 tolerance.
         rev = MANS[VAR].get('ventilation', {}).get('revision', '')
-        if 'trial3' in rev:
+        if 'trial4' in rev:
+            self.assertEqual(hot['status'], 'pass', hot)
+            self.assertEqual(hot['wall_ports_mm2'], 510.0)
+            self.assertGreaterEqual(hot['effective_sum_mm2'], 510.0 - 0.002)
+            self.assertTrue(any(p > 16.0 for p in hot['sections']['hot_bottom']['positions_mm']))
+            pm = {c['id']: c for c in r['checks'] if c['category'] == 'area_parity'}
+            self.assertEqual(pm['cold_path_min_cut']['status'], 'pass')
+            path = pm['hot_path_min_cut']
+            self.assertEqual(path['status'], 'pass', path)
+            self.assertEqual(path['wall_ports_mm2'], 510.0)
+            self.assertGreaterEqual(path['min_cut_mm2'], 510.0 - 0.002)
+            self.assertLessEqual(path['port_face_blocked_mm2'], 0.002)
+        elif 'trial3' in rev:
             self.assertEqual(hot['status'], 'fail', hot)
             self.assertTrue(any(p > 16.0 for p in hot['sections']['hot_bottom']['positions_mm']))
             pm = {c['id']: c for c in r['checks'] if c['category'] == 'area_parity'}

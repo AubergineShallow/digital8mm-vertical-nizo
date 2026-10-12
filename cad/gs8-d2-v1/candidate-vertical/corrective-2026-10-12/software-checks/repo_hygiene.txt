@@ -1,0 +1,25 @@
+test_every_absolute_path_in_json_is_declared (test_repo_hygiene.TestAbsolutePaths.test_every_absolute_path_in_json_is_declared) ... ok
+test_live_scripts_pass_no_machine_paths (test_repo_hygiene.TestAbsolutePaths.test_live_scripts_pass_no_machine_paths) ... ok
+test_machine_path_lint_catches_the_fixed_forms (test_repo_hygiene.TestAbsolutePaths.test_machine_path_lint_catches_the_fixed_forms) ... ok
+test_recorded_path_fields_use_helpers (test_repo_hygiene.TestAbsolutePaths.test_recorded_path_fields_use_helpers) ... ok
+test_selected_evidence_holds_no_absolute_path (test_repo_hygiene.TestAbsolutePaths.test_selected_evidence_holds_no_absolute_path) ... ok
+test_usb_head_manifest_path_is_relative (test_repo_hygiene.TestAbsolutePaths.test_usb_head_manifest_path_is_relative) ... ok
+test_link_check_has_no_failure (test_repo_hygiene.TestLinksAndIndex.test_link_check_has_no_failure) ... ok
+test_link_parser_and_banner (test_repo_hygiene.TestLinksAndIndex.test_link_parser_and_banner) ... ok
+test_paths_and_index (test_repo_hygiene.TestLinksAndIndex.test_paths_and_index) ... ok
+test_structural_page_images_are_bound (test_repo_hygiene.TestLinksAndIndex.test_structural_page_images_are_bound) ... ok
+test_entries_exist (test_repo_hygiene.TestProvenance.test_entries_exist) ... ok
+test_extraction_records_bind_native_steps (test_repo_hygiene.TestProvenance.test_extraction_records_bind_native_steps) ... ok
+test_structural_reference_rederives (test_repo_hygiene.TestProvenance.test_structural_reference_rederives) ... ok
+test_planted_user_profile_paths_are_caught (test_repo_hygiene.TestReviewRecordPaths.test_planted_user_profile_paths_are_caught) ... ok
+test_review_records_hold_no_user_profile_path (test_repo_hygiene.TestReviewRecordPaths.test_review_records_hold_no_user_profile_path) ... ok
+test_candidate_pins_match_installed_versions (test_repo_hygiene.TestToolchain.test_candidate_pins_match_installed_versions) ... ok
+test_every_import_is_declared_once (test_repo_hygiene.TestToolchain.test_every_import_is_declared_once) ... ok
+test_optional_modules_are_absent_or_must_be_pinned (test_repo_hygiene.TestToolchain.test_optional_modules_are_absent_or_must_be_pinned) ... ok
+test_pinned_match_base_lock_and_venv (test_repo_hygiene.TestToolchain.test_pinned_match_base_lock_and_venv) ... ok
+test_reproduce_gives_windows_commands (test_repo_hygiene.TestToolchain.test_reproduce_gives_windows_commands) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 11.808s
+
+OK

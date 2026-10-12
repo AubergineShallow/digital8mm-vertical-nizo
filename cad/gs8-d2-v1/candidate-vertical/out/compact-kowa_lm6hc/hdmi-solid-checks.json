@@ -204,12 +204,12 @@
   ],
   "verification_source_sha256": "982dc28718e9d79a586ba87965725131391039f8341818848aa83516e52cb1a9",
   "snapshot_sha256": "cf6b20f21e342414dbf001fe9a4d84ad9634fa2b93e81118b112cac4eaec6f88",
-  "mechanical_manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "mechanical_manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "physical_qualified": false,
   "note": "Non-material keepouts are excluded from the physical collision inventory. Convex cells of sampled full-width material. Chord approximation and proxy dimensions require physical gates; this is not a material strength or EMI validation.",
   "carried_ribbon_source_sha256": {
     "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-    "routes.py": "64e2a6bbd246bdefdc9d41a59c8bb9d3b534c5c4568e1fa7cf5eb7216c723321"
+    "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac"
   },
   "carried_drop_mm": 9.0,
   "obstacle_sets": {
@@ -430,6 +430,6 @@
       "state_source": "steps.py state before service op svc_evf_unplug (route evf)"
     }
   },
-  "state_model_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+  "state_model_sha256": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
   "obstacle_rule": "FP-12 (VN-30): every material part steps.py has in the body in that state (screws and hardware included) plus the 9ced753 sets; exclusions listed per state; rejected --include-rejected diagnostics keep their 9ced753 sets"
 }

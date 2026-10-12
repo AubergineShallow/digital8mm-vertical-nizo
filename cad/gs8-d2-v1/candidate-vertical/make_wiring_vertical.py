@@ -118,7 +118,7 @@ def j2_stow_text(d):
     if r.get('capacity_mm3') is None:
         return 'cable_stow/power_button_j2_pair %s (%s)' % (r['status'], '; '.join(r.get('problems', [])))
     return ('cable_stow/power_button_j2_pair %s: mated pair class %s-%s mm3 + loop %s mm3 = %s-%s mm3 vs capacity %s mm3 '
-            '(box %s mm3 x fill %s); gated at the class upper end' % (
+            '(box %s mm3 x fill %s); provisional class estimate only, not a guaranteed physical upper bound' % (
                 r['status'], fmt(r['pair_class_mm3'][0], 0), fmt(r['pair_class_mm3'][1], 0), fmt(r['loop_demand_mm3'], 1),
                 fmt(r['demand_range_mm3'][0], 1), fmt(r['demand_range_mm3'][1], 1), fmt(r['capacity_mm3'], 1),
                 fmt(r['volume_mm3'], 0), fmt(r['fill_max'])))
@@ -147,7 +147,7 @@ def block_diagram():
             'Pi 5 J2 pads     --J2 keyed pair (' + WD.J2_DEFAULT['family_key'] + ')---------> Adafruit 1505 NO [panel]',
             'Pi 5 upper USB2  --4448 red/black--1N5817 (+, band to EVF)--RCY 2180|2181--> EVF board EXT+/GND',
             'Pi 5 HDMI0       --3557 head~3562 ribbon 300 mm~3556 head--------> EVF board receptacle',
-            'Pi 5 CAM/DISP 1  --official 200 mm FPC--------------------------> GS camera (bench-mated end)',
+            'Pi 5 CAM/DISP 1  --official 200 mm FPC--------------------------> GS camera (Pi end BEFORE cooler)',
             'Pi 5 FAN         --native lead----------------------------------> Active Cooler',
             'Pi 5 upper USB3  <-- recording drive (storage, not a harness)',
             '```']
@@ -203,8 +203,10 @@ def generate(d):
            '- Leads: each pre-crimped lead >= %s mm exposed; %s.' % (fmt(j2['lead_min_mm']), j2['lead_min_src']),
            '- Gate: %s.' % j2['gate']]
     md.append('- Criterion for user decision 13 / G-V-POWER: the chosen J2 family must fit the J2 stow space '
-              '(routes.py power_stow, charged at the conservative upper end of the family class envelope, not measured): '
+              '(routes.py power_stow, using the provisional modeled class envelope, not an established physical upper bound): '
               + j2_stow_text(d) + '.')   # FX-H (verifier D1 minor)
+    md += ['- Source conflict: the existing 7.5 x 11 x 20 mm class proxy does not bound every Micro-Fit pair. The official 430250200 drawing gives 24.77 mm mated length for a compatible housing proposal; exact SKU, full envelope, roots and stow remain unqualified. This sourcing proposal is not an adopted substitution. [Molex drawing](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/430/43025/430250200_sd.pdf).']
+    md += ['- Micro-Fit root gate: Molex application specification 430450001-AS recommends 12.7 mm of free, unbiased wire from each 2–6-circuit housing before a bend, tie or twist. For the 24.77 mm housing proposal, an axial 50.17 mm overall reservation is a study assumption, not a fit result. Generic 3 mm modeled tails do not satisfy this physical gate. Latch travel and finger/tool volume remain unknown. [Molex application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/430/43045/430450001-AS-000.pdf).']
     md += ['- Alternative: %s (family `%s`): %s.' % a for a in WD.J2_ALTERNATIVES]
     md += ['', '## 4. Harness schedule (every lead, both ends)', '']
     for lead in WD.LEADS:
@@ -233,6 +235,27 @@ def generate(d):
     md += ['J2 length note: the harness check assumes %s-%s mm per conductor (%s); the V-28 default buys >= %s mm per '
            'conductor, so the check stays a lower bound of what is bought.' % (fmt(rng[0]), fmt(rng[1]),
                                                                              HR.CABLES['power_button']['range_src'], fmt(lo)), '']
+    md += ['### QT stored material versus mating reach', '',
+           'The installed route must store the entire finished 250 +/- 10 mm QT lead, including every branch and '
+           'the four insulated splices. Length variants and their rigid-surface checks are separate from the free '
+           'curve used at the propped panel. The free curve plus the explicit 24 mm assembly allowance is a minimum '
+           'reach budget; it is not an extra 24 mm to add to the finished lead and is not a complete stored shape. '
+           'A reach pass cannot certify slack storage or the continuous transition from the prop pose to closure. '
+           'Actual roots, sleeves, tie/head geometry, bend limits and full flexible motion remain HOLD.', '',
+           '### Camera and other flexible ribbons', '',
+           'Seat the official 200 mm camera cable Pi end before fitting the Active Cooler, following the '
+           '[Raspberry Pi camera instructions](https://www.raspberrypi.com/documentation/accessories/camera.html). '
+           'Support the complete Pi module outside the body and mate the camera end immediately before camera '
+           'insertion. The entire linked ribbon is absent from the rigid camera/carrier sweeps; source-level '
+           '`steps.flexible_scope()` records this omission. Actual latch service with the cooler retained remains '
+           'HOLD. Do not repeatedly remove the cooler to make an unqualified service path appear feasible.', '',
+           'The complete 300 mm HDMI ribbon, 200 mm camera FPC and native OLED flex must retain their actual '
+           'width, thickness, stiffeners and contact orientation. Manufacturer bend-radius and flex-cycle '
+           'limits for these exact cables remain UNKNOWN; round clearance reserves and connector mating-cycle '
+           'ratings are not cable flex qualifications. Retain full-length stored and service-motion checks, '
+           'continuity, video operation and fatigue gates. Baseline source evidence is in '
+           '[the 12 October materials and ribbons research](corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt); '
+           'it needs an applicability check after geometry changes.', '']
     md += ['## 5. Polarity and colour rules', '']
     md += ['- `%s`: %s' % (lead['id'], lead['polarity']) for lead in WD.LEADS]
     md += ['- Socket (female) contacts on the live or source side of every inline pair: EVF 2180 on the USB side, J2 '
@@ -255,7 +278,7 @@ def generate(d):
     md += ['', '## 8. Battery pigtail drop (G-W5)', '',
            'harness_rules.pigtail_drop_row at %s A, limit %s V (never relaxed): low %s V, high %s V, status %s. '
            'Decision data (%s): shortest-path limit %s mm (hot fuse) / %s mm (cold fuse); cut-off raise needed %s V. '
-           'This is user decision 4; the row fails honestly until it is taken.' % (
+           'This remains user decision 4. The 270 mm allocation is blocked by reach and hot-drop; proposals remain pending. No 14 AWG, fuse, connector or cutoff substitution is adopted.' % (
                fmt(dr['i_peak_a'], 1), fmt(dr['limit_v'], 3), fmt(dr['drop_lo_v'], 5), fmt(dr['drop_hi_v'], 5),
                dr['status'], dr['decision_data']['options'], fmt(dr['decision_data']['shorter_path_max_mm_hot_fuse'], 1),
                fmt(dr['decision_data']['shorter_path_max_mm_cold_fuse'], 1), fmt(dr['decision_data']['cutoff_raise_needed_v'], 5)), '']

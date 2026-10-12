@@ -76,7 +76,8 @@ def inspect_inputs(root, nominated_hash):
     if constants.keys() != wanted:
         raise RuntimeError('Plenum section constants are incomplete')
     if (len(constants['SIDE_Z']) != 4 or len(constants['HOT_Z']) != 4 or
-            metadata.get('revision') != 'shadow-gap plenum trial1'):
+            not metadata.get('revision', '').startswith('shadow-gap plenum trial4') or
+            not metadata.get('support', {}).get('hot_front_apertures_yz')):
         raise RuntimeError('Plenum topology changed; revise the guide diagrams and labels')
     expected_dimensions = {
         'outer_skin_mm': constants['SKIN_INNER'] - constants['OUTER_Y'],
@@ -104,8 +105,53 @@ def inspect_inputs(root, nominated_hash):
     if (structural_report.get('physical_qualified') is not False or
             structural_report.get('ventilation_report', {}).get('sha256') != sha(report_path)):
         raise RuntimeError('Structural supplement must retain its hold and bind the current ventilation report')
+    # Bind each final caption source while retaining its failures. A current
+    # report is usable evidence even when it correctly blocks the design.
+    scoped = {}
+    report_specs = {
+        'main': ('verification.json', 'verify_candidate.py'),
+        'harness': ('harness-checks.json', 'verify_harness_checks.py'),
+        'flow': ('check-scope-checks.json', 'verify_check_scope.py'),
+        'print': ('print-checks.json', 'verify_print_checks.py'),
+        'outlet': ('shadow-outlet-context-checks.json', 'verify_shadow_outlet_context.py'),
+    }
+    for label, (filename, verifier) in report_specs.items():
+        path = export / filename
+        value = json.loads(read_text(path))
+        if value.get('manifest_sha256') != nominated_hash or value.get('verification_source_sha256') != sha(root / verifier):
+            raise RuntimeError('Guide caption report is stale: ' + filename)
+        for key, base in (('verification_dependency_sha256', root), ('helper_source_sha256', root),
+                          ('input_sha256', root.parent), ('check_sources', root.parent),
+                          ('checked_source_sha256', root)):
+            bindings = value.get(key, {})
+            if isinstance(bindings, dict):
+                for name, digest in bindings.items():
+                    if sha(base / name) != digest:
+                        raise RuntimeError('Guide report dependency changed: ' + filename + ' / ' + name)
+        scoped[label] = {'path': path, 'report': value}
+    import steps
+    if scoped['main']['report'].get('flex_scope') != steps.flexible_scope():
+        raise RuntimeError('Main report does not preserve current complete-ribbon omissions')
+    coupons_path = root / 'vent-study/shadow-plenum-coupon/coupon-index.json'
+    coupons = json.loads(read_text(coupons_path))
+    if coupons.get('manifest_sha256') != nominated_hash or coupons.get('coupon_count') != 3:
+        raise RuntimeError('The three plenum coupon receipts are not bound to the nominated export')
+    for name, digest in coupons.get('receipts', {}).items():
+        if sha(coupons_path.parent / name) != digest:
+            raise RuntimeError('Plenum coupon receipt changed: ' + name)
+    catch_path = root / 'structural-review/bonded-catch-coupon/receipt.json'
+    catch = json.loads(read_text(catch_path))
+    if (catch.get('manifest_sha256') != nominated_hash or catch.get('piece_count') != 2 or
+            catch.get('physical_qualified') is not False or catch.get('production_part_count_change') != 0):
+        raise RuntimeError('Local bonded-catch coupon has a stale binding or lost its scope hold')
+    for field, base in (('input_sha256', root), ('source_sha256', root), ('files', catch_path.parent)):
+        for name, digest in catch.get(field, {}).items():
+            if sha(base / name) != digest:
+                raise RuntimeError('Local bonded-catch coupon dependency changed: ' + name)
     return {'metadata': metadata, 'constants': constants, 'report': report,
-            'report_path': report_path, 'geometry_pass': summary['fail'] == 0}
+            'report_path': report_path, 'geometry_pass': summary['fail'] == 0,
+            'scoped': scoped, 'coupons_path': coupons_path, 'coupons': coupons,
+            'catch_path': catch_path, 'catch': catch}
 
 
 def draw_plenum_section(draw, text, arrow, x, y, width, height, skin, gap,

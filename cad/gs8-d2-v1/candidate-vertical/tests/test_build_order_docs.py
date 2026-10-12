@@ -330,7 +330,13 @@ class Guides(unittest.TestCase):
             n = t['16']
             order = [n.index(s) for s in ('4 panel screws', 'washer, nut (deep socket', 'knob on the paper strips')]
             self.assertEqual(order, sorted(order), b)
-            self.assertIn('FPC camera end here', t['03'], b)
+            if b == 'build_guide_concealed_vents.py':
+                self.assertIn('before the cooler', t['03'], b)
+                self.assertIn('BEFORE the cooler', t['04'], b)
+                self.assertIn('full 200 mm linked FPC', t['08b'], b)
+                self.assertIn('200 mm CSI ribbon', t['11'], b)
+            else:
+                self.assertIn('FPC camera end here', t['03'], b)
 
 
 class FPSStudy(unittest.TestCase):
@@ -353,11 +359,11 @@ class StaleGuideBanner(unittest.TestCase):
         rec = json.loads(rd(CV / 'guide/out-concealed-vents/guide-receipt.json'))['sources']
         keys = ['candidate-vertical/ASSEMBLY-VERTICAL.md', 'candidate-vertical/guide/build_guide_concealed_vents.py']
         stale = any(rec.get(k) != hashlib.sha256((CAD / k).read_bytes()).hexdigest() for k in keys)
-        for name in ('README-CONCEALED-VENTS.md', 'README.md'):
+        for name in ('README-CONCEALED-VENTS.md',):
             head = '\n'.join(rd(CV / 'guide' / name).splitlines()[:15])
             self.assertEqual('STALE (review 2026-10-10' in head, stale, name)
         # stale is expected until FP-16 rebuilds the guide in the rebuild worktree (VN-12); then the banners go.
-        self.assertIn('**stale**', DOC[DOC.index('\n## 4. '):DOC.index('\n### B0. ')])
+        self.assertEqual('**stale**' in DOC[DOC.index('\n## 4. '):DOC.index('\n### B0. ')], stale)
 
 
 if __name__ == '__main__':

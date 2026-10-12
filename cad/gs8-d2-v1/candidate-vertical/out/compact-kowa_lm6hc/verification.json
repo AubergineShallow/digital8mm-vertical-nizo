@@ -1,12 +1,20 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-  "verification_source_sha256": "96dbf221050bfed558b0c86b6e5a9f7c9e194ffca32a3cdd3185f4ce27570ba4",
-  "state_model_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "verification_source_sha256": "b008c54d35391c4664ad94e01598d77de2662165d79a167f35df9552e5735851",
+  "state_model_sha256": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
   "scope": "full",
+  "flex_scope": {
+    "physical_qualified": false,
+    "complete_flexible_motion_qualified": false,
+    "operations": {
+      "camera_in": "HOLD: rigid camera/adapter sweep omits the complete 200 mm CSI FPC linking the camera to the supported module outside the body. Full-width stored material, linked motion, roots, bends and latch operation remain unproved; no complete assembly qualification.",
+      "carrier_in": "HOLD: rigid carrier sweep omits the complete 200 mm CSI FPC already connected to both camera and Pi. The full flexible sweep, stored slack, roots, bends and interaction with other looms are unproved; this operation is not a complete assembly or service pass."
+    }
+  },
   "variant": "compact-kowa_lm6hc",
   "summary": {
-    "pass": 620,
-    "fail": 14,
+    "pass": 633,
+    "fail": 1,
     "info": 32
   },
   "checks": [
@@ -16,7 +24,7 @@
       "status": "pass",
       "solids": 149,
       "volume_mm3": 24187.427381756304,
-      "step_sha256": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
+      "step_sha256": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
       "manifest_file_binding": true
     },
     {
@@ -241,7 +249,7 @@
       "status": "pass",
       "solids": 2,
       "volume_mm3": 1990.1390816984874,
-      "step_sha256": "1d85645b9befd431a5472a2744731aea561e0c1b9bddbcf24d9d0c08e3390a22",
+      "step_sha256": "f3de469f3b0491f40cbc1e69e7072ad723c6dbedae7b489428761804d75a3895",
       "manifest_file_binding": true
     },
     {
@@ -256,7 +264,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 478.6086125129732,
-      "step_sha256": "be267d3a92d9acdc86cbf079902c7703dd673c389d571e1f27c2abc15e22ea90",
+      "step_sha256": "0c2884c70fc43aa46be80cb126daf87e298be185276927586df0b945ab2010b7",
       "manifest_file_binding": true
     },
     {
@@ -420,15 +428,15 @@
       "id": "base_grip",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 67182.80779032437,
-      "step_sha256": "79d0dd29cf2b2caef650b1432a6e0c1677f5f075d35b910981c283b3b95de958",
+      "volume_mm3": 67182.8077903243,
+      "step_sha256": "abed4da8834f21f0b921e31e739a5a5f8f630ae7fe83f47a0991b5dceb3241eb",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "base_grip",
       "status": "pass",
-      "volume_delta_mm3": -0.0001913519372465089
+      "volume_delta_mm3": -0.00019135195179842412
     },
     {
       "category": "integrity",
@@ -465,30 +473,30 @@
       "id": "knob_exp",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 4792.976837214222,
-      "step_sha256": "7fb685ef289315f3bd36bfb4a867d22089336e4fc5535fdcb8ab8ec0b80a668b",
+      "volume_mm3": 4792.9768372142225,
+      "step_sha256": "28d672851b29b8add239c6ef2bd278414a83ef47f558eef210373fcbd60d3dd4",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "knob_exp",
       "status": "pass",
-      "volume_delta_mm3": -3.6288838600739837e-10
+      "volume_delta_mm3": -3.6197889130562544e-10
     },
     {
       "category": "integrity",
       "id": "knob_fps",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 2168.466251537945,
-      "step_sha256": "d68930df84f3eb3a0e535304784b43e2146d7a60187ece2323cd2fdf0f48e62e",
+      "volume_mm3": 2168.4662515379496,
+      "step_sha256": "5b004799fa7f8abf0ce84caf4bda91d61975a8addb5ae1d39b6c4ff32883f71a",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "knob_fps",
       "status": "pass",
-      "volume_delta_mm3": -4.374669515527785e-10
+      "volume_delta_mm3": -4.324647306930274e-10
     },
     {
       "category": "integrity",
@@ -496,29 +504,29 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 13152.181955650545,
-      "step_sha256": "005e6946119a8d8341db8bd3bd4d40ab02fb5a44fce909d90af5c35c70600524",
+      "step_sha256": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "carrier",
       "status": "pass",
-      "volume_delta_mm3": 4.910482130071614e-05
+      "volume_delta_mm3": 4.910482311970554e-05
     },
     {
       "category": "integrity",
       "id": "tub",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 171392.24655103454,
-      "step_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+      "volume_mm3": 171213.87258473734,
+      "step_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "tub",
       "status": "pass",
-      "volume_delta_mm3": 0.000671125395456329
+      "volume_delta_mm3": 0.0006729711894877255
     },
     {
       "category": "integrity",
@@ -540,15 +548,15 @@
       "id": "lens_collar",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 11255.06664803177,
-      "step_sha256": "7527c068afdcdbedfb960458cdd335615a2e78f91bc8ca72372fac6625702216",
+      "volume_mm3": 11255.06664803192,
+      "step_sha256": "6ad36bd056aec8b204f06fa181dd7e71a5c299e927f29c461dd5feefe858b04f",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "lens_collar",
       "status": "pass",
-      "volume_delta_mm3": 0.014039980693269172
+      "volume_delta_mm3": 0.014039980798770557
     },
     {
       "category": "integrity",
@@ -1880,10 +1888,10 @@
       "id": "model_lint",
       "status": "pass",
       "errors": [],
-      "build_ops": 35,
+      "build_ops": 36,
       "service_routes": 10,
       "motions": 32,
-      "state_model_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45"
+      "state_model_sha256": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960"
     },
     {
       "category": "assembly_state",
@@ -5562,8 +5570,8 @@
       "symmetric_difference_mm3": 0.0,
       "hf_x": -6.85,
       "rule": "r7 gs_camera_parts(s_nom) body + bfar == manifest-bound STEP gs_camera (<= 0.01 mm3): the float rows move the exported camera",
-      "j7_collar_checks_sha256": "dc23ab4d90b512768c126f3022557439cb736e2094ab38fab997ddddc6ed3cc1",
-      "steps_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+      "j7_collar_checks_sha256": "64693ef4f581569556f4cedadb003656fc31bf7650306059ac7f913d6960095a",
+      "steps_sha256": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
       "r7_checks_sha256": "04fb59b338bf755fbd820e0788b9c04b8e640d2e60fc140332cea13952b1cfbb",
       "variant": "compact-kowa_lm6hc"
     },
@@ -17108,7 +17116,7 @@
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "timing",
-      "seconds": 47.9,
+      "seconds": 48.2,
       "booleans": 33254,
       "obstacle_pieces": 8,
       "s_values": 13,
@@ -28151,7 +28159,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 0.0,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.773,
       "centred_deg": 3.258,
       "pcb_cover_min_deg": null,
@@ -28176,7 +28184,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -28202,7 +28210,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -28228,7 +28236,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.555,
+          "metal_deg": 4.695,
           "metal_to": [
             "tub"
           ],
@@ -28254,7 +28262,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -28280,7 +28288,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -28306,7 +28314,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -28332,7 +28340,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -28358,7 +28366,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -28376,7 +28384,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -28393,7 +28401,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 0.25,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.258,
       "pcb_cover_min_deg": null,
@@ -28418,7 +28426,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -28444,7 +28452,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -28470,7 +28478,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -28496,7 +28504,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -28522,7 +28530,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -28548,7 +28556,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -28574,7 +28582,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -28600,7 +28608,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -28618,7 +28626,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -28635,7 +28643,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 0.5,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -28660,7 +28668,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -28686,7 +28694,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -28712,7 +28720,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -28738,7 +28746,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -28764,7 +28772,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -28790,7 +28798,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -28816,7 +28824,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -28842,7 +28850,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -28860,7 +28868,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -28877,7 +28885,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 0.75,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -28902,7 +28910,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -28928,7 +28936,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -28954,7 +28962,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -28980,7 +28988,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -29006,7 +29014,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -29032,7 +29040,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -29058,7 +29066,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -29084,7 +29092,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -29102,7 +29110,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -29119,7 +29127,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 1.0,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -29144,7 +29152,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -29170,7 +29178,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -29196,7 +29204,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -29222,7 +29230,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -29248,7 +29256,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -29274,7 +29282,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -29300,7 +29308,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -29326,7 +29334,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -29344,7 +29352,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -29361,7 +29369,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 1.25,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -29386,7 +29394,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -29412,7 +29420,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -29438,7 +29446,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -29464,7 +29472,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -29490,7 +29498,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -29516,7 +29524,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -29542,7 +29550,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -29568,7 +29576,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -29586,7 +29594,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -29603,7 +29611,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 1.5,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -29628,7 +29636,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -29654,7 +29662,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -29680,7 +29688,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -29706,7 +29714,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -29732,7 +29740,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -29758,7 +29766,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -29784,7 +29792,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -29810,7 +29818,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -29828,7 +29836,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -29845,7 +29853,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 1.75,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -29870,7 +29878,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -29896,7 +29904,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -29922,7 +29930,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -29948,7 +29956,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -29974,7 +29982,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -30000,7 +30008,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -30026,7 +30034,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -30052,7 +30060,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -30070,7 +30078,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -30087,7 +30095,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 2.0,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -30112,7 +30120,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -30138,7 +30146,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -30164,7 +30172,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -30190,7 +30198,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -30216,7 +30224,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -30242,7 +30250,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -30268,7 +30276,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -30294,7 +30302,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -30312,7 +30320,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -30329,7 +30337,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 2.25,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -30354,7 +30362,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -30380,7 +30388,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -30406,7 +30414,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -30432,7 +30440,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -30458,7 +30466,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -30484,7 +30492,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -30510,7 +30518,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -30536,7 +30544,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -30554,7 +30562,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -30571,7 +30579,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 2.5,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -30596,7 +30604,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -30622,7 +30630,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -30648,7 +30656,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -30674,7 +30682,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -30700,7 +30708,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -30726,7 +30734,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -30752,7 +30760,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -30778,7 +30786,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -30796,7 +30804,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -30813,7 +30821,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 2.75,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -30838,7 +30846,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -30864,7 +30872,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -30890,7 +30898,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -30916,7 +30924,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -30942,7 +30950,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -30968,7 +30976,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -30994,7 +31002,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -31020,7 +31028,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -31038,7 +31046,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31055,7 +31063,7 @@
       "item": "first_contact",
       "variant": "compact-kowa_lm6hc",
       "s": 3.0,
-      "metal_min_deg": 1.508,
+      "metal_min_deg": 1.672,
       "metal_max_deg": 4.766,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
@@ -31080,7 +31088,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.055,
+          "metal_deg": 3.188,
           "metal_to": [
             "tub"
           ],
@@ -31106,7 +31114,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 1.57,
+          "metal_deg": 1.695,
           "metal_to": [
             "tub"
           ],
@@ -31132,7 +31140,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 4.547,
+          "metal_deg": 4.688,
           "metal_to": [
             "tub"
           ],
@@ -31158,7 +31166,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.102,
+          "metal_deg": 3.203,
           "metal_to": [
             "tub"
           ],
@@ -31184,7 +31192,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.016,
+          "metal_deg": 3.172,
           "metal_to": [
             "tub"
           ],
@@ -31210,7 +31218,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.0,
+          "metal_deg": 3.164,
           "metal_to": [
             "tub"
           ],
@@ -31236,7 +31244,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 1.508,
+          "metal_deg": 1.672,
           "metal_to": [
             "tub"
           ],
@@ -31262,7 +31270,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 4.492,
+          "metal_deg": 4.672,
           "metal_to": [
             "tub"
           ],
@@ -31280,7 +31288,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31291,20 +31299,20 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s0.00",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 0.0,
       "window_deg": 1.4,
       "centred_gap": 0.4,
-      "worst_gap": 0.055,
+      "worst_gap": 0.107,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.4,
         "+0.00/+0.00/-1": 0.4,
         "+0.55/+0.00/+1": 0.4,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.55/+0.00/-1": 0.107,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 0.4,
         "+0.00/+0.55/+1": 0.4,
@@ -31312,7 +31320,6 @@
         "+0.00/-0.55/+1": 0.4,
         "+0.00/-0.55/-1": 0.4
       },
-      "error": "level window +-1.4 deg: metal to tub 0.4 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31320,7 +31327,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31332,28 +31339,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s0.25",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 0.25,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.65,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.65,
-        "+0.00/+0.00/-1": 0.605,
+        "+0.00/+0.00/-1": 0.65,
         "+0.55/+0.00/+1": 0.65,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 0.65,
         "+0.00/+0.55/+1": 0.65,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.65,
         "+0.00/-0.55/+1": 0.65,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.65
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31361,7 +31367,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31373,28 +31379,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s0.50",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 0.5,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
+        "+0.00/+0.00/-1": 0.656,
         "+0.55/+0.00/+1": 0.9,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 0.9,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31402,7 +31407,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31414,28 +31419,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s0.75",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 0.75,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31443,7 +31447,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31455,28 +31459,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s1.00",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 1.0,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31484,7 +31487,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31496,28 +31499,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s1.25",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 1.25,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31525,7 +31527,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31537,28 +31539,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s1.50",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 1.5,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31566,7 +31567,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31578,28 +31579,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s1.75",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 1.75,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31607,7 +31607,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31619,28 +31619,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s2.00",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 2.0,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31648,7 +31647,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31660,28 +31659,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s2.25",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 2.25,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31689,7 +31687,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31701,28 +31699,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s2.50",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 2.5,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31730,7 +31727,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31742,28 +31739,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s2.75",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 2.75,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31771,7 +31767,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31783,28 +31779,27 @@
     {
       "category": "roll_catch",
       "id": "stub_tilt_on_joint_edge:window@s3.00",
-      "status": "fail",
+      "status": "pass",
       "port": "FP-08",
       "kind": "roll_catch",
       "item": "window",
       "s": 3.0,
       "window_deg": 1.4,
-      "centred_gap": 0.605,
-      "worst_gap": 0.055,
+      "centred_gap": 0.656,
+      "worst_gap": 0.106,
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.605,
-        "+0.55/+0.00/+1": 0.989,
-        "+0.55/+0.00/-1": 0.055,
+        "+0.00/+0.00/-1": 0.656,
+        "+0.55/+0.00/+1": 1.07,
+        "+0.55/+0.00/-1": 0.106,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
-        "+0.00/+0.55/-1": 0.619,
+        "+0.00/+0.55/-1": 0.662,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.592
+        "+0.00/-0.55/-1": 0.651
       },
-      "error": "level window +-1.4 deg: metal to tub 0.605 centred / 0.055 worst",
       "catch_host": "tub",
       "stub_case": "tilt_on_joint_edge",
       "stub_shift_mm": [
@@ -31812,7 +31807,7 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": -1.6365770416167185,
+      "stub_tilt_deg": -0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
@@ -31831,7 +31826,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 0.0,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.336,
+      "metal_max_deg": 5.148,
       "centred_deg": 3.258,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -31855,7 +31850,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -31881,7 +31876,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.219,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -31907,7 +31902,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.273,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -31933,7 +31928,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.695,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -31959,7 +31954,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.781,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -31985,7 +31980,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.797,
+          "metal_deg": 3.625,
           "metal_to": [
             "tub"
           ],
@@ -32011,7 +32006,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -32037,7 +32032,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.336,
+          "metal_deg": 5.148,
           "metal_to": [
             "tub"
           ],
@@ -32055,11 +32050,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -32073,7 +32068,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 0.25,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.258,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -32097,7 +32092,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -32123,7 +32118,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.219,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -32149,7 +32144,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.273,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -32175,7 +32170,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -32201,7 +32196,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32227,7 +32222,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.797,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32253,7 +32248,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -32279,7 +32274,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -32297,11 +32292,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -32315,7 +32310,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 0.5,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -32339,7 +32334,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -32365,7 +32360,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -32391,7 +32386,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -32417,7 +32412,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -32443,7 +32438,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32469,7 +32464,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32495,7 +32490,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -32521,7 +32516,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -32539,11 +32534,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -32557,7 +32552,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 0.75,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -32581,7 +32576,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -32607,7 +32602,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -32633,7 +32628,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -32659,7 +32654,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -32685,7 +32680,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32711,7 +32706,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32737,7 +32732,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -32763,7 +32758,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -32781,11 +32776,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -32799,7 +32794,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 1.0,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -32823,7 +32818,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -32849,7 +32844,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -32875,7 +32870,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -32901,7 +32896,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -32927,7 +32922,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32953,7 +32948,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -32979,7 +32974,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -33005,7 +33000,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -33023,11 +33018,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -33041,7 +33036,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 1.25,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -33065,7 +33060,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -33091,7 +33086,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -33117,7 +33112,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -33143,7 +33138,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -33169,7 +33164,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33195,7 +33190,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33221,7 +33216,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -33247,7 +33242,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -33265,11 +33260,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -33283,7 +33278,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 1.5,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -33307,7 +33302,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -33333,7 +33328,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -33359,7 +33354,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -33385,7 +33380,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -33411,7 +33406,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33437,7 +33432,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33463,7 +33458,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -33489,7 +33484,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -33507,11 +33502,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -33525,7 +33520,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 1.75,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -33549,7 +33544,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -33575,7 +33570,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -33601,7 +33596,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -33627,7 +33622,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -33653,7 +33648,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33679,7 +33674,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33705,7 +33700,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -33731,7 +33726,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -33749,11 +33744,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -33767,7 +33762,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 2.0,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -33791,7 +33786,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -33817,7 +33812,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -33843,7 +33838,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -33869,7 +33864,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -33895,7 +33890,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33921,7 +33916,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -33947,7 +33942,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -33973,7 +33968,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -33991,11 +33986,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -34009,7 +34004,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 2.25,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -34033,7 +34028,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -34059,7 +34054,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -34085,7 +34080,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -34111,7 +34106,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -34137,7 +34132,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34163,7 +34158,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34189,7 +34184,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -34215,7 +34210,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -34233,11 +34228,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -34251,7 +34246,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 2.5,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -34275,7 +34270,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -34301,7 +34296,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -34327,7 +34322,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -34353,7 +34348,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -34379,7 +34374,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34405,7 +34400,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34431,7 +34426,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -34457,7 +34452,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -34475,11 +34470,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -34493,7 +34488,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 2.75,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -34517,7 +34512,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -34543,7 +34538,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -34569,7 +34564,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -34595,7 +34590,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -34621,7 +34616,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34647,7 +34642,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34673,7 +34668,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -34699,7 +34694,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -34717,11 +34712,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -34735,7 +34730,7 @@
       "variant": "compact-kowa_lm6hc",
       "s": 3.0,
       "metal_min_deg": 1.758,
-      "metal_max_deg": 5.328,
+      "metal_max_deg": 5.141,
       "centred_deg": 3.25,
       "pcb_cover_min_deg": null,
       "min_margin_deg": null,
@@ -34759,7 +34754,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.734,
+          "metal_deg": 3.602,
           "metal_to": [
             "tub"
           ],
@@ -34785,7 +34780,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 2.211,
+          "metal_deg": 2.094,
           "metal_to": [
             "tub"
           ],
@@ -34811,7 +34806,7 @@
           "dz": 0.0,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 5.266,
+          "metal_deg": 5.125,
           "metal_to": [
             "tub"
           ],
@@ -34837,7 +34832,7 @@
           "dz": 0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.688,
+          "metal_deg": 3.586,
           "metal_to": [
             "tub"
           ],
@@ -34863,7 +34858,7 @@
           "dz": -0.55,
           "dir": -1,
           "lens_out": false,
-          "metal_deg": 3.773,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34889,7 +34884,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 3.789,
+          "metal_deg": 3.617,
           "metal_to": [
             "tub"
           ],
@@ -34915,7 +34910,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 2.273,
+          "metal_deg": 2.117,
           "metal_to": [
             "tub"
           ],
@@ -34941,7 +34936,7 @@
           "dz": -0.75,
           "dir": -1,
           "lens_out": true,
-          "metal_deg": 5.328,
+          "metal_deg": 5.141,
           "metal_to": [
             "tub"
           ],
@@ -34959,11 +34954,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
     },
@@ -34983,7 +34978,7 @@
         "+0.00/+0.00/+1": 0.4,
         "+0.00/+0.00/-1": 0.4,
         "+0.55/+0.00/+1": 0.4,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 0.4,
         "+0.00/+0.55/+1": 0.4,
@@ -34998,11 +34993,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35023,7 +35018,7 @@
         "+0.00/+0.00/+1": 0.65,
         "+0.00/+0.00/-1": 0.65,
         "+0.55/+0.00/+1": 0.65,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 0.65,
         "+0.00/+0.55/+1": 0.65,
@@ -35038,11 +35033,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35061,15 +35056,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 0.9,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 0.9,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35078,11 +35073,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35101,15 +35096,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.15,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35118,11 +35113,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35141,15 +35136,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35158,11 +35153,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35181,15 +35176,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35198,11 +35193,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35221,15 +35216,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35238,11 +35233,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35261,15 +35256,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35278,11 +35273,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35301,15 +35296,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35318,11 +35313,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35341,15 +35336,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35358,11 +35353,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35381,15 +35376,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35398,11 +35393,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35421,15 +35416,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35438,11 +35433,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -35461,15 +35456,15 @@
       "rule": "centred >= 0.30, worst offset >= 0.10",
       "gaps": {
         "+0.00/+0.00/+1": 0.679,
-        "+0.00/+0.00/-1": 0.844,
+        "+0.00/+0.00/-1": 0.802,
         "+0.55/+0.00/+1": 1.229,
-        "+0.55/+0.00/-1": 0.294,
+        "+0.55/+0.00/-1": 0.252,
         "-0.55/+0.00/+1": 0.129,
         "-0.55/+0.00/-1": 1.1,
         "+0.00/+0.55/+1": 0.679,
         "+0.00/+0.55/-1": 0.732,
         "+0.00/-0.55/+1": 0.679,
-        "+0.00/-0.55/-1": 0.86
+        "+0.00/-0.55/-1": 0.808
       },
       "catch_host": "tub",
       "stub_case": "tilt_on_tenon_top_edge",
@@ -35478,11 +35473,11 @@
         0.0,
         0.0
       ],
-      "stub_tilt_deg": 1.6365770416167185,
+      "stub_tilt_deg": 0.5729386976834859,
       "stub_pivot": [
         -11.35,
         8.28,
-        87.0
+        93.5
       ],
       "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)",
       "variant": "compact-kowa_lm6hc"
@@ -37244,5 +37239,5 @@
   ],
   "geometry_computed_pass": false,
   "physical_qualified": false,
-  "generated_utc": "2026-10-11T16:39:41Z"
+  "generated_utc": "2026-10-12T03:12:46Z"
 }

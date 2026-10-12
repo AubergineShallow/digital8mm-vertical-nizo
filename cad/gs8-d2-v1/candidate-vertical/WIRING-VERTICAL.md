@@ -19,7 +19,7 @@ Pi 5 J8 37/39    <--pre-wired run lead--------------------------- run button [gr
 Pi 5 J2 pads     --J2 keyed pair (molex-micro-fit-3.0)---------> Adafruit 1505 NO [panel]
 Pi 5 upper USB2  --4448 red/black--1N5817 (+, band to EVF)--RCY 2180|2181--> EVF board EXT+/GND
 Pi 5 HDMI0       --3557 head~3562 ribbon 300 mm~3556 head--------> EVF board receptacle
-Pi 5 CAM/DISP 1  --official 200 mm FPC--------------------------> GS camera (bench-mated end)
+Pi 5 CAM/DISP 1  --official 200 mm FPC--------------------------> GS camera (Pi end BEFORE cooler)
 Pi 5 FAN         --native lead----------------------------------> Active Cooler
 Pi 5 upper USB3  <-- recording drive (storage, not a harness)
 ```
@@ -65,7 +65,9 @@ Rule (VN-63): no two junctions share a mating family, whatever the circuit count
 - Genders: receptacle housing with SOCKET (female) contacts on the Pi J2 side: the live side never shows a bare pin that could touch ground and press the button (same rule as the EVF RCY source half); plug housing with PIN (male) contacts on the 1505 switch side.
 - Leads: each pre-crimped lead >= 231 mm exposed; longest 9ced753 V-28 tail upper bound (Molex 2181110202, 225 + 6 mm): each half may then sit on either side and the harness_rules j2_btn halves (150 / 225 +/- 6 mm) and CABLES power_button (363-387 mm) stay conservative lower bounds of what is bought; cut to the measured J2 route.
 - Gate: G-V-POWER (VN-73): place the J2 pair and its stow after the real 1505 and J2 pads are measured; try-mate matrix on receipt (each J2 half must refuse every other mateable half in the camera).
-- Criterion for user decision 13 / G-V-POWER: the chosen J2 family must fit the J2 stow space (routes.py power_stow, charged at the conservative upper end of the family class envelope, not measured): cable_stow/power_button_j2_pair fail: mated pair class 1080-1650 mm3 + loop 147.3 mm3 = 1227.3-1797.3 mm3 vs capacity 777.6 mm3 (box 3888 mm3 x fill 0.2); gated at the class upper end.
+- Criterion for user decision 13 / G-V-POWER: the chosen J2 family must fit the J2 stow space (routes.py power_stow, using the provisional modeled class envelope, not an established physical upper bound): cable_stow/power_button_j2_pair fail: mated pair class 1080-1650 mm3 + loop 1549.2 mm3 = 2629.2-3199.2 mm3 vs capacity 777.6 mm3 (box 3888 mm3 x fill 0.2); provisional class estimate only, not a guaranteed physical upper bound.
+- Source conflict: the existing 7.5 x 11 x 20 mm class proxy does not bound every Micro-Fit pair. The official 430250200 drawing gives 24.77 mm mated length for a compatible housing proposal; exact SKU, full envelope, roots and stow remain unqualified. This sourcing proposal is not an adopted substitution. [Molex drawing](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/430/43025/430250200_sd.pdf).
+- Micro-Fit root gate: Molex application specification 430450001-AS recommends 12.7 mm of free, unbiased wire from each 2–6-circuit housing before a bend, tie or twist. For the 24.77 mm housing proposal, an axial 50.17 mm overall reservation is a study assumption, not a fit result. Generic 3 mm modeled tails do not satisfy this physical gate. Latch travel and finger/tool volume remain unknown. [Molex application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/430/43045/430450001-AS-000.pdf).
 - Alternative: JST SM 2-circuit wire-to-wire (2.5 mm pitch, positive latch) (family `jst-sm-2.5`): same pitch as the EVF RCY pair: needs a try-mate proof against Pololu 2180/2181 before adoption.
 - Alternative: Molex PicoBlade 3-circuit pair with the centre cavity blanked (family `molex-picoblade-1.25`): same family as FPS: a 2-circuit half may enter a 3-circuit shroud; the conservative family rule rejects it unless a try-mate proof is recorded.
 - Alternative: Same PicoBlade pair as FPS with labels and coloured sleeves only (9ced753) (family `molex-picoblade-1.25`): rejected by VN-63: labels do not stop a cross-mate.
@@ -85,7 +87,7 @@ Rule (VN-63): no two junctions share a mating family, whatever the circuit count
 | Route `qt` | installed 206.93, shortest 203.54 + allowance 25 vs minimum stock 240: slack 11.46 mm (length rule pass) |
 | Mated | pi end on `pi5` at `module_bench` (B2); enc end on `encoder` at `panel_prop` (6) |
 | Parted in service | `panel`/`svc_panel_out` |
-| Harness report rows | cable_routes/qt fail; mate_reach/qt_enc fail; cable_stow/qt fail |
+| Harness report rows | cable_routes/qt pass; mate_reach/qt_enc pass; cable_stow/qt pass |
 
 ### `run_lead`
 
@@ -196,7 +198,7 @@ Rule (VN-63): no two junctions share a mating family, whatever the circuit count
 | BOM | D2-20 Pi 5 camera cable Standard-Mini 22-to-15 pin, 200 mm (official 200 mm) |
 | Stock `fpc` | 200 mm, no tolerance (official 200 mm camera cable, design value (MTC camera-cable row)) |
 | Route `fpc` | installed 112.88, shortest 112.88 + allowance 20 vs minimum stock 200: slack 67.12 mm (length rule pass) |
-| Mated | cam end on `gs_camera` at `optics_bench` (B0); pi end on `pi5` at `evf_mate` (5) |
+| Mated | cam end on `gs_camera` at `camera_fpc_mate` (2); pi end on `pi5` at `module_bench` (B2) |
 | Parted in service | `module`/`svc_module_unplug` |
 | Harness report rows | cable_routes/fpc fail; cable_stow/fpc info |
 
@@ -247,6 +249,16 @@ Rule (VN-63): no two junctions share a mating family, whatever the circuit count
 
 J2 length note: the harness check assumes 363-387 mm per conductor (BOM V-28 keyed set (class, default pending user decision 13), each pre-crimped lead >= 231 mm; 363-387 / 150-225 mm kept as conservative lower bounds (the two halves 150 / 225 +/- 6 mm), cut to measured length; side genders unassigned (VN-63). The signal_routes 150 mm stock figure predates V-28.); the V-28 default buys >= 462 mm per conductor, so the check stays a lower bound of what is bought.
 
+### QT stored material versus mating reach
+
+The installed route must store the entire finished 250 +/- 10 mm QT lead, including every branch and the four insulated splices. Length variants and their rigid-surface checks are separate from the free curve used at the propped panel. The free curve plus the explicit 24 mm assembly allowance is a minimum reach budget; it is not an extra 24 mm to add to the finished lead and is not a complete stored shape. A reach pass cannot certify slack storage or the continuous transition from the prop pose to closure. Actual roots, sleeves, tie/head geometry, bend limits and full flexible motion remain HOLD.
+
+### Camera and other flexible ribbons
+
+Seat the official 200 mm camera cable Pi end before fitting the Active Cooler, following the [Raspberry Pi camera instructions](https://www.raspberrypi.com/documentation/accessories/camera.html). Support the complete Pi module outside the body and mate the camera end immediately before camera insertion. The entire linked ribbon is absent from the rigid camera/carrier sweeps; source-level `steps.flexible_scope()` records this omission. Actual latch service with the cooler retained remains HOLD. Do not repeatedly remove the cooler to make an unqualified service path appear feasible.
+
+The complete 300 mm HDMI ribbon, 200 mm camera FPC and native OLED flex must retain their actual width, thickness, stiffeners and contact orientation. Manufacturer bend-radius and flex-cycle limits for these exact cables remain UNKNOWN; round clearance reserves and connector mating-cycle ratings are not cable flex qualifications. Retain full-length stored and service-motion checks, continuity, video operation and fatigue gates. Baseline source evidence is in [the 12 October materials and ribbons research](corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt); it needs an applicability check after geometry changes.
+
 ## 5. Polarity and colour rules
 
 - `qt`: 3V3 on pin 1 only; never 5 V
@@ -269,11 +281,11 @@ From steps.STEPS; each end is mated once, at the op listed. Power last.
 
 | Step | Op | Where | Mates |
 |---|---|---|---|
-| B0 | `optics_bench` | bench | `camera_fpc:cam` (gs_camera) |
-| B2 | `module_bench` | bench | `fps_1824:pi` (pi5), `fps_1824:sw` (switch_1824), `evf_hdmi:pi` (pi5), `evf_5v:pi` (pi5), `qt:pi` (pi5), `j2:pi` (pi5), `fan:pi` (pi5), `fan:cooler` (cooler), `xt30:pigtail` (x1203) |
+| B2 | `module_bench` | bench | `camera_fpc:pi` (pi5), `fps_1824:pi` (pi5), `fps_1824:sw` (switch_1824), `evf_hdmi:pi` (pi5), `evf_5v:pi` (pi5), `qt:pi` (pi5), `j2:pi` (pi5), `fan:pi` (pi5), `fan:cooler` (cooler), `xt30:pigtail` (x1203) |
 | 1 | `grip_prep` | body | `run_lead:grip` (run_button) |
+| 2 | `camera_fpc_mate` | prop | `camera_fpc:cam` (gs_camera) |
 | 4 | `module_staged` | prop | `run_lead:pi` (pi5) |
-| 5 | `evf_mate` | body | `camera_fpc:pi` (pi5), `evf_hdmi:evf` (evf_board), `evf_5v:evf` (evf_board) |
+| 5 | `evf_mate` | body | `evf_hdmi:evf` (evf_board), `evf_5v:evf` (evf_board) |
 | 6 | `panel_prop` | prop | `qt:enc` (encoder), `j2:btn` (power_button) |
 | 8 | `pack_in` | body | `xt30:pack` (pack) |
 
@@ -296,11 +308,11 @@ From steps.SERVICE; a route runs after the routes it requires (section 1 safety 
 
 ## 8. Battery pigtail drop (G-W5)
 
-harness_rules.pigtail_drop_row at 8.6 A, limit 0.15 V (never relaxed): low 0.14277 V, high 0.16254 V, status fail. Decision data (VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check.): shortest-path limit 225.4 mm (hot fuse) / 266.3 mm (cold fuse); cut-off raise needed 0.01254 V. This is user decision 4; the row fails honestly until it is taken.
+harness_rules.pigtail_drop_row at 8.6 A, limit 0.15 V (never relaxed): low 0.14277 V, high 0.16254 V, status fail. Decision data (VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check.): shortest-path limit 225.4 mm (hot fuse) / 266.3 mm (cold fuse); cut-off raise needed 0.01254 V. This remains user decision 4. The 270 mm allocation is blocked by reach and hot-drop; proposals remain pending. No 14 AWG, fuse, connector or cutoff substitution is adopted.
 
 ## 9. Open items
 
 - J2 connector family: default pending user decision 13 (VN-63).
 - V-62 deep socket purchase: gated on Adafruit 1505 nut across-flats (MEASUREMENTS-TO-CLOSE "Adafruit 1505 power switch and J2 signal harness" row; VN-73).
-- Harness rows failing in the bound report: cable_routes: fan, fpc, oled_flex, pigtail_negative, pigtail_positive, power_button, qt; cable_stow: power_button_j2_pair, qt; lead_access: pigtail_drop, pigtail_ties_on_route, pigtail_xt30_mouth; mate_reach: j2_btn, qt_enc, xt30_pack.
+- Harness rows failing in the bound report: cable_routes: fan, fpc, oled_flex, pigtail_negative, pigtail_positive, power_button; cable_stow: power_button_j2_pair; lead_access: pigtail_drop, pigtail_ties_on_route, pigtail_xt30_mouth; mate_reach: j2_btn, xt30_pack.
 - Lengths are regenerated from the route sources; the final refresh (FP-16) regenerates this file after the route and harness lanes land.

@@ -1,0 +1,1572 @@
+{
+  "height_mm": 4.8,
+  "ceiling_floor_mm": 1.6,
+  "baseline_manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
+  "stock_valid": true,
+  "stub_valid": true,
+  "rows": [
+    {
+      "category": "roll_catch",
+      "id": "stub_x+0.1:first_contact@s5.50",
+      "kind": "roll_catch",
+      "item": "first_contact",
+      "variant": "declared",
+      "s": 5.5,
+      "metal_min_deg": 1.758,
+      "metal_max_deg": 4.766,
+      "centred_deg": 3.25,
+      "pcb_cover_min_deg": 0.008,
+      "min_margin_deg": -4.758,
+      "rule_margin_deg": 1.0,
+      "cases": [
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.758
+        }
+      ],
+      "lateral_offset": 0.55,
+      "sag": 0.75,
+      "status": "fail",
+      "error": "s 5.50 dy +0.00 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.00 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 4.766); s 5.50 dy +0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 4.766); ... 10 more",
+      "catch_host": "tub",
+      "stub_case": "x+0.1",
+      "stub_shift_mm": [
+        0.1,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": 0.0,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_x+0.1:window@s5.50",
+      "kind": "roll_catch",
+      "item": "window",
+      "s": 5.5,
+      "window_deg": 1.4,
+      "centred_gap": 0.679,
+      "worst_gap": 0.129,
+      "rule": "centred >= 0.30, worst offset >= 0.10",
+      "gaps": {
+        "+0.00/+0.00/+1": 0.679,
+        "+0.00/+0.00/-1": 0.679,
+        "+0.55/+0.00/+1": 1.114,
+        "+0.55/+0.00/-1": 0.129,
+        "-0.55/+0.00/+1": 0.129,
+        "-0.55/+0.00/-1": 1.1,
+        "+0.00/+0.55/+1": 0.679,
+        "+0.00/+0.55/-1": 0.679,
+        "+0.00/-0.55/+1": 0.679,
+        "+0.00/-0.55/-1": 0.679
+      },
+      "status": "pass",
+      "catch_host": "tub",
+      "stub_case": "x+0.1",
+      "stub_shift_mm": [
+        0.1,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": 0.0,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_x-0.1:first_contact@s5.50",
+      "kind": "roll_catch",
+      "item": "first_contact",
+      "variant": "declared",
+      "s": 5.5,
+      "metal_min_deg": 1.758,
+      "metal_max_deg": 4.766,
+      "centred_deg": 3.25,
+      "pcb_cover_min_deg": 0.008,
+      "min_margin_deg": -4.758,
+      "rule_margin_deg": 1.0,
+      "cases": [
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.758
+        }
+      ],
+      "lateral_offset": 0.55,
+      "sag": 0.75,
+      "status": "fail",
+      "error": "s 5.50 dy +0.00 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.00 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 4.766); s 5.50 dy +0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 4.766); ... 10 more",
+      "catch_host": "tub",
+      "stub_case": "x-0.1",
+      "stub_shift_mm": [
+        -0.1,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": 0.0,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_x-0.1:window@s5.50",
+      "kind": "roll_catch",
+      "item": "window",
+      "s": 5.5,
+      "window_deg": 1.4,
+      "centred_gap": 0.679,
+      "worst_gap": 0.129,
+      "rule": "centred >= 0.30, worst offset >= 0.10",
+      "gaps": {
+        "+0.00/+0.00/+1": 0.679,
+        "+0.00/+0.00/-1": 0.679,
+        "+0.55/+0.00/+1": 1.114,
+        "+0.55/+0.00/-1": 0.129,
+        "-0.55/+0.00/+1": 0.129,
+        "-0.55/+0.00/-1": 1.1,
+        "+0.00/+0.55/+1": 0.679,
+        "+0.00/+0.55/-1": 0.679,
+        "+0.00/-0.55/+1": 0.679,
+        "+0.00/-0.55/-1": 0.679
+      },
+      "status": "pass",
+      "catch_host": "tub",
+      "stub_case": "x-0.1",
+      "stub_shift_mm": [
+        -0.1,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": 0.0,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_film+y0.05:first_contact@s5.50",
+      "kind": "roll_catch",
+      "item": "first_contact",
+      "variant": "declared",
+      "s": 5.5,
+      "metal_min_deg": 1.758,
+      "metal_max_deg": 4.906,
+      "centred_deg": 3.25,
+      "pcb_cover_min_deg": 0.008,
+      "min_margin_deg": -4.898,
+      "rule_margin_deg": 1.0,
+      "cases": [
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.391,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.383
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 1.891,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.883
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 4.906,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.898
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.391,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.383
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.391,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.383
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 3.391,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.383
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 1.891,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.883
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 4.906,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.898
+        }
+      ],
+      "lateral_offset": 0.55,
+      "sag": 0.75,
+      "status": "fail",
+      "error": "s 5.50 dy +0.00 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.00 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 3.391); s 5.50 dy +0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 4.766); s 5.50 dy +0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 1.891); s 5.50 dy -0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 4.906); ... 10 more",
+      "catch_host": "tub",
+      "stub_case": "film+y0.05",
+      "stub_shift_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "stub_tilt_deg": 0.0,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_film+y0.05:window@s5.50",
+      "kind": "roll_catch",
+      "item": "window",
+      "s": 5.5,
+      "window_deg": 1.4,
+      "centred_gap": 0.679,
+      "worst_gap": 0.129,
+      "rule": "centred >= 0.30, worst offset >= 0.10",
+      "gaps": {
+        "+0.00/+0.00/+1": 0.679,
+        "+0.00/+0.00/-1": 0.729,
+        "+0.55/+0.00/+1": 1.164,
+        "+0.55/+0.00/-1": 0.179,
+        "-0.55/+0.00/+1": 0.129,
+        "-0.55/+0.00/-1": 1.1,
+        "+0.00/+0.55/+1": 0.679,
+        "+0.00/+0.55/-1": 0.729,
+        "+0.00/-0.55/+1": 0.679,
+        "+0.00/-0.55/-1": 0.729
+      },
+      "status": "pass",
+      "catch_host": "tub",
+      "stub_case": "film+y0.05",
+      "stub_shift_mm": [
+        0.0,
+        0.05,
+        0.0
+      ],
+      "stub_tilt_deg": 0.0,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_tilt_on_joint_edge:first_contact@s5.50",
+      "kind": "roll_catch",
+      "item": "first_contact",
+      "variant": "declared",
+      "s": 5.5,
+      "metal_min_deg": 1.586,
+      "metal_max_deg": 4.766,
+      "centred_deg": 3.25,
+      "pcb_cover_min_deg": 0.008,
+      "min_margin_deg": -4.758,
+      "rule_margin_deg": 1.0,
+      "cases": [
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.109,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.101
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 1.625,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.617
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 4.609,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.601
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.141,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.133
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.078,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.07
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 3.07,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.062
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 1.586,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -1.578
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 4.562,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -4.554
+        }
+      ],
+      "lateral_offset": 0.55,
+      "sag": 0.75,
+      "status": "fail",
+      "error": "s 5.50 dy +0.00 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.00 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 3.109); s 5.50 dy +0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 4.766); s 5.50 dy +0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 1.625); s 5.50 dy -0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 4.609); ... 10 more",
+      "catch_host": "tub",
+      "stub_case": "tilt_on_joint_edge",
+      "stub_shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": -1.1934894239820353,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_tilt_on_joint_edge:window@s5.50",
+      "kind": "roll_catch",
+      "item": "window",
+      "s": 5.5,
+      "window_deg": 1.4,
+      "centred_gap": 0.632,
+      "worst_gap": 0.082,
+      "rule": "centred >= 0.30, worst offset >= 0.10",
+      "gaps": {
+        "+0.00/+0.00/+1": 0.679,
+        "+0.00/+0.00/-1": 0.632,
+        "+0.55/+0.00/+1": 1.023,
+        "+0.55/+0.00/-1": 0.082,
+        "-0.55/+0.00/+1": 0.129,
+        "-0.55/+0.00/-1": 1.1,
+        "+0.00/+0.55/+1": 0.679,
+        "+0.00/+0.55/-1": 0.643,
+        "+0.00/-0.55/+1": 0.679,
+        "+0.00/-0.55/-1": 0.62
+      },
+      "status": "fail",
+      "error": "level window +-1.4 deg: metal to tub 0.632 centred / 0.082 worst",
+      "catch_host": "tub",
+      "stub_case": "tilt_on_joint_edge",
+      "stub_shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": -1.1934894239820353,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        83.5
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_tilt_on_tenon_top_edge:first_contact@s5.50",
+      "kind": "roll_catch",
+      "item": "first_contact",
+      "variant": "declared",
+      "s": 5.5,
+      "metal_min_deg": 1.758,
+      "metal_max_deg": 5.25,
+      "centred_deg": 3.25,
+      "pcb_cover_min_deg": 0.008,
+      "min_margin_deg": -5.242,
+      "rule_margin_deg": 1.0,
+      "cases": [
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.68,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.672
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 2.164,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -2.156
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": 0.0,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 5.211,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -5.203
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": 0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.648,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.64
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": 1,
+          "lens_out": false,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.55,
+          "dir": -1,
+          "lens_out": false,
+          "metal_deg": 3.711,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.703
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 3.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -3.242
+        },
+        {
+          "dy": 0.0,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 3.719,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -3.711
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 4.766,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -4.758
+        },
+        {
+          "dy": 0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 2.203,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -2.195
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": 1,
+          "lens_out": true,
+          "metal_deg": 1.758,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "carrier"
+          ],
+          "margin_deg": -1.75
+        },
+        {
+          "dy": -0.55,
+          "dz": -0.75,
+          "dir": -1,
+          "lens_out": true,
+          "metal_deg": 5.25,
+          "metal_to": [
+            "tub"
+          ],
+          "pcb_cover_deg": 0.008,
+          "pcb_cover_to": [
+            "panel"
+          ],
+          "margin_deg": -5.242
+        }
+      ],
+      "lateral_offset": 0.55,
+      "sag": 0.75,
+      "status": "fail",
+      "error": "s 5.50 dy +0.00 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 3.25); s 5.50 dy +0.00 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 3.68); s 5.50 dy +0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 4.766); s 5.50 dy +0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 2.164); s 5.50 dy -0.55 dz +0.00 dir +1: PCB/cover meets ['carrier'] at 0.01 deg before metal + 1.0 (metal 1.758); s 5.50 dy -0.55 dz +0.00 dir -1: PCB/cover meets ['panel'] at 0.01 deg before metal + 1.0 (metal 5.211); ... 10 more",
+      "catch_host": "tub",
+      "stub_case": "tilt_on_tenon_top_edge",
+      "stub_shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": 1.1934894239820353,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        88.3
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    },
+    {
+      "category": "roll_catch",
+      "id": "stub_tilt_on_tenon_top_edge:window@s5.50",
+      "kind": "roll_catch",
+      "item": "window",
+      "s": 5.5,
+      "window_deg": 1.4,
+      "centred_gap": 0.679,
+      "worst_gap": 0.129,
+      "rule": "centred >= 0.30, worst offset >= 0.10",
+      "gaps": {
+        "+0.00/+0.00/+1": 0.679,
+        "+0.00/+0.00/-1": 0.827,
+        "+0.55/+0.00/+1": 1.229,
+        "+0.55/+0.00/-1": 0.277,
+        "-0.55/+0.00/+1": 0.129,
+        "-0.55/+0.00/-1": 1.1,
+        "+0.00/+0.55/+1": 0.679,
+        "+0.00/+0.55/-1": 0.732,
+        "+0.00/-0.55/+1": 0.679,
+        "+0.00/-0.55/-1": 0.838
+      },
+      "status": "pass",
+      "catch_host": "tub",
+      "stub_case": "tilt_on_tenon_top_edge",
+      "stub_shift_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stub_tilt_deg": 1.1934894239820353,
+      "stub_pivot": [
+        -11.35,
+        8.28,
+        88.3
+      ],
+      "note": "bonded +Y stub displaced inside its pocket clearance / film envelope (model.TAB_CATCH_POCKET_CLEAR, film 0.05 mm)"
+    }
+  ],
+  "study_status": "INVALID_INPUT_NOT_DESIGN_EVIDENCE",
+  "scope_note": "Initial exploratory invocation mistakenly sampled BFAR s=5.5 mm outside the declared 0..3 mm range. Retained for transparency; these rows do not qualify or reject the design. The study now rejects out-of-range samples before CAD."
+}

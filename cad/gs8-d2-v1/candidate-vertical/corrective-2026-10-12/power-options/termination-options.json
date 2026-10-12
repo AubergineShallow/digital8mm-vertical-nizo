@@ -1,0 +1,310 @@
+{
+  "anderson_sbs_mini_screen": {
+    "assembly": "https://www.andersonpower.com/content/dam/ideal-anderson-power-dotcom/product-assets/default/instructions/1s6651-SBS-Mini-Assembly-Instructions.pdf",
+    "camera14_contact": "1331",
+    "conclusion": "Supported wire sizes but much longer than existing26mm proxy. Published contact resistance is average, not a worst-case mixed14/18 loop bound. No demonstrated enclosure/service advantage.",
+    "housing": "B02265G4",
+    "mated_length_mm": 49.7,
+    "maximum_wire_od_mm": 4.65,
+    "pack18_contact": "1332",
+    "source": "https://www.andersonpower.com/content/dam/app/ecommerce/product-pdfs/SBS-Mini/ds-sbsmini.pdf"
+  },
+  "as_of_utc": "2026-10-12",
+  "bounded_geometry_receipt": "cad/gs8-d2-v1/candidate-vertical/corrective-2026-10-12/power-options/factory250-remedy-cad.json",
+  "cab0244": {
+    "photo": "https://cdn.shopify.com/s/files/1/0174/1800/files/xt30-1.jpg?v=1701882162",
+    "photo_observation": "Two recessed socket contacts at keyed projecting twin-lobe face. Matches declared camera-side contact role only.",
+    "published": {
+      "connector_label": "XT30 socket",
+      "continuous_current_a": 15,
+      "insulation": "silicone",
+      "nominal_length_mm": 250,
+      "peak_current_a": 30,
+      "wire_gauge_awg": 14
+    },
+    "sku": "CAB0244",
+    "unknown": [
+      "actual usable root-to-cut length and tolerance",
+      "minimum copper area and conductor material/strand tolerances",
+      "resistance of wire and factory joints",
+      "insulation OD and tolerance",
+      "minimum bend/straight-tail requirements",
+      "actual housing envelope and exit pitch",
+      "actual received custom-pack gender, polarity, protection and cross-mating"
+    ],
+    "url": "https://shop.pimoroni.com/products/xt30-adapter-cables?variant=41199325249619",
+    "variant_feed": "https://shop.pimoroni.com/products/xt30-adapter-cables.json",
+    "variant_id": "41199325249619",
+    "vendor": "Pimoroni",
+    "warning": "Variant41199325282387 is CAB0245, a short XT60-to-XT30 adapter, not CAB0244."
+  },
+  "conditional_camera_wire": {
+    "area_mm2": 2.0106192982974678,
+    "basis": "PRC comparison construction only; NOT sourced conductor area or resistance for CAB0244",
+    "r20_mohm_per_m_including_lay": 8.83241332891445
+  },
+  "conditional_cases": [
+    {
+      "conditional_drop_v": 0.13054036610215802,
+      "conditional_margin_mv": 19.45963389784197,
+      "contact_loop_mohm": 1.0,
+      "path_per_polarity_mm": 250
+    },
+    {
+      "conditional_drop_v": 0.13226036610215802,
+      "conditional_margin_mv": 17.739633897841973,
+      "contact_loop_mohm": 1.2,
+      "path_per_polarity_mm": 250
+    },
+    {
+      "conditional_drop_v": 0.14258036610215802,
+      "conditional_margin_mv": 7.419633897841976,
+      "contact_loop_mohm": 2.4,
+      "path_per_polarity_mm": 250
+    },
+    {
+      "conditional_drop_v": 0.13581433435353543,
+      "conditional_margin_mv": 14.185665646464562,
+      "contact_loop_mohm": 1.0,
+      "path_per_polarity_mm": 280
+    },
+    {
+      "conditional_drop_v": 0.13753433435353543,
+      "conditional_margin_mv": 12.465665646464563,
+      "contact_loop_mohm": 1.2,
+      "path_per_polarity_mm": 280
+    },
+    {
+      "conditional_drop_v": 0.14785433435353545,
+      "conditional_margin_mv": 2.14566564646454,
+      "contact_loop_mohm": 2.4,
+      "path_per_polarity_mm": 280
+    },
+    {
+      "conditional_drop_v": 0.13669332906209833,
+      "conditional_margin_mv": 13.306670937901666,
+      "contact_loop_mohm": 1.0,
+      "path_per_polarity_mm": 285
+    },
+    {
+      "conditional_drop_v": 0.13841332906209836,
+      "conditional_margin_mv": 11.586670937901639,
+      "contact_loop_mohm": 1.2,
+      "path_per_polarity_mm": 285
+    },
+    {
+      "conditional_drop_v": 0.14873332906209835,
+      "conditional_margin_mv": 1.2666709379016428,
+      "contact_loop_mohm": 2.4,
+      "path_per_polarity_mm": 285
+    }
+  ],
+  "derived_resistance_inputs": {
+    "copper_temperature_factor": 1.1572,
+    "fuse_hot_mohm": 5.798,
+    "pack_wire_loop_hot_mohm": 3.2706779853503365,
+    "r14_20_mohm_per_m_including_lay": 8.83241332891445,
+    "r16_20_mohm_per_m_including_lay": 14.131861326263122,
+    "r18_20_mohm_per_m_including_lay": 23.553102210438535
+  },
+  "equation": "V=I/1000*[k*(r_camera20*(L_plus+L_minus)/1000+2*r_pack18_20*60/1000)+4.46*1.30+R_connector_loop+sum(R_added_splice)]",
+  "factory250_acceptance_budget": {
+    "camera_wire_r20_max_mohm_per_m_at_145mv_design_target": 9.31867806935488,
+    "camera_wire_r20_max_mohm_per_m_at_150mv": 10.323509297901731,
+    "connector_loop_mohm_assumed_for_budget": 2.4,
+    "note": "Budget, not supplier guarantee. Measurement must include unbudgeted factory joints and all actual terminations; 145mV is an optional design-margin target, not a changed release limit."
+  },
+  "mixed250_cases": [
+    {
+      "additional_splices": 2,
+      "connector_loop_mohm": 1.0,
+      "drop_before_added_splices_v": 0.13307187086281919,
+      "drop_if_each_added_splice_is_0p1_mohm": 0.13479187086281919,
+      "equal_hot_budget_per_splice_mohm": 0.9841935544872563,
+      "middle14_per_polarity_mm": 226.0,
+      "tail16_per_polarity_mm": 24.0,
+      "total_hot_splice_budget_mohm": 1.9683871089745126,
+      "total_per_polarity_mm": 250
+    },
+    {
+      "additional_splices": 2,
+      "connector_loop_mohm": 1.2,
+      "drop_before_added_splices_v": 0.13479187086281919,
+      "drop_if_each_added_splice_is_0p1_mohm": 0.13651187086281918,
+      "equal_hot_budget_per_splice_mohm": 0.8841935544872563,
+      "middle14_per_polarity_mm": 226.0,
+      "tail16_per_polarity_mm": 24.0,
+      "total_hot_splice_budget_mohm": 1.7683871089745127,
+      "total_per_polarity_mm": 250
+    },
+    {
+      "additional_splices": 2,
+      "connector_loop_mohm": 2.4,
+      "drop_before_added_splices_v": 0.14511187086281918,
+      "drop_if_each_added_splice_is_0p1_mohm": 0.14683187086281918,
+      "equal_hot_budget_per_splice_mohm": 0.28419355448725664,
+      "middle14_per_polarity_mm": 226.0,
+      "tail16_per_polarity_mm": 24.0,
+      "total_hot_splice_budget_mohm": 0.5683871089745133,
+      "total_per_polarity_mm": 250
+    },
+    {
+      "additional_splices": 2,
+      "connector_loop_mohm": 1.0,
+      "drop_before_added_splices_v": 0.13475954070325996,
+      "drop_if_each_added_splice_is_0p1_mohm": 0.13647954070325996,
+      "equal_hot_budget_per_splice_mohm": 0.8860732149267462,
+      "middle14_per_polarity_mm": 210.0,
+      "tail16_per_polarity_mm": 40.0,
+      "total_hot_splice_budget_mohm": 1.7721464298534924,
+      "total_per_polarity_mm": 250
+    },
+    {
+      "additional_splices": 2,
+      "connector_loop_mohm": 1.2,
+      "drop_before_added_splices_v": 0.13647954070325996,
+      "drop_if_each_added_splice_is_0p1_mohm": 0.13819954070325996,
+      "equal_hot_budget_per_splice_mohm": 0.7860732149267462,
+      "middle14_per_polarity_mm": 210.0,
+      "tail16_per_polarity_mm": 40.0,
+      "total_hot_splice_budget_mohm": 1.5721464298534924,
+      "total_per_polarity_mm": 250
+    },
+    {
+      "additional_splices": 2,
+      "connector_loop_mohm": 2.4,
+      "drop_before_added_splices_v": 0.14679954070325998,
+      "drop_if_each_added_splice_is_0p1_mohm": 0.14851954070325998,
+      "equal_hot_budget_per_splice_mohm": 0.18607321492674478,
+      "middle14_per_polarity_mm": 210.0,
+      "tail16_per_polarity_mm": 40.0,
+      "total_hot_splice_budget_mohm": 0.37214642985348956,
+      "total_per_polarity_mm": 250
+    }
+  ],
+  "mixed_gauge_equation": "V=I/1000*[2*k*(r14_20*L14/1000+r16_20*L16/1000+r18_20*60/1000)+4.46*1.30+R_connector_loop+sum(R_added_splice)]; L14+L16 is the finished allocation per polarity",
+  "recommendation": "Retain CAB0244 as the preferred conditional factory-termination study candidate. The completed bounded passage/run-wire/storage attempt fails rear-neck, microSD, tub and cable-neighbour screens. Actual dimensions, usable length, resistance and a complete passing route are still required before any final BOM decision. No qualified power assembly has been demonstrated.",
+  "status": "EXPLORATORY ONLY; not a selected part, cut list, purchase or fabrication release",
+  "transition_splice": {
+    "area_range_mm2": [
+      1.04,
+      2.62
+    ],
+    "bare_length_mm": 14.4,
+    "bare_od_mm": 4.06,
+    "barrel_id_mm": 2.26,
+    "catalog_page": 9,
+    "conclusion": "Explicit splice candidate only. At 250 mm total and 40 mm 16 AWG tails per polarity, the two added splices have a combined 0.372146 mOhm hot budget in the 2.4 mOhm loop case. At 270 mm and longer it fails before splice loss. The budget is not a supported joint resistance.",
+    "manufacturer": "TE Connectivity",
+    "part": "SOLISTRAND31819",
+    "product": "https://www.te.com.cn/chn-zh/product-31819.html",
+    "quantity_additional": 2,
+    "source": "https://www.te.com/content/dam/te-com/documents/appliances/global/solistrand-terminals-and-splices-qrg.pdf",
+    "unresolved": [
+      "part drawing/process reconciliation",
+      "fine-strand/tool/die qualification",
+      "installed insulated OD and rigid length",
+      "pull test and strain relief",
+      "hot resistance per joint"
+    ],
+    "wire_range_awg": [
+      16,
+      14
+    ]
+  },
+  "uh60": {
+    "conclusion": "Documented14AWG termination alternative, but covered pair fails existing pose width/headroom. New pair/pack interface, orientation, strain relief and extraction would require a separate proposal; not preferred over investigating CAB0244.",
+    "contact_resistance_mohm": 1.2,
+    "female_contact_photo": "https://cdn.globalso.com/china-amass/615.png",
+    "female_drawing": "https://www.china-amass.net/uploads/121.UH60-F-With-End-Cap-Product-Specification-Gold-Plated-2026V1E-Solder-cup-facing-positive-and-negative-terminals.pdf",
+    "female_url": "https://www.china-amass.net/uh60-fgold-plating-product/",
+    "grip_bay_xy_mm": [
+      43,
+      25
+    ],
+    "inferred_nominal_mating_overlap_mm": 7.699999999999999,
+    "life_cycles": 30,
+    "male_contact_photo": "https://cdn.globalso.com/china-amass/518.png",
+    "male_drawing": "https://www.china-amass.net/uploads/121.UH60-M-Product-Specification-Gold-Plated-2026V1E-Solder-cup-facing-positive-and-negative-terminals.pdf",
+    "male_url": "https://www.china-amass.net/uh60-mgold-plating-product/",
+    "manufacturer_wire_support_awg": [
+      14,
+      12
+    ],
+    "max_wire_od_mm": null,
+    "overlap_note": "Dimension subtraction, not a published extraction stroke or electrical break distance.",
+    "pack_top_to_bay_top_mm": 26.8,
+    "pair_bare_at_current_pose_max_xyz_mm": [
+      30.211921305589176,
+      24.89073486980406,
+      25.950818869546293
+    ],
+    "pair_bare_lwt_mm": [
+      26.7,
+      16.4,
+      9.2
+    ],
+    "pair_bare_max_lwt_mm": [
+      27.2,
+      16.7,
+      9.5
+    ],
+    "pair_covered_at_current_pose_max_xyz_mm": [
+      35.82312023364238,
+      27.044672331712963,
+      31.96122650963195
+    ],
+    "pair_covered_lwt_mm": [
+      35.2,
+      16.4,
+      9.2
+    ],
+    "pair_covered_max_lwt_mm": [
+      35.7,
+      16.7,
+      9.5
+    ],
+    "rear_cover": "98032.PG",
+    "resistance_scope": "Per contact vs loop unresolved; use both1.2and2.4loop sensitivities.",
+    "single_bare_lwt_mm": [
+      17.2,
+      16.4,
+      9.2
+    ]
+  },
+  "unchanged_inputs": {
+    "added_splice_mohm_in_tabulated_drop": 0.0,
+    "alpha_per_k": 0.00393,
+    "connector_loop_sensitivities_mohm": [
+      1.0,
+      1.2,
+      2.4
+    ],
+    "copper_hot_c": 60.0,
+    "current_a": 8.6,
+    "fuse_cold_mohm": 4.46,
+    "fuse_hot_factor": 1.3,
+    "historical_connector_loop_mohm": 1.0,
+    "lay_factor": 1.03,
+    "limit_v": 0.15,
+    "pack18_strands_assumed": 150,
+    "pack_lead_per_polarity_mm": 60.0,
+    "prc14_strands_conservative": 400,
+    "prc16_strands_conservative": 250,
+    "reference_c": 20.0,
+    "rho20_ohm_mm2_per_m": 0.017241379310344827,
+    "strand_diameter_mm": 0.08
+  },
+  "units": {
+    "I": "A",
+    "L": "mm",
+    "R": "mohm",
+    "r20": "mohm/m"
+  },
+  "xt30u_bare_cup": {
+    "conclusion": "Retrieved 2025V0 specifications rate with16AWG and do not document14AWG cup fit. No trimming strands or guessed termination.",
+    "resistance_scope": "Historical1.0mohm loop is retained only as historical; published<=1.2mohm scope per contact vs loop unresolved.",
+    "spec_archive": "https://www.china-amass.net/uploads/XT30U-MF.rar",
+    "url": "https://www.china-amass.net/xt30u-f-product/"
+  }
+}

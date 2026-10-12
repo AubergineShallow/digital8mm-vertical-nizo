@@ -7,7 +7,8 @@ Docs audit: a failed binding, a stale or foreign selected report, a stale guide 
 repeated figure makes it exit 1; default and --check never write; --check catches a stale committed audit; the output
 is deterministic. Reconciler: a planted foreign-manifest or unbound JSON in the selected folder fails it, a declared
 historical report must bind its declared manifest, the main audit's info rows must be exactly the accepted set, the
-keepout rule only accepts the declared mating partner, and nothing is written while any gate fails. Stale reports are
+keepout rule only accepts the declared mating partner, and pass-only --write/--out never write while a gate fails.
+The explicit --record-blocked mode has separate regressions in test_blocked_review_receipt.py. Stale reports are
 out of the selected folder. CAD-free; scripts run inside a light copy of the tree (tests/_evidence_fixture.py).
 """
 from pathlib import Path

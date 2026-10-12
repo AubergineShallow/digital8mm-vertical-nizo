@@ -1,0 +1,20 @@
+{
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "geometry_receipt_sha256": "93521fbf6151a766ff3eea2fb8a0ba453eb31f67ea63121de50bc5f0880cd135",
+  "input_sha256": {
+    "receipt.json": "93521fbf6151a766ff3eea2fb8a0ba453eb31f67ea63121de50bc5f0880cd135",
+    "catch-host-coupon.step": "eb2717504976c80c9cfa20454df70068040023d0f40c98ef2314d57cc9d88e95",
+    "catch-host-coupon.stl": "a29172ac339586249bbbca01bc40fa49af5ee261775fcd0f58efcad62e894a4f",
+    "catch-insert.step": "07f62d070adf6e426814c1f3d8636ac4d7435b5a0cbd98deedfb56bb01b88efd",
+    "catch-insert.stl": "9bf6b81f44deaf2be5b70b79a61fb9228f4b4db3502fd867f20f0eb20d6205e8"
+  },
+  "renderer_sha256": "4fc0c5ffbf8ac1e6099a3bdc4b35edf719a26dbab6d095ae2a385e590dbe20cf",
+  "output": "coupon-review.png",
+  "output_sha256": "10351b9ee79b346ff24958b3df64f7b7802b4aeb59dbde011271ca47efab4389",
+  "visual_review": {
+    "status": "passed",
+    "views_inspected": 4,
+    "findings": "All four views inspected: host and insert are legible, the exploded position is explicitly illustrative, the as-printed orientations and receipt-derived dimensions are shown, and no caption is clipped or overlapping. This is visual geometry inspection only."
+  },
+  "physical_qualified": false
+}

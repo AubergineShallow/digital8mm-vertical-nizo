@@ -224,9 +224,11 @@ def historical_binding(rel, root=HERE):
         (got or 'nothing')[:8], want_path, (want or 'missing')[:8])
 
 
-def selected_folder_findings(folder, manifest_sha, root=HERE):
+def selected_folder_findings(folder, manifest_sha, root=HERE, *, generated_outputs=()):
     """[(code, path, detail)] for every JSON in a selected output folder that does not bind manifest_sha, unless it is
-    DECLARED_HISTORICAL and binds its declared manifest. manifest.json and cache/STEP/STL/log folders are skipped."""
+    DECLARED_HISTORICAL and binds its declared manifest. manifest.json and cache/STEP/STL/log folders are skipped.
+    A producer may exclude its own generated output by exact relative path; independent audits omit this argument
+    and still validate that output. This avoids treating the receipt being regenerated as one of its own inputs."""
     folder, root = Path(folder), Path(root)
     out = []
     for p in sorted(folder.rglob('*.json')):
@@ -234,6 +236,8 @@ def selected_folder_findings(folder, manifest_sha, root=HERE):
         if inner == 'manifest.json' or SKIP_DIRS & set(inner.split('/')[:-1]):
             continue
         rel = p.relative_to(root).as_posix() if p.is_relative_to(root) else inner
+        if rel in generated_outputs:
+            continue
         if rel in DECLARED_HISTORICAL:
             ok, detail = historical_binding(rel, root)
             if not ok:
@@ -558,6 +562,32 @@ PLACEHOLDER_SKIP = frozenset({'history', 'review-2026-10-10', 'meshes', '__pycac
 
 # ------------------------------------------------------------------ docs-audit verdict (VN-05)
 
+def production_print_counts(manifest):
+    """Count assembly rows and separately exported production pieces without conflating them.
+
+    Older manifests lack production_prints. Their piece count comes from print_poses, never from the old
+    printed_count (assembly-row count). The centring gauge is a tool, and coupon exports live outside this manifest.
+    """
+    assembly_rows = sum(r.get('kind') == 'printed' for r in manifest.get('rows', []))
+    files = sorted('stl/%s.stl' % name for name in manifest.get('print_poses', {}) if name != 'centring_gauge')
+    declared = manifest.get('production_prints')
+    findings = []
+    if not files:
+        findings.append(['production_print_poses_missing'])
+    missing = [name for name in files if name not in manifest.get('files', {})]
+    if missing:
+        findings.append(['production_print_files_unbound', ', '.join(missing)])
+    actual = dict(assembly_row_count=assembly_rows, piece_count=len(files), files=files,
+                  count_basis='Printed assembly rows and separate STL print poses; centring gauge and external coupons excluded.',
+                  declared_metadata=declared, historical_row_count_semantics='printed_count counts assembly rows only')
+    if declared is not None:
+        for key in ('assembly_row_count', 'piece_count', 'files'):
+            got = declared.get(key)
+            if got != actual[key]:
+                findings.append(['production_print_metadata', key, json.dumps(got), json.dumps(actual[key])])
+    return actual, findings
+
+
 CURRENT_ROLE = 'current manifest-bound scoped evidence'
 HEAD_CURRENT_ROLE = 'current manifest-bound limited head reservation'
 
@@ -591,6 +621,10 @@ def evaluate_docs_audit(a):
             fail('mesh_manifest_copy', name)
         if v['printed_count'] != v['expected_printed_count']:
             fail('printed_count', name, v['printed_count'], v['expected_printed_count'])
+        for finding in v.get('production_print_findings', []):
+            fail(finding[0], name, *finding[1:])
+        if 'production_prints' in v and v['production_prints']['piece_count'] != v['expected_production_piece_count']:
+            fail('production_piece_count', name, v['production_prints']['piece_count'], v['expected_production_piece_count'])
         for k in ('printed_valid_one_solid', 'keepouts_non_material'):
             if not v[k]:
                 fail(k, name)

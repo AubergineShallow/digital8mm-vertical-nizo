@@ -1,8 +1,8 @@
 {
   "name": "preliminary_regular_grid",
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-  "tub_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
-  "source_check_sha256": "86d096fbeaf99c1bbba5d2e6f49781196cb6bf387ba5c41c3cfe50d8628f6488",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "tub_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
+  "source_check_sha256": "4664a9c88642ad5bc9c9a351d5720657cf326ae3259719b7a3dce890690e4377",
   "crop_bounds_mm": [
     -152.0,
     -104.0,
@@ -17,10 +17,10 @@
   "volume_mm3": 6535.200000000003,
   "production_part": false,
   "physical_qualified": false,
-  "purpose": "Open-edge regular-grid post-supported roof-bridge inspection crop from the exact selected tub",
+  "purpose": "Small open-edge roof/beam/pillar inspection crop from the exact selected tub (legacy regular-grid file name)",
   "limitations": [
     "Does not prove closed-body cleanout; its cut edges permit access absent in the complete camera.",
-    "Does not reproduce the ports, CSI sleeve, post exclusions or front/top enclosure edge spans.",
+    "Does not reproduce the ports, CSI sleeve, support interruptions or front/top enclosure edge spans.",
     "No supports added. Automatic internal support would be unacceptable in the complete plenum.",
     "No strength, cooling, pressure-loss, hand-occlusion or full-body print qualification follows from this crop."
   ],
@@ -48,5 +48,5 @@
     "plenum-bridge-open-edge-coupon.step": "bb780f82a075c226b2140b8d4e97d35ddf18779c5dea9e3da51efc1729077949",
     "plenum-bridge-open-edge-coupon.stl": "ad44bccc534acf5deb77ccf318cab91e01716287cf268cd91830dd3982a99e6d"
   },
-  "source_sha256": "573f2f8f66df23c1cbb82873bb2364537d5af8d22fb1809c10fc4e27770e12f7"
+  "source_sha256": "964debf1149051e91129a3cf614f9000ee34f8b7ab19d98558f7ba902c0cd019"
 }
