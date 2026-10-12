@@ -13,11 +13,18 @@ sys.path.insert(0, str(base.CV))
 from cv_io import read_text, write_text
 
 
+# Review ELE-3: the series joints of the built path, named explicitly. No source in the repo gives a joint resistance,
+# so each is a zero-valued 'unbudgeted, pending G-W5' term (the same names as harness_rules.DROP['joints_mohm']).
+JOINTS = {'fuse_splice_line': 0.0, 'fuse_splice_load': 0.0, 'x1203_pad_positive': 0.0, 'x1203_pad_negative': 0.0}
+
+
 def rotated_box(length, width, thickness):
+    """Axis extents (mm) of the box at the yaw 21 / pitch 45 pose. Rounded to 1e-6 mm at generation: libm sin/cos
+    differ in the last digit between platforms (review ELE-11), and --check compares the whole JSON text exactly."""
     yaw, pitch = math.radians(21), math.radians(45)
     c, s, cp, sp = math.cos(yaw), math.sin(yaw), math.cos(pitch), math.sin(pitch)
     matrix = [[c*cp,-s,c*sp],[s*cp,c,s*sp],[-sp,0,cp]]
-    return [sum(abs(row[j])*[length,width,thickness][j] for j in range(3)) for row in matrix]
+    return [round(sum(abs(row[j])*[length,width,thickness][j] for j in range(3)), 6) for row in matrix]
 
 
 def assessment():
@@ -65,6 +72,12 @@ def assessment():
             'camera_wire_r20_max_mohm_per_m_at_150mv': (150/8.6-fixed)/(2*.250*1.1572),
             'camera_wire_r20_max_mohm_per_m_at_145mv_design_target': (145/8.6-fixed)/(2*.250*1.1572),
             'note': 'Budget, not supplier guarantee. Measurement must include unbudgeted factory joints and all actual terminations; 145mV is an optional design-margin target, not a changed release limit.',
+            'budget_basis': 'wire + named joints: the camera-wire maxima above are the case with every named joint at 0 mohm; each joint consumes the same loop budget',
+            'wire_plus_joints_loop_budget_hot_mohm_at_150mv': 150/8.6-fixed,
+            'wire_plus_joints_loop_budget_hot_mohm_at_145mv_design_target': 145/8.6-fixed,
+            'named_joints_mohm': JOINTS,
+            'named_joints_status': 'unbudgeted, pending G-W5 (no repo source gives a joint resistance; review ELE-3)',
+            'camera_wire_r20_max_reduction_mohm_per_m_per_0p1_mohm_joint': .1/(2*.250*1.1572),
         },
         'cab0244': {
             'vendor': 'Pimoroni', 'sku': 'CAB0244', 'variant_id': '41199325249619',
@@ -90,7 +103,9 @@ def assessment():
             'source': 'https://www.te.com/content/dam/te-com/documents/appliances/global/solistrand-terminals-and-splices-qrg.pdf',
             'product': 'https://www.te.com.cn/chn-zh/product-31819.html',
             'catalog_page':9, 'wire_range_awg':[16,14], 'area_range_mm2':[1.04,2.62],
-            'bare_length_mm':14.40, 'bare_od_mm':4.06, 'barrel_id_mm':2.26,
+            'bare_length_mm':14.40, 'bare_od_mm':4.19, 'barrel_id_mm':2.16,
+            'dimension_source': 'https://www.te.com/en/product-31819.html (read 2026-10-12): OD 4.19 mm (.165 in), barrel ID 2.16 mm (.085 in), length 14.4 mm, 16-14 AWG (2050-5180 CMA)',
+            'dimension_note': 'Review 2026-10-12 ELE-4: the manufacturer product page is used; the QRG p.9 values (OD 4.06 mm, barrel ID 2.26 mm) disagree in the non-conservative direction for both and are superseded.',
             'quantity_additional':2,
             'unresolved': ['part drawing/process reconciliation','fine-strand/tool/die qualification','installed insulated OD and rigid length',
                           'pull test and strain relief','hot resistance per joint'],

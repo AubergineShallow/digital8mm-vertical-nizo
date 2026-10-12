@@ -2,12 +2,12 @@
   "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
   "verification_source_sha256": "06c7f28e58234a2ead90388875eaebeabf3a1429f6b35b675b22953183440eb4",
   "verification_dependency_sha256": {
-    "harness_rules.py": "baca568650e7f7c58f40cf30a97af7dce7ef0a8bc5487e1940eee6da6ab00c63",
+    "harness_rules.py": "2f15cf9156c12767fbe296759858d0cf23dde5cefc7e3c4c7cb0f676f4ad3909",
     "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
     "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
     "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
     "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-    "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
+    "steps.py": "e50e72a2832fef47620d951ce581d9c6f89ef27a5cf88b79bec215feacbd48f2",
     "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
     "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
     "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"
@@ -15,14 +15,14 @@
   "variant": "compact-kowa_lm6hc",
   "r7_source": "r7 cad/gs8-d2-v1/checks.py + layout.py at d38468e",
   "summary": {
-    "pass": 30,
-    "fail": 12,
+    "pass": 29,
+    "fail": 13,
     "info": 20
   },
   "per_category": {
     "cable_routes": {
-      "pass": 5,
-      "fail": 6,
+      "pass": 4,
+      "fail": 7,
       "info": 2
     },
     "cable_stow": {
@@ -63,7 +63,8 @@
       "oled_flex",
       "pigtail_negative",
       "pigtail_positive",
-      "power_button"
+      "power_button",
+      "qt"
     ],
     "cable_stow": [
       "power_button_j2_pair"
@@ -177,11 +178,18 @@
       "range_src": "BOM D2-24 / D2-24B: finished QT lead 250 +/- 10 mm (MP-QT measures)",
       "estimate": true,
       "fan_in_gap_mm": 0.0,
+      "proposed_rule_change": {
+        "status": "info",
+        "gating": false,
+        "id": "released_minimum_length_basis",
+        "text": "PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a separately authored guides-released pose instead of the shortest member of the installed storage family. Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.",
+        "detail": "basis.released_minimum"
+      },
       "installed_mm": 206.93,
-      "min_route_mm": 203.54,
+      "min_route_mm": 238.99,
       "allowance_mm": 25.0,
       "length_min_mm": 240.0,
-      "slack_mm": 11.46,
+      "slack_mm": -23.99,
       "end_gap_mm": 0.0,
       "basis": {
         "family": {
@@ -207,180 +215,25 @@
           "max_mm": 218.31909134466054,
           "min_at": 55.2
         },
+        "longest_branch_mm": 43.071861818216426,
         "released_minimum": {
+          "status": "info",
+          "gating": false,
+          "rule_change": "PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a separately authored guides-released pose instead of the shortest member of the installed storage family. Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.",
           "length_mm": 160.46790634814298,
+          "min_route_mm": 203.54,
           "problems": [],
-          "scope": "Separate guides-released static minimum for the unchanged allowance; complete-stock service deformation remains unqualified."
-        },
-        "longest_branch_mm": 43.071861818216426
+          "scope": "Separate guides-released static minimum for the unchanged allowance; complete-stock service deformation remains unqualified.",
+          "allowance_mm": 25.0,
+          "length_min_mm": 240.0,
+          "slack_mm": 11.46,
+          "would_pass_length_gate": true
+        }
       },
-      "problems": [],
-      "status": "pass",
-      "member_clearance": {
-        "envelope_d_mm": 3.2,
-        "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
-        "capsule_d_mm": 3.4,
-        "polyline_points": 47,
-        "pieces": 180,
-        "stubs": 0,
-        "exempt": [
-          "encoder",
-          "pi5"
-        ],
-        "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
-        "targets": 6934,
-        "hits": {},
-        "cable_separation": {
-          "run_pin37": {
-            "min_centreline_mm": 4.31,
-            "need_mm": 1.6
-          },
-          "run_pin39": {
-            "min_centreline_mm": 2.89,
-            "need_mm": 1.6
-          },
-          "power_button": {
-            "min_centreline_mm": 16.28,
-            "need_mm": 3.2
-          },
-          "fpc": {
-            "min_centreline_mm": 10.18,
-            "need_mm": 9.6
-          },
-          "fan": {
-            "min_centreline_mm": 18.6,
-            "need_mm": 2.6
-          },
-          "oled_flex": {
-            "min_centreline_mm": 56.11,
-            "need_mm": 7.8
-          },
-          "usb_5v": {
-            "min_centreline_mm": 17.61,
-            "need_mm": 3.4
-          },
-          "pack_lead": {
-            "min_centreline_mm": 39.99,
-            "need_mm": 3.2
-          },
-          "pigtail_positive": {
-            "min_centreline_mm": 6.78,
-            "need_mm": 3.2
-          },
-          "pigtail_negative": {
-            "min_centreline_mm": 3.68,
-            "need_mm": 3.2
-          },
-          "header_branch:hdr_fps_lead_33_34": {
-            "min_centreline_mm": 12.98,
-            "need_mm": 2.4
-          },
-          "header_branch:fps_fps_header_branch": {
-            "min_centreline_mm": 12.98,
-            "need_mm": 2.4
-          },
-          "header_branch:fps_fps_200_main": {
-            "min_centreline_mm": 4.54,
-            "need_mm": 2.9
-          },
-          "header_branch:fps_fps_switch_bundle": {
-            "min_centreline_mm": 16.4,
-            "need_mm": 2.9
-          },
-          "header_branch:fps_fps_ck1044_pin_A": {
-            "min_centreline_mm": 19.42,
-            "need_mm": 2.1
-          },
-          "header_branch:fps_fps_ck1044_pin_2": {
-            "min_centreline_mm": 12.23,
-            "need_mm": 2.1
-          }
-        },
-        "cable_overlaps": [],
-        "use": "separate released minimum (guides released; no deformation proof)"
-      },
-      "installed_clearance": {
-        "envelope_d_mm": 3.2,
-        "envelope_src": "signal_routes QT main od_mm 3.2 and branch od_mm 1.6 (MP-QT measures the breakout and core OD)",
-        "capsule_d_mm": 3.4,
-        "polyline_points": 45,
-        "pieces": 186,
-        "stubs": 0,
-        "exempt": [
-          "encoder",
-          "pi5"
-        ],
-        "exempt_rule": "own end parts only within 10 mm of route length from the terminal at them",
-        "targets": 6934,
-        "hits": {},
-        "cable_separation": {
-          "run_pin37": {
-            "min_centreline_mm": 4.31,
-            "need_mm": 1.6
-          },
-          "run_pin39": {
-            "min_centreline_mm": 2.89,
-            "need_mm": 1.6
-          },
-          "power_button": {
-            "min_centreline_mm": 16.28,
-            "need_mm": 3.2
-          },
-          "fpc": {
-            "min_centreline_mm": 10.18,
-            "need_mm": 9.6
-          },
-          "fan": {
-            "min_centreline_mm": 22.35,
-            "need_mm": 2.6
-          },
-          "oled_flex": {
-            "min_centreline_mm": 54.95,
-            "need_mm": 7.8
-          },
-          "usb_5v": {
-            "min_centreline_mm": 23.86,
-            "need_mm": 3.4
-          },
-          "pack_lead": {
-            "min_centreline_mm": 39.99,
-            "need_mm": 3.2
-          },
-          "pigtail_positive": {
-            "min_centreline_mm": 6.78,
-            "need_mm": 3.2
-          },
-          "pigtail_negative": {
-            "min_centreline_mm": 3.68,
-            "need_mm": 3.2
-          },
-          "header_branch:hdr_fps_lead_33_34": {
-            "min_centreline_mm": 24.68,
-            "need_mm": 2.4
-          },
-          "header_branch:fps_fps_header_branch": {
-            "min_centreline_mm": 24.68,
-            "need_mm": 2.4
-          },
-          "header_branch:fps_fps_200_main": {
-            "min_centreline_mm": 10.28,
-            "need_mm": 2.9
-          },
-          "header_branch:fps_fps_switch_bundle": {
-            "min_centreline_mm": 13.64,
-            "need_mm": 2.9
-          },
-          "header_branch:fps_fps_ck1044_pin_A": {
-            "min_centreline_mm": 17.68,
-            "need_mm": 2.1
-          },
-          "header_branch:fps_fps_ck1044_pin_2": {
-            "min_centreline_mm": 10.76,
-            "need_mm": 2.1
-          }
-        },
-        "cable_overlaps": []
-      }
+      "problems": [
+        "shortest route 239.0 + allowance 25.0 > minimum stock 240.0 mm"
+      ],
+      "status": "fail"
     },
     {
       "category": "cable_routes",
@@ -2599,7 +2452,7 @@
       "category": "lead_access",
       "id": "pigtail_drop",
       "kind": "drop",
-      "model": "r7 _pigtail_drop_v (G-W5) with vendor strand data",
+      "model": "r7 _pigtail_drop_v (G-W5) with vendor strand data, XT30 loop at the 2.4 mohm gate and named series joints (ELE-1)",
       "i_peak_a": 8.6,
       "limit_v": 0.15,
       "cases": {
@@ -2608,9 +2461,9 @@
           "lay": 1.0,
           "area18": 0.8231,
           "fuse": 1.0,
-          "basis": "AWG nominal areas, no lay increment, cold fuse (= make_bom_vertical hot_drop model)",
-          "drop_v": 0.14277,
-          "margin_mv": 7.23
+          "basis": "AWG nominal areas, no lay increment, cold fuse (make_bom_vertical hot_drop copper; XT30 at the gate loop value)",
+          "drop_v": 0.15481,
+          "margin_mv": -4.81
         },
         "hi_cold_fuse": {
           "area16": 1.2566,
@@ -2618,8 +2471,8 @@
           "area18": 0.754,
           "fuse": 1.0,
           "basis": "vendor minimum 250 x 0.08 mm, lay 1.03, 150 x 0.08 pack lead, cold fuse",
-          "drop_v": 0.15103,
-          "margin_mv": -1.03
+          "drop_v": 0.16307,
+          "margin_mv": -13.07
         },
         "nominal_hot_fuse": {
           "area16": 1.3088,
@@ -2627,8 +2480,8 @@
           "area18": 0.8231,
           "fuse": 1.3,
           "basis": "AWG nominal copper with the hot fuse case",
-          "drop_v": 0.15427,
-          "margin_mv": -4.27
+          "drop_v": 0.16631,
+          "margin_mv": -16.31
         },
         "hi": {
           "area16": 1.2566,
@@ -2636,12 +2489,12 @@
           "area18": 0.754,
           "fuse": 1.3,
           "basis": "vendor minimum strands, lay 1.03, 150 x 0.08 pack lead, hot fuse x 1.3",
-          "drop_v": 0.16254,
-          "margin_mv": -12.54
+          "drop_v": 0.17458,
+          "margin_mv": -24.58
         }
       },
-      "drop_lo_v": 0.14277,
-      "drop_hi_v": 0.16254,
+      "drop_lo_v": 0.15481,
+      "drop_hi_v": 0.17458,
       "vendor": "https://www.progressiverc.com/products/prc-silicone-wire-16-awg (over 250 strands of pure copper, each .08 mm; OD 3.0 mm; read 2026-10-11)",
       "assumptions": {
         "lay_range": [
@@ -2655,68 +2508,108 @@
         "pack_lead": "150 x 0.08 mm 18 AWG silicone (strand count unknown; MP-PACK)",
         "copper": "IACS annealed copper 1/58 ohm mm2/m at 20 C, alpha 0.00393/K, 60 C"
       },
+      "xt30_loop_gate_mohm": 2.4,
+      "xt30_r7_historical_mohm": 1.0,
+      "xt30_src": "Amass XT30U female 2025V0 A.06.1 / male 2025V0 A.01.1: contact resistance <= 1.2 mohm, per-contact vs loop scope unresolved (corrective-2026-10-12/power-options/README.md, termination-options.json)",
+      "xt30_loop_cases": {
+        "1.0": {
+          "gating": false,
+          "lo_v": 0.14277,
+          "hi_v": 0.16254,
+          "shorter_path_max_mm_hot_fuse": 225.4,
+          "shorter_path_max_mm_cold_fuse": 266.3,
+          "cutoff_raise_needed_v": 0.01254
+        },
+        "1.2": {
+          "gating": false,
+          "lo_v": 0.14449,
+          "hi_v": 0.16426,
+          "shorter_path_max_mm_hot_fuse": 219.3,
+          "shorter_path_max_mm_cold_fuse": 260.2,
+          "cutoff_raise_needed_v": 0.01426
+        },
+        "2.4": {
+          "gating": true,
+          "lo_v": 0.15481,
+          "hi_v": 0.17458,
+          "shorter_path_max_mm_hot_fuse": 182.6,
+          "shorter_path_max_mm_cold_fuse": 223.5,
+          "cutoff_raise_needed_v": 0.02458
+        }
+      },
+      "joints": {
+        "terms_mohm": {
+          "fuse_splice_line": 0.0,
+          "fuse_splice_load": 0.0,
+          "x1203_pad_positive": 0.0,
+          "x1203_pad_negative": 0.0
+        },
+        "status": "unbudgeted, pending G-W5 (no repo source gives a joint resistance)",
+        "sensitivity_mv_per_0p1_mohm_each": 0.86,
+        "sensitivity_note": "each named joint is in series and carries the full peak current: every 0.1 mohm of any one joint adds 0.86 mV to every case"
+      },
       "decision_data": {
-        "shorter_path_max_mm_hot_fuse": 225.4,
-        "shorter_path_max_mm_cold_fuse": 266.3,
-        "awg14_nominal_hi_drop_v": 0.13245,
+        "shorter_path_max_mm_hot_fuse": 182.6,
+        "shorter_path_max_mm_cold_fuse": 223.5,
+        "awg14_nominal_hi_drop_v": 0.14449,
         "awg14_note": "AWG 14 nominal 2.0809 mm2 for information only; OD and lane fit unchecked (lane re-check needed)",
-        "cutoff_raise_needed_v": 0.01254,
+        "cutoff_raise_needed_v": 0.02458,
         "by_finished_length_mm": {
           "220.0": {
-            "lo_v": 0.12966,
-            "hi_cold_fuse_v": 0.13697,
-            "nominal_hot_fuse_v": 0.14116,
-            "hi_v": 0.14847,
-            "awg14_nominal_hi_v": 0.12396,
-            "cutoff_raise_needed_v": 0.0
+            "lo_v": 0.1417,
+            "hi_cold_fuse_v": 0.14901,
+            "nominal_hot_fuse_v": 0.1532,
+            "hi_v": 0.16051,
+            "awg14_nominal_hi_v": 0.136,
+            "cutoff_raise_needed_v": 0.01051
           },
           "225.0": {
-            "lo_v": 0.13097,
-            "hi_cold_fuse_v": 0.13837,
-            "nominal_hot_fuse_v": 0.14247,
-            "hi_v": 0.14988,
-            "awg14_nominal_hi_v": 0.12481,
-            "cutoff_raise_needed_v": 0.0
+            "lo_v": 0.14301,
+            "hi_cold_fuse_v": 0.15041,
+            "nominal_hot_fuse_v": 0.15451,
+            "hi_v": 0.16192,
+            "awg14_nominal_hi_v": 0.13685,
+            "cutoff_raise_needed_v": 0.01192
           },
           "237.0": {
-            "lo_v": 0.13411,
-            "hi_cold_fuse_v": 0.14175,
-            "nominal_hot_fuse_v": 0.14562,
-            "hi_v": 0.15325,
-            "awg14_nominal_hi_v": 0.12685,
-            "cutoff_raise_needed_v": 0.00325
+            "lo_v": 0.14615,
+            "hi_cold_fuse_v": 0.15379,
+            "nominal_hot_fuse_v": 0.15766,
+            "hi_v": 0.16529,
+            "awg14_nominal_hi_v": 0.13889,
+            "cutoff_raise_needed_v": 0.01529
           },
           "250.0": {
-            "lo_v": 0.13752,
-            "hi_cold_fuse_v": 0.1454,
-            "nominal_hot_fuse_v": 0.14903,
-            "hi_v": 0.15691,
-            "awg14_nominal_hi_v": 0.12906,
-            "cutoff_raise_needed_v": 0.00691
+            "lo_v": 0.14956,
+            "hi_cold_fuse_v": 0.15744,
+            "nominal_hot_fuse_v": 0.16107,
+            "hi_v": 0.16895,
+            "awg14_nominal_hi_v": 0.1411,
+            "cutoff_raise_needed_v": 0.01895
           },
           "260.0": {
-            "lo_v": 0.14014,
-            "hi_cold_fuse_v": 0.14822,
-            "nominal_hot_fuse_v": 0.15165,
-            "hi_v": 0.15972,
-            "awg14_nominal_hi_v": 0.13075,
-            "cutoff_raise_needed_v": 0.00972
+            "lo_v": 0.15218,
+            "hi_cold_fuse_v": 0.16026,
+            "nominal_hot_fuse_v": 0.16369,
+            "hi_v": 0.17176,
+            "awg14_nominal_hi_v": 0.14279,
+            "cutoff_raise_needed_v": 0.02176
           },
           "270.0": {
-            "lo_v": 0.14277,
-            "hi_cold_fuse_v": 0.15103,
-            "nominal_hot_fuse_v": 0.15427,
-            "hi_v": 0.16254,
-            "awg14_nominal_hi_v": 0.13245,
-            "cutoff_raise_needed_v": 0.01254
+            "lo_v": 0.15481,
+            "hi_cold_fuse_v": 0.16307,
+            "nominal_hot_fuse_v": 0.16631,
+            "hi_v": 0.17458,
+            "awg14_nominal_hi_v": 0.14449,
+            "cutoff_raise_needed_v": 0.02458
           },
           "280.0": {
-            "lo_v": 0.14539,
-            "hi_cold_fuse_v": 0.15384,
-            "nominal_hot_fuse_v": 0.15689,
-            "hi_v": 0.16535,
-            "awg14_nominal_hi_v": 0.13415,
-            "cutoff_raise_needed_v": 0.01535
+            "lo_v": 0.15743,
+            "hi_cold_fuse_v": 0.16588,
+            "nominal_hot_fuse_v": 0.16893,
+            "hi_v": 0.17739,
+            "awg14_nominal_hi_v": 0.14619,
+            "cutoff_raise_needed_v": 0.02739
           }
         },
         "options": "VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check."
@@ -2724,7 +2617,7 @@
       "gate": "G-W5 hot 8.6 A drop test on the built pigtail (measured fuse, contacts, copper); MP-PACK pack lead",
       "estimate": true,
       "problems": [
-        "drop_hi 0.1625 V > 0.150 V at 8.6 A (hot fuse x 1.30, vendor minimum strands, lay 1.03)"
+        "drop_hi 0.1746 V > 0.150 V at 8.6 A (hot fuse x 1.30, vendor minimum strands, lay 1.03, XT30 loop 2.4 mohm, named joints 0.00 mohm)"
       ],
       "status": "fail"
     },
@@ -3765,12 +3658,12 @@
       "route_revision": "vertical-harness-source-study-2026-10-11-h1-feed-routes",
       "signal_revision": "signal-reconciliation-2026-10-12-v6-qt-stored-and-released",
       "dependency_sha256": {
-        "harness_rules.py": "baca568650e7f7c58f40cf30a97af7dce7ef0a8bc5487e1940eee6da6ab00c63",
+        "harness_rules.py": "2f15cf9156c12767fbe296759858d0cf23dde5cefc7e3c4c7cb0f676f4ad3909",
         "routes.py": "e94fe1fdafa3e9b78b8e831b61614cee5702dd9bd0a7a0cc12eaff2d7666a9ac",
         "signal_routes.py": "a6d7deed9d79cc2835cd790b1988a4eb6116fa8dc5e79537f6170b9eaf1c9611",
         "power_routes.py": "3fd2a6307a480a6488c4d787d54a4c4bccea91b6beef4d3afbaf26e9a449523d",
         "hdmi_routes.py": "13f68c6d81e852a846ca2b24d37b09cf83904c6168df66f3e0ffc6a15379798b",
-        "steps.py": "7e08f11abfa50399b8d11e32871f81499bb4f2b4a56dbeb57715b68a7a767960",
+        "steps.py": "e50e72a2832fef47620d951ce581d9c6f89ef27a5cf88b79bec215feacbd48f2",
         "../layout.py": "9dc6d1ef88065f2bdcd7f73ecad1ebed53089f86f8a1c02559876881ff9b089b",
         "routing-snapshots/power-yaw21-270-provisional/power-270-yaw21.json": "4b2eaa913d685b561a33d4f706e78e631912d793ce80b0f46b8d5c31e39f34f3",
         "out/fps-service-study/mated-carry-input.json": "0cfe93464d92bfdf4a25bd2bb3db1fe8f9e17663dce29839643e7813ae3ef3d8"

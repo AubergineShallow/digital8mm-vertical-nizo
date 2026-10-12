@@ -1,5 +1,7 @@
 # Final status: review 2026-10-10 of the vertical-Pi D2 candidate
 
+> **Note added 2026-10-12.** This page describes the reviewed checkpoint `bdfd44f` (published as `review/vn-fixes-20261012`) and is kept unchanged below as history. On the review branch `review/vn-corrective-20261012` it is superseded by the delivered corrective commit `1b59395` (author `dot`) and the review-and-fix commit on top of it. The current findings, fixes and open user decisions (decisions 1-17 below carried forward, new ones from 18) are in the [corrective review record](../review-2026-10-12-corrective/CORRECTIVE-REVIEW.md).
+
 This page closes the review of AubergineShallow/digital8mm-vertical-nizo at 9ced753 (on top of r7 d38468e).
 The fixes are on the local branch `review/vn-fixes-20261010`: phase 1 = 44f8131, phase 2 + fix-up = 4f9e029 (HEAD).
 This is a **review branch**. It is not `main`, not a release, and nothing in it has been printed, powered or measured.

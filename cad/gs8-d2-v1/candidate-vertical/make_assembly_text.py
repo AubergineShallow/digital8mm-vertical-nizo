@@ -112,6 +112,8 @@ def render_ops(label, steps=None):
                 extra.append('*CAD motion:* `%s`, not swept yet (open).' % m['id'])
         if o['no_motion']:
             extra.append('*No rigid sweep:* %s.' % o['no_motion'].rstrip('.'))
+        if o.get('supported_groups'):
+            extra.append('*Supported off the body:* %s (linked ribbon).' % ', '.join(o['supported_groups']))
         if o.get('flex_scope'):
             extra.append('**Flexible-motion HOLD:** %s' % o['flex_scope'])
         if o['closes']:

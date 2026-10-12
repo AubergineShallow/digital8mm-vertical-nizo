@@ -1,8 +1,23 @@
 {
-  "manifest_sha256": "dbea5ca508bf172a6ad0f34e5517ceeaed162c9cd3cf3431a0193de79ace0810",
-  "verification_source_sha256": "96dbf221050bfed558b0c86b6e5a9f7c9e194ffca32a3cdd3185f4ce27570ba4",
-  "state_model_sha256": "5387da30f256af881522ee54b5696606c525fe762fec714aed6b80cc37fbae45",
+  "manifest_sha256": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
+  "verification_source_sha256": "b008c54d35391c4664ad94e01598d77de2662165d79a167f35df9552e5735851",
+  "state_model_sha256": "e50e72a2832fef47620d951ce581d9c6f89ef27a5cf88b79bec215feacbd48f2",
   "scope": "driver",
+  "flex_scope": {
+    "physical_qualified": false,
+    "complete_flexible_motion_qualified": false,
+    "operations": {
+      "camera_fpc_mate": "HOLD: the camera end of the 200 mm CSI FPC is mated with the camera and the complete Pi module both outside the body on their declared supports; the ribbon must never carry either assembly. Latch operation, connector root loads and the linked ribbon shape are not modelled.",
+      "camera_in": "HOLD: rigid camera/adapter sweep omits the complete 200 mm CSI FPC linking the camera to the complete Pi module on its declared support outside the body. Full-width stored material, linked motion, roots, bends and latch operation remain unproved; no complete assembly qualification.",
+      "s_c4_start": "HOLD: the 200 mm CSI FPC links the still unretained camera in the body to the complete Pi module on its declared support outside the body; a ribbon pull on the camera before the lens holds it is not modelled.",
+      "lens_in": "HOLD: the body rests on its side while the 200 mm CSI FPC links the camera to the complete Pi module on its declared support outside the body. Ribbon load and twist on the camera while it turns to the tab catch are not modelled.",
+      "lens_float": "HOLD: the J7-R float check is made while the 200 mm CSI FPC links the floating camera to the complete Pi module on its declared support outside the body; a loaded ribbon can bias the floating camera, and that bias is not modelled.",
+      "eyepiece_in": "HOLD: the 200 mm CSI FPC still links the camera to the complete Pi module on its declared support outside the body; the ribbon path relative to the eyepiece insertion is not modelled.",
+      "evf_in": "HOLD: the 200 mm CSI FPC still links the camera to the complete Pi module on its declared support outside the body; trapping of the ribbon by the EVF subassembly slide is not modelled.",
+      "module_staged": "HOLD: the complete Pi module is held on its declared support just outside the +Y side while the 200 mm CSI FPC links it to the camera in the body and the run lead is plugged; the linked ribbon shape and loads are not modelled.",
+      "carrier_in": "HOLD: rigid carrier sweep omits the complete 200 mm CSI FPC already connected to both camera and Pi; the module stays hand-supported until it rests on its two bosses. The full flexible sweep, stored slack, roots, bends and interaction with other looms are unproved; this operation is not a complete assembly or service pass."
+    }
+  },
   "variant": "compact-kowa_lm6hc",
   "summary": {
     "pass": 188,
@@ -16,7 +31,7 @@
       "status": "pass",
       "solids": 149,
       "volume_mm3": 24187.427381756304,
-      "step_sha256": "3d398a632207492086a0b204a4fef27c5e024d92eda7086692f8b9fa795d0193",
+      "step_sha256": "556b2b6635e4d3cc5de0add88f096332006ec1cbf2eed58523431fe93f9db8be",
       "manifest_file_binding": true
     },
     {
@@ -241,7 +256,7 @@
       "status": "pass",
       "solids": 2,
       "volume_mm3": 1990.1390816984874,
-      "step_sha256": "1d85645b9befd431a5472a2744731aea561e0c1b9bddbcf24d9d0c08e3390a22",
+      "step_sha256": "f3de469f3b0491f40cbc1e69e7072ad723c6dbedae7b489428761804d75a3895",
       "manifest_file_binding": true
     },
     {
@@ -256,7 +271,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 478.6086125129732,
-      "step_sha256": "be267d3a92d9acdc86cbf079902c7703dd673c389d571e1f27c2abc15e22ea90",
+      "step_sha256": "0c2884c70fc43aa46be80cb126daf87e298be185276927586df0b945ab2010b7",
       "manifest_file_binding": true
     },
     {
@@ -420,15 +435,15 @@
       "id": "base_grip",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 67182.80779032437,
-      "step_sha256": "79d0dd29cf2b2caef650b1432a6e0c1677f5f075d35b910981c283b3b95de958",
+      "volume_mm3": 67182.8077903243,
+      "step_sha256": "abed4da8834f21f0b921e31e739a5a5f8f630ae7fe83f47a0991b5dceb3241eb",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "base_grip",
       "status": "pass",
-      "volume_delta_mm3": -0.0001913519372465089
+      "volume_delta_mm3": -0.00019135195179842412
     },
     {
       "category": "integrity",
@@ -466,7 +481,7 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 4792.976837214222,
-      "step_sha256": "7fb685ef289315f3bd36bfb4a867d22089336e4fc5535fdcb8ab8ec0b80a668b",
+      "step_sha256": "28d672851b29b8add239c6ef2bd278414a83ef47f558eef210373fcbd60d3dd4",
       "manifest_file_binding": true
     },
     {
@@ -480,15 +495,15 @@
       "id": "knob_fps",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 2168.466251537945,
-      "step_sha256": "d68930df84f3eb3a0e535304784b43e2146d7a60187ece2323cd2fdf0f48e62e",
+      "volume_mm3": 2168.4662515379487,
+      "step_sha256": "5b004799fa7f8abf0ce84caf4bda91d61975a8addb5ae1d39b6c4ff32883f71a",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "knob_fps",
       "status": "pass",
-      "volume_delta_mm3": -4.374669515527785e-10
+      "volume_delta_mm3": -4.333742253948003e-10
     },
     {
       "category": "integrity",
@@ -496,29 +511,29 @@
       "status": "pass",
       "solids": 1,
       "volume_mm3": 13152.181955650545,
-      "step_sha256": "005e6946119a8d8341db8bd3bd4d40ab02fb5a44fce909d90af5c35c70600524",
+      "step_sha256": "04f4bc1541e3e8b4598570123367b87bff18b7292e56aae67bfe3fcaa6f5621d",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "carrier",
       "status": "pass",
-      "volume_delta_mm3": 4.910482130071614e-05
+      "volume_delta_mm3": 4.910482311970554e-05
     },
     {
       "category": "integrity",
       "id": "tub",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 171392.24655103454,
-      "step_sha256": "f5cf89199ca626189939505e6fc1e6ba324b2827e109d11831de6d21b2731eb4",
+      "volume_mm3": 171213.87258473734,
+      "step_sha256": "78c637f26b92b6ae04b76eef5bcea4e330d5dee4c19376d811c5f82c9d348335",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "tub",
       "status": "pass",
-      "volume_delta_mm3": 0.000671125395456329
+      "volume_delta_mm3": 0.0006729711894877255
     },
     {
       "category": "integrity",
@@ -540,15 +555,15 @@
       "id": "lens_collar",
       "status": "pass",
       "solids": 1,
-      "volume_mm3": 11255.06664803177,
-      "step_sha256": "7527c068afdcdbedfb960458cdd335615a2e78f91bc8ca72372fac6625702216",
+      "volume_mm3": 11255.06664803192,
+      "step_sha256": "6ad36bd056aec8b204f06fa181dd7e71a5c299e927f29c461dd5feefe858b04f",
       "manifest_file_binding": true
     },
     {
       "category": "roundtrip",
       "id": "lens_collar",
       "status": "pass",
-      "volume_delta_mm3": 0.014039980693269172
+      "volume_delta_mm3": 0.014039980798770557
     },
     {
       "category": "integrity",
@@ -3255,5 +3270,5 @@
   ],
   "geometry_computed_pass": true,
   "physical_qualified": false,
-  "generated_utc": "2026-10-11T15:25:59Z"
+  "generated_utc": "2026-10-12T08:13:50Z"
 }

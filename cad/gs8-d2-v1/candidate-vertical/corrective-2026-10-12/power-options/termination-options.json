@@ -109,10 +109,21 @@
   },
   "equation": "V=I/1000*[k*(r_camera20*(L_plus+L_minus)/1000+2*r_pack18_20*60/1000)+4.46*1.30+R_connector_loop+sum(R_added_splice)]",
   "factory250_acceptance_budget": {
+    "budget_basis": "wire + named joints: the camera-wire maxima above are the case with every named joint at 0 mohm; each joint consumes the same loop budget",
     "camera_wire_r20_max_mohm_per_m_at_145mv_design_target": 9.31867806935488,
     "camera_wire_r20_max_mohm_per_m_at_150mv": 10.323509297901731,
+    "camera_wire_r20_max_reduction_mohm_per_m_per_0p1_mohm_joint": 0.17283097131005878,
     "connector_loop_mohm_assumed_for_budget": 2.4,
-    "note": "Budget, not supplier guarantee. Measurement must include unbudgeted factory joints and all actual terminations; 145mV is an optional design-margin target, not a changed release limit."
+    "named_joints_mohm": {
+      "fuse_splice_line": 0.0,
+      "fuse_splice_load": 0.0,
+      "x1203_pad_negative": 0.0,
+      "x1203_pad_positive": 0.0
+    },
+    "named_joints_status": "unbudgeted, pending G-W5 (no repo source gives a joint resistance; review ELE-3)",
+    "note": "Budget, not supplier guarantee. Measurement must include unbudgeted factory joints and all actual terminations; 145mV is an optional design-margin target, not a changed release limit.",
+    "wire_plus_joints_loop_budget_hot_mohm_at_145mv_design_target": 5.3917871309287335,
+    "wire_plus_joints_loop_budget_hot_mohm_at_150mv": 5.973182479765942
   },
   "mixed250_cases": [
     {
@@ -191,10 +202,12 @@
       2.62
     ],
     "bare_length_mm": 14.4,
-    "bare_od_mm": 4.06,
-    "barrel_id_mm": 2.26,
+    "bare_od_mm": 4.19,
+    "barrel_id_mm": 2.16,
     "catalog_page": 9,
     "conclusion": "Explicit splice candidate only. At 250 mm total and 40 mm 16 AWG tails per polarity, the two added splices have a combined 0.372146 mOhm hot budget in the 2.4 mOhm loop case. At 270 mm and longer it fails before splice loss. The budget is not a supported joint resistance.",
+    "dimension_note": "Review 2026-10-12 ELE-4: the manufacturer product page is used; the QRG p.9 values (OD 4.06 mm, barrel ID 2.26 mm) disagree in the non-conservative direction for both and are superseded.",
+    "dimension_source": "https://www.te.com/en/product-31819.html (read 2026-10-12): OD 4.19 mm (.165 in), barrel ID 2.16 mm (.085 in), length 14.4 mm, 16-14 AWG (2050-5180 CMA)",
     "manufacturer": "TE Connectivity",
     "part": "SOLISTRAND31819",
     "product": "https://www.te.com.cn/chn-zh/product-31819.html",
@@ -235,9 +248,9 @@
     "overlap_note": "Dimension subtraction, not a published extraction stroke or electrical break distance.",
     "pack_top_to_bay_top_mm": 26.8,
     "pair_bare_at_current_pose_max_xyz_mm": [
-      30.211921305589176,
-      24.89073486980406,
-      25.950818869546293
+      30.211921,
+      24.890735,
+      25.950819
     ],
     "pair_bare_lwt_mm": [
       26.7,
@@ -250,9 +263,9 @@
       9.5
     ],
     "pair_covered_at_current_pose_max_xyz_mm": [
-      35.82312023364238,
-      27.044672331712963,
-      31.96122650963195
+      35.82312,
+      27.044672,
+      31.961227
     ],
     "pair_covered_lwt_mm": [
       35.2,

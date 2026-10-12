@@ -44,6 +44,16 @@ DROP = dict(
     pack_lead_hi_mm2=150 * math.pi / 4 * 0.08 ** 2,                          # assumption: 150 x 0.08 18 AWG silicone
     lay_range=(1.00, 1.03),          # assumed stranding lay increment range (review drop_probe); G-W5 measures
     fuse_hot_factor_range=(1.0, 1.3),  # assumed hot/cold fuse resistance range (review drop_probe; not data)
+    # Review 2026-10-12 ELE-1: xt30_mohm 1.0 above is the r7 historical loop value (kept for the r7 port test); the
+    # GATE charges 2.4 mohm, i.e. the Amass XT30U contact resistance <= 1.2 mohm counted per contact (2 contacts in the
+    # loop) because its per-contact vs loop scope is unresolved; 1.0 / 1.2 / 2.4 are all reported.
+    xt30_loop_gate_mohm=2.4, xt30_loop_cases_mohm=(1.0, 1.2, 2.4),
+    xt30_src='Amass XT30U female 2025V0 A.06.1 / male 2025V0 A.01.1: contact resistance <= 1.2 mohm, per-contact vs '
+             'loop scope unresolved (corrective-2026-10-12/power-options/README.md, termination-options.json)',
+    # Named series joints of the built path. No source in the repo gives a joint resistance, so each is an explicit
+    # zero-valued term 'unbudgeted, pending G-W5' (never a hidden zero); sensitivity is reported per 0.1 mohm.
+    joints_mohm=dict(fuse_splice_line=0.0, fuse_splice_load=0.0, x1203_pad_positive=0.0, x1203_pad_negative=0.0),
+    joints_status='unbudgeted, pending G-W5 (no repo source gives a joint resistance)',
     gate='G-W5 hot 8.6 A drop test on the built pigtail (measured fuse, contacts, copper); MP-PACK pack lead')
 
 
@@ -174,7 +184,8 @@ def tail_box(p0, p1, d=TAIL_D):
 # A route stretched to its stock length by a solver is judged at the shortest member of its own family: the
 # solver variable at its own bound. Each entry names the knots that carry the variable and the source literal.
 FAMILIES = {
-    # Corrective 2026-10-12: complete-length installed storage, with a separately swept released minimum.
+    # Corrective 2026-10-12: complete-length installed storage. The length gate is judged at this family's shortest
+    # member (r7 rule); the separately authored released pose is reported only as a PROPOSED rule change (CHE-1).
     'qt': dict(var='low', knots=(3, 4), axis=2, bound=(44.0, 55.2),
                src="signal_routes.py build(): QT stored lower-return 'lo,hi=44.,55.2'; fixed top90.5/cross68"),
     'run_pin37': dict(var='top', knots=(6, 7), axis=2, bound=(35.0, 80.0),
@@ -542,13 +553,16 @@ def pigtail_reach_rows(H, rounded_path, retention=None, hits=None, ST=None):
     return rows
 
 
-def drop_v(area16_mm2, lay, area18_mm2, fuse_factor, path_mm=None, D=DROP):
-    """G-W5 drop estimate (V): 2 conductors x (pigtail path + pack lead) at 60 C + fuse + XT30, at the peak current."""
+def drop_v(area16_mm2, lay, area18_mm2, fuse_factor, path_mm=None, D=DROP, xt30_mohm=None):
+    """G-W5 drop estimate (V): 2 conductors x (pigtail path + pack lead) at 60 C + fuse + XT30 loop + the named series
+    joints, at the peak current. xt30_mohm defaults to the GATE value D['xt30_loop_gate_mohm'] (2.4; ELE-1)."""
     path_mm = D['pigtail_path_mm'] if path_mm is None else path_mm
+    xt30 = D.get('xt30_loop_gate_mohm', D['xt30_mohm']) if xt30_mohm is None else xt30_mohm
     k = 1 + D['alpha_per_k'] * (D['t_hot_c'] - D['t_ref_c'])
     r16 = D['rho20_ohm_mm2_per_m'] / area16_mm2 * 1000.0 * lay       # mohm/m
     r18 = D['rho20_ohm_mm2_per_m'] / area18_mm2 * 1000.0 * lay
-    r = 2 * (path_mm / 1000.0 * r16 + D['pack_lead_mm'] / 1000.0 * r18) * k + D['fuse_cold_mohm'] * fuse_factor + D['xt30_mohm']
+    r = (2 * (path_mm / 1000.0 * r16 + D['pack_lead_mm'] / 1000.0 * r18) * k + D['fuse_cold_mohm'] * fuse_factor + xt30
+         + sum((D.get('joints_mohm') or {}).values()))
     return D['i_peak_a'] * r / 1000.0
 
 
@@ -559,7 +573,7 @@ def pigtail_drop_row(D=DROP):
     f0, f1 = D['fuse_hot_factor_range']
     cases = dict(
         lo=dict(area16=D['awg16_mm2'], lay=lay0, area18=D['awg18_mm2'], fuse=f0,
-                basis='AWG nominal areas, no lay increment, cold fuse (= make_bom_vertical hot_drop model)'),
+                basis='AWG nominal areas, no lay increment, cold fuse (make_bom_vertical hot_drop copper; XT30 at the gate loop value)'),
         hi_cold_fuse=dict(area16=prc_min, lay=lay1, area18=D['pack_lead_hi_mm2'], fuse=f0,
                           basis='vendor minimum 250 x 0.08 mm, lay 1.03, 150 x 0.08 pack lead, cold fuse'),
         nominal_hot_fuse=dict(area16=D['awg16_mm2'], lay=lay0, area18=D['awg18_mm2'], fuse=f1,
@@ -573,15 +587,31 @@ def pigtail_drop_row(D=DROP):
         out[k]['area16'] = _r(c['area16'], 4)
         out[k]['area18'] = _r(c['area18'], 4)
 
-    def max_path(fuse):
+    def max_path(fuse, xt30=None):
         lo, hi = 0.0, 1000.0
         for _ in range(60):
             mid = (lo + hi) / 2
-            lo, hi = (mid, hi) if drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], fuse, mid, D) <= D['limit_v'] else (lo, mid)
+            lo, hi = (mid, hi) if drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], fuse, mid, D, xt30) <= D['limit_v'] \
+                else (lo, mid)
         return lo
     hi_v = drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], f1, D=D)
+    xg = D.get('xt30_loop_gate_mohm', D['xt30_mohm'])
     pr = [] if hi_v <= D['limit_v'] + 1e-12 else ['drop_hi %.4f V > %.3f V at %.1f A (hot fuse x %.2f, vendor minimum '
-                                                   'strands, lay %.2f)' % (hi_v, D['limit_v'], D['i_peak_a'], f1, lay1)]
+                                                   'strands, lay %.2f, XT30 loop %.1f mohm, named joints %.2f mohm)'
+                                                   % (hi_v, D['limit_v'], D['i_peak_a'], f1, lay1, xg,
+                                                      sum((D.get('joints_mohm') or {}).values()))]
+    xt30_cases = {('%.1f' % x): dict(
+        gating=abs(x - xg) < 1e-12,
+        lo_v=_r(drop_v(D['awg16_mm2'], lay0, D['awg18_mm2'], f0, D=D, xt30_mohm=x), 5),
+        hi_v=_r(drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], f1, D=D, xt30_mohm=x), 5),
+        shorter_path_max_mm_hot_fuse=_r(max_path(f1, x), 1), shorter_path_max_mm_cold_fuse=_r(max_path(f0, x), 1),
+        cutoff_raise_needed_v=_r(max(0.0, drop_v(prc_min, lay1, D['pack_lead_hi_mm2'], f1, D=D, xt30_mohm=x)
+                                     - D['limit_v']), 5))
+        for x in D.get('xt30_loop_cases_mohm', (D['xt30_mohm'],))}
+    joints = dict(terms_mohm=dict(D.get('joints_mohm') or {}), status=D.get('joints_status'),
+                  sensitivity_mv_per_0p1_mohm_each=_r(D['i_peak_a'] * 0.1, 3),
+                  sensitivity_note='each named joint is in series and carries the full peak current: every 0.1 mohm '
+                                   'of any one joint adds %.2f mV to every case' % (D['i_peak_a'] * 0.1))
     decision = dict(
         shorter_path_max_mm_hot_fuse=_r(max_path(f1), 1), shorter_path_max_mm_cold_fuse=_r(max_path(f0), 1),
         awg14_nominal_hi_drop_v=_r(drop_v(2.0809, lay1, D['pack_lead_hi_mm2'], f1, D=D), 5),
@@ -599,11 +629,13 @@ def pigtail_drop_row(D=DROP):
         options='VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. '
                 'The 0.150 V limit is never relaxed by this check.')
     return dict(category='lead_access', id='pigtail_drop', kind='drop', model='r7 _pigtail_drop_v (G-W5) with '
-                'vendor strand data', i_peak_a=D['i_peak_a'], limit_v=D['limit_v'], cases=out,
+                'vendor strand data, XT30 loop at the 2.4 mohm gate and named series joints (ELE-1)', i_peak_a=D['i_peak_a'], limit_v=D['limit_v'], cases=out,
                 drop_lo_v=out['lo']['drop_v'], drop_hi_v=out['hi']['drop_v'], vendor=D['prc_src'],
                 assumptions=dict(lay_range=list(D['lay_range']), fuse_hot_factor_range=list(D['fuse_hot_factor_range']),
                                  pack_lead='150 x 0.08 mm 18 AWG silicone (strand count unknown; MP-PACK)',
                                  copper='IACS annealed copper 1/58 ohm mm2/m at 20 C, alpha 0.00393/K, 60 C'),
+                xt30_loop_gate_mohm=xg, xt30_r7_historical_mohm=D['xt30_mohm'], xt30_src=D.get('xt30_src'),
+                xt30_loop_cases=xt30_cases, joints=joints,
                 decision_data=decision, gate=D['gate'], estimate=True, problems=pr, status='fail' if pr else 'pass')
 
 
@@ -620,11 +652,22 @@ def _gap(p, boxes):
     return min(pt_box_dist(p, b) for b in boxes) if boxes else float('inf')
 
 
+RELEASED_MINIMUM_PROPOSAL = (
+    'PROPOSED rule change awaiting the user decision (review 2026-10-12, CHE-1 / GEO-5): judge the length gate at a '
+    'separately authored guides-released pose instead of the shortest member of the installed storage family. '
+    'Reported for information only; it does not gate. The r7 rule (shortest member of the installed family) gates.')
+
+
 def min_route(H, c, rounded_path):
-    """(shortest route length, how): family minimum (+ longest branch), hump drawn out, or the fixed curve."""
+    """(shortest route length, how): family minimum (+ longest branch), hump drawn out, or the fixed curve.
+
+    r7 rule (never relaxed): a stretched route is judged at the SHORTEST member of its own installed family. A
+    separately authored released_minimum_curve is evaluated and reported in how['released_minimum'] as a PROPOSED
+    rule change (status 'info', gating False); it never replaces the installed-family minimum in the gate."""
     if c.get('family'):
         fr = family_range(rounded_path, c['curve'], c['family'])
         br = max([b['length'] for b in c['branches']] or [0.0])
+        how = dict(family=fr, longest_branch_mm=br)
         rel = c.get('released_minimum_curve')
         if rel is not None:
             rc = rounded_path(rel['knots'], rel['centerline_radius_mm'], rel['first_straight_min_mm'],
@@ -640,10 +683,11 @@ def min_route(H, c, rounded_path):
                 for end in (0, -1):
                     if math.dist(rc['sampled_centerline'][end], c['points'][end]) > ROUTE_END_TOL:
                         problems.append('released minimum endpoint differs from installed endpoint')
-            detail = dict(length_mm=rc['rounded_length_mm'], problems=problems, scope=c.get('released_minimum_scope'))
-            return (None if problems else rc['rounded_length_mm'] + br), dict(family=fr, released_minimum=detail,
-                                                                            longest_branch_mm=br)
-        return (None if fr['min_mm'] is None else fr['min_mm'] + br), dict(family=fr, longest_branch_mm=br)
+            how['released_minimum'] = dict(
+                status='info', gating=False, rule_change=RELEASED_MINIMUM_PROPOSAL, length_mm=rc['rounded_length_mm'],
+                min_route_mm=None if problems else rc['rounded_length_mm'] + br, problems=problems,
+                scope=c.get('released_minimum_scope'))
+        return (None if fr['min_mm'] is None else fr['min_mm'] + br), how
     if c.get('core'):
         hx = hump_excess(c['core']['upper_curve']['slack_hump'])
         return c['core']['modeled_length_mm'] - hx['excess_mm'], dict(hump=hx, modeled_mm=c['core']['modeled_length_mm'])
@@ -687,6 +731,16 @@ def cable_routes_rows(H, rounded_path):
             probs.append('no valid family member at the solver bounds')
         elif mr + allow > lmin + 1e-6:
             probs.append('shortest route %.1f + allowance %.1f > minimum stock %.1f mm' % (mr, allow, lmin))
+        rel = how.get('released_minimum') if isinstance(how, dict) else None
+        if rel is not None:   # PROPOSED rule change (info only): what the gate would give at the released pose
+            rmr = rel['min_route_mm']
+            rel.update(allowance_mm=_r(allow, 1), length_min_mm=lmin,
+                       slack_mm=None if rmr is None else _r(lmin - rmr - allow, 2),
+                       would_pass_length_gate=bool(rmr is not None and not rel['problems']
+                                                   and rmr + allow <= lmin + 1e-6))
+            rel['min_route_mm'] = _r(rmr, 2)
+            row['proposed_rule_change'] = dict(status='info', gating=False, id='released_minimum_length_basis',
+                                               text=RELEASED_MINIMUM_PROPOSAL, detail='basis.released_minimum')
         row.update(installed_mm=_r(c['curve'].get('rounded_length_mm') if c.get('curve') else arc_length(pts), 2),
                    min_route_mm=_r(mr, 2), allowance_mm=_r(allow, 1), length_min_mm=lmin,
                    slack_mm=None if mr is None else _r(lmin - mr - allow, 2), end_gap_mm=_r(end_gap, 2), basis=how,
@@ -1444,22 +1498,24 @@ def apply_member_clearance(rows, H, rounded_path, final_present, hits=box_hits):
             value = max(c['family']['bound'], key=lambda b: fr['length_at_bound_mm'][str(b)] if fr['valid_at_bound'][str(b)]
                         else float('-inf'))
             use = 'longest member (the spare home)'
-        elif r['category'] == 'cable_routes' and c.get('released_minimum_curve'):
-            # Every geometric minimum used in the length gate is swept. This separate released pose receives
-            # the STRICT installed target/tolerance and neighbour checks, including both own end-part zones.
-            rh = copy.deepcopy(H)
-            rc = rh['cables'][r['id']]
-            rc['curve'] = copy.deepcopy(c['released_minimum_curve'])
-            rc['points'] = copy.deepcopy(rc['curve']['sampled_centerline'])
-            mc = installed_clearance(rh, r['id'], final_present, hits)
-            r['member_clearance'] = dict(mc, use='separate released minimum (guides released; no deformation proof)')
-            if mc['hits'] or mc['cable_overlaps']:
-                r.setdefault('problems', []).append('released minimum intersects %s%s' % (
-                    ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
-                    '; overlaps ' + '; '.join(mc['cable_overlaps']) if mc['cable_overlaps'] else ''))
-                r['status'] = 'fail'
-            continue
         elif r['category'] == 'cable_routes' and isinstance(r.get('basis'), dict) and 'family' in r['basis']:
+            rel = r['basis'].get('released_minimum')
+            if rel is not None and c.get('released_minimum_curve'):
+                # PROPOSED rule change (info, not gating): the separate released pose still receives the STRICT
+                # installed target/tolerance and neighbour checks, including both own end-part zones; its result is
+                # reported with the proposal. The gating minimum (shortest installed member) is swept below.
+                rh = copy.deepcopy(H)
+                rc = rh['cables'][r['id']]
+                rc['curve'] = copy.deepcopy(c['released_minimum_curve'])
+                rc['points'] = copy.deepcopy(rc['curve']['sampled_centerline'])
+                mc = installed_clearance(rh, r['id'], final_present, hits)
+                rel['member_clearance'] = dict(mc, use='separate released pose (PROPOSED rule change, not gating; '
+                                                       'guides released; no deformation proof)')
+                if mc['hits'] or mc['cable_overlaps']:
+                    rel['problems'].append('released pose intersects %s%s' % (
+                        ', '.join('%s %.2f mm3' % kv for kv in sorted(mc['hits'].items())) or 'nothing',
+                        '; overlaps ' + '; '.join(mc['cable_overlaps']) if mc['cable_overlaps'] else ''))
+                    rel['would_pass_length_gate'] = False
             value, use = r['basis']['family']['min_at'], 'shortest member (the minimum route)'
         else:
             continue

@@ -22,6 +22,6 @@
     "out/compact-kowa_lm6hc/review-check-run.json": "44fa5800ab0e161a31cf2aa48fd34d951d2ec58e5b9da80310b09cb0fbcbf29e",
     "out/compact-kowa_lm6hc/manifest.json": "294220bc7e1babc507e00d41542d108bfbf172250e45f20ba828e83437634ae4",
     "run_shadow_checks.py": "15238fc42a0b86842755d685d7ab7aee7606b22fe727edae423925fbdd778f1d",
-    "corrective-2026-10-12/aggregate_status.py": "a1bc85d1b066d75ffe3f1f956145ac897412317af4aef6df5988da68966be0c9"
+    "corrective-2026-10-12/aggregate_status.py": "2e0374b62b1a5aaf1526f034bd67d86a7f01b444608b32564ee27babcbbb98f5"
   }
 }

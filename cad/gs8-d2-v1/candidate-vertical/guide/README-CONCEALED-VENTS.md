@@ -1,5 +1,7 @@
 # D2 2026-10-12 corrective assembly and wiring: blocked review
 
+> **STALE (review 2026-10-10 / 12 October corrective review).** The tracked PDF, `guide-receipt.json`, page images and QA sheets in `out-concealed-vents/` were built from an earlier `../ASSEMBLY-VERTICAL.md` and `../steps.py` (before the linked-ribbon supports, the tab-catch stub bonding rewrite and the module-service re-mate text of the corrective review). Do not use the PDF as an assembly reference until it is rebuilt and its receipt binds the current sources; `tests/test_build_order_docs.py` keeps this banner until then.
+
 This guide covers the compact Princeton and Kowa LM6HC vertical candidate. It is an unqualified review, not a fabrication, energization or complete-service release. All inherited physical gates, M1 and the candidate holds remain open. The original reviewed 29-page guide and its source bundle remain separate historical artifacts.
 
 Use a PDF only when its `guide-receipt.json` binds the current assembly, guide sources, nominated mechanical manifest and scoped reports. A receipt from an earlier source state is stale even when its PDF opens normally.

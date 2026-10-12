@@ -10,6 +10,9 @@
 # CAD runtime state and logs
 cad/gs8-d2-v1/.cad.lock
 *.log
+# Bound run logs tracked on purpose (their sha256 is recorded by a committed receipt; review 2026-10-12 PUB-3)
+!cad/gs8-d2-v1/candidate-vertical/corrective-2026-10-12/fxh-regression.log
+!cad/gs8-d2-v1/candidate-vertical/guide/out-concealed-vents/post-guide-build-order-check.log
 
 # Bulky or regenerable local material (git history replaces the baseline zips)
 *.zip

@@ -84,10 +84,10 @@ Rule (VN-63): no two junctions share a mating family, whatever the circuit count
 | Polarity | 3V3 on pin 1 only; never 5 V |
 | BOM | D2-24 QT lead part 1: Adafruit 4397 STEMMA QT to female sockets, 150 mm (cut so the socket end is about 93-117 mm, WIRING W-QT) (Adafruit 4397); D2-24B QT lead part 2: Pololu #5521 JST SH-style 4-pin cable, single-ended female, 30 cm, 28 AWG (SH end kept; cut so the finished lead is 250 +/- 10 mm) (Pololu 5521) |
 | Stock `qt` | 250 mm (240-260) (BOM D2-24 / D2-24B: finished QT lead 250 +/- 10 mm (MP-QT measures)) |
-| Route `qt` | installed 206.93, shortest 203.54 + allowance 25 vs minimum stock 240: slack 11.46 mm (length rule pass) |
+| Route `qt` | installed 206.93, shortest 238.99 + allowance 25 vs minimum stock 240: slack -23.99 mm (length rule fail) |
 | Mated | pi end on `pi5` at `module_bench` (B2); enc end on `encoder` at `panel_prop` (6) |
 | Parted in service | `panel`/`svc_panel_out` |
-| Harness report rows | cable_routes/qt pass; mate_reach/qt_enc pass; cable_stow/qt pass |
+| Harness report rows | cable_routes/qt fail; mate_reach/qt_enc pass; cable_stow/qt pass |
 
 ### `run_lead`
 
@@ -255,7 +255,7 @@ The installed route must store the entire finished 250 +/- 10 mm QT lead, includ
 
 ### Camera and other flexible ribbons
 
-Seat the official 200 mm camera cable Pi end before fitting the Active Cooler, following the [Raspberry Pi camera instructions](https://www.raspberrypi.com/documentation/accessories/camera.html). Support the complete Pi module outside the body and mate the camera end immediately before camera insertion. The entire linked ribbon is absent from the rigid camera/carrier sweeps; source-level `steps.flexible_scope()` records this omission. Actual latch service with the cooler retained remains HOLD. Do not repeatedly remove the cooler to make an unqualified service path appear feasible.
+Seat the official 200 mm camera cable Pi end before fitting the Active Cooler, following the [Raspberry Pi camera instructions](https://www.raspberrypi.com/documentation/accessories/camera.html). Support the complete Pi module outside the body and mate the camera end immediately before camera insertion. From that mate (`camera_fpc_mate`) until the module is in the body (`carrier_in`) every operation declares the module support and a flexible-motion HOLD (`supported_groups`, `flex_scope`; lint `FLEX_LINK`/`FLEX_SUPPORT`). The entire linked ribbon is absent from the rigid camera/carrier sweeps; source-level `steps.flexible_scope()` records this omission. Actual latch service with the cooler retained remains HOLD. If that HOLD fails, module service (`svc_module_unplug`) may need the Active Cooler taken off to release and re-seat the Pi end; that removal and refit are themselves unqualified. Do not repeatedly remove the cooler to make an unqualified service path appear feasible.
 
 The complete 300 mm HDMI ribbon, 200 mm camera FPC and native OLED flex must retain their actual width, thickness, stiffeners and contact orientation. Manufacturer bend-radius and flex-cycle limits for these exact cables remain UNKNOWN; round clearance reserves and connector mating-cycle ratings are not cable flex qualifications. Retain full-length stored and service-motion checks, continuity, video operation and fatigue gates. Baseline source evidence is in [the 12 October materials and ribbons research](corrective-2026-10-12/materials-and-ribbons-baseline-evidence.txt); it needs an applicability check after geometry changes.
 
@@ -308,11 +308,11 @@ From steps.SERVICE; a route runs after the routes it requires (section 1 safety 
 
 ## 8. Battery pigtail drop (G-W5)
 
-harness_rules.pigtail_drop_row at 8.6 A, limit 0.15 V (never relaxed): low 0.14277 V, high 0.16254 V, status fail. Decision data (VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check.): shortest-path limit 225.4 mm (hot fuse) / 266.3 mm (cold fuse); cut-off raise needed 0.01254 V. This remains user decision 4. The 270 mm allocation is blocked by reach and hot-drop; proposals remain pending. No 14 AWG, fuse, connector or cutoff substitution is adopted.
+harness_rules.pigtail_drop_row at 8.6 A, limit 0.15 V (never relaxed): low 0.15481 V, high 0.17458 V, status fail. Decision data (VN-62 user decision: shorter finished path, 14 AWG with a lane re-check, or a higher software cut-off. The 0.150 V limit is never relaxed by this check.): shortest-path limit 182.6 mm (hot fuse) / 223.5 mm (cold fuse); cut-off raise needed 0.02458 V. This remains user decision 4. The 270 mm allocation is blocked by reach and hot-drop; proposals remain pending. No 14 AWG, fuse, connector or cutoff substitution is adopted.
 
 ## 9. Open items
 
 - J2 connector family: default pending user decision 13 (VN-63).
 - V-62 deep socket purchase: gated on Adafruit 1505 nut across-flats (MEASUREMENTS-TO-CLOSE "Adafruit 1505 power switch and J2 signal harness" row; VN-73).
-- Harness rows failing in the bound report: cable_routes: fan, fpc, oled_flex, pigtail_negative, pigtail_positive, power_button; cable_stow: power_button_j2_pair; lead_access: pigtail_drop, pigtail_ties_on_route, pigtail_xt30_mouth; mate_reach: j2_btn, xt30_pack.
+- Harness rows failing in the bound report: cable_routes: fan, fpc, oled_flex, pigtail_negative, pigtail_positive, power_button, qt; cable_stow: power_button_j2_pair; lead_access: pigtail_drop, pigtail_ties_on_route, pigtail_xt30_mouth; mate_reach: j2_btn, xt30_pack.
 - Lengths are regenerated from the route sources; the final refresh (FP-16) regenerates this file after the route and harness lanes land.

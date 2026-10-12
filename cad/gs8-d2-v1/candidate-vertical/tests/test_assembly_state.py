@@ -51,6 +51,10 @@ LEGACY = {   # verify_candidate.py at 9ced753: id -> (movers, hand-typed obstacl
 LEGACY['microsd_out'] = LEGACY['microsd_out'][:2] + ([(0, 0, 0), (18, 0, 0), (18, 40, 0)],)
 FASTENERS = ['p_panel1', 'p_panel2', 'p_panel3', 'p_panel4', 'p_carrier1', 'p_carrier2', 'p_grip',
              's_c1', 's_c2', 's_c3', 's_c4']
+# review ELE-2 / GEO-4: the camera FPC links camera and complete Pi module from its camera-end mate until the module
+# is in the body; each of these ops must declare the module support and a flex HOLD.
+LINKED_OPS = ['camera_fpc_mate', 'camera_in', 's_c4_start', 'lens_in', 'lens_float', 'eyepiece_in', 'evf_in',
+              'module_staged', 'carrier_in']
 
 
 def available(variant):
@@ -209,9 +213,9 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(tok['camera_fpc:cam'], 'camera_fpc_mate')
         scope = ST.flexible_scope()
         self.assertFalse(scope['complete_flexible_motion_qualified'])
-        self.assertEqual(set(scope['operations']), {'camera_in', 'carrier_in'})
+        self.assertEqual(set(scope['operations']), set(LINKED_OPS))      # ELE-2: every linked op, not two of them
         for hold in scope['operations'].values():
-            self.assertIn('200 mm', hold)
+            self.assertIn('200 mm CSI FPC', hold)
             self.assertIn('HOLD', hold)
         panel_bench = {a for o in ST.STEPS if o['group'] == 'panel' and o['where'] == 'bench' for a in o['adds']}
         self.assertFalse({'switch_1824', 'knob_fps', 'fps_nut', 'fps_mounting_washer'} & panel_bench)
@@ -294,6 +298,118 @@ class NegativeControls(unittest.TestCase):
         m = copy.deepcopy(ST.MOTIONS)
         del m['eyepiece_in']                                      # a moving op with no sweep and no reason
         self.assertIn('MOTION_MISSING', self.lint(motions=m))
+
+
+class LinkedRibbon(unittest.TestCase):
+    """Review ELE-2 / GEO-4 and the electrical verifier's missed finding: linked camera FPC support/HOLD per op,
+    service re-mate bookkeeping and the cooler-retained latch HOLD."""
+
+    def lint(self, steps=None, service=None):
+        return ST.lint(steps if steps is not None else copy.deepcopy(ST.STEPS),
+                       service if service is not None else copy.deepcopy(ST.SERVICE), ST.MOTIONS)
+
+    def mutate(self, op_id, **kw):
+        s = copy.deepcopy(ST.STEPS)
+        for o in s:
+            if o['id'] == op_id:
+                o.update(kw)
+        return s
+
+    def svc(self, sop_id, **kw):
+        sv = copy.deepcopy(ST.SERVICE)
+        for d in sv.values():
+            for o in d['ops']:
+                if o['id'] == sop_id:
+                    o.update(kw)
+        return sv
+
+    def test_every_linked_op_declares_support_and_hold(self):
+        self.assertEqual(self.lint(), [])
+        i = {o['id']: k for k, o in enumerate(ST.STEPS)}
+        self.assertEqual(LINKED_OPS, [o['id'] for o in ST.STEPS[i['camera_fpc_mate']:i['carrier_in'] + 1]])
+        by = {o['id']: o for o in ST.STEPS}
+        for oid in LINKED_OPS:
+            with self.subTest(op=oid):
+                self.assertIn('module', by[oid]['supported_groups'])
+                self.assertIn('HOLD', by[oid]['flex_scope'])
+                self.assertIn('200 mm CSI FPC', by[oid]['flex_scope'])
+        for oid in ('camera_fpc_mate', 'camera_in'):
+            self.assertIn('camera', by[oid]['supported_groups'])
+        supported = {o['id'] for o in ST.STEPS if o['supported_groups']}
+        self.assertEqual(supported, set(LINKED_OPS))   # no stray MATE allowance (CHE-8)
+        for oid in ('lens_in', 'lens_float'):
+            self.assertIn('support', by[oid]['doc'])
+
+    def test_missing_support_or_hold_fails(self):
+        for oid in LINKED_OPS:
+            with self.subTest(op=oid):
+                c = codes(self.lint(self.mutate(oid, supported_groups=[])))
+                self.assertIn('FLEX_SUPPORT', c)
+                c = codes(self.lint(self.mutate(oid, flex_scope=None)))
+                self.assertIn('FLEX_LINK', c)
+                self.assertIn('SUPPORT_HOLD', c)
+                c = codes(self.lint(self.mutate(oid, flex_scope='HOLD: some ribbon, unnamed')))
+                self.assertIn('FLEX_LINK', c)
+        msgs = ' | '.join(m for _c, m in self.lint(self.mutate('module_staged', flex_scope=None)))
+        self.assertIn('build module_staged', msgs)
+        self.assertIn('refit module module_staged', msgs)       # the module refit repeats the linked ops
+        errs = self.lint(self.mutate('camera_fpc_mate', supported_groups=['camera']))
+        self.assertIn('MATE', codes(errs))                       # CHE-8 allowance only where support is declared
+        self.assertIn('camera_fpc: end part pi5 not present at camera_fpc_mate', ' | '.join(m for _c, m in errs))
+
+    def test_stray_support_fails(self):
+        self.assertIn('SUPPORT_UNUSED', codes(self.lint(self.mutate('panel_prop', supported_groups=['panel'],
+                                                                     flex_scope='HOLD: x'))))
+        self.assertIn('SUPPORT_UNUSED', codes(self.lint(self.mutate('carrier_screws', supported_groups=['module'],
+                                                                     flex_scope='HOLD: 200 mm CSI FPC'))))
+        self.assertIn('SUPPORT_HOLD', codes(self.lint(self.mutate('lens_in', flex_scope='no hold'))))
+
+    def test_linked_span_follows_the_mate(self):
+        # if the camera end were mated only after the module is in (as at bdfd44f's evf_mate), nothing is split and
+        # every declared support becomes stray
+        s = copy.deepcopy(ST.STEPS)
+        for o in s:
+            if o['id'] == 'camera_fpc_mate':
+                o['connects'] = []
+            if o['id'] == 'evf_mate':
+                o['connects'] = o['connects'] + ['camera_fpc:cam']
+        c = codes(self.lint(s))
+        self.assertIn('SUPPORT_UNUSED', c)
+        self.assertNotIn('FLEX_SUPPORT', c)
+
+    def test_module_service_remate(self):
+        o = {x['id']: x for d in ST.SERVICE.values() for x in d['ops']}['svc_module_unplug']
+        self.assertEqual(o['reverse_of'], ['module_bench', 'evf_mate'])
+        self.assertIn('camera_fpc:pi', {x['id']: x for x in ST.STEPS}['module_bench']['connects'])
+        self.assertIn('Active Cooler may have to come off', o['refit'])
+        self.assertIn('HOLD', o['refit'])
+        self.assertNotIn('do not repeat cooler installation', o['refit'])
+        errs = self.lint(service=self.svc('svc_module_unplug', reverse_of=['evf_mate']))   # 1b59395 value
+        self.assertIn('REMATE_REVERSE', codes(errs))
+        self.assertIn('svc_module_unplug parts camera_fpc; its re-mating op module_bench is not in reverse_of',
+                      ' | '.join(m for _c, m in errs))
+        self.assertIn('REMATE_REVERSE', codes(self.lint(service=self.svc('svc_module_unplug',
+                                                                          remate_at={'camera_fpc': 'evf_mate'},
+                                                                          reverse_of=['evf_mate']))))
+        self.assertIn('REMATE_REVERSE', codes(self.lint(service=self.svc('svc_carrier_out', reverse_of=['carrier_in']))))
+        self.assertIn('REVERSE_STALE', codes(self.lint(service=self.svc(
+            'svc_module_unplug', reverse_of=['module_bench', 'evf_mate', 'storage_in']))))
+        self.assertIn('FLEX_REMATE_HOLD', codes(self.lint(service=self.svc(
+            'svc_module_unplug', refit='CSI Pi end only: use the connection named at module_bench'))))
+
+    def test_refit_remate_position(self):
+        # the Pi end is re-seated just before module_staged; at its build position (module_bench, first op of every
+        # chain) the linked module would dangle through the collar/gauge and grip refit ops, which declare nothing
+        o = {x['id']: x for d in ST.SERVICE.values() for x in d['ops']}['svc_module_unplug']
+        self.assertEqual(o['remate_before'], {'camera_fpc': 'module_staged'})
+        self.assertIn('immediately before module_staged', o['refit'])
+        errs = self.lint(service=self.svc('svc_module_unplug', remate_before={}))
+        msgs = ' | '.join(m for _c, m in errs)
+        self.assertTrue({'FLEX_LINK', 'FLEX_SUPPORT'} <= codes(errs))
+        for frag in ('refit collar collar_on', 'refit collar gauge_out', 'refit grip grip_prep'):
+            self.assertIn(frag, msgs)
+        self.assertIn('REMATE_POSITION', codes(self.lint(service=self.svc(
+            'svc_module_unplug', remate_before={'camera_fpc': 'collar_on'}))))
 
 
 if __name__ == '__main__':

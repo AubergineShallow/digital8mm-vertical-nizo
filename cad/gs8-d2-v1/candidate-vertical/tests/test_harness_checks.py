@@ -5,11 +5,13 @@ Run:  run_locked.py -- cad/gs8-d2-v1/candidate-vertical/tests/test_harness_check
 
 - r7 port: constants and helper math equal r7 checks.py / layout.py (d38468e copies in ../).
 - Families: the stretched QT / run routes are recomputed from their own knots; the solver bounds are the literals in
-  signal_routes.py; the family minima match the routes of record (QT 203.5 since the H2 fan-in and top-run family,
-  239.1 before; run 183.3 / 171.6 mm since the H1 re-route behind the carrier boss, 214.3 / 209.5 on 9ced753).
+  signal_routes.py; the family minima match the routes of record (QT 239.0 since the corrective 2026-10-12 installed
+  low-return storage family, judged at its own shortest member (r7 rule; review CHE-1 / GEO-5), 203.5 at H2, 239.1
+  before; run 183.3 / 171.6 mm since the H1 re-route behind the carrier boss, 214.3 / 209.5 on 9ced753).
 - Regression fixtures: a lead shortened 10 mm fails mate_reach (QT plug row, run plug row, J2 inline halves); a
   pigtail 10 mm shorter loses face_out; a tie slot moved onto a core is 'on route'; drop rows reproduce the
-  candidate's own 60 C model at the low end and fail at the hot-fuse high end, a cold short path passes; overlapping
+  candidate's own 60 C model at the low end only with the r7 1.0 mOhm XT30 loop forced (the gate charges 2.4 mOhm plus
+  named joints, review ELE-1) and fail at the hot-fuse high end, a cold short path passes; overlapping
   header housings and a COTS box on a housing fail; a longest lead beyond the loop family fails cable_stow.
 - Bound report: out/<variant>/harness-checks.json binds the current manifest, verifier and dependencies; its key
   numbers are reproduced CAD-free; its failing set is the documented expected set (CAD / docs phase, user decisions).
@@ -106,7 +108,12 @@ class TestFamilies(unittest.TestCase):
         rows = HR.family_rows(H, R.rounded_path)
         self.assertEqual({r['status'] for r in rows}, {'pass'})
         mins = {cid: HR.min_route(H, H['cables'][cid], R.rounded_path)[0] for cid in HR.FAMILIES}
-        self.assertAlmostEqual(mins['qt'], 203.54, delta=0.05)   # H2 fan-in + top-run family (239.14 before)
+        # Corrective 2026-10-12 installed storage family low 44..55.2: shortest member low=55.2 is 195.92 + branch 43.07.
+        # The r7 rule judges the installed family (review CHE-1 / GEO-5); the released pose's 203.54 is info only.
+        self.assertAlmostEqual(mins['qt'], 238.99, delta=0.05)
+        rel = HR.min_route(H, H['cables']['qt'], R.rounded_path)[1]['released_minimum']
+        self.assertEqual((rel['status'], rel['gating']), ('info', False))
+        self.assertAlmostEqual(rel['min_route_mm'], 203.54, delta=0.05)
         # H1 (VN-26): run-lead loop re-routed behind the carrier boss (FIX-LOG); 9ced753 values were 214.31 / 209.54
         self.assertAlmostEqual(mins['run_pin37'], 183.27, delta=0.05)
         self.assertAlmostEqual(mins['run_pin39'], 171.63, delta=0.05)
@@ -279,18 +286,49 @@ class TestLeadAccess(unittest.TestCase):
 class TestDrop(unittest.TestCase):
     def test_low_end_is_the_candidate_model_and_hot_fuse_fails(self):
         r = HR.pigtail_drop_row()
-        self.assertAlmostEqual(HR.drop_v(HR.DROP['awg16_mm2'], 1.0, HR.DROP['awg18_mm2'], 1.0), 0.142810903056,
-                               delta=2e-4)   # make_bom_vertical hot_drop uses 13.17 / 21 mohm/m (AWG tables)
+        self.assertAlmostEqual(HR.drop_v(HR.DROP['awg16_mm2'], 1.0, HR.DROP['awg18_mm2'], 1.0, xt30_mohm=1.0),
+                               0.142810903056, delta=2e-4)   # make_bom_vertical hot_drop (13.17 / 21 mohm/m) at r7 1.0
         self.assertEqual(r['status'], 'fail')
         self.assertGreater(r['drop_hi_v'], 0.150)
-        self.assertLess(r['cases']['lo']['drop_v'], 0.150)
+        # ELE-1 (stricter): at the 2.4 mohm XT30 gate even the nominal low case fails at 270 mm
+        self.assertAlmostEqual(r['cases']['lo']['drop_v'], 0.15481, delta=1e-5)
+        self.assertGreater(r['cases']['lo']['drop_v'], 0.150)
+        self.assertAlmostEqual(r['drop_hi_v'], 0.17458, delta=1e-5)
         self.assertGreater(r['cases']['nominal_hot_fuse']['drop_v'], 0.150)   # the hot fuse alone breaks it
+
+    def test_xt30_gate_is_the_largest_reported_loop(self):
+        D = HR.DROP
+        self.assertEqual(D['xt30_mohm'], 1.0)                                # r7 historical value (r7 port test)
+        self.assertEqual(tuple(D['xt30_loop_cases_mohm']), (1.0, 1.2, 2.4))
+        self.assertEqual(D['xt30_loop_gate_mohm'], max(D['xt30_loop_cases_mohm']))
+        r = HR.pigtail_drop_row()
+        c = r['xt30_loop_cases']
+        self.assertEqual(sorted(c), ['1.0', '1.2', '2.4'])
+        self.assertEqual([k for k in c if c[k]['gating']], ['2.4'])
+        self.assertAlmostEqual(c['2.4']['hi_v'], r['drop_hi_v'], places=6)
+        self.assertEqual((c['1.0']['hi_v'], c['1.0']['shorter_path_max_mm_hot_fuse']), (0.16254, 225.4))
+        self.assertEqual((c['1.2']['hi_v'], c['1.2']['shorter_path_max_mm_hot_fuse']), (0.16426, 219.3))
+        self.assertEqual((c['2.4']['hi_v'], c['2.4']['shorter_path_max_mm_hot_fuse']), (0.17458, 182.6))
+        self.assertEqual(r['decision_data']['shorter_path_max_mm_hot_fuse'], 182.6)
+
+    def test_named_joints_are_explicit_and_in_series(self):
+        D = HR.DROP
+        self.assertEqual(sorted(D['joints_mohm']), ['fuse_splice_line', 'fuse_splice_load', 'x1203_pad_negative',
+                                                    'x1203_pad_positive'])
+        self.assertTrue(all(v == 0.0 for v in D['joints_mohm'].values()))   # no repo source: unbudgeted, pending G-W5
+        self.assertIn('pending G-W5', D['joints_status'])
+        r = HR.pigtail_drop_row()
+        self.assertEqual(r['joints']['sensitivity_mv_per_0p1_mohm_each'], 0.86)
+        J = dict(D, joints_mohm=dict(D['joints_mohm'], fuse_splice_line=0.1))
+        self.assertAlmostEqual(HR.pigtail_drop_row(J)['drop_hi_v'] - r['drop_hi_v'], 0.00086, delta=1e-5)
 
     def test_limit_never_relaxed_and_short_cold_path_passes(self):
         self.assertEqual(HR.DROP['limit_v'], 0.15)
-        D = dict(HR.DROP, pigtail_path_mm=225.0, fuse_hot_factor_range=(1.0, 1.0))
-        self.assertEqual(HR.pigtail_drop_row(D)['status'], 'pass')
-        self.assertEqual(HR.pigtail_drop_row(dict(HR.DROP, pigtail_path_mm=230.0))['status'], 'fail')   # hot fuse: max 225.4
+        cold = dict(HR.DROP, fuse_hot_factor_range=(1.0, 1.0))
+        self.assertEqual(HR.pigtail_drop_row(dict(cold, pigtail_path_mm=220.0))['status'], 'pass')   # cold max 223.5
+        self.assertEqual(HR.pigtail_drop_row(dict(cold, pigtail_path_mm=225.0))['status'], 'fail')
+        self.assertEqual(HR.pigtail_drop_row(dict(HR.DROP, pigtail_path_mm=180.0))['status'], 'pass')  # hot max 182.6
+        self.assertEqual(HR.pigtail_drop_row(dict(HR.DROP, pigtail_path_mm=185.0))['status'], 'fail')
 
 
 class TestHeaderStowRoutes(unittest.TestCase):
@@ -314,11 +352,12 @@ class TestHeaderStowRoutes(unittest.TestCase):
         H['cables']['qt']['length_range'] = (240.0, st['family_max_mm'] + 1.0)
         self.assertEqual(row(HR.cable_stow_rows(H, R.rounded_path), 'qt')['status'], 'fail')
         cr = row(HR.cable_routes_rows(data(), R.rounded_path), 'qt')
-        self.assertFalse([p for p in cr['problems'] if 'shortest route' in p])   # H2: 203.5 + 25 <= 240
+        # Review CHE-1: the r7 rule gates the installed family's shortest member: 239.0 + 25 > 240 fails.
+        self.assertTrue([p for p in cr['problems'] if 'shortest route' in p and 'minimum stock 240.0' in p])
         H = data()
-        H['cables']['qt']['length_range'] = (200.0, 260.0)                     # a 200 mm minimum lead fails
+        H['cables']['qt']['length_range'] = (200.0, 260.0)                     # the gate reads the purchased minimum
         self.assertTrue([p for p in row(HR.cable_routes_rows(H, R.rounded_path), 'qt')['problems']
-                         if 'shortest route' in p])
+                         if 'shortest route' in p and 'minimum stock 200.0' in p])
         H = data()
         H['cables']['qt']['length_range'] = (270.0, 280.0)
         self.assertFalse([p for p in row(HR.cable_routes_rows(H, R.rounded_path), 'qt')['problems']
@@ -402,9 +441,11 @@ class TestRegistrationAndArchive(unittest.TestCase):
 # cable_routes power_button (installed sweep added: cooler and pi5 at the J2 pad hypothesis, VN-73 / G-V-POWER), fan
 # (the estimated native-lead route runs inside the cooler model beyond its 10 mm terminal zone), fpc and oled_flex
 # (ribbon round-envelope screen: not proof of a conflict, clearance unproven). Corrective 2026-10-12 removes
-# the QT route/stow and qt_enc failures only after exact stored/free sweeps, with old-geometry negative controls.
+# the QT stow and qt_enc failures only after exact stored/free sweeps, with old-geometry negative controls; cable_routes
+# qt stays failing: the installed storage family's shortest member (239.0 + 25 > 240) fails the r7 allowance (review
+# CHE-1 / GEO-5); the released-pose basis that would pass is a proposed rule change awaiting the user decision.
 EXPECTED_FAILING = {
-    'cable_routes': ['fan', 'fpc', 'oled_flex', 'pigtail_negative', 'pigtail_positive', 'power_button'],
+    'cable_routes': ['fan', 'fpc', 'oled_flex', 'pigtail_negative', 'pigtail_positive', 'power_button', 'qt'],
     'cable_stow': ['power_button_j2_pair'],
     'lead_access': ['pigtail_drop', 'pigtail_ties_on_route', 'pigtail_xt30_mouth'],
     'mate_reach': ['j2_btn', 'xt30_pack'],

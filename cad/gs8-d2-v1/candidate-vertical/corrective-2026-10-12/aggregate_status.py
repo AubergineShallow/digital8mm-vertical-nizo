@@ -56,7 +56,7 @@ def main():
     child = json.loads(read_text(child_path))
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     result = aggregate(record, child, digest(manifest), expected_child_names(read_text(runner)), digest(runner))
-    result['inputs'] = {str(p.relative_to(root)): digest(p)
+    result['inputs'] = {p.relative_to(root).as_posix(): digest(p)
                         for p in (receipt, child_path, manifest, runner, Path(__file__))}
     target = Path(__file__).with_name('validation-primary-summary.json')
     write_text(target, json.dumps(result, indent=2) + '\n')

@@ -72,20 +72,36 @@ class QTFanIn(unittest.TestCase):
     def test_fan_in_gap_rule_still_bites(self):
         H = data()
         r = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
-        self.assertEqual((r['fan_in_gap_mm'], r['status']), (0.0, 'pass'))
+        # Review CHE-1: the QT row now fails on the restored r7 length rule, so the control asserts the fan-in
+        # problem itself (absent at the committed geometry, present when the branches stop short).
+        self.assertEqual(r['fan_in_gap_mm'], 0.0)
+        self.assertFalse([p for p in r['problems'] if 'fan-in gap' in p])
         for br in H['cables']['qt']['branches']:            # the 9ced753 branches stopped at Z25 on their own X
             br['points'] = [p for p in br['points'] if p[2] <= 25.0 + 1e-9]
         r = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
         self.assertGreater(r['fan_in_gap_mm'], HR.ROUTE_END_TOL)
+        self.assertTrue([p for p in r['problems'] if 'fan-in gap' in p])
         self.assertEqual(r['status'], 'fail')
 
     def test_family_minimum_and_stow(self):
         H = data()
         r = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
-        self.assertAlmostEqual(r['min_route_mm'], 203.54, delta=0.05)
-        self.assertAlmostEqual(r['slack_mm'], 11.46, delta=0.05)
+        # Review CHE-1 / GEO-5: the r7 rule judges the installed storage family's shortest member (195.92 + 43.07);
+        # it fails the 25 mm allowance against the 240 mm minimum stock. The released pose (203.54, slack 11.46) is a
+        # proposed rule change reported as info, never the gate.
+        self.assertAlmostEqual(r['min_route_mm'], 238.99, delta=0.05)
+        self.assertAlmostEqual(r['slack_mm'], -23.99, delta=0.05)
+        self.assertEqual(r['status'], 'fail')
+        self.assertTrue(any('allowance' in p for p in r['problems']))
+        rel = r['basis']['released_minimum']
+        self.assertEqual((rel['status'], rel['gating'], rel['would_pass_length_gate']), ('info', False, True))
+        self.assertAlmostEqual(rel['min_route_mm'], 203.54, delta=0.05)
+        self.assertAlmostEqual(rel['slack_mm'], 11.46, delta=0.05)
+        self.assertEqual(r['proposed_rule_change']['status'], 'info')
         H['cables']['qt']['length_range'] = (215.0, 260.0)    # a lead 25 mm shorter than the BOM minimum fails
-        self.assertEqual(row(HR.cable_routes_rows(H, R.rounded_path), 'qt')['status'], 'fail')
+        r2 = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+        self.assertEqual(r2['status'], 'fail')
+        self.assertTrue([p for p in r2['problems'] if 'shortest route' in p and 'minimum stock 215.0' in p])
         st = row(HR.cable_stow_rows(data(), R.rounded_path), 'qt')
         self.assertEqual(st['status'], 'pass')
         self.assertGreaterEqual(st['family_max_mm'], 260.0)
@@ -264,8 +280,10 @@ class DropDecisionTable(unittest.TestCase):
         self.assertAlmostEqual(t['270.0']['hi_v'], r['drop_hi_v'], places=6)
         hi = [t[k]['hi_v'] for k in sorted(t, key=float)]
         self.assertEqual(hi, sorted(hi))
-        self.assertLess(t['225.0']['hi_v'], 0.150)                 # the shorter_path_max 225.4 mm boundary
-        self.assertGreater(t['237.0']['hi_v'], 0.150)
+        # ELE-1: the gate charges the 2.4 mohm XT30 loop; shorter_path_max is 182.6 mm, so every tabulated length fails
+        self.assertGreater(t['220.0']['hi_v'], 0.150)
+        self.assertEqual(r['decision_data']['shorter_path_max_mm_hot_fuse'], 182.6)
+        self.assertEqual(r['xt30_loop_cases']['1.0']['shorter_path_max_mm_hot_fuse'], 225.4)   # r7 1.0 (info)
         self.assertEqual(r['status'], 'fail')
 
 
@@ -319,11 +337,14 @@ class BoundReports(unittest.TestCase):
             self.skipTest('harness-checks.json predates H2')
         cr = row(rep['checks'], 'qt', 'cable_routes')
         self.assertEqual(cr['fan_in_gap_mm'], 0.0)
-        self.assertEqual(cr['member_clearance']['hits'], {})                    # shortest member (top 56) clear
+        self.assertEqual(cr['member_clearance']['use'], 'shortest member (the minimum route)')   # CHE-1: gating member
         self.assertEqual(cr['installed_clearance']['hits'], {})  # corrected stored route, unchanged HDMI
         self.assertEqual(cr['installed_clearance']['cable_overlaps'], [])
-        self.assertEqual(cr['problems'], [])
-        self.assertIn('released_minimum', cr['basis'])
+        self.assertEqual(cr['status'], 'fail')                   # r7 allowance at the installed family (CHE-1 / GEO-5)
+        self.assertTrue(any('allowance' in p for p in cr['problems']))
+        rel = cr['basis']['released_minimum']
+        self.assertEqual((rel['status'], rel['gating']), ('info', False))
+        self.assertEqual(rel['member_clearance']['hits'], {})   # the proposed released pose is still swept strictly
         # Corrective 2026-10-12: own end parts remain exempt only near their terminal. The free route
         # rises above the Pi before traversing it; the old crossing remains an exact negative-control study.
         q = row(rep['checks'], 'qt_enc')

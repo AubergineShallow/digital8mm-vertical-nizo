@@ -21,10 +21,11 @@
       "bytes": 201161
     },
     {
-      "local_cache_name": "2147611101_sd.pdf",
+      "local_cache_name": "2147612105_sd.pdf",
       "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/214/214761/2147612105_sd.pdf",
       "sha256": "81e72ddb3572cbb79bc37e4458528dde13e96ac60a1c41359ba27bbaf3b48398",
-      "bytes": 134924
+      "bytes": 134924,
+      "review_note": "Review 2026-10-12 (PUB-7): the delivered entry named this cache 2147611101_sd.pdf, which does not match the URL. The name now matches the URL. The sha256 and bytes above are as delivered and were not re-verified against a download of this URL (no download was made in the review)."
     },
     {
       "local_cache_name": "2147631101_sd.pdf",

@@ -104,7 +104,12 @@ class Refits(unittest.TestCase):
     def test_carrier_before_lens_in_a_refit_fails(self):
         order = ST.route_refit('camera')
         k = order.index('module_staged')
-        bad = order[:1] + order[k:k + 2] + [x for x in order[1:] if x not in order[k:k + 2]]   # VN-41 order
+        mod = order[k:k + 2]                                   # module_staged, carrier_in
+        rest = [x for x in order if x not in mod]
+        j = rest.index('camera_in') + 1                        # anchored on camera_in, not on a list position: the
+        bad = rest[:j] + mod + rest[j:]                        # refit now opens with the module_bench CSI re-mate
+        self.assertEqual(mod, ['module_staged', 'carrier_in'])
+        self.assertLess(bad.index('carrier_in'), bad.index('lens_in'))   # VN-41 order: module in before the lens
         c = codes(ST.lint_refit('camera', order=bad))
         self.assertTrue({'ORDER', 'CAMERA_RETAINED'} <= c, c)
 

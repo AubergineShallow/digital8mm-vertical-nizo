@@ -62,7 +62,12 @@ REF = rd(CV / 'structural-review/reference-export18-structural-binding.json')
 OLD = rd(CV / 'history/reviewed-export18/manifest.json')
 MANS = {p.parent.name: rd(p) for p in sorted((CV / 'out').glob('*/manifest.json')) if 'storage' in rd(p)}
 # FX refresh (new J4 free body, trial3 tub): original-Kowa equal-share + wiring and 70 percent share (N m)
-O_EQUAL, O_SEVENTY = 0.982164, 1.375030
+# Re-pinned in review 2026-10-12 (corrective) from 0.982164 / 1.375030: the delivered 1b59395 tub (catch tenon, QT
+# routing, concealed plenum) is 178.37 mm3 lighter, so the original-Kowa manifest mass_est_g falls 0.1622 g and its
+# com_est_mm moves; the J4 lower centres (j4-lower-centres.json) are unchanged to 1e-9. Old manifest -> 0.982164 /
+# 1.375030, new manifest -> 0.981983 / 1.374777 with the same centres (pure check_scope arithmetic). Less upper mass,
+# lower torque; the 1.0 N m screen and every assertion below are unchanged.
+O_EQUAL, O_SEVENTY = 0.981983, 1.374777
 
 
 def lower_first(v, m):

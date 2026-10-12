@@ -310,11 +310,16 @@ def added(L, model, length, collar):
     px0, px1 = tn['x'][0] - C['x'], tn['x'][1] + C['x']
     pz = model.TAB_CATCH_SPLIT_Z + (tn['h'] + C['z']) / 2
     py = yin + (tn['t'] + C['y']) / 2
+    # Review 2026-10-12 (corrective, check-integrity): with the 10 mm tenon the mid-height origin of the +X wall lies in
+    # the panel-screw boss column (chord 7.0 to x -2.7), so one ray no longer sees the 1.5 mm wall near the joint plane.
+    # Both walls are graded as the minimum of 11 rays along z over the pocket face (0.25 inside each pocket end).
+    wspan = (11, round((tn['h'] + C['z'] - 0.5) / 10, 4), Z)
     A('tub_stock_tenon_pocket_wall_xm', 'tub_print_stock', ((wp['x'][0] + px0) / 2, py, pz), X, 1.2, 'wall', 'hood_band',
-      'tub print stock: -X side wall of the bonded-stub tenon pocket (web x %.2f..%.2f, pocket from %.2f)'
-      % (wp['x'][0], wp['x'][1], px0))
+      'tub print stock: -X side wall of the bonded-stub tenon pocket (web x %.2f..%.2f, pocket from %.2f); minimum '
+      'over the pocket height' % (wp['x'][0], wp['x'][1], px0), span=wspan)
     A('tub_stock_tenon_pocket_wall_xp', 'tub_print_stock', ((px1 + wp['x'][1]) / 2, py, pz), X, 1.2, 'wall', 'hood_band',
-      'tub print stock: +X side wall of the bonded-stub tenon pocket (pocket to %.2f, web to %.2f)' % (px1, wp['x'][1]))
+      'tub print stock: +X side wall of the bonded-stub tenon pocket (pocket to %.2f, web to %.2f); minimum over the '
+      'pocket height (the boss column above the thin wall is wider)' % (px1, wp['x'][1]), span=wspan)
     # J8 additions
     r0, r1 = model.EVF_HDMI_RECEPTACLE_Y
     A('tub_evf_floor_relief', 'tub', (f + 15.65, ((r0 - 16 + ey - 0.5) + (r1 - 16 + ey + 0.5)) / 2, (61.5 + 62.9) / 2),

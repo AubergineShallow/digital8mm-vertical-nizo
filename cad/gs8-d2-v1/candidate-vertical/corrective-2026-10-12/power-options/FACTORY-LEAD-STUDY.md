@@ -54,6 +54,11 @@ These are not measured CAB0244 values. Both 1.2 and 2.4 mΩ cases remain because
 the retrieved manufacturer's resistance scope does not resolve per-contact
 versus total loop. Factory joints and actual end joints cannot be treated as
 zero resistance; the built complete path must meet the unchanged hot-load gate.
+The acceptance budget in termination-options.json is therefore stated as wire
+plus named joints: the two fuse-insertion splices and the two X1203 pad joints
+are listed by name at 0 mΩ as "unbudgeted, pending G-W5" (no source gives a
+value), and every 0.1 mΩ in any one of them takes the same share of the loop
+budget away from the wire.
 The 60 mm assumed 18 AWG pack leads, 60°C copper, 1.03 lay factor and 5.798 mΩ
 hot fuse contribution remain unchanged. No copper-displacement credit is taken
 for the positive 20 mm fuse/joint zone.
@@ -132,8 +137,10 @@ verification, retention, all service poses and hand access remain unresolved.
 ## Other termination paths screened
 
 - **16 AWG cup tails plus two splices:** [TE SOLISTRAND 31819][te-catalog] is a
-  concrete 16–14 AWG splice candidate. Its catalog gives a 14.40 mm bare length,
-  4.06 mm OD and 2.26 mm barrel ID. Insulation adds length/diameter, and actual
+  concrete 16–14 AWG splice candidate. TE's [product page][te-product] (read
+  2026-10-12) gives a 14.4 mm bare length, 4.19 mm OD and 2.16 mm barrel ID; the
+  quick-reference guide's 4.06 mm OD and 2.26 mm barrel ID disagree in the
+  non-conservative direction and are superseded. Insulation adds length/diameter, and actual
   fine-strand tooling, pull performance and hot resistance remain unqualified.
   At 280 mm total with 40 mm 16 AWG tails, the 2.4 mΩ loop case reaches
   0.152074 V before either added joint. The shorter 250 mm route budget changes
@@ -211,6 +218,7 @@ only this report directory. Source drawings are linked rather than redistributed
 [cab-photo]: https://cdn.shopify.com/s/files/1/0174/1800/files/xt30-1.jpg?v=1701882162
 [xt30-spec]: https://www.china-amass.net/uploads/XT30U-MF.rar
 [te-catalog]: https://www.te.com/content/dam/te-com/documents/appliances/global/solistrand-terminals-and-splices-qrg.pdf
+[te-product]: https://www.te.com/en/product-31819.html
 [uh60]: https://www.china-amass.net/uh60-fgold-plating-product/
 [uh60-drawing]: https://www.china-amass.net/uploads/121.UH60-M-Product-Specification-Gold-Plated-2026V1E-Solder-cup-facing-positive-and-negative-terminals.pdf
 [sbs]: https://www.andersonpower.com/content/dam/app/ecommerce/product-pdfs/SBS-Mini/ds-sbsmini.pdf

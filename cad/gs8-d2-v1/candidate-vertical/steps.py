@@ -20,7 +20,10 @@ What it holds
 - TOOLS: assembly tools that are temporarily in the body (the collar centring gauge) and the parts they can never
   coexist with (the seated gauge overlaps c_cs_adapter by 927.75 mm3; its rear cone needs the empty tub lip).
 - lint(): order, tool, mating, refit, coverage and bookkeeping rules. It takes any step list, so the regression
-  test feeds it the original 9ced753 order and expects the VN-39/40/41/43 errors.
+  test feeds it the original 9ced753 order and expects the VN-39/40/41/43 errors. Review 2026-10-12 (ELE-2,
+  GEO-4): a FLEX_LINKED ribbon whose mated ends sit apart needs a declared support and a flex HOLD on every such
+  op, build and refit; a supported_groups allowance needs such a split; a service op's reverse_of must name and
+  connect the op that re-mates each cable it parts, and every reverse_of op must refit something.
 
 Ids are manifest row ids (out/<variant>/manifest.json) plus TOOLS. OPTIONAL ids exist only in some variants;
 consumers pass the ids they have (`available`) and missing optional ids are dropped, never silently others.
@@ -52,6 +55,7 @@ COLLAR_ANCHORS = ['s_c1', 's_c2', 's_c3']
 
 PH1 = 'straight PH1 driver on the screw axis (baseline bit/handle envelope); provisional torque cap per ASSEMBLY s2'
 SOCKET = 'deep socket on the nut axis (straight-driver rule; no spanner: VN-46)'
+_MODULE_SUPPORT = 'ESD support holding the linked complete Pi module beside the body'
 
 
 def op(id, step, doc, **kw):
@@ -91,8 +95,16 @@ STEPS = [
            'centring gauge. Heat-set the 3 short tub inserts and the 1 long collar (pinch-lug) insert under the '
            'coupon-validated process, before any electronics are near. No insert may enter an optical, board or '
            'wiring clearance. Bond the printed +Y tab-catch stub into the tub (two-part epoxy V-68, default pending '
-           'user decision 16): tenon into the pocket under the roof, stub pressed toward the camera axis (-Y) onto '
-           'the pocket datum while it cures, no adhesive on the catch face (T2, VN-53).'),
+           'user decision 16) with the tub INVERTED, so the blind tenon pocket under the roof opens upward. Put only '
+           'a thin adhesive film on the tenon and pocket walls: the blind pocket has no vent, so a full dose cannot '
+           'escape and holds the stub off its seat (vent/overflow groove is an open CAD change, review GEO-3). Lower '
+           'the tenon straight into the pocket and rest the stub joint face down on the roof joint face; wipe the '
+           'overflow at once and keep adhesive off the catch face (T2, VN-53). Cure it in a fixture that holds the '
+           'tenon datum (-Y) face flat against the pocket datum wall while a light seating load along tub +Z (straight '
+           'into the pocket, downward while inverted) keeps the joint face closed; the fixture design is open. Never '
+           'push the stub sideways or press on its body: that couple tilts it into the clearance-limited pose that '
+           'fails the catch window (geometry review T02). Before the adhesive gels, check the seated depth: joint '
+           'face closed all round and the stub square to the roof; reseat or clean off and redo if not.'),
     op('module_bench', 'B2', where='bench', group='module', adds=MODULE,
        connects=['camera_fpc:pi', 'fps_1824:pi', 'fps_1824:sw', 'evf_hdmi:pi', 'evf_5v:pi', 'qt:pi', 'j2:pi', 'fan:pi', 'fan:cooler',
                  'xt30:pigtail'],
@@ -169,17 +181,20 @@ STEPS = [
            'collar-anchor cap (0.15 N m), stopping at head contact.'),
     op('gauge_out', '2', removes=['centring_gauge'], closes=['VN-39'],
        doc='Pull the gauge out forward (+X) through the collar. The tub lip is now free for the camera.'),
-    op('camera_fpc_mate', '2', where='prop', group='camera', supported_groups=['module'],
+    op('camera_fpc_mate', '2', where='prop', group='camera', supported_groups=['camera', 'module'],
        connects=['camera_fpc:cam'], tools='ESD support for camera and complete Pi module',
        no_motion='connector operation outside the body; actual latch and full linked FPC motion remain HOLD',
+       flex_scope='HOLD: the camera end of the 200 mm CSI FPC is mated with the camera and the complete Pi module '
+                  'both outside the body on their declared supports; the ribbon must never carry either assembly. '
+                  'Latch operation, connector root loads and the linked ribbon shape are not modelled.',
        doc='Support the camera and prepared Pi module beside the body, both unpowered. Seat the camera end of '
            'the full 200 mm FPC straight and close its latch before camera insertion. The Pi end was seated '
            'before the cooler at module_bench. Never let the ribbon carry either assembly; its full linked '
            'camera/module insertion and stored shape remain HOLD.'),
-    op('camera_in', '2', adds=CAMERA, inserts='camera', closes=['VN-39', 'VN-44'],
+    op('camera_in', '2', adds=CAMERA, inserts='camera', closes=['VN-39', 'VN-44'], supported_groups=['camera', 'module'],
        flex_scope='HOLD: rigid camera/adapter sweep omits the complete 200 mm CSI FPC linking the camera to the '
-                  'supported module outside the body. Full-width stored material, linked motion, roots, bends '
-                  'and latch operation remain unproved; no complete assembly qualification.',
+                  'complete Pi module on its declared support outside the body. Full-width stored material, linked '
+                  'motion, roots, bends and latch operation remain unproved; no complete assembly qualification.',
        doc='With all power absent and the prepared Pi module supported outside the body, mate the camera end '
            'of its 200 mm FPC at camera_fpc_mate before insertion; the Pi end was seated before the cooler at module_bench. '
            'HOLD until the full linked camera/module ribbon motion is checked. Bring camera with adapter in through the open +Y side: '
@@ -187,45 +202,71 @@ STEPS = [
            'passes the lip and the metal lock tab enters between the tab-catch tines. Keep the linked FPC slack and '
            'out of the path; do not let it carry either assembly. Do not leave it: nothing holds the camera back until the lens is on (next ops).'),
     op('s_c4_start', '2', adds=['s_c4'], no_motion='screw started loosely in the collar lug insert',
-       closes=['VN-41'],
-       doc='Fit the pinch screw s_c4 (M3 x 16, washer) loosely in the collar lug.'),
-    op('lens_in', '2', adds=['lens'], closes=['VN-41'],
-       tools='fingertips only; folded cloth for the side rest',
-       doc='Lens with the carrier and panel still out (r7 step 8 method). Rest the body on its side so the open +Y '
-           'side is up; one fingertip on the centre of the camera cover presses the camera forward (+X) onto its '
-           'lip catch: push only, never pinch or turn the cover. Pass the lens through the collar and screw it '
-           'into the adapter with fingertips until it stops, no extra snug; the camera turns with it until the '
-           'metal lock tab meets the tab catch, which takes the torque through metal. Never react thread torque '
-           'through the PCB or cover.'),
-    op('lens_float', '2', screws=['s_c4'], tools=PH1 + '; hand on the grip until s_c4 is snug',
+       closes=['VN-41'], supported_groups=['module'], tools=_MODULE_SUPPORT,
+       flex_scope='HOLD: the 200 mm CSI FPC links the still unretained camera in the body to the complete Pi module '
+                  'on its declared support outside the body; a ribbon pull on the camera before the lens holds it '
+                  'is not modelled.',
+       doc='Fit the pinch screw s_c4 (M3 x 16, washer) loosely in the collar lug. The complete Pi module stays on '
+           'its support beside the body, linked by the 200 mm camera FPC; keep the ribbon slack (HOLD).'),
+    op('lens_in', '2', adds=['lens'], closes=['VN-41'], supported_groups=['module'],
+       tools='fingertips only; folded cloth for the side rest; ' + _MODULE_SUPPORT,
+       flex_scope='HOLD: the body rests on its side while the 200 mm CSI FPC links the camera to the complete Pi '
+                  'module on its declared support outside the body. Ribbon load and twist on the camera while it '
+                  'turns to the tab catch are not modelled.',
+       doc='Lens with the carrier and panel still out (r7 step 8 method). The complete Pi module stays on its '
+           'support beside the body, linked by the 200 mm camera FPC: move the support with the body and keep the '
+           'ribbon slack so it never carries the module or pulls the camera (HOLD). Rest the body on its side so '
+           'the open +Y side is up; one fingertip on the centre of the camera cover presses the camera forward (+X) '
+           'onto its lip catch: push only, never pinch or turn the cover. Pass the lens through the collar and '
+           'screw it into the adapter with fingertips until it stops, no extra snug; the camera turns with it '
+           'until the metal lock tab meets the tab catch, which takes the torque through metal. Never react thread '
+           'torque through the PCB or cover.'),
+    op('lens_float', '2', screws=['s_c4'], supported_groups=['module'],
+       tools=PH1 + '; hand on the grip until s_c4 is snug; ' + _MODULE_SUPPORT,
        no_motion='rotation about the lens axis in place (roll window is FP-08 roll_catch), then a screw',
        closes=['VN-41'],
+       flex_scope='HOLD: the J7-R float check is made while the 200 mm CSI FPC links the floating camera to the '
+                  'complete Pi module on its declared support outside the body; a loaded ribbon can bias the '
+                  'floating camera, and that bias is not modelled.',
        doc='Set iris and focus and push the lens gently rearward until it seats on the collar cone. With s_c4 still '
            'loose, turn lens and camera together the other way until the lock tab stops on the other tine, then '
-           'back about half way: a soft stop each way means the tab floats between the tines. Look and feel: the '
-           'camera now hangs on the lens and touches neither the tub lip, the counterbore nor the tines (J7-R '
-           'float). Snug s_c4 on its axis to the provisional pinch cap (0.2 N m). Check both optical witness '
-           'marks. The camera is now retained before anything else enters the body.'),
+           'back about half way: a soft stop each way means the tab floats between the tines. Make this check with '
+           'the module still on its support and the camera FPC slack, so the ribbon does not bias the camera '
+           '(HOLD). Look and feel: the camera now hangs on the lens and touches neither the tub lip, the '
+           'counterbore nor the tines (J7-R float). Snug s_c4 on its axis to the provisional pinch cap (0.2 N m). '
+           'Check both optical witness marks. The camera is now retained before anything else enters the body.'),
     # ---- 3. EVF module, no matings (VN-43) ----
-    op('eyepiece_in', '3', adds=['eyepiece'],
+    op('eyepiece_in', '3', adds=['eyepiece'], supported_groups=['module'], tools=_MODULE_SUPPORT,
+       flex_scope='HOLD: the 200 mm CSI FPC still links the camera to the complete Pi module on its declared '
+                  'support outside the body; the ribbon path relative to the eyepiece insertion is not modelled.',
        doc='From behind the body, push the eyepiece spigot +X through the rear-wall bore until its flange sits on '
            'the rear face; the spigot rests in the inner seat and the panel supplies the +Y clamp later (r7 step 6 '
            'method; the bore is closed above, so it cannot be dropped in from +Y). Keep the body level or nose-down '
-           'until the panel is on.'),
-    op('evf_in', '3', adds=EVF, inserts='evf', closes=['VN-43'],
+           'until the panel is on. The Pi module stays on its support beside the body; keep the linked camera FPC '
+           'slack (HOLD).'),
+    op('evf_in', '3', adds=EVF, inserts='evf', closes=['VN-43'], supported_groups=['module'], tools=_MODULE_SUPPORT,
+       flex_scope='HOLD: the 200 mm CSI FPC still links the camera to the complete Pi module on its declared '
+                  'support outside the body; trapping of the ribbon by the EVF subassembly slide is not modelled.',
        doc='Slide the OLED/board subassembly in from +Y into its seats, foam and native flex unstressed. Do NOT '
            'mate the EVF HDMI head or the EVF power junction yet: their source ends arrive with the carrier '
-           '(op evf_mate). Do not let the unclamped module fall.'),
+           '(op evf_mate). Do not let the unclamped module fall. Keep the linked camera FPC out of the slide path '
+           'so the EVF subassembly cannot trap it; the Pi module stays on its support (HOLD).'),
     # ---- 4. carrier/stack ----
-    op('module_staged', '4', where='prop', group='module', connects=['run_lead:pi'],
+    op('module_staged', '4', where='prop', group='module', connects=['run_lead:pi'], supported_groups=['module'],
+       tools=_MODULE_SUPPORT,
+       flex_scope='HOLD: the complete Pi module is held on its declared support just outside the +Y side while the '
+                  '200 mm CSI FPC links it to the camera in the body and the run lead is plugged; the linked ribbon '
+                  'shape and loads are not modelled.',
        doc='Hold the complete module (carrier, Pi, cooler, X1203, kit, OS microSD, FPS switch hand-supported, Pi '
-           'HDMI head mated, EVF ends free) just outside the open +Y side. Plug the run lead from the grip onto Pi '
+           'HDMI head mated, EVF ends free) on its support just outside the open +Y side, the linked camera FPC '
+           'slack (HOLD). Plug the run lead from the grip onto Pi '
            'pins 37/39 (wall-facing: reachable only now). Carry the EVF HDMI head at least stroke + 3 mm below its '
            'mated height for the slide (VN-43 carried-head margin).'),
-    op('carrier_in', '4', adds=MODULE, inserts='module', closes=['VN-44'],
+    op('carrier_in', '4', adds=MODULE, inserts='module', closes=['VN-44'], supported_groups=['module'],
        flex_scope='HOLD: rigid carrier sweep omits the complete 200 mm CSI FPC already connected to both camera '
-                  'and Pi. The full flexible sweep, stored slack, roots, bends and interaction with other looms '
-                  'are unproved; this operation is not a complete assembly or service pass.',
+                  'and Pi; the module stays hand-supported until it rests on its two bosses. The full flexible '
+                  'sweep, stored slack, roots, bends and interaction with other looms are unproved; this operation '
+                  'is not a complete assembly or service pass.',
        doc='Bring the module in along -Y onto its two bosses, feeding the pigtail and XT30 through the floor '
            'passage without scraping the pair, fuse or XT30 body. HOLD: the whole 200 mm camera FPC is linked at both '
            'ends and is absent from this rigid sweep. Prove its complete motion and keep it clear of the 3.9 mm '
@@ -303,6 +344,12 @@ CONNECTIONS = {
     'xt30': dict(pigtail=('x1203', 'module_bench'), pack=('pack', 'pack_in'),
                  doc='16 AWG pigtail + one inline fuse to the pack XT30 (power last)'),
 }
+# Flexible ribbons whose two mated ends can sit apart (one in the body, the other in an off-body group, or in two
+# groups) across several ops (review ELE-2 / GEO-4). While the ends are split, every op must declare a support for
+# each off-body group carrying an end (supported_groups) and carry a flex_scope HOLD naming the ribbon (lint
+# FLEX_LINK / FLEX_SUPPORT); a service op that parts one keeps a HOLD in its refit text (FLEX_REMATE_HOLD). Value:
+# the name each HOLD must contain.
+FLEX_LINKED = {'camera_fpc': '200 mm CSI FPC'}
 
 # ----------------------------------------------------------------------------------------------- service
 # Service start = final build state after the section 1 safety route. The rigid xt30_pair proxy (both XT30 halves +
@@ -312,9 +359,12 @@ CONNECTIONS = {
 
 def sop(id, doc, **kw):
     """Service op: removes, unscrews (fasteners taken out here; driver context = state before), loosens (turned in
-    place), nuts (socket off), disconnects, reverse_of (build op ids whose adds refit the removes) or refit (text)."""
+    place), nuts (socket off), disconnects, reverse_of (build op ids whose adds refit the removes) or refit (text).
+    remate_at {cable: build op whose connection is repeated}; remate_before {cable: refit op immediately before which
+    that re-mate is carried out, when it is later than the named op's build position} (lint REMATE_POSITION; the
+    FLEX_LINK refit check starts there)."""
     d = dict(id=id, doc=' '.join(doc.split()), removes=[], unscrews=[], loosens=[], nuts=[], disconnects=[],
-             reverse_of=[], refit=None, where='body', no_motion=None, remate_at={})
+             reverse_of=[], refit=None, where='body', no_motion=None, remate_at={}, remate_before={})
     d.update(kw)
     return d
 
@@ -336,7 +386,7 @@ SERVICE = {
                            unscrews=PANEL_SCREWS, reverse_of=['panel_screws']),
                        sop('svc_panel_out', 'Translate the panel +Y over the released bushing and peg to the prop '
                            'pose; part QT and J2 by their housings.', removes=PANEL, disconnects=['qt', 'j2'],
-                           reverse_of=['panel_in'])]),
+                           reverse_of=['panel_prop', 'panel_in'])]),
     'storage': dict(requires=['safety'], doc='Recording drive out along -X after safe removal.',
                     ops=[sop('svc_storage_out', 'Withdraw the drive straight along -X; do not rock the receptacle.',
                              removes=STORAGE + ['usb_storage_plug_reserve'], reverse_of=['storage_in'])]),
@@ -362,18 +412,25 @@ SERVICE = {
                                    'bench in module_bench with the module out (user decision VN-29)')]),
     'module': dict(requires=['storage', 'panel'], doc='Complete Pi/UPS/cooler module out (carrier with it).',
                    ops=[sop('svc_module_unplug', 'Unplug the EVF HDMI head at the EVF end and part the EVF power '
-                            'pair; release the camera FPC at the Pi (latch HOLD); free the pigtail in the grip passage '
-                            '(flexible: FP-10).', disconnects=['evf_hdmi', 'evf_5v', 'camera_fpc'],
-                            remate_at={'camera_fpc': 'module_bench'},
-                            refit='CSI Pi end only: use the connection named at module_bench with the assembled module '
-                                  'supported; do not repeat cooler installation or soldering. HOLD until real latch '
-                                  'access with the cooler retained and the complete linked-ribbon motion are proved',
-                            reverse_of=['evf_mate'], no_motion=_NM_PLUG),
+                            'pair; release the camera FPC at the Pi (cooler-retained latch access HOLD: the cooler may '
+                            'have to come off, see refit); free the pigtail in the grip passage (flexible: FP-10).',
+                            disconnects=['evf_hdmi', 'evf_5v', 'camera_fpc'],
+                            remate_at={'camera_fpc': 'module_bench'}, remate_before={'camera_fpc': 'module_staged'},
+                            refit='CSI Pi end only: re-seat it as named at module_bench, immediately before '
+                                  'module_staged, with the assembled module on its support beside the body (the camera '
+                                  'end stays mated; until then the free Pi end is kept protected); do not repeat '
+                                  'soldering. HOLD until real latch access with the cooler '
+                                  'retained and the complete linked-ribbon motion are proved. If that cooler-retained '
+                                  'latch HOLD fails (WIRING-VERTICAL camera ribbon HOLD), the Active Cooler may have '
+                                  'to come off to release and re-seat the Pi end, as at module_bench; that cooler '
+                                  'removal and refit are themselves unqualified (HOLD) and are not to be repeated to '
+                                  'make the service path appear feasible',
+                            reverse_of=['module_bench', 'evf_mate'], no_motion=_NM_PLUG),
                         sop('svc_carrier_screws_out', 'Remove the two carrier PT screws.', removes=CARRIER_SCREWS,
                             unscrews=CARRIER_SCREWS, reverse_of=['carrier_screws']),
                         sop('svc_carrier_out', 'Stage the module +Y with the FPS switch hand-supported; part the run '
                             'lead at the staging pose.', removes=MODULE, disconnects=['run_lead'],
-                            reverse_of=['carrier_in']),
+                            reverse_of=['module_staged', 'carrier_in']),
                         sop('svc_pigtail_out', 'The pigtail, fuse and its XT30 half leave with the module, drawn up '
                             'through the floor passage (flexible withdrawal: FP-10 lead_access/pigtail checks).',
                             removes=['xt30_pair'], reverse_of=['pack_in'],
@@ -804,6 +861,44 @@ def connections_from(steps):
     return out
 
 
+def _home_group(part, steps):
+    """Bench group a part is built in (its off-body location when no group state is tracked, e.g. in a refit)."""
+    for o in steps:
+        if o['where'] == 'bench' and part in o['adds']:
+            return o['group']
+    return None
+
+
+def _flex_split(parts, states, steps):
+    """Off-body groups carrying a linked end in any state [(body, groups)] where the ends are not all in one place,
+    or None when the ends are together in every state. A part outside the body and every tracked group is placed in
+    its home bench group."""
+    need, split = set(), False
+    for body, groups in states:
+        locs = []
+        for p in parts:
+            if p in body:
+                locs.append('body')
+            else:
+                locs.append(next((g for g, s in sorted(groups.items()) if p in s), None) or _home_group(p, steps))
+        if len(set(locs)) > 1:
+            split = True
+            need |= {x for x in locs if x != 'body' and x is not None}
+    return need if split else None
+
+
+def _flex_declared(o, c, label, need, phase):
+    """FLEX_LINK / FLEX_SUPPORT errors for op `o` while ribbon `c` has its ends apart."""
+    E = []
+    if 'HOLD' not in (o.get('flex_scope') or '') or label not in (o.get('flex_scope') or ''):
+        E.append(('FLEX_LINK', '%s %s: %s ends apart with no flex_scope HOLD naming the %s' % (phase, o['id'], c, label)))
+    miss = sorted(set(need) - set(o.get('supported_groups', [])))
+    if miss:
+        E.append(('FLEX_SUPPORT', '%s %s: %s end in off-body group %s with no declared support (supported_groups)'
+                  % (phase, o['id'], c, miss)))
+    return E
+
+
 def lint(steps=None, service=None, motions=None, connections=None):
     """[(code, message)] for a step list (default STEPS with SERVICE and MOTIONS). Empty means consistent."""
     main = steps is None
@@ -899,6 +994,61 @@ def lint(steps=None, service=None, motions=None, connections=None):
                     near |= set(grp.get(group, ()))
                 if need not in near:
                     E.append(('MATE', '%s: end part %s not present at %s' % (c, need, at)))
+    # linked flexible ribbons (ELE-2 / GEO-4): declared support + flex HOLD on every op where the ends sit apart
+    needed = {}
+    for c, label in FLEX_LINKED.items():
+        ends = conns.get(c, {})
+        if len(ends) != 2 or any(oid not in idx for _p, oid in ends.values()):
+            continue
+        parts = [p for p, _oid in ends.values()]
+        start = max(idx[oid] for _p, oid in ends.values())
+        for n in range(start, len(seq)):
+            o, before, after, grp = seq[n]
+            states = [(after, grp)] if n == start else [(before, seq[n - 1][3]), (after, grp)]
+            need = _flex_split(parts, states, steps)
+            if need is not None:
+                needed.setdefault(o['id'], set()).update(need)
+                E += _flex_declared(o, c, label, need, 'build')
+    for r in service:
+        try:
+            sseq, rseq = service_sequence(r, steps, service), refit_sequence(r, steps, service)
+        except (KeyError, ValueError):
+            continue                                   # reported as SERVICE_ROUTE / REFIT_ROUTE
+        for c, label in FLEX_LINKED.items():
+            parted = [o for _rr, o, _b, _a in sseq if c in o['disconnects']]
+            ends = conns.get(c, {})
+            if not parted or len(ends) != 2 or any(oid not in idx for _p, oid in ends.values()):
+                continue
+            for o in parted:
+                if 'HOLD' not in (o['refit'] or ''):
+                    E.append(('FLEX_REMATE_HOLD', 'service %s %s parts %s with no HOLD in its refit text'
+                              % (r, o['id'], c)))
+            remate = parted[-1].get('remate_at', {}).get(c) or max((oid for _p, oid in ends.values()), key=idx.get)
+            rids = [x[1]['id'] for x in rseq]
+            if remate not in rids:
+                continue                               # REFIT_INCOMPLETE / REFIT_ROUTE report it
+            k = rids.index(remate) + 1                 # linked from the re-mate on ...
+            at = parted[-1].get('remate_before', {}).get(c)
+            if at is not None:                         # ... or from the declared later re-mate position (inclusive)
+                if at not in rids or rids.index(at) <= rids.index(remate):
+                    E.append(('REMATE_POSITION', 'refit %s: %s re-mate declared before %s, which is not a later op '
+                              'of the refit %s' % (r, c, at, rids)))
+                else:
+                    k = rids.index(at)
+            parts = [p for p, _oid in ends.values()]
+            for _rr, o, before, after in rseq[k:]:
+                need = _flex_split(parts, [(before, {}), (after, {})], steps)
+                if need is not None:
+                    needed.setdefault(o['id'], set()).update(need)
+                    E += _flex_declared(o, c, label, need, 'refit %s' % r)
+    for o in steps:                                    # CHE-8: a support allowance only where a split needs it
+        extra = sorted(set(o.get('supported_groups', [])) - needed.get(o['id'], set()))
+        if extra:
+            E.append(('SUPPORT_UNUSED', '%s declares support for %s, which carries no split linked-ribbon end there'
+                      % (o['id'], extra)))
+        if o.get('supported_groups') and 'HOLD' not in (o.get('flex_scope') or ''):
+            E.append(('SUPPORT_HOLD', '%s declares supported_groups %s without a flex_scope HOLD'
+                      % (o['id'], o['supported_groups'])))
     # leads secured in their lanes (fixup-1): never before their far end is mated in a displaced (prop) pose
     seen = {}
     for o in steps:
@@ -926,6 +1076,28 @@ def lint(steps=None, service=None, motions=None, connections=None):
             E += [('SERVICE_REMOVE_ABSENT', '%s: %s' % (o['id'], a)) for a in o['removes'] if a not in before]
             E += [('FASTENER_ABSENT', '%s: %s' % (o['id'], f)) for f in o['unscrews'] + o['loosens'] + o['nuts']
                   if f not in before]
+            # a parted cable's re-mating op must be named in reverse_of and must connect that cable (review ELE-2)
+            for c in o['disconnects']:
+                ends = [oid for _p, oid in conns.get(c, {}).values() if oid in idx]
+                if not ends:
+                    continue
+                remate = o.get('remate_at', {}).get(c) or max(ends, key=idx.get)
+                if remate not in o['reverse_of']:
+                    E.append(('REMATE_REVERSE', '%s parts %s; its re-mating op %s is not in reverse_of %s'
+                              % (o['id'], c, remate, o['reverse_of'])))
+                if remate in idx and not any(t.split(':')[0] == c for t in steps[idx[remate]]['connects']):
+                    E.append(('REMATE_REVERSE', '%s parts %s; re-mating op %s does not connect it'
+                              % (o['id'], c, remate)))
+            # every reverse_of op must put back something this op takes apart (no stale reverse_of)
+            undone = set(o['removes']) | set(o['unscrews']) | set(o['loosens']) | set(o['nuts'])
+            for x in o['reverse_of']:
+                if x not in idx:
+                    continue                           # REFIT reports unknown ops for removals
+                b = steps[idx[x]]
+                if not ((set(b['adds']) | set(b['screws']) | set(b['nuts'])) & undone or
+                        {t.split(':')[0] for t in b['connects']} & set(o['disconnects'])):
+                    E.append(('REVERSE_STALE', '%s reverse_of %s refits nothing it removes, loosens or parts'
+                              % (o['id'], x)))
             if o['removes'] and not o['refit']:
                 missing = [x for x in o['reverse_of'] if x not in idx]
                 refit = {a for x in o['reverse_of'] if x in idx for a in steps[idx[x]]['adds']}
@@ -1103,7 +1275,8 @@ def describe(steps=None):
                                    fasteners=[dict(id=f, tool=PH1) for f in o['screws']] +
                                              [dict(id=f, tool=SOCKET) for f in o['nuts']],
                                    motions=by_op.get(o['id'], []), no_motion=o['no_motion'],
-                                   connects=list(o['connects']), closes=list(o['closes']), flex_scope=o.get('flex_scope')))
+                                   connects=list(o['connects']), closes=list(o['closes']), flex_scope=o.get('flex_scope'),
+                                   supported_groups=list(o.get('supported_groups', []))))
         out[-1]['in_body_after'] = len(after)
     return out
 

@@ -147,12 +147,19 @@ class TestStowMembers(unittest.TestCase):
 
 
 class TestReleasedQTMinimum(unittest.TestCase):
-    def test_the_stored_family_cannot_replace_the_released_reach_pose(self):
-        H = data()
-        H['cables']['qt']['released_minimum_curve'] = None
-        q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
-        self.assertEqual(q['status'], 'fail')
-        self.assertTrue(any('allowance' in p for p in q['problems']))
+    """Review CHE-1 / GEO-5: the QT length gate is judged at the shortest member of the installed storage family (r7
+    rule); the separately authored released pose is a PROPOSED rule change reported as info, never the gate."""
+    def test_installed_family_gates_with_or_without_the_released_pose(self):
+        for keep in (True, False):
+            H = data()
+            if not keep:
+                H['cables']['qt']['released_minimum_curve'] = None
+            q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+            self.assertEqual(q['status'], 'fail')
+            self.assertTrue(any('allowance' in p for p in q['problems']))
+            self.assertAlmostEqual(q['min_route_mm'], 238.99, delta=0.05)
+            self.assertEqual('released_minimum' in q['basis'], keep)
+            self.assertEqual('proposed_rule_change' in q, keep)
 
     def test_released_minimum_must_keep_root_and_radius(self):
         for kind in ('root', 'radius'):
@@ -160,7 +167,11 @@ class TestReleasedQTMinimum(unittest.TestCase):
             c = H['cables']['qt']['released_minimum_curve']
             if kind == 'root': c['knots'][0][0] += 2.0
             else: c['centerline_radius_mm'] -= 1.0
-            self.assertEqual(row(HR.cable_routes_rows(H, R.rounded_path), 'qt')['status'], 'fail')
+            q = row(HR.cable_routes_rows(H, R.rounded_path), 'qt')
+            rel = q['basis']['released_minimum']
+            self.assertTrue(rel['problems'], kind)
+            self.assertFalse(rel['would_pass_length_gate'], kind)
+            self.assertEqual(q['status'], 'fail')
 
     def test_released_minimum_receives_strict_part_sweep(self):
         H = data()
@@ -173,8 +184,12 @@ class TestReleasedQTMinimum(unittest.TestCase):
             return [h for h in HR.box_hits(spec, targets) if h['obstacle'] == 'zz_released']
         HR.apply_member_clearance(rows, H, R.rounded_path, set(ST.final_state()) | {'zz_released'}, hits=planted)
         q = row(rows, 'qt')
+        rel = q['basis']['released_minimum']
+        self.assertIn('zz_released', rel['member_clearance']['hits'])
+        self.assertFalse(rel['would_pass_length_gate'])
+        self.assertEqual(rel['status'], 'info')
+        self.assertEqual(q['member_clearance']['use'], 'shortest member (the minimum route)')   # gating member swept
         self.assertEqual(q['status'], 'fail')
-        self.assertIn('zz_released', q['member_clearance']['hits'])
 
 
 class TestInstalledSweepEveryRoute(unittest.TestCase):

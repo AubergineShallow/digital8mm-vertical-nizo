@@ -246,9 +246,13 @@ def generate(d):
            'Seat the official 200 mm camera cable Pi end before fitting the Active Cooler, following the '
            '[Raspberry Pi camera instructions](https://www.raspberrypi.com/documentation/accessories/camera.html). '
            'Support the complete Pi module outside the body and mate the camera end immediately before camera '
-           'insertion. The entire linked ribbon is absent from the rigid camera/carrier sweeps; source-level '
-           '`steps.flexible_scope()` records this omission. Actual latch service with the cooler retained remains '
-           'HOLD. Do not repeatedly remove the cooler to make an unqualified service path appear feasible.', '',
+           'insertion. From that mate (`camera_fpc_mate`) until the module is in the body (`carrier_in`) every '
+           'operation declares the module support and a flexible-motion HOLD (`supported_groups`, `flex_scope`; '
+           'lint `FLEX_LINK`/`FLEX_SUPPORT`). The entire linked ribbon is absent from the rigid camera/carrier sweeps; '
+           'source-level `steps.flexible_scope()` records this omission. Actual latch service with the cooler '
+           'retained remains HOLD. If that HOLD fails, module service (`svc_module_unplug`) may need the Active '
+           'Cooler taken off to release and re-seat the Pi end; that removal and refit are themselves unqualified. '
+           'Do not repeatedly remove the cooler to make an unqualified service path appear feasible.', '',
            'The complete 300 mm HDMI ribbon, 200 mm camera FPC and native OLED flex must retain their actual '
            'width, thickness, stiffeners and contact orientation. Manufacturer bend-radius and flex-cycle '
            'limits for these exact cables remain UNKNOWN; round clearance reserves and connector mating-cycle '
