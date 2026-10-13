@@ -1,0 +1,113 @@
+{
+  "baseline_bom": "../BOM-VERTICAL.csv",
+  "baseline_bom_sha256": "ec862770907a1c8d6813d197fd21d27dd156f5835fb65ddb51a02f3e754f2a3f",
+  "bom_rows": 132,
+  "bom_sha256": "39074de58b291634ff8bd635d7d427735b15e1202c282eed748bd6e537ac99bc",
+  "changed_identities": [
+    "D2-05",
+    "I-05A"
+  ],
+  "compact_selection": "Original-storage D2-09 retained as a zero-quantity historical alternative; P-stick_sleeve excluded from compact prints.",
+  "exterior_growth_authorized": false,
+  "generator": "../make_innomaker_records.py",
+  "generator_sha256": "24a35ccea162bfed4121ca163caccc6e10de78d0d6af78f49f3b40077b8ce6ac",
+  "header_aware_source_checkpoint": "c6a040f9654faa9bdb761b1ae7b70cc14a9e3453",
+  "holds": [
+    "board outline 38 (product page) vs 39 (STEP) mm",
+    "C-flange to sensor plane: holder-mouth CS reference unverified (review B-01)",
+    "image orientation/clocking (review B-02)",
+    "lens-thread torque reaction before PCB contact (J7-R; review A-03/B-03)",
+    "rear-header dimensions/source revision",
+    "cap identification",
+    "CS/sensor/filter optical datum",
+    "received converter/threads",
+    "safe direct holder support for lens assembly",
+    "PCB edge/trace/strain/tolerance",
+    "full CSI ribbon/latch/bend/clocking/service",
+    "all original physical/power/thermal/harness holds",
+    "original QT\u221223.99mm historical failure",
+    "48/54fps RAW/DNG hardware validation"
+  ],
+  "inherited_status": "Every inherited status and note is prefixed historical/unqualified; earlier passes are not fork evidence.",
+  "lost_prior_fork": "5736870 and its lost exports/pass counts are not current evidence",
+  "manifest": "out/compact-kowa_lm6hc/manifest.json",
+  "manifest_sha256": "54c28288f3d636324ddf105080197226227f86343c6df1709bd80c42a2b584e6",
+  "new_additional_purchased_parts": [],
+  "open_bom_items": [
+    "I-05A C/CS converter not in the manufacturer packing list: confirm on receipt or buy (user decision)"
+  ],
+  "physical_qualified": false,
+  "print_inventory_sha256": "a02bd7b79e665072e9889dbca8e43ac47108eeb0d6c6958417e21af284f84991",
+  "production_prints": {
+    "assembly_row_count": 9,
+    "gauge_and_coupons_excluded": true,
+    "ids": [
+      "base_grip",
+      "cap",
+      "carrier",
+      "eyecup",
+      "knob_exp",
+      "knob_fps",
+      "lens_collar",
+      "panel",
+      "tub"
+    ],
+    "piece_count": 9
+  },
+  "rear_headers": {
+    "actual_projection_mm": null,
+    "actual_xy_mm": null,
+    "case_status": "Assumptions only, not nominal/bounded manufacturer dimensions. Full PCB-area prisms are worst-case XY only if real headers remain inside outline. No case qualifies actual headers.",
+    "manufacturer_docs": "https://docs.inno-maker.com/home/mipi-cameras/imx296-mipi-cameras",
+    "normal_csi_requires_header_wires": false,
+    "observed": "Two2-pin male headers opposite CSI, labeled Trigger+/GND and Strobe+/-. Four long rearward pins seen in a photograph supplied with the delivery (not committed); header names XTR/GND and TOUT1/TOUT2 are listed in the manufacturer docs.",
+    "removal_or_bending_assumed": false,
+    "sensitivity_cases_mm": [
+      3.0,
+      6.0,
+      9.0,
+      12.0,
+      15.0,
+      18.0
+    ],
+    "source_step_models_headers": false
+  },
+  "removed_baseline_rows": {
+    "I-05B": "Obsolete official-camera PCB tripod-block kit detail only; baseline installed/purchase quantities were both zero. The functional D2 grip tripod mount and D2-31 nut remain.",
+    "I-tub-stub": "BFAR catch removed; fork tub is one production piece with integral passive guides.",
+    "V-68": "This epoxy line solely served the removed +Y tab-catch stub (layout_id tab_catch_insert); all unrelated adhesive/RTV provisions remain."
+  },
+  "restored_baseline_commit": "a0bfed9f7ed88dad78ad1a5fcb6fc7504712b338",
+  "retained_cable": "D2-20 provision retained; included Innomaker cable equivalence unknown; no duplicate purchase",
+  "retained_cooler": "D2-02 official Raspberry Pi Active Cooler SC1148",
+  "retained_other_adhesives_and_consumables": [
+    "D2-45",
+    "D2-46",
+    "D2-46R",
+    "D2-48",
+    "D2-49"
+  ],
+  "retained_tripod_mount": "D2-31: one installed and one purchase-provisioned 1/4-20 UNC nut; tripod_nut solid and base_grip socket retained. Removed I-05B had zero installed/purchase quantity and described only the old camera PCB's separate tripod block.",
+  "schema": "innomaker-review-records-v1",
+  "scope": "compact Kowa LM6HC / Princeton storage; Innomaker colour camera substitution only",
+  "software_hardware_qualified": false,
+  "software_snapshots": [
+    {
+      "commit": "46d6d217f0d754921503ef64a3d801aa935563d6",
+      "file": "fetch/manufacturer-README-46d6d217.md",
+      "licence": "none stated (GitHub API license: null); not redistributed in this repository",
+      "sha256": "48c939936fc59d5865c9445b29baef24b2d91ad1796538429e7f77b34f1cfdc3",
+      "url": "https://raw.githubusercontent.com/INNO-MAKER/cam-imx296raw-trigger/46d6d217f0d754921503ef64a3d801aa935563d6/README.md"
+    },
+    {
+      "commit": "f1c327d2ae5c1ffdb7a17660bf87b4a22d2ae313",
+      "file": "fetch/raspberrypi-imx296-f1c327d2.c",
+      "licence": "GPL-2.0 (SPDX header in the file); cited by URL, commit and hash, not redistributed here",
+      "sha256": "2af91529cefa4510602ad6b28355207fde7ef89e105d3d54a786b853b17e50b8",
+      "url": "https://raw.githubusercontent.com/raspberrypi/linux/f1c327d2ae5c1ffdb7a17660bf87b4a22d2ae313/drivers/media/i2c/imx296.c"
+    }
+  ],
+  "source_binding_check": "All manifest-bound CAD source hashes and production STL hashes matched before generation.",
+  "state": "HOLD: source/header clearance; no fabrication or fit release",
+  "third_party_files_committed": false
+}

@@ -1,0 +1,396 @@
+{
+  "status": "INTERPRETATION ADDENDUM; qualification remains HOLD",
+  "physical_qualified": false,
+  "input_sha256": {
+    "manifest.json": "54c28288f3d636324ddf105080197226227f86343c6df1709bd80c42a2b584e6",
+    "innomaker-checks.json": "29c12a0c2ae2c8506a0541104360d323d3b6a9af5c54d3873c30b2c581e9b992",
+    "innomaker-stl-checks.json": "5862d5c45fc9721e737fd483354ac2b90da63d25f35487cb813f5cb148af9d06"
+  },
+  "producer": "verify_innomaker_interpretation.py",
+  "producer_sha256": "194c65febf3c9880b03cfe80b9b89da2c8b56e0169bbe54df7ee59f50323b8d1",
+  "validator_source_sha256": "784abd0a2e5031c673398d1f2ba7f8dcf986da60a3a32c9d9711cf5a80046ce4",
+  "all_manifest_bindings_rechecked": true,
+  "saved_geometry_scope": "Complete saved public-STEP camera, rear headers omitted. The rear trigger/strobe headers (named in the manufacturer docs; photograph not committed) have unknown dimensions and positions; no actual camera/header clearance is qualified.",
+  "approach_scope": {
+    "computed": "44 discrete camera+converter poses, lens and removable panel/finishing hardware absent, no flexible cables; carrier/Pi/cooler/UPS module deliberately remains in the fixed obstacle set.",
+    "actual_guide_sequence": "The guide inserts the camera while the carrier/module is out. Retaining that module in the screen is an extra-conservative obstruction condition for this camera-only operation.",
+    "computed_removed_material": [
+      "c_cs_adapter",
+      "encoder",
+      "fps_mounting_washer",
+      "fps_nut",
+      "gs_camera",
+      "knob_exp",
+      "knob_fps",
+      "lens",
+      "p_panel1",
+      "p_panel2",
+      "p_panel3",
+      "p_panel4",
+      "panel",
+      "power_button",
+      "power_nut_reserve"
+    ],
+    "computed_fixed_material": [
+      "base_grip",
+      "cap",
+      "carrier",
+      "cooler",
+      "evf_board",
+      "eyecup",
+      "eyepiece",
+      "foam_pad",
+      "hmx039",
+      "lens_collar",
+      "microsd",
+      "p_carrier1",
+      "p_carrier2",
+      "p_grip",
+      "pack",
+      "pi5",
+      "run_button",
+      "s_c1",
+      "s_c2",
+      "s_c3",
+      "s_c4",
+      "strap",
+      "switch_1824",
+      "tripod_nut",
+      "tub",
+      "usb_stick",
+      "x1203",
+      "x1203_kit",
+      "xt30_pair"
+    ],
+    "interpretation": "A clear camera screen supports only the specified sampled rigid poses. A hypothetical header-prism collision with the extra-retained module does not demonstrate failure of the actual module-out camera insertion sequence.",
+    "not_verified": [
+      "Continuous motion between samples",
+      "Later carrier/module insertion around the installed camera and actual headers",
+      "Complete linked camera+FPC+module assembly path",
+      "Flexible cables, latch motion, force, hand/tool access and physical assembly"
+    ]
+  },
+  "header_interpretation": {
+    "permanent_status": "HOLD: actual header height/XY remain unknown",
+    "full_board": "All six full-PCB-area rear prisms intersect the +Y rear panel catches. This is a deliberately broad XY assumption and does not prove actual opposite-CSI headers collide.",
+    "opposite_CSI_half_board": "The six additional prisms assume global Y -19.5..0 and Z40.5..79.5. These are not measured pin bounds. No installed intersection appears for these assumed3/6/9/12/15mm projections; assumed18mm overlaps Pi material. These results are not permissible pin-height limits.",
+    "approach": "Assumed rear projections9mm and greater encounter the extra-retained module in sampled approach poses. Read these as a staging sensitivity, not a failure of the actual module-out insertion instruction.",
+    "no_modification_authorized_or_assumed": "No shortening, bending, removal or relocation of actual headers is assumed."
+  },
+  "geometric_method": {
+    "no_optional_whole_obstacle_distance": "Minimum separation to every complete obstacle was not computed. Static PASS means exact per-solid intersection sum is within the reported1e-6mm3 tolerance. The0.5mm nominal PCB/guide gap was separately computed.",
+    "intersection_method": "Exact individual-solid Booleans after clipping fixed solids to a padded region enclosing all sampled moving geometry; no overlapping compound is used as a single Boolean operand.",
+    "crop_containment_verified": true,
+    "crop_bounds_mm": [
+      -40.910000000000004,
+      0.6207517638783878,
+      -19.512447633240615,
+      79.51244763324061,
+      40.487552366759395,
+      79.51244763324063
+    ],
+    "camera_converter_union_bounds_mm": [
+      -19.21,
+      0.6,
+      -19.500000000000004,
+      19.500000000000004,
+      40.5,
+      79.5
+    ],
+    "camera_converter_pose_checks": [
+      {
+        "index": 0,
+        "inside": true
+      },
+      {
+        "index": 1,
+        "inside": true
+      },
+      {
+        "index": 2,
+        "inside": true
+      },
+      {
+        "index": 3,
+        "inside": true
+      },
+      {
+        "index": 4,
+        "inside": true
+      },
+      {
+        "index": 5,
+        "inside": true
+      },
+      {
+        "index": 6,
+        "inside": true
+      },
+      {
+        "index": 7,
+        "inside": true
+      },
+      {
+        "index": 8,
+        "inside": true
+      },
+      {
+        "index": 9,
+        "inside": true
+      },
+      {
+        "index": 10,
+        "inside": true
+      },
+      {
+        "index": 11,
+        "inside": true
+      },
+      {
+        "index": 12,
+        "inside": true
+      },
+      {
+        "index": 13,
+        "inside": true
+      },
+      {
+        "index": 14,
+        "inside": true
+      },
+      {
+        "index": 15,
+        "inside": true
+      },
+      {
+        "index": 16,
+        "inside": true
+      },
+      {
+        "index": 17,
+        "inside": true
+      },
+      {
+        "index": 18,
+        "inside": true
+      },
+      {
+        "index": 19,
+        "inside": true
+      },
+      {
+        "index": 20,
+        "inside": true
+      },
+      {
+        "index": 21,
+        "inside": true
+      },
+      {
+        "index": 22,
+        "inside": true
+      },
+      {
+        "index": 23,
+        "inside": true
+      },
+      {
+        "index": 24,
+        "inside": true
+      },
+      {
+        "index": 25,
+        "inside": true
+      },
+      {
+        "index": 26,
+        "inside": true
+      },
+      {
+        "index": 27,
+        "inside": true
+      },
+      {
+        "index": 28,
+        "inside": true
+      },
+      {
+        "index": 29,
+        "inside": true
+      },
+      {
+        "index": 30,
+        "inside": true
+      },
+      {
+        "index": 31,
+        "inside": true
+      },
+      {
+        "index": 32,
+        "inside": true
+      },
+      {
+        "index": 33,
+        "inside": true
+      },
+      {
+        "index": 34,
+        "inside": true
+      },
+      {
+        "index": 35,
+        "inside": true
+      },
+      {
+        "index": 36,
+        "inside": true
+      },
+      {
+        "index": 37,
+        "inside": true
+      },
+      {
+        "index": 38,
+        "inside": true
+      },
+      {
+        "index": 39,
+        "inside": true
+      },
+      {
+        "index": 40,
+        "inside": true
+      },
+      {
+        "index": 41,
+        "inside": true
+      },
+      {
+        "index": 42,
+        "inside": true
+      },
+      {
+        "index": 43,
+        "inside": true
+      }
+    ],
+    "header_case_checks": [
+      {
+        "region": "full_board",
+        "projection_mm": 3,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "full_board",
+        "projection_mm": 6,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "full_board",
+        "projection_mm": 9,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "full_board",
+        "projection_mm": 12,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "full_board",
+        "projection_mm": 15,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "full_board",
+        "projection_mm": 18,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "opposite_CSI_half_board",
+        "projection_mm": 3,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "opposite_CSI_half_board",
+        "projection_mm": 6,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "opposite_CSI_half_board",
+        "projection_mm": 9,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "opposite_CSI_half_board",
+        "projection_mm": 12,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "opposite_CSI_half_board",
+        "projection_mm": 15,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      },
+      {
+        "region": "opposite_CSI_half_board",
+        "projection_mm": 18,
+        "installed_inside": true,
+        "all_44_poses_inside": true
+      }
+    ],
+    "service_union_certificate": {
+      "label": "addendum service envelope",
+      "input_solids": 3,
+      "output_solids": 1,
+      "valid_union": true,
+      "output_pair_overlap_mm3": 0.0,
+      "input_uncovered_mm3": 0.0
+    },
+    "mover_union_certificate": {
+      "label": "addendum camera+converter envelope",
+      "input_solids": 2,
+      "output_solids": 1,
+      "valid_union": true,
+      "output_pair_overlap_mm3": 0.0,
+      "input_uncovered_mm3": 0.0
+    }
+  },
+  "guide_interpretation": "The roll and axial checks establish unloaded nominal kinematic contact only. They do not establish holder/lens torque support, catch strength, retention force, PCB strain or tolerance fit.",
+  "print_interpretation": {
+    "production_STLs_checked": 9,
+    "centring_gauge_STLs_checked": 1,
+    "limits": "Edge/vertex-link topology and bounds checks are not a self-intersection analysis, slicer review or physical print release."
+  },
+  "historical": "Earlier32 checks were not reused. Original QT -23.99mm remains a historical FAIL; this camera fork does not repair or rerun it.",
+  "gating_failures": [
+    "board_outline_agrees_with_product_page",
+    "interference_gs_camera_vs_lens",
+    "J7_float_centring_camera_vs_panel",
+    "C_flange_to_sensor_plane_verified",
+    "sensor_long_axis_horizontal",
+    "lens_torque_reaction_before_PCB_contact"
+  ],
+  "surviving_holds": [
+    "Optical stack, actual sensor plane and focus/infinity: HOLD; native Z13.2 is an unverified intended CS datum.",
+    "Solid 4 exclusion as a removable source cap: HOLD until the supplied physical part is identified.",
+    "Actual C-CS converter dimensions and thread engagement: HOLD.",
+    "Lens/thread proxy overlap: HOLD; nominal overlapping thread volumes are not proof of engagement or clearance.",
+    "Holder-supported lens assembly, retention, stiffness and torque reaction: HOLD.",
+    "PCB strain, guide fit and force under assembly/use: HOLD.",
+    "Full CSI connector/latch, FPC and flexible loom: HOLD; service reserve is only a declared coarse keepout.",
+    "Two rear 2-pin headers (named in the manufacturer docs; seen in a photograph supplied with the delivery, not committed) are absent from source STEP; actual heights and XY locations unknown: HOLD.",
+    "Rear-prism sensitivity cannot qualify actual header clearance, even when every assumed prism passes: HOLD.",
+    "Physical fit, printing, assembly, electrical function, camera drivers and software qualification: HOLD."
+  ]
+}

@@ -21,6 +21,7 @@ The same script's tests fail when a Pi-derived file has no licence beside it or 
 
 | Folder | Licence file | Pi-derived files |
 |---|---|---|
+| `cad/gs8-d2-v1/candidate-vertical/innomaker/out/compact-kowa_lm6hc/step/` | `LICENSE-RaspberryPi.txt` | `pi5.step` (Pi part as exported for this variant) |
 | `cad/gs8-d2-v1/candidate-vertical/out/compact-fujinon_hf6xa/` | `LICENSE-RaspberryPi.txt` | `assembly.step` (whole-camera assembly that includes the Pi part) |
 | `cad/gs8-d2-v1/candidate-vertical/out/compact-fujinon_hf6xa/step/` | `LICENSE-RaspberryPi.txt` | `pi5.step` (Pi part as exported for this variant) |
 | `cad/gs8-d2-v1/candidate-vertical/out/compact-kowa_lm6hc/` | `LICENSE-RaspberryPi.txt` | `assembly.step` (whole-camera assembly that includes the Pi part) |

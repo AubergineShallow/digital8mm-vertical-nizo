@@ -1,0 +1,465 @@
+{
+  "scope": "Manifest-bound binary STL edge/vertex-link topology and finite bounds only; no repair, self-intersection test, slicer, layer strength, or physical release.",
+  "status": "PASS",
+  "manifest_sha256": "54c28288f3d636324ddf105080197226227f86343c6df1709bd80c42a2b584e6",
+  "validator_sha256": "74d25c9fc83c29fd524a11f7eb8b79cba863cf882a1ef19976159bd4345dff58",
+  "numpy_version": "2.5.3",
+  "checked_source_count": 77,
+  "checked_file_count": 107,
+  "all_bindings_rechecked_at_end": true,
+  "production_print_count": 9,
+  "centring_gauge_count": 1,
+  "rows": [
+    {
+      "triangles": 8104,
+      "welded_vertices": 4036,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 67174.00227864475,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          5.67585691987893e-13
+        ],
+        [
+          116.5,
+          52.096580505371094,
+          110.0
+        ]
+      ],
+      "dimensions_mm": [
+        116.5,
+        52.096580505371094,
+        109.99999999999943
+      ],
+      "sha256": "a84e035665521ca5dd1eecc9381dab3bac0be716ff0ea050e93af4e754ac665a",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "base_grip",
+      "path": "stl/base_grip.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        116.5,
+        52.1,
+        110.00000000000057
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 1208,
+      "welded_vertices": 606,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 6738.099531707466,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          48.0,
+          30.0,
+          10.199999809265137
+        ]
+      ],
+      "dimensions_mm": [
+        48.0,
+        30.0,
+        10.199999809265137
+      ],
+      "sha256": "59357036478028fa842d3251eb3f883856d9eaa192f8589b129a4ec73034bd32",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "cap",
+      "path": "stl/cap.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        48.00000000000001,
+        30.000000000000004,
+        10.200000000000008
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 7014,
+      "welded_vertices": 3487,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 13152.027355876487,
+      "bounds_mm": [
+        [
+          0.0005341668729670346,
+          0.0016388860531151295,
+          1.0000002248489182e-07
+        ],
+        [
+          112.39641571044922,
+          70.39875793457031,
+          6.0
+        ]
+      ],
+      "dimensions_mm": [
+        112.39588154357625,
+        70.3971190485172,
+        5.9999998999999775
+      ],
+      "sha256": "845a273727cee6e4871f3ebbdc6a566cb8838aab2497b817f3a6b6dce948fb54",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "carrier",
+      "path": "stl/carrier.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        112.4,
+        70.4,
+        6.000000100000031
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 2646,
+      "welded_vertices": 1323,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 20527.563693212873,
+      "bounds_mm": [
+        [
+          0.006884618662297726,
+          0.0,
+          5.604601945022442e-17
+        ],
+        [
+          44.293113708496094,
+          44.29999923706055,
+          24.399999618530273
+        ]
+      ],
+      "dimensions_mm": [
+        44.286229089833796,
+        44.29999923706055,
+        24.399999618530273
+      ],
+      "sha256": "bf9fae293ce97663f21363be62e552a9da78a4fef4a928c7032385302af6f4e4",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "centring_gauge",
+      "path": "stl/centring_gauge.stl",
+      "role": "centring gauge",
+      "recorded_print_dimensions_mm": [
+        44.3,
+        44.3,
+        24.400000000000006
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 9324,
+      "welded_vertices": 4662,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 4373.747494140232,
+      "bounds_mm": [
+        [
+          0.0005273062270134687,
+          0.0005273062270134687,
+          -2.1149747772076285e-15
+        ],
+        [
+          45.526832580566406,
+          45.526832580566406,
+          16.299999237060547
+        ]
+      ],
+      "dimensions_mm": [
+        45.52630527433939,
+        45.52630527433939,
+        16.29999923706055
+      ],
+      "sha256": "b0786159d9afece3c5b3c8aab57051a97666a41ee74994687cf03ae6e2af5bae",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "eyecup",
+      "path": "stl/eyecup.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        45.5273602722001,
+        45.5273603722001,
+        16.300000099999984
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 3316,
+      "welded_vertices": 1658,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 4792.027316957697,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          -1.421085492696024e-15
+        ],
+        [
+          27.996545791625977,
+          27.996545791625977,
+          9.0
+        ]
+      ],
+      "dimensions_mm": [
+        27.996545791625977,
+        27.996545791625977,
+        9.000000000000002
+      ],
+      "sha256": "d418cacd52c6c250e051d17d986f0a5c0b56a2627b8024c61c30ac064a41a820",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "knob_exp",
+      "path": "stl/knob_exp.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        27.996545709486497,
+        27.996545709486497,
+        9.000000000000005
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 1988,
+      "welded_vertices": 994,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 2168.115074525833,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          -1.1990408877709927e-15
+        ],
+        [
+          23.989591598510742,
+          23.989591598510742,
+          7.0
+        ]
+      ],
+      "dimensions_mm": [
+        23.989591598510742,
+        23.989591598510742,
+        7.000000000000001
+      ],
+      "sha256": "3609733b170238cbfcbec4883458a4a5825711a14b2e8d6bc9541cb817202d56",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "knob_fps",
+      "path": "stl/knob_fps.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        23.989591404048497,
+        23.989591404048497,
+        7.000000000000011
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 7412,
+      "welded_vertices": 3704,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 11267.619875776227,
+      "bounds_mm": [
+        [
+          9.105474600801244e-05,
+          3.552713678800501e-15,
+          3.552713678800501e-15
+        ],
+        [
+          71.69962310791016,
+          55.794395446777344,
+          11.300000190734863
+        ]
+      ],
+      "dimensions_mm": [
+        71.69953205316415,
+        55.794395446777344,
+        11.30000019073486
+      ],
+      "sha256": "5646cb4e5ff7f7ee8a8cd9425d7f9be96263c87e6c1fbcfe071729be73f8a0eb",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "lens_collar",
+      "path": "stl/lens_collar.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        71.69999999999999,
+        55.800000000000004,
+        11.300000000000017
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 16766,
+      "welded_vertices": 8369,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 41965.19128714011,
+      "bounds_mm": [
+        [
+          0.0,
+          4.440892098500626e-15,
+          6.999999868639861e-07
+        ],
+        [
+          152.3000030517578,
+          93.80000305175781,
+          24.80000114440918
+        ]
+      ],
+      "dimensions_mm": [
+        152.3000030517578,
+        93.80000305175781,
+        24.800000444409193
+      ],
+      "sha256": "118bb7eccd512f6328cc64e291d4af2ee326c507c7a75295f52d81cf23408c86",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "panel",
+      "path": "stl/panel.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        152.3000001,
+        93.8000001,
+        24.800000700000012
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    },
+    {
+      "triangles": 16028,
+      "welded_vertices": 7768,
+      "weld_tolerance_mm": 1e-06,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "invalid_vertex_links": 0,
+      "signed_volume_mm3": 170351.02087366948,
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          158.0,
+          105.05000305175781,
+          63.599998474121094
+        ]
+      ],
+      "dimensions_mm": [
+        158.0,
+        105.05000305175781,
+        63.599998474121094
+      ],
+      "sha256": "4a04ba9b5a5e4640a36ba83049e38d6dc82d6a3dfb6f3ecfbd9c7b95a9181201",
+      "self_intersections_checked": false,
+      "physical_print_release": false,
+      "topology_pass": true,
+      "id": "tub",
+      "path": "stl/tub.stl",
+      "role": "production print",
+      "recorded_print_dimensions_mm": [
+        158.0,
+        105.05,
+        63.600000000000016
+      ],
+      "dimensions_match_print_pose": true,
+      "bed_z_zero": true,
+      "fits_250x210x220_mm": true,
+      "status": "PASS"
+    }
+  ],
+  "physical_print_release": false
+}

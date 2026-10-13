@@ -1,3 +1,5 @@
+> **Branch note.** This branch adds an unqualified Innomaker colour IMX296 camera variant (compact Kowa only) in [cad/gs8-d2-v1/candidate-vertical/innomaker/](cad/gs8-d2-v1/candidate-vertical/innomaker/README.md). The official Raspberry Pi GS camera build described below is unchanged on this branch; its results are not evidence for the Innomaker camera.
+
 # D2 vertical Pi camera
 
 A restrained, Nizo-inspired development of [digital8mm](https://github.com/AubergineShallow/digital8mm), preserving its Git history. The Raspberry Pi stack stands vertically; a plain exterior side hides the cooling passages behind an integral plenum. Rear, front-edge and underside openings remain visible from their access directions.
