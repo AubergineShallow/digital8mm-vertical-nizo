@@ -1,0 +1,10 @@
+# Camera-only fragment: Waveshare IMX296 Global Camera (A), SKU 32501.
+# Review/merge into the active Pi 5 boot config; do not replace that file.
+# Keep existing D2 HDMI/KMS/power settings. Use one camera on CAM1.
+# Resolve existing camera directives; these settings must apply to this Pi.
+camera_auto_detect=0
+dtoverlay=imx296
+# CAM0 alternative: replace the preceding overlay, do not enable both.
+# dtoverlay=imx296,cam0
+# No camera EEPROM auto-detection/programming is required by this profile.
+# See ../WAVESHARE-IMX296-A.md; reboot after operator-applied changes.

@@ -15,6 +15,7 @@ Rules checked:
 from pathlib import Path, PurePosixPath
 import fnmatch
 import hashlib
+import json
 import re
 import sys
 import unittest
@@ -28,6 +29,9 @@ VENDOR_LICENSE_SHA256 = '4ca2d350552b24137e55587e13fb09a249b757c6af49652ff02ea52
 COPY_NAME = 'LICENSE-RaspberryPi.txt'
 NOTICE = 'THIRD-PARTY-NOTICES.md'
 GEOMETRY_EXT = ('.step', '.stp', '.stl', '.glb', '.gltf', '.obj', '.3mf', '.brep')
+WAVESHARE_DIR = 'variants/waveshare-imx296-a/'
+WAVESHARE_PROFILE = WAVESHARE_DIR + 'camera-profile.json'
+ARTWORK_EXT = ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.tif', '.tiff', '.pdf')
 FONT_EXT = ('.ttf', '.otf', '.woff', '.woff2')
 
 
@@ -100,6 +104,26 @@ def fonts(paths=None):
     return [p for p in paths if p.lower().endswith(FONT_EXT)]
 
 
+def vendor_artwork(paths):
+    """Vendor drawing/datasheet images under variants/ that a commit would carry (review R-03)."""
+    return sorted(p for p in paths if p.startswith('variants/') and p.lower().endswith(ARTWORK_EXT))
+
+
+def waveshare_lines(paths):
+    """Notice section for the Waveshare study's vendor-derived dimensions; empty when the study is absent."""
+    if WAVESHARE_PROFILE not in paths:
+        return []
+    prof = json.loads((REPO / WAVESHARE_PROFILE).read_text(encoding='utf-8'))
+    return ['## 3. Waveshare IMX296 Global Camera (A) dimension data (Waveshare)', '',
+            '- `%s` is a blocked review study, not adopted in the official design.' % WAVESHARE_DIR,
+            '- The dimensions in `%s` and the study STEP envelopes in `%scad/out-study/` are facts read' % (WAVESHARE_PROFILE, WAVESHARE_DIR),
+            '  from Waveshare\'s published dimension drawing for SKU 32501:',
+            '  <%s>' % prof['sources']['drawing'],
+            '- The drawing is Waveshare\'s copyrighted artwork. It is not stored in this repository and no copy is',
+            '  redistributed here; only its SHA-256 `%s` is recorded (`drawing_sha256`).' % prof['drawing_sha256'],
+            '- No Waveshare licence is granted or implied by this repository. Product names belong to their owners.']
+
+
 def generate_notice(derived=None, paths=None):
     paths = present_paths() if paths is None else paths
     derived = pi_derived(paths) if derived is None else derived
@@ -141,7 +165,10 @@ def generate_notice(derived=None, paths=None):
           'subsets of these fonts. The licence (Bitstream Vera terms, with DejaVu changes in the public domain) is in the',
           'file named next to each font.', '']
     L += font_lines
-    L += ['', '## 3. The project\'s own material', '',
+    ws = waveshare_lines(paths)
+    if ws:
+        L += [''] + ws
+    L += ['', '## %d. The project\'s own material' % (4 if ws else 3), '',
           '- `tools/`: MIT licence, see `tools/LICENSE`.',
           '- `software/gs8-camera-evf/`: MIT licence, see `software/gs8-camera-evf/LICENSE`.',
           '- Individual files with an `SPDX-License-Identifier: MIT` header: MIT licence.',
@@ -216,6 +243,21 @@ class ThirdPartyNotices(unittest.TestCase):
             lic = str(PurePosixPath(f).parent) + '/LICENSE-DejaVu.txt'
             self.assertTrue((REPO / lic).exists(), f)
             self.assertIn('`%s`' % f, self.notice)
+
+    def test_no_vendor_artwork_in_variants(self):
+        # R-03: vendor drawings and datasheet images stay local; only URL and SHA-256 are committed.
+        self.assertEqual(vendor_artwork(self.paths), [])
+        planted = WAVESHARE_DIR + 'evidence/vendor-drawing.jpg'
+        self.assertEqual(vendor_artwork(self.paths + [planted]), [planted])
+
+    def test_waveshare_notice_when_study_present(self):
+        if WAVESHARE_PROFILE not in self.paths:
+            self.assertNotIn('Waveshare', self.notice)
+            return
+        prof = json.loads((REPO / WAVESHARE_PROFILE).read_text(encoding='utf-8'))
+        self.assertIn(prof['sources']['drawing'], self.notice)
+        self.assertIn('`%s`' % prof['drawing_sha256'], self.notice)
+        self.assertIn('not stored in this repository', self.notice)
 
     def test_rule_flags_a_planted_derived_file(self):
         # Regression fixture: a new variant folder with a Pi part and no licence must be reported.

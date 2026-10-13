@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "profile_id": "waveshare-imx296-global-camera-a-sku32501",
+  "manufacturer": "Waveshare",
+  "sku": "32501",
+  "part_name": "IMX296 Global Camera (A)",
+  "status": "REVIEW ONLY \u2014 NOT FIT OR FABRICATION APPROVAL",
+  "source_date": "2026-10-12",
+  "sources": {
+    "product": "https://www.waveshare.com/product/raspberry-pi/cameras/global-shutter-cameras/imx296-global-camera-a.htm",
+    "drawing": "https://www.waveshare.com/img/devkit/accBoard/IMX296-Global-Camera-A/IMX296-Global-Camera-A-details-size.jpg",
+    "setup": "https://www.waveshare.com/wiki/IMX296_Global_Camera_%28A%29"
+  },
+  "drawing_sha256": "ac60b95fc60e9219b5362616dcf4742af9dc43a6b8c4be4bd1f8714405029146",
+  "drawing_redistributed": false,
+  "drawing_local_path": "evidence/local/vendor-drawing.jpg",
+  "coordinate_system": {
+    "x": "lensward; PCB front = 0",
+    "y": "across board; nominal centre = 0",
+    "z": "up in front view; CSI drawn at -Z",
+    "axis_alignment": "drawing-implied centring; not a measured concentricity/rotation tolerance"
+  },
+  "vendor_dimensions_mm": {
+    "pcb_side": 38.0,
+    "pcb_side_tolerance": 0.2,
+    "pcb_thickness": 1.6,
+    "mount_hole_spacing": 30.0,
+    "mount_hole_diameter": 2.5,
+    "housing_outer_diameter": 28.5,
+    "front_opening_diameter": 25.0,
+    "pcb_front_to_housing_front": 12.5,
+    "pcb_front_to_housing_front_tolerance": 0.2,
+    "rear_connector_projection": 2.5,
+    "rear_housing_attachment_spacing": 20.0
+  },
+  "unspecified_tolerances": [
+    "PCB thickness",
+    "housing diameter",
+    "hole spacing/diameter",
+    "rear projection",
+    "optical axis concentricity",
+    "front opening diameter",
+    "rear attachment spacing"
+  ],
+  "features": {
+    "bfar_ring": false,
+    "official_lock_tab": false,
+    "tripod_block_removal_required": false,
+    "c_cs_adapter_included": true,
+    "15_to_22_pin_csi_cable_included": true,
+    "15_pin_csi_cable_included": true
+  },
+  "optics": {
+    "sensor": "imx296",
+    "colour": true,
+    "width": 1456,
+    "height": 1088,
+    "raw_bit_depth": 10,
+    "pcb_front_to_sensor_mm": null,
+    "pcb_front_to_c_mount_shoulder_mm": null,
+    "adapter_diameter_mm": null,
+    "adapter_face_to_face_mm": null,
+    "lens_thread_engagement_mm": null,
+    "optical_backfocus_measured": false
+  },
+  "electrical": {
+    "pi5_port": "CAM1",
+    "camera_auto_detect": 0,
+    "dtoverlay": "imx296",
+    "eeprom_dependency": false,
+    "cable_length_mm": null,
+    "cable_contact_orientation_confirmed": false,
+    "connector_latch_sweep_mm": null,
+    "minimum_bend_radius_mm": null
+  },
+  "mechanical": {
+    "retention": "unresolved; hole-mounted interface study only",
+    "installed_pcb_front_x_mm": null,
+    "enclosure_anchor": "unresolved",
+    "board_component_keepouts_measured": false,
+    "fastener_addition_approved": false,
+    "exterior_change_approved": false,
+    "hardware_fit_validated": false
+  },
+  "qualification": {
+    "production_release": false,
+    "physical_gate_inheritance": false,
+    "official_bfar_test_inheritance": false,
+    "qt_clearance_gate_relaxed": false,
+    "official_pi5_active_cooler_retained": true,
+    "fps_48_54_measured": false,
+    "manual_controls_measured": false,
+    "dng_roundtrip_measured": false
+  }
+}

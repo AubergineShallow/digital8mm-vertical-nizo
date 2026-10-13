@@ -1,0 +1,20 @@
+test_baseline_hashes_and_tampering (test_profile.ProfileContract.test_baseline_hashes_and_tampering) ... ok
+test_command_fails_closed_and_writes_hold_record (test_profile.ProfileContract.test_command_fails_closed_and_writes_hold_record) ... ok
+test_cooler_stays_official (test_profile.ProfileContract.test_cooler_stays_official) ... ok
+test_drawing_bound (test_profile.ProfileContract.test_drawing_bound) ... ok
+test_exploratory_pose_cannot_release (test_profile.ProfileContract.test_exploratory_pose_cannot_release) ... ok
+test_no_bfar_or_tripod_inheritance (test_profile.ProfileContract.test_no_bfar_or_tripod_inheritance) ... ok
+test_no_pass_or_gate_relaxation (test_profile.ProfileContract.test_no_pass_or_gate_relaxation) ... ok
+test_no_unapproved_hardware_or_fake_dimensions (test_profile.ProfileContract.test_no_unapproved_hardware_or_fake_dimensions) ... ok
+test_no_unmeasured_backfocus_claim (test_profile.ProfileContract.test_no_unmeasured_backfocus_claim) ... ok
+test_release_stays_blocked (test_profile.ProfileContract.test_release_stays_blocked) ... ok
+test_schema_boolean_rejected (test_profile.ProfileContract.test_schema_boolean_rejected) ... ok
+test_setup_and_sensor_contract (test_profile.ProfileContract.test_setup_and_sensor_contract) ... ok
+test_tolerance_not_invented (test_profile.ProfileContract.test_tolerance_not_invented) ... ok
+test_vendor_datum_is_pcb_not_sensor (test_profile.ProfileContract.test_vendor_datum_is_pcb_not_sensor) ... ok
+test_wrong_profile_rejected (test_profile.ProfileContract.test_wrong_profile_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.099s
+
+OK

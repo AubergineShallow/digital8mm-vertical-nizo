@@ -1,0 +1,423 @@
+{
+  "review_date_utc": "2026-10-12",
+  "method": "Independent pure-Python hash, STEP text/entity and analytical dimension/volume review. No independent CAD kernel read-back or visualization was run.",
+  "result": "PASS for bounded standalone-study artifact consistency only",
+  "physical_release": false,
+  "integrated_assembly_generated": false,
+  "receipt_sha256": "f1ba287aff1567de0e989c587e641469eacc249ff7a969768a9908db0fea56db",
+  "source_hashes": {
+    "camera-profile.json": "919ad356f61d7acd13d348c7f6e160a7a04a42da43d04573173027ed15d1d1e4",
+    "camera_profile.py": "baaa1364c196e05f900287511a93ef265cca831dfd97a8bcb3d4d5800a8c268b",
+    "cad/export_study.py": "b607b50d629ba87fb1804cc0966a5936d1b10b22564b832bb3c24e75faa37b1a",
+    "evidence/vendor-drawing.jpg": "ac60b95fc60e9219b5362616dcf4742af9dc43a6b8c4be4bd1f8714405029146"
+  },
+  "all_seven_artifact_hashes_match": true,
+  "all_four_source_hashes_match": true,
+  "rows": [
+    {
+      "name": "pcb_nominal_hole_pattern",
+      "bounds_match_source": true,
+      "analytical_proxy_volume_mm3": 2278.984073464102,
+      "receipt_proxy_volume_mm3": 2278.9840734641016
+    },
+    {
+      "name": "housing_nominal_envelope",
+      "bounds_match_source": true,
+      "analytical_proxy_volume_mm3": 7974.245727744717,
+      "receipt_proxy_volume_mm3": 7974.245727744717
+    },
+    {
+      "name": "rear_connector_unlocated_reserve",
+      "bounds_match_source": true,
+      "analytical_proxy_volume_mm3": 3648.1000000000004,
+      "receipt_proxy_volume_mm3": 3648.0999999999995
+    },
+    {
+      "name": "pcb_max_side_envelope",
+      "bounds_match_source": true,
+      "analytical_proxy_volume_mm3": 2334.7840000000006,
+      "receipt_proxy_volume_mm3": 2334.784
+    },
+    {
+      "name": "housing_max_depth_envelope",
+      "bounds_match_source": true,
+      "analytical_proxy_volume_mm3": 8101.833659388632,
+      "receipt_proxy_volume_mm3": 8101.833659388634
+    },
+    {
+      "name": "UNAPPROVED_four_hole_frame_study",
+      "bounds_match_source": true,
+      "analytical_proxy_volume_mm3": 1896.7494878393602,
+      "receipt_proxy_volume_mm3": 1896.749487839376
+    }
+  ],
+  "step_text_checks": [
+    {
+      "file": "UNANCHORED-interface-study.step",
+      "sha256": "c1f457093b3f6412960070afe7f6fc4963cf925a20bf6955c92b86f3b4d54071",
+      "text_manifold_solid_brep_count": 3,
+      "units": "mm",
+      "product_labels": [
+        "Waveshare_UNANCHORED_STUDY_NOT_D2_ASSEMBLY",
+        "pcb_nominal_hole_pattern",
+        "housing_nominal_envelope",
+        "UNAPPROVED_four_hole_frame_study"
+      ],
+      "cylinders": [
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 14.25,
+          "axis_origin_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            15.0,
+            -15.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "UNAPPROVED_four_hole_frame_study.step",
+      "sha256": "2b2aac25e5e3096507d7711bca92631af357f8d0f52a5af4d5ecbb234cbe437c",
+      "text_manifold_solid_brep_count": 1,
+      "units": "mm",
+      "product_labels": [
+        "Open CASCADE STEP translator 7.8 6"
+      ],
+      "cylinders": [
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.6,
+          "axis_origin_mm": [
+            -7.0,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 1.1,
+          "axis_origin_mm": [
+            -7.1,
+            15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            -15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 3.0,
+          "axis_origin_mm": [
+            -4.6,
+            15.0,
+            -15.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "housing_max_depth_envelope.step",
+      "sha256": "2ce8ddd23c528399a7a0b5b202eb849e3ebe82cc7c46e411d2335515ce99e432",
+      "text_manifold_solid_brep_count": 1,
+      "units": "mm",
+      "product_labels": [
+        "Open CASCADE STEP translator 7.8 5"
+      ],
+      "cylinders": [
+        {
+          "radius_mm": 14.25,
+          "axis_origin_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "housing_nominal_envelope.step",
+      "sha256": "a3c0e44c52b9b88ba4e619e7d2403975a62211313c10b5a450c152ea5506d9b9",
+      "text_manifold_solid_brep_count": 1,
+      "units": "mm",
+      "product_labels": [
+        "Open CASCADE STEP translator 7.8 2"
+      ],
+      "cylinders": [
+        {
+          "radius_mm": 14.25,
+          "axis_origin_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pcb_max_side_envelope.step",
+      "sha256": "6288289a3a242422c7d9a563f15097bd5c9c3496a0be1573c880513c80fde559",
+      "text_manifold_solid_brep_count": 1,
+      "units": "mm",
+      "product_labels": [
+        "Open CASCADE STEP translator 7.8 4"
+      ],
+      "cylinders": []
+    },
+    {
+      "file": "pcb_nominal_hole_pattern.step",
+      "sha256": "1f2b2a72e8c53ebf16c7490611d2138a87b1ac33d1794be2c44efb5bd3f0f70c",
+      "text_manifold_solid_brep_count": 1,
+      "units": "mm",
+      "product_labels": [
+        "Open CASCADE STEP translator 7.8 1"
+      ],
+      "cylinders": [
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            15.0,
+            15.0
+          ]
+        },
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            -15.0,
+            -15.0
+          ]
+        },
+        {
+          "radius_mm": 1.25,
+          "axis_origin_mm": [
+            -1.7,
+            -15.0,
+            15.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "rear_connector_unlocated_reserve.step",
+      "sha256": "9f1e0bacf53ac168fd831787a0e40c876c33ea83786076d9bb12cd5ba412571d",
+      "text_manifold_solid_brep_count": 1,
+      "units": "mm",
+      "product_labels": [
+        "Open CASCADE STEP translator 7.8 3"
+      ],
+      "cylinders": []
+    }
+  ],
+  "assembly_analytical_proxy_volume_mm3": 12149.97928904818,
+  "assembly_exporter_roundtrip_record": {
+    "valid": true,
+    "solid_count": 3,
+    "volume_mm3": 12149.979289048486,
+    "role": "unanchored local study, NOT D2 integrated assembly"
+  },
+  "label_limitation": "Six individual STEP internal PRODUCT names are generic translator names; their descriptive filenames and companion receipt must travel together. Combined assembly has explicit study/member names.",
+  "reserve_note": "The exported unlocated rear reserve conservatively covers maximum PCB side 38.2 mm, whereas nominal_local_bounds records its nominal 38 mm span. It is a non-material reserve and is not included in the three-solid combined study."
+}

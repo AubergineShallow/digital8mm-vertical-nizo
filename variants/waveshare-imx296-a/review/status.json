@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "profile_id": "waveshare-imx296-global-camera-a-sku32501",
+  "state": "BLOCKED_REVIEW_STUDY",
+  "physical_release": false,
+  "integrated_assembly_generated": false,
+  "official_camera_receipts_applicable": false,
+  "adopted_in_official_design": false,
+  "retention_option_b_as_drawn": "REJECTED under J7-R float (see MECHANICAL-REVIEW.md)",
+  "vendor_drawing_in_repository": false,
+  "holds": {
+    "WS-01": "Measure PCB-front to installed C-mount shoulder and sensor/backfocus; identify adapter seating/thread engagement.",
+    "WS-02": "Approve and validate retention load path, board contact keepouts, enclosure anchor, insertion/removal and warm creep.",
+    "WS-03": "Confirm cable length/pin orientation, camera socket datum/latch/tool sweep, bend radius and complete closed-state/service route.",
+    "WS-04": "Rebuild and independently check actual placed camera, cradle and enclosure; preserve exterior and official Active Cooler.",
+    "WS-05": "Bench qualify both lenses, full colour RAW10, manual controls, 48/54 fps, timing, DNG and sustained recording.",
+    "WS-06": "Every still-applicable original physical gate remains open; strict QT and unrelated known failures remain applicable.",
+    "WS-07": "J7-R float: in the final pose the camera (PCB, housing and anything fastened to it) touches no printed part, and lens torque never passes through the camera housing or PCB. Option B as drawn (PCB carrier anchored to the enclosure while the collar holds the lens) is rejected; any retention must be shown floating/compliant by measured clearance.",
+    "WS-08": "Straight-driver access: every screw of any adopted retention (including the proposed M2 stack) must be drivable with a straight driver along a clear axis in the assembled state (long bits and plugged holes allowed); not yet shown.",
+    "WS-09": "Vendor drawing kept local (R-03): verify a local copy against drawing_sha256 before relying on the profile dimensions; the public repository holds only the URL and hash."
+  }
+}

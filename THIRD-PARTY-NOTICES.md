@@ -57,7 +57,17 @@ file named next to each font.
 - `cad/gs8-d2-v1/fonts/DejaVuSans-Bold.ttf`. Licence: `cad/gs8-d2-v1/fonts/LICENSE-DejaVu.txt`.
 - `cad/gs8-d2-v1/fonts/DejaVuSans.ttf`. Licence: `cad/gs8-d2-v1/fonts/LICENSE-DejaVu.txt`.
 
-## 3. The project's own material
+## 3. Waveshare IMX296 Global Camera (A) dimension data (Waveshare)
+
+- `variants/waveshare-imx296-a/` is a blocked review study, not adopted in the official design.
+- The dimensions in `variants/waveshare-imx296-a/camera-profile.json` and the study STEP envelopes in `variants/waveshare-imx296-a/cad/out-study/` are facts read
+  from Waveshare's published dimension drawing for SKU 32501:
+  <https://www.waveshare.com/img/devkit/accBoard/IMX296-Global-Camera-A/IMX296-Global-Camera-A-details-size.jpg>
+- The drawing is Waveshare's copyrighted artwork. It is not stored in this repository and no copy is
+  redistributed here; only its SHA-256 `ac60b95fc60e9219b5362616dcf4742af9dc43a6b8c4be4bd1f8714405029146` is recorded (`drawing_sha256`).
+- No Waveshare licence is granted or implied by this repository. Product names belong to their owners.
+
+## 4. The project's own material
 
 - `tools/`: MIT licence, see `tools/LICENSE`.
 - `software/gs8-camera-evf/`: MIT licence, see `software/gs8-camera-evf/LICENSE`.

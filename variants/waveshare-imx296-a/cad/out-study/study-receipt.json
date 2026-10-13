@@ -1,0 +1,199 @@
+{
+  "profile_id": "waveshare-imx296-global-camera-a-sku32501",
+  "release": {
+    "schema_version": 1,
+    "profile_id": "waveshare-imx296-global-camera-a-sku32501",
+    "state": "BLOCKED_REVIEW_STUDY",
+    "physical_release": false,
+    "integrated_assembly_generated": false,
+    "official_camera_receipts_applicable": false,
+    "holds": {
+      "WS-01": "Measure PCB-front to installed C-mount shoulder and sensor/backfocus; identify adapter seating/thread engagement.",
+      "WS-02": "Approve and validate retention load path, board contact keepouts, enclosure anchor, insertion/removal and warm creep.",
+      "WS-03": "Confirm cable length/pin orientation, camera socket datum/latch/tool sweep, bend radius and complete closed-state/service route.",
+      "WS-04": "Rebuild and independently check actual placed camera, cradle and enclosure; preserve exterior and official Active Cooler.",
+      "WS-05": "Bench qualify both lenses, full colour RAW10, manual controls, 48/54 fps, timing, DNG and sustained recording.",
+      "WS-06": "Every still-applicable original physical gate remains open; strict QT and unrelated known failures remain applicable."
+    }
+  },
+  "coordinate_system": {
+    "x": "lensward; PCB front = 0",
+    "y": "across board; nominal centre = 0",
+    "z": "up in front view; CSI drawn at -Z",
+    "axis_alignment": "drawing-implied centring; not a measured concentricity/rotation tolerance"
+  },
+  "nominal_local_bounds": {
+    "pcb": [
+      -1.6,
+      0.0,
+      -19.0,
+      19.0,
+      -19.0,
+      19.0
+    ],
+    "housing_envelope": [
+      0.0,
+      12.5,
+      -14.25,
+      14.25,
+      -14.25,
+      14.25
+    ],
+    "unlocated_rear_connector_reserve": [
+      -4.1,
+      -1.6,
+      -19.0,
+      19.0,
+      -19.0,
+      19.0
+    ]
+  },
+  "rows": [
+    {
+      "name": "pcb_nominal_hole_pattern",
+      "file": "pcb_nominal_hole_pattern.step",
+      "sha256": "1f2b2a72e8c53ebf16c7490611d2138a87b1ac33d1794be2c44efb5bd3f0f70c",
+      "valid_step_roundtrip": true,
+      "solid_count": 1,
+      "bbox_mm": [
+        -1.6,
+        0.0,
+        -19.0,
+        19.0,
+        -19.0,
+        19.0
+      ],
+      "proxy_volume_mm3": 2278.9840734641016,
+      "physical_material_volume_known": false,
+      "geometry_role": "vendor drawing envelope / non-material reserve"
+    },
+    {
+      "name": "housing_nominal_envelope",
+      "file": "housing_nominal_envelope.step",
+      "sha256": "a3c0e44c52b9b88ba4e619e7d2403975a62211313c10b5a450c152ea5506d9b9",
+      "valid_step_roundtrip": true,
+      "solid_count": 1,
+      "bbox_mm": [
+        0.0,
+        12.5,
+        -14.25,
+        14.25,
+        -14.25,
+        14.25
+      ],
+      "proxy_volume_mm3": 7974.245727744717,
+      "physical_material_volume_known": false,
+      "geometry_role": "vendor drawing envelope / non-material reserve"
+    },
+    {
+      "name": "rear_connector_unlocated_reserve",
+      "file": "rear_connector_unlocated_reserve.step",
+      "sha256": "9f1e0bacf53ac168fd831787a0e40c876c33ea83786076d9bb12cd5ba412571d",
+      "valid_step_roundtrip": true,
+      "solid_count": 1,
+      "bbox_mm": [
+        -4.1,
+        -1.6,
+        -19.1,
+        19.1,
+        -19.1,
+        19.1
+      ],
+      "proxy_volume_mm3": 3648.0999999999995,
+      "physical_material_volume_known": false,
+      "geometry_role": "vendor drawing envelope / non-material reserve"
+    },
+    {
+      "name": "pcb_max_side_envelope",
+      "file": "pcb_max_side_envelope.step",
+      "sha256": "6288289a3a242422c7d9a563f15097bd5c9c3496a0be1573c880513c80fde559",
+      "valid_step_roundtrip": true,
+      "solid_count": 1,
+      "bbox_mm": [
+        -1.6,
+        0.0,
+        -19.1,
+        19.1,
+        -19.1,
+        19.1
+      ],
+      "proxy_volume_mm3": 2334.784,
+      "physical_material_volume_known": false,
+      "geometry_role": "vendor drawing envelope / non-material reserve"
+    },
+    {
+      "name": "housing_max_depth_envelope",
+      "file": "housing_max_depth_envelope.step",
+      "sha256": "2ce8ddd23c528399a7a0b5b202eb849e3ebe82cc7c46e411d2335515ce99e432",
+      "valid_step_roundtrip": true,
+      "solid_count": 1,
+      "bbox_mm": [
+        0.0,
+        12.7,
+        -14.25,
+        14.25,
+        -14.25,
+        14.25
+      ],
+      "proxy_volume_mm3": 8101.833659388634,
+      "physical_material_volume_known": false,
+      "geometry_role": "vendor drawing envelope / non-material reserve"
+    },
+    {
+      "name": "UNAPPROVED_four_hole_frame_study",
+      "file": "UNAPPROVED_four_hole_frame_study.step",
+      "sha256": "2b2aac25e5e3096507d7711bca92631af357f8d0f52a5af4d5ecbb234cbe437c",
+      "valid_step_roundtrip": true,
+      "solid_count": 1,
+      "bbox_mm": [
+        -7.0,
+        -1.5999999999999996,
+        -18.6,
+        18.6,
+        -18.6,
+        18.6
+      ],
+      "proxy_volume_mm3": 1896.749487839376,
+      "physical_material_volume_known": false,
+      "geometry_role": "unapproved printed interface proposal"
+    }
+  ],
+  "sources": {
+    "camera-profile.json": "919ad356f61d7acd13d348c7f6e160a7a04a42da43d04573173027ed15d1d1e4",
+    "camera_profile.py": "baaa1364c196e05f900287511a93ef265cca831dfd97a8bcb3d4d5800a8c268b",
+    "cad/export_study.py": "b607b50d629ba87fb1804cc0966a5936d1b10b22564b832bb3c24e75faa37b1a",
+    "evidence/vendor-drawing.jpg": "ac60b95fc60e9219b5362616dcf4742af9dc43a6b8c4be4bd1f8714405029146"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "cadquery": "2.6.1",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "files": {
+    "UNANCHORED-interface-study.step": "c1f457093b3f6412960070afe7f6fc4963cf925a20bf6955c92b86f3b4d54071",
+    "UNAPPROVED_four_hole_frame_study.step": "2b2aac25e5e3096507d7711bca92631af357f8d0f52a5af4d5ecbb234cbe437c",
+    "housing_max_depth_envelope.step": "2ce8ddd23c528399a7a0b5b202eb849e3ebe82cc7c46e411d2335515ce99e432",
+    "housing_nominal_envelope.step": "a3c0e44c52b9b88ba4e619e7d2403975a62211313c10b5a450c152ea5506d9b9",
+    "pcb_max_side_envelope.step": "6288289a3a242422c7d9a563f15097bd5c9c3496a0be1573c880513c80fde559",
+    "pcb_nominal_hole_pattern.step": "1f2b2a72e8c53ebf16c7490611d2138a87b1ac33d1794be2c44efb5bd3f0f70c",
+    "rear_connector_unlocated_reserve.step": "9f1e0bacf53ac168fd831787a0e40c876c33ea83786076d9bb12cd5ba412571d"
+  },
+  "drawing_sha256": "ac60b95fc60e9219b5362616dcf4742af9dc43a6b8c4be4bd1f8714405029146",
+  "assembly_step_roundtrip": {
+    "valid": true,
+    "solid_count": 3,
+    "volume_mm3": 12149.979289048486,
+    "role": "unanchored local study, NOT D2 integrated assembly"
+  },
+  "not_modelled": [
+    "sensor plane",
+    "C/CS thread and adapter",
+    "lens engagement",
+    "component keepouts",
+    "camera connector exact position/latch",
+    "FPC route",
+    "enclosure anchor",
+    "D2 assembly"
+  ],
+  "manufacturing_status": "NO PRODUCTION STL; interface study only; fasteners not approved"
+}

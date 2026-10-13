@@ -36,3 +36,7 @@ The 12 October corrective work is on the review branch `review/vn-corrective-202
 - the review-and-fix commit directly on top of it.
 
 The review of the delivered commit (reproduction, four review dimensions and adversarial verification), its finding register and the open user decisions are in the [corrective review record](cad/gs8-d2-v1/candidate-vertical/review-2026-10-12-corrective/CORRECTIVE-REVIEW.md). See also the [review handoff](cad/gs8-d2-v1/candidate-vertical/REVIEW-HANDOFF.md) and [publication notes](cad/gs8-d2-v1/candidate-vertical/PUBLISHING.md). `main` is unchanged at `9ced753`; merging any review branch into `main` is the user's decision 15. A review branch can stay blocked by recorded engineering failures, and publication never closes a physical gate. Generated summaries: [check coverage](cad/gs8-d2-v1/candidate-vertical/COVERAGE-VERTICAL.md) and the [r7 gate and BX map](cad/gs8-d2-v1/candidate-vertical/GATES-VERTICAL.md).
+
+## Waveshare IMX296 camera study (separate branch, 2026-10-13)
+
+This branch adds the [Waveshare IMX296 Global Camera (A) study](variants/waveshare-imx296-a/README.md) as a Waveshare-only delta on `a0bfed9`. It is a study delivered by the delivering agent (dot); not adopted. It stays **BLOCKED** and is not applied to the official design; every official-camera file here is exactly `a0bfed9`'s. Its retention option B is rejected as drawn under J7-R float, and the vendor drawing is kept local (only its URL and SHA-256 are recorded). See the [fix-pass record](variants/waveshare-imx296-a/review/FIX-PASS-2026-10-13.md).
