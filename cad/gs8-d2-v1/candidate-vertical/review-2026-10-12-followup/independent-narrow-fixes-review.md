@@ -1,5 +1,7 @@
 # Independent narrow-fix review
 
+> **Attribution (fix pass 2026-10-13, review R-05).** This record names no reviewer. It is an unattributed static audit made within the delivering agent's (`dot`) session; it ran no tests and no CAD. "Independent" and "approved" below are the delivering agent's words, not an independent review in the sense of the corrective review. The record text below is unchanged.
+
 Approved within scope, subject to the pending UTF-8 correction and terminal-run condition. This is not a final full-suite pass.
 
 Exact reviewed file hashes and proposed patch hash are in `independent-narrow-fixes-review.json`.

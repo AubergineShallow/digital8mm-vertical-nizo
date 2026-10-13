@@ -1,7 +1,18 @@
-"""Isolated candidate catch geometry; no release or adhesive qualification."""
-import sys,json,hashlib
+"""Isolated candidate catch geometry; no release or adhesive qualification.
+
+Usage: check_catch_trial.py --out <new empty directory>
+Outputs go to a separate directory (review 2026-10-13 R-11): the archived trial files next to this script are evidence and
+are never overwritten.
+"""
+import argparse,sys,json,hashlib
 from pathlib import Path
 CV=Path(__file__).resolve().parents[1]
+_ap=argparse.ArgumentParser(description=__doc__)
+_ap.add_argument('--out',required=True,type=Path)
+OUT=_ap.parse_args().out.resolve()
+if OUT==Path(__file__).resolve().parent or (OUT.exists() and any(OUT.iterdir())):
+    raise SystemExit('--out must be a new or empty directory outside the archived trial folder')
+OUT.mkdir(parents=True,exist_ok=True)
 sys.path[:0]=[str(CV),str(CV.parent)]
 import model as M
 from cv_io import write_text
@@ -11,9 +22,9 @@ with M.JG.trial_layout(M.L,lip=2.4,head=2.4):
  tub=M.make_tub(158.0)
  stock,stub=M.tub_print_parts(tub)
  sp=M.tab_catch_split()
- export_step(tub,Path(__file__).with_name('tub-trial.step'))
- export_step(stock,Path(__file__).with_name('stock-trial.step'))
- export_step(stub,Path(__file__).with_name('insert-trial.step'))
+ export_step(tub,(OUT/'tub-trial.step'))
+ export_step(stock,(OUT/'stock-trial.step'))
+ export_step(stub,(OUT/'insert-trial.step'))
  r={'source_sha256':hashlib.sha256((CV/'model.py').read_bytes()).hexdigest(),'face_recess_mm':M.TAB_CATCH_FACE_RECESS_MM,'valid':{k:s.isValid() and len(s.Solids())==1 for k,s in [('tub',tub),('stock',stock),('stub',stub)]},'vent_host_overlap_mm3':stock.intersect(sp['vent']).Volume(),'stub_stock_overlap_mm3':stock.intersect(stub).Volume(),'qualification':False}
- write_text(Path(__file__).with_name('trial-geometry.json'),json.dumps(r,indent=2)+'\n')
+ write_text((OUT/'trial-geometry.json'),json.dumps(r,indent=2)+'\n')
  print(r,flush=True)

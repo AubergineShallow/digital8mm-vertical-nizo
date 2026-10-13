@@ -294,6 +294,27 @@ class Reports(unittest.TestCase):
             row = {x['part']: x for x in r['results'][cat]}['carrier']
             self.assertEqual(row['status'], 'pass', (cat, row.get('error')))
 
+    def test_driver_rows_in_current_main_audits(self):
+        # Review 2026-10-13 R-29: assert the straight-driver carrier rows in each current full main audit.
+        checked = 0
+        for var in ('compact-kowa_lm6hc', 'compact-fujinon_hf6xa', 'original-kowa_lm6hc'):
+            out = CV / 'out' / var
+            p = out / 'verification.json'
+            if not p.exists() or not (out / 'manifest.json').exists():
+                continue
+            r = rd(p)
+            if (r.get('manifest_sha256') != sha(out / 'manifest.json') or
+                    r.get('verification_source_sha256') != sha(CV / 'verify_candidate.py') or r.get('scope') != 'full'):
+                continue
+            rows = {c['id']: c for c in r['checks'] if c['category'] in ('driver', 'service_driver')}
+            ids = [i for i in rows if i.split('@')[0] in ('p_carrier1', 'p_carrier2')]
+            self.assertEqual(len(ids), 4, var)       # carrier_screws and svc_carrier_screws_out, both screws
+            for i, row in rows.items():
+                self.assertEqual(row['status'], 'pass', (var, i, row.get('hits')))
+            checked += 1
+        if not checked:
+            self.skipTest('no full main audit bound to the current manifest and verifier')
+
     def test_driver_rows(self):
         for rel in ('review-2026-10-10/fp07/driver-compact-kowa_lm6hc.json',
                     'review-2026-10-10/fp11c/main-subset-compact-kowa_lm6hc.json'):

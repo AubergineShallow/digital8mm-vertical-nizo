@@ -53,7 +53,9 @@ class Emulation:
         self.work = self.tmp / 'w'
         git('init', '-q', str(self.work))
         alt = self.work / '.git' / 'objects' / 'info' / 'alternates'
-        alt.write_bytes(((REPO / '.git' / 'objects').as_posix() + '\n').encode('utf-8'))   # LF: git rejects CR
+        # The object store lives in the common git dir: in a linked worktree `.git` is a file (review R-07).
+        common = Path(git('rev-parse', '--path-format=absolute', '--git-common-dir').decode('utf-8').strip())
+        alt.write_bytes(((common / 'objects').as_posix() + '\n').encode('utf-8'))   # LF: git rejects CR
         self.env = {'GIT_DIR': str(self.work / '.git'), 'GIT_INDEX_FILE': str(self.tmp / 'index')}
 
     def g(self, *args, **kw):

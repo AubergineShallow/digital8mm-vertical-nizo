@@ -13,6 +13,10 @@ cad/gs8-d2-v1/.cad.lock
 # Bound run logs tracked on purpose (their sha256 is recorded by a committed receipt; review 2026-10-12 PUB-3)
 !cad/gs8-d2-v1/candidate-vertical/corrective-2026-10-12/fxh-regression.log
 !cad/gs8-d2-v1/candidate-vertical/guide/out-concealed-vents/post-guide-build-order-check.log
+# Followup check-run logs recorded by out/compact-kowa_lm6hc/review-check-run.json and the harness refresh log
+# bound by review-2026-10-12-followup/harness-refresh.json (review 2026-10-13 R-10); sha256 in check-logs/LOG-SHA256.json
+!cad/gs8-d2-v1/candidate-vertical/out/compact-kowa_lm6hc/check-logs/*.log
+!cad/gs8-d2-v1/candidate-vertical/review-2026-10-12-followup/harness-refresh.log
 
 # Bulky or regenerable local material (git history replaces the baseline zips)
 *.zip

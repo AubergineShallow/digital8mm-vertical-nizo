@@ -6,7 +6,7 @@ A restrained, Nizo-inspired development of [digital8mm](https://github.com/Auber
 
 ## Current design
 
-The current local followup starts from reviewed commit `f9704ac` on `review/vn-catch-qt-cloud-20261012`; see [the new followup record](cad/gs8-d2-v1/candidate-vertical/review-2026-10-12-followup/FOLLOWUP-REVIEW.md). This branch has not been published. The earlier published branches below remain historical checkpoints.
+The current followup (commit `a0bfed9` by the delivering agent `dot`, starting from reviewed commit `f9704ac`) is published on the GitHub branch `review/vn-catch-qt-20261013` with the 2026-10-13 review-and-fix commit on top; `main` is untouched; see [the followup record](cad/gs8-d2-v1/candidate-vertical/review-2026-10-12-followup/FOLLOWUP-REVIEW.md) and [the 2026-10-13 fix-pass record](cad/gs8-d2-v1/candidate-vertical/review-2026-10-12-followup/FIX-PASS-2026-10-13.md). The earlier published branches below remain historical checkpoints.
 
 Start with the [vertical candidate overview](cad/gs8-d2-v1/candidate-vertical/README.md), then the [review and comparison](cad/gs8-d2-v1/candidate-vertical/REVIEW.md), [assembly and wiring plan](cad/gs8-d2-v1/candidate-vertical/ASSEMBLY-VERTICAL.md), [bill of materials](cad/gs8-d2-v1/candidate-vertical/BOM-VERTICAL.md) and [wiring specification](cad/gs8-d2-v1/candidate-vertical/WIRING-VERTICAL.md).
 

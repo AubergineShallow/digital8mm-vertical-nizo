@@ -20,7 +20,8 @@ class PackagingTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        # Resolve the temporary path: Windows TEMP can be an 8.3 short path (review R-07).
+        self.root = Path(self.temporary.name).resolve()
         self.repo = self.root / 'repository'
         self.repo.mkdir()
         self.command('init', '-q', '-b', P.BRANCH)
@@ -192,6 +193,25 @@ class PackagingTests(unittest.TestCase):
                   'checks': [{'status': 'fail', 'id': 'qt', 'problems': ['too long']}]}
         view = P.report_view(self.repo / 'report.json', report, snapshot)
         self.assertEqual(view['failed_rows'][0]['row']['problems'], ['too long'])
+
+    def test_nested_fixture_failure_under_passing_row_is_listed_separately(self):
+        snapshot = self.snapshot()
+        report = {'status': 'pass', 'summary': {'pass': 1, 'fail': 0},
+                  'checks': [{'status': 'pass', 'category': 'evf_restraint', 'id': 'control_without_panel',
+                              'control_plus_y': {'status': 'fail'}}]}
+        view = P.report_view(self.repo / 'report.json', report, snapshot)
+        self.assertEqual(view['failed_rows'], [])
+        self.assertEqual([n['location'] for n in view['nested_fixture_outcomes']], ['checks/0/control_plus_y'])
+        report['checks'][0]['status'] = 'fail'
+        report['summary'] = {'pass': 0, 'fail': 1}
+        view = P.report_view(self.repo / 'report.json', report, snapshot)
+        self.assertEqual(len(view['failed_rows']), 1)
+        report['checks'][0]['status'] = 'pass'
+        report['summary'] = {'pass': 1, 'fail': 0}
+        report['checks'].append({'status': 'fail', 'id': 'other'})
+        report['summary'] = {'pass': 1, 'fail': 1}
+        view = P.report_view(self.repo / 'report.json', report, snapshot)
+        self.assertEqual([r['row']['id'] for r in view['failed_rows']], ['other'])
 
     def test_independent_zip_partition_and_every_member_hash(self):
         for number in range(4):

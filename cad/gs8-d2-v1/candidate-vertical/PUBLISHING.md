@@ -4,7 +4,7 @@ The independent, history-preserving repository is [AubergineShallow/digital8mm-v
 
 ## Local followup
 
-The subsequent branch `review/vn-catch-qt-cloud-20261012` starts from reviewed commit `f9704ac03de8938dfafdb52e22e63d098287c3c6`. It is local and unpublished; no push or merge is authorized for this followup. Its [separate record](review-2026-10-12-followup/FOLLOWUP-REVIEW.md) supplements the original review without rewriting the independent findings. The publication history below does not assert that these later local changes are on the remote.
+The subsequent branch `review/vn-catch-qt-cloud-20261012` starts from reviewed commit `f9704ac03de8938dfafdb52e22e63d098287c3c6`. Its delivered commit `a0bfed9` (author `dot`, the delivering agent) is published on the GitHub branch `review/vn-catch-qt-20261013` with the 2026-10-13 review-and-fix commit on top; `main` is untouched at `9ced753`; merging is the user's decision 15. The fix pass is recorded in [FIX-PASS-2026-10-13.md](review-2026-10-12-followup/FIX-PASS-2026-10-13.md). Its [separate record](review-2026-10-12-followup/FOLLOWUP-REVIEW.md) supplements the original review without rewriting the independent findings. The 12 October publication history below is unchanged.
 
 ## 12 October corrective branch
 

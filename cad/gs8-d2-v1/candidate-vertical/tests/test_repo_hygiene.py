@@ -298,6 +298,20 @@ class TestLinksAndIndex(unittest.TestCase):
         self.assertEqual(r['failures'], [])
         self.assertNotIn('live', r['broken_by_class'])
 
+    def test_ignored_or_outside_targets_are_broken(self):
+        # Review 2026-10-13 R-18: a git-ignored file that exists locally must not satisfy a link.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            (root / 'docs').mkdir()
+            (root / 'docs' / 'kept.md').write_text('x', encoding='utf-8', newline='\n')
+            (root / 'docs' / 'ignored.zip').write_bytes(b'x')
+            files, folders = {'docs/kept.md'}, {'', 'docs'}
+            self.assertTrue(LK.target_known(root / 'docs' / 'kept.md', files, folders, repo=root))
+            self.assertTrue(LK.target_known(root / 'docs', files, folders, repo=root))
+            self.assertFalse(LK.target_known(root / 'docs' / 'ignored.zip', files, folders, repo=root))
+            self.assertFalse(LK.target_known(root / 'docs' / 'absent.md', files, folders, repo=root))
+            self.assertFalse(LK.target_known(root.parent, files, folders, repo=root))
+
     def test_link_parser_and_banner(self):
         self.assertEqual(list(LK.links('[a](x.md#h) [b](https://e) [c](#top) `[d](no.md)` [e](<sp ace.md>)')), ['x.md', 'sp ace.md'])
         self.assertTrue(LK.bannered('cad/gs8-d2-v1/candidate-vertical/history/reviewed-export18/BOM-VERTICAL.md'))

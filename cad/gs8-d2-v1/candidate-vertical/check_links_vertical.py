@@ -1,7 +1,9 @@
 """Repository-wide relative Markdown link check (review VN-15, FP-15). CAD-free, read-only.
 
 Scans every Markdown file git knows about (tracked, plus untracked files that are not ignored) and resolves each
-relative link target from the file's folder. A broken link is allowed only when its file is one of:
+relative link target from the file's folder. A target counts only if git knows it (tracked, or untracked and not
+ignored) or it is a folder holding such a file: a git-ignored local file, or a path outside the repository, is a broken
+link even when it exists on this machine (review 2026-10-13 R-18). A broken link is allowed only when its file is one of:
   inherited  byte-identical to the upstream r7 commit (UPSTREAM, d38468e): r7 content carried unchanged; its links are
              r7's own and are not rewritten here (the r7 release audit binds some of these files);
   frozen     a declared frozen copy (FROZEN below: copied history and snapshot records whose bytes are kept, several of
@@ -46,6 +48,30 @@ def links(text):
             yield t
 
 
+def known_paths():
+    """Repo-relative POSIX paths git knows (tracked, or untracked and not ignored), plus every folder that holds one."""
+    files = {n for n in git('ls-files', '-z', '--cached', '--others', '--exclude-standard').split('\0') if n}
+    folders = {''}
+    for n in files:
+        parts = n.split('/')
+        for i in range(1, len(parts)):
+            folders.add('/'.join(parts[:i]))
+    return files, folders
+
+
+def target_known(target, files, folders, repo=None):
+    """True when `target` exists and git knows it; ignored or outside-repo targets are not accepted."""
+    repo = Path(repo or REPO).resolve()
+    if not Path(target).exists():
+        return False
+    try:
+        rel = Path(target).resolve().relative_to(repo).as_posix()
+    except ValueError:
+        return False
+    rel = '' if rel == '.' else rel
+    return rel in files or rel in folders
+
+
 def upstream_blobs():
     out = {}
     for line in git('ls-tree', '-r', UPSTREAM).splitlines():
@@ -69,12 +95,13 @@ def bannered(rel):
 def run():
     up = upstream_blobs()
     checked, broken = 0, []
+    files, folders = known_paths()
     for rel in markdown_files():
         text = (REPO / rel).read_text(encoding='utf-8', errors='replace')
         for t in links(text):
             checked += 1
             target = (REPO / rel).parent / t
-            if not target.exists():
+            if not target_known(target, files, folders):
                 broken.append((rel, t))
     files = sorted({r for r, _ in broken})
     cls = {}

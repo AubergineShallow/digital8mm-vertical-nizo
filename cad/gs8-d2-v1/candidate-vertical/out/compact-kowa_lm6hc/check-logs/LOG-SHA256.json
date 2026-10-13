@@ -1,0 +1,25 @@
+{
+ "logs_sha256": {
+  "check-logs/bound_files.log": "5d8849d8737a4f5cc27bb48df9a41f99ec59e52b2f823b0c5abbc31000a7618a",
+  "check-logs/build_order_docs.log": "ca7f87cdafb40443f5483d2d3ee52ca84220dff406fe8f8ab39181e5ea811eef",
+  "check-logs/check_scope.log": "13cd453be45ec92e245e6f2c970d89e79f6ed08de4e9e562d89aba3c07865aad",
+  "check-logs/csi.log": "0e20e5f6cedd03fbc43e8ca4efa1c8118cba182d654fb417a2b065b36c3429c0",
+  "check-logs/fps.log": "418ca972cca7bd367e3ee72e89551404fcfd17db221e6e76e4f3a4932ae32af0",
+  "check-logs/harness.log": "16bec98fd8fe15d276cb3b584bc72c9b58e55532c6614fa45aec62d8d00f73e7",
+  "check-logs/hdmi.log": "91215e3e7ccb7bb9df538171f80df0171357e7c3c9fd94051e154e648de509a5",
+  "check-logs/mesh.log": "7af0c4451413a11ef2f960f47096042e3f55c1e579f5d4e65fb63af1e80512c3",
+  "check-logs/microsd_rejected_closed_path.log": "69fa5d172c56ecead941a8717469382dc62336d4859a3dc68d7031181ebafd02",
+  "check-logs/power_rigid.log": "e7279f2186b5183fc507c2a7b36e2ca4c2b3534f625224f2c9f7b4f516174510",
+  "check-logs/power_static.log": "957b2a6885ad7b157bc6deaf692b19069950321bb664de9b6c1d493943ab5d9b",
+  "check-logs/print.log": "e46204ad3200638c03ab1ac4d378bf8c22b7a35100bb3c0d295d6e5eb442ec1c",
+  "check-logs/rigid.log": "76702377a242be536ce6952bed4c10458aa9bcdb0ae70f1e1f0dfc66592286a7",
+  "check-logs/usb_head.log": "baaee7fde2d105348fe46dea813b09620b5017eeccec8de0e64c133039b989a6",
+  "check-logs/void.log": "86f74ddaf6ad736b2ecff5af61f55edc6e4b171e6f04a081840949593acb084c"
+ },
+ "notes": {
+  "harness.log": "byte-identical to review-2026-10-12-followup/harness-refresh.log, which review-2026-10-12-followup/harness-refresh.json binds by sha256"
+ },
+ "purpose": "sha256 binding of the check-run logs that out/compact-kowa_lm6hc/review-check-run.json records by path only (review 2026-10-13 R-10). Written by the 2026-10-13 fix pass from the bytes delivered in a0bfed9; the logs were not hashed at run time, so this freezes the delivered bytes and does not prove they are the original run output.",
+ "run_receipt": "review-check-run.json",
+ "run_receipt_sha256": "c7fa9eda8a86ab70a1d93b935eb45d4df16e243d0b5c9998110998118fd0a7b3"
+}

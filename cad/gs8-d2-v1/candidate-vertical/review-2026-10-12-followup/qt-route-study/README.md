@@ -1,4 +1,6 @@
-# Bounded QT route study: two rejected families
+# Bounded QT route study: two candidate families
+
+> **Correction (fix pass 2026-10-13, review R-14).** Family 1 was presented as rejected for the wrong reason. Its study bound 55.2 is invalid, so its length result below does not describe the family. Review 2026-10-13 re-ran the probe with the current inputs (`d2b93a43`, reproducing the 27.5 numbers exactly): the largest valid low bound is 53.794, giving 209.468 mm against the permitted 215 mm, so the length gate passes over the valid range. Negative-pigtail separation fails at all 13 sampled lows (2.20 mm falling to 0.36 mm; 0.74 mm for the 215 mm member, 1.74 mm for the 240 mm member) against 3.20 mm, with no keepout hits. The obstacle route `pigtail_negative` itself fails its own length gate (250.9 + 27 > 270 mm, G-V-PIGTAIL), so family 1 stays open, to be studied with a pigtail re-route under decision 18. The family 2 rejection stands. `study.json` below is unchanged.
 
 Neither candidate provides an acceptable replacement. Keep the selected route and its QT length failure: **238.99 + 25 > 240 mm**. This study changes no production route, branch, purchased lead, radius, allowance or accepted failure.
 

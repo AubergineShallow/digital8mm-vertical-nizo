@@ -182,19 +182,25 @@ def check_summary(report):
 def report_view(path, value, snapshot):
     check_summary(value)
     failed = []
+    # A failing node below a row whose own status is not 'fail' (for example the
+    # by-design failing control fixture inside a passing negative-control row)
+    # is a nested fixture outcome: the row status is reported, and the nested
+    # outcome is listed separately rather than as a failed row (review R-13).
+    nested = []
 
-    def walk(node, location=''):
+    def walk(node, location='', parent_status=None):
         if isinstance(node, dict):
             if node.get('status') == 'fail':
                 # Preserve full failed rows in machine-readable status; the
                 # README uses identifiers and original reports carry context.
-                failed.append({'location': location, 'row': node})
+                (nested if parent_status not in (None, 'fail') else failed).append({'location': location, 'row': node})
                 return
+            status = node.get('status', parent_status)
             for key, child in node.items():
-                walk(child, location + '/' + str(key))
+                walk(child, location + '/' + str(key), status)
         elif isinstance(node, list):
             for index, child in enumerate(node):
-                walk(child, location + '/' + str(index))
+                walk(child, location + '/' + str(index), parent_status)
 
     # Do not let a top-level fail status hide individual failure rows.
     for key in ('checks', 'rows', 'failed_checks'):
@@ -203,7 +209,7 @@ def report_view(path, value, snapshot):
     return {'path': snapshot.relative(path), 'sha256': sha(snapshot.read(path)),
             'status': value.get('status'), 'summary': value.get('summary'),
             'pass_count': value.get('pass_count'), 'fail_count': value.get('fail_count'),
-            'failing': value.get('failing'), 'failed_rows': failed,
+            'failing': value.get('failing'), 'failed_rows': failed, 'nested_fixture_outcomes': nested,
             'physical_qualified': False}
 
 
@@ -665,6 +671,8 @@ def readme(snapshot, status):
             for failed in report['failed_rows']:
                 row = failed['row']
                 lines.append('    FAIL: ' + str(row.get('category', failed['location'])) + '/' + str(row.get('id', row.get('part', 'see report'))))
+            for nested in report.get('nested_fixture_outcomes', []):
+                lines.append('    nested fixture outcome inside a non-failing row (not a failed row): ' + nested['location'])
         lines += ['  Catch: ' + json.dumps(value['catch'], sort_keys=True), '  Harness scope: ' + value['harness_scope']]
     lines += ['', 'Compact-Kowa harness only: ' + json.dumps(status['harness']['summary'], sort_keys=True),
               'Harness failures: ' + json.dumps(status['harness']['failing'], sort_keys=True)]

@@ -1,5 +1,7 @@
 # Independent final evidence review
 
+> **Attribution (fix pass 2026-10-13, review R-05).** This record names no reviewer. It is an unattributed static audit made within the delivering agent's (`dot`) session; it ran no tests and no CAD. "Independent" and "approved" below are the delivering agent's words, not an independent review in the sense of the corrective review. The record text below is unchanged.
+
 source-bound evidence verified; release remains blocked.
 
 Reviewed 2026-10-12T18:27:10.921457+00:00. Source/file hashes and numerical details are in `independent-final-evidence-review.json`. This review writes only its own receipts; no CAD or repository tests were run.

@@ -1,5 +1,7 @@
 # Catch window tuning study
 
+> **Note (fix pass 2026-10-13, review R-22/R-28).** The 0.129 mm worst-offset minimum is the unchanged integral -Y tine (key `-0.55/+0.00/+1`); the bonded-insert side (key `+0.55/+0.00/-1`) has a minimum of 0.176 mm at `YP_yaw_m` (yaw -3.691 deg). `study.json` and `catch-window-probe.json` record the superseded J7 checker `0bec23e4`, not the final `9047bf14` named by `window-summary.json`; the difference only drops the `fits_pocket_bounds` veto.
+
 Diagnostic only, not final acceptance. All 69 sampled poses were assessed against the trial production host and transformed insert; the initial rectangular-core screen admitted 45 and all 45 passed the exact window test over all 13 BFAR positions (0.129 mm worst, 0.400 mm centred). Blocked poses and their actual overlap remain in `study.json`. First-contact is not tested by this window study.
 
 `window-j7-source.py` exactly matches the J7 source SHA recorded by this run. `executed-window-probe.py.txt` preserves the executed diagnostic script; `probe_window.py` changes repository path discovery and makes UTF-8/LF output explicit for portable reproduction, using the current J7 source. The portable scripts have not been rerun after the I/O correction; archived executed sources and diagnostic receipts retain their original bytes. Run reproduction through `cad/gs8-d2-v1/run_locked.py`. Trial STEP input hashes and model source hash are recorded in the study. The final re-export and main all-variant acceptance remain required.
